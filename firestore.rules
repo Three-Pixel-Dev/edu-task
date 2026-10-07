@@ -1,0 +1,32 @@
+rules_version = '2';
+
+// Starter rules for EduTask. Students can only read and write their own
+// profile, tasks and quiz results. Quiz content is read-only for clients.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
+
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /tasks/{taskId} {
+      allow read, delete: if isOwner(resource.data.userId);
+      allow create: if isOwner(request.resource.data.userId);
+      allow update: if isOwner(resource.data.userId) && request.resource.data.userId == resource.data.userId;
+    }
+
+    match /quizResults/{resultId} {
+      allow read: if isOwner(resource.data.userId);
+      allow create: if isOwner(request.resource.data.userId);
+      allow update, delete: if false; // results are immutable
+    }
+
+    // Catalogue: managed from the Firebase console or an admin script.
+    match /subjectFields/{id} { allow read: if signedIn(); allow write: if false; }
+    match /subjects/{id}      { allow read: if signedIn(); allow write: if false; }
+    match /quizzes/{id}       { allow read: if signedIn(); allow write: if false; }
+    match /questions/{id}     { allow read: if signedIn(); allow write: if false; }
+  }
+}
