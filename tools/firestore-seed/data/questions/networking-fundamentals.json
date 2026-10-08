@@ -1,0 +1,17 @@
+{
+  "subjectId": "networking-fundamentals",
+  "levels": {
+    "1": [
+      { "question": "Which OSI layer is responsible for routing?", "options": ["Data link", "Network", "Transport", "Session"], "correctAnswer": "Network", "explanation": "The network layer (layer 3) routes packets between networks." },
+      { "question": "Which protocol guarantees reliable, ordered delivery?", "options": ["UDP", "TCP", "IP", "ICMP"], "correctAnswer": "TCP", "explanation": "TCP uses acknowledgements, retransmission and sequence numbers." },
+      { "question": "What is the default port for HTTPS?", "options": ["21", "80", "443", "8080"], "correctAnswer": "443", "explanation": "HTTPS uses port 443; HTTP uses port 80." },
+      { "question": "How many bits are in an IPv4 address?", "options": ["16", "32", "64", "128"], "correctAnswer": "32", "explanation": "IPv4 addresses are 32 bits, written as four octets." },
+      { "question": "Which device forwards frames using MAC addresses?", "options": ["Router", "Switch", "Repeater", "Modem"], "correctAnswer": "Switch", "explanation": "Switches work at layer 2 and use MAC addresses." },
+      { "question": "DNS translates:", "options": ["IP addresses to MAC addresses", "Domain names to IP addresses", "Analog signals to digital", "Ports to services"], "correctAnswer": "Domain names to IP addresses", "explanation": "DNS resolves human-readable names to IP addresses." },
+      { "question": "Which protocol assigns IP addresses automatically?", "options": ["FTP", "DHCP", "SMTP", "ARP"], "correctAnswer": "DHCP", "explanation": "DHCP leases addresses and network settings to hosts." },
+      { "question": "A /24 subnet mask is:", "options": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], "correctAnswer": "255.255.255.0", "explanation": "24 network bits = 255.255.255.0." },
+      { "question": "Which transmission medium is least affected by electromagnetic interference?", "options": ["Twisted pair", "Coaxial cable", "Optical fibre", "Radio"], "correctAnswer": "Optical fibre", "explanation": "Fibre carries light, so it is immune to EMI." },
+      { "question": "ARP is used to find:", "options": ["A domain name", "The MAC address for an IP address", "The default gateway", "The DNS server"], "correctAnswer": "The MAC address for an IP address", "explanation": "ARP maps a known IP address to a hardware (MAC) address on the local network." }
+    ]
+  }
+}

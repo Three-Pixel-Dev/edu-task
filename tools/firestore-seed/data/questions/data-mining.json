@@ -1,0 +1,17 @@
+{
+  "subjectId": "data-mining",
+  "levels": {
+    "1": [
+      { "question": "Which measure of centre is most affected by outliers?", "options": ["Median", "Mode", "Mean", "Interquartile range"], "correctAnswer": "Mean", "explanation": "Extreme values pull the mean toward them." },
+      { "question": "Supervised learning requires:", "options": ["Unlabelled data", "Labelled training data", "No data", "Only images"], "correctAnswer": "Labelled training data", "explanation": "Models learn from input–label pairs." },
+      { "question": "k-means is an example of:", "options": ["Classification", "Clustering", "Regression", "Reinforcement learning"], "correctAnswer": "Clustering", "explanation": "k-means groups unlabelled points into k clusters." },
+      { "question": "Overfitting means a model:", "options": ["Performs well on new data", "Memorises the training data and generalises poorly", "Is too simple", "Has no parameters"], "correctAnswer": "Memorises the training data and generalises poorly", "explanation": "It fits noise in the training set." },
+      { "question": "Which chart best shows the distribution of one numeric variable?", "options": ["Pie chart", "Histogram", "Line chart", "Gantt chart"], "correctAnswer": "Histogram", "explanation": "Histograms bin values to show their distribution." },
+      { "question": "Precision is defined as:", "options": ["TP / (TP + FN)", "TP / (TP + FP)", "TN / (TN + FP)", "(TP + TN) / total"], "correctAnswer": "TP / (TP + FP)", "explanation": "Of all predicted positives, the share that were correct." },
+      { "question": "Which algorithm predicts a continuous value?", "options": ["Logistic regression", "Linear regression", "Decision tree classifier", "k-means"], "correctAnswer": "Linear regression", "explanation": "Linear regression outputs a real number." },
+      { "question": "A correlation coefficient of −1 means:", "options": ["No relationship", "A perfect negative linear relationship", "A perfect positive relationship", "Random noise"], "correctAnswer": "A perfect negative linear relationship", "explanation": "As one variable rises, the other falls exactly linearly." },
+      { "question": "Which split is commonly used to evaluate a model?", "options": ["Train / test", "Read / write", "Input / output", "Front / back"], "correctAnswer": "Train / test", "explanation": "Hold out test data the model never saw during training." },
+      { "question": "Association rule mining is commonly used for:", "options": ["Market basket analysis", "Image compression", "Packet routing", "Password hashing"], "correctAnswer": "Market basket analysis", "explanation": "It finds items frequently bought together, e.g. {bread} → {butter}." }
+    ]
+  }
+}

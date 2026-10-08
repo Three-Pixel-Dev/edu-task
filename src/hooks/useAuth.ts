@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext } from '@/store/AuthProvider';
+import { AuthContext } from '@/providers/AuthProvider';
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
@@ -7,9 +7,22 @@ export function useAuth() {
   return ctx;
 }
 
-/** For screens inside the signed-in area, where a user always exists. */
-export function useCurrentUser() {
+/** UID of the signed-in Firebase user. Only use inside the signed-in area. */
+export function useUid(): string {
   const { user } = useAuth();
-  if (!user) throw new Error('useCurrentUser used while signed out');
-  return user;
+  if (!user) throw new Error('useUid used while signed out');
+  return user.uid;
+}
+
+/** users/{uid} for the signed-in user, with loading / error state. */
+export function useProfile() {
+  const { profile, profileStatus, profileError, user } = useAuth();
+  return {
+    profile,
+    status: profileStatus,
+    error: profileError,
+    /** Best available name while the profile document loads. */
+    displayName: profile?.displayName ?? user?.displayName ?? '',
+    email: profile?.email ?? user?.email ?? '',
+  };
 }

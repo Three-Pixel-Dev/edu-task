@@ -1,0 +1,53 @@
+{
+  "subjectId": "database-management-system",
+  "levels": {
+    "1": [
+      { "question": "What does DBMS stand for?", "options": ["Database Management System", "Data Backup Management Service", "Distributed Binary Memory System", "Digital Base Model Schema"], "correctAnswer": "Database Management System", "explanation": "A DBMS is software for creating, storing, querying and managing databases." },
+      { "question": "In a relational table, a single row is also called a:", "options": ["Attribute", "Tuple", "Domain", "Schema"], "correctAnswer": "Tuple", "explanation": "Rows are tuples; columns are attributes." },
+      { "question": "In a relational table, a column is also called an:", "options": ["Attribute", "Index", "Instance", "Entity set"], "correctAnswer": "Attribute", "explanation": "Each column describes one attribute of the entity." },
+      { "question": "A primary key must be:", "options": ["Unique and not null", "Unique but nullable", "Repeated across rows", "Always a foreign key"], "correctAnswer": "Unique and not null", "explanation": "Every row needs a unique, non-null identifier." },
+      { "question": "A foreign key is used to:", "options": ["Speed up every query", "Link rows between tables", "Encrypt a column", "Store large files"], "correctAnswer": "Link rows between tables", "explanation": "It references the primary key of a row in another table." },
+      { "question": "Which language is used to query relational databases?", "options": ["HTML", "SQL", "CSS", "XML"], "correctAnswer": "SQL", "explanation": "SQL (Structured Query Language) defines, queries and changes relational data." },
+      { "question": "Which SQL statement reads data from a table?", "options": ["GET", "SELECT", "READ", "FETCH ALL"], "correctAnswer": "SELECT", "explanation": "SELECT retrieves rows and columns from one or more tables." },
+      { "question": "CREATE TABLE belongs to which part of SQL?", "options": ["DML", "DDL", "DCL", "TCL"], "correctAnswer": "DDL", "explanation": "Data Definition Language statements define structure: CREATE, ALTER, DROP." },
+      { "question": "In an ER diagram, a rectangle usually represents:", "options": ["An entity", "An attribute", "A relationship", "A primary key"], "correctAnswer": "An entity", "explanation": "Rectangles are entities, ovals are attributes and diamonds are relationships." },
+      { "question": "The overall logical design of a database is called its:", "options": ["Instance", "Schema", "Tuple", "Query plan"], "correctAnswer": "Schema", "explanation": "The schema describes tables, columns, types and constraints; an instance is the data at a moment in time." }
+    ],
+    "2": [
+      { "question": "Which JOIN returns only rows with matching values in both tables?", "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL OUTER JOIN"], "correctAnswer": "INNER JOIN", "explanation": "INNER JOIN keeps only the rows that match on both sides." },
+      { "question": "Which clause filters groups after aggregation?", "options": ["WHERE", "ORDER BY", "HAVING", "GROUP BY"], "correctAnswer": "HAVING", "explanation": "HAVING filters grouped results; WHERE filters individual rows before grouping." },
+      { "question": "Which clause groups rows that share the same values?", "options": ["ORDER BY", "GROUP BY", "DISTINCT", "PARTITION"], "correctAnswer": "GROUP BY", "explanation": "GROUP BY collects rows into groups so aggregates like COUNT or SUM run per group." },
+      { "question": "Which SQL command adds new rows to a table?", "options": ["UPDATE", "INSERT", "ALTER", "CREATE"], "correctAnswer": "INSERT", "explanation": "INSERT INTO adds rows; UPDATE changes existing ones." },
+      { "question": "Which SQL command removes every row but keeps the table structure?", "options": ["DELETE TABLE", "DROP TABLE", "TRUNCATE TABLE", "REMOVE ROWS"], "correctAnswer": "TRUNCATE TABLE", "explanation": "TRUNCATE clears the data and keeps the table definition; DROP removes the table itself." },
+      { "question": "Which keyword removes duplicate rows from a query result?", "options": ["UNIQUE", "DISTINCT", "SINGLE", "ONLY"], "correctAnswer": "DISTINCT", "explanation": "SELECT DISTINCT returns each distinct row once." },
+      { "question": "Which function returns the number of rows?", "options": ["SUM()", "COUNT()", "TOTAL()", "LEN()"], "correctAnswer": "COUNT()", "explanation": "COUNT(*) counts rows; COUNT(column) counts non-null values." },
+      { "question": "Which operator matches a text pattern such as names starting with 'A'?", "options": ["LIKE", "IN", "BETWEEN", "MATCHES"], "correctAnswer": "LIKE", "explanation": "WHERE name LIKE 'A%' uses % as a wildcard." },
+      { "question": "Which clause sorts the result of a query?", "options": ["SORT BY", "ORDER BY", "GROUP BY", "ARRANGE"], "correctAnswer": "ORDER BY", "explanation": "ORDER BY column ASC|DESC sorts the result set." },
+      { "question": "Which statement changes values in existing rows?", "options": ["MODIFY", "UPDATE", "ALTER", "CHANGE"], "correctAnswer": "UPDATE", "explanation": "UPDATE ... SET ... WHERE ... changes data; ALTER changes the table structure." }
+    ],
+    "3": [
+      { "question": "A table is in First Normal Form (1NF) when:", "options": ["Every value is atomic", "It has no foreign keys", "It has exactly one key", "All columns are numeric"], "correctAnswer": "Every value is atomic", "explanation": "1NF forbids repeating groups and multi-valued cells." },
+      { "question": "Which normal form removes partial dependencies?", "options": ["1NF", "2NF", "3NF", "BCNF"], "correctAnswer": "2NF", "explanation": "2NF requires every non-key attribute to depend on the whole key." },
+      { "question": "Which normal form removes transitive dependencies?", "options": ["1NF", "2NF", "3NF", "4NF"], "correctAnswer": "3NF", "explanation": "In 3NF, non-key attributes depend only on the key, not on other non-key attributes." },
+      { "question": "In BCNF, every determinant must be a:", "options": ["Foreign key", "Candidate key", "Non-key attribute", "Composite attribute"], "correctAnswer": "Candidate key", "explanation": "BCNF is a stricter 3NF: for every X → Y, X must be a candidate (super) key." },
+      { "question": "A → B means:", "options": ["A and B are always equal", "Each value of A determines exactly one value of B", "B is a foreign key of A", "A is stored before B"], "correctAnswer": "Each value of A determines exactly one value of B", "explanation": "This is a functional dependency." },
+      { "question": "A minimal set of attributes that uniquely identifies a row is a:", "options": ["Super key", "Candidate key", "Foreign key", "Secondary index"], "correctAnswer": "Candidate key", "explanation": "A candidate key is a super key with no unnecessary attributes; one is chosen as the primary key." },
+      { "question": "A primary key made of two or more columns is called a:", "options": ["Composite key", "Surrogate key", "Alternate key", "Partial key"], "correctAnswer": "Composite key", "explanation": "For example (studentId, courseId) in an enrolment table." },
+      { "question": "Having to update the same fact in many rows is an example of:", "options": ["An update anomaly", "A deadlock", "Referential integrity", "Indexing"], "correctAnswer": "An update anomaly", "explanation": "Redundant data causes update, insert and delete anomalies; normalisation removes them." },
+      { "question": "Intentionally adding redundancy to speed up reads is called:", "options": ["Normalisation", "Denormalisation", "Sharding", "Replication"], "correctAnswer": "Denormalisation", "explanation": "Denormalisation trades extra storage and update cost for faster queries." },
+      { "question": "If A → B and B → C, then A → C is a:", "options": ["Partial dependency", "Transitive dependency", "Multivalued dependency", "Trivial dependency"], "correctAnswer": "Transitive dependency", "explanation": "C depends on A through B; 3NF removes these." }
+    ],
+    "4": [
+      { "question": "Which of the following is a relational database?", "options": ["MongoDB", "PostgreSQL", "Redis", "Neo4j"], "correctAnswer": "PostgreSQL", "explanation": "PostgreSQL stores data in related tables queried with SQL. MongoDB is a document store, Redis a key-value store and Neo4j a graph database." },
+      { "question": "In ACID, what does the “I” stand for?", "options": ["Integrity", "Isolation", "Indexing", "Idempotence"], "correctAnswer": "Isolation", "explanation": "Isolation keeps concurrent transactions from interfering with each other." },
+      { "question": "Atomicity guarantees that a transaction:", "options": ["Runs faster", "Happens completely or not at all", "Is visible to everyone immediately", "Uses one table only"], "correctAnswer": "Happens completely or not at all", "explanation": "If any step fails, the whole transaction is rolled back." },
+      { "question": "Which statement undoes changes that have not been committed?", "options": ["COMMIT", "SAVEPOINT", "ROLLBACK", "GRANT"], "correctAnswer": "ROLLBACK", "explanation": "ROLLBACK returns the data to its state at the last commit." },
+      { "question": "Which statement makes a transaction’s changes permanent?", "options": ["COMMIT", "ROLLBACK", "END", "SAVE"], "correctAnswer": "COMMIT", "explanation": "After COMMIT the changes are durable." },
+      { "question": "Which index structure do most relational databases use by default?", "options": ["Hash table", "B+ tree", "Linked list", "Stack"], "correctAnswer": "B+ tree", "explanation": "B+ trees keep keys sorted, which supports both equality and range queries." },
+      { "question": "Two transactions each wait for a lock the other holds. This is a:", "options": ["Deadlock", "Dirty read", "Phantom read", "Checkpoint"], "correctAnswer": "Deadlock", "explanation": "The DBMS detects the cycle and aborts one transaction." },
+      { "question": "Reading data written by a transaction that has not committed yet is a:", "options": ["Dirty read", "Phantom read", "Lost update", "Repeatable read"], "correctAnswer": "Dirty read", "explanation": "READ UNCOMMITTED allows dirty reads; higher isolation levels prevent them." },
+      { "question": "MongoDB is best described as a:", "options": ["Relational database", "Document database", "Graph database", "Spreadsheet"], "correctAnswer": "Document database", "explanation": "MongoDB stores JSON-like documents rather than rows in tables." },
+      { "question": "Redis is primarily a:", "options": ["Key-value store", "Relational database", "Graph database", "File system"], "correctAnswer": "Key-value store", "explanation": "Redis keeps key-value data in memory and is often used for caching." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// EduTask does not use Firebase Storage yet, so everything is denied.
+// It is NOT referenced in firebase.json. If assignment attachments are added
+// later, enable Storage, add it to firebase.json and use a per-user path:
+//
+//   match /users/{uid}/tasks/{taskId}/{fileName} {
+//     allow read, write: if request.auth != null && request.auth.uid == uid
+//       && (request.resource == null || request.resource.size < 10 * 1024 * 1024);
+//   }
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

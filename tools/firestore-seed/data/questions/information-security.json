@@ -1,0 +1,17 @@
+{
+  "subjectId": "information-security",
+  "levels": {
+    "1": [
+      { "question": "Which algorithm is symmetric?", "options": ["RSA", "AES", "ECC", "Diffie–Hellman"], "correctAnswer": "AES", "explanation": "AES uses the same key to encrypt and decrypt." },
+      { "question": "The CIA triad stands for:", "options": ["Control, Integrity, Access", "Confidentiality, Integrity, Availability", "Cipher, Identity, Audit", "Confidentiality, Identity, Authorisation"], "correctAnswer": "Confidentiality, Integrity, Availability", "explanation": "These are the three core goals of information security." },
+      { "question": "A cryptographic hash function should be:", "options": ["Reversible", "One-way", "Different every time for the same input", "Dependent on a secret key"], "correctAnswer": "One-way", "explanation": "You should not be able to recover the input from its hash." },
+      { "question": "Phishing is an example of:", "options": ["Social engineering", "A buffer overflow", "Encryption", "A firewall rule"], "correctAnswer": "Social engineering", "explanation": "Phishing tricks people into revealing information or running malware." },
+      { "question": "Which attack injects code through unsanitised input fields?", "options": ["DDoS", "SQL injection", "Sniffing", "Spoofing"], "correctAnswer": "SQL injection", "explanation": "Unsanitised input can be executed as SQL; parameterised queries prevent it." },
+      { "question": "A digital signature mainly provides:", "options": ["Compression", "Authenticity and integrity", "Faster transfer", "Anonymity"], "correctAnswer": "Authenticity and integrity", "explanation": "It proves who signed and that the data wasn’t altered." },
+      { "question": "Which device filters traffic using rules?", "options": ["Hub", "Firewall", "Repeater", "Bridge"], "correctAnswer": "Firewall", "explanation": "Firewalls allow or block traffic based on rules." },
+      { "question": "Multi-factor authentication combines:", "options": ["Two passwords", "Different types of evidence", "Two usernames", "Encryption and hashing"], "correctAnswer": "Different types of evidence", "explanation": "For example something you know plus something you have." },
+      { "question": "In RSA, a public key is used to:", "options": ["Decrypt private messages", "Encrypt messages for the key owner", "Generate random numbers", "Hash passwords"], "correctAnswer": "Encrypt messages for the key owner", "explanation": "Only the matching private key can decrypt them." },
+      { "question": "A salt is added to passwords before hashing to:", "options": ["Make them shorter", "Defeat precomputed (rainbow table) attacks", "Encrypt them", "Speed up login"], "correctAnswer": "Defeat precomputed (rainbow table) attacks", "explanation": "Unique salts make identical passwords hash differently." }
+    ]
+  }
+}

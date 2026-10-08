@@ -4,8 +4,9 @@ import { QuizProvider } from './QuizProvider';
 import { TasksProvider } from './TasksProvider';
 
 /**
- * App-wide state uses React Context — enough for this app's size, no Redux.
- * Auth sits on top; Tasks and Quiz reload whenever the signed-in user changes.
+ * Global state is kept to what several screens share: the auth session and
+ * two real-time Firestore listeners (tasks, quiz history). Everything else
+ * (catalogue, questions, forms) is loaded per screen with hooks.
  */
 export function AppProviders({ children }: PropsWithChildren) {
   return (

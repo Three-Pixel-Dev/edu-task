@@ -4,8 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { AppText, Button, CodeChip, ErrorState, LevelCard, LoadingState, Screen, ScreenHeader } from '@/components';
 import { QUIZ } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useAsync, useLevelProgress, useResponsive } from '@/hooks';
-import { quizContent } from '@/services/quiz';
+import { useLevelProgress, useQuizHistory, useResponsive, useSubject } from '@/hooks';
 import { colors, spacing } from '@/theme';
 import type { LevelProgress } from '@/types';
 import { padLevel } from '@/utils/quiz';
@@ -19,8 +18,9 @@ function defaultLevel(levels: LevelProgress[]) {
 
 export function LevelsScreen() {
   const { subjectId = '' } = useLocalSearchParams<{ subjectId: string }>();
-  const subject = useAsync(() => quizContent.getSubject(subjectId), [subjectId], 'We couldn’t load this subject.');
-  const levels = useLevelProgress(subject.data ?? undefined);
+  const subject = useSubject(subjectId);
+  const history = useQuizHistory();
+  const levels = useLevelProgress(subjectId);
   const { levelColumns } = useResponsive();
   const [gridWidth, setGridWidth] = useState(0);
   const [userPick, setPicked] = useState<number | null>(null);
@@ -57,7 +57,7 @@ export function LevelsScreen() {
         ) : null
       }
     >
-      {subject.status === 'loading' ? (
+      {subject.status === 'loading' || history.status === 'loading' ? (
         <LoadingState rows={4} label="Loading levels" />
       ) : subject.status === 'error' || !subject.data ? (
         <>
@@ -76,7 +76,7 @@ export function LevelsScreen() {
               Choose question level
             </AppText>
             <AppText variant="body" color="textSecondary">
-              {`${completedCount} of ${subject.data.levelCount} levels completed`}
+              {`${completedCount} of ${QUIZ.levelCount} levels completed`}
             </AppText>
           </View>
 

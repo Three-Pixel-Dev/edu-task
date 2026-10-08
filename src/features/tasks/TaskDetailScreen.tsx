@@ -9,8 +9,10 @@ import {
   CodeChip,
   EmptyState,
   Icon,
+  ErrorState,
   InlineAlert,
   ListGroup,
+  LoadingState,
   Screen,
   ScreenHeader,
   urgencyTone,
@@ -18,19 +20,37 @@ import {
   type IconName,
 } from '@/components';
 import { routes } from '@/constants/routes';
-import { findSubject } from '@/data';
-import { useTask, useTasks } from '@/hooks';
-import { messageOf } from '@/services/storage';
+import { useSubjectCatalog, useTask, useTaskActions } from '@/hooks';
+import { messageOf } from '@/services/errors';
 import { colors, spacing } from '@/theme';
 import { dueLabel, formatLongDate, formatShortDate, formatTime, taskUrgency } from '@/utils/date';
 import { priorityLabel } from '@/utils/format';
 
 export function TaskDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const task = useTask(id);
-  const { setCompleted, deleteTask } = useTasks();
+  const { task, status, error } = useTask(id);
+  const { completeTask, deleteTask } = useTaskActions();
+  const catalog = useSubjectCatalog();
   const [busy, setBusy] = useState<'complete' | 'delete' | null>(null);
   const [justCompleted, setJustCompleted] = useState(false);
+
+  if (!task && status === 'loading') {
+    return (
+      <Screen>
+        <ScreenHeader back backLabel="Back to tasks" />
+        <LoadingState rows={3} label="Loading task" />
+      </Screen>
+    );
+  }
+
+  if (!task && status === 'error') {
+    return (
+      <Screen>
+        <ScreenHeader back backLabel="Back to tasks" />
+        <ErrorState title="Couldn’t load this task" message={error ?? undefined} />
+      </Screen>
+    );
+  }
 
   if (!task) {
     return (
@@ -48,14 +68,14 @@ export function TaskDetailScreen() {
     );
   }
 
-  const subject = findSubject(task.subjectId);
+  const subject = catalog.subjectById.get(task.subjectId);
   const done = task.status === 'completed';
   const urgency = taskUrgency(task);
 
   const toggleComplete = async () => {
     setBusy('complete');
     try {
-      await setCompleted(task.id, !done);
+      await completeTask(task.id, !done);
       setJustCompleted(!done);
     } catch (e) {
       Alert.alert('Couldn’t update the task', messageOf(e));
@@ -105,6 +125,7 @@ export function TaskDetailScreen() {
       <ScreenHeader back backLabel="Back to tasks" />
 
       {justCompleted && done ? <InlineAlert tone="success" message="Nice work — task marked as completed." /> : null}
+      {task.hasPendingWrites ? <InlineAlert message="This change hasn’t reached the server yet. It will sync when you’re back online." /> : null}
 
       <View style={styles.titleBlock}>
         <Badge label={done ? 'Completed' : dueLabel(task)} tone={urgencyTone[urgency]} dot />
@@ -124,7 +145,7 @@ export function TaskDetailScreen() {
 
       <ListGroup>
         <InfoRow icon="book-open" label="Subject">
-          <AppText variant="bodyMedium">{subject?.name ?? 'Unknown subject'}</AppText>
+          <AppText variant="bodyMedium">{subject?.name ?? (catalog.status === 'loading' ? 'Loading…' : 'Subject not found')}</AppText>
           {subject ? <CodeChip code={subject.code} /> : null}
         </InfoRow>
         <InfoRow icon="calendar" label="Deadline" divider>

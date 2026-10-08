@@ -1,0 +1,17 @@
+{
+  "subjectId": "operating-system",
+  "levels": {
+    "1": [
+      { "question": "Which scheduling algorithm can cause starvation of long processes?", "options": ["Round Robin", "Shortest Job First", "First Come First Served", "FIFO queue"], "correctAnswer": "Shortest Job First", "explanation": "SJF keeps picking short jobs, so long jobs may wait indefinitely." },
+      { "question": "A deadlock requires all of these conditions EXCEPT:", "options": ["Mutual exclusion", "Hold and wait", "Preemption", "Circular wait"], "correctAnswer": "Preemption", "explanation": "Deadlock needs no preemption; allowing resources to be preempted breaks it." },
+      { "question": "What does a page table map?", "options": ["Files to disk blocks", "Virtual pages to physical frames", "Processes to CPUs", "Users to permissions"], "correctAnswer": "Virtual pages to physical frames", "explanation": "The page table translates virtual page numbers into physical frame numbers." },
+      { "question": "Thrashing happens when:", "options": ["The CPU overheats", "Processes spend most of their time paging", "Disk space runs out", "Too many threads finish"], "correctAnswer": "Processes spend most of their time paging", "explanation": "With too few frames, the system swaps pages more than it executes." },
+      { "question": "Which is shared between threads of the same process?", "options": ["Stack", "Program counter", "Registers", "Heap memory"], "correctAnswer": "Heap memory", "explanation": "Threads share the heap and code; each thread has its own stack and registers." },
+      { "question": "A semaphore is mainly used for:", "options": ["File compression", "Process synchronisation", "Memory allocation", "Disk formatting"], "correctAnswer": "Process synchronisation", "explanation": "Semaphores coordinate access to shared resources." },
+      { "question": "Which page replacement algorithm is optimal but impractical?", "options": ["FIFO", "LRU", "OPT (Belady’s)", "Clock"], "correctAnswer": "OPT (Belady’s)", "explanation": "OPT needs knowledge of future references, so it is only used as a benchmark." },
+      { "question": "The kernel runs in:", "options": ["User mode", "Privileged (kernel) mode", "Guest mode", "Batch mode"], "correctAnswer": "Privileged (kernel) mode", "explanation": "The kernel needs privileged mode to access hardware directly." },
+      { "question": "A context switch saves and restores:", "options": ["The file system", "The CPU state of a process", "The whole RAM", "Network sockets"], "correctAnswer": "The CPU state of a process", "explanation": "Registers, program counter and other CPU state are saved in the process control block." },
+      { "question": "Round Robin scheduling gives each process a:", "options": ["Priority number", "Time quantum", "Deadline", "Lottery ticket"], "correctAnswer": "Time quantum", "explanation": "Each process runs for at most one time quantum before being preempted." }
+    ]
+  }
+}

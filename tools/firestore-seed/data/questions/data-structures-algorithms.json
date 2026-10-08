@@ -1,0 +1,17 @@
+{
+  "subjectId": "data-structures-algorithms",
+  "levels": {
+    "1": [
+      { "question": "What is the time complexity of binary search on a sorted array?", "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"], "correctAnswer": "O(log n)", "explanation": "Each comparison halves the search space." },
+      { "question": "Which data structure works on Last In, First Out?", "options": ["Queue", "Stack", "Linked list", "Tree"], "correctAnswer": "Stack", "explanation": "A stack removes the most recently added item first." },
+      { "question": "Which data structure works on First In, First Out?", "options": ["Stack", "Queue", "Heap", "Binary tree"], "correctAnswer": "Queue", "explanation": "A queue removes items in the order they were added." },
+      { "question": "Breadth-first search (BFS) uses which structure to track nodes?", "options": ["Stack", "Queue", "Heap", "Hash map"], "correctAnswer": "Queue", "explanation": "BFS visits nodes level by level using a queue." },
+      { "question": "Which sorting algorithm has O(n log n) time in the worst case?", "options": ["Bubble sort", "Insertion sort", "Merge sort", "Selection sort"], "correctAnswer": "Merge sort", "explanation": "Merge sort always divides and merges in O(n log n)." },
+      { "question": "Accessing the k-th element of a singly linked list takes:", "options": ["O(1)", "O(log n)", "O(k)", "O(k²)"], "correctAnswer": "O(k)", "explanation": "You must follow k links from the head." },
+      { "question": "The average lookup time in a hash table is:", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"], "correctAnswer": "O(1)", "explanation": "A good hash function spreads keys evenly, so lookups are constant time on average." },
+      { "question": "In a binary tree, each node has at most:", "options": ["One child", "Two children", "Three children", "Any number of children"], "correctAnswer": "Two children", "explanation": "That is the definition of a binary tree." },
+      { "question": "An in-order traversal of a binary search tree visits keys in:", "options": ["Random order", "Sorted order", "Reverse insertion order", "Level order"], "correctAnswer": "Sorted order", "explanation": "Left subtree, node, right subtree gives ascending order in a BST." },
+      { "question": "Every recursive function needs a:", "options": ["Global variable", "Base case", "Loop", "Second parameter"], "correctAnswer": "Base case", "explanation": "Without a base case the recursion never stops." }
+    ]
+  }
+}

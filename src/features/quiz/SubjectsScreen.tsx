@@ -1,27 +1,20 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { AppText, EmptyState, ErrorState, Icon, IconButton, LoadingState, Screen, ScreenHeader, SubjectCard } from '@/components';
+import { AppText, EmptyState, ErrorState, Icon, IconButton, LoadingState, Screen, ScreenHeader, SubjectCard, toIconName } from '@/components';
+import { QUIZ } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useAsync, useQuiz } from '@/hooks';
-import { quizContent } from '@/services/quiz';
+import { useQuizHistory, useSubjects } from '@/hooks';
 import { colors, fonts, radius, spacing, touch } from '@/theme';
 import type { Subject } from '@/types';
 import { levelProgressFor } from '@/utils/quiz';
 
 export function SubjectsScreen() {
   const { fieldId = '' } = useLocalSearchParams<{ fieldId: string }>();
-  const { results, sessions } = useQuiz();
+  const { results, sessions } = useQuizHistory();
   const [query, setQuery] = useState('');
 
-  const data = useAsync(
-    async () => {
-      const [field, subjects] = await Promise.all([quizContent.getField(fieldId), quizContent.getSubjects(fieldId)]);
-      return { field, subjects };
-    },
-    [fieldId],
-    'We couldn’t load these subjects. Check your connection and try again.',
-  );
+  const data = useSubjects(fieldId);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -29,15 +22,15 @@ export function SubjectsScreen() {
   }, [data.data, query]);
 
   const statusFor = (subject: Subject) => {
-    const levels = levelProgressFor(subject.id, subject.levelCount, results, sessions);
+    const levels = levelProgressFor(subject.id, results, sessions);
     const current = levels.find((l) => l.status === 'current');
     const completed = levels.filter((l) => l.status === 'completed').length;
     const label = current
       ? `Level ${current.level} in progress`
       : completed
-        ? `${completed} of ${subject.levelCount} levels done`
+        ? `${completed} of ${QUIZ.levelCount} levels done`
         : 'Not started';
-    return { label, progress: completed / subject.levelCount };
+    return { label, progress: completed / QUIZ.levelCount };
   };
 
   const field = data.data?.field;
@@ -52,7 +45,7 @@ export function SubjectsScreen() {
         leading={
           field ? (
             <View style={styles.fieldIcon}>
-              <Icon name={field.icon} size={22} color="primary" />
+              <Icon name={toIconName(field.icon)} size={22} color="primary" />
             </View>
           ) : null
         }
@@ -85,7 +78,9 @@ export function SubjectsScreen() {
             {`${filtered.length} ${filtered.length === 1 ? 'subject' : 'subjects'}`}
           </AppText>
 
-          {filtered.length === 0 ? (
+          {data.data?.subjects.length === 0 ? (
+            <EmptyState icon="book-open" title="No subjects yet" message="Subjects for this field haven’t been added to the database yet." />
+          ) : filtered.length === 0 ? (
             <EmptyState
               icon="search"
               title="No subjects match your search."

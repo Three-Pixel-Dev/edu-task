@@ -1,13 +1,13 @@
 export const APP_NAME = 'EduTask';
 
 export const QUIZ = {
+  /** Client requirement: every quiz has exactly 10 questions. */
   questionsPerQuiz: 10,
+  /** Client requirement: levels 1–15 for every subject. */
   levelCount: 15,
   durationSeconds: 10 * 60,
   /** The timer turns amber below this many seconds. */
   lowTimeSeconds: 2 * 60,
-  /** Score (out of questionsPerQuiz) that counts as passing a level. */
-  passMark: 6,
 } as const;
 
 export const TASKS = {
@@ -17,14 +17,12 @@ export const TASKS = {
   descriptionMaxLength: 500,
 } as const;
 
-export const STORAGE_KEYS = {
-  session: 'edutask.session.v1',
-  users: 'edutask.users.v1',
-  tasks: 'edutask.tasks.v1',
-  quizResults: 'edutask.quizResults.v1',
-  quizSessions: 'edutask.quizSessions.v1',
-  preferences: 'edutask.preferences.v1',
+export const AUTH = {
+  passwordMinLength: 8,
+  displayNameMaxLength: 60,
 } as const;
 
-/** Simulated latency for mock services so loading states are visible in development. */
-export const MOCK_LATENCY_MS = 350;
+/** How long to wait for the server to confirm a write before telling the user. */
+export const WRITE_TIMEOUT_MS = 15_000;
+/** How long to wait for a read before showing a connection error. */
+export const READ_TIMEOUT_MS = 20_000;

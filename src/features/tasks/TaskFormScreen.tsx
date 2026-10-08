@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { Alert } from 'react-native';
 import { Button, DueDateField, InlineAlert, Input, PriorityPicker, Screen, ScreenHeader, SubjectPicker } from '@/components';
 import { TASKS } from '@/constants/app';
-import { messageOf } from '@/services/storage';
+import { messageOf } from '@/services/errors';
 import { spacing } from '@/theme';
 import type { TaskInput, TaskPriority } from '@/types';
 import { daysFromNow } from '@/utils/date';

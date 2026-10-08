@@ -1,19 +1,17 @@
 import { StyleSheet, View } from 'react-native';
 import { QUIZ } from '@/constants/app';
-import { findField } from '@/data';
 import { colors, spacing } from '@/theme';
-import type { QuizSession, Subject } from '@/types';
+import type { QuizSession } from '@/types';
 import { AppText, Badge, Button, Card, CodeChip, Icon, ProgressBar } from '../ui';
 
 interface ContinueQuizCardProps {
-  subject: Subject;
   session: QuizSession;
   onContinue: () => void;
   /** "brand" = solid blue hero (Home); "card" = white card (Quiz tab). */
   variant?: 'brand' | 'card';
 }
 
-export function ContinueQuizCard({ subject, session, onContinue, variant = 'brand' }: ContinueQuizCardProps) {
+export function ContinueQuizCard({ session, onContinue, variant = 'brand' }: ContinueQuizCardProps) {
   const brand = variant === 'brand';
   const questionNumber = session.currentIndex + 1;
   const total = session.questionIds.length || QUIZ.questionsPerQuiz;
@@ -24,7 +22,7 @@ export function ContinueQuizCard({ subject, session, onContinue, variant = 'bran
       <View style={styles.top}>
         {brand ? null : (
           <View style={styles.icon}>
-            <Icon name={findField(subject.fieldId)?.icon ?? 'book-open'} size={20} color="primary" />
+            <Icon name="book-open" size={20} color="primary" />
           </View>
         )}
         <AppText variant="overline" color={brand ? 'onPrimaryMuted' : 'primaryDark'} style={styles.flex}>
@@ -35,9 +33,9 @@ export function ContinueQuizCard({ subject, session, onContinue, variant = 'bran
 
       <View style={styles.titleBlock}>
         <AppText variant="heading" color={brand ? 'onPrimary' : 'text'}>
-          {subject.name}
+          {session.subjectName}
         </AppText>
-        <CodeChip code={subject.code} onBrand={brand} />
+        {session.subjectCode ? <CodeChip code={session.subjectCode} onBrand={brand} /> : null}
       </View>
 
       <View style={styles.progress}>
@@ -64,7 +62,7 @@ export function ContinueQuizCard({ subject, session, onContinue, variant = 'bran
         variant={brand ? 'inverse' : 'primary'}
         size="md"
         onPress={onContinue}
-        accessibilityLabel={`Continue ${subject.name}, level ${session.level}, question ${questionNumber}`}
+        accessibilityLabel={`Continue ${session.subjectName}, level ${session.level}, question ${questionNumber}`}
       />
     </Card>
   );

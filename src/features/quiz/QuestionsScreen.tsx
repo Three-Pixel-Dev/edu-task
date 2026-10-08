@@ -7,6 +7,7 @@ import {
   Badge,
   Button,
   Card,
+  EmptyState,
   ErrorState,
   IconButton,
   InlineAlert,
@@ -14,12 +15,14 @@ import {
   QuizOption,
   QuizTimer,
   Screen,
+  ScreenHeader,
   SegmentedProgress,
   type OptionState,
 } from '@/components';
 import { routes } from '@/constants/routes';
 import { useQuizSession, type PrimaryAction } from '@/hooks';
 import { spacing } from '@/theme';
+import { pluralise } from '@/utils/format';
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
@@ -35,31 +38,35 @@ export function QuestionsScreen() {
   const level = Number(params.level ?? 1);
   const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1');
   const scrollRef = useRef<ScrollView>(null);
-  const { question, subject, actions } = quiz;
+  const { question, subject, actions, screen } = quiz;
+  const inProgress = screen.kind === 'ready' && !quiz.resultId;
 
-  // Navigate to the result once submitted (manually or when time runs out).
+  // Once the result is saved (by Submit or when time runs out), show it.
   useEffect(() => {
     if (quiz.resultId) router.replace(routes.quizResult(quiz.resultId, quiz.remaining === 0));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quiz.resultId]);
 
+  const leave = useCallback(() => (router.canGoBack() ? router.back() : router.replace(routes.quizTab)), []);
+
   const confirmExit = useCallback(() => {
-    Alert.alert('Leave this quiz?', `Your answers are saved. You can continue from question ${quiz.index + 1} later.`, [
+    if (!inProgress) return leave();
+    Alert.alert('Leave this quiz?', `Your progress is saved. You can continue from question ${quiz.index + 1} later.`, [
       { text: 'Keep going', style: 'cancel' },
-      { text: 'Leave quiz', onPress: () => (router.canGoBack() ? router.back() : router.replace(routes.quizTab)) },
+      { text: 'Leave quiz', onPress: leave },
     ]);
-  }, [quiz.index]);
+  }, [inProgress, quiz.index, leave]);
 
   // Android hardware back → same confirmation (iOS swipe-back is disabled for this screen).
   useFocusEffect(
     useCallback(() => {
       const sub = BackHandler.addEventListener('hardwareBackPress', () => {
-        if (quiz.status !== 'success') return false;
+        if (!inProgress) return false;
         confirmExit();
         return true;
       });
       return () => sub.remove();
-    }, [confirmExit, quiz.status]),
+    }, [confirmExit, inProgress]),
   );
 
   const onPrimary = () => {
@@ -80,31 +87,51 @@ export function QuestionsScreen() {
     }
   };
 
-  if (quiz.status === 'loading') {
+  if (screen.kind === 'loading') {
     return (
       <Screen>
-        <LoadingState rows={5} label="Loading quiz" />
+        <AppText variant="label" color="textSecondary" align="center">
+          Loading questions…
+        </AppText>
+        <LoadingState rows={5} label="Loading questions" />
       </Screen>
     );
   }
 
-  if (quiz.status === 'error' || !question || !subject) {
+  if (screen.kind === 'error') {
     return (
       <Screen>
-        <IconButton icon="x" accessibilityLabel="Close quiz" onPress={() => router.back()} />
-        <ErrorState title="Couldn’t load this quiz" message={quiz.error ?? undefined} onRetry={quiz.retry} />
+        <ScreenHeader back backIcon="x" backLabel="Close quiz" />
+        <ErrorState title="Couldn’t load this quiz" message={screen.message} onRetry={quiz.retryLoad} />
       </Screen>
     );
   }
 
-  const optionState = (optionId: string): OptionState => {
-    if (!quiz.isChecked) return quiz.selection === optionId ? 'selected' : 'idle';
-    if (optionId === question.correctOptionId) return 'correct';
-    if (optionId === quiz.selection) return 'incorrect';
+  if (screen.kind === 'notEnough') {
+    return (
+      <Screen>
+        <ScreenHeader back backIcon="x" backLabel="Close" />
+        <EmptyState
+          icon="inbox"
+          title="Not enough questions are available for this level yet."
+          message={`${screen.subject.name} · Level ${level} has ${pluralise(screen.available, 'question')}. A quiz needs ${screen.required}, so it can’t start yet. Try another level, or ask your lecturer to add more questions.`}
+          actionLabel="Choose another level"
+          actionIcon="arrow-left"
+          onAction={leave}
+        />
+      </Screen>
+    );
+  }
+
+  if (!question || !subject) return null;
+
+  const optionState = (option: string): OptionState => {
+    if (!quiz.isChecked) return quiz.selection === option ? 'selected' : 'idle';
+    if (option === question.correctAnswer) return 'correct';
+    if (option === quiz.selection) return 'incorrect';
     return 'dimmed';
   };
 
-  const correctText = question.options.find((o) => o.id === question.correctOptionId)?.text ?? '';
   const percent = Math.round(((quiz.index + 1) / quiz.total) * 100);
 
   return (
@@ -121,15 +148,15 @@ export function QuestionsScreen() {
               actions.previous();
               scrollRef.current?.scrollTo({ y: 0, animated: false });
             }}
-            disabled={quiz.index === 0}
+            disabled={quiz.index === 0 || quiz.submitting}
             style={styles.prev}
             fullWidth={false}
           />
           <Button
-            title={primaryLabel[quiz.primaryAction]}
+            title={quiz.submitting ? 'Submitting…' : primaryLabel[quiz.primaryAction]}
             rightIcon={quiz.primaryAction === 'submit' ? 'check' : quiz.primaryAction === 'choose' ? undefined : 'arrow-right'}
             onPress={onPrimary}
-            disabled={quiz.primaryAction === 'choose'}
+            disabled={quiz.primaryAction === 'choose' || Boolean(quiz.resultId)}
             loading={quiz.submitting}
             style={styles.primary}
             fullWidth={false}
@@ -162,25 +189,25 @@ export function QuestionsScreen() {
       <Card style={styles.questionCard}>
         <Badge label="Multiple choice · choose one" tone="primary" />
         <AppText variant="heading" style={styles.prompt}>
-          {question.prompt}
+          {question.question}
         </AppText>
       </Card>
 
       <View accessibilityRole="radiogroup" accessibilityLabel="Answers" style={styles.options}>
         {question.options.map((option, i) => (
           <QuizOption
-            key={option.id}
+            key={option}
             letter={LETTERS[i] ?? String(i + 1)}
-            text={option.text}
-            state={optionState(option.id)}
-            locked={quiz.isChecked}
-            onPress={() => actions.select(option.id)}
+            text={option}
+            state={optionState(option)}
+            locked={quiz.isChecked || quiz.submitting}
+            onPress={() => actions.select(option)}
           />
         ))}
       </View>
 
-      {quiz.isChecked ? <AnswerFeedback correct={quiz.isCorrect} correctAnswer={correctText} explanation={question.explanation} /> : null}
-      {quiz.error ? <InlineAlert message={quiz.error} /> : null}
+      {quiz.isChecked ? <AnswerFeedback correct={quiz.isCorrect} correctAnswer={question.correctAnswer} explanation={question.explanation} /> : null}
+      {quiz.submitError ? <InlineAlert message={quiz.submitError} /> : null}
     </Screen>
   );
 }

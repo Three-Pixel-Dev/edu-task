@@ -1,13 +1,11 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { colors, spacing } from '@/theme';
-import type { QuizResult, Subject } from '@/types';
+import type { QuizResult } from '@/types';
 import { formatRelativeDay } from '@/utils/date';
-import { percentageOf } from '@/utils/quiz';
 import { AppText, Badge, type BadgeTone } from '../ui';
 
 interface AttemptRowProps {
   result: QuizResult;
-  subject: Subject;
   onPress: () => void;
   divider?: boolean;
 }
@@ -18,27 +16,27 @@ export function scoreTone(percentage: number): BadgeTone {
   return 'warning';
 }
 
-export function AttemptRow({ result, subject, onPress, divider }: AttemptRowProps) {
-  const pct = percentageOf(result);
+/** One quiz attempt: subject, code, level, date, score and percentage. */
+export function AttemptRow({ result, onPress, divider }: AttemptRowProps) {
   const when = formatRelativeDay(result.completedAt);
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${subject.name}, level ${result.level}, scored ${result.score} out of ${result.totalQuestions}, ${when}`}
+      accessibilityLabel={`${result.subjectName}, level ${result.level}, scored ${result.score} out of ${result.totalQuestions}, ${result.percentage} percent, ${when}`}
       onPress={onPress}
       style={({ pressed }) => [styles.row, divider && styles.divider, pressed && styles.pressed]}
     >
       <View style={styles.text}>
         <AppText variant="bodyStrong" numberOfLines={1}>
-          {subject.name}
+          {result.subjectName}
         </AppText>
         <AppText variant="caption" color="textSecondary">
-          {`${subject.code} · Level ${result.level} · ${when}`}
+          {`${result.subjectCode ? `${result.subjectCode} · ` : ''}Level ${result.level} · ${when}`}
         </AppText>
       </View>
       <View style={styles.score}>
         <AppText variant="bodyStrong">{`${result.score}/${result.totalQuestions}`}</AppText>
-        <Badge label={`${pct}%`} tone={scoreTone(pct)} />
+        <Badge label={`${result.percentage}%`} tone={scoreTone(result.percentage)} />
       </View>
     </Pressable>
   );

@@ -1,0 +1,17 @@
+{
+  "subjectId": "software-engineering",
+  "levels": {
+    "1": [
+      { "question": "Which SDLC model completes each phase before the next one starts?", "options": ["Agile", "Waterfall", "Spiral", "Scrum"], "correctAnswer": "Waterfall", "explanation": "Waterfall is sequential: requirements, design, build, test, deploy." },
+      { "question": "“The system must respond within 2 seconds” is a:", "options": ["Functional requirement", "Non-functional requirement", "Use case", "Test case"], "correctAnswer": "Non-functional requirement", "explanation": "It describes a quality (performance), not a function." },
+      { "question": "Unit testing checks:", "options": ["The whole system", "Individual functions or classes", "User satisfaction", "Network speed"], "correctAnswer": "Individual functions or classes", "explanation": "Unit tests verify the smallest testable parts in isolation." },
+      { "question": "Black-box testing is based on:", "options": ["The internal code structure", "The specification and inputs/outputs", "Compiler warnings", "Code reviews only"], "correctAnswer": "The specification and inputs/outputs", "explanation": "Testers don’t look at the code; white-box testing does." },
+      { "question": "Which UML diagram shows how users interact with a system?", "options": ["Class diagram", "Use case diagram", "Deployment diagram", "Component diagram"], "correctAnswer": "Use case diagram", "explanation": "Use case diagrams show actors and the goals they achieve with the system." },
+      { "question": "Good modular design aims for:", "options": ["High coupling, low cohesion", "Low coupling, high cohesion", "High coupling, high cohesion", "Low coupling, low cohesion"], "correctAnswer": "Low coupling, high cohesion", "explanation": "Modules should do one thing well and depend on each other as little as possible." },
+      { "question": "Refactoring means:", "options": ["Adding new features", "Improving code structure without changing behaviour", "Rewriting in a new language", "Fixing a production outage"], "correctAnswer": "Improving code structure without changing behaviour", "explanation": "Tests should pass before and after refactoring." },
+      { "question": "Git is a:", "options": ["Database", "Distributed version control system", "Compiler", "Web server"], "correctAnswer": "Distributed version control system", "explanation": "Git tracks changes; every clone has the full history." },
+      { "question": "Which principle hides an object’s internal state behind methods?", "options": ["Inheritance", "Encapsulation", "Polymorphism", "Recursion"], "correctAnswer": "Encapsulation", "explanation": "Encapsulation exposes behaviour and hides data." },
+      { "question": "In a REST API, which method is normally used to update a resource?", "options": ["GET", "PUT", "TRACE", "HEAD"], "correctAnswer": "PUT", "explanation": "PUT (or PATCH) updates a resource; GET only reads it." }
+    ]
+  }
+}
