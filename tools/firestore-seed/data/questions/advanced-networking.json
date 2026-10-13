@@ -1,0 +1,1685 @@
+{
+  "subjectId": "advanced-networking",
+  "levels": {
+    "1": [
+      {
+        "question": "What is OSPF?",
+        "options": [
+          "A hybrid protocol that sends updates only to neighbors when a metric changes.",
+          "A path-vector protocol used to exchange routes between autonomous systems.",
+          "A link-state interior routing protocol that floods topology data and runs Dijkstra's algorithm inside each area.",
+          "A distance-vector protocol that advertises only hop counts."
+        ],
+        "correctAnswer": "A link-state interior routing protocol that floods topology data and runs Dijkstra's algorithm inside each area.",
+        "explanation": "OSPF routers build a link-state database and compute shortest paths; it is carried directly in IP."
+      },
+      {
+        "question": "What is OSPF Area?",
+        "options": [
+          "A spanning-tree instance that elects one root bridge.",
+          "A group of OSPF routers that share one link-state database; other areas normally attach to backbone area 0.",
+          "A VLAN that separates broadcast domains on a switch.",
+          "A BGP autonomous system identified by an autonomous system number."
+        ],
+        "correctAnswer": "A group of OSPF routers that share one link-state database; other areas normally attach to backbone area 0.",
+        "explanation": "Flooding and the link-state database stay inside the area, and area 0 is the backbone that connects other areas."
+      },
+      {
+        "question": "What is Link-State Advertisement?",
+        "options": [
+          "A record flooded by OSPF that describes a router's links so neighbors can build the area database.",
+          "A BGP keepalive that only confirms a session is alive.",
+          "A distance-vector update that carries only a destination and a hop count.",
+          "A spanning-tree message that carries a bridge identifier and a path cost."
+        ],
+        "correctAnswer": "A record flooded by OSPF that describes a router's links so neighbors can build the area database.",
+        "explanation": "Link-state advertisements are the pieces of topology that, once flooded, form the link-state database."
+      },
+      {
+        "question": "What is SPF Algorithm?",
+        "options": [
+          "Dijkstra's shortest-path calculation that each OSPF router runs on its area link-state database.",
+          "A hash of the router identifier used only to name the router.",
+          "The Bellman-Ford calculation used by distance-vector protocols such as RIP.",
+          "A minimum-spanning-tree algorithm that connects all nodes with least total edge weight."
+        ],
+        "correctAnswer": "Dijkstra's shortest-path calculation that each OSPF router runs on its area link-state database.",
+        "explanation": "From the same area database, Dijkstra's algorithm produces each router's shortest-path tree."
+      },
+      {
+        "question": "What is Designated Router?",
+        "options": [
+          "The host that answers DHCP discovers on a subnet.",
+          "The OSPF router elected on a multiaccess network to originate the network advertisement and reduce adjacencies.",
+          "The switch elected as the spanning-tree root by the lowest bridge identifier.",
+          "The BGP speaker that reflects routes inside an autonomous system."
+        ],
+        "correctAnswer": "The OSPF router elected on a multiaccess network to originate the network advertisement and reduce adjacencies.",
+        "explanation": "On a broadcast network the designated router becomes adjacent with the others so they need not all become adjacent with each other."
+      },
+      {
+        "question": "What is OSPF Cost?",
+        "options": [
+          "The administrative distance that ranks routing protocols.",
+          "A value that always equals the number of routers in the path, ignoring speed.",
+          "The OSPF interface metric, commonly derived from bandwidth so a faster link has a lower cost.",
+          "The BGP local preference used to choose an exit from an autonomous system."
+        ],
+        "correctAnswer": "The OSPF interface metric, commonly derived from bandwidth so a faster link has a lower cost.",
+        "explanation": "OSPF sums interface costs along a path and prefers the smallest sum, and cost usually falls as bandwidth rises."
+      },
+      {
+        "question": "What is BGP?",
+        "options": [
+          "A distance-vector interior protocol that uses hop count.",
+          "A layer-2 protocol that blocks redundant switch ports.",
+          "A path-vector exterior routing protocol that exchanges reachability between autonomous systems over TCP.",
+          "A link-state interior protocol that floods LSAs and runs Dijkstra."
+        ],
+        "correctAnswer": "A path-vector exterior routing protocol that exchanges reachability between autonomous systems over TCP.",
+        "explanation": "BGP carries routes between autonomous systems and uses the path of systems to prevent routing loops."
+      },
+      {
+        "question": "What is Autonomous System?",
+        "options": [
+          "A single OSPF area inside a larger OSPF domain.",
+          "A collision domain on a hub.",
+          "A set of networks under one routing policy, identified by an autonomous system number.",
+          "A VLAN on one switch."
+        ],
+        "correctAnswer": "A set of networks under one routing policy, identified by an autonomous system number.",
+        "explanation": "Exterior routing treats the whole set as one administrative domain identified by its AS number."
+      },
+      {
+        "question": "What is eBGP?",
+        "options": [
+          "A spanning-tree relationship between two switches.",
+          "A BGP session between routers that belong to the same autonomous system.",
+          "An OSPF adjacency inside one area.",
+          "A BGP session between routers in different autonomous systems."
+        ],
+        "correctAnswer": "A BGP session between routers in different autonomous systems.",
+        "explanation": "External BGP is how separate autonomous systems exchange routes with each other."
+      },
+      {
+        "question": "What is iBGP?",
+        "options": [
+          "An OSPF adjacency that floods link states.",
+          "A BGP session between routers in the same autonomous system.",
+          "A default static route toward an ISP.",
+          "A BGP session between routers in different autonomous systems."
+        ],
+        "correctAnswer": "A BGP session between routers in the same autonomous system.",
+        "explanation": "Internal BGP distributes externally learned routes inside the autonomous system, and iBGP routes are not re-advertised to other iBGP peers."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is AS Path?",
+        "options": [
+          "The OSPF metric summed from interface bandwidth costs.",
+          "The list of MAC addresses a frame has passed.",
+          "The TCP sequence number of a BGP session.",
+          "The BGP attribute listing the autonomous systems a route has crossed, used for loop detection and path comparison."
+        ],
+        "correctAnswer": "The BGP attribute listing the autonomous systems a route has crossed, used for loop detection and path comparison.",
+        "explanation": "A router rejects a route whose AS path already contains its own AS number, which stops BGP loops."
+      },
+      {
+        "question": "What is VLAN?",
+        "options": [
+          "An IP subnet mask written in dotted decimal.",
+          "A physical collision domain created by a hub.",
+          "A spanning-tree port that is forwarding.",
+          "A logical broadcast domain configured on switches so ports can be grouped apart from their cabling."
+        ],
+        "correctAnswer": "A logical broadcast domain configured on switches so ports can be grouped apart from their cabling.",
+        "explanation": "Ports in the same VLAN share a broadcast domain even when other VLANs use the same switch."
+      },
+      {
+        "question": "What is Access Port?",
+        "options": [
+          "A port that is disabled by spanning tree.",
+          "A switch port that carries many VLANs using tags.",
+          "A routed port with an IP address and no VLAN membership.",
+          "A switch port that carries a single VLAN and typically sends and receives untagged frames."
+        ],
+        "correctAnswer": "A switch port that carries a single VLAN and typically sends and receives untagged frames.",
+        "explanation": "An end host usually has no VLAN tag, so its switch port is an access port in one VLAN."
+      },
+      {
+        "question": "What is Trunk Port?",
+        "options": [
+          "A hub port that repeats every bit.",
+          "A switch port that carries traffic for multiple VLANs between switches, usually with VLAN tags.",
+          "A router interface with only a static route.",
+          "A port that belongs to only one VLAN and does not tag frames."
+        ],
+        "correctAnswer": "A switch port that carries traffic for multiple VLANs between switches, usually with VLAN tags.",
+        "explanation": "A trunk keeps VLAN identity across the link by tagging frames so the next switch can separate the VLANs."
+      },
+      {
+        "question": "What is IEEE 802.1Q?",
+        "options": [
+          "The standard that adds a 4-byte tag, including a 12-bit VLAN id, to tagged Ethernet frames on a trunk.",
+          "A bit-oriented protocol used on leased serial lines.",
+          "Cisco's older inter-switch tagging method that encapsulates the whole frame.",
+          "A point-to-point protocol used on serial WAN links."
+        ],
+        "correctAnswer": "The standard that adds a 4-byte tag, including a 12-bit VLAN id, to tagged Ethernet frames on a trunk.",
+        "explanation": "The 802.1Q tag carries the VLAN identifier so a trunk can multiplex many VLANs on one Ethernet link."
+      },
+      {
+        "question": "What is Inter-VLAN Routing?",
+        "options": [
+          "Blocking a redundant link with spanning tree.",
+          "Translating private addresses to a public address.",
+          "Layer-2 forwarding of frames inside one VLAN.",
+          "Layer-3 forwarding that moves packets between VLANs using a router or a multilayer switch."
+        ],
+        "correctAnswer": "Layer-3 forwarding that moves packets between VLANs using a router or a multilayer switch.",
+        "explanation": "Separate VLANs do not forward to each other at layer 2, so a layer-3 device must route between them."
+      },
+      {
+        "question": "What is STP?",
+        "options": [
+          "A link-state routing protocol that computes IP shortest paths.",
+          "A path-vector protocol used between autonomous systems.",
+          "A layer-2 protocol that blocks redundant switch ports so a looped Ethernet LAN has one active path.",
+          "A protocol that resolves IPv4 addresses to MAC addresses."
+        ],
+        "correctAnswer": "A layer-2 protocol that blocks redundant switch ports so a looped Ethernet LAN has one active path.",
+        "explanation": "Spanning Tree builds a loop-free tree and places redundant ports in a blocking state."
+      },
+      {
+        "question": "What is Root Bridge?",
+        "options": [
+          "The switch elected as the spanning-tree root, chosen by the lowest bridge identifier.",
+          "The switch port that carries the native VLAN untagged.",
+          "The BGP speaker with the shortest AS path.",
+          "The OSPF router elected on a LAN by the highest priority and router ID."
+        ],
+        "correctAnswer": "The switch elected as the spanning-tree root, chosen by the lowest bridge identifier.",
+        "explanation": "The bridge identifier is the priority plus the MAC address, and the lowest identifier becomes the root."
+      },
+      {
+        "question": "What is BPDU?",
+        "options": [
+          "An ARP reply that carries a MAC address.",
+          "An OSPF record that describes IP links.",
+          "A spanning-tree message that advertises bridge identifiers and path costs so switches can build the tree.",
+          "A BGP update that lists reachable prefixes."
+        ],
+        "correctAnswer": "A spanning-tree message that advertises bridge identifiers and path costs so switches can build the tree.",
+        "explanation": "Switches compare bridge protocol data units to elect the root and to choose root and designated ports."
+      },
+      {
+        "question": "What is RSTP?",
+        "options": [
+          "A distance-vector routing protocol.",
+          "The rapid spanning-tree protocol that converges faster than classic STP using proposal and agreement.",
+          "Classic STP, which waits through listening and learning before forwarding.",
+          "A VLAN management protocol that advertises VLAN numbers."
+        ],
+        "correctAnswer": "The rapid spanning-tree protocol that converges faster than classic STP using proposal and agreement.",
+        "explanation": "RSTP replaces the long listening and learning wait with a handshake so alternate ports can forward quickly."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is QoS?",
+        "options": [
+          "Resolving domain names to IP addresses.",
+          "Mechanisms that treat some packets preferentially to meet targets for delay, jitter, loss, or bandwidth.",
+          "Blocking redundant switch ports to prevent loops.",
+          "Translating private IP addresses to public addresses."
+        ],
+        "correctAnswer": "Mechanisms that treat some packets preferentially to meet targets for delay, jitter, loss, or bandwidth.",
+        "explanation": "Quality of service classifies traffic and then queues, schedules, or drops it so important flows are protected."
+      },
+      {
+        "question": "What is DiffServ?",
+        "options": [
+          "A QoS architecture that marks packets with a DSCP and applies per-hop behaviors without reserving each flow.",
+          "A QoS architecture that signals a per-flow reservation end to end.",
+          "A constant-bit-rate virtual circuit from ATM.",
+          "Best-effort forwarding with no marking and no special treatment."
+        ],
+        "correctAnswer": "A QoS architecture that marks packets with a DSCP and applies per-hop behaviors without reserving each flow.",
+        "explanation": "Differentiated Services uses the DSCP in the IP header so each hop can apply a behavior to a traffic class."
+      },
+      {
+        "question": "What is Traffic Shaping?",
+        "options": [
+          "Forwarding every packet immediately in arrival order with no rate limit.",
+          "Delaying excess packets in a buffer so the output rate stays within a configured profile.",
+          "Dropping or remarking packets that exceed a rate, without buffering them to smooth bursts.",
+          "Blocking a switch port to remove a loop."
+        ],
+        "correctAnswer": "Delaying excess packets in a buffer so the output rate stays within a configured profile.",
+        "explanation": "Shaping meters the output and queues bursts so traffic leaves at the contracted rate instead of being dropped."
+      },
+      {
+        "question": "What is Traffic Policing?",
+        "options": [
+          "Giving strict priority to a voice queue that is already buffered.",
+          "Buffering excess packets so they leave later at a smooth rate.",
+          "Scheduling stored packets with weights among queues.",
+          "Measuring traffic against a rate and dropping or remarking packets that exceed it, without smoothing them."
+        ],
+        "correctAnswer": "Measuring traffic against a rate and dropping or remarking packets that exceed it, without smoothing them.",
+        "explanation": "Policing enforces a rate by acting on excess packets immediately rather than delaying them in a shaping queue."
+      },
+      {
+        "question": "What is NAT?",
+        "options": [
+          "Blocking redundant Ethernet ports.",
+          "Tagging frames with a VLAN identifier.",
+          "Flooding link states and computing shortest paths.",
+          "Translating IP addresses in packet headers so hosts can communicate with a different address."
+        ],
+        "correctAnswer": "Translating IP addresses in packet headers so hosts can communicate with a different address.",
+        "explanation": "NAT rewrites addresses, commonly letting private hosts use a public address when they cross the network edge."
+      },
+      {
+        "question": "What is PAT?",
+        "options": [
+          "A permanent one-to-one mapping of one private address to one public address.",
+          "A form of NAT that maps many private addresses to one public address using different transport ports.",
+          "A pool that gives each inside host its own public address.",
+          "Label swapping in an MPLS core."
+        ],
+        "correctAnswer": "A form of NAT that maps many private addresses to one public address using different transport ports.",
+        "explanation": "Port address translation, also called NAT overload, distinguishes flows by source port when they share one public address."
+      },
+      {
+        "question": "What is Static NAT?",
+        "options": [
+          "A many-to-one mapping that distinguishes hosts by source port.",
+          "A filter that denies traffic to a server.",
+          "A permanent one-to-one mapping between one private address and one public address.",
+          "Automatic address configuration from a router advertisement."
+        ],
+        "correctAnswer": "A permanent one-to-one mapping between one private address and one public address.",
+        "explanation": "The mapping does not change, so outside hosts can always reach the inside host at the same public address."
+      },
+      {
+        "question": "What is SDN?",
+        "options": [
+          "A half-duplex Ethernet access method.",
+          "A layer-2 loop-prevention protocol.",
+          "An architecture that centralizes forwarding decisions in a controller, which programs the network devices.",
+          "A design in which every router independently runs a full routing protocol and no controller programs the tables."
+        ],
+        "correctAnswer": "An architecture that centralizes forwarding decisions in a controller, which programs the network devices.",
+        "explanation": "Software-defined networking separates decision-making from packet forwarding and places the decisions in a controller."
+      },
+      {
+        "question": "What is Control Plane?",
+        "options": [
+          "The power supply and fans of a router.",
+          "The part of a network that decides how traffic should be forwarded.",
+          "The part that moves packets using rules that are already installed.",
+          "The VLAN used only for switch management traffic."
+        ],
+        "correctAnswer": "The part of a network that decides how traffic should be forwarded.",
+        "explanation": "Routing protocols, the controller, and route calculations live in the control plane and produce forwarding rules."
+      },
+      {
+        "question": "What is Data Plane?",
+        "options": [
+          "The application that generates the user's email.",
+          "The management session an operator uses to configure the device.",
+          "The part that calculates routes and installs those rules.",
+          "The part of a network device that forwards packets using rules the control plane has installed."
+        ],
+        "correctAnswer": "The part of a network device that forwards packets using rules the control plane has installed.",
+        "explanation": "The data plane, or forwarding plane, matches headers and moves packets without recomputing the routing policy."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is OpenFlow?",
+        "options": [
+          "An interior link-state routing protocol.",
+          "A southbound protocol with which an SDN controller installs match-action entries in a switch flow table.",
+          "A Cisco discovery protocol that identifies neighboring devices.",
+          "A protocol that negotiates bundled Ethernet links."
+        ],
+        "correctAnswer": "A southbound protocol with which an SDN controller installs match-action entries in a switch flow table.",
+        "explanation": "OpenFlow carries flow modifications from the controller to the switch, each with match fields and actions."
+      },
+      {
+        "question": "What is MPLS?",
+        "options": [
+          "A forwarding method that switches packets using short labels instead of a full IP lookup at every core hop.",
+          "A layer-2 loop-prevention protocol.",
+          "An address translation method at the network edge.",
+          "An interior routing protocol that builds a link-state database."
+        ],
+        "correctAnswer": "A forwarding method that switches packets using short labels instead of a full IP lookup at every core hop.",
+        "explanation": "Multiprotocol Label Switching inserts a label and core routers swap that label to forward the packet."
+      },
+      {
+        "question": "What is Label Switched Path?",
+        "options": [
+          "A spanning tree of switches with one root bridge.",
+          "A DHCP lease that binds an address to a host.",
+          "A collision domain on a shared Ethernet segment.",
+          "The path that labeled packets follow through a sequence of MPLS routers from ingress to egress."
+        ],
+        "correctAnswer": "The path that labeled packets follow through a sequence of MPLS routers from ingress to egress.",
+        "explanation": "The label switched path is the route defined by successive labels from the ingress router to the egress router."
+      },
+      {
+        "question": "What is MPLS Label?",
+        "options": [
+          "An application cookie stored by a browser.",
+          "A short identifier in the MPLS shim header that each hop uses to forward and then swap.",
+          "A 16-bit TCP or UDP port number.",
+          "A 48-bit address of an Ethernet interface."
+        ],
+        "correctAnswer": "A short identifier in the MPLS shim header that each hop uses to forward and then swap.",
+        "explanation": "The shim header carries a 20-bit label; a core router looks up that label and swaps it for the next hop."
+      },
+      {
+        "question": "What is IPv6?",
+        "options": [
+          "A network-layer protocol from older Novell networks.",
+          "An older Apple protocol used on local networks.",
+          "The Internet Protocol version that uses 128-bit addresses and a simplified header, and has no broadcast.",
+          "The Internet Protocol version that uses 32-bit addresses written in dotted decimal."
+        ],
+        "correctAnswer": "The Internet Protocol version that uses 128-bit addresses and a simplified header, and has no broadcast.",
+        "explanation": "IPv6 expands the address to 128 bits, simplifies the header, and uses multicast instead of broadcast."
+      },
+      {
+        "question": "What is SLAAC?",
+        "options": [
+          "IPv4 address leasing with the discover, offer, request, and acknowledge exchange.",
+          "IPv6 address configuration in which a host forms an address from a router advertisement prefix and an interface identifier.",
+          "Manual typing of the full address on every host.",
+          "Stateful assignment of an address by a DHCPv6 server."
+        ],
+        "correctAnswer": "IPv6 address configuration in which a host forms an address from a router advertisement prefix and an interface identifier.",
+        "explanation": "Stateless Address Autoconfiguration needs a router advertisement for the prefix and does not lease the address from DHCP."
+      },
+      {
+        "question": "What is Link-Local Address?",
+        "options": [
+          "A publicly routable IPv6 address from 2000::/3.",
+          "An IPv6 address in fe80::/10 used only on the local link and configured on every interface.",
+          "A multicast address that begins with ff.",
+          "The loopback address ::1."
+        ],
+        "correctAnswer": "An IPv6 address in fe80::/10 used only on the local link and configured on every interface.",
+        "explanation": "Link-local addresses are required for neighbor discovery and are never forwarded by a router off the link."
+      },
+      {
+        "question": "What is Global Unicast Address?",
+        "options": [
+          "A publicly routable IPv6 unicast address from the range 2000::/3.",
+          "The single loopback address ::1.",
+          "A multicast address beginning with ff.",
+          "An address used only on the local link and beginning with fe80."
+        ],
+        "correctAnswer": "A publicly routable IPv6 unicast address from the range 2000::/3.",
+        "explanation": "Global unicast addresses are assigned from 2000::/3 so they can be routed on the public Internet."
+      },
+      {
+        "question": "What is Neighbor Discovery?",
+        "options": [
+          "A legacy protocol that maps a MAC address back to an IPv4 address.",
+          "A Windows name service that maps NetBIOS names to addresses.",
+          "The IPv4 protocol that broadcasts a request to map an IP address to a MAC address.",
+          "The IPv6 function, carried in ICMPv6, that resolves link-layer addresses and discovers routers on the link."
+        ],
+        "correctAnswer": "The IPv6 function, carried in ICMPv6, that resolves link-layer addresses and discovers routers on the link.",
+        "explanation": "Neighbor Solicitation and Advertisement replace ARP, and Router Advertisements support address configuration."
+      },
+      {
+        "question": "What is ACL?",
+        "options": [
+          "An ordered list of permit and deny rules that a device applies to packets, using the first match.",
+          "A pool of public addresses used for translation.",
+          "A list of prefixes and next hops used to forward packets.",
+          "A table of MAC addresses learned on switch ports."
+        ],
+        "correctAnswer": "An ordered list of permit and deny rules that a device applies to packets, using the first match.",
+        "explanation": "Access control lists are checked in order, and the first matching rule decides whether the packet is permitted or denied."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Standard ACL?",
+        "options": [
+          "An access list that filters only on the source IP address.",
+          "An access list that can match protocol and source and destination ports.",
+          "A VLAN filter applied only to switched ports by MAC address.",
+          "An access list that creates temporary openings for return traffic of an inside session."
+        ],
+        "correctAnswer": "An access list that filters only on the source IP address.",
+        "explanation": "Because a standard list cannot name the destination, it is usually placed close to the destination so it does not block other wanted paths."
+      },
+      {
+        "question": "What is Extended ACL?",
+        "options": [
+          "An access list that can filter only on the source IP address.",
+          "A subnet mask that only separates network and host bits.",
+          "A wildcard used solely to ignore address bits, with no permit or deny action.",
+          "An access list that can filter on source and destination addresses, protocol, and port numbers."
+        ],
+        "correctAnswer": "An access list that can filter on source and destination addresses, protocol, and port numbers.",
+        "explanation": "Extended entries can name a precise flow, such as TCP to one host and port, so they are often placed near the source."
+      },
+      {
+        "question": "What is Wildcard Mask?",
+        "options": [
+          "A mask of all 1s that ignores every address bit.",
+          "A mask in which a 0 bit means the corresponding address bit must match and a 1 bit is ignored.",
+          "A mask of all 0s that matches every address in a /24 when paired with a network number.",
+          "A subnet mask in which a 1 bit marks the network portion and a 0 bit marks the host portion."
+        ],
+        "correctAnswer": "A mask in which a 0 bit means the corresponding address bit must match and a 1 bit is ignored.",
+        "explanation": "Access lists and some routing commands use wildcards, which are the bit-wise inverse of the usual subnet mask."
+      },
+      {
+        "question": "What is VLSM?",
+        "options": [
+          "Translating private hosts to a public address.",
+          "Using one classful mask for every subnet in the network.",
+          "Using more than one prefix length inside the same network so each subnet can be sized to its host count.",
+          "Giving every subnet the same /24 regardless of how many hosts it has."
+        ],
+        "correctAnswer": "Using more than one prefix length inside the same network so each subnet can be sized to its host count.",
+        "explanation": "Variable-length subnet masks borrow different numbers of bits so a point-to-point link need not waste a large subnet."
+      },
+      {
+        "question": "What is Route Summarization?",
+        "options": [
+          "Advertising one aggregate prefix in place of several more specific prefixes that share a common bit pattern.",
+          "Advertising every specific prefix with no aggregate.",
+          "Choosing the most specific matching route when forwarding one packet.",
+          "Splitting one prefix into many smaller subnets."
+        ],
+        "correctAnswer": "Advertising one aggregate prefix in place of several more specific prefixes that share a common bit pattern.",
+        "explanation": "A summary reduces routing-table size when the specific networks are contiguous and match the aggregate."
+      },
+      {
+        "question": "What is Subnet Design?",
+        "options": [
+          "Smoothing voice traffic with a shaper.",
+          "Writing permit and deny rules for an interface.",
+          "Choosing address blocks and prefix lengths to fit host counts, links, growth, and summarization.",
+          "Electing a spanning-tree root bridge."
+        ],
+        "correctAnswer": "Choosing address blocks and prefix lengths to fit host counts, links, growth, and summarization.",
+        "explanation": "A design assigns the longest prefix that still holds the required hosts and aligns blocks so they can be summarized."
+      },
+      {
+        "question": "What is Longest Prefix Match?",
+        "options": [
+          "The rule that prefers the route learned from the protocol with the lowest administrative distance when prefixes differ.",
+          "The rule that load-balances across every matching prefix regardless of length.",
+          "The rule that always uses the first route written in the configuration.",
+          "The forwarding rule that selects the matching route with the greatest prefix length."
+        ],
+        "correctAnswer": "The forwarding rule that selects the matching route with the greatest prefix length.",
+        "explanation": "A more specific prefix is a better description of the destination, so it beats a shorter matching prefix."
+      },
+      {
+        "question": "What is Network Troubleshooting?",
+        "options": [
+          "Adding features to a routing protocol.",
+          "Designing a new addressing plan before any failure exists.",
+          "Electing a designated router during normal OSPF startup.",
+          "A structured process that uses symptoms and layered checks to find where connectivity or performance fails."
+        ],
+        "correctAnswer": "A structured process that uses symptoms and layered checks to find where connectivity or performance fails.",
+        "explanation": "Methods such as bottom-up, top-down, or divide-and-conquer isolate the failed layer instead of changing many things at once."
+      },
+      {
+        "question": "What is Traceroute?",
+        "options": [
+          "A diagnostic that sends probes with increasing TTL and lists each hop from the time-exceeded replies.",
+          "A display of local sockets and their states.",
+          "A single echo to the final host that reports only whether that host replies.",
+          "A query that resolves a name to an address."
+        ],
+        "correctAnswer": "A diagnostic that sends probes with increasing TTL and lists each hop from the time-exceeded replies.",
+        "explanation": "The first probe dies at the first router, the next at the second, and each ICMP Time Exceeded reveals a hop."
+      },
+      {
+        "question": "What is Administrative Distance?",
+        "options": [
+          "The OSPF cost summed along a path.",
+          "The rule that selects the longest matching prefix when the prefixes differ.",
+          "A local ranking of route sources; when the prefixes are equal, the source with the lower distance is installed.",
+          "The BGP AS-path length of one advertisement."
+        ],
+        "correctAnswer": "A local ranking of route sources; when the prefixes are equal, the source with the lower distance is installed.",
+        "explanation": "Administrative distance compares sources such as static and OSPF only for the same prefix; it is not the path metric."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates OSPF?",
+        "options": [
+          "Area 1 and area 2 each keep their own database and both connect to area 0.",
+          "After the area database synchronizes, every router independently computes its shortest paths.",
+          "A router floods a description of its attached links so every router in the area stores the same topology.",
+          "Campus routers flood link states inside area 0 and each computes its own shortest-path tree."
+        ],
+        "correctAnswer": "Campus routers flood link states inside area 0 and each computes its own shortest-path tree.",
+        "explanation": "OSPF routers build a link-state database and compute shortest paths; it is carried directly in IP."
+      },
+      {
+        "question": "Which situation illustrates OSPF Area?",
+        "options": [
+          "Area 1 and area 2 each keep their own database and both connect to area 0.",
+          "After the area database synchronizes, every router independently computes its shortest paths.",
+          "Five routers on one Ethernet elect one designated router instead of forming every possible adjacency.",
+          "A router floods a description of its attached links so every router in the area stores the same topology."
+        ],
+        "correctAnswer": "Area 1 and area 2 each keep their own database and both connect to area 0.",
+        "explanation": "Flooding and the link-state database stay inside the area, and area 0 is the backbone that connects other areas."
+      },
+      {
+        "question": "Which situation illustrates Link-State Advertisement?",
+        "options": [
+          "After the area database synchronizes, every router independently computes its shortest paths.",
+          "With cost inverse to bandwidth, a 1 Gbit/s link is preferred to a 100 Mbit/s link on otherwise equal paths.",
+          "Five routers on one Ethernet elect one designated router instead of forming every possible adjacency.",
+          "A router floods a description of its attached links so every router in the area stores the same topology."
+        ],
+        "correctAnswer": "A router floods a description of its attached links so every router in the area stores the same topology.",
+        "explanation": "Link-state advertisements are the pieces of topology that, once flooded, form the link-state database."
+      },
+      {
+        "question": "Which situation illustrates SPF Algorithm?",
+        "options": [
+          "With cost inverse to bandwidth, a 1 Gbit/s link is preferred to a 100 Mbit/s link on otherwise equal paths.",
+          "After the area database synchronizes, every router independently computes its shortest paths.",
+          "Five routers on one Ethernet elect one designated router instead of forming every possible adjacency.",
+          "An ISP edge router maintains BGP sessions with neighboring providers to learn Internet prefixes."
+        ],
+        "correctAnswer": "After the area database synchronizes, every router independently computes its shortest paths.",
+        "explanation": "From the same area database, Dijkstra's algorithm produces each router's shortest-path tree."
+      },
+      {
+        "question": "Which situation illustrates Designated Router?",
+        "options": [
+          "Five routers on one Ethernet elect one designated router instead of forming every possible adjacency.",
+          "With cost inverse to bandwidth, a 1 Gbit/s link is preferred to a 100 Mbit/s link on otherwise equal paths.",
+          "A university network uses AS 65001 for every prefix it advertises to its ISP.",
+          "An ISP edge router maintains BGP sessions with neighboring providers to learn Internet prefixes."
+        ],
+        "correctAnswer": "Five routers on one Ethernet elect one designated router instead of forming every possible adjacency.",
+        "explanation": "On a broadcast network the designated router becomes adjacent with the others so they need not all become adjacent with each other."
+      },
+      {
+        "question": "Which situation illustrates OSPF Cost?",
+        "options": [
+          "With cost inverse to bandwidth, a 1 Gbit/s link is preferred to a 100 Mbit/s link on otherwise equal paths.",
+          "AS 65001 peers with the ISP in AS 64500 to send and receive Internet routes.",
+          "A university network uses AS 65001 for every prefix it advertises to its ISP.",
+          "An ISP edge router maintains BGP sessions with neighboring providers to learn Internet prefixes."
+        ],
+        "correctAnswer": "With cost inverse to bandwidth, a 1 Gbit/s link is preferred to a 100 Mbit/s link on otherwise equal paths.",
+        "explanation": "OSPF sums interface costs along a path and prefers the smallest sum, and cost usually falls as bandwidth rises."
+      },
+      {
+        "question": "Which situation illustrates BGP?",
+        "options": [
+          "Two edge routers in AS 65001 use iBGP so each learns the prefixes the other learned from providers.",
+          "AS 65001 peers with the ISP in AS 64500 to send and receive Internet routes.",
+          "An ISP edge router maintains BGP sessions with neighboring providers to learn Internet prefixes.",
+          "A university network uses AS 65001 for every prefix it advertises to its ISP."
+        ],
+        "correctAnswer": "An ISP edge router maintains BGP sessions with neighboring providers to learn Internet prefixes.",
+        "explanation": "BGP carries routes between autonomous systems and uses the path of systems to prevent routing loops."
+      },
+      {
+        "question": "Which situation illustrates Autonomous System?",
+        "options": [
+          "A university network uses AS 65001 for every prefix it advertises to its ISP.",
+          "Two edge routers in AS 65001 use iBGP so each learns the prefixes the other learned from providers.",
+          "A route returns to AS 65001 with 65001 already in the AS path, so the router discards it.",
+          "AS 65001 peers with the ISP in AS 64500 to send and receive Internet routes."
+        ],
+        "correctAnswer": "A university network uses AS 65001 for every prefix it advertises to its ISP.",
+        "explanation": "Exterior routing treats the whole set as one administrative domain identified by its AS number."
+      },
+      {
+        "question": "Which situation illustrates eBGP?",
+        "options": [
+          "A route returns to AS 65001 with 65001 already in the AS path, so the router discards it.",
+          "Staff ports are placed in VLAN 10 and guest ports in VLAN 20 on one access switch.",
+          "Two edge routers in AS 65001 use iBGP so each learns the prefixes the other learned from providers.",
+          "AS 65001 peers with the ISP in AS 64500 to send and receive Internet routes."
+        ],
+        "correctAnswer": "AS 65001 peers with the ISP in AS 64500 to send and receive Internet routes.",
+        "explanation": "External BGP is how separate autonomous systems exchange routes with each other."
+      },
+      {
+        "question": "Which situation illustrates iBGP?",
+        "options": [
+          "A PC on VLAN 20 is attached to an access port that accepts and sends untagged frames.",
+          "Two edge routers in AS 65001 use iBGP so each learns the prefixes the other learned from providers.",
+          "Staff ports are placed in VLAN 10 and guest ports in VLAN 20 on one access switch.",
+          "A route returns to AS 65001 with 65001 already in the AS path, so the router discards it."
+        ],
+        "correctAnswer": "Two edge routers in AS 65001 use iBGP so each learns the prefixes the other learned from providers.",
+        "explanation": "Internal BGP distributes externally learned routes inside the autonomous system, and iBGP routes are not re-advertised to other iBGP peers."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates AS Path?",
+        "options": [
+          "A route returns to AS 65001 with 65001 already in the AS path, so the router discards it.",
+          "Staff ports are placed in VLAN 10 and guest ports in VLAN 20 on one access switch.",
+          "A PC on VLAN 20 is attached to an access port that accepts and sends untagged frames.",
+          "An uplink between two switches carries VLAN 10 and VLAN 20 on one cable."
+        ],
+        "correctAnswer": "A route returns to AS 65001 with 65001 already in the AS path, so the router discards it.",
+        "explanation": "A router rejects a route whose AS path already contains its own AS number, which stops BGP loops."
+      },
+      {
+        "question": "Which situation illustrates VLAN?",
+        "options": [
+          "A PC on VLAN 20 is attached to an access port that accepts and sends untagged frames.",
+          "An uplink between two switches carries VLAN 10 and VLAN 20 on one cable.",
+          "Staff ports are placed in VLAN 10 and guest ports in VLAN 20 on one access switch.",
+          "A trunk frame contains a 4-byte 802.1Q tag whose VLAN id field says VLAN 20."
+        ],
+        "correctAnswer": "Staff ports are placed in VLAN 10 and guest ports in VLAN 20 on one access switch.",
+        "explanation": "Ports in the same VLAN share a broadcast domain even when other VLANs use the same switch."
+      },
+      {
+        "question": "Which situation illustrates Access Port?",
+        "options": [
+          "A trunk frame contains a 4-byte 802.1Q tag whose VLAN id field says VLAN 20.",
+          "An uplink between two switches carries VLAN 10 and VLAN 20 on one cable.",
+          "Hosts in VLAN 10 reach hosts in VLAN 20 through a router-on-a-stick subinterface for each VLAN.",
+          "A PC on VLAN 20 is attached to an access port that accepts and sends untagged frames."
+        ],
+        "correctAnswer": "A PC on VLAN 20 is attached to an access port that accepts and sends untagged frames.",
+        "explanation": "An end host usually has no VLAN tag, so its switch port is an access port in one VLAN."
+      },
+      {
+        "question": "Which situation illustrates Trunk Port?",
+        "options": [
+          "Two cables connect the same pair of switches, and spanning tree blocks one port to stop a broadcast loop.",
+          "An uplink between two switches carries VLAN 10 and VLAN 20 on one cable.",
+          "A trunk frame contains a 4-byte 802.1Q tag whose VLAN id field says VLAN 20.",
+          "Hosts in VLAN 10 reach hosts in VLAN 20 through a router-on-a-stick subinterface for each VLAN."
+        ],
+        "correctAnswer": "An uplink between two switches carries VLAN 10 and VLAN 20 on one cable.",
+        "explanation": "A trunk keeps VLAN identity across the link by tagging frames so the next switch can separate the VLANs."
+      },
+      {
+        "question": "Which situation illustrates IEEE 802.1Q?",
+        "options": [
+          "All switches keep the default priority, and the switch with the lowest MAC address becomes the root.",
+          "Hosts in VLAN 10 reach hosts in VLAN 20 through a router-on-a-stick subinterface for each VLAN.",
+          "Two cables connect the same pair of switches, and spanning tree blocks one port to stop a broadcast loop.",
+          "A trunk frame contains a 4-byte 802.1Q tag whose VLAN id field says VLAN 20."
+        ],
+        "correctAnswer": "A trunk frame contains a 4-byte 802.1Q tag whose VLAN id field says VLAN 20.",
+        "explanation": "The 802.1Q tag carries the VLAN identifier so a trunk can multiplex many VLANs on one Ethernet link."
+      },
+      {
+        "question": "Which situation illustrates Inter-VLAN Routing?",
+        "options": [
+          "Hosts in VLAN 10 reach hosts in VLAN 20 through a router-on-a-stick subinterface for each VLAN.",
+          "Each switch sends messages containing the root id and the cost toward the root.",
+          "Two cables connect the same pair of switches, and spanning tree blocks one port to stop a broadcast loop.",
+          "All switches keep the default priority, and the switch with the lowest MAC address becomes the root."
+        ],
+        "correctAnswer": "Hosts in VLAN 10 reach hosts in VLAN 20 through a router-on-a-stick subinterface for each VLAN.",
+        "explanation": "Separate VLANs do not forward to each other at layer 2, so a layer-3 device must route between them."
+      },
+      {
+        "question": "Which situation illustrates STP?",
+        "options": [
+          "Two cables connect the same pair of switches, and spanning tree blocks one port to stop a broadcast loop.",
+          "Each switch sends messages containing the root id and the cost toward the root.",
+          "All switches keep the default priority, and the switch with the lowest MAC address becomes the root.",
+          "After a link failure, the campus tree recovers in about a second instead of waiting roughly 30 to 50 seconds."
+        ],
+        "correctAnswer": "Two cables connect the same pair of switches, and spanning tree blocks one port to stop a broadcast loop.",
+        "explanation": "Spanning Tree builds a loop-free tree and places redundant ports in a blocking state."
+      },
+      {
+        "question": "Which situation illustrates Root Bridge?",
+        "options": [
+          "All switches keep the default priority, and the switch with the lowest MAC address becomes the root.",
+          "Voice packets are forwarded ahead of a backup transfer when an uplink is congested.",
+          "Each switch sends messages containing the root id and the cost toward the root.",
+          "After a link failure, the campus tree recovers in about a second instead of waiting roughly 30 to 50 seconds."
+        ],
+        "correctAnswer": "All switches keep the default priority, and the switch with the lowest MAC address becomes the root.",
+        "explanation": "The bridge identifier is the priority plus the MAC address, and the lowest identifier becomes the root."
+      },
+      {
+        "question": "Which situation illustrates BPDU?",
+        "options": [
+          "After a link failure, the campus tree recovers in about a second instead of waiting roughly 30 to 50 seconds.",
+          "Voice packets are forwarded ahead of a backup transfer when an uplink is congested.",
+          "Routers honor a DSCP that selects a low-latency queue for voice, with no per-call reservation.",
+          "Each switch sends messages containing the root id and the cost toward the root."
+        ],
+        "correctAnswer": "Each switch sends messages containing the root id and the cost toward the root.",
+        "explanation": "Switches compare bridge protocol data units to elect the root and to choose root and designated ports."
+      },
+      {
+        "question": "Which situation illustrates RSTP?",
+        "options": [
+          "Routers honor a DSCP that selects a low-latency queue for voice, with no per-call reservation.",
+          "A branch router buffers a file-transfer burst and releases it at 10 Mbit/s toward the provider.",
+          "After a link failure, the campus tree recovers in about a second instead of waiting roughly 30 to 50 seconds.",
+          "Voice packets are forwarded ahead of a backup transfer when an uplink is congested."
+        ],
+        "correctAnswer": "After a link failure, the campus tree recovers in about a second instead of waiting roughly 30 to 50 seconds.",
+        "explanation": "RSTP replaces the long listening and learning wait with a handshake so alternate ports can forward quickly."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates QoS?",
+        "options": [
+          "Routers honor a DSCP that selects a low-latency queue for voice, with no per-call reservation.",
+          "A provider drops packets that exceed the contracted 50 Mbit/s instead of queuing the excess.",
+          "A branch router buffers a file-transfer burst and releases it at 10 Mbit/s toward the provider.",
+          "Voice packets are forwarded ahead of a backup transfer when an uplink is congested."
+        ],
+        "correctAnswer": "Voice packets are forwarded ahead of a backup transfer when an uplink is congested.",
+        "explanation": "Quality of service classifies traffic and then queues, schedules, or drops it so important flows are protected."
+      },
+      {
+        "question": "Which situation illustrates DiffServ?",
+        "options": [
+          "A branch router buffers a file-transfer burst and releases it at 10 Mbit/s toward the provider.",
+          "Office hosts use 10.0.0.0/8, and the border router rewrites their source to a public address.",
+          "A provider drops packets that exceed the contracted 50 Mbit/s instead of queuing the excess.",
+          "Routers honor a DSCP that selects a low-latency queue for voice, with no per-call reservation."
+        ],
+        "correctAnswer": "Routers honor a DSCP that selects a low-latency queue for voice, with no per-call reservation.",
+        "explanation": "Differentiated Services uses the DSCP in the IP header so each hop can apply a behavior to a traffic class."
+      },
+      {
+        "question": "Which situation illustrates Traffic Shaping?",
+        "options": [
+          "Two hundred PCs share 203.0.113.5, and the router tracks each flow by its source port.",
+          "A branch router buffers a file-transfer burst and releases it at 10 Mbit/s toward the provider.",
+          "Office hosts use 10.0.0.0/8, and the border router rewrites their source to a public address.",
+          "A provider drops packets that exceed the contracted 50 Mbit/s instead of queuing the excess."
+        ],
+        "correctAnswer": "A branch router buffers a file-transfer burst and releases it at 10 Mbit/s toward the provider.",
+        "explanation": "Shaping meters the output and queues bursts so traffic leaves at the contracted rate instead of being dropped."
+      },
+      {
+        "question": "Which situation illustrates Traffic Policing?",
+        "options": [
+          "A provider drops packets that exceed the contracted 50 Mbit/s instead of queuing the excess.",
+          "Office hosts use 10.0.0.0/8, and the border router rewrites their source to a public address.",
+          "Two hundred PCs share 203.0.113.5, and the router tracks each flow by its source port.",
+          "A web server at 10.1.1.10 is always published on the Internet as 203.0.113.10."
+        ],
+        "correctAnswer": "A provider drops packets that exceed the contracted 50 Mbit/s instead of queuing the excess.",
+        "explanation": "Policing enforces a rate by acting on excess packets immediately rather than delaying them in a shaping queue."
+      },
+      {
+        "question": "Which situation illustrates NAT?",
+        "options": [
+          "Office hosts use 10.0.0.0/8, and the border router rewrites their source to a public address.",
+          "A web server at 10.1.1.10 is always published on the Internet as 203.0.113.10.",
+          "Two hundred PCs share 203.0.113.5, and the router tracks each flow by its source port.",
+          "Access switches forward according to rules pushed by a central controller instead of each computing routes."
+        ],
+        "correctAnswer": "Office hosts use 10.0.0.0/8, and the border router rewrites their source to a public address.",
+        "explanation": "NAT rewrites addresses, commonly letting private hosts use a public address when they cross the network edge."
+      },
+      {
+        "question": "Which situation illustrates PAT?",
+        "options": [
+          "A router runs OSPF and builds a routing table, but that calculation is not itself moving user packets.",
+          "A web server at 10.1.1.10 is always published on the Internet as 203.0.113.10.",
+          "Access switches forward according to rules pushed by a central controller instead of each computing routes.",
+          "Two hundred PCs share 203.0.113.5, and the router tracks each flow by its source port."
+        ],
+        "correctAnswer": "Two hundred PCs share 203.0.113.5, and the router tracks each flow by its source port.",
+        "explanation": "Port address translation, also called NAT overload, distinguishes flows by source port when they share one public address."
+      },
+      {
+        "question": "Which situation illustrates Static NAT?",
+        "options": [
+          "Access switches forward according to rules pushed by a central controller instead of each computing routes.",
+          "A web server at 10.1.1.10 is always published on the Internet as 203.0.113.10.",
+          "A router runs OSPF and builds a routing table, but that calculation is not itself moving user packets.",
+          "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry."
+        ],
+        "correctAnswer": "A web server at 10.1.1.10 is always published on the Internet as 203.0.113.10.",
+        "explanation": "The mapping does not change, so outside hosts can always reach the inside host at the same public address."
+      },
+      {
+        "question": "Which situation illustrates SDN?",
+        "options": [
+          "A router runs OSPF and builds a routing table, but that calculation is not itself moving user packets.",
+          "Access switches forward according to rules pushed by a central controller instead of each computing routes.",
+          "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry.",
+          "The controller writes a match on destination IP and an output-port action into the switch flow table."
+        ],
+        "correctAnswer": "Access switches forward according to rules pushed by a central controller instead of each computing routes.",
+        "explanation": "Software-defined networking separates decision-making from packet forwarding and places the decisions in a controller."
+      },
+      {
+        "question": "Which situation illustrates Control Plane?",
+        "options": [
+          "The controller writes a match on destination IP and an output-port action into the switch flow table.",
+          "Core routers forward a packet by a short label and do not look up the full destination IP at each hop.",
+          "A router runs OSPF and builds a routing table, but that calculation is not itself moving user packets.",
+          "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry."
+        ],
+        "correctAnswer": "A router runs OSPF and builds a routing table, but that calculation is not itself moving user packets.",
+        "explanation": "Routing protocols, the controller, and route calculations live in the control plane and produce forwarding rules."
+      },
+      {
+        "question": "Which situation illustrates Data Plane?",
+        "options": [
+          "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry.",
+          "The controller writes a match on destination IP and an output-port action into the switch flow table.",
+          "Labeled packets enter at the campus edge and follow one path through three core routers to the provider egress.",
+          "Core routers forward a packet by a short label and do not look up the full destination IP at each hop."
+        ],
+        "correctAnswer": "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry.",
+        "explanation": "The data plane, or forwarding plane, matches headers and moves packets without recomputing the routing policy."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates OpenFlow?",
+        "options": [
+          "Labeled packets enter at the campus edge and follow one path through three core routers to the provider egress.",
+          "The controller writes a match on destination IP and an output-port action into the switch flow table.",
+          "A core router receives label 18, swaps it for label 42, and forwards the packet to the next router.",
+          "Core routers forward a packet by a short label and do not look up the full destination IP at each hop."
+        ],
+        "correctAnswer": "The controller writes a match on destination IP and an output-port action into the switch flow table.",
+        "explanation": "OpenFlow carries flow modifications from the controller to the switch, each with match fields and actions."
+      },
+      {
+        "question": "Which situation illustrates MPLS?",
+        "options": [
+          "A campus plan uses 128-bit addresses written as hexadecimal groups separated by colons.",
+          "Core routers forward a packet by a short label and do not look up the full destination IP at each hop.",
+          "A core router receives label 18, swaps it for label 42, and forwards the packet to the next router.",
+          "Labeled packets enter at the campus edge and follow one path through three core routers to the provider egress."
+        ],
+        "correctAnswer": "Core routers forward a packet by a short label and do not look up the full destination IP at each hop.",
+        "explanation": "Multiprotocol Label Switching inserts a label and core routers swap that label to forward the packet."
+      },
+      {
+        "question": "Which situation illustrates Label Switched Path?",
+        "options": [
+          "A core router receives label 18, swaps it for label 42, and forwards the packet to the next router.",
+          "A campus plan uses 128-bit addresses written as hexadecimal groups separated by colons.",
+          "Labeled packets enter at the campus edge and follow one path through three core routers to the provider egress.",
+          "A host hears prefix 2001:db8:1::/64 in a router advertisement and creates its own interface address."
+        ],
+        "correctAnswer": "Labeled packets enter at the campus edge and follow one path through three core routers to the provider egress.",
+        "explanation": "The label switched path is the route defined by successive labels from the ingress router to the egress router."
+      },
+      {
+        "question": "Which situation illustrates MPLS Label?",
+        "options": [
+          "A host hears prefix 2001:db8:1::/64 in a router advertisement and creates its own interface address.",
+          "A campus plan uses 128-bit addresses written as hexadecimal groups separated by colons.",
+          "A core router receives label 18, swaps it for label 42, and forwards the packet to the next router.",
+          "With no router present, a host still has an fe80:: address for on-link neighbor traffic."
+        ],
+        "correctAnswer": "A core router receives label 18, swaps it for label 42, and forwards the packet to the next router.",
+        "explanation": "The shim header carries a 20-bit label; a core router looks up that label and swaps it for the next hop."
+      },
+      {
+        "question": "Which situation illustrates IPv6?",
+        "options": [
+          "A host hears prefix 2001:db8:1::/64 in a router advertisement and creates its own interface address.",
+          "With no router present, a host still has an fe80:: address for on-link neighbor traffic.",
+          "A campus plan uses 128-bit addresses written as hexadecimal groups separated by colons.",
+          "The address 2001:db8:acad::10 belongs to the global unicast range used in documentation examples."
+        ],
+        "correctAnswer": "A campus plan uses 128-bit addresses written as hexadecimal groups separated by colons.",
+        "explanation": "IPv6 expands the address to 128 bits, simplifies the header, and uses multicast instead of broadcast."
+      },
+      {
+        "question": "Which situation illustrates SLAAC?",
+        "options": [
+          "An IPv6 host sends an ICMPv6 Neighbor Solicitation to learn a neighbor's MAC address.",
+          "With no router present, a host still has an fe80:: address for on-link neighbor traffic.",
+          "The address 2001:db8:acad::10 belongs to the global unicast range used in documentation examples.",
+          "A host hears prefix 2001:db8:1::/64 in a router advertisement and creates its own interface address."
+        ],
+        "correctAnswer": "A host hears prefix 2001:db8:1::/64 in a router advertisement and creates its own interface address.",
+        "explanation": "Stateless Address Autoconfiguration needs a router advertisement for the prefix and does not lease the address from DHCP."
+      },
+      {
+        "question": "Which situation illustrates Link-Local Address?",
+        "options": [
+          "With no router present, a host still has an fe80:: address for on-link neighbor traffic.",
+          "A router drops traffic from 10.1.1.5 because the first matching rule in the list says deny.",
+          "An IPv6 host sends an ICMPv6 Neighbor Solicitation to learn a neighbor's MAC address.",
+          "The address 2001:db8:acad::10 belongs to the global unicast range used in documentation examples."
+        ],
+        "correctAnswer": "With no router present, a host still has an fe80:: address for on-link neighbor traffic.",
+        "explanation": "Link-local addresses are required for neighbor discovery and are never forwarded by a router off the link."
+      },
+      {
+        "question": "Which situation illustrates Global Unicast Address?",
+        "options": [
+          "A list numbered in the standard range permits only source network 10.1.1.0 and ignores destination ports.",
+          "The address 2001:db8:acad::10 belongs to the global unicast range used in documentation examples.",
+          "A router drops traffic from 10.1.1.5 because the first matching rule in the list says deny.",
+          "An IPv6 host sends an ICMPv6 Neighbor Solicitation to learn a neighbor's MAC address."
+        ],
+        "correctAnswer": "The address 2001:db8:acad::10 belongs to the global unicast range used in documentation examples.",
+        "explanation": "Global unicast addresses are assigned from 2000::/3 so they can be routed on the public Internet."
+      },
+      {
+        "question": "Which situation illustrates Neighbor Discovery?",
+        "options": [
+          "A list numbered in the standard range permits only source network 10.1.1.0 and ignores destination ports.",
+          "An IPv6 host sends an ICMPv6 Neighbor Solicitation to learn a neighbor's MAC address.",
+          "A rule denies TCP from any host to 10.2.2.10 port 23 and permits other IP traffic.",
+          "A router drops traffic from 10.1.1.5 because the first matching rule in the list says deny."
+        ],
+        "correctAnswer": "An IPv6 host sends an ICMPv6 Neighbor Solicitation to learn a neighbor's MAC address.",
+        "explanation": "Neighbor Solicitation and Advertisement replace ARP, and Router Advertisements support address configuration."
+      },
+      {
+        "question": "Which situation illustrates ACL?",
+        "options": [
+          "To match 192.168.5.0/24 in an ACL, the wildcard is 0.0.0.255.",
+          "A rule denies TCP from any host to 10.2.2.10 port 23 and permits other IP traffic.",
+          "A list numbered in the standard range permits only source network 10.1.1.0 and ignores destination ports.",
+          "A router drops traffic from 10.1.1.5 because the first matching rule in the list says deny."
+        ],
+        "correctAnswer": "A router drops traffic from 10.1.1.5 because the first matching rule in the list says deny.",
+        "explanation": "Access control lists are checked in order, and the first matching rule decides whether the packet is permitted or denied."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Standard ACL?",
+        "options": [
+          "From 10.5.0.0/16, one LAN uses /26 for 50 hosts and a router link uses /30 for two hosts.",
+          "A list numbered in the standard range permits only source network 10.1.1.0 and ignores destination ports.",
+          "A rule denies TCP from any host to 10.2.2.10 port 23 and permits other IP traffic.",
+          "To match 192.168.5.0/24 in an ACL, the wildcard is 0.0.0.255."
+        ],
+        "correctAnswer": "A list numbered in the standard range permits only source network 10.1.1.0 and ignores destination ports.",
+        "explanation": "Because a standard list cannot name the destination, it is usually placed close to the destination so it does not block other wanted paths."
+      },
+      {
+        "question": "Which situation illustrates Extended ACL?",
+        "options": [
+          "A rule denies TCP from any host to 10.2.2.10 port 23 and permits other IP traffic.",
+          "From 10.5.0.0/16, one LAN uses /26 for 50 hosts and a router link uses /30 for two hosts.",
+          "To match 192.168.5.0/24 in an ACL, the wildcard is 0.0.0.255.",
+          "The four networks 10.1.0.0/24 through 10.1.3.0/24 are advertised as 10.1.0.0/22."
+        ],
+        "correctAnswer": "A rule denies TCP from any host to 10.2.2.10 port 23 and permits other IP traffic.",
+        "explanation": "Extended entries can name a precise flow, such as TCP to one host and port, so they are often placed near the source."
+      },
+      {
+        "question": "Which situation illustrates Wildcard Mask?",
+        "options": [
+          "A designer gives router links /30 and a 50-PC LAN a /26, leaving the rest of the block for growth.",
+          "The four networks 10.1.0.0/24 through 10.1.3.0/24 are advertised as 10.1.0.0/22.",
+          "To match 192.168.5.0/24 in an ACL, the wildcard is 0.0.0.255.",
+          "From 10.5.0.0/16, one LAN uses /26 for 50 hosts and a router link uses /30 for two hosts."
+        ],
+        "correctAnswer": "To match 192.168.5.0/24 in an ACL, the wildcard is 0.0.0.255.",
+        "explanation": "Access lists and some routing commands use wildcards, which are the bit-wise inverse of the usual subnet mask."
+      },
+      {
+        "question": "Which situation illustrates VLSM?",
+        "options": [
+          "From 10.5.0.0/16, one LAN uses /26 for 50 hosts and a router link uses /30 for two hosts.",
+          "A designer gives router links /30 and a 50-PC LAN a /26, leaving the rest of the block for growth.",
+          "The four networks 10.1.0.0/24 through 10.1.3.0/24 are advertised as 10.1.0.0/22.",
+          "For 10.1.1.5, the route 10.1.1.0/24 is chosen over 10.0.0.0/8 because /24 is longer."
+        ],
+        "correctAnswer": "From 10.5.0.0/16, one LAN uses /26 for 50 hosts and a router link uses /30 for two hosts.",
+        "explanation": "Variable-length subnet masks borrow different numbers of bits so a point-to-point link need not waste a large subnet."
+      },
+      {
+        "question": "Which situation illustrates Route Summarization?",
+        "options": [
+          "A designer gives router links /30 and a 50-PC LAN a /26, leaving the rest of the block for growth.",
+          "The four networks 10.1.0.0/24 through 10.1.3.0/24 are advertised as 10.1.0.0/22.",
+          "No one can connect and the switch port link light is off, so the check starts at the cable and port.",
+          "For 10.1.1.5, the route 10.1.1.0/24 is chosen over 10.0.0.0/8 because /24 is longer."
+        ],
+        "correctAnswer": "The four networks 10.1.0.0/24 through 10.1.3.0/24 are advertised as 10.1.0.0/22.",
+        "explanation": "A summary reduces routing-table size when the specific networks are contiguous and match the aggregate."
+      },
+      {
+        "question": "Which situation illustrates Subnet Design?",
+        "options": [
+          "A designer gives router links /30 and a 50-PC LAN a /26, leaving the rest of the block for growth.",
+          "For 10.1.1.5, the route 10.1.1.0/24 is chosen over 10.0.0.0/8 because /24 is longer.",
+          "A technician watches TTL 1, 2, and 3 draw the three routers between a PC and a server.",
+          "No one can connect and the switch port link light is off, so the check starts at the cable and port."
+        ],
+        "correctAnswer": "A designer gives router links /30 and a 50-PC LAN a /26, leaving the rest of the block for growth.",
+        "explanation": "A design assigns the longest prefix that still holds the required hosts and aligns blocks so they can be summarized."
+      },
+      {
+        "question": "Which situation illustrates Longest Prefix Match?",
+        "options": [
+          "A technician watches TTL 1, 2, and 3 draw the three routers between a PC and a server.",
+          "On a Cisco router a static route and OSPF both offer 10.1.0.0/16, and the static route is installed.",
+          "For 10.1.1.5, the route 10.1.1.0/24 is chosen over 10.0.0.0/8 because /24 is longer.",
+          "No one can connect and the switch port link light is off, so the check starts at the cable and port."
+        ],
+        "correctAnswer": "For 10.1.1.5, the route 10.1.1.0/24 is chosen over 10.0.0.0/8 because /24 is longer.",
+        "explanation": "A more specific prefix is a better description of the destination, so it beats a shorter matching prefix."
+      },
+      {
+        "question": "Which situation illustrates Network Troubleshooting?",
+        "options": [
+          "No one can connect and the switch port link light is off, so the check starts at the cable and port.",
+          "A technician watches TTL 1, 2, and 3 draw the three routers between a PC and a server.",
+          "Campus routers flood link states inside area 0 and each computes its own shortest-path tree.",
+          "On a Cisco router a static route and OSPF both offer 10.1.0.0/16, and the static route is installed."
+        ],
+        "correctAnswer": "No one can connect and the switch port link light is off, so the check starts at the cable and port.",
+        "explanation": "Methods such as bottom-up, top-down, or divide-and-conquer isolate the failed layer instead of changing many things at once."
+      },
+      {
+        "question": "Which situation illustrates Traceroute?",
+        "options": [
+          "Area 1 and area 2 each keep their own database and both connect to area 0.",
+          "Campus routers flood link states inside area 0 and each computes its own shortest-path tree.",
+          "On a Cisco router a static route and OSPF both offer 10.1.0.0/16, and the static route is installed.",
+          "A technician watches TTL 1, 2, and 3 draw the three routers between a PC and a server."
+        ],
+        "correctAnswer": "A technician watches TTL 1, 2, and 3 draw the three routers between a PC and a server.",
+        "explanation": "The first probe dies at the first router, the next at the second, and each ICMP Time Exceeded reveals a hop."
+      },
+      {
+        "question": "Which situation illustrates Administrative Distance?",
+        "options": [
+          "A router floods a description of its attached links so every router in the area stores the same topology.",
+          "Campus routers flood link states inside area 0 and each computes its own shortest-path tree.",
+          "On a Cisco router a static route and OSPF both offer 10.1.0.0/16, and the static route is installed.",
+          "Area 1 and area 2 each keep their own database and both connect to area 0."
+        ],
+        "correctAnswer": "On a Cisco router a static route and OSPF both offer 10.1.0.0/16, and the static route is installed.",
+        "explanation": "Administrative distance compares sources such as static and OSPF only for the same prefix; it is not the path metric."
+      }
+    ],
+    "11": [
+      {
+        "question": "A firewall must permit OSPF, which is carried directly in IP. Which IP protocol number should it allow?",
+        "options": [
+          "6",
+          "17",
+          "89",
+          "1"
+        ],
+        "correctAnswer": "89",
+        "explanation": "OSPF uses IP protocol number 89, whereas 6 is TCP, 17 is UDP, and 1 is ICMP."
+      },
+      {
+        "question": "Three OSPF areas are planned. Which area must the others normally attach to so inter-area routes can flow?",
+        "options": [
+          "Area 0",
+          "Area 1",
+          "Whichever area has the most routers",
+          "The highest numbered area"
+        ],
+        "correctAnswer": "Area 0",
+        "explanation": "OSPF requires the backbone, area 0, as the area to which other areas normally connect."
+      },
+      {
+        "question": "A router floods a record describing its links so neighbors can build the same area topology database. What is that record?",
+        "options": [
+          "A BGP keepalive",
+          "A distance-vector update",
+          "A link-state advertisement",
+          "A BPDU"
+        ],
+        "correctAnswer": "A link-state advertisement",
+        "explanation": "The flooded topology record in OSPF is a link-state advertisement."
+      },
+      {
+        "question": "After the link-state database is synchronized, each OSPF router computes its shortest-path tree. Which algorithm does it use?",
+        "options": [
+          "Kruskal's algorithm",
+          "Bellman-Ford",
+          "Dijkstra's algorithm",
+          "A hash function"
+        ],
+        "correctAnswer": "Dijkstra's algorithm",
+        "explanation": "OSPF's SPF calculation is Dijkstra's algorithm, not the distance-vector Bellman-Ford method."
+      },
+      {
+        "question": "Four OSPF routers on one Ethernet LAN have priority 1. Which one becomes the designated router?",
+        "options": [
+          "The router with the lowest router ID",
+          "The router with the lowest interface cost",
+          "The router with the highest router ID",
+          "The router that sent the first hello"
+        ],
+        "correctAnswer": "The router with the highest router ID",
+        "explanation": "When priorities tie, OSPF elects the designated router with the highest router ID."
+      },
+      {
+        "question": "Costs are inverse to bandwidth and both paths have two hops. One path is 1 Gbit/s and the other is 100 Mbit/s. Which path does OSPF choose?",
+        "options": [
+          "The path with higher router IDs",
+          "Both paths, alternating each packet",
+          "The 100 Mbit/s path",
+          "The 1 Gbit/s path"
+        ],
+        "correctAnswer": "The 1 Gbit/s path",
+        "explanation": "A faster link has the lower OSPF cost, so the 1 Gbit/s path is preferred."
+      },
+      {
+        "question": "A firewall must allow BGP sessions. Which transport and port should be permitted?",
+        "options": [
+          "UDP port 520",
+          "TCP port 179",
+          "TCP port 89",
+          "UDP port 179"
+        ],
+        "correctAnswer": "TCP port 179",
+        "explanation": "BGP sessions run over TCP port 179."
+      },
+      {
+        "question": "A campus advertises all of its prefixes to providers under the number 65001. What does 65001 identify?",
+        "options": [
+          "A collision domain",
+          "A VLAN",
+          "An autonomous system",
+          "An OSPF area"
+        ],
+        "correctAnswer": "An autonomous system",
+        "explanation": "The number used when advertising a domain's prefixes to other domains is an autonomous system number."
+      },
+      {
+        "question": "AS 65001 peers with the ISP's AS 64500 to exchange Internet routes. Which session type is required between them?",
+        "options": [
+          "iBGP",
+          "RIP",
+          "OSPF",
+          "eBGP"
+        ],
+        "correctAnswer": "eBGP",
+        "explanation": "Routers in different autonomous systems exchange routes with eBGP."
+      },
+      {
+        "question": "Router C learns a prefix from iBGP peer A. Under the iBGP rule, what may C do with that prefix toward its other iBGP peers?",
+        "options": [
+          "Not advertise it to them",
+          "Convert it to an eBGP default",
+          "Advertise it with an empty AS path",
+          "Advertise it to every iBGP peer"
+        ],
+        "correctAnswer": "Not advertise it to them",
+        "explanation": "iBGP split horizon stops a router from advertising an iBGP-learned route to other iBGP peers."
+      }
+    ],
+    "12": [
+      {
+        "question": "A route advertisement returns to AS 65001 and the AS path already contains 65001. What should the router do?",
+        "options": [
+          "Discard the route",
+          "Convert it to an OSPF internal route",
+          "Prepend 65001 and forward it to all peers",
+          "Install it as the best path"
+        ],
+        "correctAnswer": "Discard the route",
+        "explanation": "BGP discards a route that already lists the router's own autonomous system, preventing a loop."
+      },
+      {
+        "question": "Staff PCs must share broadcasts with each other but not with guest PCs on the same switch. Which configuration separates them?",
+        "options": [
+          "A faster uplink",
+          "A longer patch cable",
+          "Separate VLANs",
+          "One larger collision domain"
+        ],
+        "correctAnswer": "Separate VLANs",
+        "explanation": "Different VLANs are different broadcast domains, even on one switch."
+      },
+      {
+        "question": "A PC should receive only VLAN 20 traffic and should not see VLAN tags. Which switch-port mode should be used?",
+        "options": [
+          "Trunk mode",
+          "Access mode",
+          "Tunnel mode",
+          "Routed port mode"
+        ],
+        "correctAnswer": "Access mode",
+        "explanation": "A single untagged VLAN for an end host is an access port."
+      },
+      {
+        "question": "Two switches must carry VLAN 10 and VLAN 20 on one uplink. Which port mode should that uplink use?",
+        "options": [
+          "Half-duplex hub mode",
+          "PortFast host mode",
+          "Access mode",
+          "Trunk mode"
+        ],
+        "correctAnswer": "Trunk mode",
+        "explanation": "Multiple VLANs on one inter-switch link require a trunk."
+      },
+      {
+        "question": "A trunk frame needs a standard 4-byte VLAN tag. Which tagging method should be used?",
+        "options": [
+          "IEEE 802.1Q",
+          "ISL",
+          "PPP",
+          "HDLC"
+        ],
+        "correctAnswer": "IEEE 802.1Q",
+        "explanation": "The standard 4-byte Ethernet VLAN tag is IEEE 802.1Q."
+      },
+      {
+        "question": "PCs in VLAN 10 and VLAN 20 on the same switch cannot ping each other. What must be added so they can communicate?",
+        "options": [
+          "A longer cable",
+          "A hub on one access port",
+          "A repeater between the PCs",
+          "A router or SVI between the VLANs"
+        ],
+        "correctAnswer": "A router or SVI between the VLANs",
+        "explanation": "Different VLANs communicate only when a layer-3 device routes between them."
+      },
+      {
+        "question": "Two links connect the same pair of switches and broadcasts start multiplying. Which protocol should block one port?",
+        "options": [
+          "BGP",
+          "OSPF",
+          "ARP",
+          "STP"
+        ],
+        "correctAnswer": "STP",
+        "explanation": "Spanning Tree blocks a redundant layer-2 port to break a switching loop."
+      },
+      {
+        "question": "Every switch uses the default spanning-tree priority. Which switch becomes the root bridge?",
+        "options": [
+          "The switch with the lowest MAC address",
+          "The switch that boots last",
+          "The switch with the highest IP address",
+          "The switch with the highest MAC address"
+        ],
+        "correctAnswer": "The switch with the lowest MAC address",
+        "explanation": "With equal priority, the lowest MAC address yields the lowest bridge ID and wins the root election."
+      },
+      {
+        "question": "Switches exchange messages carrying the root id and the path cost to choose root and designated ports. What are those messages?",
+        "options": [
+          "ARP replies",
+          "BGP updates",
+          "LSAs",
+          "BPDUs"
+        ],
+        "correctAnswer": "BPDUs",
+        "explanation": "Spanning-tree control messages are bridge protocol data units."
+      },
+      {
+        "question": "Classic listening and learning timers make failover take about 30 to 50 seconds. Which protocol is chosen to converge in seconds instead?",
+        "options": [
+          "RSTP",
+          "RIP",
+          "STP 802.1D",
+          "VTP"
+        ],
+        "correctAnswer": "RSTP",
+        "explanation": "Rapid Spanning Tree removes the long forward delay of classic STP."
+      }
+    ],
+    "13": [
+      {
+        "question": "Voice packets must be forwarded ahead of bulk backups when the uplink is full. Which set of mechanisms is needed?",
+        "options": [
+          "STP",
+          "QoS",
+          "DNS",
+          "NAT"
+        ],
+        "correctAnswer": "QoS",
+        "explanation": "Preferential treatment of selected packets under congestion is quality of service."
+      },
+      {
+        "question": "Packets are marked with a DSCP and each router applies a per-hop behavior, with no per-call reservation. Which architecture is this?",
+        "options": [
+          "DiffServ",
+          "IntServ",
+          "ATM CBR",
+          "Best effort"
+        ],
+        "correctAnswer": "DiffServ",
+        "explanation": "DSCP marking and per-hop behavior without per-flow reservations is DiffServ."
+      },
+      {
+        "question": "Excess bursts should be buffered and released gradually so the provider does not drop them. Which treatment is this?",
+        "options": [
+          "Traffic policing",
+          "Traffic shaping",
+          "Tail drop with no meter",
+          "Head-of-line blocking"
+        ],
+        "correctAnswer": "Traffic shaping",
+        "explanation": "Buffering excess traffic to smooth the output rate is traffic shaping."
+      },
+      {
+        "question": "Packets above the contracted rate are dropped at once and are not queued to smooth the flow. Which treatment is this?",
+        "options": [
+          "Priority queuing",
+          "Traffic policing",
+          "Weighted fair queuing",
+          "Traffic shaping"
+        ],
+        "correctAnswer": "Traffic policing",
+        "explanation": "Dropping excess packets instead of buffering them is traffic policing."
+      },
+      {
+        "question": "Office hosts use 10.0.0.0/8 and the border router rewrites their source address to a public address. Which function is the rewrite?",
+        "options": [
+          "VLAN tagging",
+          "STP",
+          "OSPF",
+          "NAT"
+        ],
+        "correctAnswer": "NAT",
+        "explanation": "Rewriting IP addresses between private and public space is network address translation."
+      },
+      {
+        "question": "Two hundred PCs share one public address, and the router tells their flows apart by source port. Which translation is this?",
+        "options": [
+          "A one-to-one public pool",
+          "PAT",
+          "MPLS labeling",
+          "Static NAT"
+        ],
+        "correctAnswer": "PAT",
+        "explanation": "Many private hosts sharing one public address by port number is PAT."
+      },
+      {
+        "question": "A web server at 10.1.1.10 must always appear on the Internet as 203.0.113.10. Which translation should be configured?",
+        "options": [
+          "SLAAC",
+          "Static NAT",
+          "PAT",
+          "An ACL that denies the server"
+        ],
+        "correctAnswer": "Static NAT",
+        "explanation": "A fixed one-to-one private-to-public mapping is static NAT."
+      },
+      {
+        "question": "Forwarding switches do not compute routes themselves; a central controller pushes their forwarding rules. Which architecture is this?",
+        "options": [
+          "SDN",
+          "CSMA/CD",
+          "STP",
+          "Distributed OSPF only"
+        ],
+        "correctAnswer": "SDN",
+        "explanation": "A central controller programming the forwarding devices is software-defined networking."
+      },
+      {
+        "question": "A router calculates best paths and builds the routing table, yet this work does not itself move user packets. Which plane is calculating?",
+        "options": [
+          "The management VLAN",
+          "The control plane",
+          "The data plane",
+          "The power plane"
+        ],
+        "correctAnswer": "The control plane",
+        "explanation": "Deciding the paths and building the table is control-plane work."
+      },
+      {
+        "question": "A switch moves a frame from port 3 to port 8 using an already installed forwarding entry. Which plane performs that move?",
+        "options": [
+          "The management plane",
+          "The data plane",
+          "The control plane",
+          "The application"
+        ],
+        "correctAnswer": "The data plane",
+        "explanation": "Forwarding with an installed rule is the data plane."
+      }
+    ],
+    "14": [
+      {
+        "question": "A controller installs a match on destination IP and an output-port action in a switch. Which classic SDN protocol carries that instruction?",
+        "options": [
+          "OpenFlow",
+          "BGP",
+          "CDP",
+          "LACP"
+        ],
+        "correctAnswer": "OpenFlow",
+        "explanation": "Installing match-action flow entries from a controller is the role of OpenFlow."
+      },
+      {
+        "question": "Core routers forward using a short tag and skip a full destination-IP lookup at each hop. Which technology is this?",
+        "options": [
+          "NAT",
+          "OSPF",
+          "STP",
+          "MPLS"
+        ],
+        "correctAnswer": "MPLS",
+        "explanation": "Label swapping instead of a full IP lookup at each core hop is MPLS."
+      },
+      {
+        "question": "Labeled packets travel a set sequence of routers from the ingress edge to the egress edge. What is that sequence called?",
+        "options": [
+          "A label switched path",
+          "A DHCP lease",
+          "A spanning tree",
+          "A collision domain"
+        ],
+        "correctAnswer": "A label switched path",
+        "explanation": "The sequence of MPLS routers a labeled packet follows is a label switched path."
+      },
+      {
+        "question": "Each core hop swaps a 20-bit value in the shim header and forwards on that value. What is the value?",
+        "options": [
+          "A TCP port",
+          "An HTTP cookie",
+          "A MAC address",
+          "An MPLS label"
+        ],
+        "correctAnswer": "An MPLS label",
+        "explanation": "The 20-bit value swapped at each MPLS hop is the label."
+      },
+      {
+        "question": "The campus plans addresses that are 128 bits long and written in hexadecimal groups. Which protocol is this?",
+        "options": [
+          "IPX",
+          "AppleTalk",
+          "IPv4",
+          "IPv6"
+        ],
+        "correctAnswer": "IPv6",
+        "explanation": "128-bit hexadecimal addresses identify IPv6."
+      },
+      {
+        "question": "A host hears a router advertisement with prefix 2001:db8:1::/64 and forms its address without a DHCP lease. Which method is this?",
+        "options": [
+          "Manual configuration",
+          "Stateful DHCPv6",
+          "SLAAC",
+          "DHCPv4"
+        ],
+        "correctAnswer": "SLAAC",
+        "explanation": "Building an address from a router advertisement prefix is SLAAC."
+      },
+      {
+        "question": "With no router, a host still has an address beginning with fe80 for on-link neighbors. Which address type is it?",
+        "options": [
+          "Loopback",
+          "Link-local",
+          "Multicast",
+          "Global unicast"
+        ],
+        "correctAnswer": "Link-local",
+        "explanation": "Addresses in fe80::/10 used only on the link are link-local addresses."
+      },
+      {
+        "question": "Which IPv6 address type is 2001:db8:acad::10, an address from 2000::/3 rather than from fe80::/10?",
+        "options": [
+          "Link-local",
+          "Loopback",
+          "Multicast",
+          "Global unicast"
+        ],
+        "correctAnswer": "Global unicast",
+        "explanation": "2001:db8:acad::10 falls in 2000::/3, the global unicast range."
+      },
+      {
+        "question": "An IPv6 host needs a neighbor's MAC address and sends an ICMPv6 Neighbor Solicitation. Which function is it using?",
+        "options": [
+          "RARP",
+          "Neighbor Discovery",
+          "ARP",
+          "WINS"
+        ],
+        "correctAnswer": "Neighbor Discovery",
+        "explanation": "ICMPv6 Neighbor Solicitation is part of IPv6 Neighbor Discovery, which replaces ARP."
+      },
+      {
+        "question": "A router checks an ordered list and drops packets from 10.1.1.5 because the first matching rule says deny. Which feature is the list?",
+        "options": [
+          "An ACL",
+          "A routing table",
+          "A MAC address table",
+          "A NAT pool"
+        ],
+        "correctAnswer": "An ACL",
+        "explanation": "An ordered permit and deny list applied to packets is an access control list."
+      }
+    ],
+    "15": [
+      {
+        "question": "A standard ACL can match only source addresses. Where should it be placed so it does not block a source from other allowed destinations?",
+        "options": [
+          "Close to the source",
+          "Close to the destination",
+          "On the DNS server only",
+          "On every access port of every switch"
+        ],
+        "correctAnswer": "Close to the destination",
+        "explanation": "A standard ACL cannot distinguish destinations, so it is placed near the destination."
+      },
+      {
+        "question": "A rule must deny TCP to 10.2.2.10 port 23 and allow other traffic. Which ACL type can express that?",
+        "options": [
+          "A source-only filter",
+          "An extended ACL",
+          "A standard ACL",
+          "A subnet mask"
+        ],
+        "correctAnswer": "An extended ACL",
+        "explanation": "Matching protocol and destination port requires an extended ACL."
+      },
+      {
+        "question": "An ACL must match every host in 192.168.5.0/24. Which wildcard mask is correct?",
+        "options": [
+          "255.255.255.255",
+          "0.0.0.255",
+          "255.255.255.0",
+          "0.0.0.0"
+        ],
+        "correctAnswer": "0.0.0.255",
+        "explanation": "A /24 ignores the last eight bits, so the wildcard is 0.0.0.255, not the subnet mask."
+      },
+      {
+        "question": "One subnet needs 50 hosts and another needs 2, and both come from 10.5.0.0/16 with different prefix lengths. Which technique is this?",
+        "options": [
+          "VLSM",
+          "NAT",
+          "Classful addressing",
+          "One /24 for every subnet"
+        ],
+        "correctAnswer": "VLSM",
+        "explanation": "Different prefix lengths inside one network are variable-length subnet masking."
+      },
+      {
+        "question": "The prefixes 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, and 10.1.3.0/24 should be advertised as one block. Which summary is exact?",
+        "options": [
+          "10.1.0.0/22",
+          "10.1.0.0/21",
+          "10.1.0.0/24",
+          "10.1.0.0/23"
+        ],
+        "correctAnswer": "10.1.0.0/22",
+        "explanation": "Those four /24 networks share 22 bits, so the exact summary is 10.1.0.0/22."
+      },
+      {
+        "question": "A LAN needs addresses for 50 hosts. Which is the longest IPv4 prefix that still has enough usable host addresses?",
+        "options": [
+          "/26",
+          "/28",
+          "/27",
+          "/30"
+        ],
+        "correctAnswer": "/26",
+        "explanation": "Fifty hosts need 6 host bits because 2 to the 6th minus 2 is 62, so the longest fit is /26."
+      },
+      {
+        "question": "The table has 10.0.0.0/8 via router A and 10.1.1.0/24 via router B. Which route is used for 10.1.1.5?",
+        "options": [
+          "10.1.1.0/24 via router B",
+          "10.0.0.0/8 via router A",
+          "Both routes, splitting packets",
+          "Neither route, because the prefixes differ"
+        ],
+        "correctAnswer": "10.1.1.0/24 via router B",
+        "explanation": "Both routes match, and the longer prefix, /24, is selected."
+      },
+      {
+        "question": "Nobody can connect, and the switch-port link light is off. Using a bottom-up method, which layer should be checked first?",
+        "options": [
+          "The application layer",
+          "The physical layer",
+          "The session layer",
+          "The presentation layer"
+        ],
+        "correctAnswer": "The physical layer",
+        "explanation": "A dark link light is a physical symptom, so bottom-up troubleshooting starts at the physical layer."
+      },
+      {
+        "question": "Probes are sent with TTL starting at 1 and increasing, and each router that expires a probe replies. Which tool is this?",
+        "options": [
+          "Traceroute",
+          "Ping",
+          "Netstat",
+          "Nslookup"
+        ],
+        "correctAnswer": "Traceroute",
+        "explanation": "Listing hops from increasing TTL and time-exceeded replies is traceroute."
+      },
+      {
+        "question": "On a Cisco router the same prefix is offered by OSPF and by a static route. Which source is installed?",
+        "options": [
+          "The OSPF route",
+          "The static route",
+          "The route with the larger metric",
+          "Whichever update arrived last"
+        ],
+        "correctAnswer": "The static route",
+        "explanation": "Cisco administrative distance prefers a static route, distance 1, over OSPF, distance 110, for the same prefix."
+      }
+    ]
+  }
+}

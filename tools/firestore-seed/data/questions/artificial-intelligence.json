@@ -1,0 +1,1685 @@
+{
+  "subjectId": "artificial-intelligence",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Intelligent agent?",
+        "options": [
+          "A network cable that only carries bits between two sockets.",
+          "A system that perceives its environment through sensors and acts on that environment through actuators.",
+          "A sorting routine that orders an array and then stops.",
+          "A database table that stores records but never senses or acts."
+        ],
+        "correctAnswer": "A system that perceives its environment through sensors and acts on that environment through actuators.",
+        "explanation": "The agent idea pairs ongoing perception with actions chosen in response to that perception."
+      },
+      {
+        "question": "What is Rationality?",
+        "options": [
+          "Choosing actions that always take the longest possible path.",
+          "Choosing actions expected to maximize a performance measure, given the percepts and built-in knowledge so far.",
+          "Copying the previous percept into a file without acting.",
+          "Ignoring the performance measure and acting at random forever."
+        ],
+        "correctAnswer": "Choosing actions expected to maximize a performance measure, given the percepts and built-in knowledge so far.",
+        "explanation": "A rational agent is judged by expected success on its performance measure, not by having perfect foresight."
+      },
+      {
+        "question": "What is Percept?",
+        "options": [
+          "The source code of the agent program.",
+          "The long-term performance score printed at the end of a run.",
+          "The motor command the agent sends to an actuator.",
+          "The input an agent's sensors provide at one moment about the environment."
+        ],
+        "correctAnswer": "The input an agent's sensors provide at one moment about the environment.",
+        "explanation": "Percepts are the agent's sensory inputs, and a percept sequence is the history of those inputs."
+      },
+      {
+        "question": "What is Actuator?",
+        "options": [
+          "A component through which an agent changes the environment, such as a motor or a display.",
+          "A sensor that only measures the environment.",
+          "A label attached to a training example.",
+          "A heuristic number stored in a search node."
+        ],
+        "correctAnswer": "A component through which an agent changes the environment, such as a motor or a display.",
+        "explanation": "Actuators carry out actions, while sensors supply percepts."
+      },
+      {
+        "question": "What is PEAS?",
+        "options": [
+          "A logic rule with only conditions and a conclusion.",
+          "A training set split into labeled and unlabeled rows.",
+          "A task description listing performance measure, environment, actuators, and sensors.",
+          "A search formula that adds path cost to a heuristic."
+        ],
+        "correctAnswer": "A task description listing performance measure, environment, actuators, and sensors.",
+        "explanation": "PEAS names the four parts needed to specify a rational-agent task before choosing a design."
+      },
+      {
+        "question": "What is Fully observable environment?",
+        "options": [
+          "An environment in which parts of the relevant state stay hidden from the sensors.",
+          "An environment in which the agent's sensors show the complete state relevant to its choice at each moment.",
+          "An environment that changes while the agent is still deciding.",
+          "An environment whose next state is random even when the full state is known."
+        ],
+        "correctAnswer": "An environment in which the agent's sensors show the complete state relevant to its choice at each moment.",
+        "explanation": "Full observability means the percept contains what the agent needs to know about the current state."
+      },
+      {
+        "question": "What is Deterministic environment?",
+        "options": [
+          "An environment whose next state is fixed by the current state and the action, with no random outcome.",
+          "An environment that contains several independent agents.",
+          "An environment that hides part of the state from the agent.",
+          "An environment in which the same action can lead to several possible next states by chance."
+        ],
+        "correctAnswer": "An environment whose next state is fixed by the current state and the action, with no random outcome.",
+        "explanation": "Determinism means the transition is certain once the state and action are known."
+      },
+      {
+        "question": "What is Episodic task environment?",
+        "options": [
+          "An environment divided into independent episodes, where the action in one does not affect later episodes.",
+          "An environment in which each action changes the state faced by every later decision.",
+          "An environment whose map is a single long path with no separate episodes.",
+          "An environment that is fully observable and therefore must be sequential."
+        ],
+        "correctAnswer": "An environment divided into independent episodes, where the action in one does not affect later episodes.",
+        "explanation": "In an episodic setting, the agent can choose for the current episode without planning across future episodes."
+      },
+      {
+        "question": "What is Static environment?",
+        "options": [
+          "An environment whose next state is random.",
+          "An environment that does not change while the agent is deliberating.",
+          "An environment that hides its state from the sensors.",
+          "An environment that keeps changing during the time the agent spends choosing."
+        ],
+        "correctAnswer": "An environment that does not change while the agent is deliberating.",
+        "explanation": "If nothing else changes during deliberation, the state the agent analyzed is still the state it acts on."
+      },
+      {
+        "question": "What is Simple reflex agent?",
+        "options": [
+          "An agent that selects the action with the highest expected utility.",
+          "An agent that compares future paths against an explicit goal.",
+          "An agent that chooses its action from the current percept alone, using condition-action rules.",
+          "An agent that keeps an internal model of how the world evolves."
+        ],
+        "correctAnswer": "An agent that chooses its action from the current percept alone, using condition-action rules.",
+        "explanation": "A simple reflex agent does not store a model of unseen state; the current percept selects the rule."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Goal-based agent?",
+        "options": [
+          "An agent that reacts only to the current percept and never considers the future.",
+          "An agent that chooses actions by considering which future states would reach a declared goal.",
+          "An agent that maximizes a numeric happiness score among several acceptable goals.",
+          "An agent that learns weights from labeled examples and has no explicit goal test."
+        ],
+        "correctAnswer": "An agent that chooses actions by considering which future states would reach a declared goal.",
+        "explanation": "Goal-based behavior asks whether a sequence of actions leads to a state that passes the goal test."
+      },
+      {
+        "question": "What is Utility-based agent?",
+        "options": [
+          "An agent that stops at the first state passing a yes-or-no goal test, with no preference among goals.",
+          "An agent that applies a reflex rule to the current percept only.",
+          "An agent that stores facts but never selects an action.",
+          "An agent that chooses the action with the highest expected utility when several outcomes are possible."
+        ],
+        "correctAnswer": "An agent that chooses the action with the highest expected utility when several outcomes are possible.",
+        "explanation": "Utility ranks outcomes, so the agent can prefer a safer or better success instead of any goal state."
+      },
+      {
+        "question": "What is State space?",
+        "options": [
+          "The set of all states that a search problem can reach from the initial state by legal actions.",
+          "Only the single goal state, excluding every other configuration.",
+          "The list of training labels for a classifier.",
+          "The set of English words in an expert-system explanation."
+        ],
+        "correctAnswer": "The set of all states that a search problem can reach from the initial state by legal actions.",
+        "explanation": "Search explores the state space by applying actions that move from one state to a neighboring state."
+      },
+      {
+        "question": "What is Search node?",
+        "options": [
+          "A rule in an expert-system knowledge base.",
+          "A labeled training example in a data table.",
+          "A record in a search tree that stores a state, a parent link, the action used, and the path cost.",
+          "The physical city on a map, with no parent pointer or path cost."
+        ],
+        "correctAnswer": "A record in a search tree that stores a state, a parent link, the action used, and the path cost.",
+        "explanation": "The node is the search bookkeeping around a state, which is why two nodes can contain the same state."
+      },
+      {
+        "question": "What is Path cost?",
+        "options": [
+          "The number of labels in a training set.",
+          "The total cost of the actions along the path from the initial state to a given node.",
+          "The depth limit chosen before a search begins.",
+          "A heuristic estimate of the remaining cost from the node to the goal."
+        ],
+        "correctAnswer": "The total cost of the actions along the path from the initial state to a given node.",
+        "explanation": "Path cost, often written g(n), adds the step costs already taken and does not estimate the future."
+      },
+      {
+        "question": "What is Breadth-first search?",
+        "options": [
+          "A search that always expands the deepest unexpanded node first.",
+          "A search that expands the node with the lowest path cost plus heuristic.",
+          "A local search that only moves to a better neighbor.",
+          "An uninformed search that expands the shallowest unexpanded node before any deeper node."
+        ],
+        "correctAnswer": "An uninformed search that expands the shallowest unexpanded node before any deeper node.",
+        "explanation": "Using a queue makes breadth-first search explore level by level from the start."
+      },
+      {
+        "question": "What is Depth-first search?",
+        "options": [
+          "A search that expands every node at the current depth before going deeper.",
+          "An uninformed search that expands the deepest unexpanded node before its shallower siblings.",
+          "A search that uses a heuristic to jump toward the goal.",
+          "A search that expands the lowest path-cost node next."
+        ],
+        "correctAnswer": "An uninformed search that expands the deepest unexpanded node before its shallower siblings.",
+        "explanation": "A stack, or recursion, sends depth-first search down one branch before it backtracks."
+      },
+      {
+        "question": "What is Iterative deepening search?",
+        "options": [
+          "A single breadth-first search that stores every node of the current level.",
+          "A local search that restarts from a random state.",
+          "A best-first search guided only by a heuristic.",
+          "A search that repeats depth-limited depth-first search, increasing the depth limit by one each time."
+        ],
+        "correctAnswer": "A search that repeats depth-limited depth-first search, increasing the depth limit by one each time.",
+        "explanation": "The repeated depth limits give the short-solution guarantee of breadth-first search with less memory."
+      },
+      {
+        "question": "What is Uniform-cost search?",
+        "options": [
+          "An uninformed search that expands the node with the smallest path cost from the start.",
+          "A search that expands the deepest node first.",
+          "A search that expands the shallowest node even when step costs differ.",
+          "A search that expands the node that looks closest to the goal."
+        ],
+        "correctAnswer": "An uninformed search that expands the node with the smallest path cost from the start.",
+        "explanation": "Expanding the lowest g(n) first yields an optimal path when every step cost is nonnegative."
+      },
+      {
+        "question": "What is Uninformed search?",
+        "options": [
+          "A learning method that fits labeled examples.",
+          "A logic method that chains rules from known facts.",
+          "A search that ranks nodes with a heuristic estimate of remaining cost.",
+          "A search that uses only the problem definition and no extra estimate of distance to the goal."
+        ],
+        "correctAnswer": "A search that uses only the problem definition and no extra estimate of distance to the goal.",
+        "explanation": "Uninformed algorithms such as breadth-first and uniform-cost search do not receive a heuristic."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Heuristic?",
+        "options": [
+          "A problem-specific estimate of the cheapest cost from a state to a goal, used to guide search.",
+          "A label that states the correct class of a training example.",
+          "The exact path cost already spent from the start to the node.",
+          "A condition-action rule in a reflex agent."
+        ],
+        "correctAnswer": "A problem-specific estimate of the cheapest cost from a state to a goal, used to guide search.",
+        "explanation": "A heuristic, h(n), estimates remaining cost and is extra information beyond the bare problem definition."
+      },
+      {
+        "question": "What is A* search?",
+        "options": [
+          "A best-first search that expands the node with the smallest f(n), where f(n) adds path cost and a heuristic.",
+          "A search that expands the deepest node on a stack.",
+          "A search that follows only the heuristic and ignores cost already spent.",
+          "A search that expands the shallowest node and ignores both cost and estimates."
+        ],
+        "correctAnswer": "A best-first search that expands the node with the smallest f(n), where f(n) adds path cost and a heuristic.",
+        "explanation": "Adding g(n) and h(n) accounts for both the cost already used and the estimated cost remaining."
+      },
+      {
+        "question": "What is Greedy best-first search?",
+        "options": [
+          "A search that expands nodes level by level.",
+          "A search that expands the node with the smallest sum of path cost and heuristic.",
+          "An informed search that expands the node whose heuristic estimate to the goal is smallest, ignoring path cost.",
+          "A search that expands the lowest path cost and uses no heuristic."
+        ],
+        "correctAnswer": "An informed search that expands the node whose heuristic estimate to the goal is smallest, ignoring path cost.",
+        "explanation": "Because it follows only h(n), it can head toward the goal quickly and still miss a cheaper path."
+      },
+      {
+        "question": "What is Admissible heuristic?",
+        "options": [
+          "A random number unrelated to the goal.",
+          "A heuristic that sometimes estimates more than the true remaining cost.",
+          "A path cost that records distance already traveled.",
+          "A heuristic that never estimates a cost higher than the true cheapest cost from that state to a goal."
+        ],
+        "correctAnswer": "A heuristic that never estimates a cost higher than the true cheapest cost from that state to a goal.",
+        "explanation": "Admissibility keeps h(n) optimistic, which is what tree-search A* needs in order to stay optimal."
+      },
+      {
+        "question": "What is Consistent heuristic?",
+        "options": [
+          "A search that stores every generated state in a closed set.",
+          "A cost function that can be negative.",
+          "A heuristic for which the estimate at a node is no greater than the step to a neighbor plus the estimate at that neighbor.",
+          "A heuristic that only promises never to overestimate, with no triangle condition on each step."
+        ],
+        "correctAnswer": "A heuristic for which the estimate at a node is no greater than the step to a neighbor plus the estimate at that neighbor.",
+        "explanation": "Consistency, also called monotonicity, is the condition used to guarantee optimal A* graph search."
+      },
+      {
+        "question": "What is Search completeness?",
+        "options": [
+          "The guarantee that memory use stays constant as the map grows.",
+          "The guarantee that the first solution found is always a cheapest solution.",
+          "The guarantee that a heuristic never overestimates.",
+          "The guarantee that a search algorithm will find a solution whenever at least one solution exists."
+        ],
+        "correctAnswer": "The guarantee that a search algorithm will find a solution whenever at least one solution exists.",
+        "explanation": "Completeness is about eventually finding some solution, which is separate from finding a lowest-cost one."
+      },
+      {
+        "question": "What is Search optimality?",
+        "options": [
+          "The guarantee that a search algorithm returns a lowest-cost solution among all possible solutions.",
+          "The guarantee only that some solution will be found, with no claim about cost.",
+          "The guarantee that every heuristic is consistent.",
+          "The guarantee that the search uses a stack."
+        ],
+        "correctAnswer": "The guarantee that a search algorithm returns a lowest-cost solution among all possible solutions.",
+        "explanation": "Optimality concerns the cost of the solution returned, not merely whether a solution appears."
+      },
+      {
+        "question": "What is Branching factor?",
+        "options": [
+          "The depth of the shallowest goal.",
+          "The cost of the cheapest path from the start.",
+          "The number of training examples.",
+          "The number of legal successor actions, or child nodes, generated from a typical state."
+        ],
+        "correctAnswer": "The number of legal successor actions, or child nodes, generated from a typical state.",
+        "explanation": "The branching factor controls how fast the number of nodes grows with depth."
+      },
+      {
+        "question": "What is Bidirectional search?",
+        "options": [
+          "A depth-first search that never records the goal until the end.",
+          "A search that expands only from the start until it happens to reach the goal.",
+          "A search that grows one tree forward from the start and another backward from the goal until they meet.",
+          "A local search that climbs from one random state."
+        ],
+        "correctAnswer": "A search that grows one tree forward from the start and another backward from the goal until they meet.",
+        "explanation": "Meeting in the middle can explore far fewer nodes than searching the full depth from one side alone."
+      },
+      {
+        "question": "What is Underfitting?",
+        "options": [
+          "A heuristic that never overestimates remaining cost.",
+          "A model that memorizes training noise and then fails on new examples.",
+          "A search that expands nodes in depth order.",
+          "A model that is too simple to capture the regular pattern in the training examples."
+        ],
+        "correctAnswer": "A model that is too simple to capture the regular pattern in the training examples.",
+        "explanation": "Underfitting shows high error even on the training data because the hypothesis cannot represent the real pattern."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Hill climbing?",
+        "options": [
+          "A logical proof that chains every rule in a knowledge base.",
+          "A systematic search that keeps a frontier of all shallow partial paths.",
+          "A search that restarts from the initial state with a deeper limit.",
+          "A local search that repeatedly moves to a neighboring state with a better value until no neighbor is better."
+        ],
+        "correctAnswer": "A local search that repeatedly moves to a neighboring state with a better value until no neighbor is better.",
+        "explanation": "Hill climbing looks only at local neighbors, so it never keeps a frontier of distant alternative paths."
+      },
+      {
+        "question": "What is Local maximum?",
+        "options": [
+          "The initial state before any move is tried.",
+          "The best state in the entire state space.",
+          "A state that has a better neighbor one move away.",
+          "A state whose neighbors are all worse, even though a better state exists somewhere else."
+        ],
+        "correctAnswer": "A state whose neighbors are all worse, even though a better state exists somewhere else.",
+        "explanation": "Hill climbing stops at a local maximum because every immediate move looks worse."
+      },
+      {
+        "question": "What is Simulated annealing?",
+        "options": [
+          "A local search that sometimes accepts a worse neighbor, with that probability decreasing over time.",
+          "A local search that never accepts a worse neighbor.",
+          "A proof procedure that accepts a conclusion only when a rule matches.",
+          "A uniformed breadth-first search of the whole space."
+        ],
+        "correctAnswer": "A local search that sometimes accepts a worse neighbor, with that probability decreasing over time.",
+        "explanation": "Early acceptance of worse moves can escape local maxima, and the falling chance lets the search settle."
+      },
+      {
+        "question": "What is Minimax?",
+        "options": [
+          "An adversarial search that chooses a move by assuming the opponent also plays optimally in a zero-sum game.",
+          "A one-player search that ignores any opponent.",
+          "A learning method that fits labels with no game tree.",
+          "A reflex rule that looks only at the current square."
+        ],
+        "correctAnswer": "An adversarial search that chooses a move by assuming the opponent also plays optimally in a zero-sum game.",
+        "explanation": "The maximizer picks the highest value, and each minimizer node picks the lowest value for the maximizer."
+      },
+      {
+        "question": "What is Alpha-beta pruning?",
+        "options": [
+          "A change that makes minimax choose a different move than full minimax would.",
+          "A breadth-first search of a one-player maze.",
+          "A minimax speedup that skips branches that cannot change the decision already available at a higher node.",
+          "A heuristic that replaces the game rules."
+        ],
+        "correctAnswer": "A minimax speedup that skips branches that cannot change the decision already available at a higher node.",
+        "explanation": "Pruned branches cannot affect the minimax value, so the chosen move stays the same as full minimax."
+      },
+      {
+        "question": "What is Evaluation function?",
+        "options": [
+          "A static score that estimates how favorable a game position is without searching all the way to the end.",
+          "The path cost from the start in a one-player route problem.",
+          "The label of a supervised training example.",
+          "The exact minimax value of a fully solved terminal position only."
+        ],
+        "correctAnswer": "A static score that estimates how favorable a game position is without searching all the way to the end.",
+        "explanation": "When the game tree is too deep, the evaluation function scores a cutoff position for minimax."
+      },
+      {
+        "question": "What is Knowledge representation?",
+        "options": [
+          "The random split of examples into a test set.",
+          "The encoding of facts and relationships in a form a program can store and reason with.",
+          "The expansion order of an uninformed search.",
+          "The hardware sensors that collect raw percepts."
+        ],
+        "correctAnswer": "The encoding of facts and relationships in a form a program can store and reason with.",
+        "explanation": "A representation such as logic or a semantic network makes knowledge available to an inference procedure."
+      },
+      {
+        "question": "What is Knowledge base?",
+        "options": [
+          "The motors of a robot.",
+          "The list of nodes waiting on a search frontier.",
+          "A table of unlabeled pictures with no stated facts.",
+          "A stored set of sentences about a domain that an inference procedure can query and extend."
+        ],
+        "correctAnswer": "A stored set of sentences about a domain that an inference procedure can query and extend.",
+        "explanation": "The knowledge base holds the axioms and derived facts that inference uses."
+      },
+      {
+        "question": "What is Inference?",
+        "options": [
+          "The process of expanding the shallowest search node.",
+          "The process of deriving new sentences that follow from the sentences already in a knowledge base.",
+          "The process of fitting weights only to minimize training error.",
+          "The process of sensing the world through a camera."
+        ],
+        "correctAnswer": "The process of deriving new sentences that follow from the sentences already in a knowledge base.",
+        "explanation": "Inference applies rules of entailment so a conclusion is supported by what is already stored."
+      },
+      {
+        "question": "What is Forward chaining?",
+        "options": [
+          "Learning that adjusts a model from labeled pairs.",
+          "Inference that starts from a hypothesis and looks backward for supporting facts.",
+          "Inference that starts from known facts and applies rules to derive new facts until a goal appears or no rule fires.",
+          "A search from the goal state back to the start on a map."
+        ],
+        "correctAnswer": "Inference that starts from known facts and applies rules to derive new facts until a goal appears or no rule fires.",
+        "explanation": "Forward chaining is data-driven: each new fact may trigger further rules."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Backward chaining?",
+        "options": [
+          "A local search that climbs an objective function.",
+          "A breadth-first search that ignores logic rules.",
+          "Inference that starts from a goal and looks for rules and facts that would support it.",
+          "Inference that starts from data and fires every matching rule forward."
+        ],
+        "correctAnswer": "Inference that starts from a goal and looks for rules and facts that would support it.",
+        "explanation": "Backward chaining is goal-driven and only explores rules relevant to the current goal."
+      },
+      {
+        "question": "What is Expert system?",
+        "options": [
+          "A robot motor controller with no stored expertise.",
+          "A general web search engine with no encoded domain rules.",
+          "A program that answers problems in a narrow domain by applying a knowledge base through an inference engine.",
+          "A sort procedure for integers."
+        ],
+        "correctAnswer": "A program that answers problems in a narrow domain by applying a knowledge base through an inference engine.",
+        "explanation": "The classic split is a knowledge base of expert rules plus an inference engine that applies them."
+      },
+      {
+        "question": "What is Semantic network?",
+        "options": [
+          "A queue of search nodes ordered by path cost.",
+          "A list of actuator voltages.",
+          "A representation of concepts as nodes and of relations between them as labeled edges.",
+          "A table of numbers used only to train a classifier."
+        ],
+        "correctAnswer": "A representation of concepts as nodes and of relations between them as labeled edges.",
+        "explanation": "The graph makes inheritance and relationships explicit, such as an edge meaning 'is a kind of.'"
+      },
+      {
+        "question": "What is Ontology?",
+        "options": [
+          "A performance score for one agent run.",
+          "An explicit specification of the concepts, properties, and relations in a domain.",
+          "The random initial state of a local search.",
+          "A single numeric heuristic for a map."
+        ],
+        "correctAnswer": "An explicit specification of the concepts, properties, and relations in a domain.",
+        "explanation": "An ontology fixes what kinds of things exist in the domain and how they may be related."
+      },
+      {
+        "question": "What is Machine learning?",
+        "options": [
+          "The subfield that only hand-writes every decision rule and never uses data.",
+          "The design of logic gates in a processor.",
+          "The AI subfield in which a program improves its performance on a task from data or experience.",
+          "The study of sorting and shortest paths with no learning."
+        ],
+        "correctAnswer": "The AI subfield in which a program improves its performance on a task from data or experience.",
+        "explanation": "Machine learning is one part of AI, focused on improvement from examples or experience rather than only hand-coded rules."
+      },
+      {
+        "question": "What is Supervised learning?",
+        "options": [
+          "Learning a mapping from inputs to outputs by using examples that already include the correct output label.",
+          "Learning structure from inputs that have no output labels.",
+          "Solving a maze by breadth-first search with no examples.",
+          "Learning only by rewards received after a sequence of actions, with no correct label per step."
+        ],
+        "correctAnswer": "Learning a mapping from inputs to outputs by using examples that already include the correct output label.",
+        "explanation": "The training pairs supply the target output, so the learner can measure mistakes against that label."
+      },
+      {
+        "question": "What is Unsupervised learning?",
+        "options": [
+          "Expanding a game tree with minimax.",
+          "Proving a goal from a knowledge base of logical sentences.",
+          "Learning structure or groupings from inputs that are not accompanied by output labels.",
+          "Learning from examples that each include the correct class label."
+        ],
+        "correctAnswer": "Learning structure or groupings from inputs that are not accompanied by output labels.",
+        "explanation": "Without labels, the learner looks for patterns such as clusters in the inputs themselves."
+      },
+      {
+        "question": "What is Overfitting?",
+        "options": [
+          "A search that is optimal on every map.",
+          "A model too simple to capture the pattern, with high error even on the training examples.",
+          "A fit that matches the training examples too closely, including their noise, and then performs poorly on new examples.",
+          "A heuristic that is admissible for every state."
+        ],
+        "correctAnswer": "A fit that matches the training examples too closely, including their noise, and then performs poorly on new examples.",
+        "explanation": "Overfitting memorizes peculiarities of the training set that do not repeat in unseen data."
+      },
+      {
+        "question": "What is Training set?",
+        "options": [
+          "The held-out examples used only for a final check and not for fitting.",
+          "The rule list of an expert system written entirely by hand.",
+          "The collection of examples used to build or fit a model before it is judged on unseen data.",
+          "The frontier of nodes in a graph search."
+        ],
+        "correctAnswer": "The collection of examples used to build or fit a model before it is judged on unseen data.",
+        "explanation": "The learner adjusts the model on the training set, so that set must be kept distinct from a later test."
+      },
+      {
+        "question": "What is Generalization?",
+        "options": [
+          "How fast breadth-first search expands the first level.",
+          "How closely a model reproduces only the training rows, including their typos.",
+          "How many rules an expert types by hand.",
+          "How well a model performs on new examples that were not used to fit it."
+        ],
+        "correctAnswer": "How well a model performs on new examples that were not used to fit it.",
+        "explanation": "Generalization is the point of learning: success on unseen cases, not a perfect recitation of the training set."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Intelligent agent?",
+        "options": [
+          "A camera frame showing a red light is the current percept of a driving agent.",
+          "The wheels of a robot vacuum are actuators because they move the robot to a new square.",
+          "A thermostat reads the room temperature and switches the heater on or off.",
+          "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score."
+        ],
+        "correctAnswer": "A thermostat reads the room temperature and switches the heater on or off.",
+        "explanation": "The agent idea pairs ongoing perception with actions chosen in response to that perception."
+      },
+      {
+        "question": "Which situation illustrates Rationality?",
+        "options": [
+          "A camera frame showing a red light is the current percept of a driving agent.",
+          "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score.",
+          "For a chess program, PEAS lists win rate, the board and opponent, the move output, and the board sensor.",
+          "The wheels of a robot vacuum are actuators because they move the robot to a new square."
+        ],
+        "correctAnswer": "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score.",
+        "explanation": "A rational agent is judged by expected success on its performance measure, not by having perfect foresight."
+      },
+      {
+        "question": "Which situation illustrates Percept?",
+        "options": [
+          "For a chess program, PEAS lists win rate, the board and opponent, the move output, and the board sensor.",
+          "The wheels of a robot vacuum are actuators because they move the robot to a new square.",
+          "A camera frame showing a red light is the current percept of a driving agent.",
+          "In a standard chess program, the current board position is fully visible before each move."
+        ],
+        "correctAnswer": "A camera frame showing a red light is the current percept of a driving agent.",
+        "explanation": "Percepts are the agent's sensory inputs, and a percept sequence is the history of those inputs."
+      },
+      {
+        "question": "Which situation illustrates Actuator?",
+        "options": [
+          "On an empty 8-puzzle board model, sliding a tile always produces the same next arrangement.",
+          "For a chess program, PEAS lists win rate, the board and opponent, the move output, and the board sensor.",
+          "The wheels of a robot vacuum are actuators because they move the robot to a new square.",
+          "In a standard chess program, the current board position is fully visible before each move."
+        ],
+        "correctAnswer": "The wheels of a robot vacuum are actuators because they move the robot to a new square.",
+        "explanation": "Actuators carry out actions, while sensors supply percepts."
+      },
+      {
+        "question": "Which situation illustrates PEAS?",
+        "options": [
+          "In a standard chess program, the current board position is fully visible before each move.",
+          "A factory camera classifies each part on the belt separately, and one classification does not change the next part.",
+          "On an empty 8-puzzle board model, sliding a tile always produces the same next arrangement.",
+          "For a chess program, PEAS lists win rate, the board and opponent, the move output, and the board sensor."
+        ],
+        "correctAnswer": "For a chess program, PEAS lists win rate, the board and opponent, the move output, and the board sensor.",
+        "explanation": "PEAS names the four parts needed to specify a rational-agent task before choosing a design."
+      },
+      {
+        "question": "Which situation illustrates Fully observable environment?",
+        "options": [
+          "A factory camera classifies each part on the belt separately, and one classification does not change the next part.",
+          "A crossword puzzle stays the same while a program spends a minute choosing the next letter.",
+          "On an empty 8-puzzle board model, sliding a tile always produces the same next arrangement.",
+          "In a standard chess program, the current board position is fully visible before each move."
+        ],
+        "correctAnswer": "In a standard chess program, the current board position is fully visible before each move.",
+        "explanation": "Full observability means the percept contains what the agent needs to know about the current state."
+      },
+      {
+        "question": "Which situation illustrates Deterministic environment?",
+        "options": [
+          "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+          "A crossword puzzle stays the same while a program spends a minute choosing the next letter.",
+          "On an empty 8-puzzle board model, sliding a tile always produces the same next arrangement.",
+          "A factory camera classifies each part on the belt separately, and one classification does not change the next part."
+        ],
+        "correctAnswer": "On an empty 8-puzzle board model, sliding a tile always produces the same next arrangement.",
+        "explanation": "Determinism means the transition is certain once the state and action are known."
+      },
+      {
+        "question": "Which situation illustrates Episodic task environment?",
+        "options": [
+          "A route finder chooses turns by searching for a path that reaches the stated destination intersection.",
+          "A crossword puzzle stays the same while a program spends a minute choosing the next letter.",
+          "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+          "A factory camera classifies each part on the belt separately, and one classification does not change the next part."
+        ],
+        "correctAnswer": "A factory camera classifies each part on the belt separately, and one classification does not change the next part.",
+        "explanation": "In an episodic setting, the agent can choose for the current episode without planning across future episodes."
+      },
+      {
+        "question": "Which situation illustrates Static environment?",
+        "options": [
+          "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+          "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+          "A crossword puzzle stays the same while a program spends a minute choosing the next letter.",
+          "A route finder chooses turns by searching for a path that reaches the stated destination intersection."
+        ],
+        "correctAnswer": "A crossword puzzle stays the same while a program spends a minute choosing the next letter.",
+        "explanation": "If nothing else changes during deliberation, the state the agent analyzed is still the state it acts on."
+      },
+      {
+        "question": "Which situation illustrates Simple reflex agent?",
+        "options": [
+          "A route finder chooses turns by searching for a path that reaches the stated destination intersection.",
+          "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+          "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+          "For the 8-puzzle, the state space is every reachable arrangement of the eight tiles and the blank."
+        ],
+        "correctAnswer": "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+        "explanation": "A simple reflex agent does not store a model of unseen state; the current percept selects the rule."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Goal-based agent?",
+        "options": [
+          "A route finder chooses turns by searching for a path that reaches the stated destination intersection.",
+          "A route search stores a node for each partial path, including the city reached and the cost so far.",
+          "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+          "For the 8-puzzle, the state space is every reachable arrangement of the eight tiles and the blank."
+        ],
+        "correctAnswer": "A route finder chooses turns by searching for a path that reaches the stated destination intersection.",
+        "explanation": "Goal-based behavior asks whether a sequence of actions leads to a state that passes the goal test."
+      },
+      {
+        "question": "Which situation illustrates Utility-based agent?",
+        "options": [
+          "A driving search adds 12 km and then 7 km, so the path cost of that node is 19 km.",
+          "A route search stores a node for each partial path, including the city reached and the cost so far.",
+          "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+          "For the 8-puzzle, the state space is every reachable arrangement of the eight tiles and the blank."
+        ],
+        "correctAnswer": "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+        "explanation": "Utility ranks outcomes, so the agent can prefer a safer or better success instead of any goal state."
+      },
+      {
+        "question": "Which situation illustrates State space?",
+        "options": [
+          "A driving search adds 12 km and then 7 km, so the path cost of that node is 19 km.",
+          "A route search stores a node for each partial path, including the city reached and the cost so far.",
+          "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+          "For the 8-puzzle, the state space is every reachable arrangement of the eight tiles and the blank."
+        ],
+        "correctAnswer": "For the 8-puzzle, the state space is every reachable arrangement of the eight tiles and the blank.",
+        "explanation": "Search explores the state space by applying actions that move from one state to a neighboring state."
+      },
+      {
+        "question": "Which situation illustrates Search node?",
+        "options": [
+          "A driving search adds 12 km and then 7 km, so the path cost of that node is 19 km.",
+          "A maze program follows one corridor as far as it can, then backtracks to the last choice.",
+          "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+          "A route search stores a node for each partial path, including the city reached and the cost so far."
+        ],
+        "correctAnswer": "A route search stores a node for each partial path, including the city reached and the cost so far.",
+        "explanation": "The node is the search bookkeeping around a state, which is why two nodes can contain the same state."
+      },
+      {
+        "question": "Which situation illustrates Path cost?",
+        "options": [
+          "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+          "A driving search adds 12 km and then 7 km, so the path cost of that node is 19 km.",
+          "A maze program follows one corridor as far as it can, then backtracks to the last choice.",
+          "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit."
+        ],
+        "correctAnswer": "A driving search adds 12 km and then 7 km, so the path cost of that node is 19 km.",
+        "explanation": "Path cost, often written g(n), adds the step costs already taken and does not estimate the future."
+      },
+      {
+        "question": "Which situation illustrates Breadth-first search?",
+        "options": [
+          "A maze program follows one corridor as far as it can, then backtracks to the last choice.",
+          "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+          "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit.",
+          "On a map with different road lengths, uniform-cost search expands the partial route whose kilometers so far are smallest."
+        ],
+        "correctAnswer": "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+        "explanation": "Using a queue makes breadth-first search explore level by level from the start."
+      },
+      {
+        "question": "Which situation illustrates Depth-first search?",
+        "options": [
+          "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit.",
+          "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit.",
+          "A maze program follows one corridor as far as it can, then backtracks to the last choice.",
+          "On a map with different road lengths, uniform-cost search expands the partial route whose kilometers so far are smallest."
+        ],
+        "correctAnswer": "A maze program follows one corridor as far as it can, then backtracks to the last choice.",
+        "explanation": "A stack, or recursion, sends depth-first search down one branch before it backtracks."
+      },
+      {
+        "question": "Which situation illustrates Iterative deepening search?",
+        "options": [
+          "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit.",
+          "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit.",
+          "A map search uses straight-line distance to the destination as an estimate of remaining road distance.",
+          "On a map with different road lengths, uniform-cost search expands the partial route whose kilometers so far are smallest."
+        ],
+        "correctAnswer": "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit.",
+        "explanation": "The repeated depth limits give the short-solution guarantee of breadth-first search with less memory."
+      },
+      {
+        "question": "Which situation illustrates Uniform-cost search?",
+        "options": [
+          "On a map with different road lengths, uniform-cost search expands the partial route whose kilometers so far are smallest.",
+          "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+          "A map search uses straight-line distance to the destination as an estimate of remaining road distance.",
+          "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit."
+        ],
+        "correctAnswer": "On a map with different road lengths, uniform-cost search expands the partial route whose kilometers so far are smallest.",
+        "explanation": "Expanding the lowest g(n) first yields an optimal path when every step cost is nonnegative."
+      },
+      {
+        "question": "Which situation illustrates Uninformed search?",
+        "options": [
+          "A hiker always walks toward the ridge that looks closest to the peak and ignores how far the hike has already been.",
+          "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+          "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit.",
+          "A map search uses straight-line distance to the destination as an estimate of remaining road distance."
+        ],
+        "correctAnswer": "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit.",
+        "explanation": "Uninformed algorithms such as breadth-first and uniform-cost search do not receive a heuristic."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Heuristic?",
+        "options": [
+          "A hiker always walks toward the ridge that looks closest to the peak and ignores how far the hike has already been.",
+          "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+          "A map search uses straight-line distance to the destination as an estimate of remaining road distance.",
+          "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line."
+        ],
+        "correctAnswer": "A map search uses straight-line distance to the destination as an estimate of remaining road distance.",
+        "explanation": "A heuristic, h(n), estimates remaining cost and is extra information beyond the bare problem definition."
+      },
+      {
+        "question": "Which situation illustrates A* search?",
+        "options": [
+          "A hiker always walks toward the ridge that looks closest to the peak and ignores how far the hike has already been.",
+          "A grid heuristic of Manhattan distance drops by at most the cost of one legal step when the agent takes that step.",
+          "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+          "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line."
+        ],
+        "correctAnswer": "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+        "explanation": "Adding g(n) and h(n) accounts for both the cost already used and the estimated cost remaining."
+      },
+      {
+        "question": "Which situation illustrates Greedy best-first search?",
+        "options": [
+          "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line.",
+          "A grid heuristic of Manhattan distance drops by at most the cost of one legal step when the agent takes that step.",
+          "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists.",
+          "A hiker always walks toward the ridge that looks closest to the peak and ignores how far the hike has already been."
+        ],
+        "correctAnswer": "A hiker always walks toward the ridge that looks closest to the peak and ignores how far the hike has already been.",
+        "explanation": "Because it follows only h(n), it can head toward the goal quickly and still miss a cheaper path."
+      },
+      {
+        "question": "Which situation illustrates Admissible heuristic?",
+        "options": [
+          "Uniform-cost search on a map with positive road lengths returns a route whose total length is minimal.",
+          "A grid heuristic of Manhattan distance drops by at most the cost of one legal step when the agent takes that step.",
+          "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line.",
+          "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists."
+        ],
+        "correctAnswer": "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line.",
+        "explanation": "Admissibility keeps h(n) optimistic, which is what tree-search A* needs in order to stay optimal."
+      },
+      {
+        "question": "Which situation illustrates Consistent heuristic?",
+        "options": [
+          "Uniform-cost search on a map with positive road lengths returns a route whose total length is minimal.",
+          "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists.",
+          "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+          "A grid heuristic of Manhattan distance drops by at most the cost of one legal step when the agent takes that step."
+        ],
+        "correctAnswer": "A grid heuristic of Manhattan distance drops by at most the cost of one legal step when the agent takes that step.",
+        "explanation": "Consistency, also called monotonicity, is the condition used to guarantee optimal A* graph search."
+      },
+      {
+        "question": "Which situation illustrates Search completeness?",
+        "options": [
+          "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+          "A subway planner searches outward from the home station and backward from the campus station until a common station appears.",
+          "Uniform-cost search on a map with positive road lengths returns a route whose total length is minimal.",
+          "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists."
+        ],
+        "correctAnswer": "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists.",
+        "explanation": "Completeness is about eventually finding some solution, which is separate from finding a lowest-cost one."
+      },
+      {
+        "question": "Which situation illustrates Search optimality?",
+        "options": [
+          "Uniform-cost search on a map with positive road lengths returns a route whose total length is minimal.",
+          "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+          "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+          "A subway planner searches outward from the home station and backward from the campus station until a common station appears."
+        ],
+        "correctAnswer": "Uniform-cost search on a map with positive road lengths returns a route whose total length is minimal.",
+        "explanation": "Optimality concerns the cost of the solution returned, not merely whether a solution appears."
+      },
+      {
+        "question": "Which situation illustrates Branching factor?",
+        "options": [
+          "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+          "A timetable program swaps two classes whenever the swap reduces conflicts and stops when no swap helps.",
+          "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+          "A subway planner searches outward from the home station and backward from the campus station until a common station appears."
+        ],
+        "correctAnswer": "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+        "explanation": "The branching factor controls how fast the number of nodes grows with depth."
+      },
+      {
+        "question": "Which situation illustrates Bidirectional search?",
+        "options": [
+          "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+          "A subway planner searches outward from the home station and backward from the campus station until a common station appears.",
+          "A timetable program swaps two classes whenever the swap reduces conflicts and stops when no swap helps.",
+          "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still."
+        ],
+        "correctAnswer": "A subway planner searches outward from the home station and backward from the campus station until a common station appears.",
+        "explanation": "Meeting in the middle can explore far fewer nodes than searching the full depth from one side alone."
+      },
+      {
+        "question": "Which situation illustrates Underfitting?",
+        "options": [
+          "A layout program occasionally keeps a slightly worse placement at the start, then almost never does so near the end.",
+          "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+          "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still.",
+          "A timetable program swaps two classes whenever the swap reduces conflicts and stops when no swap helps."
+        ],
+        "correctAnswer": "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+        "explanation": "Underfitting shows high error even on the training data because the hypothesis cannot represent the real pattern."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Hill climbing?",
+        "options": [
+          "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still.",
+          "A timetable program swaps two classes whenever the swap reduces conflicts and stops when no swap helps.",
+          "A layout program occasionally keeps a slightly worse placement at the start, then almost never does so near the end.",
+          "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly."
+        ],
+        "correctAnswer": "A timetable program swaps two classes whenever the swap reduces conflicts and stops when no swap helps.",
+        "explanation": "Hill climbing looks only at local neighbors, so it never keeps a frontier of distant alternative paths."
+      },
+      {
+        "question": "Which situation illustrates Local maximum?",
+        "options": [
+          "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly.",
+          "A layout program occasionally keeps a slightly worse placement at the start, then almost never does so near the end.",
+          "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still.",
+          "After one chess line is valued at +2, the program skips a later line once it sees the opponent can hold it to 0."
+        ],
+        "correctAnswer": "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still.",
+        "explanation": "Hill climbing stops at a local maximum because every immediate move looks worse."
+      },
+      {
+        "question": "Which situation illustrates Simulated annealing?",
+        "options": [
+          "A layout program occasionally keeps a slightly worse placement at the start, then almost never does so near the end.",
+          "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+          "After one chess line is valued at +2, the program skips a later line once it sees the opponent can hold it to 0.",
+          "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly."
+        ],
+        "correctAnswer": "A layout program occasionally keeps a slightly worse placement at the start, then almost never does so near the end.",
+        "explanation": "Early acceptance of worse moves can escape local maxima, and the falling chance lets the search settle."
+      },
+      {
+        "question": "Which situation illustrates Minimax?",
+        "options": [
+          "After one chess line is valued at +2, the program skips a later line once it sees the opponent can hold it to 0.",
+          "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly.",
+          "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+          "A campus advisor encodes 'CEIT-6004 requires the introductory programming course' as a sentence in a knowledge base."
+        ],
+        "correctAnswer": "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly.",
+        "explanation": "The maximizer picks the highest value, and each minimizer node picks the lowest value for the maximizer."
+      },
+      {
+        "question": "Which situation illustrates Alpha-beta pruning?",
+        "options": [
+          "After one chess line is valued at +2, the program skips a later line once it sees the opponent can hold it to 0.",
+          "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+          "A campus advisor encodes 'CEIT-6004 requires the introductory programming course' as a sentence in a knowledge base.",
+          "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires."
+        ],
+        "correctAnswer": "After one chess line is valued at +2, the program skips a later line once it sees the opponent can hold it to 0.",
+        "explanation": "Pruned branches cannot affect the minimax value, so the chosen move stays the same as full minimax."
+      },
+      {
+        "question": "Which situation illustrates Evaluation function?",
+        "options": [
+          "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires.",
+          "A campus advisor encodes 'CEIT-6004 requires the introductory programming course' as a sentence in a knowledge base.",
+          "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+          "From 'all lab sections meet on Friday' and 'section B is a lab,' the program derives that section B meets on Friday."
+        ],
+        "correctAnswer": "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+        "explanation": "When the game tree is too deep, the evaluation function scores a cutoff position for minimax."
+      },
+      {
+        "question": "Which situation illustrates Knowledge representation?",
+        "options": [
+          "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires.",
+          "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault.",
+          "From 'all lab sections meet on Friday' and 'section B is a lab,' the program derives that section B meets on Friday.",
+          "A campus advisor encodes 'CEIT-6004 requires the introductory programming course' as a sentence in a knowledge base."
+        ],
+        "correctAnswer": "A campus advisor encodes 'CEIT-6004 requires the introductory programming course' as a sentence in a knowledge base.",
+        "explanation": "A representation such as logic or a semantic network makes knowledge available to an inference procedure."
+      },
+      {
+        "question": "Which situation illustrates Knowledge base?",
+        "options": [
+          "To prove a student can graduate, an advisor program looks backward for the required courses on the transcript.",
+          "From 'all lab sections meet on Friday' and 'section B is a lab,' the program derives that section B meets on Friday.",
+          "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires.",
+          "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault."
+        ],
+        "correctAnswer": "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires.",
+        "explanation": "The knowledge base holds the axioms and derived facts that inference uses."
+      },
+      {
+        "question": "Which situation illustrates Inference?",
+        "options": [
+          "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault.",
+          "To prove a student can graduate, an advisor program looks backward for the required courses on the transcript.",
+          "From 'all lab sections meet on Friday' and 'section B is a lab,' the program derives that section B meets on Friday.",
+          "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause."
+        ],
+        "correctAnswer": "From 'all lab sections meet on Friday' and 'section B is a lab,' the program derives that section B meets on Friday.",
+        "explanation": "Inference applies rules of entailment so a conclusion is supported by what is already stored."
+      },
+      {
+        "question": "Which situation illustrates Forward chaining?",
+        "options": [
+          "A diagram links 'sparrow' to 'bird' with an is-a edge and 'bird' to 'can fly' with a property edge.",
+          "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause.",
+          "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault.",
+          "To prove a student can graduate, an advisor program looks backward for the required courses on the transcript."
+        ],
+        "correctAnswer": "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault.",
+        "explanation": "Forward chaining is data-driven: each new fact may trigger further rules."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Backward chaining?",
+        "options": [
+          "To prove a student can graduate, an advisor program looks backward for the required courses on the transcript.",
+          "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause.",
+          "A diagram links 'sparrow' to 'bird' with an is-a edge and 'bird' to 'can fly' with a property edge.",
+          "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course."
+        ],
+        "correctAnswer": "To prove a student can graduate, an advisor program looks backward for the required courses on the transcript.",
+        "explanation": "Backward chaining is goal-driven and only explores rules relevant to the current goal."
+      },
+      {
+        "question": "Which situation illustrates Expert system?",
+        "options": [
+          "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course.",
+          "A spam filter improves after it is shown many messages already marked spam or not spam.",
+          "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause.",
+          "A diagram links 'sparrow' to 'bird' with an is-a edge and 'bird' to 'can fly' with a property edge."
+        ],
+        "correctAnswer": "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause.",
+        "explanation": "The classic split is a knowledge base of expert rules plus an inference engine that applies them."
+      },
+      {
+        "question": "Which situation illustrates Semantic network?",
+        "options": [
+          "A spam filter improves after it is shown many messages already marked spam or not spam.",
+          "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+          "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course.",
+          "A diagram links 'sparrow' to 'bird' with an is-a edge and 'bird' to 'can fly' with a property edge."
+        ],
+        "correctAnswer": "A diagram links 'sparrow' to 'bird' with an is-a edge and 'bird' to 'can fly' with a property edge.",
+        "explanation": "The graph makes inheritance and relationships explicit, such as an edge meaning 'is a kind of.'"
+      },
+      {
+        "question": "Which situation illustrates Ontology?",
+        "options": [
+          "A program groups shoppers by purchase records without being told any group name in advance.",
+          "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+          "A spam filter improves after it is shown many messages already marked spam or not spam.",
+          "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course."
+        ],
+        "correctAnswer": "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course.",
+        "explanation": "An ontology fixes what kinds of things exist in the domain and how they may be related."
+      },
+      {
+        "question": "Which situation illustrates Machine learning?",
+        "options": [
+          "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+          "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+          "A program groups shoppers by purchase records without being told any group name in advance.",
+          "A spam filter improves after it is shown many messages already marked spam or not spam."
+        ],
+        "correctAnswer": "A spam filter improves after it is shown many messages already marked spam or not spam.",
+        "explanation": "Machine learning is one part of AI, focused on improvement from examples or experience rather than only hand-coded rules."
+      },
+      {
+        "question": "Which situation illustrates Supervised learning?",
+        "options": [
+          "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+          "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+          "A program groups shoppers by purchase records without being told any group name in advance.",
+          "A classifier is fit on 800 labeled emails and later scored on 200 emails it did not use for fitting."
+        ],
+        "correctAnswer": "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+        "explanation": "The training pairs supply the target output, so the learner can measure mistakes against that label."
+      },
+      {
+        "question": "Which situation illustrates Unsupervised learning?",
+        "options": [
+          "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning.",
+          "A program groups shoppers by purchase records without being told any group name in advance.",
+          "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+          "A classifier is fit on 800 labeled emails and later scored on 200 emails it did not use for fitting."
+        ],
+        "correctAnswer": "A program groups shoppers by purchase records without being told any group name in advance.",
+        "explanation": "Without labels, the learner looks for patterns such as clusters in the inputs themselves."
+      },
+      {
+        "question": "Which situation illustrates Overfitting?",
+        "options": [
+          "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+          "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning.",
+          "A thermostat reads the room temperature and switches the heater on or off.",
+          "A classifier is fit on 800 labeled emails and later scored on 200 emails it did not use for fitting."
+        ],
+        "correctAnswer": "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+        "explanation": "Overfitting memorizes peculiarities of the training set that do not repeat in unseen data."
+      },
+      {
+        "question": "Which situation illustrates Training set?",
+        "options": [
+          "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score.",
+          "A thermostat reads the room temperature and switches the heater on or off.",
+          "A classifier is fit on 800 labeled emails and later scored on 200 emails it did not use for fitting.",
+          "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning."
+        ],
+        "correctAnswer": "A classifier is fit on 800 labeled emails and later scored on 200 emails it did not use for fitting.",
+        "explanation": "The learner adjusts the model on the training set, so that set must be kept distinct from a later test."
+      },
+      {
+        "question": "Which situation illustrates Generalization?",
+        "options": [
+          "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning.",
+          "A camera frame showing a red light is the current percept of a driving agent.",
+          "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score.",
+          "A thermostat reads the room temperature and switches the heater on or off."
+        ],
+        "correctAnswer": "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning.",
+        "explanation": "Generalization is the point of learning: success on unseen cases, not a perfect recitation of the training set."
+      }
+    ],
+    "11": [
+      {
+        "question": "A robot reads a camera and turns its wheels in response. Which AI idea describes that pairing of sensing and acting?",
+        "options": [
+          "A one-time array sort",
+          "An intelligent agent",
+          "A passive cable",
+          "A static database table"
+        ],
+        "correctAnswer": "An intelligent agent",
+        "explanation": "An intelligent agent is defined by perceiving an environment and acting on it."
+      },
+      {
+        "question": "A vacuum scores points for clean squares and can see dirt in the current square. Which action is rational?",
+        "options": [
+          "Clean the dirty square",
+          "Shut off its sensors",
+          "Leave the dirt and spin in place",
+          "Move away and never clean"
+        ],
+        "correctAnswer": "Clean the dirty square",
+        "explanation": "Cleaning the observed dirt is the action expected to improve the cleanliness score."
+      },
+      {
+        "question": "A driving program receives one camera frame of a red light before it chooses an action. What is that frame?",
+        "options": [
+          "An actuator command",
+          "The final performance score",
+          "The program's source code",
+          "A percept"
+        ],
+        "correctAnswer": "A percept",
+        "explanation": "A percept is the sensory input available to the agent at that moment."
+      },
+      {
+        "question": "A robot vacuum needs a part that moves it into the next square rather than a part that only senses dirt. Which part is that?",
+        "options": [
+          "An actuator",
+          "A training label",
+          "A heuristic value",
+          "A dirt sensor"
+        ],
+        "correctAnswer": "An actuator",
+        "explanation": "An actuator is the component that carries out an action on the environment."
+      },
+      {
+        "question": "Designers list success criteria, the world, the outputs, and the inputs of a taxi agent before building it. Which description is that?",
+        "options": [
+          "A labeled training table",
+          "A PEAS description",
+          "An A* evaluation function",
+          "A single if-then rule"
+        ],
+        "correctAnswer": "A PEAS description",
+        "explanation": "PEAS is the four-part task description: performance, environment, actuators, and sensors."
+      },
+      {
+        "question": "A puzzle agent can see every tile's location before it chooses a move. How is that environment classified?",
+        "options": [
+          "Partially observable",
+          "Stochastic because some tiles are hidden",
+          "Dynamic only because the tiles are visible",
+          "Fully observable"
+        ],
+        "correctAnswer": "Fully observable",
+        "explanation": "The sensors reveal the whole relevant state, so the environment is fully observable."
+      },
+      {
+        "question": "Sliding one tile on an 8-puzzle model always yields the same next board. Which environment property is that?",
+        "options": [
+          "Partially observable",
+          "Stochastic",
+          "Deterministic",
+          "Multi-agent"
+        ],
+        "correctAnswer": "Deterministic",
+        "explanation": "The next state is completely determined by the current board and the slide."
+      },
+      {
+        "question": "A vision system labels each item on a belt, and one label does not change the next item. Which task type is that?",
+        "options": [
+          "Sequential",
+          "Episodic",
+          "Dynamic solely because labels are independent",
+          "Continuous solely because items move"
+        ],
+        "correctAnswer": "Episodic",
+        "explanation": "Each classification is its own episode and does not affect the next item's state."
+      },
+      {
+        "question": "A crossword grid does not change during the minute a program spends choosing a letter. Which property is that?",
+        "options": [
+          "Stochastic",
+          "Static",
+          "Partially observable",
+          "Dynamic"
+        ],
+        "correctAnswer": "Static",
+        "explanation": "The environment is static because it does not change while the agent deliberates."
+      },
+      {
+        "question": "A vacuum has only the rule: if this square is dirty, suck. It keeps no map and no goal test. Which agent type is that?",
+        "options": [
+          "A goal-based agent",
+          "A model-based agent that tracks unseen rooms",
+          "A simple reflex agent",
+          "A utility-based agent"
+        ],
+        "correctAnswer": "A simple reflex agent",
+        "explanation": "The action comes directly from the current percept through a condition-action rule."
+      }
+    ],
+    "12": [
+      {
+        "question": "A navigator searches future turns until the state matches a declared destination. Which agent type is that?",
+        "options": [
+          "An agent with no goal test that only mimics labels",
+          "A sensor that never acts",
+          "A goal-based agent",
+          "A simple reflex agent"
+        ],
+        "correctAnswer": "A goal-based agent",
+        "explanation": "The navigator chooses actions by testing whether future states reach the goal."
+      },
+      {
+        "question": "Two routes both reach the customer, but one is safer. The robot prefers the higher expected score. Which agent type is that?",
+        "options": [
+          "A pure goal agent with no ranking among successes",
+          "A simple reflex agent",
+          "A knowledge base with no actions",
+          "A utility-based agent"
+        ],
+        "correctAnswer": "A utility-based agent",
+        "explanation": "The robot ranks outcomes by expected utility rather than treating every successful route as equal."
+      },
+      {
+        "question": "An 8-puzzle solver must consider every reachable arrangement of tiles, not only the solved board. What is that set called?",
+        "options": [
+          "The state space",
+          "The training labels",
+          "The goal state alone",
+          "The explanation vocabulary"
+        ],
+        "correctAnswer": "The state space",
+        "explanation": "The state space contains all configurations the legal moves can reach."
+      },
+      {
+        "question": "A router search must remember a city, how it was reached, and the cost so far. What record holds those fields?",
+        "options": [
+          "An expert-system rule",
+          "A training example",
+          "A search node",
+          "The city itself with no path data"
+        ],
+        "correctAnswer": "A search node",
+        "explanation": "A search node stores the state together with its parent, action, and path cost."
+      },
+      {
+        "question": "A node was reached by traveling 12 km and then 7 km. Which quantity is 19 km?",
+        "options": [
+          "The path cost",
+          "The depth limit",
+          "The heuristic estimate to the goal",
+          "The number of training labels"
+        ],
+        "correctAnswer": "The path cost",
+        "explanation": "Path cost is the sum of the step costs already used to reach the node."
+      },
+      {
+        "question": "Every step has equal cost, and the solver must find a route with the fewest steps. Which uninformed search fits?",
+        "options": [
+          "Greedy best-first search",
+          "Hill climbing",
+          "Depth-first search",
+          "Breadth-first search"
+        ],
+        "correctAnswer": "Breadth-first search",
+        "explanation": "Breadth-first search expands level by level, so the first goal it reaches has the fewest steps."
+      },
+      {
+        "question": "A maze program should follow one corridor to its end before trying the previous junction. Which search matches?",
+        "options": [
+          "Depth-first search",
+          "A* search",
+          "Uniform-cost search",
+          "Breadth-first search"
+        ],
+        "correctAnswer": "Depth-first search",
+        "explanation": "Depth-first search goes deep along one branch and backtracks only when that branch is exhausted."
+      },
+      {
+        "question": "A solver wants the shortest unweighted solution but cannot store a whole breadth-first frontier. Which search fits?",
+        "options": [
+          "Greedy best-first search",
+          "A single hill-climbing run",
+          "Plain depth-first search with no depth limit",
+          "Iterative deepening search"
+        ],
+        "correctAnswer": "Iterative deepening search",
+        "explanation": "Iterative deepening finds the shallowest solution by increasing a depth-first limit one step at a time."
+      },
+      {
+        "question": "Road segments have unequal lengths, all positive, and no heuristic is available. Which search finds a cheapest route?",
+        "options": [
+          "Greedy search with no costs",
+          "Depth-first search",
+          "Breadth-first search ignoring lengths",
+          "Uniform-cost search"
+        ],
+        "correctAnswer": "Uniform-cost search",
+        "explanation": "Uniform-cost search expands the lowest path cost first and is optimal for nonnegative step costs."
+      },
+      {
+        "question": "A maze solver may use the start, the moves, and the goal test, but it has no distance estimate. Which search family is that?",
+        "options": [
+          "Forward chaining",
+          "Uninformed search",
+          "Informed search",
+          "Supervised learning"
+        ],
+        "correctAnswer": "Uninformed search",
+        "explanation": "Uninformed search has the problem definition only and no heuristic guidance."
+      }
+    ],
+    "13": [
+      {
+        "question": "A map program estimates remaining distance by the straight line to the goal, which may be shorter than the roads. What is that estimate?",
+        "options": [
+          "A reflex rule",
+          "A training label",
+          "A heuristic",
+          "The exact path cost already traveled"
+        ],
+        "correctAnswer": "A heuristic",
+        "explanation": "Straight-line distance is a heuristic estimate of the remaining cost, not the cost already paid."
+      },
+      {
+        "question": "A router should add kilometers already driven to a straight-line estimate and expand the smallest total. Which search is that?",
+        "options": [
+          "Depth-first search",
+          "A* search",
+          "Breadth-first search",
+          "Greedy best-first search"
+        ],
+        "correctAnswer": "A* search",
+        "explanation": "A* expands the node with the lowest sum of path cost and heuristic estimate."
+      },
+      {
+        "question": "A program always expands the city that appears closest to the destination and ignores distance already traveled. Which search is that?",
+        "options": [
+          "Breadth-first search",
+          "Uniform-cost search",
+          "Greedy best-first search",
+          "A* search"
+        ],
+        "correctAnswer": "Greedy best-first search",
+        "explanation": "Greedy best-first search ranks nodes by the heuristic alone."
+      },
+      {
+        "question": "A road heuristic never claims a remaining distance longer than the best real route. Which property does it have?",
+        "options": [
+          "It equals the distance already driven",
+          "It is a random rank",
+          "It is admissible",
+          "It overestimates on some roads"
+        ],
+        "correctAnswer": "It is admissible",
+        "explanation": "An admissible heuristic never overestimates the true remaining cost."
+      },
+      {
+        "question": "For every move, a grid heuristic falls by no more than that move's cost. Which stronger heuristic property is that?",
+        "options": [
+          "Mere storage in a closed set",
+          "Consistency",
+          "Expansion by depth only",
+          "A negative step cost"
+        ],
+        "correctAnswer": "Consistency",
+        "explanation": "Consistency says the heuristic cannot drop by more than the cost of the step just taken."
+      },
+      {
+        "question": "On a finite maze, a search is sure to reach an exit if any path exists, even if that path is not cheapest. Which guarantee is that?",
+        "options": [
+          "Constant memory",
+          "Admissibility",
+          "Completeness",
+          "Optimality"
+        ],
+        "correctAnswer": "Completeness",
+        "explanation": "Completeness promises that an existing solution will be found, not that it is the cheapest."
+      },
+      {
+        "question": "With positive segment costs and no heuristic, a search returns a route of truly minimal length. Which guarantee is that?",
+        "options": [
+          "Consistency of a heuristic",
+          "Use of a stack",
+          "Optimality",
+          "Completeness alone"
+        ],
+        "correctAnswer": "Optimality",
+        "explanation": "Optimality means the solution that is returned has the lowest path cost."
+      },
+      {
+        "question": "Each puzzle state has four legal moves. Which quantity describes how many children a typical node has?",
+        "options": [
+          "The path cost",
+          "The solution depth",
+          "The size of the training set",
+          "The branching factor"
+        ],
+        "correctAnswer": "The branching factor",
+        "explanation": "The branching factor is the number of successors expanded from a typical state."
+      },
+      {
+        "question": "A planner searches from home and from campus at the same time until the two frontiers share a station. Which search is that?",
+        "options": [
+          "Forward breadth-first search only",
+          "Hill climbing",
+          "Depth-first search from home only",
+          "Bidirectional search"
+        ],
+        "correctAnswer": "Bidirectional search",
+        "explanation": "Bidirectional search runs from the start and the goal until the two searches meet."
+      },
+      {
+        "question": "Points form a curve, but the chosen model is a straight line and misses badly even on the training points. What problem is that?",
+        "options": [
+          "An admissible heuristic",
+          "Underfitting",
+          "Overfitting",
+          "Breadth-first expansion"
+        ],
+        "correctAnswer": "Underfitting",
+        "explanation": "Underfitting is a model too simple to represent the pattern, so training error stays high."
+      }
+    ],
+    "14": [
+      {
+        "question": "A scheduler keeps a swap of two classes only when the swap reduces conflicts, then stops when none helps. Which method is that?",
+        "options": [
+          "Iterative deepening",
+          "Hill climbing",
+          "Breadth-first search",
+          "Forward chaining"
+        ],
+        "correctAnswer": "Hill climbing",
+        "explanation": "Hill climbing accepts a better neighbor and stops when every neighbor is worse."
+      },
+      {
+        "question": "Every small change of a schedule adds conflicts, yet a very different schedule has fewer conflicts. What is the current schedule?",
+        "options": [
+          "The global best schedule",
+          "A local maximum",
+          "The untouched initial schedule",
+          "A state with a better neighbor"
+        ],
+        "correctAnswer": "A local maximum",
+        "explanation": "A local maximum is worse than some distant state but better than all of its neighbors."
+      },
+      {
+        "question": "A layout search sometimes keeps a worse placement early, then almost never does so later. Which method matches?",
+        "options": [
+          "Breadth-first search",
+          "Simulated annealing",
+          "Backward chaining",
+          "Strict hill climbing"
+        ],
+        "correctAnswer": "Simulated annealing",
+        "explanation": "Simulated annealing allows worse moves with a probability that decreases as the search continues."
+      },
+      {
+        "question": "A tic-tac-toe program assumes the opponent will answer perfectly and picks the least bad guaranteed result. Which method is that?",
+        "options": [
+          "Uniform-cost search with no opponent",
+          "A dirt-sensing reflex",
+          "Supervised labeling",
+          "Minimax"
+        ],
+        "correctAnswer": "Minimax",
+        "explanation": "Minimax selects a move under the assumption of optimal play by the opponent."
+      },
+      {
+        "question": "A game search skips a line once it knows the opponent can force a worse value than a line already found. What speedup is that?",
+        "options": [
+          "Changing the minimax move on purpose",
+          "Breadth-first maze search",
+          "Alpha-beta pruning",
+          "Replacing the rules with a coin flip"
+        ],
+        "correctAnswer": "Alpha-beta pruning",
+        "explanation": "Alpha-beta pruning cuts branches that cannot change the minimax decision."
+      },
+      {
+        "question": "A chess program cannot search to the end, so it scores material at a cutoff depth. What provides that score?",
+        "options": [
+          "An evaluation function",
+          "A training label",
+          "The driving path cost",
+          "A fully solved terminal value only"
+        ],
+        "correctAnswer": "An evaluation function",
+        "explanation": "An evaluation function estimates a nonterminal position when the search must stop early."
+      },
+      {
+        "question": "An advisor program must store course rules so it can draw conclusions later. Which AI task is the storing of those rules?",
+        "options": [
+          "Choosing a camera sensor",
+          "Shuffling a test set",
+          "Knowledge representation",
+          "Picking breadth-first expansion"
+        ],
+        "correctAnswer": "Knowledge representation",
+        "explanation": "Knowledge representation is the encoding of the rules in a form the program can reason over."
+      },
+      {
+        "question": "A tutor program keeps domain sentences and adds a new fact when a rule applies. Where are those sentences kept?",
+        "options": [
+          "In the knowledge base",
+          "In the robot's motors",
+          "In an unlabeled picture folder",
+          "On the search frontier"
+        ],
+        "correctAnswer": "In the knowledge base",
+        "explanation": "A knowledge base is the store of sentences that inference reads and extends."
+      },
+      {
+        "question": "A program concludes that section B meets on Friday because of two stored sentences. What process produced that conclusion?",
+        "options": [
+          "Breadth-first expansion",
+          "Inference",
+          "Camera sensing",
+          "Weight fitting on images"
+        ],
+        "correctAnswer": "Inference",
+        "explanation": "Inference derives the new sentence from sentences already in the knowledge base."
+      },
+      {
+        "question": "A diagnostic program starts from observed symptoms and fires rules to reach a fault. Which inference direction is that?",
+        "options": [
+          "Supervised weight updates",
+          "Bidirectional map search",
+          "Backward chaining",
+          "Forward chaining"
+        ],
+        "correctAnswer": "Forward chaining",
+        "explanation": "Forward chaining begins with the known symptoms and works forward through the rules."
+      }
+    ],
+    "15": [
+      {
+        "question": "An advisor starts from the goal 'can graduate' and searches for rules and transcript facts that support it. Which method is that?",
+        "options": [
+          "Breadth-first map search",
+          "Forward chaining from every fact",
+          "Hill climbing",
+          "Backward chaining"
+        ],
+        "correctAnswer": "Backward chaining",
+        "explanation": "Backward chaining starts at the goal and looks for support, rather than firing every data rule."
+      },
+      {
+        "question": "A narrow program uses expert if-then rules and an inference engine to suggest why a plant is wilting. What kind of program is it?",
+        "options": [
+          "An integer sorting routine",
+          "An expert system",
+          "A general web index",
+          "A motor controller with no rules"
+        ],
+        "correctAnswer": "An expert system",
+        "explanation": "An expert system applies a domain knowledge base through an inference engine."
+      },
+      {
+        "question": "Course concepts are drawn as nodes, with edges such as 'is a kind of' between them. Which representation is that?",
+        "options": [
+          "A uniform-cost frontier",
+          "A list of motor voltages",
+          "A semantic network",
+          "A numeric training table"
+        ],
+        "correctAnswer": "A semantic network",
+        "explanation": "A semantic network represents concepts as nodes and their relations as labeled links."
+      },
+      {
+        "question": "Modelers formally list the types Student and Course and the relation 'enrolled in' before writing rules. What are they writing?",
+        "options": [
+          "A random restart state",
+          "An ontology",
+          "One performance number",
+          "A map heuristic"
+        ],
+        "correctAnswer": "An ontology",
+        "explanation": "An ontology specifies the domain's concepts and the relations allowed among them."
+      },
+      {
+        "question": "Instead of writing every spam rule by hand, a program improves from messages already marked spam or not. Which subfield is that?",
+        "options": [
+          "Manual rule writing with no data",
+          "Classical sorting",
+          "Processor gate design",
+          "Machine learning"
+        ],
+        "correctAnswer": "Machine learning",
+        "explanation": "Machine learning is the subfield in which performance improves from data or experience."
+      },
+      {
+        "question": "Past students have recorded study hours and a known pass or fail result, and a model learns from those pairs. Which learning setting is that?",
+        "options": [
+          "Supervised learning",
+          "Unsupervised learning",
+          "Clustering with no pass or fail labels",
+          "A search with no examples"
+        ],
+        "correctAnswer": "Supervised learning",
+        "explanation": "Supervised learning uses examples that already contain the correct output label."
+      },
+      {
+        "question": "Purchase records have no category labels, and a program groups similar shoppers anyway. Which learning setting is that?",
+        "options": [
+          "Backward chaining",
+          "Supervised learning",
+          "Minimax",
+          "Unsupervised learning"
+        ],
+        "correctAnswer": "Unsupervised learning",
+        "explanation": "Unsupervised learning finds structure in unlabeled inputs."
+      },
+      {
+        "question": "A model passes through every training point, including an obvious typo, and then misses new students. What has happened?",
+        "options": [
+          "Finding an optimal path",
+          "Using an admissible heuristic",
+          "Underfitting",
+          "Overfitting"
+        ],
+        "correctAnswer": "Overfitting",
+        "explanation": "Overfitting matches training noise, such as the typo, and therefore fails to generalize."
+      },
+      {
+        "question": "A student fits a classifier on 800 labeled emails and saves 200 others for a later score. What are the 800 emails?",
+        "options": [
+          "The training set",
+          "A search frontier",
+          "The final test set",
+          "A hand-written rule list"
+        ],
+        "correctAnswer": "The training set",
+        "explanation": "The training set is the collection of examples used to fit the model."
+      },
+      {
+        "question": "A spam filter was fit on last year's mail and correctly labels a message that arrived today. What ability is it showing?",
+        "options": [
+          "Hand-counting expert rules",
+          "Breadth-first expansion speed",
+          "Generalization",
+          "Memorizing only last year's rows"
+        ],
+        "correctAnswer": "Generalization",
+        "explanation": "Generalization is successful performance on a new example that was not part of fitting."
+      }
+    ]
+  }
+}

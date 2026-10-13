@@ -1,0 +1,1685 @@
+{
+  "subjectId": "computer-organization-design",
+  "levels": {
+    "1": [
+      {
+        "question": "What is an instruction set architecture?",
+        "options": [
+          "The gate-level design of the adder and the pipeline registers.",
+          "The physical pinout of the processor package.",
+          "The programmer-visible contract of instructions, registers, data types, and addressing, separate from the circuit that implements it.",
+          "The operating system's file format."
+        ],
+        "correctAnswer": "The programmer-visible contract of instructions, registers, data types, and addressing, separate from the circuit that implements it.",
+        "explanation": "Compilers and assembly programmers depend on the visible instructions and registers, not on the internal wiring."
+      },
+      {
+        "question": "What is a datapath?",
+        "options": [
+          "The processor hardware that stores operands and performs operations on them, including the ALU, registers, and multiplexers.",
+          "The page table that translates virtual addresses.",
+          "The logic that only generates control signals from the opcode.",
+          "The disk controller that moves blocks without the processor."
+        ],
+        "correctAnswer": "The processor hardware that stores operands and performs operations on them, including the ALU, registers, and multiplexers.",
+        "explanation": "Operands move through registers, muxes, and the ALU, which together form the path data follows."
+      },
+      {
+        "question": "What is a control unit?",
+        "options": [
+          "The processor block that decodes an instruction and generates the signals that steer the datapath.",
+          "The register that holds the address of the next instruction.",
+          "The cache that holds recent data blocks.",
+          "The block that adds and shifts the operand bits."
+        ],
+        "correctAnswer": "The processor block that decodes an instruction and generates the signals that steer the datapath.",
+        "explanation": "The opcode must be turned into select, write-enable, and ALU-operation signals."
+      },
+      {
+        "question": "What is an arithmetic logic unit?",
+        "options": [
+          "The datapath unit that performs arithmetic and logical operations such as add, subtract, AND, and compare.",
+          "The unit that transfers blocks between a device and memory.",
+          "The unit that translates virtual page numbers.",
+          "The unit that only fetches instructions from memory."
+        ],
+        "correctAnswer": "The datapath unit that performs arithmetic and logical operations such as add, subtract, AND, and compare.",
+        "explanation": "Arithmetic and logic instructions are implemented by this combinational unit inside the datapath."
+      },
+      {
+        "question": "What is a program counter?",
+        "options": [
+          "The register that holds the address of the next instruction to be fetched.",
+          "The register that holds the ALU flags.",
+          "The register that holds the instruction currently being decoded.",
+          "The register that holds a subroutine return address on a stack machine only."
+        ],
+        "correctAnswer": "The register that holds the address of the next instruction to be fetched.",
+        "explanation": "Instruction fetch uses this address, and it is then updated to the following instruction or to a branch target."
+      },
+      {
+        "question": "What is an instruction register?",
+        "options": [
+          "The register that holds a cache tag.",
+          "The register that holds the instruction that has just been fetched so it can be decoded.",
+          "The register that holds the address of the next instruction.",
+          "The register that holds a loaded data operand from memory."
+        ],
+        "correctAnswer": "The register that holds the instruction that has just been fetched so it can be decoded.",
+        "explanation": "The fetched bit pattern must be saved while the control unit examines the opcode and operand fields."
+      },
+      {
+        "question": "What is a register file?",
+        "options": [
+          "The large DRAM that holds programs and data.",
+          "A disk buffer outside the processor.",
+          "A cache of page-table translations.",
+          "A small, fast, multiported array of registers inside the processor that instructions read and write."
+        ],
+        "correctAnswer": "A small, fast, multiported array of registers inside the processor that instructions read and write.",
+        "explanation": "Most arithmetic instructions take operands from this array and write the result back into it in the same cycle structure."
+      },
+      {
+        "question": "What is a general-purpose register?",
+        "options": [
+          "A register that holds only condition flags.",
+          "A programmer-visible register that instructions may use to hold arbitrary operands and results.",
+          "A register that holds only the current instruction bits.",
+          "A register reserved only for the next instruction address."
+        ],
+        "correctAnswer": "A programmer-visible register that instructions may use to hold arbitrary operands and results.",
+        "explanation": "Unlike the program counter, these registers are named by arithmetic and load instructions as operand locations."
+      },
+      {
+        "question": "What is an instruction cycle?",
+        "options": [
+          "The repeated sequence of fetching an instruction, decoding it, executing it, and writing the result.",
+          "A cache miss that refills one block.",
+          "A pipeline bubble inserted to wait for memory.",
+          "An interrupt acknowledge sent to a device."
+        ],
+        "correctAnswer": "The repeated sequence of fetching an instruction, decoding it, executing it, and writing the result.",
+        "explanation": "Every instruction, however implemented, is still obtained, interpreted, performed, and retired."
+      },
+      {
+        "question": "What is an opcode?",
+        "options": [
+          "The instruction field that specifies the operation, such as add, load, or branch.",
+          "A constant stored inside the instruction as data.",
+          "The field that names a source register.",
+          "A comment ignored by the assembler."
+        ],
+        "correctAnswer": "The instruction field that specifies the operation, such as add, load, or branch.",
+        "explanation": "The control unit reads this field to decide which operation and which control signals to use."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is an operand?",
+        "options": [
+          "A value, or the location of a value, that an instruction reads or writes.",
+          "A comment in the source listing.",
+          "The field that only names the operation.",
+          "The clock that times the pipeline."
+        ],
+        "correctAnswer": "A value, or the location of a value, that an instruction reads or writes.",
+        "explanation": "An instruction specifies both what to do and which data to do it to."
+      },
+      {
+        "question": "What is immediate addressing?",
+        "options": [
+          "A mode in which the operand address is the program counter plus an offset.",
+          "A mode in which the instruction holds the memory address of the operand.",
+          "An addressing mode in which the operand value is encoded directly in the instruction.",
+          "A mode in which the instruction holds the address of a pointer to the operand."
+        ],
+        "correctAnswer": "An addressing mode in which the operand value is encoded directly in the instruction.",
+        "explanation": "No extra memory read is required for the operand because the constant travels inside the instruction."
+      },
+      {
+        "question": "What is register addressing?",
+        "options": [
+          "A mode in which the instruction contains a memory address.",
+          "An addressing mode in which the operand is already in a register named by the instruction.",
+          "A mode that adds a displacement to the program counter.",
+          "A mode in which the operand is a constant in the instruction."
+        ],
+        "correctAnswer": "An addressing mode in which the operand is already in a register named by the instruction.",
+        "explanation": "The register field selects an entry in the register file, and that entry is the operand."
+      },
+      {
+        "question": "What is direct addressing?",
+        "options": [
+          "A mode in which the instruction contains the address of a word that holds the operand address.",
+          "A mode that forms the address by adding a register to a displacement.",
+          "A mode in which the operand value is a constant in the instruction.",
+          "An addressing mode in which the instruction itself contains the memory address of the operand."
+        ],
+        "correctAnswer": "An addressing mode in which the instruction itself contains the memory address of the operand.",
+        "explanation": "The address field is used as the effective address with no further addition or pointer follow."
+      },
+      {
+        "question": "What is indirect addressing?",
+        "options": [
+          "A mode in which the instruction field is itself the operand address.",
+          "An addressing mode in which the instruction gives a location whose contents are the address of the operand.",
+          "A mode in which the operand is a constant in the instruction.",
+          "A mode used only for branch targets relative to the program counter."
+        ],
+        "correctAnswer": "An addressing mode in which the instruction gives a location whose contents are the address of the operand.",
+        "explanation": "The processor must follow a pointer: the first location supplies the address used for the actual data access."
+      },
+      {
+        "question": "What is indexed addressing?",
+        "options": [
+          "An addressing mode in which the operand address is the sum of a register and a displacement.",
+          "A mode in which the operand is the register itself.",
+          "A mode in which the address is only a constant in the instruction.",
+          "A mode that uses the program counter plus a branch offset only."
+        ],
+        "correctAnswer": "An addressing mode in which the operand address is the sum of a register and a displacement.",
+        "explanation": "The register can walk through an array while the displacement selects the array's base or a field."
+      },
+      {
+        "question": "What is PC-relative addressing?",
+        "options": [
+          "An addressing mode in which the target address is the program counter plus a signed offset from the instruction.",
+          "A mode that follows a pointer in memory.",
+          "A mode that encodes the operand as an immediate constant.",
+          "A mode that uses an absolute address stored in the instruction."
+        ],
+        "correctAnswer": "An addressing mode in which the target address is the program counter plus a signed offset from the instruction.",
+        "explanation": "Branches and position-independent code can refer to nearby instructions without an absolute address."
+      },
+      {
+        "question": "What is RISC?",
+        "options": [
+          "A style that executes one very long instruction word of many operations.",
+          "An instruction-set style of complex, often variable-length instructions that can operate on memory operands.",
+          "A style that has no registers and uses only a stack.",
+          "An instruction-set style of simple, usually fixed-length instructions in which only explicit loads and stores access memory."
+        ],
+        "correctAnswer": "An instruction-set style of simple, usually fixed-length instructions in which only explicit loads and stores access memory.",
+        "explanation": "Simple fixed encodings and a load-store model make pipelining and compiler scheduling easier."
+      },
+      {
+        "question": "What is CISC?",
+        "options": [
+          "A load-store style with simple fixed-length instructions.",
+          "An instruction-set style of complex, often variable-length instructions that may operate directly on memory operands.",
+          "A style whose only operations are single-cycle register adds.",
+          "A style with separate instruction and data buses by definition."
+        ],
+        "correctAnswer": "An instruction-set style of complex, often variable-length instructions that may operate directly on memory operands.",
+        "explanation": "A single complex instruction can encode an operation that a load-store machine would split into several instructions."
+      },
+      {
+        "question": "What is a fixed-length instruction?",
+        "options": [
+          "An encoding in which instructions may occupy different numbers of bytes.",
+          "An encoding in which every instruction occupies the same number of bits.",
+          "A Huffman encoding of opcodes.",
+          "A Gray encoding of counters."
+        ],
+        "correctAnswer": "An encoding in which every instruction occupies the same number of bits.",
+        "explanation": "The next instruction address is a constant stride away, which simplifies fetch and decode."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is an instruction pipeline?",
+        "options": [
+          "A microprogram stored in a control ROM.",
+          "An organization that overlaps the stages of several instructions, such as fetch, decode, execute, memory, and write-back.",
+          "A design in which one instruction finishes completely before the next fetch starts.",
+          "A transfer of a disk block by a device controller."
+        ],
+        "correctAnswer": "An organization that overlaps the stages of several instructions, such as fetch, decode, execute, memory, and write-back.",
+        "explanation": "Different instructions occupy different stages at the same time, increasing throughput."
+      },
+      {
+        "question": "What is a structural hazard?",
+        "options": [
+          "A conflict in which the next address is unknown until a branch resolves.",
+          "A conflict in which an instruction needs a result that has not been written yet.",
+          "A miss that requires a block to be fetched from the next memory level.",
+          "A pipeline conflict in which two instructions need the same hardware resource in the same cycle."
+        ],
+        "correctAnswer": "A pipeline conflict in which two instructions need the same hardware resource in the same cycle.",
+        "explanation": "If there is only one memory port, instruction fetch and a data access cannot both use it in the same cycle."
+      },
+      {
+        "question": "What is a data hazard?",
+        "options": [
+          "A pipeline dependence in which an instruction needs a value that an earlier instruction has not yet written.",
+          "A conflict over a shared hardware resource.",
+          "A delay caused only by an unresolved branch.",
+          "A translation failure in the page table."
+        ],
+        "correctAnswer": "A pipeline dependence in which an instruction needs a value that an earlier instruction has not yet written.",
+        "explanation": "The classic read-after-write dependence makes a later instruction read a register too early."
+      },
+      {
+        "question": "What is a control hazard?",
+        "options": [
+          "A pipeline delay that occurs because the next instruction address is not known until a branch is resolved.",
+          "A dependence on a register result that is not ready.",
+          "A dirty cache line waiting to be written back.",
+          "A collision on a single memory port."
+        ],
+        "correctAnswer": "A pipeline delay that occurs because the next instruction address is not known until a branch is resolved.",
+        "explanation": "The fetch stage does not know which instruction follows until the branch decision and target are known."
+      },
+      {
+        "question": "What is forwarding?",
+        "options": [
+          "Bypassing a result from a later pipeline stage directly to an earlier stage that needs it, without waiting for the register write.",
+          "Guessing whether a branch will be taken.",
+          "Freezing the pipeline until the register write completes.",
+          "Writing both the cache and main memory on every store."
+        ],
+        "correctAnswer": "Bypassing a result from a later pipeline stage directly to an earlier stage that needs it, without waiting for the register write.",
+        "explanation": "The ALU result exists in a pipeline register before write-back, so a later instruction can use that copy."
+      },
+      {
+        "question": "What is a pipeline stall?",
+        "options": [
+          "A flush that discards instructions after a taken branch.",
+          "A bypass that supplies a result before the register write.",
+          "A deliberate delay that freezes earlier stages and inserts a bubble until a hazard clears.",
+          "A guess about a branch direction."
+        ],
+        "correctAnswer": "A deliberate delay that freezes earlier stages and inserts a bubble until a hazard clears.",
+        "explanation": "When bypassing cannot supply the needed value in time, the pipeline must wait."
+      },
+      {
+        "question": "What is branch prediction?",
+        "options": [
+          "A technique that guesses whether a branch will be taken, and often its target, so fetch can continue.",
+          "A bypass of an ALU result to the next instruction.",
+          "A table that maps virtual pages to frames.",
+          "A write policy that updates main memory only when a line is evicted."
+        ],
+        "correctAnswer": "A technique that guesses whether a branch will be taken, and often its target, so fetch can continue.",
+        "explanation": "A correct guess keeps the pipeline full, and a wrong guess requires fetched instructions to be discarded."
+      },
+      {
+        "question": "What is the memory hierarchy?",
+        "options": [
+          "The arrangement of registers, cache, main memory, and secondary storage from fastest and smallest to slower and larger.",
+          "The microinstructions in a control store.",
+          "The address, data, and control lines of one bus.",
+          "The five stages of an instruction pipeline."
+        ],
+        "correctAnswer": "The arrangement of registers, cache, main memory, and secondary storage from fastest and smallest to slower and larger.",
+        "explanation": "Faster technologies are too costly for large capacity, so recently used data is kept in the smaller faster levels."
+      },
+      {
+        "question": "What is cache memory?",
+        "options": [
+          "A control ROM of microinstructions.",
+          "A small, fast memory that holds copies of recently used blocks from a larger, slower memory.",
+          "A disk that backs virtual pages.",
+          "The register file of programmer-visible registers."
+        ],
+        "correctAnswer": "A small, fast memory that holds copies of recently used blocks from a larger, slower memory.",
+        "explanation": "Because of locality, many accesses hit this copy and avoid the full delay of main memory."
+      },
+      {
+        "question": "What is a cache hit?",
+        "options": [
+          "The outcome in which the block is absent and must be fetched from the next level.",
+          "A write that marks a line dirty.",
+          "A failure to find a page translation.",
+          "The outcome in which the addressed block is found in the cache and can be supplied without a lower-level fetch."
+        ],
+        "correctAnswer": "The outcome in which the addressed block is found in the cache and can be supplied without a lower-level fetch.",
+        "explanation": "The tag comparison succeeds, so the requested word is already in a cache line."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is a cache miss?",
+        "options": [
+          "A register write that completes on time.",
+          "The outcome in which the block is found in the cache.",
+          "The outcome in which the addressed block is not in the cache and must be fetched from the next memory level.",
+          "A correct branch prediction."
+        ],
+        "correctAnswer": "The outcome in which the addressed block is not in the cache and must be fetched from the next memory level.",
+        "explanation": "The tag comparison fails, so the cache allocates a line and fills it from the lower level."
+      },
+      {
+        "question": "What is temporal locality?",
+        "options": [
+          "The requirement that writes become visible in program order.",
+          "The sharing of one cache line by unrelated variables.",
+          "The tendency to use items stored near a recently used address.",
+          "The tendency of a program to use again, soon, an item that it has used recently."
+        ],
+        "correctAnswer": "The tendency of a program to use again, soon, an item that it has used recently.",
+        "explanation": "Loops and reused variables make a recent item a good choice to keep in cache or in a register."
+      },
+      {
+        "question": "What is spatial locality?",
+        "options": [
+          "The tendency to reuse the exact same item again soon.",
+          "The mapping of one block to a single cache line.",
+          "The use of a write-back dirty bit.",
+          "The tendency of a program to use items at addresses near one that it has just used."
+        ],
+        "correctAnswer": "The tendency of a program to use items at addresses near one that it has just used.",
+        "explanation": "Sequential code and array scans make nearby addresses likely, which is why caches move whole blocks."
+      },
+      {
+        "question": "What is a direct-mapped cache?",
+        "options": [
+          "A cache in which a block may occupy any line in the whole cache.",
+          "A cache in which each memory block maps to exactly one line, selected by index bits.",
+          "A cache that stores only virtual addresses.",
+          "A cache in which a block may occupy any line in a set of several ways."
+        ],
+        "correctAnswer": "A cache in which each memory block maps to exactly one line, selected by index bits.",
+        "explanation": "The index picks a single candidate line, and only that line's tag is compared."
+      },
+      {
+        "question": "What is a set-associative cache?",
+        "options": [
+          "A cache in which each block maps to exactly one line.",
+          "A cache in which each block may be placed in any line of the entire cache.",
+          "A cache with no tags.",
+          "A cache in which each block maps to a set and may be placed in any way of that set."
+        ],
+        "correctAnswer": "A cache in which each block maps to a set and may be placed in any way of that set.",
+        "explanation": "The index selects a set, and the tags of the ways in that set are compared in parallel."
+      },
+      {
+        "question": "What is a write-through policy?",
+        "options": [
+          "A cache write policy that updates the cache and the next lower memory level on every store.",
+          "A policy that writes the lower level only and never the cache.",
+          "A policy that discards all stores.",
+          "A policy that updates only the cache and writes the lower level when the line is evicted."
+        ],
+        "correctAnswer": "A cache write policy that updates the cache and the next lower memory level on every store.",
+        "explanation": "The lower level stays up to date, at the cost of more write traffic, often buffered by a write buffer."
+      },
+      {
+        "question": "What is a write-back policy?",
+        "options": [
+          "A policy that never marks a line dirty.",
+          "A policy that updates the cache and lower memory on every store.",
+          "A policy used only for instruction caches that reject stores.",
+          "A cache write policy that updates only the cache on a store and writes the line to lower memory when it is evicted if dirty."
+        ],
+        "correctAnswer": "A cache write policy that updates only the cache on a store and writes the line to lower memory when it is evicted if dirty.",
+        "explanation": "A dirty bit records that the line differs from lower memory, so only modified lines are written back on replacement."
+      },
+      {
+        "question": "What is virtual memory?",
+        "options": [
+          "A small fast copy of recent physical blocks with no address translation.",
+          "A technique that gives each process its own virtual addresses, translated to physical memory and often backed by secondary storage.",
+          "Renaming of architectural registers to hide false dependences.",
+          "A device transfer that bypasses the processor."
+        ],
+        "correctAnswer": "A technique that gives each process its own virtual addresses, translated to physical memory and often backed by secondary storage.",
+        "explanation": "Translation and paging let processes use large private address spaces and stay isolated from each other."
+      },
+      {
+        "question": "What is a page table?",
+        "options": [
+          "A structure that maps virtual page numbers to physical frame numbers and stores bits such as valid and dirty.",
+          "The tag array of a data cache.",
+          "A small cache of recent address translations.",
+          "The register file."
+        ],
+        "correctAnswer": "A structure that maps virtual page numbers to physical frame numbers and stores bits such as valid and dirty.",
+        "explanation": "The operating system maintains this map, and a translation walks it when a recent translation is not cached."
+      },
+      {
+        "question": "What is a translation lookaside buffer?",
+        "options": [
+          "A small cache of recent virtual-to-physical page translations that avoids a full page-table walk.",
+          "A branch-target buffer.",
+          "A level-2 data cache of ordinary words.",
+          "The full page table kept in memory."
+        ],
+        "correctAnswer": "A small cache of recent virtual-to-physical page translations that avoids a full page-table walk.",
+        "explanation": "Address translation is frequent, so recent page mappings are kept in a fast associative store."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is hardwired control?",
+        "options": [
+          "A control implementation that produces signals with fixed logic and state machines rather than a control memory.",
+          "An interrupt controller.",
+          "A control implementation that reads microinstructions from a control store.",
+          "A pipeline bypass network."
+        ],
+        "correctAnswer": "A control implementation that produces signals with fixed logic and state machines rather than a control memory.",
+        "explanation": "The next-state and output logic is built from gates and flip-flops designed for that instruction set."
+      },
+      {
+        "question": "What is microprogrammed control?",
+        "options": [
+          "A control implementation built only from fixed gates and flip-flops.",
+          "A DMA controller on the system bus.",
+          "A control implementation in which each machine instruction starts a sequence of microinstructions stored in a control memory.",
+          "A single-cycle datapath with no control sequence."
+        ],
+        "correctAnswer": "A control implementation in which each machine instruction starts a sequence of microinstructions stored in a control memory.",
+        "explanation": "Each microinstruction is a control word, and changing the firmware can change complex instruction behavior."
+      },
+      {
+        "question": "What is a single-cycle datapath?",
+        "options": [
+          "An implementation in which every instruction starts and finishes in one long clock cycle.",
+          "An implementation that overlaps many instructions in a pipeline.",
+          "An implementation that issues several instructions per cycle to multiple ALUs.",
+          "An implementation that splits one instruction across several shorter cycles."
+        ],
+        "correctAnswer": "An implementation in which every instruction starts and finishes in one long clock cycle.",
+        "explanation": "The clock period must fit the slowest instruction, because every instruction is allowed the same one cycle."
+      },
+      {
+        "question": "What is a multi-cycle datapath?",
+        "options": [
+          "An implementation that finishes every instruction in one long cycle.",
+          "An implementation that splits each instruction into several shorter clock cycles, with different instructions taking different numbers of cycles.",
+          "An asynchronous design with no clock.",
+          "An implementation that only overlaps five instructions in a pipeline."
+        ],
+        "correctAnswer": "An implementation that splits each instruction into several shorter clock cycles, with different instructions taking different numbers of cycles.",
+        "explanation": "Functional units can be reused across cycles, and a simple instruction need not last as long as a load."
+      },
+      {
+        "question": "What is an interrupt?",
+        "options": [
+          "A synchronous trap caused by an illegal opcode.",
+          "A programmed loop that repeatedly tests a device status bit.",
+          "A block transfer performed by a device controller.",
+          "An asynchronous signal from a device that makes the processor suspend the current program and run a handler."
+        ],
+        "correctAnswer": "An asynchronous signal from a device that makes the processor suspend the current program and run a handler.",
+        "explanation": "The device requests service when it is ready, so the processor need not poll continuously."
+      },
+      {
+        "question": "What is direct memory access?",
+        "options": [
+          "A method that translates virtual pages.",
+          "A method that handles one byte only after an interrupt for that byte.",
+          "A transfer method in which a device controller moves a block between the device and memory with little processor involvement.",
+          "A method in which the processor executes a load or store for every word."
+        ],
+        "correctAnswer": "A transfer method in which a device controller moves a block between the device and memory with little processor involvement.",
+        "explanation": "The processor gives the controller a start address and a count, and the controller then manages the bus transfers."
+      },
+      {
+        "question": "What is endianness?",
+        "options": [
+          "The number of bits in an instruction opcode.",
+          "The convention that decides which end of a multi-byte value is stored at the lowest address.",
+          "The associativity of a cache.",
+          "The depth of a pipeline."
+        ],
+        "correctAnswer": "The convention that decides which end of a multi-byte value is stored at the lowest address.",
+        "explanation": "Little-endian machines store the least significant byte at the lowest address, and big-endian machines store the most significant byte there."
+      },
+      {
+        "question": "What is a load-use hazard?",
+        "options": [
+          "A hazard caused by two instructions needing one memory port.",
+          "A data hazard in which an instruction uses a register loaded by the immediately previous load, before that load can forward the data.",
+          "A hazard caused by two writes to the same register with no read in between.",
+          "A hazard caused only by an unresolved branch."
+        ],
+        "correctAnswer": "A data hazard in which an instruction uses a register loaded by the immediately previous load, before that load can forward the data.",
+        "explanation": "In a classic five-stage pipeline, load data becomes available at the end of the memory stage, one cycle too late for the next instruction's ALU input."
+      },
+      {
+        "question": "What is Harvard architecture?",
+        "options": [
+          "A design that uses only microcode and no datapath.",
+          "An organization that stores instructions and data in one memory on one bus.",
+          "A cluster of many complete computers.",
+          "An organization with separate memories and buses for instructions and for data, so both can be accessed at once."
+        ],
+        "correctAnswer": "An organization with separate memories and buses for instructions and for data, so both can be accessed at once.",
+        "explanation": "Separate instruction and data ports remove the structural conflict between fetch and a data access."
+      },
+      {
+        "question": "What is a system bus?",
+        "options": [
+          "The virtual-address translation path inside the memory-management unit.",
+          "A single interrupt wire with no address or data lines.",
+          "The shared address, data, and control lines that connect the processor, memory, and input/output devices.",
+          "The internal pipeline registers between CPU stages."
+        ],
+        "correctAnswer": "The shared address, data, and control lines that connect the processor, memory, and input/output devices.",
+        "explanation": "A transaction places an address on the address lines, transfers bits on the data lines, and uses control lines for read or write."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates an instruction set architecture?",
+        "options": [
+          "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag.",
+          "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+          "A compiler writer chooses ADD and LW encodings from a manual and never needs the ALU's transistor schematic.",
+          "For a store, the decoder asserts the memory-write signal and chooses the register file's read ports."
+        ],
+        "correctAnswer": "A compiler writer chooses ADD and LW encodings from a manual and never needs the ALU's transistor schematic.",
+        "explanation": "Compilers and assembly programmers depend on the visible instructions and registers, not on the internal wiring."
+      },
+      {
+        "question": "Which situation illustrates a datapath?",
+        "options": [
+          "For a store, the decoder asserts the memory-write signal and chooses the register file's read ports.",
+          "After a 4-byte instruction at address 200 is fetched, the next-address register becomes 204 unless a branch is taken.",
+          "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+          "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag."
+        ],
+        "correctAnswer": "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+        "explanation": "Operands move through registers, muxes, and the ALU, which together form the path data follows."
+      },
+      {
+        "question": "Which situation illustrates a control unit?",
+        "options": [
+          "After a 4-byte instruction at address 200 is fetched, the next-address register becomes 204 unless a branch is taken.",
+          "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag.",
+          "For a store, the decoder asserts the memory-write signal and chooses the register file's read ports.",
+          "A load word arrives from instruction memory and is latched so its opcode and register fields can be read."
+        ],
+        "correctAnswer": "For a store, the decoder asserts the memory-write signal and chooses the register file's read ports.",
+        "explanation": "The opcode must be turned into select, write-enable, and ALU-operation signals."
+      },
+      {
+        "question": "Which situation illustrates an arithmetic logic unit?",
+        "options": [
+          "A load word arrives from instruction memory and is latched so its opcode and register fields can be read.",
+          "After a 4-byte instruction at address 200 is fetched, the next-address register becomes 204 unless a branch is taken.",
+          "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag.",
+          "A MIPS-style core has 32 registers that an ADD can read two of, and write a third, through separate ports."
+        ],
+        "correctAnswer": "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag.",
+        "explanation": "Arithmetic and logic instructions are implemented by this combinational unit inside the datapath."
+      },
+      {
+        "question": "Which situation illustrates a program counter?",
+        "options": [
+          "A compiler keeps a loop index in one named register and a running total in another.",
+          "A load word arrives from instruction memory and is latched so its opcode and register fields can be read.",
+          "A MIPS-style core has 32 registers that an ADD can read two of, and write a third, through separate ports.",
+          "After a 4-byte instruction at address 200 is fetched, the next-address register becomes 204 unless a branch is taken."
+        ],
+        "correctAnswer": "After a 4-byte instruction at address 200 is fetched, the next-address register becomes 204 unless a branch is taken.",
+        "explanation": "Instruction fetch uses this address, and it is then updated to the following instruction or to a branch target."
+      },
+      {
+        "question": "Which situation illustrates an instruction register?",
+        "options": [
+          "A load word arrives from instruction memory and is latched so its opcode and register fields can be read.",
+          "A MIPS-style core has 32 registers that an ADD can read two of, and write a third, through separate ports.",
+          "A simple CPU repeats fetch, decode, execute, and write-back once for each instruction in a counting loop.",
+          "A compiler keeps a loop index in one named register and a running total in another."
+        ],
+        "correctAnswer": "A load word arrives from instruction memory and is latched so its opcode and register fields can be read.",
+        "explanation": "The fetched bit pattern must be saved while the control unit examines the opcode and operand fields."
+      },
+      {
+        "question": "Which situation illustrates a register file?",
+        "options": [
+          "A compiler keeps a loop index in one named register and a running total in another.",
+          "A simple CPU repeats fetch, decode, execute, and write-back once for each instruction in a counting loop.",
+          "A MIPS-style core has 32 registers that an ADD can read two of, and write a third, through separate ports.",
+          "In an instruction word, a group of bits selects addition rather than subtraction or a load."
+        ],
+        "correctAnswer": "A MIPS-style core has 32 registers that an ADD can read two of, and write a third, through separate ports.",
+        "explanation": "Most arithmetic instructions take operands from this array and write the result back into it in the same cycle structure."
+      },
+      {
+        "question": "Which situation illustrates a general-purpose register?",
+        "options": [
+          "In an instruction word, a group of bits selects addition rather than subtraction or a load.",
+          "A compiler keeps a loop index in one named register and a running total in another.",
+          "An ADD reads the contents of two registers and writes their sum into a third register.",
+          "A simple CPU repeats fetch, decode, execute, and write-back once for each instruction in a counting loop."
+        ],
+        "correctAnswer": "A compiler keeps a loop index in one named register and a running total in another.",
+        "explanation": "Unlike the program counter, these registers are named by arithmetic and load instructions as operand locations."
+      },
+      {
+        "question": "Which situation illustrates an instruction cycle?",
+        "options": [
+          "A simple CPU repeats fetch, decode, execute, and write-back once for each instruction in a counting loop.",
+          "In an instruction word, a group of bits selects addition rather than subtraction or a load.",
+          "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register.",
+          "An ADD reads the contents of two registers and writes their sum into a third register."
+        ],
+        "correctAnswer": "A simple CPU repeats fetch, decode, execute, and write-back once for each instruction in a counting loop.",
+        "explanation": "Every instruction, however implemented, is still obtained, interpreted, performed, and retired."
+      },
+      {
+        "question": "Which situation illustrates an opcode?",
+        "options": [
+          "In an instruction word, a group of bits selects addition rather than subtraction or a load.",
+          "An ADD reads the contents of two registers and writes their sum into a third register.",
+          "An ADD names two source registers, and both values are read from the register file with no data-memory access.",
+          "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register."
+        ],
+        "correctAnswer": "In an instruction word, a group of bits selects addition rather than subtraction or a load.",
+        "explanation": "The control unit reads this field to decide which operation and which control signals to use."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates an operand?",
+        "options": [
+          "An ADD reads the contents of two registers and writes their sum into a third register.",
+          "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register.",
+          "An ADD names two source registers, and both values are read from the register file with no data-memory access.",
+          "A load instruction includes the address 4096, and the operand is read from memory location 4096."
+        ],
+        "correctAnswer": "An ADD reads the contents of two registers and writes their sum into a third register.",
+        "explanation": "An instruction specifies both what to do and which data to do it to."
+      },
+      {
+        "question": "Which situation illustrates immediate addressing?",
+        "options": [
+          "An ADD names two source registers, and both values are read from the register file with no data-memory access.",
+          "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register.",
+          "An instruction names memory cell 1000, cell 1000 contains 2500, and the operand is read from address 2500.",
+          "A load instruction includes the address 4096, and the operand is read from memory location 4096."
+        ],
+        "correctAnswer": "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register.",
+        "explanation": "No extra memory read is required for the operand because the constant travels inside the instruction."
+      },
+      {
+        "question": "Which situation illustrates register addressing?",
+        "options": [
+          "An instruction names memory cell 1000, cell 1000 contains 2500, and the operand is read from address 2500.",
+          "A load instruction includes the address 4096, and the operand is read from memory location 4096.",
+          "An ADD names two source registers, and both values are read from the register file with no data-memory access.",
+          "A load adds the contents of an index register to a constant base to reach the next array element."
+        ],
+        "correctAnswer": "An ADD names two source registers, and both values are read from the register file with no data-memory access.",
+        "explanation": "The register field selects an entry in the register file, and that entry is the operand."
+      },
+      {
+        "question": "Which situation illustrates direct addressing?",
+        "options": [
+          "A load adds the contents of an index register to a constant base to reach the next array element.",
+          "A branch adds a signed offset to the program counter so the next fetch comes from a nearby label.",
+          "A load instruction includes the address 4096, and the operand is read from memory location 4096.",
+          "An instruction names memory cell 1000, cell 1000 contains 2500, and the operand is read from address 2500."
+        ],
+        "correctAnswer": "A load instruction includes the address 4096, and the operand is read from memory location 4096.",
+        "explanation": "The address field is used as the effective address with no further addition or pointer follow."
+      },
+      {
+        "question": "Which situation illustrates indirect addressing?",
+        "options": [
+          "An instruction names memory cell 1000, cell 1000 contains 2500, and the operand is read from address 2500.",
+          "A load adds the contents of an index register to a constant base to reach the next array element.",
+          "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+          "A branch adds a signed offset to the program counter so the next fetch comes from a nearby label."
+        ],
+        "correctAnswer": "An instruction names memory cell 1000, cell 1000 contains 2500, and the operand is read from address 2500.",
+        "explanation": "The processor must follow a pointer: the first location supplies the address used for the actual data access."
+      },
+      {
+        "question": "Which situation illustrates indexed addressing?",
+        "options": [
+          "A load adds the contents of an index register to a constant base to reach the next array element.",
+          "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+          "A branch adds a signed offset to the program counter so the next fetch comes from a nearby label.",
+          "One variable-length instruction reads a memory operand, adds it to a register, and writes the memory location back."
+        ],
+        "correctAnswer": "A load adds the contents of an index register to a constant base to reach the next array element.",
+        "explanation": "The register can walk through an array while the displacement selects the array's base or a field."
+      },
+      {
+        "question": "Which situation illustrates PC-relative addressing?",
+        "options": [
+          "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+          "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004.",
+          "One variable-length instruction reads a memory operand, adds it to a register, and writes the memory location back.",
+          "A branch adds a signed offset to the program counter so the next fetch comes from a nearby label."
+        ],
+        "correctAnswer": "A branch adds a signed offset to the program counter so the next fetch comes from a nearby label.",
+        "explanation": "Branches and position-independent code can refer to nearby instructions without an absolute address."
+      },
+      {
+        "question": "Which situation illustrates RISC?",
+        "options": [
+          "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+          "One variable-length instruction reads a memory operand, adds it to a register, and writes the memory location back.",
+          "While one instruction uses the ALU, the next is being decoded and a third is being fetched.",
+          "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004."
+        ],
+        "correctAnswer": "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+        "explanation": "Simple fixed encodings and a load-store model make pipelining and compiler scheduling easier."
+      },
+      {
+        "question": "Which situation illustrates CISC?",
+        "options": [
+          "While one instruction uses the ALU, the next is being decoded and a third is being fetched.",
+          "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004.",
+          "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle.",
+          "One variable-length instruction reads a memory operand, adds it to a register, and writes the memory location back."
+        ],
+        "correctAnswer": "One variable-length instruction reads a memory operand, adds it to a register, and writes the memory location back.",
+        "explanation": "A single complex instruction can encode an operation that a load-store machine would split into several instructions."
+      },
+      {
+        "question": "Which situation illustrates a fixed-length instruction?",
+        "options": [
+          "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle.",
+          "While one instruction uses the ALU, the next is being decoded and a third is being fetched.",
+          "An ADD writes register 1 in write-back, but the next instruction wants register 1 during its execute stage.",
+          "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004."
+        ],
+        "correctAnswer": "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004.",
+        "explanation": "The next instruction address is a constant stride away, which simplifies fetch and decode."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates an instruction pipeline?",
+        "options": [
+          "An ADD writes register 1 in write-back, but the next instruction wants register 1 during its execute stage.",
+          "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next.",
+          "While one instruction uses the ALU, the next is being decoded and a third is being fetched.",
+          "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle."
+        ],
+        "correctAnswer": "While one instruction uses the ALU, the next is being decoded and a third is being fetched.",
+        "explanation": "Different instructions occupy different stages at the same time, increasing throughput."
+      },
+      {
+        "question": "Which situation illustrates a structural hazard?",
+        "options": [
+          "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next.",
+          "An ADD writes register 1 in write-back, but the next instruction wants register 1 during its execute stage.",
+          "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle.",
+          "The sum from the execute stage is routed back to an ALU input so the next instruction adds it immediately."
+        ],
+        "correctAnswer": "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle.",
+        "explanation": "If there is only one memory port, instruction fetch and a data access cannot both use it in the same cycle."
+      },
+      {
+        "question": "Which situation illustrates a data hazard?",
+        "options": [
+          "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted.",
+          "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next.",
+          "The sum from the execute stage is routed back to an ALU input so the next instruction adds it immediately.",
+          "An ADD writes register 1 in write-back, but the next instruction wants register 1 during its execute stage."
+        ],
+        "correctAnswer": "An ADD writes register 1 in write-back, but the next instruction wants register 1 during its execute stage.",
+        "explanation": "The classic read-after-write dependence makes a later instruction read a register too early."
+      },
+      {
+        "question": "Which situation illustrates a control hazard?",
+        "options": [
+          "The sum from the execute stage is routed back to an ALU input so the next instruction adds it immediately.",
+          "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted.",
+          "A predictor assumes a backward branch at the end of a loop is taken and keeps fetching the loop body.",
+          "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next."
+        ],
+        "correctAnswer": "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next.",
+        "explanation": "The fetch stage does not know which instruction follows until the branch decision and target are known."
+      },
+      {
+        "question": "Which situation illustrates forwarding?",
+        "options": [
+          "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+          "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted.",
+          "The sum from the execute stage is routed back to an ALU input so the next instruction adds it immediately.",
+          "A predictor assumes a backward branch at the end of a loop is taken and keeps fetching the loop body."
+        ],
+        "correctAnswer": "The sum from the execute stage is routed back to an ALU input so the next instruction adds it immediately.",
+        "explanation": "The ALU result exists in a pipeline register before write-back, so a later instruction can use that copy."
+      },
+      {
+        "question": "Which situation illustrates a pipeline stall?",
+        "options": [
+          "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+          "A 32 KB store next to the CPU keeps the current loop's instructions and data after the first miss.",
+          "A predictor assumes a backward branch at the end of a loop is taken and keeps fetching the loop body.",
+          "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted."
+        ],
+        "correctAnswer": "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted.",
+        "explanation": "When bypassing cannot supply the needed value in time, the pipeline must wait."
+      },
+      {
+        "question": "Which situation illustrates branch prediction?",
+        "options": [
+          "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+          "A predictor assumes a backward branch at the end of a loop is taken and keeps fetching the loop body.",
+          "A 32 KB store next to the CPU keeps the current loop's instructions and data after the first miss.",
+          "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs."
+        ],
+        "correctAnswer": "A predictor assumes a backward branch at the end of a loop is taken and keeps fetching the loop body.",
+        "explanation": "A correct guess keeps the pipeline full, and a wrong guess requires fetched instructions to be discarded."
+      },
+      {
+        "question": "Which situation illustrates the memory hierarchy?",
+        "options": [
+          "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs.",
+          "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+          "The first reference to a new array block is absent from the cache, so a line is filled from DRAM.",
+          "A 32 KB store next to the CPU keeps the current loop's instructions and data after the first miss."
+        ],
+        "correctAnswer": "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+        "explanation": "Faster technologies are too costly for large capacity, so recently used data is kept in the smaller faster levels."
+      },
+      {
+        "question": "Which situation illustrates cache memory?",
+        "options": [
+          "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs.",
+          "A 32 KB store next to the CPU keeps the current loop's instructions and data after the first miss.",
+          "The first reference to a new array block is absent from the cache, so a line is filled from DRAM.",
+          "A loop counter is read and written on every iteration, so the same variable is needed again immediately."
+        ],
+        "correctAnswer": "A 32 KB store next to the CPU keeps the current loop's instructions and data after the first miss.",
+        "explanation": "Because of locality, many accesses hit this copy and avoid the full delay of main memory."
+      },
+      {
+        "question": "Which situation illustrates a cache hit?",
+        "options": [
+          "A loop counter is read and written on every iteration, so the same variable is needed again immediately.",
+          "The first reference to a new array block is absent from the cache, so a line is filled from DRAM.",
+          "After reading array element 1000, the program reads element 1004, which arrived in the same cache block.",
+          "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs."
+        ],
+        "correctAnswer": "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs.",
+        "explanation": "The tag comparison succeeds, so the requested word is already in a cache line."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates a cache miss?",
+        "options": [
+          "A loop counter is read and written on every iteration, so the same variable is needed again immediately.",
+          "After reading array element 1000, the program reads element 1004, which arrived in the same cache block.",
+          "The first reference to a new array block is absent from the cache, so a line is filled from DRAM.",
+          "Two blocks that share the same index cannot both stay in the cache, because each index has only one line."
+        ],
+        "correctAnswer": "The first reference to a new array block is absent from the cache, so a line is filled from DRAM.",
+        "explanation": "The tag comparison fails, so the cache allocates a line and fills it from the lower level."
+      },
+      {
+        "question": "Which situation illustrates temporal locality?",
+        "options": [
+          "A block may sit in any of four lines that share one index, and a miss replaces one of those four.",
+          "Two blocks that share the same index cannot both stay in the cache, because each index has only one line.",
+          "A loop counter is read and written on every iteration, so the same variable is needed again immediately.",
+          "After reading array element 1000, the program reads element 1004, which arrived in the same cache block."
+        ],
+        "correctAnswer": "A loop counter is read and written on every iteration, so the same variable is needed again immediately.",
+        "explanation": "Loops and reused variables make a recent item a good choice to keep in cache or in a register."
+      },
+      {
+        "question": "Which situation illustrates spatial locality?",
+        "options": [
+          "After reading array element 1000, the program reads element 1004, which arrived in the same cache block.",
+          "A block may sit in any of four lines that share one index, and a miss replaces one of those four.",
+          "Two blocks that share the same index cannot both stay in the cache, because each index has only one line.",
+          "Every store of a loop index updates the cache line and also sends the new word toward main memory."
+        ],
+        "correctAnswer": "After reading array element 1000, the program reads element 1004, which arrived in the same cache block.",
+        "explanation": "Sequential code and array scans make nearby addresses likely, which is why caches move whole blocks."
+      },
+      {
+        "question": "Which situation illustrates a direct-mapped cache?",
+        "options": [
+          "A block may sit in any of four lines that share one index, and a miss replaces one of those four.",
+          "Two blocks that share the same index cannot both stay in the cache, because each index has only one line.",
+          "Every store of a loop index updates the cache line and also sends the new word toward main memory.",
+          "A store changes a cache line and sets its dirty bit, and DRAM is updated only when that line is later replaced."
+        ],
+        "correctAnswer": "Two blocks that share the same index cannot both stay in the cache, because each index has only one line.",
+        "explanation": "The index picks a single candidate line, and only that line's tag is compared."
+      },
+      {
+        "question": "Which situation illustrates a set-associative cache?",
+        "options": [
+          "A block may sit in any of four lines that share one index, and a miss replaces one of those four.",
+          "A store changes a cache line and sets its dirty bit, and DRAM is updated only when that line is later replaced.",
+          "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+          "Every store of a loop index updates the cache line and also sends the new word toward main memory."
+        ],
+        "correctAnswer": "A block may sit in any of four lines that share one index, and a miss replaces one of those four.",
+        "explanation": "The index selects a set, and the tags of the ways in that set are compared in parallel."
+      },
+      {
+        "question": "Which situation illustrates a write-through policy?",
+        "options": [
+          "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+          "Every store of a loop index updates the cache line and also sends the new word toward main memory.",
+          "A store changes a cache line and sets its dirty bit, and DRAM is updated only when that line is later replaced.",
+          "Virtual page 12 is recorded as present in physical frame 90, with a dirty bit of 0."
+        ],
+        "correctAnswer": "Every store of a loop index updates the cache line and also sends the new word toward main memory.",
+        "explanation": "The lower level stays up to date, at the cost of more write traffic, often buffered by a write buffer."
+      },
+      {
+        "question": "Which situation illustrates a write-back policy?",
+        "options": [
+          "A store changes a cache line and sets its dirty bit, and DRAM is updated only when that line is later replaced.",
+          "Virtual page 12 is recorded as present in physical frame 90, with a dirty bit of 0.",
+          "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+          "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache."
+        ],
+        "correctAnswer": "A store changes a cache line and sets its dirty bit, and DRAM is updated only when that line is later replaced.",
+        "explanation": "A dirty bit records that the line differs from lower memory, so only modified lines are written back on replacement."
+      },
+      {
+        "question": "Which situation illustrates virtual memory?",
+        "options": [
+          "A finite-state machine of gates steps through fetch and execute and directly drives the ALU select lines.",
+          "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+          "Virtual page 12 is recorded as present in physical frame 90, with a dirty bit of 0.",
+          "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache."
+        ],
+        "correctAnswer": "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+        "explanation": "Translation and paging let processes use large private address spaces and stay isolated from each other."
+      },
+      {
+        "question": "Which situation illustrates a page table?",
+        "options": [
+          "A finite-state machine of gates steps through fetch and execute and directly drives the ALU select lines.",
+          "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache.",
+          "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals.",
+          "Virtual page 12 is recorded as present in physical frame 90, with a dirty bit of 0."
+        ],
+        "correctAnswer": "Virtual page 12 is recorded as present in physical frame 90, with a dirty bit of 0.",
+        "explanation": "The operating system maintains this map, and a translation walks it when a recent translation is not cached."
+      },
+      {
+        "question": "Which situation illustrates a translation lookaside buffer?",
+        "options": [
+          "A load uses instruction fetch, register read, address add, data memory, and register write all within one long cycle.",
+          "A finite-state machine of gates steps through fetch and execute and directly drives the ALU select lines.",
+          "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache.",
+          "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals."
+        ],
+        "correctAnswer": "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache.",
+        "explanation": "Address translation is frequent, so recent page mappings are kept in a fast associative store."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates hardwired control?",
+        "options": [
+          "A finite-state machine of gates steps through fetch and execute and directly drives the ALU select lines.",
+          "A load uses instruction fetch, register read, address add, data memory, and register write all within one long cycle.",
+          "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles.",
+          "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals."
+        ],
+        "correctAnswer": "A finite-state machine of gates steps through fetch and execute and directly drives the ALU select lines.",
+        "explanation": "The next-state and output logic is built from gates and flip-flops designed for that instruction set."
+      },
+      {
+        "question": "Which situation illustrates microprogrammed control?",
+        "options": [
+          "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles.",
+          "A load uses instruction fetch, register read, address add, data memory, and register write all within one long cycle.",
+          "A disk controller asserts a line, the CPU saves its place, and a handler reads the status register.",
+          "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals."
+        ],
+        "correctAnswer": "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals.",
+        "explanation": "Each microinstruction is a control word, and changing the firmware can change complex instruction behavior."
+      },
+      {
+        "question": "Which situation illustrates a single-cycle datapath?",
+        "options": [
+          "A load uses instruction fetch, register read, address add, data memory, and register write all within one long cycle.",
+          "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles.",
+          "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions.",
+          "A disk controller asserts a line, the CPU saves its place, and a handler reads the status register."
+        ],
+        "correctAnswer": "A load uses instruction fetch, register read, address add, data memory, and register write all within one long cycle.",
+        "explanation": "The clock period must fit the slowest instruction, because every instruction is allowed the same one cycle."
+      },
+      {
+        "question": "Which situation illustrates a multi-cycle datapath?",
+        "options": [
+          "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions.",
+          "The 32-bit value with least significant byte 0x78 is stored so that byte 0x78 occupies the smallest address on a little-endian machine.",
+          "A disk controller asserts a line, the CPU saves its place, and a handler reads the status register.",
+          "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles."
+        ],
+        "correctAnswer": "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles.",
+        "explanation": "Functional units can be reused across cycles, and a simple instruction need not last as long as a load."
+      },
+      {
+        "question": "Which situation illustrates an interrupt?",
+        "options": [
+          "A disk controller asserts a line, the CPU saves its place, and a handler reads the status register.",
+          "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding.",
+          "The 32-bit value with least significant byte 0x78 is stored so that byte 0x78 occupies the smallest address on a little-endian machine.",
+          "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions."
+        ],
+        "correctAnswer": "A disk controller asserts a line, the CPU saves its place, and a handler reads the status register.",
+        "explanation": "The device requests service when it is ready, so the processor need not poll continuously."
+      },
+      {
+        "question": "Which situation illustrates direct memory access?",
+        "options": [
+          "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding.",
+          "The 32-bit value with least significant byte 0x78 is stored so that byte 0x78 occupies the smallest address on a little-endian machine.",
+          "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions.",
+          "A processor fetches an instruction from one memory while a load reads data from a different memory in the same cycle."
+        ],
+        "correctAnswer": "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions.",
+        "explanation": "The processor gives the controller a start address and a count, and the controller then manages the bus transfers."
+      },
+      {
+        "question": "Which situation illustrates endianness?",
+        "options": [
+          "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+          "A processor fetches an instruction from one memory while a load reads data from a different memory in the same cycle.",
+          "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding.",
+          "The 32-bit value with least significant byte 0x78 is stored so that byte 0x78 occupies the smallest address on a little-endian machine."
+        ],
+        "correctAnswer": "The 32-bit value with least significant byte 0x78 is stored so that byte 0x78 occupies the smallest address on a little-endian machine.",
+        "explanation": "Little-endian machines store the least significant byte at the lowest address, and big-endian machines store the most significant byte there."
+      },
+      {
+        "question": "Which situation illustrates a load-use hazard?",
+        "options": [
+          "A processor fetches an instruction from one memory while a load reads data from a different memory in the same cycle.",
+          "A compiler writer chooses ADD and LW encodings from a manual and never needs the ALU's transistor schematic.",
+          "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+          "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding."
+        ],
+        "correctAnswer": "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding.",
+        "explanation": "In a classic five-stage pipeline, load data becomes available at the end of the memory stage, one cycle too late for the next instruction's ALU input."
+      },
+      {
+        "question": "Which situation illustrates Harvard architecture?",
+        "options": [
+          "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+          "A processor fetches an instruction from one memory while a load reads data from a different memory in the same cycle.",
+          "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+          "A compiler writer chooses ADD and LW encodings from a manual and never needs the ALU's transistor schematic."
+        ],
+        "correctAnswer": "A processor fetches an instruction from one memory while a load reads data from a different memory in the same cycle.",
+        "explanation": "Separate instruction and data ports remove the structural conflict between fetch and a data access."
+      },
+      {
+        "question": "Which situation illustrates a system bus?",
+        "options": [
+          "For a store, the decoder asserts the memory-write signal and chooses the register file's read ports.",
+          "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+          "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+          "A compiler writer chooses ADD and LW encodings from a manual and never needs the ALU's transistor schematic."
+        ],
+        "correctAnswer": "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+        "explanation": "A transaction places an address on the address lines, transfers bits on the data lines, and uses control lines for read or write."
+      }
+    ],
+    "11": [
+      {
+        "question": "A compiler needs the registers, instruction formats, and addressing rules, but not the gate-level adder. Which description is that contract?",
+        "options": [
+          "The package pinout",
+          "The gate-level adder design",
+          "The programmer-visible instruction contract",
+          "A file-system layout"
+        ],
+        "correctAnswer": "The programmer-visible instruction contract",
+        "explanation": "Registers, formats, and addressing visible to software form the instruction set architecture."
+      },
+      {
+        "question": "Register values pass through multiplexers into the ALU, and the result is written back. Which CPU part moves and operates on those values?",
+        "options": [
+          "A disk-block mover",
+          "The opcode-to-signal logic alone",
+          "A virtual-address table",
+          "The operand-processing hardware"
+        ],
+        "correctAnswer": "The operand-processing hardware",
+        "explanation": "Hardware that carries operands through the ALU and registers is the datapath."
+      },
+      {
+        "question": "An instruction must open the correct multiplexers and tell the ALU which operation to perform. Which block creates those signals?",
+        "options": [
+          "The next-address register",
+          "The bit-adding block",
+          "The instruction decoder and signal generator",
+          "A recent-data cache"
+        ],
+        "correctAnswer": "The instruction decoder and signal generator",
+        "explanation": "Generating the signals that steer the datapath is the job of the control unit."
+      },
+      {
+        "question": "An ADD must produce the sum of two register values. Which unit performs that operation?",
+        "options": [
+          "The instruction-fetch memory",
+          "A device-to-memory transfer unit",
+          "The arithmetic and logic unit",
+          "The page translator"
+        ],
+        "correctAnswer": "The arithmetic and logic unit",
+        "explanation": "Adding two operands is done by the arithmetic and logic unit."
+      },
+      {
+        "question": "After an instruction is fetched, which register normally supplies the address of the following instruction?",
+        "options": [
+          "The next-instruction address register",
+          "The memory data register",
+          "The condition-flag register",
+          "The current-instruction register"
+        ],
+        "correctAnswer": "The next-instruction address register",
+        "explanation": "The address of the next instruction is kept in the program counter."
+      },
+      {
+        "question": "The bit pattern just fetched from instruction memory is held while its opcode is examined. Which register holds that pattern?",
+        "options": [
+          "A data-operand register",
+          "The next-address register",
+          "The fetched-instruction register",
+          "A cache-tag register"
+        ],
+        "correctAnswer": "The fetched-instruction register",
+        "explanation": "The instruction currently being decoded is held in the instruction register."
+      },
+      {
+        "question": "An ADD reads two named registers and writes a third through separate ports in a small array inside the CPU. Name that array.",
+        "options": [
+          "A page-translation cache",
+          "The processor's multiported register array",
+          "A disk buffer",
+          "Main DRAM"
+        ],
+        "correctAnswer": "The processor's multiported register array",
+        "explanation": "A small multiported array of programmer-visible registers is the register file."
+      },
+      {
+        "question": "A compiler stores a loop index in a named register that ADD and LOAD may use freely. Which class of register is that?",
+        "options": [
+          "The next-instruction address register",
+          "The flag register",
+          "A programmer operand register",
+          "The current-instruction register"
+        ],
+        "correctAnswer": "A programmer operand register",
+        "explanation": "A register the program uses for ordinary operands is a general-purpose register."
+      },
+      {
+        "question": "A simple CPU repeats fetch, decode, execute, and write-back for every instruction in a loop. Name that sequence.",
+        "options": [
+          "Fetch, decode, execute, and write-back",
+          "A one-block cache refill",
+          "A device acknowledge",
+          "A wait bubble"
+        ],
+        "correctAnswer": "Fetch, decode, execute, and write-back",
+        "explanation": "Repeating fetch, decode, execute, and write-back is the instruction cycle."
+      },
+      {
+        "question": "One field in an instruction word selects addition rather than a load. Name that field.",
+        "options": [
+          "The operation field",
+          "An embedded constant",
+          "An assembler comment",
+          "A source-register name"
+        ],
+        "correctAnswer": "The operation field",
+        "explanation": "The field that selects the operation is the opcode."
+      }
+    ],
+    "12": [
+      {
+        "question": "An ADD uses the contents of register 1 as a value to be added. What role does register 1 play?",
+        "options": [
+          "A data value used by the instruction",
+          "The operation name",
+          "A source comment",
+          "The pipeline clock"
+        ],
+        "correctAnswer": "A data value used by the instruction",
+        "explanation": "A value the instruction reads or writes is an operand."
+      },
+      {
+        "question": "The constant 12 is encoded inside an add instruction and is not fetched from a data address. Name that addressing mode.",
+        "options": [
+          "The value is inside the instruction",
+          "The instruction holds a pointer's address",
+          "The address is the program counter plus an offset",
+          "The instruction holds the operand's memory address"
+        ],
+        "correctAnswer": "The value is inside the instruction",
+        "explanation": "A constant encoded in the instruction is immediate addressing."
+      },
+      {
+        "question": "Both source values of an ADD already sit in named registers, and no data memory is read. Name that addressing mode.",
+        "options": [
+          "The operand is in a named register",
+          "The operand is a constant in the instruction",
+          "The address is the program counter plus an offset",
+          "The instruction contains a memory address"
+        ],
+        "correctAnswer": "The operand is in a named register",
+        "explanation": "Taking the operand from a register named by the instruction is register addressing."
+      },
+      {
+        "question": "A load instruction contains the address 4096, and the operand is taken from that memory location itself. Name that mode.",
+        "options": [
+          "The instruction holds the operand address",
+          "The instruction holds a pointer to the address",
+          "A register is added to a displacement",
+          "The operand is a constant in the instruction"
+        ],
+        "correctAnswer": "The instruction holds the operand address",
+        "explanation": "When the instruction field is the operand's memory address, the mode is direct addressing."
+      },
+      {
+        "question": "An instruction names cell 1000, that cell contains 2500, and the operand is read from 2500. Name that mode.",
+        "options": [
+          "Follow a pointer to the operand",
+          "Use a constant inside the instruction",
+          "Add an offset to the program counter",
+          "Use the instruction field as the operand address"
+        ],
+        "correctAnswer": "Follow a pointer to the operand",
+        "explanation": "Using a memory word as a pointer to the operand is indirect addressing."
+      },
+      {
+        "question": "A load forms the address by adding an index register to a constant displacement. Name that mode.",
+        "options": [
+          "A constant address only",
+          "Register plus displacement",
+          "The register value itself",
+          "Program counter plus a branch offset"
+        ],
+        "correctAnswer": "Register plus displacement",
+        "explanation": "Adding a register to a displacement to form the address is indexed addressing."
+      },
+      {
+        "question": "A branch adds a signed offset to the program counter to form its target. Name that addressing mode.",
+        "options": [
+          "An absolute address in the instruction",
+          "Program counter plus offset",
+          "An immediate constant operand",
+          "A pointer followed in memory"
+        ],
+        "correctAnswer": "Program counter plus offset",
+        "explanation": "Forming the target as the program counter plus a signed offset is PC-relative addressing."
+      },
+      {
+        "question": "A processor uses fixed-length instructions, and only loads and stores touch memory. Which instruction-set style is that?",
+        "options": [
+          "Complex memory-operand instructions",
+          "Simple load-store instructions",
+          "A pure stack machine",
+          "One very long instruction word"
+        ],
+        "correctAnswer": "Simple load-store instructions",
+        "explanation": "Simple fixed-length load-store instructions characterize RISC."
+      },
+      {
+        "question": "One variable-length instruction both reads a memory operand and performs arithmetic on it. Which instruction-set style is that?",
+        "options": [
+          "Only single-cycle register adds",
+          "Simple load-store instructions",
+          "Separate instruction and data buses",
+          "Complex memory-operand instructions"
+        ],
+        "correctAnswer": "Complex memory-operand instructions",
+        "explanation": "Complex variable-length instructions that use memory operands characterize CISC."
+      },
+      {
+        "question": "Every instruction is 32 bits wide, so a sequential fetch always advances the address by 4 bytes. Name that length choice.",
+        "options": [
+          "Huffman-coded opcodes",
+          "Gray-coded counters",
+          "Every instruction has the same width",
+          "Instructions may have different widths"
+        ],
+        "correctAnswer": "Every instruction has the same width",
+        "explanation": "A constant 32-bit size means the instruction length is fixed."
+      }
+    ],
+    "13": [
+      {
+        "question": "Five instructions occupy fetch, decode, execute, memory, and write-back at the same time. Name that organization.",
+        "options": [
+          "A control ROM sequence",
+          "A device moving a disk block",
+          "Overlapped instruction stages",
+          "One instruction finished before the next starts"
+        ],
+        "correctAnswer": "Overlapped instruction stages",
+        "explanation": "Overlapping the stages of several instructions is pipelining."
+      },
+      {
+        "question": "A data access and an instruction fetch both need the single memory port in the same cycle. Name that conflict.",
+        "options": [
+          "A block is absent from the cache",
+          "Two instructions need one resource",
+          "A branch target is unknown",
+          "A result is not written yet"
+        ],
+        "correctAnswer": "Two instructions need one resource",
+        "explanation": "Needing the same hardware resource in one cycle is a structural hazard."
+      },
+      {
+        "question": "The next instruction reads a register that an earlier ADD has not yet written back. Name that dependence.",
+        "options": [
+          "A needed result is not ready",
+          "A page translation failed",
+          "A branch target is unknown",
+          "A shared resource is busy"
+        ],
+        "correctAnswer": "A needed result is not ready",
+        "explanation": "Needing a value that an earlier instruction has not written is a data hazard."
+      },
+      {
+        "question": "Fetch cannot choose the next instruction until a conditional branch decides taken or not taken. Name that delay.",
+        "options": [
+          "One memory port is shared",
+          "A dirty line awaits write-back",
+          "The next address depends on a branch",
+          "A register result is not ready"
+        ],
+        "correctAnswer": "The next address depends on a branch",
+        "explanation": "Uncertainty about the next instruction address after a branch is a control hazard."
+      },
+      {
+        "question": "An ALU result is sent straight to the next instruction's ALU input before the register file is written. Name that bypass.",
+        "options": [
+          "Freeze until the register write",
+          "Use the result before register write",
+          "Update memory on every store",
+          "Guess a branch outcome"
+        ],
+        "correctAnswer": "Use the result before register write",
+        "explanation": "Sending a result to a dependent instruction before write-back is forwarding."
+      },
+      {
+        "question": "The pipeline inserts a bubble so a value can be produced before the next instruction uses it. Name that delay.",
+        "options": [
+          "A guessed branch direction",
+          "A waiting bubble",
+          "A bypass around the register file",
+          "Discarding instructions after a taken branch"
+        ],
+        "correctAnswer": "A waiting bubble",
+        "explanation": "Inserting a bubble and freezing progress until the hazard clears is a stall."
+      },
+      {
+        "question": "The processor guesses that a loop branch will be taken and keeps fetching the loop body. Name that technique.",
+        "options": [
+          "Bypassing an ALU result",
+          "Mapping pages to frames",
+          "Updating memory only on eviction",
+          "Guessing the branch outcome"
+        ],
+        "correctAnswer": "Guessing the branch outcome",
+        "explanation": "Guessing a branch outcome so fetch can continue is branch prediction."
+      },
+      {
+        "question": "Registers, cache, main memory, and disk are ordered from fastest and smallest to slower and larger. Name that arrangement.",
+        "options": [
+          "Five overlapped instruction stages",
+          "A control-store sequence",
+          "Faster smaller stores above slower larger ones",
+          "Address, data, and control lines"
+        ],
+        "correctAnswer": "Faster smaller stores above slower larger ones",
+        "explanation": "Ordering stores by speed and size is the memory hierarchy."
+      },
+      {
+        "question": "A 32 KB store beside the CPU keeps copies of recent main-memory blocks from a loop. Name that store.",
+        "options": [
+          "A fast copy of recent blocks",
+          "Disk backing for virtual pages",
+          "The programmer-visible register array",
+          "A microinstruction ROM"
+        ],
+        "correctAnswer": "A fast copy of recent blocks",
+        "explanation": "A small fast copy of recent main-memory blocks is a cache."
+      },
+      {
+        "question": "The CPU finds the needed block already in the cache and does not access DRAM. Name that outcome.",
+        "options": [
+          "A line is marked dirty",
+          "The block must be fetched from below",
+          "The block is already present",
+          "A page translation is missing"
+        ],
+        "correctAnswer": "The block is already present",
+        "explanation": "Finding the block already in the cache is a hit."
+      }
+    ],
+    "14": [
+      {
+        "question": "The needed block is absent from the cache, so a line is filled from DRAM. Name that outcome.",
+        "options": [
+          "A register write finished on time",
+          "The block must be fetched from below",
+          "The block is already present",
+          "A branch guess was correct"
+        ],
+        "correctAnswer": "The block must be fetched from below",
+        "explanation": "Failing to find the block in the cache is a miss."
+      },
+      {
+        "question": "A loop counter is read again a few instructions after it was last used. Which locality is that?",
+        "options": [
+          "Unrelated variables sharing a line",
+          "Use of a nearby address",
+          "Writes visible in program order",
+          "Reuse of a recent item"
+        ],
+        "correctAnswer": "Reuse of a recent item",
+        "explanation": "Using the same item again soon is temporal locality."
+      },
+      {
+        "question": "After reading address 1000, the program soon reads address 1004. Which locality is that?",
+        "options": [
+          "Use of a nearby address",
+          "A dirty bit on a write",
+          "One block mapped to one line",
+          "Reuse of the same item"
+        ],
+        "correctAnswer": "Use of a nearby address",
+        "explanation": "Using an address near a recent access is spatial locality."
+      },
+      {
+        "question": "Each memory block is allowed in only one cache line, chosen by the index bits. Name that mapping.",
+        "options": [
+          "Virtual addresses only",
+          "Exactly one candidate line",
+          "Any line in a multi-line set",
+          "Any line in the whole cache"
+        ],
+        "correctAnswer": "Exactly one candidate line",
+        "explanation": "Mapping each block to exactly one line is direct mapping."
+      },
+      {
+        "question": "A block may occupy any of four lines that share one index. Name that mapping.",
+        "options": [
+          "Any way inside one set",
+          "Exactly one candidate line",
+          "A cache without tags",
+          "Any line in the entire cache"
+        ],
+        "correctAnswer": "Any way inside one set",
+        "explanation": "Allowing a block to occupy any way of one set is set-associative mapping."
+      },
+      {
+        "question": "Every store updates the cache line and main memory at the same time. Name that write policy.",
+        "options": [
+          "Update memory and skip the cache",
+          "Discard stores",
+          "Update cache and memory together",
+          "Update memory only when the line is evicted"
+        ],
+        "correctAnswer": "Update cache and memory together",
+        "explanation": "Writing both the cache and the next level on every store is write-through."
+      },
+      {
+        "question": "A store updates only the cache line and marks it dirty, and memory is updated when the line is replaced. Name that policy.",
+        "options": [
+          "Update memory when a dirty line is evicted",
+          "Update cache and memory on every store",
+          "Reject every store",
+          "Never record that a line changed"
+        ],
+        "correctAnswer": "Update memory when a dirty line is evicted",
+        "explanation": "Delaying the memory update until a dirty line is evicted is write-back."
+      },
+      {
+        "question": "Two processes both use address 0x4000, yet those addresses map to different physical frames. Name that memory system.",
+        "options": [
+          "A cache of physical blocks with no translation",
+          "Private addresses translated to physical memory",
+          "A device transfer that bypasses the CPU",
+          "Renaming registers"
+        ],
+        "correctAnswer": "Private addresses translated to physical memory",
+        "explanation": "Translating each process's addresses to physical frames is virtual memory."
+      },
+      {
+        "question": "Virtual page 12 is recorded as residing in physical frame 90. Which structure stores that mapping?",
+        "options": [
+          "The register file",
+          "A cache of recent translations",
+          "A data-cache tag array",
+          "The virtual-to-physical page map"
+        ],
+        "correctAnswer": "The virtual-to-physical page map",
+        "explanation": "The structure that maps virtual pages to physical frames is the page table."
+      },
+      {
+        "question": "A recent page mapping is found in a small on-chip cache, so no full page-table walk occurs. Name that cache.",
+        "options": [
+          "The full page table in memory",
+          "A branch-target buffer",
+          "A level-2 data cache",
+          "A cache of recent translations"
+        ],
+        "correctAnswer": "A cache of recent translations",
+        "explanation": "A small cache of recent page translations is a translation lookaside buffer."
+      }
+    ],
+    "15": [
+      {
+        "question": "Control signals come from a fixed state machine of gates, not from a control ROM. Name that control style.",
+        "options": [
+          "A result-bypass network",
+          "Fixed logic generates the signals",
+          "Microinstructions in a control store",
+          "An interrupt controller"
+        ],
+        "correctAnswer": "Fixed logic generates the signals",
+        "explanation": "Generating control signals with fixed logic is hardwired control."
+      },
+      {
+        "question": "A machine instruction starts a sequence of control words stored in a control ROM. Name that control style.",
+        "options": [
+          "One cycle with no control sequence",
+          "A device controller on the bus",
+          "Control words from a control memory",
+          "Fixed gates with no control memory"
+        ],
+        "correctAnswer": "Control words from a control memory",
+        "explanation": "Stepping through microinstructions in a control memory is microprogrammed control."
+      },
+      {
+        "question": "Every instruction, including a slow load, finishes in one clock cycle whose period fits that slowest instruction. Name that implementation.",
+        "options": [
+          "Several instructions issued each cycle",
+          "Several shorter cycles per instruction",
+          "One long cycle per instruction",
+          "Overlapped stages of many instructions"
+        ],
+        "correctAnswer": "One long cycle per instruction",
+        "explanation": "Completing every instruction in one clock cycle is a single-cycle datapath."
+      },
+      {
+        "question": "A store uses four short clock cycles and a branch uses three, reusing one ALU in different cycles. Name that implementation.",
+        "options": [
+          "One long cycle for every instruction",
+          "Several shorter cycles per instruction",
+          "Five overlapped instructions",
+          "No clock at all"
+        ],
+        "correctAnswer": "Several shorter cycles per instruction",
+        "explanation": "Splitting instructions into several shorter cycles is a multi-cycle datapath."
+      },
+      {
+        "question": "A disk controller asserts a line that makes the CPU save its place and run a handler. Name that event.",
+        "options": [
+          "A controller moving a whole block",
+          "A loop that polls a status bit",
+          "A device request that runs a handler",
+          "A trap from an illegal opcode"
+        ],
+        "correctAnswer": "A device request that runs a handler",
+        "explanation": "An external device signal that invokes a handler is an interrupt."
+      },
+      {
+        "question": "A disk controller writes a 4 KB block into memory while the CPU runs other instructions. Name that transfer method.",
+        "options": [
+          "The device moves the block itself",
+          "Page-table translation",
+          "The CPU loads or stores every word",
+          "One interrupt per byte"
+        ],
+        "correctAnswer": "The device moves the block itself",
+        "explanation": "A controller transferring a block without the CPU moving each word is direct memory access."
+      },
+      {
+        "question": "On a little-endian machine, which byte of a multi-byte integer is stored at the lowest address?",
+        "options": [
+          "The least significant byte",
+          "The most significant byte",
+          "A parity byte",
+          "The sign bit alone"
+        ],
+        "correctAnswer": "The least significant byte",
+        "explanation": "Little-endian order places the least significant byte at the lowest address."
+      },
+      {
+        "question": "A load into a register is immediately followed by an add that reads that register. In a classic five-stage pipeline with forwarding, what is still required?",
+        "options": [
+          "A full pipeline flush of all stages",
+          "One stall",
+          "A page-table walk",
+          "No stall"
+        ],
+        "correctAnswer": "One stall",
+        "explanation": "Forwarding cannot hide a load whose result is needed by the very next instruction, so one stall remains."
+      },
+      {
+        "question": "Instruction fetch uses one memory bus while a data load uses a different memory bus in the same cycle. Name that organization.",
+        "options": [
+          "A cluster of computers",
+          "Separate instruction and data memories",
+          "Microcode with no datapath",
+          "One shared memory and bus"
+        ],
+        "correctAnswer": "Separate instruction and data memories",
+        "explanation": "Separate memories and buses for instructions and data form a Harvard organization."
+      },
+      {
+        "question": "Address lines, data lines, and read/write controls link the CPU, memory, and devices. Name that shared pathway.",
+        "options": [
+          "One interrupt wire",
+          "The page-translation path",
+          "Pipeline registers between stages",
+          "Shared address, data, and control lines"
+        ],
+        "correctAnswer": "Shared address, data, and control lines",
+        "explanation": "The shared address, data, and control pathway among CPU, memory, and devices is the system bus."
+      }
+    ]
+  }
+}

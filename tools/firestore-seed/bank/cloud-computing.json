@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Cloud computing",
+    "definition": "On-demand network access to a shared pool of computing resources that can be provisioned and released quickly.",
+    "wrongs": [
+      "A private mainframe that only local terminals on one campus can reach.",
+      "Buying and racking servers that stay dedicated to one application forever.",
+      "A peer-to-peer file share with no provider-managed resource pool."
+    ],
+    "why": "NIST describes a shared, elastic pool that users provision over the network with little manual setup.",
+    "example": "A lab starts virtual servers from a browser for a weekend project and deletes them on Monday.",
+    "scenario": "A course project needs servers for three days, created from a portal and billed only for that use. Which delivery model fits?",
+    "scenarioAnswer": "Cloud computing",
+    "scenarioWrongs": ["A dedicated on-premises mainframe", "Sneakernet disk exchange", "A fixed leased line only"],
+    "scenarioWhy": "Short-lived, self-served, pooled resources delivered over the network are cloud computing."
+  },
+  {
+    "term": "IaaS",
+    "definition": "A cloud service that supplies virtual machines, storage, and networks while the customer manages the operating system and applications.",
+    "wrongs": [
+      "A finished application, such as webmail, run entirely by the provider.",
+      "A managed application runtime where the customer deploys only code.",
+      "A physical server shipped to the customer's own machine room."
+    ],
+    "why": "The provider virtualises hardware; the customer still patches the guest OS and runs the software stack.",
+    "example": "A team rents Linux virtual machines, chooses the kernel packages, and installs its own database.",
+    "scenario": "A customer receives virtual machines and disks but must patch the guest operating system. Which service model is that?",
+    "scenarioAnswer": "IaaS",
+    "scenarioWrongs": ["PaaS", "SaaS", "On-premises hardware purchase"],
+    "scenarioWhy": "Virtual infrastructure with customer-managed operating systems is IaaS."
+  },
+  {
+    "term": "PaaS",
+    "definition": "A cloud service that provides a managed runtime so the customer deploys application code without operating the servers.",
+    "wrongs": [
+      "Raw virtual machines where the customer installs and patches the OS.",
+      "A complete end-user application such as hosted email.",
+      "Only object storage with no place to run code."
+    ],
+    "why": "The provider runs the platform, language runtime, and scaling hooks; the customer supplies the app.",
+    "example": "A student uploads a web app and the platform builds, runs, and restarts it without a chosen VM image.",
+    "scenario": "Developers deploy application code onto a managed runtime and never log in to patch a server. Which service model is that?",
+    "scenarioAnswer": "PaaS",
+    "scenarioWrongs": ["IaaS", "SaaS", "Colocation of owned servers"],
+    "scenarioWhy": "A provider-managed runtime for customer code is PaaS."
+  },
+  {
+    "term": "SaaS",
+    "definition": "A finished application delivered over the network and operated entirely by the provider.",
+    "wrongs": [
+      "Virtual machines on which the customer installs any software.",
+      "A runtime where the customer still ships and versions the application code.",
+      "A backup tape stored in the customer's office."
+    ],
+    "why": "Users consume the application; the provider manages code, platform, and infrastructure.",
+    "example": "Staff use a browser-based payroll system and never install or patch that application.",
+    "scenario": "Employees open hosted email in a browser, and the vendor runs the whole application. Which service model is that?",
+    "scenarioAnswer": "SaaS",
+    "scenarioWrongs": ["IaaS", "PaaS", "A locally installed desktop program"],
+    "scenarioWhy": "A complete provider-operated application is SaaS."
+  },
+  {
+    "term": "Public cloud",
+    "definition": "Cloud infrastructure offered to many unrelated customers by a third-party provider over the internet.",
+    "wrongs": [
+      "Infrastructure operated solely for one organisation.",
+      "A cloud shared only by members of one industry consortium.",
+      "An air-gapped cluster with no external tenants."
+    ],
+    "why": "Any customer who can pay may use the same provider services, isolated logically from other tenants.",
+    "example": "A startup creates an account at a hyperscale provider and launches servers beside unknown other customers.",
+    "scenario": "Anyone with a credit card can rent compute from the same provider on shared infrastructure. Which deployment model is that?",
+    "scenarioAnswer": "Public cloud",
+    "scenarioWrongs": ["Private cloud", "Community cloud", "An isolated lab cluster"],
+    "scenarioWhy": "A provider service open to the general public is a public cloud."
+  },
+  {
+    "term": "Private cloud",
+    "definition": "Cloud infrastructure operated for the exclusive use of a single organisation.",
+    "wrongs": [
+      "A pool sold to any customer on the public internet.",
+      "A cloud shared by several universities under one consortium.",
+      "A single laptop running one local virtual machine for a class."
+    ],
+    "why": "The organisation is the only tenant, whether the equipment sits on premises or at a host.",
+    "example": "A bank runs a self-service virtual-machine portal that only its own business units can use.",
+    "scenario": "Only one company's departments can provision resources on an elastic internal portal. Which deployment model is that?",
+    "scenarioAnswer": "Private cloud",
+    "scenarioWrongs": ["Public cloud", "Community cloud", "A personal workstation"],
+    "scenarioWhy": "Exclusive use by one organisation is a private cloud."
+  },
+  {
+    "term": "Hybrid cloud",
+    "definition": "A combination of private and public clouds linked so workloads and data can move between them.",
+    "wrongs": [
+      "Two public regions of the same provider with no private site.",
+      "A private cloud that never connects to an outside provider.",
+      "A community cloud used by one research group only."
+    ],
+    "why": "The defining feature is portability across distinct cloud deployments, often private plus public.",
+    "example": "A hospital keeps records on its private cloud and bursts analytics jobs to a public region.",
+    "scenario": "Sensitive systems stay in the company data centre while overflow web traffic runs at a public provider, connected by a private link. Which model is that?",
+    "scenarioAnswer": "Hybrid cloud",
+    "scenarioWrongs": ["Public cloud only", "Private cloud only", "Community cloud"],
+    "scenarioWhy": "Joined private and public deployments form a hybrid cloud."
+  },
+  {
+    "term": "Community cloud",
+    "definition": "Cloud infrastructure shared by several organisations that have a common mission or compliance need.",
+    "wrongs": [
+      "A cloud open to any paying customer worldwide.",
+      "Infrastructure dedicated to only one company.",
+      "A temporary lab account on a student's laptop."
+    ],
+    "why": "The tenants share concerns such as a regulation or research mission, and share the cloud's cost and governance.",
+    "example": "Several public universities share one research cloud built for the same data-protection rules.",
+    "scenario": "Four hospitals jointly fund a cloud that only they may use, because they share the same health-data rules. Which model is that?",
+    "scenarioAnswer": "Community cloud",
+    "scenarioWrongs": ["Public cloud", "Private cloud for one firm", "Hybrid bursting"],
+    "scenarioWhy": "A cloud limited to a group with a shared concern is a community cloud."
+  },
+  {
+    "term": "Virtual machine",
+    "definition": "A software-defined computer that runs its own operating system on virtual hardware.",
+    "wrongs": [
+      "A process package that shares the host kernel and does not boot its own OS.",
+      "A physical blade server welded into one rack position.",
+      "An object stored under a key in a bucket."
+    ],
+    "why": "A hypervisor presents virtual CPU, memory, and disks so a guest OS runs as if it had a machine.",
+    "example": "One physical host runs a Windows guest and a Linux guest, each with its own virtual disk.",
+    "scenario": "An administrator boots a full guest operating system on virtual CPU and disk allocated by a hypervisor. Which construct is that?",
+    "scenarioAnswer": "Virtual machine",
+    "scenarioWrongs": ["Container", "Object", "Bare-metal host"],
+    "scenarioWhy": "A guest operating system on virtual hardware is a virtual machine."
+  },
+  {
+    "term": "Hypervisor",
+    "definition": "Software that creates and runs virtual machines and divides the host's hardware among them.",
+    "wrongs": [
+      "A load balancer that only forwards HTTP requests.",
+      "A container engine that shares one kernel among processes.",
+      "A billing report of hours consumed last month."
+    ],
+    "why": "It schedules guest CPU and memory and traps privileged instructions so guests stay isolated.",
+    "example": "A type-1 hypervisor on a server hosts twenty guest machines and pauses one to free RAM.",
+    "scenario": "A layer under several guest operating systems allocates CPU and memory and keeps the guests apart. Which component is that?",
+    "scenarioAnswer": "Hypervisor",
+    "scenarioWrongs": ["Load balancer", "Container runtime", "Usage meter"],
+    "scenarioWhy": "The component that runs guest machines on shared hardware is the hypervisor."
+  },
+  {
+    "term": "Container",
+    "definition": "A lightweight isolated package that runs an application while sharing the host operating-system kernel.",
+    "wrongs": [
+      "A virtual machine that boots a separate guest kernel.",
+      "A block volume attached as a raw disk.",
+      "A public IP address assigned to a subnet."
+    ],
+    "why": "Isolation uses kernel features such as namespaces, so there is no second operating system to boot.",
+    "example": "A web process and its libraries start in seconds on a worker that already runs the host Linux kernel.",
+    "scenario": "An application starts in under a second, isolated from neighbours, but uses the worker's existing kernel. Which package is that?",
+    "scenarioAnswer": "Container",
+    "scenarioWrongs": ["Virtual machine", "Block volume", "Availability zone"],
+    "scenarioWhy": "Process isolation on a shared kernel is a container."
+  },
+  {
+    "term": "Container orchestration",
+    "definition": "Automated placement, scaling, and restart of containers across a cluster of machines.",
+    "wrongs": [
+      "Manually copying one container onto a single laptop.",
+      "Partitioning a disk into volumes.",
+      "Negotiating a yearly discount with a vendor."
+    ],
+    "why": "A control plane schedules containers, replaces failed copies, and rolls out new versions.",
+    "example": "After a worker node dies, the cluster starts replacement web containers on remaining nodes.",
+    "scenario": "A control plane notices a dead node and starts new copies of the web containers elsewhere. Which capability is that?",
+    "scenarioAnswer": "Container orchestration",
+    "scenarioWrongs": ["Manual single-host docker run", "Disk partitioning", "Contract negotiation"],
+    "scenarioWhy": "Automatically placing and healing containers on a cluster is orchestration."
+  },
+  {
+    "term": "Elasticity",
+    "definition": "The ability to grow or shrink allocated resources automatically as demand changes.",
+    "wrongs": [
+      "A fixed server size chosen once and never changed.",
+      "Moving an office printer closer to users.",
+      "Encrypting disks so they can be copied off site."
+    ],
+    "why": "Cloud resources are meant to match the current load and be released when the load falls.",
+    "example": "A ticket site adds application instances during a sale and removes them when the queue disappears.",
+    "scenario": "Instances appear during a traffic spike and disappear after midnight when traffic returns to normal. Which property is that?",
+    "scenarioAnswer": "Elasticity",
+    "scenarioWrongs": ["A fixed capacity plan", "Data encryption", "Manual rack installation"],
+    "scenarioWhy": "Resources that track demand up and down show elasticity."
+  },
+  {
+    "term": "Horizontal scaling",
+    "definition": "Increasing capacity by adding more machines or instances that share the work.",
+    "wrongs": [
+      "Adding CPU and memory to the same single instance.",
+      "Compressing responses so one server sends fewer bytes.",
+      "Moving the database to a larger disk letter."
+    ],
+    "why": "Scale-out adds workers beside the existing ones instead of enlarging one machine.",
+    "example": "A web tier grows from four virtual machines to twelve during registration week.",
+    "scenario": "To handle more logins, operators add six more identical web servers behind the load balancer. Which scaling direction is that?",
+    "scenarioAnswer": "Horizontal scaling",
+    "scenarioWrongs": ["Vertical scaling", "Compression", "A larger single disk"],
+    "scenarioWhy": "Adding more instances to share load is horizontal scaling."
+  },
+  {
+    "term": "Vertical scaling",
+    "definition": "Increasing capacity by giving an existing instance more CPU, memory, or storage.",
+    "wrongs": [
+      "Adding more separate instances behind a load balancer.",
+      "Caching content on distant edge servers.",
+      "Splitting a monolith into network calls only."
+    ],
+    "why": "Scale-up enlarges one machine rather than adding peers.",
+    "example": "A database virtual machine is resized from 4 vCPUs to 16 vCPUs during exam week.",
+    "scenario": "A single database instance is resized from 16 GB of RAM to 64 GB, with no extra replicas. Which scaling direction is that?",
+    "scenarioAnswer": "Vertical scaling",
+    "scenarioWrongs": ["Horizontal scaling", "Edge caching", "Service decomposition"],
+    "scenarioWhy": "Enlarging one instance is vertical scaling."
+  },
+  {
+    "term": "Cloud region",
+    "definition": "A named geographic area in which a provider operates one or more groups of data centres.",
+    "wrongs": [
+      "A single rack inside an availability zone.",
+      "A virtual private subnet with one CIDR block.",
+      "The set of users allowed to call an API."
+    ],
+    "why": "Regions let customers place workloads near users and choose a legal location for data.",
+    "example": "A European shop launches its servers in a Paris region so pages load quickly for local buyers.",
+    "scenario": "An architect picks a provider area in Singapore, containing several isolated data-centre groups, to host an app. Which area is that?",
+    "scenarioAnswer": "Cloud region",
+    "scenarioWrongs": ["One server rack", "A subnet", "An IAM group"],
+    "scenarioWhy": "A geographic provider area of data centres is a region."
+  },
+  {
+    "term": "Availability zone",
+    "definition": "An isolated data-centre group inside a region, with separate power and networking from its neighbours.",
+    "wrongs": [
+      "A whole continent served by one provider brand.",
+      "A logical folder for objects in a bucket.",
+      "A single process inside a container."
+    ],
+    "why": "Failure of one zone's power or network should not take down the other zones in that region.",
+    "example": "A database keeps a synchronous replica in a second zone of the same region.",
+    "scenario": "A fire in one data-centre group leaves the other groups in the same region running. Which isolated group failed?",
+    "scenarioAnswer": "Availability zone",
+    "scenarioWrongs": ["The entire global provider", "An object prefix", "One container process"],
+    "scenarioWhy": "An isolated data-centre group inside a region is an availability zone."
+  },
+  {
+    "term": "Object storage",
+    "definition": "Storage of unstructured blobs addressed by a key, usually through an HTTP API rather than a mounted disk.",
+    "wrongs": [
+      "A raw volume that a virtual machine formats as a file system.",
+      "CPU registers inside a guest.",
+      "A message topic that deletes each event after delivery."
+    ],
+    "why": "Each object has a key and metadata, and the service scales without presenting a traditional block device.",
+    "example": "A photo app stores each image under a key such as albums/2026/img-18.jpg and fetches it with HTTPS.",
+    "scenario": "An app uploads a video with a key and later downloads that blob over HTTPS, without formatting a disk. Which storage type is that?",
+    "scenarioAnswer": "Object storage",
+    "scenarioWrongs": ["Block storage", "Register memory", "A transient message bus"],
+    "scenarioWhy": "Key-addressed blobs over HTTP are object storage."
+  },
+  {
+    "term": "Block storage",
+    "definition": "Storage presented to a virtual machine as a raw disk volume that the guest can format.",
+    "wrongs": [
+      "Key-addressed blobs fetched with HTTP.",
+      "A content cache at a city edge node.",
+      "An in-memory session on a load balancer."
+    ],
+    "why": "The guest sees sectors, like a hard disk, and usually builds its own file system on the volume.",
+    "example": "A database VM formats an attached 500 GB volume with a file system and stores its data files there.",
+    "scenario": "A virtual machine is given a raw 200 GB disk, which the guest formats before use. Which storage type is that?",
+    "scenarioAnswer": "Block storage",
+    "scenarioWrongs": ["Object storage", "A CDN cache", "Load-balancer memory"],
+    "scenarioWhy": "A volume that behaves like a disk is block storage."
+  },
+  {
+    "term": "Load balancing",
+    "definition": "Distributing incoming requests across several healthy servers so no single server takes all the work.",
+    "wrongs": [
+      "Storing objects under keys in one bucket.",
+      "Encrypting traffic between two specific hosts only.",
+      "Reserving a discount for a one-year virtual machine."
+    ],
+    "why": "A balancer spreads load and can skip servers that fail their health checks.",
+    "example": "An HTTPS front end sends each new student login to one of eight application servers.",
+    "scenario": "Incoming requests are spread across eight web servers, and a failed server receives none. Which function does the front end perform?",
+    "scenarioAnswer": "Load balancing",
+    "scenarioWrongs": ["Object archival", "Link encryption only", "Capacity reservation"],
+    "scenarioWhy": "Spreading requests across healthy servers is load balancing."
+  },
+  {
+    "term": "CAP theorem",
+    "definition": "During a network partition, a distributed store must trade off consistency against availability.",
+    "wrongs": [
+      "A rule that every cloud bill is capped at a fixed monthly price.",
+      "A proof that caches are always faster than disks.",
+      "A claim that encryption removes the need for access control."
+    ],
+    "why": "If nodes cannot talk, they cannot both stay perfectly in sync and answer every request.",
+    "example": "When a link between two database sites fails, designers either reject writes or accept temporary disagreement.",
+    "scenario": "A partition splits a database. Designers either refuse some requests or allow replicas to disagree for a while. Which theorem frames that choice?",
+    "scenarioAnswer": "CAP theorem",
+    "scenarioWrongs": ["Moore's law", "Amdahl's law", "Nyquist's theorem"],
+    "scenarioWhy": "Choosing consistency or availability during a partition is the CAP tradeoff."
+  },
+  {
+    "term": "Eventual consistency",
+    "definition": "A guarantee that replicas may disagree briefly but will converge if updates stop.",
+    "wrongs": [
+      "Every read sees the latest write at every replica immediately.",
+      "Data are deleted on purpose after a retention timer.",
+      "A backup that is never restored or compared."
+    ],
+    "why": "The system favours availability and reconciles copies after communication resumes.",
+    "example": "A profile photo updated in one region appears in another region a few seconds later.",
+    "scenario": "Two replicas of a shopping cart differ for a second after a write, then match once updates pause. Which consistency model is that?",
+    "scenarioAnswer": "Eventual consistency",
+    "scenarioWrongs": ["Linearisability", "Scheduled deletion", "An unread backup"],
+    "scenarioWhy": "Temporary disagreement that later converges is eventual consistency."
+  },
+  {
+    "term": "Serverless computing",
+    "definition": "Running short-lived functions on demand without the customer provisioning or managing servers.",
+    "wrongs": [
+      "Renting a virtual machine that stays up and is patched by the customer.",
+      "Colocating a physical server the customer owns.",
+      "Editing infrastructure only by clicking, with no code."
+    ],
+    "why": "The platform starts a function for an event, scales it, and bills for the execution used.",
+    "example": "Uploading a file triggers a function that makes a thumbnail, and no server is left running afterward.",
+    "scenario": "Image uploads invoke a function, the platform scales it, and the team never patches a host. Which model is that?",
+    "scenarioAnswer": "Serverless computing",
+    "scenarioWrongs": ["A customer-managed virtual machine", "Colocation", "Console-only editing"],
+    "scenarioWhy": "Event-driven functions without customer-managed servers are serverless computing."
+  },
+  {
+    "term": "Cold start",
+    "definition": "Extra latency when a serverless platform must create a new execution environment before running a function.",
+    "wrongs": [
+      "The time to fail over a database to another availability zone.",
+      "The delay of a CDN cache hit served from memory.",
+      "The boot time of a physical machine delivered by courier."
+    ],
+    "why": "After idle time the platform may have no warm environment, so it must initialise runtime and code.",
+    "example": "The first request to an idle function takes 800 ms, while the next request on the warm copy takes 20 ms.",
+    "scenario": "After an hour with no traffic, the next function call is much slower because a new environment must be built. Which delay is that?",
+    "scenarioAnswer": "Cold start",
+    "scenarioWrongs": ["Database failover", "A CDN cache hit", "Hardware shipping time"],
+    "scenarioWhy": "Initialising a fresh serverless environment causes a cold start."
+  },
+  {
+    "term": "Shared responsibility model",
+    "definition": "The split in which the provider secures the cloud platform and the customer secures data, access, and configuration.",
+    "wrongs": [
+      "The provider is solely liable for customer passwords and data classification.",
+      "The customer must guard the provider's physical data-centre doors.",
+      "Neither party handles security once a contract is signed."
+    ],
+    "why": "Physical hosts and the hypervisor are the provider's job; identities, data, and guest settings stay with the customer, varying by service model.",
+    "example": "On IaaS the provider patches the hypervisor, while the customer patches the guest OS and locks the storage bucket.",
+    "scenario": "A provider secures the physical hosts, but a public storage bucket full of student data is traced to the customer's settings. Which model explains that split?",
+    "scenarioAnswer": "Shared responsibility model",
+    "scenarioWrongs": ["Provider-only security", "Customer-operated data centres", "No security ownership"],
+    "scenarioWhy": "Platform security and customer configuration are split by the shared responsibility model."
+  },
+  {
+    "term": "Multi-tenancy",
+    "definition": "Hosting several customers on the same physical resources while keeping their workloads logically isolated.",
+    "wrongs": [
+      "Giving each customer a private building and private power feed.",
+      "Running only one virtual machine on an entire data centre.",
+      "Printing a separate invoice without sharing any hardware."
+    ],
+    "why": "Sharing hardware cuts cost, so isolation must stop one tenant from seeing another's data.",
+    "example": "Two companies' virtual machines sit on one host but cannot read each other's memory.",
+    "scenario": "Unrelated customers share one physical server, yet neither can read the other's disks. Which arrangement is that?",
+    "scenarioAnswer": "Multi-tenancy",
+    "scenarioWrongs": ["Dedicated single tenancy", "An empty data centre", "Separate paper invoices only"],
+    "scenarioWhy": "Shared hardware with logical isolation is multi-tenancy."
+  },
+  {
+    "term": "Measured service",
+    "definition": "Metering resource use so customers can be billed and can monitor what they consume.",
+    "wrongs": [
+      "A flat fee with no record of CPU hours or storage.",
+      "A limit on who may call an API.",
+      "Replication of data into a second zone."
+    ],
+    "why": "Cloud systems measure quantities such as hours, requests, and gigabytes.",
+    "example": "A monthly bill lists 140 virtual-machine hours and 2 TB of object storage traffic.",
+    "scenario": "The portal graphs gigabytes stored and CPU hours, and the invoice matches those figures. Which NIST characteristic is that?",
+    "scenarioAnswer": "Measured service",
+    "scenarioWrongs": ["An unmetered flat contract", "Access control", "Cross-zone replication"],
+    "scenarioWhy": "Metering consumption for billing and monitoring is measured service."
+  },
+  {
+    "term": "On-demand self-service",
+    "definition": "Letting a user provision computing resources without a human conversation with the provider.",
+    "wrongs": [
+      "Waiting for a salesperson to rack a server next week.",
+      "Automatic growth of instances after a CPU alarm.",
+      "Reading monitoring graphs of resources that already exist."
+    ],
+    "why": "A portal or API fulfils the request immediately, which is one of the NIST cloud characteristics.",
+    "example": "A teaching assistant launches a database from a web console at midnight with no support ticket.",
+    "scenario": "A student creates a virtual machine from an API at night without emailing the provider. Which characteristic is that?",
+    "scenarioAnswer": "On-demand self-service",
+    "scenarioWrongs": ["A manual sales order", "Autoscaling", "Usage dashboards"],
+    "scenarioWhy": "Provisioning without human provider contact is on-demand self-service."
+  },
+  {
+    "term": "Resource pooling",
+    "definition": "Dynamically assigning capacity from a provider's shared pool, without a customer owning a specific physical server.",
+    "wrongs": [
+      "Welding one application to one named physical machine forever.",
+      "Metering hours after the resources are already assigned.",
+      "Caching copies of files near end users."
+    ],
+    "why": "The provider decides which physical resources serve a tenant and can reassign them as load changes.",
+    "example": "A restarted virtual machine may land on a different host while keeping the same virtual disk.",
+    "scenario": "Customers draw CPU from a common pool and are not promised one particular physical server. Which characteristic is that?",
+    "scenarioAnswer": "Resource pooling",
+    "scenarioWrongs": ["Dedicated pinned hardware", "Measured billing", "Edge caching"],
+    "scenarioWhy": "Dynamic assignment from a shared pool is resource pooling."
+  },
+  {
+    "term": "Broad network access",
+    "definition": "Making cloud capabilities reachable over the network from standard client devices.",
+    "wrongs": [
+      "Requiring a custom terminal that works only inside one machine room.",
+      "Shipping portable disks instead of using a network.",
+      "Limiting administration to a serial cable on the server."
+    ],
+    "why": "Users reach the service with ordinary laptops, phones, or APIs across the network.",
+    "example": "The same admin console works from a laptop at home and a phone on campus Wi-Fi.",
+    "scenario": "Administrators manage the service from laptops and phones over the internet, not from a local serial console. Which characteristic is that?",
+    "scenarioAnswer": "Broad network access",
+    "scenarioWrongs": ["A room-only terminal", "Disk shipping", "Serial-cable administration"],
+    "scenarioWhy": "Access from common networked clients is broad network access."
+  },
+  {
+    "term": "Virtual private cloud",
+    "definition": "A logically isolated virtual network, with the customer's own addresses and routes, inside a public cloud.",
+    "wrongs": [
+      "The public internet with no customer-defined subnets.",
+      "A physical cage rented in a colocation hall.",
+      "A single security group rule on one network interface."
+    ],
+    "why": "The customer chooses private address ranges, subnets, and route tables that other tenants do not share.",
+    "example": "A course environment uses 10.1.0.0/16, with a public subnet for web servers and a private subnet for databases.",
+    "scenario": "A class is given its own address plan and route tables inside a public provider, isolated from other accounts. Which network construct is that?",
+    "scenarioAnswer": "Virtual private cloud",
+    "scenarioWrongs": ["The open internet", "A colocation cage", "One firewall rule"],
+    "scenarioWhy": "An isolated customer network inside a public cloud is a virtual private cloud."
+  },
+  {
+    "term": "Autoscaling",
+    "definition": "A policy that automatically adds or removes instances when a metric or schedule crosses a threshold.",
+    "wrongs": [
+      "A human adding a server after reading an email alert.",
+      "Resizing one machine's memory by shutting it down for a manual change.",
+      "Moving traffic to a second region by editing DNS by hand."
+    ],
+    "why": "The control loop watches signals such as CPU or request count and changes the instance count itself.",
+    "example": "When average CPU stays above 70 percent for five minutes, the group launches two more web instances.",
+    "scenario": "A group launches two more web instances after CPU stays high, then removes them when CPU falls. Which mechanism is that?",
+    "scenarioAnswer": "Autoscaling",
+    "scenarioWrongs": ["Manual scale-out", "A one-off vertical resize", "Manual DNS failover"],
+    "scenarioWhy": "A policy that changes instance count from metrics is autoscaling."
+  },
+  {
+    "term": "Content delivery network",
+    "definition": "A set of geographically distributed caches that serve copies of content from a location near the user.",
+    "wrongs": [
+      "The single origin database that holds the only copy of each row.",
+      "A load balancer inside one availability zone.",
+      "A batch job that transcodes video in the origin region."
+    ],
+    "why": "Edge caches shorten the path for static or cacheable responses and protect the origin from repeated fetches.",
+    "example": "A lecture video is fetched from a Singapore edge cache instead of the origin bucket in Ireland.",
+    "scenario": "Students in many countries receive the same course video from a nearby cache rather than the origin bucket. Which service is that?",
+    "scenarioAnswer": "Content delivery network",
+    "scenarioWrongs": ["Origin database", "In-zone load balancer", "A transcoding batch job"],
+    "scenarioWhy": "Nearby caches of content form a content delivery network."
+  },
+  {
+    "term": "Object versioning",
+    "definition": "Keeping earlier copies of an object so an overwrite or delete can be undone.",
+    "wrongs": [
+      "A point-in-time copy of a block volume attached to a virtual machine.",
+      "Replication of the current object to another region without history.",
+      "Compressing an object so it occupies less space."
+    ],
+    "why": "Each write can create a new version under the same key, and an old version remains readable.",
+    "example": "After a script overwrites notes.txt, the previous text is still available as an older version.",
+    "scenario": "A bad upload replaces a key, but yesterday's bytes are still stored and can be restored. Which object feature allowed that?",
+    "scenarioAnswer": "Object versioning",
+    "scenarioWrongs": ["A disk snapshot", "Cross-region replication of the latest copy", "Compression"],
+    "scenarioWhy": "Retaining prior copies of an object is versioning."
+  },
+  {
+    "term": "Volume snapshot",
+    "definition": "A point-in-time copy of a block volume that can be used to create a new disk later.",
+    "wrongs": [
+      "Historical copies of a key-addressed object.",
+      "A live replica that always matches the current volume byte for byte.",
+      "A backup of only the virtual machine's metadata name."
+    ],
+    "why": "The snapshot captures the volume's blocks at one moment, often stored durably apart from the attached disk.",
+    "example": "Before a risky upgrade, an administrator snapshots the database volume and later restores a test disk from it.",
+    "scenario": "Before patching, an operator saves a point-in-time copy of a virtual machine's disk and restores a test volume from it. Which copy is that?",
+    "scenarioAnswer": "Volume snapshot",
+    "scenarioWrongs": ["Object version", "A synchronous mirror", "A renamed virtual machine"],
+    "scenarioWhy": "A point-in-time copy of a block volume is a snapshot."
+  },
+  {
+    "term": "Identity and access management",
+    "definition": "Controls that decide which identities may perform which actions on which cloud resources.",
+    "wrongs": [
+      "A network path that only checks IP packets for malware.",
+      "A bill that lists hours and gigabytes.",
+      "A status page showing region health."
+    ],
+    "why": "Policies bind principals such as users and roles to permissions on services and data.",
+    "example": "A teaching role may read one storage bucket but cannot delete the production database.",
+    "scenario": "A policy lets a lab role read one bucket and denies it permission to terminate production instances. Which control plane is that?",
+    "scenarioAnswer": "Identity and access management",
+    "scenarioWrongs": ["Packet malware scanning", "Usage billing", "A public status page"],
+    "scenarioWhy": "Policies that bind identities to resource actions are identity and access management."
+  },
+  {
+    "term": "Service level agreement",
+    "definition": "A contract stating a measurable service target, such as monthly uptime, and the remedy if it is missed.",
+    "wrongs": [
+      "An internal coding style guide with no provider commitment.",
+      "A monitoring graph that has no contractual target.",
+      "A discount coupon for unused credits."
+    ],
+    "why": "The agreement makes availability or performance a commitment, often with service credits if the target is missed.",
+    "example": "A provider promises 99.99 percent monthly uptime for a database and offers credit if uptime is lower.",
+    "scenario": "A contract promises 99.9 percent monthly availability and credits the bill if the service falls short. Which document is that?",
+    "scenarioAnswer": "Service level agreement",
+    "scenarioWrongs": ["A style guide", "A monitoring dashboard", "A credit coupon"],
+    "scenarioWhy": "A contractual uptime or performance target is a service level agreement."
+  },
+  {
+    "term": "Vendor lock-in",
+    "definition": "Difficulty leaving a provider because a workload depends on that provider's proprietary services.",
+    "wrongs": [
+      "Using only open formats that run unchanged on any cloud.",
+      "Keeping a tested exit plan and portable containers.",
+      "Paying month to month with no technical dependency."
+    ],
+    "why": "Proprietary APIs, data formats, or managed engines raise the cost and time of a move.",
+    "example": "An app built only on one provider's proprietary database API would need a rewrite to run elsewhere.",
+    "scenario": "Moving a system would require rewriting calls that exist only at the current provider. Which risk is that?",
+    "scenarioAnswer": "Vendor lock-in",
+    "scenarioWrongs": ["Full portability", "A rehearsed exit plan", "Month-to-month billing with no technical tie"],
+    "scenarioWhy": "Dependence on proprietary services that blocks a move is vendor lock-in."
+  },
+  {
+    "term": "Lift and shift",
+    "definition": "Moving an existing application to the cloud with little or no change to its architecture.",
+    "wrongs": [
+      "Rebuilding the system as event-driven functions and managed services.",
+      "Retiring the application instead of hosting it.",
+      "Only backing it up without ever running it in the cloud."
+    ],
+    "why": "Rehosting places the same application on cloud virtual machines to finish the move quickly.",
+    "example": "A campus timetable server is copied onto a virtual machine and keeps its original monolith design.",
+    "scenario": "A monolith is copied onto cloud virtual machines and keeps its original structure. Which migration style is that?",
+    "scenarioAnswer": "Lift and shift",
+    "scenarioWrongs": ["A serverless redesign", "Application retirement", "Backup without migration"],
+    "scenarioWhy": "Rehosting an unchanged architecture is lift and shift."
+  },
+  {
+    "term": "Cloud bursting",
+    "definition": "Sending overflow workload from a private cloud to a public cloud when local capacity is exhausted.",
+    "wrongs": [
+      "Permanently moving every system to the public cloud.",
+      "Deleting overflow requests when the private cloud is full.",
+      "Caching static files at an edge node."
+    ],
+    "why": "The private estate handles the base load, and the public cloud absorbs short peaks.",
+    "example": "A university cluster sends extra rendering jobs to a public provider during thesis deadline week.",
+    "scenario": "A private cluster is full, so extra rendering jobs run at a public provider until the peak ends. Which pattern is that?",
+    "scenarioAnswer": "Cloud bursting",
+    "scenarioWrongs": ["A permanent full migration", "Dropping extra jobs", "Edge caching"],
+    "scenarioWhy": "Overflow from private capacity into a public cloud is cloud bursting."
+  },
+  {
+    "term": "Reserved instance",
+    "definition": "A discounted virtual-machine rate bought by committing to a term, often one or three years.",
+    "wrongs": [
+      "Spare capacity that the provider may reclaim at any moment.",
+      "A function billed only for milliseconds of execution.",
+      "A free tier that ends after a small monthly quota."
+    ],
+    "why": "The customer trades flexibility for a lower price on steady, long-running capacity.",
+    "example": "A database that runs all year is covered by a three-year reservation at a lower hourly rate.",
+    "scenario": "An always-on database receives a lower rate after the team commits to three years of capacity. Which purchase is that?",
+    "scenarioAnswer": "Reserved instance",
+    "scenarioWrongs": ["Spot instance", "Serverless per-millisecond billing", "A small free tier"],
+    "scenarioWhy": "A long-term capacity commitment at a discount is a reserved instance."
+  },
+  {
+    "term": "Spot instance",
+    "definition": "Spare cloud capacity sold cheaply that the provider can reclaim with little notice.",
+    "wrongs": [
+      "A three-year discounted commitment the provider will not interrupt.",
+      "A dedicated host reserved for one customer only.",
+      "A serverless function that scales to zero."
+    ],
+    "why": "The low price reflects the risk that the workload must stop or move when capacity is needed elsewhere.",
+    "example": "A fault-tolerant render farm uses cheap reclaimable machines and restarts any interrupted frame.",
+    "scenario": "A batch farm uses very cheap machines that the provider interrupts when it needs the capacity back. Which purchasing option is that?",
+    "scenarioAnswer": "Spot instance",
+    "scenarioWrongs": ["Reserved instance", "Dedicated host", "A scale-to-zero function"],
+    "scenarioWhy": "Cheap spare capacity that can be reclaimed is a spot instance."
+  },
+  {
+    "term": "Edge computing",
+    "definition": "Processing data close to where it is produced, instead of sending every event to a central region.",
+    "wrongs": [
+      "Serving only cached copies of static files with no local computation.",
+      "Running all analytics in one central region.",
+      "Storing backups offline on tape."
+    ],
+    "why": "Local processing cuts latency and the volume of data that must cross the wide-area network.",
+    "example": "A campus gateway filters sensor readings and forwards only alerts, not every raw sample.",
+    "scenario": "A factory gateway analyses sensor data on site and uploads only alerts, not every reading. Which approach is that?",
+    "scenarioAnswer": "Edge computing",
+    "scenarioWrongs": ["Static CDN caching", "Central-only analytics", "Offline tape backup"],
+    "scenarioWhy": "Computation near the data source is edge computing."
+  },
+  {
+    "term": "API gateway",
+    "definition": "A managed front door that authenticates, throttles, and routes application API calls to backend services.",
+    "wrongs": [
+      "A database engine that stores the application's tables.",
+      "A block volume attached to one virtual machine.",
+      "A batch scheduler for nightly jobs."
+    ],
+    "why": "Clients call one endpoint, and the gateway checks identity, limits rate, and forwards the request.",
+    "example": "Mobile apps call one HTTPS hostname that verifies tokens and routes each path to a different service.",
+    "scenario": "All mobile clients call one hostname that checks tokens, limits request rate, and forwards each path. Which component is that?",
+    "scenarioAnswer": "API gateway",
+    "scenarioWrongs": ["A relational database", "Block storage", "A nightly batch scheduler"],
+    "scenarioWhy": "A managed API front door for auth, limits, and routing is an API gateway."
+  },
+  {
+    "term": "Message queue",
+    "definition": "A buffer that holds work items so producers and consumers can run independently.",
+    "wrongs": [
+      "A synchronous call that fails immediately if the receiver is down.",
+      "A shared file system used as the only database.",
+      "A load balancer session cookie."
+    ],
+    "why": "The queue absorbs bursts and lets the consumer process messages at its own pace.",
+    "example": "Web servers enqueue thumbnail jobs, and workers drain the queue even if a web server restarts.",
+    "scenario": "Web uploads enqueue jobs that workers process later, so a slow worker does not fail the upload request. Which component sits between them?",
+    "scenarioAnswer": "Message queue",
+    "scenarioWrongs": ["A synchronous direct call", "A shared file database", "A session cookie"],
+    "scenarioWhy": "A buffer that decouples producers from consumers is a message queue."
+  },
+  {
+    "term": "Noisy neighbour",
+    "definition": "A tenant whose heavy use of shared hardware degrades performance for other tenants on that host.",
+    "wrongs": [
+      "A dedicated host with only one customer's virtual machines.",
+      "A region-wide outage caused by a fibre cut.",
+      "A billing error that overcharges a quiet account."
+    ],
+    "why": "Contended CPU, disk, or network on multi-tenant hardware lets one workload steal performance.",
+    "example": "One virtual machine's disk storm slows another customer's database on the same physical host.",
+    "scenario": "One tenant's disk storm slows another tenant's database on the same physical host. Which problem is that?",
+    "scenarioAnswer": "Noisy neighbour",
+    "scenarioWrongs": ["A dedicated single-tenant host", "A regional fibre cut", "An invoicing mistake"],
+    "scenarioWhy": "One tenant hurting others on shared hardware is a noisy neighbour."
+  },
+  {
+    "term": "Infrastructure as code",
+    "definition": "Defining cloud resources in versioned text templates that a tool can create and update.",
+    "wrongs": [
+      "Clicking each resource into existence and remembering the steps.",
+      "Writing only the application source code, not the environment.",
+      "Photographing the console as documentation."
+    ],
+    "why": "Templates can be reviewed, repeated, and rolled back like application source.",
+    "example": "A repository describes the network, virtual machines, and buckets, and a pipeline applies that description.",
+    "scenario": "A pull request changes a text template, and a pipeline updates the network and servers to match. Which practice is that?",
+    "scenarioAnswer": "Infrastructure as code",
+    "scenarioWrongs": ["Manual console setup", "Application code alone", "Screenshot documentation"],
+    "scenarioWhy": "Versioned templates that build the environment are infrastructure as code."
+  },
+  {
+    "term": "Blue-green deployment",
+    "definition": "Running two production environments and switching traffic from the old one to the new one.",
+    "wrongs": [
+      "Replacing binaries on the only live servers in place.",
+      "Sending every user a different experimental feature at random.",
+      "Keeping a spare region only for disaster recovery drills."
+    ],
+    "why": "The idle environment is upgraded and tested, then the load balancer moves traffic across in one cut.",
+    "example": "Version 5 runs in green while users still use blue; after checks, the balancer sends everyone to green.",
+    "scenario": "The new release is fully installed in an idle environment, then the load balancer moves all users to it. Which release method is that?",
+    "scenarioAnswer": "Blue-green deployment",
+    "scenarioWrongs": ["In-place replacement", "A random feature experiment", "A disaster-recovery drill"],
+    "scenarioWhy": "Switching traffic between two live environments is blue-green deployment."
+  },
+  {
+    "term": "Health check",
+    "definition": "A probe a load balancer or orchestrator uses to decide whether an instance should receive work.",
+    "wrongs": [
+      "A yearly penetration test of the whole company.",
+      "A bill-review meeting with finance.",
+      "A checksum of a container image in a registry."
+    ],
+    "why": "If the probe fails, the instance is marked unhealthy and new requests are sent elsewhere.",
+    "example": "A balancer requests /health every 10 seconds and stops using any instance that returns an error.",
+    "scenario": "A balancer calls /health every 10 seconds and removes an instance that keeps failing. Which mechanism is that?",
+    "scenarioAnswer": "Health check",
+    "scenarioWrongs": ["A yearly penetration test", "A finance review", "An image checksum"],
+    "scenarioWhy": "A liveness probe that gates traffic is a health check."
+  },
+  {
+    "term": "Data residency",
+    "definition": "A requirement that specified data remain stored and processed in a chosen country or region.",
+    "wrongs": [
+      "Replicating data to every region for the lowest latency.",
+      "The right of a user to download a copy of personal data.",
+      "Shredding disks when a lease ends."
+    ],
+    "why": "Law or policy can forbid storing certain records outside a jurisdiction.",
+    "example": "A university policy requires student records to stay in data centres inside the country.",
+    "scenario": "Policy forbids storing admission records outside the country's provider regions. Which requirement is that?",
+    "scenarioAnswer": "Data residency",
+    "scenarioWrongs": ["Global replication", "A data-portability request", "Disk destruction"],
+    "scenarioWhy": "Keeping data inside a required geography is data residency."
+  }
+]

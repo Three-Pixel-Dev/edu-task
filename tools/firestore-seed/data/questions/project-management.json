@@ -1,0 +1,1685 @@
+{
+  "subjectId": "project-management",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Project Scope?",
+        "options": [
+          "The work that must be done, and the results that must be delivered, for the project to be complete.",
+          "Every idea anyone mentions, whether or not it was agreed.",
+          "Only the project manager's personal tasks, excluding deliverables.",
+          "The company's entire strategy for the next decade."
+        ],
+        "correctAnswer": "The work that must be done, and the results that must be delivered, for the project to be complete.",
+        "explanation": "Scope is the agreed boundary of work and deliverables that defines completion."
+      },
+      {
+        "question": "What is Scope Statement?",
+        "options": [
+          "A verbal hope that the team will know what to build.",
+          "A document that describes the project's deliverables, acceptance boundaries, and what is explicitly excluded.",
+          "A blank Gantt chart with no description of deliverables.",
+          "A list of every employee's hobbies."
+        ],
+        "correctAnswer": "A document that describes the project's deliverables, acceptance boundaries, and what is explicitly excluded.",
+        "explanation": "A scope statement writes down deliverables, boundaries, and exclusions so the agreement can be checked later."
+      },
+      {
+        "question": "What is Scope Creep?",
+        "options": [
+          "An approved change that adds time and budget for the new work.",
+          "Removing a feature so the team can finish on the original date.",
+          "Uncontrolled growth of work or deliverables without a corresponding approved change to time, cost, or resources.",
+          "Writing the original scope before any work starts."
+        ],
+        "correctAnswer": "Uncontrolled growth of work or deliverables without a corresponding approved change to time, cost, or resources.",
+        "explanation": "Scope creep is uncontrolled addition of work, unlike a change that is approved with matching time or cost."
+      },
+      {
+        "question": "What is Work Breakdown Structure?",
+        "options": [
+          "An organisation chart of the whole company, unrelated to this project's deliverables.",
+          "A hierarchical breakdown of the project scope into smaller, manageable components of work.",
+          "A calendar that only shows dates and hides the work components.",
+          "A risk list sorted by probability."
+        ],
+        "correctAnswer": "A hierarchical breakdown of the project scope into smaller, manageable components of work.",
+        "explanation": "A work breakdown structure decomposes scope into smaller components so work can be estimated and assigned."
+      },
+      {
+        "question": "What is Work Package?",
+        "options": [
+          "The lowest-level component in the work breakdown structure that can be estimated, assigned, and tracked.",
+          "A stakeholder's job title outside the project.",
+          "The whole project treated as one lump with no owner.",
+          "A milestone diamond that marks a date but contains no work."
+        ],
+        "correctAnswer": "The lowest-level component in the work breakdown structure that can be estimated, assigned, and tracked.",
+        "explanation": "A work package is a leaf of the breakdown that is small enough to estimate, assign, and control."
+      },
+      {
+        "question": "What is Deliverable?",
+        "options": [
+          "A private intention that produces nothing others can check.",
+          "A tangible or verifiable product, result, or capability that must be produced to complete part of the project.",
+          "The number of meetings held, regardless of output.",
+          "A team member's years of experience."
+        ],
+        "correctAnswer": "A tangible or verifiable product, result, or capability that must be produced to complete part of the project.",
+        "explanation": "A deliverable is an output others can verify, not effort, meetings, or experience by themselves."
+      },
+      {
+        "question": "What is Acceptance Criteria?",
+        "options": [
+          "The date the work happened to finish.",
+          "The conditions a deliverable must meet before the customer or sponsor agrees to accept it.",
+          "The brand of laptop used to build it.",
+          "The project manager's private feeling that the work is good enough."
+        ],
+        "correctAnswer": "The conditions a deliverable must meet before the customer or sponsor agrees to accept it.",
+        "explanation": "Acceptance criteria are the agreed conditions that define when a deliverable is fit to accept."
+      },
+      {
+        "question": "What is Activity?",
+        "options": [
+          "The name of the sponsoring department.",
+          "A point in time with zero duration that only marks an event.",
+          "A distinct piece of scheduled work that consumes time and usually resources, and that helps produce a deliverable.",
+          "A risk that might happen later."
+        ],
+        "correctAnswer": "A distinct piece of scheduled work that consumes time and usually resources, and that helps produce a deliverable.",
+        "explanation": "An activity is work with duration on the schedule, unlike a milestone, which is a zero-duration marker."
+      },
+      {
+        "question": "What is Milestone?",
+        "options": [
+          "The total budget of the project.",
+          "A zero-duration marker on the schedule that represents a significant event, such as an approval or a handover.",
+          "A team member's hourly rate.",
+          "A five-day task in which someone writes a guide."
+        ],
+        "correctAnswer": "A zero-duration marker on the schedule that represents a significant event, such as an approval or a handover.",
+        "explanation": "A milestone marks an event and has no duration of its own, unlike an activity."
+      },
+      {
+        "question": "What is Gantt Chart?",
+        "options": [
+          "A bar chart that shows activities against a timescale, including their start, finish, and often their dependencies.",
+          "A list of risks and their owners.",
+          "A pie chart of the company share price.",
+          "A hierarchy of scope components with no dates."
+        ],
+        "correctAnswer": "A bar chart that shows activities against a timescale, including their start, finish, and often their dependencies.",
+        "explanation": "A Gantt chart displays schedule information as bars on a calendar, which a scope hierarchy does not."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Network Diagram?",
+        "options": [
+          "A bar chart whose main feature is a calendar axis rather than logic paths.",
+          "A drawing of the office computer cables.",
+          "A graph of activities and their logical dependencies, used to find the paths through the schedule.",
+          "An organisation chart of line managers."
+        ],
+        "correctAnswer": "A graph of activities and their logical dependencies, used to find the paths through the schedule.",
+        "explanation": "A network diagram shows logical dependencies among activities so paths, including the critical path, can be analysed."
+      },
+      {
+        "question": "What is Dependency?",
+        "options": [
+          "A personal friendship between two team members.",
+          "A preference for working near a window.",
+          "Two tasks that merely share the same week by coincidence.",
+          "A logical relationship in which one activity cannot start or finish until another activity has reached a required state."
+        ],
+        "correctAnswer": "A logical relationship in which one activity cannot start or finish until another activity has reached a required state.",
+        "explanation": "A dependency is a logical constraint between activities, not a coincidence of dates or a personal preference."
+      },
+      {
+        "question": "What is Schedule Lead?",
+        "options": [
+          "A required wait inserted after a predecessor finishes before the successor may start.",
+          "The total length of the critical path.",
+          "An overlap that allows a successor activity to start before its predecessor has finished.",
+          "The person who manages the schedule."
+        ],
+        "correctAnswer": "An overlap that allows a successor activity to start before its predecessor has finished.",
+        "explanation": "Lead is an overlap that accelerates a successor, whereas lag is a delay between activities."
+      },
+      {
+        "question": "What is Schedule Lag?",
+        "options": [
+          "A required delay between a predecessor and its successor, so the successor waits after the predecessor reaches the linked point.",
+          "Free time that an activity can slip without affecting the project finish.",
+          "The name of the scheduling tool.",
+          "An overlap that lets the successor start early."
+        ],
+        "correctAnswer": "A required delay between a predecessor and its successor, so the successor waits after the predecessor reaches the linked point.",
+        "explanation": "Lag is a deliberate delay on a dependency, not spare float and not an accelerating overlap."
+      },
+      {
+        "question": "What is Critical Path?",
+        "options": [
+          "The longest path of dependent activities through the schedule, whose delay delays the project finish.",
+          "Any task the sponsor mentions first in a meeting.",
+          "The shortest list of easy tasks that can all slip without moving the end date.",
+          "The path the project manager walks to the meeting room."
+        ],
+        "correctAnswer": "The longest path of dependent activities through the schedule, whose delay delays the project finish.",
+        "explanation": "The critical path is the longest dependent chain, so it determines the earliest finish and has no spare time."
+      },
+      {
+        "question": "What is Total Float?",
+        "options": [
+          "The number of people who are free this afternoon.",
+          "The amount of money left in the budget.",
+          "The time an activity can slip before it delays only its immediate successor, even if the project end is safe.",
+          "The time an activity can be delayed without delaying the project finish date."
+        ],
+        "correctAnswer": "The time an activity can be delayed without delaying the project finish date.",
+        "explanation": "Total float is slack relative to the project finish date, and critical activities have none."
+      },
+      {
+        "question": "What is Schedule Baseline?",
+        "options": [
+          "The approved version of the schedule against which actual progress and changes are compared.",
+          "A photo of the team on the first day.",
+          "The list of risks that might affect dates.",
+          "A rough sketch that nobody has approved and that changes silently each day."
+        ],
+        "correctAnswer": "The approved version of the schedule against which actual progress and changes are compared.",
+        "explanation": "The schedule baseline is the approved plan used as the reference for measuring delay and approving date changes."
+      },
+      {
+        "question": "What is Project Risk?",
+        "options": [
+          "A problem that has already happened and now needs action.",
+          "A fact that is already known and certain.",
+          "The project title printed on the cover.",
+          "An uncertain event or condition that, if it occurs, has a positive or negative effect on project objectives."
+        ],
+        "correctAnswer": "An uncertain event or condition that, if it occurs, has a positive or negative effect on project objectives.",
+        "explanation": "A risk is uncertain and may help or harm objectives, whereas an issue is a problem that has already occurred."
+      },
+      {
+        "question": "What is Risk Register?",
+        "options": [
+          "A diary of problems that have already happened, with no uncertain events.",
+          "A living log of identified risks, their ratings, owners, and planned responses.",
+          "A contact list with no risks recorded.",
+          "The approved budget spreadsheet."
+        ],
+        "correctAnswer": "A living log of identified risks, their ratings, owners, and planned responses.",
+        "explanation": "The risk register is where identified risks, ratings, owners, and responses are recorded and updated."
+      },
+      {
+        "question": "What is Probability and Impact?",
+        "options": [
+          "The font size and colour of a slide.",
+          "The two ratings commonly used to judge a risk: how likely it is, and how severe the effect would be if it occurred.",
+          "The first name and surname of the sponsor.",
+          "The start date and finish date of a task."
+        ],
+        "correctAnswer": "The two ratings commonly used to judge a risk: how likely it is, and how severe the effect would be if it occurred.",
+        "explanation": "Risk rating combines likelihood and severity so the team can prioritise responses."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Risk Mitigation?",
+        "options": [
+          "A response that reduces the probability or the impact of a threat.",
+          "A response that shifts the financial effect to an insurer and leaves the event unchanged.",
+          "A response that removes the risky work entirely so the threat cannot occur.",
+          "Doing nothing and accepting the threat as it stands."
+        ],
+        "correctAnswer": "A response that reduces the probability or the impact of a threat.",
+        "explanation": "Mitigation lowers likelihood or impact but does not necessarily eliminate the activity or transfer the loss."
+      },
+      {
+        "question": "What is Risk Avoidance?",
+        "options": [
+          "Keeping the plan unchanged and accepting the threat.",
+          "A response that removes a threat by changing the plan so the risky activity is no longer done.",
+          "Reducing the chance of a threat while still doing the same activity.",
+          "Buying insurance so someone else pays if the threat occurs."
+        ],
+        "correctAnswer": "A response that removes a threat by changing the plan so the risky activity is no longer done.",
+        "explanation": "Avoidance eliminates exposure by changing the plan, rather than merely reducing or transferring the risk."
+      },
+      {
+        "question": "What is Risk Transfer?",
+        "options": [
+          "Adding tests so the threat is less likely, while the team still bears the loss.",
+          "A response that shifts the financial impact of a threat to a third party, such as through insurance or a contract clause.",
+          "Ignoring the threat because it feels unlikely.",
+          "Removing the risky work from the project entirely."
+        ],
+        "correctAnswer": "A response that shifts the financial impact of a threat to a third party, such as through insurance or a contract clause.",
+        "explanation": "Transfer moves the financial consequence to another party; it does not remove the event or automatically reduce its chance."
+      },
+      {
+        "question": "What is Residual Risk?",
+        "options": [
+          "The risk as it was before any response was chosen.",
+          "A problem that has already occurred.",
+          "The risk that remains after the planned responses have been applied.",
+          "A brand-new risk created by the response itself."
+        ],
+        "correctAnswer": "The risk that remains after the planned responses have been applied.",
+        "explanation": "Residual risk is what is left of a threat once the chosen responses are in place."
+      },
+      {
+        "question": "What is Issue?",
+        "options": [
+          "A milestone that was completed successfully.",
+          "A problem or decision that has already arisen and now needs action, rather than an uncertainty about the future.",
+          "An uncertain event that might affect the project if it occurs later.",
+          "A benefit the sponsor hopes to gain."
+        ],
+        "correctAnswer": "A problem or decision that has already arisen and now needs action, rather than an uncertainty about the future.",
+        "explanation": "An issue is current and requires action, whereas a risk is still uncertain."
+      },
+      {
+        "question": "What is Project Stakeholder?",
+        "options": [
+          "A person with neither influence nor any effect from the result.",
+          "Only people named on the project payroll.",
+          "The file format used for the schedule.",
+          "A person or group that can affect the project or that is affected by its decisions or results."
+        ],
+        "correctAnswer": "A person or group that can affect the project or that is affected by its decisions or results.",
+        "explanation": "Project stakeholders include anyone who influences the work or who is affected by it, not only paid team members."
+      },
+      {
+        "question": "What is Stakeholder Register?",
+        "options": [
+          "A document that records stakeholders, their interests, influence, and the approach for engaging them.",
+          "A list of source-code files.",
+          "A Gantt chart of activity dates.",
+          "A budget broken down by cost type."
+        ],
+        "correctAnswer": "A document that records stakeholders, their interests, influence, and the approach for engaging them.",
+        "explanation": "The stakeholder register captures who matters, what they care about, and how the project will engage them."
+      },
+      {
+        "question": "What is Communication Plan?",
+        "options": [
+          "A plan that only lists the technical tasks and their durations.",
+          "A document that states what project information each audience needs, in what form, how often, and from whom.",
+          "A wiring diagram for the office network.",
+          "A single unplanned message sent during a crisis, with no agreed pattern."
+        ],
+        "correctAnswer": "A document that states what project information each audience needs, in what form, how often, and from whom.",
+        "explanation": "A communication plan sets the audience, content, format, frequency, and sender for project information."
+      },
+      {
+        "question": "What is RACI Matrix?",
+        "options": [
+          "A budget of labour hours with no roles.",
+          "A grid that assigns, for each task or decision, who is responsible, accountable, consulted, and informed.",
+          "A list of risks sorted by score.",
+          "A chart of activity bars on a calendar."
+        ],
+        "correctAnswer": "A grid that assigns, for each task or decision, who is responsible, accountable, consulted, and informed.",
+        "explanation": "RACI clarifies the four participation roles so each task has a clear doer and a single accountable owner."
+      },
+      {
+        "question": "What is Status Report?",
+        "options": [
+          "A regular project update that compares progress with the plan and highlights issues, risks, and decisions needed.",
+          "The original charter that authorised the project.",
+          "The final lessons-learned note written after closure.",
+          "A celebration email that hides a known delay."
+        ],
+        "correctAnswer": "A regular project update that compares progress with the plan and highlights issues, risks, and decisions needed.",
+        "explanation": "A status report is a recurring comparison of actual progress with the plan, including problems that need attention."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Kickoff Meeting?",
+        "options": [
+          "The meeting that closes the project and archives the files.",
+          "The interview that hired the project manager months earlier.",
+          "The meeting that starts coordinated execution by aligning the team and stakeholders on goals, roles, and near-term work.",
+          "A private lunch with no discussion of goals or roles."
+        ],
+        "correctAnswer": "The meeting that starts coordinated execution by aligning the team and stakeholders on goals, roles, and near-term work.",
+        "explanation": "Kickoff aligns people on purpose, roles, and the first work as execution begins."
+      },
+      {
+        "question": "What is Analogous Estimating?",
+        "options": [
+          "An estimate based on the actual cost or duration of a similar past project, adjusted for known differences.",
+          "An estimate built by summing detailed estimates of every small work package.",
+          "An estimate produced from a statistical rate times a measured quantity.",
+          "A guess with no reference to any past project."
+        ],
+        "correctAnswer": "An estimate based on the actual cost or duration of a similar past project, adjusted for known differences.",
+        "explanation": "Analogous estimating uses a similar historical project as the base and then adjusts it."
+      },
+      {
+        "question": "What is Parametric Estimating?",
+        "options": [
+          "An estimate that adds up individually estimated work packages.",
+          "An estimate produced by applying a statistical rate, such as hours per screen, to a measured quantity of work.",
+          "An estimate formed from optimistic, most likely, and pessimistic figures.",
+          "An estimate copied from one similar past project and then adjusted."
+        ],
+        "correctAnswer": "An estimate produced by applying a statistical rate, such as hours per screen, to a measured quantity of work.",
+        "explanation": "Parametric estimating multiplies a known rate by a quantity, rather than copying one whole past project."
+      },
+      {
+        "question": "What is Three-Point Estimating?",
+        "options": [
+          "A rate multiplied by a quantity, with no range of outcomes.",
+          "A single figure copied from one past project.",
+          "An estimating technique that uses optimistic, most likely, and pessimistic figures to produce an expected value.",
+          "The average of three people's favourite numbers, unrelated to the work."
+        ],
+        "correctAnswer": "An estimating technique that uses optimistic, most likely, and pessimistic figures to produce an expected value.",
+        "explanation": "Three-point estimating recognises uncertainty by combining optimistic, most likely, and pessimistic values."
+      },
+      {
+        "question": "What is Bottom-Up Estimating?",
+        "options": [
+          "An estimate built by estimating the lowest work packages in detail and summing them to higher levels.",
+          "An estimate taken from one similar project without looking at the packages.",
+          "A rate applied to a single total quantity with no package detail.",
+          "A sponsor's target date imposed with no estimate of the work."
+        ],
+        "correctAnswer": "An estimate built by estimating the lowest work packages in detail and summing them to higher levels.",
+        "explanation": "Bottom-up estimating starts at detailed packages and adds them up, which takes effort but is more specific."
+      },
+      {
+        "question": "What is Effort?",
+        "options": [
+          "The emotional energy of a meeting.",
+          "The number of calendar days from start to finish, regardless of how many people work.",
+          "The amount of labour required to complete an activity, often measured in person-hours, independent of calendar time.",
+          "The money charged by a vendor for a licence."
+        ],
+        "correctAnswer": "The amount of labour required to complete an activity, often measured in person-hours, independent of calendar time.",
+        "explanation": "Effort measures labour content, while duration measures elapsed calendar time."
+      },
+      {
+        "question": "What is Duration?",
+        "options": [
+          "The count of stakeholders.",
+          "The project budget in money.",
+          "The amount of calendar time between the start and finish of an activity, given the resources assigned.",
+          "The total person-hours, ignoring how those hours are spread across days."
+        ],
+        "correctAnswer": "The amount of calendar time between the start and finish of an activity, given the resources assigned.",
+        "explanation": "Duration is elapsed calendar time, which depends on how effort is staffed."
+      },
+      {
+        "question": "What is Contingency Reserve?",
+        "options": [
+          "A reserve kept by senior management for unknown unknowns, outside the project baseline.",
+          "Time or money held inside the project baseline to cover identified risks that may occur.",
+          "Money already spent on completed work.",
+          "The profit the vendor hopes to make."
+        ],
+        "correctAnswer": "Time or money held inside the project baseline to cover identified risks that may occur.",
+        "explanation": "Contingency reserve covers known risks and sits in the baseline; it is not management reserve for unidentified uncertainty."
+      },
+      {
+        "question": "What is Quality Planning?",
+        "options": [
+          "Choosing the office paint colour with no link to deliverables.",
+          "Auditing whether the team followed its quality process.",
+          "Inspecting a finished deliverable to count defects.",
+          "Deciding the quality standards for the project and how the team will meet them."
+        ],
+        "correctAnswer": "Deciding the quality standards for the project and how the team will meet them.",
+        "explanation": "Quality planning sets the standards and the approach before execution and inspection."
+      },
+      {
+        "question": "What is Quality Assurance?",
+        "options": [
+          "Writing the quality standards for the first time.",
+          "Checking that the project's quality processes are being followed so defects are less likely to be created.",
+          "Inspecting a deliverable against standards to find defects in that product.",
+          "Cancelling all reviews to save time."
+        ],
+        "correctAnswer": "Checking that the project's quality processes are being followed so defects are less likely to be created.",
+        "explanation": "Quality assurance evaluates the process, whereas quality control inspects the product."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Quality Control?",
+        "options": [
+          "Choosing which standards will apply next year.",
+          "Ignoring test results so the date can be met.",
+          "Auditing whether people followed the quality process, without looking at the product.",
+          "Inspecting deliverables against standards to find defects and confirm whether acceptance conditions are met."
+        ],
+        "correctAnswer": "Inspecting deliverables against standards to find defects and confirm whether acceptance conditions are met.",
+        "explanation": "Quality control examines the deliverable itself and compares it with the standard or acceptance conditions."
+      },
+      {
+        "question": "What is Change Request?",
+        "options": [
+          "A suggestion shouted in a corridor and then forgotten.",
+          "A formal proposal to modify an approved baseline, such as scope, schedule, or cost, so the change can be assessed.",
+          "The original approved scope itself.",
+          "A silent edit to the baseline with no record."
+        ],
+        "correctAnswer": "A formal proposal to modify an approved baseline, such as scope, schedule, or cost, so the change can be assessed.",
+        "explanation": "A change request makes a proposed baseline change visible so impact can be assessed and a decision recorded."
+      },
+      {
+        "question": "What is Baseline?",
+        "options": [
+          "An approved version of a plan, such as scope, schedule, or cost, used as the reference for measuring performance.",
+          "A draft that changes whenever someone has a new idea and has never been approved.",
+          "A stakeholder's personal opinion of quality.",
+          "The actual results after the work is finished."
+        ],
+        "correctAnswer": "An approved version of a plan, such as scope, schedule, or cost, used as the reference for measuring performance.",
+        "explanation": "A baseline is the approved reference; performance is measured by comparing actual results with it."
+      },
+      {
+        "question": "What is Project Charter?",
+        "options": [
+          "A test log of defects found in the last build.",
+          "A vendor invoice for completed work.",
+          "A document issued by the sponsor that authorises the project and states its purpose, manager, and high-level constraints.",
+          "A detailed schedule of every activity and dependency."
+        ],
+        "correctAnswer": "A document issued by the sponsor that authorises the project and states its purpose, manager, and high-level constraints.",
+        "explanation": "The charter authorises the project at a high level; it is not the detailed schedule or a test record."
+      },
+      {
+        "question": "What is Project Sponsor?",
+        "options": [
+          "A contractor who only installs equipment and cannot approve scope.",
+          "The person who provides authority and resources for the project and is accountable for its business outcome.",
+          "A team member who writes code but does not own the business result.",
+          "A tool that stores the schedule."
+        ],
+        "correctAnswer": "The person who provides authority and resources for the project and is accountable for its business outcome.",
+        "explanation": "The sponsor champions the project, supplies resources, and answers for the business result."
+      },
+      {
+        "question": "What is Triple Constraint?",
+        "options": [
+          "Three unrelated office rules about dress, parking, and email.",
+          "A claim that scope, time, and cost can all be fixed while work is freely added.",
+          "The linked limits of scope, time, and cost, where changing one usually forces a change in at least one of the others.",
+          "The three names of the steering-group chairs."
+        ],
+        "correctAnswer": "The linked limits of scope, time, and cost, where changing one usually forces a change in at least one of the others.",
+        "explanation": "The triple constraint describes the trade-off among scope, time, and cost on a project."
+      },
+      {
+        "question": "What is Lessons Learned?",
+        "options": [
+          "A deleted mailbox with no notes kept.",
+          "The original business case, unchanged at the end.",
+          "Recorded knowledge from what went well and what did not, captured so later work can reuse it.",
+          "A blame list that names people but records no reusable knowledge."
+        ],
+        "correctAnswer": "Recorded knowledge from what went well and what did not, captured so later work can reuse it.",
+        "explanation": "Lessons learned turn project experience into knowledge the next piece of work can use."
+      },
+      {
+        "question": "What is Assumptions Log?",
+        "options": [
+          "A record of factors treated as true for planning purposes, which are checked because they may be wrong.",
+          "A catalogue of office furniture.",
+          "A list of problems that have already happened.",
+          "A list of uncertain events with probability and impact."
+        ],
+        "correctAnswer": "A record of factors treated as true for planning purposes, which are checked because they may be wrong.",
+        "explanation": "Assumptions are planning premises treated as true, and the log makes them visible so they can be validated."
+      },
+      {
+        "question": "What is Crashing?",
+        "options": [
+          "Overlapping activities that were planned in sequence, without adding resources.",
+          "Lengthening the schedule to reduce cost.",
+          "Removing scope so the date can be met with the same team.",
+          "Shortening the schedule by adding resources to critical activities, usually at extra cost."
+        ],
+        "correctAnswer": "Shortening the schedule by adding resources to critical activities, usually at extra cost.",
+        "explanation": "Crashing trades cost for time by adding resources on the critical path."
+      },
+      {
+        "question": "What is Fast Tracking?",
+        "options": [
+          "Inserting a delay between two activities.",
+          "Adding people to a critical task so it finishes sooner at higher cost.",
+          "Accepting a later finish date.",
+          "Shortening the schedule by overlapping activities that were originally planned to run in sequence, which increases risk."
+        ],
+        "correctAnswer": "Shortening the schedule by overlapping activities that were originally planned to run in sequence, which increases risk.",
+        "explanation": "Fast tracking overlaps sequential work to save calendar time and typically raises the chance of rework."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Project Scope?",
+        "options": [
+          "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+          "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+          "The statement says the portal will show grades and explicitly excludes online payment.",
+          "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system."
+        ],
+        "correctAnswer": "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system.",
+        "explanation": "Scope is the agreed boundary of work and deliverables that defines completion."
+      },
+      {
+        "question": "Which situation illustrates Scope Statement?",
+        "options": [
+          "The statement says the portal will show grades and explicitly excludes online payment.",
+          "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+          "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+          "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done."
+        ],
+        "correctAnswer": "The statement says the portal will show grades and explicitly excludes online payment.",
+        "explanation": "A scope statement writes down deliverables, boundaries, and exclusions so the agreement can be checked later."
+      },
+      {
+        "question": "Which situation illustrates Scope Creep?",
+        "options": [
+          "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+          "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+          "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+          "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done."
+        ],
+        "correctAnswer": "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+        "explanation": "Scope creep is uncontrolled addition of work, unlike a change that is approved with matching time or cost."
+      },
+      {
+        "question": "Which situation illustrates Work Breakdown Structure?",
+        "options": [
+          "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+          "The search feature is accepted only if it returns results within two seconds on the agreed test set.",
+          "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done.",
+          "The campus-app scope is broken into registration, timetable view, notifications, and project management."
+        ],
+        "correctAnswer": "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+        "explanation": "A work breakdown structure decomposes scope into smaller components so work can be estimated and assigned."
+      },
+      {
+        "question": "Which situation illustrates Work Package?",
+        "options": [
+          "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+          "The search feature is accepted only if it returns results within two seconds on the agreed test set.",
+          "Write the user guide is scheduled for five days and assigned to the technical author.",
+          "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done."
+        ],
+        "correctAnswer": "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done.",
+        "explanation": "A work package is a leaf of the breakdown that is small enough to estimate, assign, and control."
+      },
+      {
+        "question": "Which situation illustrates Deliverable?",
+        "options": [
+          "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own.",
+          "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+          "Write the user guide is scheduled for five days and assigned to the technical author.",
+          "The search feature is accepted only if it returns results within two seconds on the agreed test set."
+        ],
+        "correctAnswer": "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+        "explanation": "A deliverable is an output others can verify, not effort, meetings, or experience by themselves."
+      },
+      {
+        "question": "Which situation illustrates Acceptance Criteria?",
+        "options": [
+          "The chart shows testing as a two-week bar starting only after the build bar ends.",
+          "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own.",
+          "The search feature is accepted only if it returns results within two seconds on the agreed test set.",
+          "Write the user guide is scheduled for five days and assigned to the technical author."
+        ],
+        "correctAnswer": "The search feature is accepted only if it returns results within two seconds on the agreed test set.",
+        "explanation": "Acceptance criteria are the agreed conditions that define when a deliverable is fit to accept."
+      },
+      {
+        "question": "Which situation illustrates Activity?",
+        "options": [
+          "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own.",
+          "The diagram shows that training cannot start until both the software and the handbook are finished.",
+          "The chart shows testing as a two-week bar starting only after the build bar ends.",
+          "Write the user guide is scheduled for five days and assigned to the technical author."
+        ],
+        "correctAnswer": "Write the user guide is scheduled for five days and assigned to the technical author.",
+        "explanation": "An activity is work with duration on the schedule, unlike a milestone, which is a zero-duration marker."
+      },
+      {
+        "question": "Which situation illustrates Milestone?",
+        "options": [
+          "The chart shows testing as a two-week bar starting only after the build bar ends.",
+          "User testing depends on the test environment being ready, so testing is linked as a successor.",
+          "The diagram shows that training cannot start until both the software and the handbook are finished.",
+          "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own."
+        ],
+        "correctAnswer": "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own.",
+        "explanation": "A milestone marks an event and has no duration of its own, unlike an activity."
+      },
+      {
+        "question": "Which situation illustrates Gantt Chart?",
+        "options": [
+          "The chart shows testing as a two-week bar starting only after the build bar ends.",
+          "The diagram shows that training cannot start until both the software and the handbook are finished.",
+          "User testing depends on the test environment being ready, so testing is linked as a successor.",
+          "Writing the guide starts five days before coding finishes, shown as a lead on that link."
+        ],
+        "correctAnswer": "The chart shows testing as a two-week bar starting only after the build bar ends.",
+        "explanation": "A Gantt chart displays schedule information as bars on a calendar, which a scope hierarchy does not."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Network Diagram?",
+        "options": [
+          "Writing the guide starts five days before coding finishes, shown as a lead on that link.",
+          "The diagram shows that training cannot start until both the software and the handbook are finished.",
+          "User testing depends on the test environment being ready, so testing is linked as a successor.",
+          "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts."
+        ],
+        "correctAnswer": "The diagram shows that training cannot start until both the software and the handbook are finished.",
+        "explanation": "A network diagram shows logical dependencies among activities so paths, including the critical path, can be analysed."
+      },
+      {
+        "question": "Which situation illustrates Dependency?",
+        "options": [
+          "Writing the guide starts five days before coding finishes, shown as a lead on that link.",
+          "User testing depends on the test environment being ready, so testing is linked as a successor.",
+          "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+          "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts."
+        ],
+        "correctAnswer": "User testing depends on the test environment being ready, so testing is linked as a successor.",
+        "explanation": "A dependency is a logical constraint between activities, not a coincidence of dates or a personal preference."
+      },
+      {
+        "question": "Which situation illustrates Schedule Lead?",
+        "options": [
+          "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+          "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts.",
+          "Writing the guide starts five days before coding finishes, shown as a lead on that link.",
+          "Documentation can slip three days and the go-live date still holds, so its total float is three days."
+        ],
+        "correctAnswer": "Writing the guide starts five days before coding finishes, shown as a lead on that link.",
+        "explanation": "Lead is an overlap that accelerates a successor, whereas lag is a delay between activities."
+      },
+      {
+        "question": "Which situation illustrates Schedule Lag?",
+        "options": [
+          "Progress reports compare actual finish dates with the baseline approved at the kickoff.",
+          "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+          "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts.",
+          "Documentation can slip three days and the go-live date still holds, so its total float is three days."
+        ],
+        "correctAnswer": "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts.",
+        "explanation": "Lag is a deliberate delay on a dependency, not spare float and not an accelerating overlap."
+      },
+      {
+        "question": "Which situation illustrates Critical Path?",
+        "options": [
+          "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+          "A key supplier might miss the component date, which would delay build if it happens.",
+          "Progress reports compare actual finish dates with the baseline approved at the kickoff.",
+          "Documentation can slip three days and the go-live date still holds, so its total float is three days."
+        ],
+        "correctAnswer": "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+        "explanation": "The critical path is the longest dependent chain, so it determines the earliest finish and has no spare time."
+      },
+      {
+        "question": "Which situation illustrates Total Float?",
+        "options": [
+          "A key supplier might miss the component date, which would delay build if it happens.",
+          "Documentation can slip three days and the go-live date still holds, so its total float is three days.",
+          "Progress reports compare actual finish dates with the baseline approved at the kickoff.",
+          "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor."
+        ],
+        "correctAnswer": "Documentation can slip three days and the go-live date still holds, so its total float is three days.",
+        "explanation": "Total float is slack relative to the project finish date, and critical activities have none."
+      },
+      {
+        "question": "Which situation illustrates Schedule Baseline?",
+        "options": [
+          "A key supplier might miss the component date, which would delay build if it happens.",
+          "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor.",
+          "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay.",
+          "Progress reports compare actual finish dates with the baseline approved at the kickoff."
+        ],
+        "correctAnswer": "Progress reports compare actual finish dates with the baseline approved at the kickoff.",
+        "explanation": "The schedule baseline is the approved plan used as the reference for measuring delay and approving date changes."
+      },
+      {
+        "question": "Which situation illustrates Project Risk?",
+        "options": [
+          "A key supplier might miss the component date, which would delay build if it happens.",
+          "The team adds a second supplier so a delay is less likely, while still buying the same component.",
+          "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor.",
+          "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay."
+        ],
+        "correctAnswer": "A key supplier might miss the component date, which would delay build if it happens.",
+        "explanation": "A risk is uncertain and may help or harm objectives, whereas an issue is a problem that has already occurred."
+      },
+      {
+        "question": "Which situation illustrates Risk Register?",
+        "options": [
+          "The team adds a second supplier so a delay is less likely, while still buying the same component.",
+          "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor.",
+          "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay.",
+          "The team drops a risky third-party login and uses the university account so that threat no longer exists."
+        ],
+        "correctAnswer": "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor.",
+        "explanation": "The risk register is where identified risks, ratings, owners, and responses are recorded and updated."
+      },
+      {
+        "question": "Which situation illustrates Probability and Impact?",
+        "options": [
+          "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target.",
+          "The team adds a second supplier so a delay is less likely, while still buying the same component.",
+          "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+          "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay."
+        ],
+        "correctAnswer": "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay.",
+        "explanation": "Risk rating combines likelihood and severity so the team can prioritise responses."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Risk Mitigation?",
+        "options": [
+          "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+          "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target.",
+          "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+          "The team adds a second supplier so a delay is less likely, while still buying the same component."
+        ],
+        "correctAnswer": "The team adds a second supplier so a delay is less likely, while still buying the same component.",
+        "explanation": "Mitigation lowers likelihood or impact but does not necessarily eliminate the activity or transfer the loss."
+      },
+      {
+        "question": "Which situation illustrates Risk Avoidance?",
+        "options": [
+          "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+          "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+          "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target.",
+          "The test server failed this morning, so the team logs an issue and assigns someone to restore it."
+        ],
+        "correctAnswer": "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+        "explanation": "Avoidance eliminates exposure by changing the plan, rather than merely reducing or transferring the risk."
+      },
+      {
+        "question": "Which situation illustrates Risk Transfer?",
+        "options": [
+          "Students who will use a campus app are stakeholders even though they are not on the project team.",
+          "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+          "The test server failed this morning, so the team logs an issue and assigns someone to restore it.",
+          "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target."
+        ],
+        "correctAnswer": "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target.",
+        "explanation": "Transfer moves the financial consequence to another party; it does not remove the event or automatically reduce its chance."
+      },
+      {
+        "question": "Which situation illustrates Residual Risk?",
+        "options": [
+          "The test server failed this morning, so the team logs an issue and assigns someone to restore it.",
+          "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+          "Students who will use a campus app are stakeholders even though they are not on the project team.",
+          "After a backup supplier is added, a small chance of delay remains because both suppliers share one port."
+        ],
+        "correctAnswer": "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+        "explanation": "Residual risk is what is left of a threat once the chosen responses are in place."
+      },
+      {
+        "question": "Which situation illustrates Issue?",
+        "options": [
+          "Students who will use a campus app are stakeholders even though they are not on the project team.",
+          "The plan says students get a monthly plain-language update by email, written by the project manager.",
+          "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+          "The test server failed this morning, so the team logs an issue and assigns someone to restore it."
+        ],
+        "correctAnswer": "The test server failed this morning, so the team logs an issue and assigns someone to restore it.",
+        "explanation": "An issue is current and requires action, whereas a risk is still uncertain."
+      },
+      {
+        "question": "Which situation illustrates Project Stakeholder?",
+        "options": [
+          "Students who will use a campus app are stakeholders even though they are not on the project team.",
+          "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+          "The plan says students get a monthly plain-language update by email, written by the project manager.",
+          "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed."
+        ],
+        "correctAnswer": "Students who will use a campus app are stakeholders even though they are not on the project team.",
+        "explanation": "Project stakeholders include anyone who influences the work or who is affected by it, not only paid team members."
+      },
+      {
+        "question": "Which situation illustrates Stakeholder Register?",
+        "options": [
+          "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+          "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+          "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed.",
+          "The plan says students get a monthly plain-language update by email, written by the project manager."
+        ],
+        "correctAnswer": "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+        "explanation": "The stakeholder register captures who matters, what they care about, and how the project will engage them."
+      },
+      {
+        "question": "Which situation illustrates Communication Plan?",
+        "options": [
+          "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed.",
+          "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+          "The plan says students get a monthly plain-language update by email, written by the project manager.",
+          "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed."
+        ],
+        "correctAnswer": "The plan says students get a monthly plain-language update by email, written by the project manager.",
+        "explanation": "A communication plan sets the audience, content, format, frequency, and sender for project information."
+      },
+      {
+        "question": "Which situation illustrates RACI Matrix?",
+        "options": [
+          "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed.",
+          "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration.",
+          "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed.",
+          "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime."
+        ],
+        "correctAnswer": "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed.",
+        "explanation": "RACI clarifies the four participation roles so each task has a clear doer and a single accountable owner."
+      },
+      {
+        "question": "Which situation illustrates Status Report?",
+        "options": [
+          "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+          "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed.",
+          "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours.",
+          "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration."
+        ],
+        "correctAnswer": "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+        "explanation": "A status report is a recurring comparison of actual progress with the plan, including problems that need attention."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Kickoff Meeting?",
+        "options": [
+          "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+          "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed.",
+          "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours.",
+          "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration."
+        ],
+        "correctAnswer": "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed.",
+        "explanation": "Kickoff aligns people on purpose, roles, and the first work as execution begins."
+      },
+      {
+        "question": "Which situation illustrates Analogous Estimating?",
+        "options": [
+          "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration.",
+          "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours.",
+          "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+          "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate."
+        ],
+        "correctAnswer": "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration.",
+        "explanation": "Analogous estimating uses a similar historical project as the base and then adjusts it."
+      },
+      {
+        "question": "Which situation illustrates Parametric Estimating?",
+        "options": [
+          "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate.",
+          "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+          "A review needs 16 person-hours, which two people can finish in one calendar day.",
+          "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours."
+        ],
+        "correctAnswer": "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours.",
+        "explanation": "Parametric estimating multiplies a known rate by a quantity, rather than copying one whole past project."
+      },
+      {
+        "question": "Which situation illustrates Three-Point Estimating?",
+        "options": [
+          "Sixteen person-hours staffed by two people has a duration of one working day.",
+          "A review needs 16 person-hours, which two people can finish in one calendar day.",
+          "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate.",
+          "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures."
+        ],
+        "correctAnswer": "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+        "explanation": "Three-point estimating recognises uncertainty by combining optimistic, most likely, and pessimistic values."
+      },
+      {
+        "question": "Which situation illustrates Bottom-Up Estimating?",
+        "options": [
+          "A review needs 16 person-hours, which two people can finish in one calendar day.",
+          "The schedule includes three contingency days because a known permit risk may delay installation.",
+          "Sixteen person-hours staffed by two people has a duration of one working day.",
+          "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate."
+        ],
+        "correctAnswer": "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate.",
+        "explanation": "Bottom-up estimating starts at detailed packages and adds them up, which takes effort but is more specific."
+      },
+      {
+        "question": "Which situation illustrates Effort?",
+        "options": [
+          "The plan states that each release must pass the agreed accessibility checklist before demonstration.",
+          "The schedule includes three contingency days because a known permit risk may delay installation.",
+          "A review needs 16 person-hours, which two people can finish in one calendar day.",
+          "Sixteen person-hours staffed by two people has a duration of one working day."
+        ],
+        "correctAnswer": "A review needs 16 person-hours, which two people can finish in one calendar day.",
+        "explanation": "Effort measures labour content, while duration measures elapsed calendar time."
+      },
+      {
+        "question": "Which situation illustrates Duration?",
+        "options": [
+          "The schedule includes three contingency days because a known permit risk may delay installation.",
+          "The plan states that each release must pass the agreed accessibility checklist before demonstration.",
+          "Sixteen person-hours staffed by two people has a duration of one working day.",
+          "An auditor checks that code reviews required by the quality plan actually took place this sprint."
+        ],
+        "correctAnswer": "Sixteen person-hours staffed by two people has a duration of one working day.",
+        "explanation": "Duration is elapsed calendar time, which depends on how effort is staffed."
+      },
+      {
+        "question": "Which situation illustrates Contingency Reserve?",
+        "options": [
+          "The schedule includes three contingency days because a known permit risk may delay installation.",
+          "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+          "The plan states that each release must pass the agreed accessibility checklist before demonstration.",
+          "Testers run the accessibility checklist on the release and log two failures before the demo."
+        ],
+        "correctAnswer": "The schedule includes three contingency days because a known permit risk may delay installation.",
+        "explanation": "Contingency reserve covers known risks and sits in the baseline; it is not management reserve for unidentified uncertainty."
+      },
+      {
+        "question": "Which situation illustrates Quality Planning?",
+        "options": [
+          "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+          "Testers run the accessibility checklist on the release and log two failures before the demo.",
+          "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+          "The plan states that each release must pass the agreed accessibility checklist before demonstration."
+        ],
+        "correctAnswer": "The plan states that each release must pass the agreed accessibility checklist before demonstration.",
+        "explanation": "Quality planning sets the standards and the approach before execution and inspection."
+      },
+      {
+        "question": "Which situation illustrates Quality Assurance?",
+        "options": [
+          "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+          "Cost reports compare actual spend with the cost baseline approved by the sponsor.",
+          "Testers run the accessibility checklist on the release and log two failures before the demo.",
+          "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval."
+        ],
+        "correctAnswer": "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+        "explanation": "Quality assurance evaluates the process, whereas quality control inspects the product."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Quality Control?",
+        "options": [
+          "Cost reports compare actual spend with the cost baseline approved by the sponsor.",
+          "Testers run the accessibility checklist on the release and log two failures before the demo.",
+          "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+          "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal."
+        ],
+        "correctAnswer": "Testers run the accessibility checklist on the release and log two failures before the demo.",
+        "explanation": "Quality control examines the deliverable itself and compares it with the standard or acceptance conditions."
+      },
+      {
+        "question": "Which situation illustrates Change Request?",
+        "options": [
+          "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+          "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal.",
+          "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+          "Cost reports compare actual spend with the cost baseline approved by the sponsor."
+        ],
+        "correctAnswer": "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+        "explanation": "A change request makes a proposed baseline change visible so impact can be assessed and a decision recorded."
+      },
+      {
+        "question": "Which situation illustrates Baseline?",
+        "options": [
+          "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal.",
+          "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+          "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+          "Cost reports compare actual spend with the cost baseline approved by the sponsor."
+        ],
+        "correctAnswer": "Cost reports compare actual spend with the cost baseline approved by the sponsor.",
+        "explanation": "A baseline is the approved reference; performance is measured by comparing actual results with it."
+      },
+      {
+        "question": "Which situation illustrates Project Charter?",
+        "options": [
+          "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff.",
+          "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+          "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+          "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal."
+        ],
+        "correctAnswer": "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal.",
+        "explanation": "The charter authorises the project at a high level; it is not the detailed schedule or a test record."
+      },
+      {
+        "question": "Which situation illustrates Project Sponsor?",
+        "options": [
+          "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+          "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+          "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+          "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff."
+        ],
+        "correctAnswer": "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+        "explanation": "The sponsor champions the project, supplies resources, and answers for the business result."
+      },
+      {
+        "question": "Which situation illustrates Triple Constraint?",
+        "options": [
+          "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+          "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+          "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+          "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff."
+        ],
+        "correctAnswer": "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+        "explanation": "The triple constraint describes the trade-off among scope, time, and cost on a project."
+      },
+      {
+        "question": "Which situation illustrates Lessons Learned?",
+        "options": [
+          "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+          "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+          "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff.",
+          "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive."
+        ],
+        "correctAnswer": "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff.",
+        "explanation": "Lessons learned turn project experience into knowledge the next piece of work can use."
+      },
+      {
+        "question": "Which situation illustrates Assumptions Log?",
+        "options": [
+          "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+          "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system.",
+          "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+          "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner."
+        ],
+        "correctAnswer": "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+        "explanation": "Assumptions are planning premises treated as true, and the log makes them visible so they can be validated."
+      },
+      {
+        "question": "Which situation illustrates Crashing?",
+        "options": [
+          "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+          "The statement says the portal will show grades and explicitly excludes online payment.",
+          "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+          "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system."
+        ],
+        "correctAnswer": "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+        "explanation": "Crashing trades cost for time by adding resources on the critical path."
+      },
+      {
+        "question": "Which situation illustrates Fast Tracking?",
+        "options": [
+          "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+          "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system.",
+          "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+          "The statement says the portal will show grades and explicitly excludes online payment."
+        ],
+        "correctAnswer": "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+        "explanation": "Fast tracking overlaps sequential work to save calendar time and typically raises the chance of rework."
+      }
+    ],
+    "11": [
+      {
+        "question": "Stakeholders argue about whether fee payments belong in a timetable app. Which statement should settle the argument?",
+        "options": [
+          "The agreed project scope",
+          "The loudest new idea in the latest meeting",
+          "The project manager's private to-do list",
+          "The company's ten-year strategy in full"
+        ],
+        "correctAnswer": "The agreed project scope",
+        "explanation": "Project scope is the agreed work and deliverables, so it decides whether fee payments are included."
+      },
+      {
+        "question": "A sponsor later asks for online payment. The team needs the written inclusions and exclusions. Which document is that?",
+        "options": [
+          "An unwritten hope about the build",
+          "A blank Gantt chart",
+          "The scope statement",
+          "A list of hobbies"
+        ],
+        "correctAnswer": "The scope statement",
+        "explanation": "The scope statement records deliverables and explicit exclusions such as online payment."
+      },
+      {
+        "question": "Extra report screens are added every week with no approval and no extra time. Which problem is that?",
+        "options": [
+          "Writing the original scope",
+          "An approved change with added budget",
+          "Scope creep",
+          "Cutting a feature to protect the date"
+        ],
+        "correctAnswer": "Scope creep",
+        "explanation": "Uncontrolled extra work without approved time or cost is scope creep."
+      },
+      {
+        "question": "The team needs the scope split into smaller pieces before estimating. Which artefact should they build?",
+        "options": [
+          "A calendar with dates only",
+          "A risk list sorted by probability",
+          "A work breakdown structure",
+          "The company organisation chart"
+        ],
+        "correctAnswer": "A work breakdown structure",
+        "explanation": "A work breakdown structure is the hierarchy that decomposes scope into manageable components."
+      },
+      {
+        "question": "One developer will own a 40-hour piece of the timetable export, tracked to completion. Which label fits that piece?",
+        "options": [
+          "A milestone with no work content",
+          "A stakeholder job title",
+          "A work package",
+          "The entire project as one lump"
+        ],
+        "correctAnswer": "A work package",
+        "explanation": "A work package is the lowest breakdown item that can be estimated, assigned, and tracked."
+      },
+      {
+        "question": "The sponsor asks what they will be able to inspect at the next review. Which item is a deliverable?",
+        "options": [
+          "A developer's years of experience",
+          "A private intention with no output",
+          "The tested login module",
+          "The number of meetings held"
+        ],
+        "correctAnswer": "The tested login module",
+        "explanation": "A deliverable is a verifiable product such as the tested login module, not meetings or experience."
+      },
+      {
+        "question": "The sponsor will accept search only if results return within two seconds on the agreed tests. Which term names those conditions?",
+        "options": [
+          "A private feeling that it looks fine",
+          "The laptop brand",
+          "The date the coding happened to end",
+          "Acceptance criteria"
+        ],
+        "correctAnswer": "Acceptance criteria",
+        "explanation": "Acceptance criteria are the agreed conditions, such as the two-second test, that govern acceptance."
+      },
+      {
+        "question": "Write the user guide takes five days and is placed on the schedule. Which schedule element is it?",
+        "options": [
+          "An activity",
+          "The sponsoring department's name",
+          "A zero-duration milestone",
+          "A risk that may occur later"
+        ],
+        "correctAnswer": "An activity",
+        "explanation": "Scheduled work that consumes time, such as five days of writing, is an activity."
+      },
+      {
+        "question": "The schedule must mark the day the sponsor approves the design, without giving that marker a duration. Which element is used?",
+        "options": [
+          "An hourly pay rate",
+          "The project budget",
+          "A milestone",
+          "A five-day writing activity"
+        ],
+        "correctAnswer": "A milestone",
+        "explanation": "A milestone is a zero-duration marker for a significant event such as design approval."
+      },
+      {
+        "question": "The sponsor wants to see activity bars on a calendar, including which work starts after build. Which chart fits?",
+        "options": [
+          "A share-price pie chart",
+          "A work breakdown with no dates",
+          "A Gantt chart",
+          "A risk list"
+        ],
+        "correctAnswer": "A Gantt chart",
+        "explanation": "A Gantt chart shows activities as bars on a timescale, including when one follows another."
+      }
+    ],
+    "12": [
+      {
+        "question": "The team must see that training waits on both the software and the handbook. Which diagram shows that logic?",
+        "options": [
+          "A drawing of office cables",
+          "An organisation chart",
+          "A pie chart of costs",
+          "A network diagram"
+        ],
+        "correctAnswer": "A network diagram",
+        "explanation": "A network diagram shows logical dependencies, such as training waiting on two predecessors."
+      },
+      {
+        "question": "User testing cannot start until the test environment is ready. Which relationship should the schedule record?",
+        "options": [
+          "A dependency",
+          "A friendship between testers",
+          "A preference for a window seat",
+          "A coincidental shared week"
+        ],
+        "correctAnswer": "A dependency",
+        "explanation": "A logical link that stops testing until the environment is ready is a dependency."
+      },
+      {
+        "question": "The guide may start five days before coding finishes. Which schedule feature records that overlap?",
+        "options": [
+          "A schedule lead",
+          "The person who owns the schedule",
+          "A required wait after coding ends",
+          "The length of the critical path"
+        ],
+        "correctAnswer": "A schedule lead",
+        "explanation": "An overlap that lets the successor start early is a lead, not a waiting lag."
+      },
+      {
+        "question": "Decorating must wait two days after plastering so the surface can dry. Which feature records that wait?",
+        "options": [
+          "Spare float on an unrelated task",
+          "An overlap that starts decorating early",
+          "A schedule lag",
+          "The brand name of the scheduling tool"
+        ],
+        "correctAnswer": "A schedule lag",
+        "explanation": "A required wait between predecessor and successor is lag."
+      },
+      {
+        "question": "Design, build, and test form the longest chain and set the finish date. Which label applies to that chain?",
+        "options": [
+          "The walk to the meeting room",
+          "The critical path",
+          "Whichever task was mentioned first",
+          "A set of tasks that can all slip freely"
+        ],
+        "correctAnswer": "The critical path",
+        "explanation": "The longest dependent chain, which sets the project finish, is the critical path."
+      },
+      {
+        "question": "Documentation can slip three days without moving go-live. Which measure is three days?",
+        "options": [
+          "The full project duration",
+          "Money left in the budget",
+          "The number of free people",
+          "Total float"
+        ],
+        "correctAnswer": "Total float",
+        "explanation": "Total float is how long an activity can slip without delaying the project finish."
+      },
+      {
+        "question": "Reports must show delay against the dates the sponsor approved at kickoff. Which version of the schedule is the reference?",
+        "options": [
+          "The schedule baseline",
+          "An unapproved sketch that changes daily",
+          "The team photograph",
+          "The risk list"
+        ],
+        "correctAnswer": "The schedule baseline",
+        "explanation": "The schedule baseline is the approved schedule used to compare actual progress."
+      },
+      {
+        "question": "A supplier might miss a component date, but it has not happened yet. Which label fits?",
+        "options": [
+          "An issue that has already occurred",
+          "The project title",
+          "A project risk",
+          "A certain fact already known"
+        ],
+        "correctAnswer": "A project risk",
+        "explanation": "An uncertain event that could affect objectives is a risk until it actually occurs."
+      },
+      {
+        "question": "The team must record a late-supplier threat, its rating, its owner, and the backup-vendor response. Which log is used?",
+        "options": [
+          "A diary of past problems only",
+          "The risk register",
+          "The budget spreadsheet",
+          "A contact list with no risks"
+        ],
+        "correctAnswer": "The risk register",
+        "explanation": "The risk register logs identified risks together with ratings, owners, and responses."
+      },
+      {
+        "question": "Two threats must be prioritised. One is likely and severe; the other is rare and mild. Which pair of ratings supports that ranking?",
+        "options": [
+          "The sponsor's names",
+          "Start date and finish date",
+          "Probability and impact",
+          "Font size and colour"
+        ],
+        "correctAnswer": "Probability and impact",
+        "explanation": "Probability and impact rate how likely a risk is and how severe it would be, which drives priority."
+      }
+    ],
+    "13": [
+      {
+        "question": "The team keeps the component but adds a second supplier to make delay less likely. Which response is that?",
+        "options": [
+          "Risk mitigation",
+          "Accepting the threat with no action",
+          "Dropping the component so the threat disappears",
+          "Insuring the loss and changing nothing else"
+        ],
+        "correctAnswer": "Risk mitigation",
+        "explanation": "Reducing the likelihood of delay while continuing the work is mitigation."
+      },
+      {
+        "question": "To eliminate a risky third-party login, the team removes that approach from the plan. Which response is that?",
+        "options": [
+          "Insuring the login and leaving it in place",
+          "Accepting the risky login unchanged",
+          "Risk avoidance",
+          "Keeping the login but adding monitoring"
+        ],
+        "correctAnswer": "Risk avoidance",
+        "explanation": "Changing the plan so the risky activity is not done is risk avoidance."
+      },
+      {
+        "question": "The vendor must pay damages if uptime is missed, while the service stays in the plan. Which response is that?",
+        "options": [
+          "Removing the service from the project",
+          "Adding tests while the team still pays for any loss",
+          "Ignoring the uptime threat",
+          "Risk transfer"
+        ],
+        "correctAnswer": "Risk transfer",
+        "explanation": "Shifting the financial impact to the vendor by contract is risk transfer."
+      },
+      {
+        "question": "A backup supplier is in place, yet a small chance of delay remains. Which label fits that remaining chance?",
+        "options": [
+          "Residual risk",
+          "A new risk created by the response",
+          "The original risk before any response",
+          "An outage that happened yesterday"
+        ],
+        "correctAnswer": "Residual risk",
+        "explanation": "Risk left after the planned response is applied is residual risk."
+      },
+      {
+        "question": "The test server failed this morning and work is blocked. Which item should the team log?",
+        "options": [
+          "A milestone already completed",
+          "An issue",
+          "A risk that might happen next month",
+          "A hoped-for benefit"
+        ],
+        "correctAnswer": "An issue",
+        "explanation": "A problem that has already happened and needs action is an issue, not a future risk."
+      },
+      {
+        "question": "Students will use the campus app but are not paid team members. How should the project treat them?",
+        "options": [
+          "As members of the paid project team",
+          "As a file format",
+          "As project stakeholders",
+          "As people who can be ignored"
+        ],
+        "correctAnswer": "As project stakeholders",
+        "explanation": "People affected by the result are project stakeholders even when they are not on the payroll."
+      },
+      {
+        "question": "The team needs each stakeholder's influence, interest, and engagement approach in one place. Which document is that?",
+        "options": [
+          "The stakeholder register",
+          "The cost budget",
+          "The Gantt chart",
+          "The source-code list"
+        ],
+        "correctAnswer": "The stakeholder register",
+        "explanation": "The stakeholder register records stakeholders together with interest, influence, and engagement."
+      },
+      {
+        "question": "Students should get a monthly plain-language email from the project manager. Which document records that agreement?",
+        "options": [
+          "The network wiring diagram",
+          "The activity duration list",
+          "One unplanned crisis text",
+          "The communication plan"
+        ],
+        "correctAnswer": "The communication plan",
+        "explanation": "The communication plan specifies audience, content, form, frequency, and sender."
+      },
+      {
+        "question": "A privacy review needs one doer, one accountable owner, a legal consultee, and a team to notify. Which grid records that?",
+        "options": [
+          "A RACI matrix",
+          "A Gantt chart",
+          "A labour-hour budget",
+          "A scored risk list"
+        ],
+        "correctAnswer": "A RACI matrix",
+        "explanation": "A RACI matrix assigns responsible, accountable, consulted, and informed roles for a task."
+      },
+      {
+        "question": "Testing is three days behind the approved dates and a decision on overtime is needed. Which update should the sponsor receive?",
+        "options": [
+          "The original charter only",
+          "A celebration note that hides the delay",
+          "The closure lessons, which do not exist yet",
+          "A status report comparing progress with the plan"
+        ],
+        "correctAnswer": "A status report comparing progress with the plan",
+        "explanation": "A status report compares progress with the plan and raises the decision the sponsor must make."
+      }
+    ],
+    "14": [
+      {
+        "question": "Execution is about to start and the team must align on the date, roles, and first goal. Which meeting is that?",
+        "options": [
+          "The hiring interview from months ago",
+          "The kickoff meeting",
+          "The closure meeting",
+          "A private lunch with no project content"
+        ],
+        "correctAnswer": "The kickoff meeting",
+        "explanation": "The kickoff meeting aligns team and stakeholders as coordinated execution starts."
+      },
+      {
+        "question": "Last year's similar app took 12 weeks, and this one has one extra integration worth about a week. Which estimating approach is being used?",
+        "options": [
+          "Analogous estimating",
+          "Guessing with no past project",
+          "Multiplying a rate by a measured quantity",
+          "Summing estimates of every work package"
+        ],
+        "correctAnswer": "Analogous estimating",
+        "explanation": "Using a similar past duration and adjusting for a known difference is analogous estimating."
+      },
+      {
+        "question": "History shows 6 hours per report, and there are 10 reports. Which method produces the 60-hour estimate?",
+        "options": [
+          "Averaging optimistic and pessimistic guesses only",
+          "Copying one past project and adjusting it",
+          "Adding up each package with no rate",
+          "Parametric estimating"
+        ],
+        "correctAnswer": "Parametric estimating",
+        "explanation": "Applying a rate of hours per report to a count of reports is parametric estimating."
+      },
+      {
+        "question": "The team has optimistic, most likely, and pessimistic durations for coding and wants one expected value. Which technique fits?",
+        "options": [
+          "Copying a single past duration",
+          "Multiplying one rate by a quantity",
+          "Averaging numbers that are unrelated to the work",
+          "Three-point estimating"
+        ],
+        "correctAnswer": "Three-point estimating",
+        "explanation": "Combining optimistic, most likely, and pessimistic figures into an expected value is three-point estimating."
+      },
+      {
+        "question": "Eight work packages are estimated separately and then added to get the phase total. Which method is that?",
+        "options": [
+          "Using one similar project with no package detail",
+          "Bottom-up estimating",
+          "Adopting a target date with no estimate",
+          "Applying one rate to a single quantity"
+        ],
+        "correctAnswer": "Bottom-up estimating",
+        "explanation": "Summing detailed estimates of the lowest work packages is bottom-up estimating."
+      },
+      {
+        "question": "A review needs 16 person-hours. Two people are available. Which figure is the 16 person-hours?",
+        "options": [
+          "Effort",
+          "The vendor licence fee",
+          "The calendar duration of one day",
+          "The number of slides in the review"
+        ],
+        "correctAnswer": "Effort",
+        "explanation": "Person-hours of labour are effort, whereas the one calendar day is duration."
+      },
+      {
+        "question": "Sixteen person-hours are staffed with two people and finish in one working day. Which figure is that one day?",
+        "options": [
+          "The 16 person-hours of effort",
+          "Duration",
+          "The number of stakeholders",
+          "The project budget"
+        ],
+        "correctAnswer": "Duration",
+        "explanation": "Duration is the calendar time from start to finish once staffing is taken into account."
+      },
+      {
+        "question": "A known permit risk may delay installation, so the baseline includes three extra days for that risk. Which reserve is that?",
+        "options": [
+          "A senior reserve for risks nobody has identified",
+          "Contingency reserve",
+          "The vendor's hoped-for profit",
+          "Money already spent"
+        ],
+        "correctAnswer": "Contingency reserve",
+        "explanation": "Time held in the baseline for an identified risk is contingency reserve."
+      },
+      {
+        "question": "Before build, the team agrees that every release must pass an accessibility checklist. Which process is that agreement part of?",
+        "options": [
+          "Counting defects in a finished build",
+          "Auditing whether the process was followed",
+          "Quality planning",
+          "Choosing paint for the office"
+        ],
+        "correctAnswer": "Quality planning",
+        "explanation": "Deciding the standards and how they will be met, before the work, is quality planning."
+      },
+      {
+        "question": "An auditor checks that required code reviews happened, rather than retesting the product. Which activity is that?",
+        "options": [
+          "Inspecting the product for defects",
+          "Writing the standards for the first time",
+          "Cancelling reviews",
+          "Quality assurance"
+        ],
+        "correctAnswer": "Quality assurance",
+        "explanation": "Checking that quality processes were followed is quality assurance, not an inspection of the product."
+      }
+    ],
+    "15": [
+      {
+        "question": "Testers run the checklist on the release and log failures in the product. Which activity is that?",
+        "options": [
+          "Ignoring the failures to protect the date",
+          "Choosing next year's standards",
+          "Quality control",
+          "Auditing that meetings were held, without looking at the product"
+        ],
+        "correctAnswer": "Quality control",
+        "explanation": "Inspecting the deliverable against the checklist is quality control."
+      },
+      {
+        "question": "The sponsor wants fee payments added after the baseline was approved. Which item should be raised before the work starts?",
+        "options": [
+          "A forgotten corridor comment",
+          "A change request",
+          "The original scope with no modification",
+          "A silent edit to the baseline"
+        ],
+        "correctAnswer": "A change request",
+        "explanation": "A formal change request lets the team assess a proposed change to the approved baseline before acting."
+      },
+      {
+        "question": "Cost reports must show variance from the spend figure the sponsor approved. Which figure is that reference?",
+        "options": [
+          "A personal opinion of quality",
+          "The cost baseline",
+          "The actual spend after the fact",
+          "An unapproved draft that changes daily"
+        ],
+        "correctAnswer": "The cost baseline",
+        "explanation": "The baseline is the approved reference against which actual performance is compared."
+      },
+      {
+        "question": "The team needs written authority to start, including the manager, purpose, and budget cap. Which document provides that?",
+        "options": [
+          "A vendor invoice",
+          "A detailed activity network",
+          "A defect log",
+          "The project charter"
+        ],
+        "correctAnswer": "The project charter",
+        "explanation": "The project charter is the sponsor's authorisation, naming purpose, manager, and high-level constraints."
+      },
+      {
+        "question": "Someone must approve scope changes and answer for shorter enrolment queues. Which role is that?",
+        "options": [
+          "The scheduling tool",
+          "A contractor who only installs equipment",
+          "The project sponsor",
+          "A developer with no authority over scope"
+        ],
+        "correctAnswer": "The project sponsor",
+        "explanation": "The project sponsor provides authority and resources and is accountable for the business outcome."
+      },
+      {
+        "question": "The sponsor adds features but will not move the date or the budget. Which concept explains why that combination is unrealistic?",
+        "options": [
+          "Office rules on dress and parking",
+          "The triple constraint",
+          "A claim that extra scope is free",
+          "The names of three chairs"
+        ],
+        "correctAnswer": "The triple constraint",
+        "explanation": "The triple constraint means extra scope usually requires more time or cost, so all three cannot stay fixed."
+      },
+      {
+        "question": "Late hardware orders caused delay, and the next project should avoid that. Which record should carry that knowledge forward?",
+        "options": [
+          "A deleted mailbox",
+          "Lessons learned",
+          "A blame list with no reusable point",
+          "The unchanged original business case"
+        ],
+        "correctAnswer": "Lessons learned",
+        "explanation": "Lessons learned capture what happened and how later work should change, such as ordering hardware earlier."
+      },
+      {
+        "question": "The schedule assumes the test lab is free in May, but nobody has confirmed it. Where should that premise be recorded and checked?",
+        "options": [
+          "In an issue log before anything is wrong",
+          "In a furniture catalogue",
+          "Only in a risk register as if it were already an event",
+          "In the assumptions log"
+        ],
+        "correctAnswer": "In the assumptions log",
+        "explanation": "A planning premise treated as true, and still needing confirmation, belongs in the assumptions log."
+      },
+      {
+        "question": "The critical build must finish a week sooner, and the sponsor will pay for another developer. Which technique is that?",
+        "options": [
+          "Cutting scope and keeping the same team",
+          "Overlapping tasks without extra people",
+          "Crashing",
+          "Extending the date to save money"
+        ],
+        "correctAnswer": "Crashing",
+        "explanation": "Adding paid resources to shorten critical work is crashing."
+      },
+      {
+        "question": "Testing will start before coding finishes to save a week, accepting more rework risk. Which technique is that?",
+        "options": [
+          "Inserting a waiting lag",
+          "Fast tracking",
+          "Adding paid staff to the same task",
+          "Moving the finish date later"
+        ],
+        "correctAnswer": "Fast tracking",
+        "explanation": "Overlapping work that was sequential, in order to shorten the schedule, is fast tracking."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1685 @@
+{
+  "subjectId": "information-theory",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Self-information?",
+        "options": [
+          "The power of additive noise on a channel.",
+          "The information of one outcome, which is larger when that outcome is less probable.",
+          "The number of bits in a fixed-length computer word.",
+          "The average uncertainty of a whole source."
+        ],
+        "correctAnswer": "The information of one outcome, which is larger when that outcome is less probable.",
+        "explanation": "A rare event is more surprising, so its information, minus the log of its probability, is larger."
+      },
+      {
+        "question": "What is Entropy?",
+        "options": [
+          "The average information of the outcomes of a source, measuring that source's uncertainty.",
+          "The Hamming distance between two codewords.",
+          "The information of one particular outcome only.",
+          "The highest rate of a noisy channel."
+        ],
+        "correctAnswer": "The average information of the outcomes of a source, measuring that source's uncertainty.",
+        "explanation": "Entropy averages self-information over the source distribution and is the lossless coding limit."
+      },
+      {
+        "question": "What is Binary entropy?",
+        "options": [
+          "The entropy of any source whose alphabet has more than two symbols.",
+          "The length of a Huffman code for English text.",
+          "The entropy of a binary source that emits one symbol with probability p and the other with probability 1-p.",
+          "The capacity of every Gaussian channel."
+        ],
+        "correctAnswer": "The entropy of a binary source that emits one symbol with probability p and the other with probability 1-p.",
+        "explanation": "It depends only on p, is zero at the extremes, and reaches one bit when p is one half."
+      },
+      {
+        "question": "What is Joint entropy?",
+        "options": [
+          "The uncertainty of a pair of random variables taken together.",
+          "The entropy of only the first variable.",
+          "The information shared by two variables.",
+          "The uncertainty that remains in one variable after the other is observed."
+        ],
+        "correctAnswer": "The uncertainty of a pair of random variables taken together.",
+        "explanation": "It is the entropy of the combined outcome, not the leftover uncertainty or the shared part."
+      },
+      {
+        "question": "What is Conditional entropy?",
+        "options": [
+          "The uncertainty that remains about one random variable after another variable is observed.",
+          "The uncertainty of both variables before any observation.",
+          "The information one variable gives about the other.",
+          "The self-information of a single sure event."
+        ],
+        "correctAnswer": "The uncertainty that remains about one random variable after another variable is observed.",
+        "explanation": "Conditioning cannot raise uncertainty, and independent side information leaves entropy unchanged."
+      },
+      {
+        "question": "What is Mutual information?",
+        "options": [
+          "The remaining uncertainty of a variable after the other is known.",
+          "The amount of information that one random variable reveals about another.",
+          "The energy of the transmitted signal.",
+          "The joint uncertainty of a pair before any observation."
+        ],
+        "correctAnswer": "The amount of information that one random variable reveals about another.",
+        "explanation": "It equals the drop in uncertainty about one variable when the other is observed, and it is zero if they are independent."
+      },
+      {
+        "question": "What is Conditional mutual information?",
+        "options": [
+          "The information that two variables still share after a third variable is already known.",
+          "The mutual information of two variables with no side information.",
+          "The Hamming distance of a code.",
+          "The entropy of the third variable alone."
+        ],
+        "correctAnswer": "The information that two variables still share after a third variable is already known.",
+        "explanation": "It measures dependence that remains once the known variable's contribution is removed."
+      },
+      {
+        "question": "What is Chain rule of entropy?",
+        "options": [
+          "Conditional entropy is always larger than joint entropy.",
+          "Joint entropy equals the product of the two separate entropies.",
+          "Mutual information equals the sum of the two entropies.",
+          "Joint entropy equals the entropy of one variable plus the conditional entropy of the other given the first."
+        ],
+        "correctAnswer": "Joint entropy equals the entropy of one variable plus the conditional entropy of the other given the first.",
+        "explanation": "Uncertainty of a pair splits into uncertainty of the first outcome plus what the second still adds."
+      },
+      {
+        "question": "What is KL divergence?",
+        "options": [
+          "A symmetric distance that is always equal in both directions.",
+          "The capacity of a binary symmetric channel.",
+          "The minimum Hamming distance of a code.",
+          "The extra average information cost of using an assumed distribution instead of the true one."
+        ],
+        "correctAnswer": "The extra average information cost of using an assumed distribution instead of the true one.",
+        "explanation": "It is the expected log ratio of the true probabilities to the assumed ones, and it is not symmetric."
+      },
+      {
+        "question": "What is Cross-entropy?",
+        "options": [
+          "The mutual information across a noiseless channel.",
+          "The entropy of the true source alone, with a matched code.",
+          "The number of parity bits in a Hamming code.",
+          "The average bits used when events from a true distribution are coded as if another distribution were true."
+        ],
+        "correctAnswer": "The average bits used when events from a true distribution are coded as if another distribution were true.",
+        "explanation": "It equals the true entropy plus the divergence caused by the mismatched code."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Entropy rate?",
+        "options": [
+          "The raw bit rate of a modem in hertz.",
+          "The peak mutual information of a channel.",
+          "The entropy of one isolated symbol, ignoring dependence on neighbours.",
+          "The average uncertainty per symbol of a long sequence from a random process."
+        ],
+        "correctAnswer": "The average uncertainty per symbol of a long sequence from a random process.",
+        "explanation": "For a stationary process it is the limit of the joint entropy of n symbols divided by n."
+      },
+      {
+        "question": "What is Discrete memoryless source?",
+        "options": [
+          "A source that emits independent symbols from a fixed finite alphabet with unchanging probabilities.",
+          "A source whose next symbol depends on the previous symbol.",
+          "A channel that flips bits at random.",
+          "A continuous waveform source such as unquantised speech."
+        ],
+        "correctAnswer": "A source that emits independent symbols from a fixed finite alphabet with unchanging probabilities.",
+        "explanation": "Each symbol is drawn afresh from the same distribution, so the entropy rate equals one symbol's entropy."
+      },
+      {
+        "question": "What is Source coding?",
+        "options": [
+          "Encrypting bits so an eavesdropper cannot read them.",
+          "Adding structured parity so a channel decoder can correct errors.",
+          "Modulating bits onto a radio carrier.",
+          "Representing source symbols with bit strings so the average number of bits is reduced."
+        ],
+        "correctAnswer": "Representing source symbols with bit strings so the average number of bits is reduced.",
+        "explanation": "Source coding exploits uneven probabilities or repetition; it does not protect against channel noise."
+      },
+      {
+        "question": "What is Source coding theorem?",
+        "options": [
+          "Every prefix code must have equal-length codewords.",
+          "Reliable communication is possible above channel capacity.",
+          "Any source can be losslessly coded down to zero bits.",
+          "Lossless coding of a memoryless source can approach its entropy, but cannot average fewer bits than that."
+        ],
+        "correctAnswer": "Lossless coding of a memoryless source can approach its entropy, but cannot average fewer bits than that.",
+        "explanation": "Shannon showed entropy is the greatest lower bound on average length for lossless recovery."
+      },
+      {
+        "question": "What is Huffman coding?",
+        "options": [
+          "A method that builds an optimal prefix code by repeatedly merging the two least probable symbols.",
+          "Repeating each bit three times for majority voting.",
+          "A code that intentionally allows one codeword to be a prefix of another.",
+          "A universal dictionary method that does not use symbol probabilities in advance."
+        ],
+        "correctAnswer": "A method that builds an optimal prefix code by repeatedly merging the two least probable symbols.",
+        "explanation": "Merging rare symbols first yields a prefix code with the smallest average length for those symbol probabilities."
+      },
+      {
+        "question": "What is Prefix-free code?",
+        "options": [
+          "A code in which no codeword is a prefix of another codeword, so decoding can stop at each word.",
+          "A code whose only goal is correcting channel errors.",
+          "A code that uses the same bit string for two different symbols.",
+          "A code that needs a separating comma because words can begin other words."
+        ],
+        "correctAnswer": "A code in which no codeword is a prefix of another codeword, so decoding can stop at each word.",
+        "explanation": "The decoder recognises a complete word as soon as it arrives, without looking ahead."
+      },
+      {
+        "question": "What is Kraft inequality?",
+        "options": [
+          "A length test that says whether a binary prefix code with those codeword lengths can exist.",
+          "A rule that every codeword must have the same length.",
+          "A bound on the minimum distance needed to correct errors.",
+          "A formula for the entropy of a fair coin only."
+        ],
+        "correctAnswer": "A length test that says whether a binary prefix code with those codeword lengths can exist.",
+        "explanation": "For binary prefix codes the sum of two to the minus each length must be at most one."
+      },
+      {
+        "question": "What is Source redundancy?",
+        "options": [
+          "How far a source's entropy falls below the logarithm of its alphabet size.",
+          "The mutual information of a noiseless channel.",
+          "The delay spread of a radio path.",
+          "The parity bits added by a channel code."
+        ],
+        "correctAnswer": "How far a source's entropy falls below the logarithm of its alphabet size.",
+        "explanation": "A uniform source has no redundancy; bias or structure leaves room for compression."
+      },
+      {
+        "question": "What is Lossless compression?",
+        "options": [
+          "Compression that deliberately discards detail to go below the entropy.",
+          "Quantisation that maps many amplitudes to one level.",
+          "Compression that allows the original symbol sequence to be reconstructed exactly.",
+          "Coding that only detects channel bit flips."
+        ],
+        "correctAnswer": "Compression that allows the original symbol sequence to be reconstructed exactly.",
+        "explanation": "The mapping is reversible, so the average rate cannot beat the source entropy."
+      },
+      {
+        "question": "What is Lossy compression?",
+        "options": [
+          "Compression that always restores every original bit.",
+          "A prefix code that only shortens frequent symbols.",
+          "Compression that accepts a controlled difference so the rate can fall below the source entropy.",
+          "A parity bit that detects a single flip."
+        ],
+        "correctAnswer": "Compression that accepts a controlled difference so the rate can fall below the source entropy.",
+        "explanation": "Discarding imperceptible or tolerable detail removes information on purpose."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Rate-distortion theory?",
+        "options": [
+          "The study of lossless codes that must stay at or above entropy.",
+          "A test only for prefix-code lengths.",
+          "The study of the lowest rate needed to represent a source within a chosen average distortion.",
+          "The design of antennas for a radio link."
+        ],
+        "correctAnswer": "The study of the lowest rate needed to represent a source within a chosen average distortion.",
+        "explanation": "It gives the fundamental limit for lossy compression at a specified fidelity."
+      },
+      {
+        "question": "What is Lempel-Ziv coding?",
+        "options": [
+          "A dictionary compression method that parses a sequence into phrases without being told the source probabilities.",
+          "A block parity code for a binary symmetric channel.",
+          "An optimal symbol code that starts from a known probability table.",
+          "A quantiser with fixed reconstruction levels."
+        ],
+        "correctAnswer": "A dictionary compression method that parses a sequence into phrases without being told the source probabilities.",
+        "explanation": "It builds a dictionary from the data itself and is universal for a wide class of sources."
+      },
+      {
+        "question": "What is Typical set?",
+        "options": [
+          "Only the single most probable sequence of length n.",
+          "The set of codewords at minimum distance.",
+          "The set of long sequences whose probability is close to two to the minus n times the entropy.",
+          "Every possible sequence, each treated as equally important."
+        ],
+        "correctAnswer": "The set of long sequences whose probability is close to two to the minus n times the entropy.",
+        "explanation": "For a large n, almost all the probability sits on this set, which has about two to the nH sequences."
+      },
+      {
+        "question": "What is Asymptotic equipartition property?",
+        "options": [
+          "Every sequence of length n has exactly the same probability.",
+          "The most probable sequence contains almost all the probability mass.",
+          "For a long memoryless sequence, almost all probability lies on roughly equally likely typical sequences.",
+          "Channel noise becomes zero as the block length grows."
+        ],
+        "correctAnswer": "For a long memoryless sequence, almost all probability lies on roughly equally likely typical sequences.",
+        "explanation": "The law of large numbers makes the sample entropy close to the true entropy for typical sequences."
+      },
+      {
+        "question": "What is Discrete memoryless channel?",
+        "options": [
+          "A source that emits independent symbols.",
+          "A channel whose output symbol depends only on the current input, through fixed transition probabilities.",
+          "A code that maps k bits to n bits.",
+          "A channel that remembers previous inputs and lets them affect later outputs."
+        ],
+        "correctAnswer": "A channel whose output symbol depends only on the current input, through fixed transition probabilities.",
+        "explanation": "There is no memory: each use is an independent draw from the same input-output distribution."
+      },
+      {
+        "question": "What is Shannon capacity?",
+        "options": [
+          "The entropy of the source, regardless of the channel.",
+          "The bandwidth of the wire measured in hertz only.",
+          "The highest mutual information between input and output, which is the top reliable communication rate.",
+          "The minimum distance of a particular code."
+        ],
+        "correctAnswer": "The highest mutual information between input and output, which is the top reliable communication rate.",
+        "explanation": "Maximising mutual information over input probabilities gives the supremum of rates with vanishing error."
+      },
+      {
+        "question": "What is Noisy-channel coding theorem?",
+        "options": [
+          "Rates below capacity can be made arbitrarily reliable with long codes, while rates above capacity cannot.",
+          "Noise can be removed by any code, even above capacity.",
+          "Reliable communication requires a rate of zero on every noisy channel.",
+          "Lossless compression may beat the source entropy."
+        ],
+        "correctAnswer": "Rates below capacity can be made arbitrarily reliable with long codes, while rates above capacity cannot.",
+        "explanation": "Shannon proved capacity is both achievable in the limit and a hard upper bound."
+      },
+      {
+        "question": "What is Binary symmetric channel?",
+        "options": [
+          "A channel that replaces some bits with a known erasure symbol and never flips the others.",
+          "A channel that adds Gaussian noise to a continuous amplitude.",
+          "A source that emits fair bits.",
+          "A binary channel that flips each input bit independently with a fixed crossover probability."
+        ],
+        "correctAnswer": "A binary channel that flips each input bit independently with a fixed crossover probability.",
+        "explanation": "The two possible errors, zero to one and one to zero, are equally likely at the crossover probability."
+      },
+      {
+        "question": "What is Binary erasure channel?",
+        "options": [
+          "A channel that adds continuous Gaussian noise.",
+          "A code that repeats each bit three times.",
+          "A binary channel that either delivers the input correctly or replaces it with a known erasure.",
+          "A channel that flips bits without telling the receiver."
+        ],
+        "correctAnswer": "A binary channel that either delivers the input correctly or replaces it with a known erasure.",
+        "explanation": "The receiver knows which positions were erased, so those positions are lost but not misleading."
+      },
+      {
+        "question": "What is Additive white Gaussian noise?",
+        "options": [
+          "Noise that multiplies the signal and arrives only in bursts.",
+          "Deterministic interference from one known sinusoid only.",
+          "Noise that is added to the signal, is Gaussian, and is uncorrelated from sample to sample.",
+          "A binary flip process with a crossover probability."
+        ],
+        "correctAnswer": "Noise that is added to the signal, is Gaussian, and is uncorrelated from sample to sample.",
+        "explanation": "Whiteness means a flat spectrum and independent samples; Gaussian noise is fully described by its variance."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Shannon-Hartley theorem?",
+        "options": [
+          "Capacity depends only on the source entropy and not on bandwidth or noise.",
+          "The capacity of a band-limited Gaussian channel rises with bandwidth and with signal-to-noise ratio.",
+          "Widening bandwidth cannot change the reliable bit rate.",
+          "A noiseless binary channel always has capacity equal to its bandwidth in hertz."
+        ],
+        "correctAnswer": "The capacity of a band-limited Gaussian channel rises with bandwidth and with signal-to-noise ratio.",
+        "explanation": "The theorem gives capacity as bandwidth times the log of one plus the signal-to-noise ratio."
+      },
+      {
+        "question": "What is Channel coding?",
+        "options": [
+          "Removing redundancy so a source uses fewer bits.",
+          "Adding structured redundancy so a receiver can detect or correct errors introduced by the channel.",
+          "Mapping bits to carrier phases.",
+          "Choosing a shorter password."
+        ],
+        "correctAnswer": "Adding structured redundancy so a receiver can detect or correct errors introduced by the channel.",
+        "explanation": "The extra structure lets the decoder recognise which codeword was most likely sent."
+      },
+      {
+        "question": "What is Code rate?",
+        "options": [
+          "The entropy of the message source.",
+          "The number of bit errors a code can correct.",
+          "The fraction of a codeword's symbols that carry information, usually k divided by n.",
+          "The carrier frequency of the modem."
+        ],
+        "correctAnswer": "The fraction of a codeword's symbols that carry information, usually k divided by n.",
+        "explanation": "A lower rate means more redundancy and usually more ability to fight noise."
+      },
+      {
+        "question": "What is Hamming distance?",
+        "options": [
+          "The number of positions in which two equal-length strings differ.",
+          "The time delay between two multipath echoes.",
+          "The Euclidean gap between two points in a QAM constellation.",
+          "The difference of two code rates."
+        ],
+        "correctAnswer": "The number of positions in which two equal-length strings differ.",
+        "explanation": "Each mismatch counts as one, which is the right distance for symbol errors on a discrete channel."
+      },
+      {
+        "question": "What is Minimum distance?",
+        "options": [
+          "The crossover probability of the channel.",
+          "The longest codeword in the code.",
+          "The number of information bits k.",
+          "The smallest Hamming distance between any two different codewords of a code."
+        ],
+        "correctAnswer": "The smallest Hamming distance between any two different codewords of a code.",
+        "explanation": "A larger minimum distance separates codewords so more errors are needed to confuse them."
+      },
+      {
+        "question": "What is Parity bit?",
+        "options": [
+          "A bit that increases the carrier frequency.",
+          "A repeated copy of the entire message.",
+          "An extra bit chosen so the number of ones in a word is even or odd, detecting some errors.",
+          "A bit that encrypts the payload with a secret key."
+        ],
+        "correctAnswer": "An extra bit chosen so the number of ones in a word is even or odd, detecting some errors.",
+        "explanation": "A single flip changes the parity, so the check fails, but the bit does not say which position flipped."
+      },
+      {
+        "question": "What is Repetition code?",
+        "options": [
+          "A code that adds one parity bit to a long data word.",
+          "A code that repeats each information bit several times and decodes by majority vote.",
+          "A code whose parity bits follow a Hamming parity-check matrix.",
+          "A dictionary compressor for repeated phrases."
+        ],
+        "correctAnswer": "A code that repeats each information bit several times and decodes by majority vote.",
+        "explanation": "Repeating a bit n times can correct up to floor of (n-1)/2 errors by choosing the majority value."
+      },
+      {
+        "question": "What is Hamming code?",
+        "options": [
+          "A binary block code that corrects any single error using parity checks on overlapping bit positions.",
+          "A source code built by merging symbol probabilities.",
+          "A convolutional code with a sliding memory.",
+          "A code that only repeats one bit many times."
+        ],
+        "correctAnswer": "A binary block code that corrects any single error using parity checks on overlapping bit positions.",
+        "explanation": "The (7,4) Hamming code has minimum distance 3, so one error produces a unique syndrome."
+      },
+      {
+        "question": "What is Error detection?",
+        "options": [
+          "Recognising that a received word is not a valid codeword, without necessarily repairing it.",
+          "Compressing the message before transmission.",
+          "Raising transmit power until errors disappear.",
+          "Changing the received word back to the unique closest codeword."
+        ],
+        "correctAnswer": "Recognising that a received word is not a valid codeword, without necessarily repairing it.",
+        "explanation": "A failed parity or checksum shows that an error happened even when the correct bits are still unknown."
+      },
+      {
+        "question": "What is Error correction?",
+        "options": [
+          "Only noticing that some error occurred and stopping.",
+          "Discarding the frame with no attempt to infer the bits.",
+          "Asking the source to use fewer symbols.",
+          "Recovering the original codeword from a received word that contains correctable errors."
+        ],
+        "correctAnswer": "Recovering the original codeword from a received word that contains correctable errors.",
+        "explanation": "If the number of errors is within the code's correcting power, one codeword is the clear choice."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Syndrome?",
+        "options": [
+          "The list of all codewords in the codebook.",
+          "The pattern of parity-check failures that is zero for a codeword and identifies the error otherwise.",
+          "The information bits before any parity is added.",
+          "The entropy of the message source."
+        ],
+        "correctAnswer": "The pattern of parity-check failures that is zero for a codeword and identifies the error otherwise.",
+        "explanation": "Multiplying by the parity-check matrix yields zero on the code and a fingerprint of a correctable error."
+      },
+      {
+        "question": "What is Data processing inequality?",
+        "options": [
+          "Noise can be removed by an arbitrary post-processor with no loss of rate.",
+          "Any function of the output can create extra mutual information about the input.",
+          "Compression always raises channel capacity.",
+          "Further processing of an observation cannot increase the information it carries about the original source."
+        ],
+        "correctAnswer": "Further processing of an observation cannot increase the information it carries about the original source.",
+        "explanation": "If the source, the observation, and the processed result form a Markov chain, mutual information cannot rise."
+      },
+      {
+        "question": "What is Fano's inequality?",
+        "options": [
+          "A rule for building prefix codes from symbol probabilities.",
+          "A limit that ignores error probability entirely.",
+          "A statement that every noisy channel has capacity zero.",
+          "A bound showing that a small decoding-error probability requires little leftover uncertainty about the input."
+        ],
+        "correctAnswer": "A bound showing that a small decoding-error probability requires little leftover uncertainty about the input.",
+        "explanation": "If the chance of guessing wrong is small, the conditional entropy of the input given the observation must be small."
+      },
+      {
+        "question": "What is Differential entropy?",
+        "options": [
+          "The mutual information of two discrete bits.",
+          "The code rate k/n of a block code.",
+          "A continuous-variable uncertainty measure that can be negative and is not a count of discrete bits.",
+          "The ordinary entropy of a finite alphabet, which is never negative."
+        ],
+        "correctAnswer": "A continuous-variable uncertainty measure that can be negative and is not a count of discrete bits.",
+        "explanation": "It is the integral analogue of entropy; shifting or scaling a density changes it, and small variance can make it negative."
+      },
+      {
+        "question": "What is Quantisation?",
+        "options": [
+          "Mapping a continuous amplitude to one of a finite set of reconstruction levels.",
+          "Assigning a Huffman code to known symbol probabilities.",
+          "Adding parity bits to an already discrete bit string.",
+          "Filtering a signal without reducing its amplitude set."
+        ],
+        "correctAnswer": "Mapping a continuous amplitude to one of a finite set of reconstruction levels.",
+        "explanation": "Many nearby amplitudes share one level, which introduces quantisation error before digital coding."
+      },
+      {
+        "question": "What is Systematic code?",
+        "options": [
+          "A source code with variable-length words.",
+          "A code whose codeword contains the original information bits unchanged, plus separate parity bits.",
+          "A code that mixes information so no original bit appears unchanged.",
+          "A modulation with no extra bits at all."
+        ],
+        "correctAnswer": "A code whose codeword contains the original information bits unchanged, plus separate parity bits.",
+        "explanation": "The message can be read directly from the systematic part when the decoder finds no error."
+      },
+      {
+        "question": "What is Block code?",
+        "options": [
+          "A code that maps each fixed block of k information symbols to a codeword of n symbols.",
+          "A channel with no coding at all.",
+          "A code that slides continuously over a stream using encoder memory.",
+          "A compressor that emits one variable-length word per symbol."
+        ],
+        "correctAnswer": "A code that maps each fixed block of k information symbols to a codeword of n symbols.",
+        "explanation": "Successive blocks are encoded separately, as in Hamming and many algebraic codes."
+      },
+      {
+        "question": "What is Convolutional code?",
+        "options": [
+          "A code that encodes each block with no memory of previous bits.",
+          "A code that produces parity from a sliding window of recent bits stored in encoder memory.",
+          "A repetition of one isolated bit only.",
+          "A prefix source code for single symbols."
+        ],
+        "correctAnswer": "A code that produces parity from a sliding window of recent bits stored in encoder memory.",
+        "explanation": "Shift-register memory ties each output to several input bits, and Viterbi decoding searches the resulting trellis."
+      },
+      {
+        "question": "What is Interleaving?",
+        "options": [
+          "Increasing transmit power during a fade.",
+          "Sorting source symbols by probability before Huffman coding.",
+          "Reordering coded symbols so a burst of channel errors is spread into isolated errors.",
+          "Repeating the same bit in adjacent positions on purpose."
+        ],
+        "correctAnswer": "Reordering coded symbols so a burst of channel errors is spread into isolated errors.",
+        "explanation": "A code that corrects scattered errors can then handle a burst after the symbols are restored to order."
+      },
+      {
+        "question": "What is Noise?",
+        "options": [
+          "A fixed amplifier gain chosen by the designer.",
+          "The information carried by a rare source symbol.",
+          "Structured parity that the encoder adds on purpose.",
+          "An unwanted random disturbance added to a signal that can change the received symbol."
+        ],
+        "correctAnswer": "An unwanted random disturbance added to a signal that can change the received symbol.",
+        "explanation": "Noise is unpredictable and is not part of the intended signal or the code's deliberate redundancy."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Self-information?",
+        "options": [
+          "A fair coin has entropy of one bit, while a coin that always lands heads has entropy zero.",
+          "Learning that a fair coin landed heads is one bit; a one-in-a-million lottery win carries far more.",
+          "The joint entropy of two fair independent coin tosses is two bits.",
+          "A biased coin with p equal to 0.1 has binary entropy well below one bit per toss."
+        ],
+        "correctAnswer": "Learning that a fair coin landed heads is one bit; a one-in-a-million lottery win carries far more.",
+        "explanation": "A rare event is more surprising, so its information, minus the log of its probability, is larger."
+      },
+      {
+        "question": "Which situation illustrates Entropy?",
+        "options": [
+          "The joint entropy of two fair independent coin tosses is two bits.",
+          "A biased coin with p equal to 0.1 has binary entropy well below one bit per toss.",
+          "A fair coin has entropy of one bit, while a coin that always lands heads has entropy zero.",
+          "After a noiseless channel output is seen, the conditional entropy of the input is zero."
+        ],
+        "correctAnswer": "A fair coin has entropy of one bit, while a coin that always lands heads has entropy zero.",
+        "explanation": "Entropy averages self-information over the source distribution and is the lossless coding limit."
+      },
+      {
+        "question": "Which situation illustrates Binary entropy?",
+        "options": [
+          "After a noiseless channel output is seen, the conditional entropy of the input is zero.",
+          "A biased coin with p equal to 0.1 has binary entropy well below one bit per toss.",
+          "The joint entropy of two fair independent coin tosses is two bits.",
+          "A noiseless link has mutual information equal to the input entropy, because the output reveals the input fully."
+        ],
+        "correctAnswer": "A biased coin with p equal to 0.1 has binary entropy well below one bit per toss.",
+        "explanation": "It depends only on p, is zero at the extremes, and reaches one bit when p is one half."
+      },
+      {
+        "question": "Which situation illustrates Joint entropy?",
+        "options": [
+          "The joint entropy of two fair independent coin tosses is two bits.",
+          "A noiseless link has mutual information equal to the input entropy, because the output reveals the input fully.",
+          "Given today's weather, yesterday's reading may still say something about tomorrow's reading.",
+          "After a noiseless channel output is seen, the conditional entropy of the input is zero."
+        ],
+        "correctAnswer": "The joint entropy of two fair independent coin tosses is two bits.",
+        "explanation": "It is the entropy of the combined outcome, not the leftover uncertainty or the shared part."
+      },
+      {
+        "question": "Which situation illustrates Conditional entropy?",
+        "options": [
+          "Given today's weather, yesterday's reading may still say something about tomorrow's reading.",
+          "A noiseless link has mutual information equal to the input entropy, because the output reveals the input fully.",
+          "After a noiseless channel output is seen, the conditional entropy of the input is zero.",
+          "For two dependent bits, the pair's entropy is the first bit's entropy plus the second bit's entropy given the first."
+        ],
+        "correctAnswer": "After a noiseless channel output is seen, the conditional entropy of the input is zero.",
+        "explanation": "Conditioning cannot raise uncertainty, and independent side information leaves entropy unchanged."
+      },
+      {
+        "question": "Which situation illustrates Mutual information?",
+        "options": [
+          "A noiseless link has mutual information equal to the input entropy, because the output reveals the input fully.",
+          "For two dependent bits, the pair's entropy is the first bit's entropy plus the second bit's entropy given the first.",
+          "Coding a biased coin as if it were fair costs extra bits equal to the divergence from fair to the true bias.",
+          "Given today's weather, yesterday's reading may still say something about tomorrow's reading."
+        ],
+        "correctAnswer": "A noiseless link has mutual information equal to the input entropy, because the output reveals the input fully.",
+        "explanation": "It equals the drop in uncertainty about one variable when the other is observed, and it is zero if they are independent."
+      },
+      {
+        "question": "Which situation illustrates Conditional mutual information?",
+        "options": [
+          "An English model trained on news uses more bits per character on poetry than the poetry source's own entropy.",
+          "Coding a biased coin as if it were fair costs extra bits equal to the divergence from fair to the true bias.",
+          "For two dependent bits, the pair's entropy is the first bit's entropy plus the second bit's entropy given the first.",
+          "Given today's weather, yesterday's reading may still say something about tomorrow's reading."
+        ],
+        "correctAnswer": "Given today's weather, yesterday's reading may still say something about tomorrow's reading.",
+        "explanation": "It measures dependence that remains once the known variable's contribution is removed."
+      },
+      {
+        "question": "Which situation illustrates Chain rule of entropy?",
+        "options": [
+          "Coding a biased coin as if it were fair costs extra bits equal to the divergence from fair to the true bias.",
+          "English text has a much lower entropy rate per letter than independent uniform letters would.",
+          "For two dependent bits, the pair's entropy is the first bit's entropy plus the second bit's entropy given the first.",
+          "An English model trained on news uses more bits per character on poetry than the poetry source's own entropy."
+        ],
+        "correctAnswer": "For two dependent bits, the pair's entropy is the first bit's entropy plus the second bit's entropy given the first.",
+        "explanation": "Uncertainty of a pair splits into uncertainty of the first outcome plus what the second still adds."
+      },
+      {
+        "question": "Which situation illustrates KL divergence?",
+        "options": [
+          "An English model trained on news uses more bits per character on poetry than the poetry source's own entropy.",
+          "English text has a much lower entropy rate per letter than independent uniform letters would.",
+          "Coding a biased coin as if it were fair costs extra bits equal to the divergence from fair to the true bias.",
+          "Repeated independent tosses of one biased coin form a discrete memoryless source."
+        ],
+        "correctAnswer": "Coding a biased coin as if it were fair costs extra bits equal to the divergence from fair to the true bias.",
+        "explanation": "It is the expected log ratio of the true probabilities to the assumed ones, and it is not symmetric."
+      },
+      {
+        "question": "Which situation illustrates Cross-entropy?",
+        "options": [
+          "A compressor assigns short bit strings to frequent letters and longer strings to rare letters.",
+          "Repeated independent tosses of one biased coin form a discrete memoryless source.",
+          "English text has a much lower entropy rate per letter than independent uniform letters would.",
+          "An English model trained on news uses more bits per character on poetry than the poetry source's own entropy."
+        ],
+        "correctAnswer": "An English model trained on news uses more bits per character on poetry than the poetry source's own entropy.",
+        "explanation": "It equals the true entropy plus the divergence caused by the mismatched code."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Entropy rate?",
+        "options": [
+          "A compressor assigns short bit strings to frequent letters and longer strings to rare letters.",
+          "A source of entropy 0.5 bit per symbol cannot be losslessly compressed to 0.2 bit per symbol on average.",
+          "Repeated independent tosses of one biased coin form a discrete memoryless source.",
+          "English text has a much lower entropy rate per letter than independent uniform letters would."
+        ],
+        "correctAnswer": "English text has a much lower entropy rate per letter than independent uniform letters would.",
+        "explanation": "For a stationary process it is the limit of the joint entropy of n symbols divided by n."
+      },
+      {
+        "question": "Which situation illustrates Discrete memoryless source?",
+        "options": [
+          "A source of entropy 0.5 bit per symbol cannot be losslessly compressed to 0.2 bit per symbol on average.",
+          "A compressor assigns short bit strings to frequent letters and longer strings to rare letters.",
+          "Repeated independent tosses of one biased coin form a discrete memoryless source.",
+          "Symbols with probabilities 0.5, 0.25, 0.25 receive Huffman lengths 1, 2, and 2."
+        ],
+        "correctAnswer": "Repeated independent tosses of one biased coin form a discrete memoryless source.",
+        "explanation": "Each symbol is drawn afresh from the same distribution, so the entropy rate equals one symbol's entropy."
+      },
+      {
+        "question": "Which situation illustrates Source coding?",
+        "options": [
+          "A source of entropy 0.5 bit per symbol cannot be losslessly compressed to 0.2 bit per symbol on average.",
+          "Symbols with probabilities 0.5, 0.25, 0.25 receive Huffman lengths 1, 2, and 2.",
+          "The set {0, 10, 11} is prefix-free, while {0, 01} is not because 0 begins 01.",
+          "A compressor assigns short bit strings to frequent letters and longer strings to rare letters."
+        ],
+        "correctAnswer": "A compressor assigns short bit strings to frequent letters and longer strings to rare letters.",
+        "explanation": "Source coding exploits uneven probabilities or repetition; it does not protect against channel noise."
+      },
+      {
+        "question": "Which situation illustrates Source coding theorem?",
+        "options": [
+          "The set {0, 10, 11} is prefix-free, while {0, 01} is not because 0 begins 01.",
+          "A source of entropy 0.5 bit per symbol cannot be losslessly compressed to 0.2 bit per symbol on average.",
+          "Lengths 1, 2, and 2 meet the test because 1/2 + 1/4 + 1/4 equals 1.",
+          "Symbols with probabilities 0.5, 0.25, 0.25 receive Huffman lengths 1, 2, and 2."
+        ],
+        "correctAnswer": "A source of entropy 0.5 bit per symbol cannot be losslessly compressed to 0.2 bit per symbol on average.",
+        "explanation": "Shannon showed entropy is the greatest lower bound on average length for lossless recovery."
+      },
+      {
+        "question": "Which situation illustrates Huffman coding?",
+        "options": [
+          "The set {0, 10, 11} is prefix-free, while {0, 01} is not because 0 begins 01.",
+          "A two-symbol source with entropy 0.5 bit has half a bit of redundancy relative to one uncompressed bit.",
+          "Symbols with probabilities 0.5, 0.25, 0.25 receive Huffman lengths 1, 2, and 2.",
+          "Lengths 1, 2, and 2 meet the test because 1/2 + 1/4 + 1/4 equals 1."
+        ],
+        "correctAnswer": "Symbols with probabilities 0.5, 0.25, 0.25 receive Huffman lengths 1, 2, and 2.",
+        "explanation": "Merging rare symbols first yields a prefix code with the smallest average length for those symbol probabilities."
+      },
+      {
+        "question": "Which situation illustrates Prefix-free code?",
+        "options": [
+          "The set {0, 10, 11} is prefix-free, while {0, 01} is not because 0 begins 01.",
+          "A zip archive of a text file expands back to the identical bytes.",
+          "A two-symbol source with entropy 0.5 bit has half a bit of redundancy relative to one uncompressed bit.",
+          "Lengths 1, 2, and 2 meet the test because 1/2 + 1/4 + 1/4 equals 1."
+        ],
+        "correctAnswer": "The set {0, 10, 11} is prefix-free, while {0, 01} is not because 0 begins 01.",
+        "explanation": "The decoder recognises a complete word as soon as it arrives, without looking ahead."
+      },
+      {
+        "question": "Which situation illustrates Kraft inequality?",
+        "options": [
+          "A lecture recording saved as a low-rate audio file does not match the original samples exactly.",
+          "A zip archive of a text file expands back to the identical bytes.",
+          "A two-symbol source with entropy 0.5 bit has half a bit of redundancy relative to one uncompressed bit.",
+          "Lengths 1, 2, and 2 meet the test because 1/2 + 1/4 + 1/4 equals 1."
+        ],
+        "correctAnswer": "Lengths 1, 2, and 2 meet the test because 1/2 + 1/4 + 1/4 equals 1.",
+        "explanation": "For binary prefix codes the sum of two to the minus each length must be at most one."
+      },
+      {
+        "question": "Which situation illustrates Source redundancy?",
+        "options": [
+          "A lecture recording saved as a low-rate audio file does not match the original samples exactly.",
+          "A zip archive of a text file expands back to the identical bytes.",
+          "A two-symbol source with entropy 0.5 bit has half a bit of redundancy relative to one uncompressed bit.",
+          "Allowing a larger mean squared error lets a Gaussian source be sent at a lower rate."
+        ],
+        "correctAnswer": "A two-symbol source with entropy 0.5 bit has half a bit of redundancy relative to one uncompressed bit.",
+        "explanation": "A uniform source has no redundancy; bias or structure leaves room for compression."
+      },
+      {
+        "question": "Which situation illustrates Lossless compression?",
+        "options": [
+          "Allowing a larger mean squared error lets a Gaussian source be sent at a lower rate.",
+          "A compressor stores a repeated sentence by pointing at an earlier matching phrase in the file.",
+          "A lecture recording saved as a low-rate audio file does not match the original samples exactly.",
+          "A zip archive of a text file expands back to the identical bytes."
+        ],
+        "correctAnswer": "A zip archive of a text file expands back to the identical bytes.",
+        "explanation": "The mapping is reversible, so the average rate cannot beat the source entropy."
+      },
+      {
+        "question": "Which situation illustrates Lossy compression?",
+        "options": [
+          "A compressor stores a repeated sentence by pointing at an earlier matching phrase in the file.",
+          "Allowing a larger mean squared error lets a Gaussian source be sent at a lower rate.",
+          "For a biased coin, the all-heads string is the most probable but is not typical if heads is rare.",
+          "A lecture recording saved as a low-rate audio file does not match the original samples exactly."
+        ],
+        "correctAnswer": "A lecture recording saved as a low-rate audio file does not match the original samples exactly.",
+        "explanation": "Discarding imperceptible or tolerable detail removes information on purpose."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Rate-distortion theory?",
+        "options": [
+          "Long tosses of a biased coin almost surely land near the expected fraction of heads, not at all heads.",
+          "For a biased coin, the all-heads string is the most probable but is not typical if heads is rare.",
+          "A compressor stores a repeated sentence by pointing at an earlier matching phrase in the file.",
+          "Allowing a larger mean squared error lets a Gaussian source be sent at a lower rate."
+        ],
+        "correctAnswer": "Allowing a larger mean squared error lets a Gaussian source be sent at a lower rate.",
+        "explanation": "It gives the fundamental limit for lossy compression at a specified fidelity."
+      },
+      {
+        "question": "Which situation illustrates Lempel-Ziv coding?",
+        "options": [
+          "A compressor stores a repeated sentence by pointing at an earlier matching phrase in the file.",
+          "Long tosses of a biased coin almost surely land near the expected fraction of heads, not at all heads.",
+          "Each bit through a binary symmetric channel is flipped with probability 0.1, independently of other bits.",
+          "For a biased coin, the all-heads string is the most probable but is not typical if heads is rare."
+        ],
+        "correctAnswer": "A compressor stores a repeated sentence by pointing at an earlier matching phrase in the file.",
+        "explanation": "It builds a dictionary from the data itself and is universal for a wide class of sources."
+      },
+      {
+        "question": "Which situation illustrates Typical set?",
+        "options": [
+          "Long tosses of a biased coin almost surely land near the expected fraction of heads, not at all heads.",
+          "A noiseless binary channel has capacity one bit per use because the output can match a full bit of input.",
+          "Each bit through a binary symmetric channel is flipped with probability 0.1, independently of other bits.",
+          "For a biased coin, the all-heads string is the most probable but is not typical if heads is rare."
+        ],
+        "correctAnswer": "For a biased coin, the all-heads string is the most probable but is not typical if heads is rare.",
+        "explanation": "For a large n, almost all the probability sits on this set, which has about two to the nH sequences."
+      },
+      {
+        "question": "Which situation illustrates Asymptotic equipartition property?",
+        "options": [
+          "Each bit through a binary symmetric channel is flipped with probability 0.1, independently of other bits.",
+          "Long tosses of a biased coin almost surely land near the expected fraction of heads, not at all heads.",
+          "A noiseless binary channel has capacity one bit per use because the output can match a full bit of input.",
+          "On a channel of capacity 0.5 bit per use, a rate of 0.4 can be reliable, but 0.6 cannot."
+        ],
+        "correctAnswer": "Long tosses of a biased coin almost surely land near the expected fraction of heads, not at all heads.",
+        "explanation": "The law of large numbers makes the sample entropy close to the true entropy for typical sequences."
+      },
+      {
+        "question": "Which situation illustrates Discrete memoryless channel?",
+        "options": [
+          "A noiseless binary channel has capacity one bit per use because the output can match a full bit of input.",
+          "Each transmitted bit is inverted with probability 0.1 and left unchanged otherwise.",
+          "Each bit through a binary symmetric channel is flipped with probability 0.1, independently of other bits.",
+          "On a channel of capacity 0.5 bit per use, a rate of 0.4 can be reliable, but 0.6 cannot."
+        ],
+        "correctAnswer": "Each bit through a binary symmetric channel is flipped with probability 0.1, independently of other bits.",
+        "explanation": "There is no memory: each use is an independent draw from the same input-output distribution."
+      },
+      {
+        "question": "Which situation illustrates Shannon capacity?",
+        "options": [
+          "On a channel of capacity 0.5 bit per use, a rate of 0.4 can be reliable, but 0.6 cannot.",
+          "Each transmitted bit is inverted with probability 0.1 and left unchanged otherwise.",
+          "In each use the bit survives with probability 0.8 and otherwise arrives as an erasure mark.",
+          "A noiseless binary channel has capacity one bit per use because the output can match a full bit of input."
+        ],
+        "correctAnswer": "A noiseless binary channel has capacity one bit per use because the output can match a full bit of input.",
+        "explanation": "Maximising mutual information over input probabilities gives the supremum of rates with vanishing error."
+      },
+      {
+        "question": "Which situation illustrates Noisy-channel coding theorem?",
+        "options": [
+          "In each use the bit survives with probability 0.8 and otherwise arrives as an erasure mark.",
+          "On a channel of capacity 0.5 bit per use, a rate of 0.4 can be reliable, but 0.6 cannot.",
+          "Each transmitted bit is inverted with probability 0.1 and left unchanged otherwise.",
+          "A baseband receiver sees the sent sample plus an independent normal random variable of fixed variance."
+        ],
+        "correctAnswer": "On a channel of capacity 0.5 bit per use, a rate of 0.4 can be reliable, but 0.6 cannot.",
+        "explanation": "Shannon proved capacity is both achievable in the limit and a hard upper bound."
+      },
+      {
+        "question": "Which situation illustrates Binary symmetric channel?",
+        "options": [
+          "In each use the bit survives with probability 0.8 and otherwise arrives as an erasure mark.",
+          "A baseband receiver sees the sent sample plus an independent normal random variable of fixed variance.",
+          "Doubling the signal-to-noise ratio of a voice-band modem raises, but does not double, its theoretical rate.",
+          "Each transmitted bit is inverted with probability 0.1 and left unchanged otherwise."
+        ],
+        "correctAnswer": "Each transmitted bit is inverted with probability 0.1 and left unchanged otherwise.",
+        "explanation": "The two possible errors, zero to one and one to zero, are equally likely at the crossover probability."
+      },
+      {
+        "question": "Which situation illustrates Binary erasure channel?",
+        "options": [
+          "Doubling the signal-to-noise ratio of a voice-band modem raises, but does not double, its theoretical rate.",
+          "A baseband receiver sees the sent sample plus an independent normal random variable of fixed variance.",
+          "In each use the bit survives with probability 0.8 and otherwise arrives as an erasure mark.",
+          "A radio frame adds parity bits so a single flipped bit inside the frame can be corrected."
+        ],
+        "correctAnswer": "In each use the bit survives with probability 0.8 and otherwise arrives as an erasure mark.",
+        "explanation": "The receiver knows which positions were erased, so those positions are lost but not misleading."
+      },
+      {
+        "question": "Which situation illustrates Additive white Gaussian noise?",
+        "options": [
+          "A radio frame adds parity bits so a single flipped bit inside the frame can be corrected.",
+          "Doubling the signal-to-noise ratio of a voice-band modem raises, but does not double, its theoretical rate.",
+          "A baseband receiver sees the sent sample plus an independent normal random variable of fixed variance.",
+          "A code that maps 4 information bits to 7 transmitted bits has rate 4/7."
+        ],
+        "correctAnswer": "A baseband receiver sees the sent sample plus an independent normal random variable of fixed variance.",
+        "explanation": "Whiteness means a flat spectrum and independent samples; Gaussian noise is fully described by its variance."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Shannon-Hartley theorem?",
+        "options": [
+          "A code that maps 4 information bits to 7 transmitted bits has rate 4/7.",
+          "A radio frame adds parity bits so a single flipped bit inside the frame can be corrected.",
+          "Doubling the signal-to-noise ratio of a voice-band modem raises, but does not double, its theoretical rate.",
+          "The strings 10110 and 10011 differ in two positions, so their Hamming distance is 2."
+        ],
+        "correctAnswer": "Doubling the signal-to-noise ratio of a voice-band modem raises, but does not double, its theoretical rate.",
+        "explanation": "The theorem gives capacity as bandwidth times the log of one plus the signal-to-noise ratio."
+      },
+      {
+        "question": "Which situation illustrates Channel coding?",
+        "options": [
+          "A code that maps 4 information bits to 7 transmitted bits has rate 4/7.",
+          "A radio frame adds parity bits so a single flipped bit inside the frame can be corrected.",
+          "The strings 10110 and 10011 differ in two positions, so their Hamming distance is 2.",
+          "If every pair of codewords differs in at least three positions, the minimum distance is 3."
+        ],
+        "correctAnswer": "A radio frame adds parity bits so a single flipped bit inside the frame can be corrected.",
+        "explanation": "The extra structure lets the decoder recognise which codeword was most likely sent."
+      },
+      {
+        "question": "Which situation illustrates Code rate?",
+        "options": [
+          "The strings 10110 and 10011 differ in two positions, so their Hamming distance is 2.",
+          "If every pair of codewords differs in at least three positions, the minimum distance is 3.",
+          "A code that maps 4 information bits to 7 transmitted bits has rate 4/7.",
+          "Even parity turns the data bits 1011 into 10111 because three ones need one more one."
+        ],
+        "correctAnswer": "A code that maps 4 information bits to 7 transmitted bits has rate 4/7.",
+        "explanation": "A lower rate means more redundancy and usually more ability to fight noise."
+      },
+      {
+        "question": "Which situation illustrates Hamming distance?",
+        "options": [
+          "If every pair of codewords differs in at least three positions, the minimum distance is 3.",
+          "Even parity turns the data bits 1011 into 10111 because three ones need one more one.",
+          "The bit 1 is sent as 111, and the received word 101 is decoded back to 1.",
+          "The strings 10110 and 10011 differ in two positions, so their Hamming distance is 2."
+        ],
+        "correctAnswer": "The strings 10110 and 10011 differ in two positions, so their Hamming distance is 2.",
+        "explanation": "Each mismatch counts as one, which is the right distance for symbol errors on a discrete channel."
+      },
+      {
+        "question": "Which situation illustrates Minimum distance?",
+        "options": [
+          "If every pair of codewords differs in at least three positions, the minimum distance is 3.",
+          "Four data bits are encoded into seven bits so that any one flipped bit among the seven can be corrected.",
+          "The bit 1 is sent as 111, and the received word 101 is decoded back to 1.",
+          "Even parity turns the data bits 1011 into 10111 because three ones need one more one."
+        ],
+        "correctAnswer": "If every pair of codewords differs in at least three positions, the minimum distance is 3.",
+        "explanation": "A larger minimum distance separates codewords so more errors are needed to confuse them."
+      },
+      {
+        "question": "Which situation illustrates Parity bit?",
+        "options": [
+          "The bit 1 is sent as 111, and the received word 101 is decoded back to 1.",
+          "A file checksum does not match, so the transfer is known to be corrupt and is requested again.",
+          "Four data bits are encoded into seven bits so that any one flipped bit among the seven can be corrected.",
+          "Even parity turns the data bits 1011 into 10111 because three ones need one more one."
+        ],
+        "correctAnswer": "Even parity turns the data bits 1011 into 10111 because three ones need one more one.",
+        "explanation": "A single flip changes the parity, so the check fails, but the bit does not say which position flipped."
+      },
+      {
+        "question": "Which situation illustrates Repetition code?",
+        "options": [
+          "A file checksum does not match, so the transfer is known to be corrupt and is requested again.",
+          "The bit 1 is sent as 111, and the received word 101 is decoded back to 1.",
+          "Four data bits are encoded into seven bits so that any one flipped bit among the seven can be corrected.",
+          "A Hamming decoder sees a nonzero syndrome and flips the single bit that syndrome identifies."
+        ],
+        "correctAnswer": "The bit 1 is sent as 111, and the received word 101 is decoded back to 1.",
+        "explanation": "Repeating a bit n times can correct up to floor of (n-1)/2 errors by choosing the majority value."
+      },
+      {
+        "question": "Which situation illustrates Hamming code?",
+        "options": [
+          "A single-error Hamming decoder maps each nonzero syndrome to exactly one bit position to flip.",
+          "A file checksum does not match, so the transfer is known to be corrupt and is requested again.",
+          "Four data bits are encoded into seven bits so that any one flipped bit among the seven can be corrected.",
+          "A Hamming decoder sees a nonzero syndrome and flips the single bit that syndrome identifies."
+        ],
+        "correctAnswer": "Four data bits are encoded into seven bits so that any one flipped bit among the seven can be corrected.",
+        "explanation": "The (7,4) Hamming code has minimum distance 3, so one error produces a unique syndrome."
+      },
+      {
+        "question": "Which situation illustrates Error detection?",
+        "options": [
+          "Quantising a channel output cannot reveal more about the input than the unquantised output already did.",
+          "A Hamming decoder sees a nonzero syndrome and flips the single bit that syndrome identifies.",
+          "A single-error Hamming decoder maps each nonzero syndrome to exactly one bit position to flip.",
+          "A file checksum does not match, so the transfer is known to be corrupt and is requested again."
+        ],
+        "correctAnswer": "A file checksum does not match, so the transfer is known to be corrupt and is requested again.",
+        "explanation": "A failed parity or checksum shows that an error happened even when the correct bits are still unknown."
+      },
+      {
+        "question": "Which situation illustrates Error correction?",
+        "options": [
+          "A Hamming decoder sees a nonzero syndrome and flips the single bit that syndrome identifies.",
+          "A decoder that is wrong half the time cannot claim that almost no uncertainty about the message remains.",
+          "Quantising a channel output cannot reveal more about the input than the unquantised output already did.",
+          "A single-error Hamming decoder maps each nonzero syndrome to exactly one bit position to flip."
+        ],
+        "correctAnswer": "A Hamming decoder sees a nonzero syndrome and flips the single bit that syndrome identifies.",
+        "explanation": "If the number of errors is within the code's correcting power, one codeword is the clear choice."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Syndrome?",
+        "options": [
+          "A very narrow uniform density on a tiny interval has negative differential entropy.",
+          "Quantising a channel output cannot reveal more about the input than the unquantised output already did.",
+          "A decoder that is wrong half the time cannot claim that almost no uncertainty about the message remains.",
+          "A single-error Hamming decoder maps each nonzero syndrome to exactly one bit position to flip."
+        ],
+        "correctAnswer": "A single-error Hamming decoder maps each nonzero syndrome to exactly one bit position to flip.",
+        "explanation": "Multiplying by the parity-check matrix yields zero on the code and a fingerprint of a correctable error."
+      },
+      {
+        "question": "Which situation illustrates Data processing inequality?",
+        "options": [
+          "A decoder that is wrong half the time cannot claim that almost no uncertainty about the message remains.",
+          "A very narrow uniform density on a tiny interval has negative differential entropy.",
+          "Quantising a channel output cannot reveal more about the input than the unquantised output already did.",
+          "A microphone sample of 0.37 is stored as the nearest of 256 audio levels."
+        ],
+        "correctAnswer": "Quantising a channel output cannot reveal more about the input than the unquantised output already did.",
+        "explanation": "If the source, the observation, and the processed result form a Markov chain, mutual information cannot rise."
+      },
+      {
+        "question": "Which situation illustrates Fano's inequality?",
+        "options": [
+          "A very narrow uniform density on a tiny interval has negative differential entropy.",
+          "A codeword stores four data bits in front and three parity bits after them.",
+          "A decoder that is wrong half the time cannot claim that almost no uncertainty about the message remains.",
+          "A microphone sample of 0.37 is stored as the nearest of 256 audio levels."
+        ],
+        "correctAnswer": "A decoder that is wrong half the time cannot claim that almost no uncertainty about the message remains.",
+        "explanation": "If the chance of guessing wrong is small, the conditional entropy of the input given the observation must be small."
+      },
+      {
+        "question": "Which situation illustrates Differential entropy?",
+        "options": [
+          "A very narrow uniform density on a tiny interval has negative differential entropy.",
+          "A microphone sample of 0.37 is stored as the nearest of 256 audio levels.",
+          "Every group of four bits is replaced by a distinct seven-bit word, with no memory of the previous group.",
+          "A codeword stores four data bits in front and three parity bits after them."
+        ],
+        "correctAnswer": "A very narrow uniform density on a tiny interval has negative differential entropy.",
+        "explanation": "It is the integral analogue of entropy; shifting or scaling a density changes it, and small variance can make it negative."
+      },
+      {
+        "question": "Which situation illustrates Quantisation?",
+        "options": [
+          "Every group of four bits is replaced by a distinct seven-bit word, with no memory of the previous group.",
+          "Each new input bit shifts into a register and two parity streams are formed from the bits currently stored.",
+          "A codeword stores four data bits in front and three parity bits after them.",
+          "A microphone sample of 0.37 is stored as the nearest of 256 audio levels."
+        ],
+        "correctAnswer": "A microphone sample of 0.37 is stored as the nearest of 256 audio levels.",
+        "explanation": "Many nearby amplitudes share one level, which introduces quantisation error before digital coding."
+      },
+      {
+        "question": "Which situation illustrates Systematic code?",
+        "options": [
+          "Each new input bit shifts into a register and two parity streams are formed from the bits currently stored.",
+          "Every group of four bits is replaced by a distinct seven-bit word, with no memory of the previous group.",
+          "A scratch that ruins twenty adjacent symbols on a link becomes single-symbol errors after deinterleaving.",
+          "A codeword stores four data bits in front and three parity bits after them."
+        ],
+        "correctAnswer": "A codeword stores four data bits in front and three parity bits after them.",
+        "explanation": "The message can be read directly from the systematic part when the decoder finds no error."
+      },
+      {
+        "question": "Which situation illustrates Block code?",
+        "options": [
+          "Each new input bit shifts into a register and two parity streams are formed from the bits currently stored.",
+          "Every group of four bits is replaced by a distinct seven-bit word, with no memory of the previous group.",
+          "A scratch that ruins twenty adjacent symbols on a link becomes single-symbol errors after deinterleaving.",
+          "Thermal motion of electrons in a receiver adds a small random voltage to every sample."
+        ],
+        "correctAnswer": "Every group of four bits is replaced by a distinct seven-bit word, with no memory of the previous group.",
+        "explanation": "Successive blocks are encoded separately, as in Hamming and many algebraic codes."
+      },
+      {
+        "question": "Which situation illustrates Convolutional code?",
+        "options": [
+          "Thermal motion of electrons in a receiver adds a small random voltage to every sample.",
+          "A scratch that ruins twenty adjacent symbols on a link becomes single-symbol errors after deinterleaving.",
+          "Each new input bit shifts into a register and two parity streams are formed from the bits currently stored.",
+          "Learning that a fair coin landed heads is one bit; a one-in-a-million lottery win carries far more."
+        ],
+        "correctAnswer": "Each new input bit shifts into a register and two parity streams are formed from the bits currently stored.",
+        "explanation": "Shift-register memory ties each output to several input bits, and Viterbi decoding searches the resulting trellis."
+      },
+      {
+        "question": "Which situation illustrates Interleaving?",
+        "options": [
+          "Learning that a fair coin landed heads is one bit; a one-in-a-million lottery win carries far more.",
+          "A fair coin has entropy of one bit, while a coin that always lands heads has entropy zero.",
+          "A scratch that ruins twenty adjacent symbols on a link becomes single-symbol errors after deinterleaving.",
+          "Thermal motion of electrons in a receiver adds a small random voltage to every sample."
+        ],
+        "correctAnswer": "A scratch that ruins twenty adjacent symbols on a link becomes single-symbol errors after deinterleaving.",
+        "explanation": "A code that corrects scattered errors can then handle a burst after the symbols are restored to order."
+      },
+      {
+        "question": "Which situation illustrates Noise?",
+        "options": [
+          "Thermal motion of electrons in a receiver adds a small random voltage to every sample.",
+          "Learning that a fair coin landed heads is one bit; a one-in-a-million lottery win carries far more.",
+          "A biased coin with p equal to 0.1 has binary entropy well below one bit per toss.",
+          "A fair coin has entropy of one bit, while a coin that always lands heads has entropy zero."
+        ],
+        "correctAnswer": "Thermal motion of electrons in a receiver adds a small random voltage to every sample.",
+        "explanation": "Noise is unpredictable and is not part of the intended signal or the code's deliberate redundancy."
+      }
+    ],
+    "11": [
+      {
+        "question": "Event A has probability 1/2 and event B has probability 1/16. Which event carries more self-information?",
+        "options": [
+          "Neither carries information",
+          "Event A",
+          "Event B",
+          "They carry the same amount"
+        ],
+        "correctAnswer": "Event B",
+        "explanation": "The rarer event has the larger self-information."
+      },
+      {
+        "question": "A source symbol is certain to be the same value every time. What is that source's entropy?",
+        "options": [
+          "Zero",
+          "Infinite",
+          "One bit",
+          "Equal to the alphabet size"
+        ],
+        "correctAnswer": "Zero",
+        "explanation": "A source with no uncertainty has entropy zero."
+      },
+      {
+        "question": "For a coin, binary entropy is largest when the probability of heads equals which value?",
+        "options": [
+          "0.1",
+          "1",
+          "0.5",
+          "0.01"
+        ],
+        "correctAnswer": "0.5",
+        "explanation": "A fair binary source is the most uncertain, so its entropy peaks at one half."
+      },
+      {
+        "question": "Two fair coins are independent. How many bits of joint entropy do the two tosses have?",
+        "options": [
+          "2 bits",
+          "0 bits",
+          "4 bits",
+          "1 bit"
+        ],
+        "correctAnswer": "2 bits",
+        "explanation": "Independent fair bits add, so the pair has two bits of joint entropy."
+      },
+      {
+        "question": "Y is an exact copy of X. Once Y is observed, how much uncertainty about X remains?",
+        "options": [
+          "The full entropy of X",
+          "None",
+          "Infinite uncertainty",
+          "One extra bit"
+        ],
+        "correctAnswer": "None",
+        "explanation": "Knowing an exact copy removes all uncertainty, so the conditional entropy is zero."
+      },
+      {
+        "question": "X and Y are independent fair bits. How much mutual information do they share?",
+        "options": [
+          "One bit",
+          "Half a bit",
+          "Zero",
+          "Two bits"
+        ],
+        "correctAnswer": "Zero",
+        "explanation": "Independent variables reveal nothing about each other, so mutual information is zero."
+      },
+      {
+        "question": "Z already fixes everything X and Y share, so they are independent once Z is known. Their conditional mutual information is:",
+        "options": [
+          "The entropy of Z",
+          "Zero",
+          "Always one bit",
+          "The joint entropy of X and Y"
+        ],
+        "correctAnswer": "Zero",
+        "explanation": "If nothing remains between X and Y after Z is known, conditional mutual information is zero."
+      },
+      {
+        "question": "H(X) is 1 bit and H(Y|X) is 0.5 bit. What is the joint entropy H(X,Y)?",
+        "options": [
+          "1 bit",
+          "0.5 bits",
+          "1.5 bits",
+          "2 bits"
+        ],
+        "correctAnswer": "1.5 bits",
+        "explanation": "The chain rule adds H(X) and H(Y|X), giving 1.5 bits."
+      },
+      {
+        "question": "A code is designed for distribution q while the source really follows p. Which quantity is the extra bit cost?",
+        "options": [
+          "KL divergence",
+          "Hamming distance",
+          "A symmetric Euclidean distance",
+          "Channel capacity"
+        ],
+        "correctAnswer": "KL divergence",
+        "explanation": "The penalty for assuming the wrong distribution is the KL divergence."
+      },
+      {
+        "question": "Symbols are drawn from p but encoded with ideal code lengths for a different distribution q. Which average length is that?",
+        "options": [
+          "Mutual information",
+          "Entropy of p alone",
+          "Parity overhead",
+          "Cross-entropy"
+        ],
+        "correctAnswer": "Cross-entropy",
+        "explanation": "The average length of a code matched to the wrong distribution is cross-entropy."
+      }
+    ],
+    "12": [
+      {
+        "question": "A memoryless source has symbol entropy H. What is its entropy rate per symbol?",
+        "options": [
+          "One bit regardless of H",
+          "Zero",
+          "H",
+          "Twice H"
+        ],
+        "correctAnswer": "H",
+        "explanation": "With no dependence between symbols, the entropy rate equals the single-symbol entropy."
+      },
+      {
+        "question": "Each symbol is drawn independently from the same three-symbol distribution. Which source model is that?",
+        "options": [
+          "An unquantised analogue source",
+          "A first-order Markov source",
+          "A binary symmetric channel",
+          "Discrete memoryless source"
+        ],
+        "correctAnswer": "Discrete memoryless source",
+        "explanation": "Independent identical draws from a finite alphabet are a discrete memoryless source."
+      },
+      {
+        "question": "A program assigns short bit strings to common letters before any noise protection is added. Which task is that?",
+        "options": [
+          "Source coding",
+          "Channel coding",
+          "Modulation",
+          "Encryption"
+        ],
+        "correctAnswer": "Source coding",
+        "explanation": "Compressing the source into fewer bits is source coding."
+      },
+      {
+        "question": "A memoryless source has entropy 0.5 bit per symbol. Which average lossless length is impossible?",
+        "options": [
+          "0.5 bit per symbol",
+          "1 bit per symbol",
+          "0.2 bit per symbol",
+          "0.8 bit per symbol"
+        ],
+        "correctAnswer": "0.2 bit per symbol",
+        "explanation": "The source coding theorem forbids a lossless average below the entropy."
+      },
+      {
+        "question": "A coder repeatedly combines the two rarest remaining symbols until one tree remains. Which algorithm is that?",
+        "options": [
+          "A non-prefix code",
+          "A repetition code",
+          "Lempel-Ziv coding",
+          "Huffman coding"
+        ],
+        "correctAnswer": "Huffman coding",
+        "explanation": "Merging least probable symbols is the Huffman construction."
+      },
+      {
+        "question": "Codewords are 0, 10, and 11. Can the decoder tell when each word ends without lookahead?",
+        "options": [
+          "Only if a comma is inserted",
+          "Yes",
+          "No, because the lengths differ",
+          "No, because 0 prefixes 10"
+        ],
+        "correctAnswer": "Yes",
+        "explanation": "No codeword prefixes another, so the set is instantaneously decodable."
+      },
+      {
+        "question": "Proposed binary lengths are 1, 2, 2, and 2. Can they belong to a prefix code?",
+        "options": [
+          "Yes",
+          "Only if the source is fair",
+          "Only for a Huffman tree of English",
+          "No"
+        ],
+        "correctAnswer": "No",
+        "explanation": "One half plus three quarters is greater than one, so Kraft's inequality fails."
+      },
+      {
+        "question": "A four-symbol source has entropy 1 bit, while equal-length coding would use 2 bits. How much source redundancy is that?",
+        "options": [
+          "4 bits",
+          "0 bits",
+          "1 bit",
+          "2 bits"
+        ],
+        "correctAnswer": "1 bit",
+        "explanation": "Redundancy is log of the alphabet size minus entropy, here 2 minus 1."
+      },
+      {
+        "question": "A compressed file must expand to the exact original essay, with no missing characters. Which compression class is required?",
+        "options": [
+          "Lossy compression",
+          "Scalar quantisation",
+          "Error detection",
+          "Lossless compression"
+        ],
+        "correctAnswer": "Lossless compression",
+        "explanation": "Exact reconstruction requires lossless compression."
+      },
+      {
+        "question": "An image coder throws away detail the eye rarely notices and cannot restore the exact pixels. Which class is that?",
+        "options": [
+          "Huffman coding of exact pixels",
+          "Lossy compression",
+          "Single parity",
+          "Lossless compression"
+        ],
+        "correctAnswer": "Lossy compression",
+        "explanation": "Intentional irreversible loss of detail is lossy compression."
+      }
+    ],
+    "13": [
+      {
+        "question": "Designers want the minimum bits per sample for a Gaussian source at a stated mean squared error. Which theory sets that limit?",
+        "options": [
+          "The Kraft inequality",
+          "Antenna theory",
+          "Rate-distortion theory",
+          "Lossless source coding alone"
+        ],
+        "correctAnswer": "Rate-distortion theory",
+        "explanation": "The rate-distortion function is the minimum rate for a given distortion."
+      },
+      {
+        "question": "A compressor discovers repeated phrases in the file and never receives a symbol probability table. Which family is that?",
+        "options": [
+          "Uniform quantisation",
+          "A Hamming code",
+          "Lempel-Ziv coding",
+          "Huffman coding"
+        ],
+        "correctAnswer": "Lempel-Ziv coding",
+        "explanation": "Dictionary parsing without prior probabilities is Lempel-Ziv coding."
+      },
+      {
+        "question": "For a biased coin, the all-heads string is most probable but lies outside the set of sequences we usually see. Which set do the usual sequences form?",
+        "options": [
+          "The entire space equally",
+          "The minimum-distance codewords",
+          "The typical set",
+          "Only the most probable string"
+        ],
+        "correctAnswer": "The typical set",
+        "explanation": "Sequences with probability near two to the minus nH form the typical set."
+      },
+      {
+        "question": "As n grows, a memoryless source's probability concentrates on about 2^(nH) similarly likely sequences. Which property says that?",
+        "options": [
+          "One sequence holds all the mass",
+          "Noise vanishes with n",
+          "Asymptotic equipartition property",
+          "All sequences are exactly equally likely"
+        ],
+        "correctAnswer": "Asymptotic equipartition property",
+        "explanation": "Concentration on about 2^(nH) typical sequences is the asymptotic equipartition property."
+      },
+      {
+        "question": "Each output depends only on the current input, with the same flip probability every use. Which channel model is that?",
+        "options": [
+          "A block code",
+          "Discrete memoryless channel",
+          "A discrete memoryless source",
+          "A channel with inter-symbol memory"
+        ],
+        "correctAnswer": "Discrete memoryless channel",
+        "explanation": "Independent uses with fixed transitions form a discrete memoryless channel."
+      },
+      {
+        "question": "A noiseless channel takes one binary input and delivers it unchanged. What is its Shannon capacity per use?",
+        "options": [
+          "2 bits",
+          "0 bits",
+          "1 bit",
+          "0.5 bit"
+        ],
+        "correctAnswer": "1 bit",
+        "explanation": "A perfect binary use conveys one bit, which is the capacity."
+      },
+      {
+        "question": "A channel has capacity 0.5 bit per use. Which rate can long codes make arbitrarily reliable?",
+        "options": [
+          "2 bits per use",
+          "1 bit per use",
+          "0.4 bit per use",
+          "0.6 bit per use"
+        ],
+        "correctAnswer": "0.4 bit per use",
+        "explanation": "Only rates below capacity are guaranteed to be reliable by the noisy-channel coding theorem."
+      },
+      {
+        "question": "Each bit is flipped independently with probability one half and never erased. What is the channel capacity per use?",
+        "options": [
+          "1 bit",
+          "0 bits",
+          "2 bits",
+          "0.5 bit"
+        ],
+        "correctAnswer": "0 bits",
+        "explanation": "A binary symmetric channel that flips half the bits conveys no information."
+      },
+      {
+        "question": "A binary erasure channel erases 20 percent of bits and delivers the rest perfectly. What is its capacity per use?",
+        "options": [
+          "0.8 bit",
+          "0 bits",
+          "1 bit",
+          "0.2 bit"
+        ],
+        "correctAnswer": "0.8 bit",
+        "explanation": "Binary erasure capacity is one minus the erasure probability, here 0.8 bit."
+      },
+      {
+        "question": "Each received sample is the sent value plus an independent normal variable of constant variance. Which noise model is that?",
+        "options": [
+          "A binary symmetric flip",
+          "One known sinusoid",
+          "Additive white Gaussian noise",
+          "Multiplicative burst noise"
+        ],
+        "correctAnswer": "Additive white Gaussian noise",
+        "explanation": "Independent added Gaussian samples are additive white Gaussian noise."
+      }
+    ],
+    "14": [
+      {
+        "question": "A designer may widen a Gaussian channel's bandwidth or raise its signal-to-noise ratio. Which theorem says both can raise capacity?",
+        "options": [
+          "Kraft inequality",
+          "Shannon-Hartley theorem",
+          "Source coding theorem",
+          "Asymptotic equipartition property"
+        ],
+        "correctAnswer": "Shannon-Hartley theorem",
+        "explanation": "Bandwidth and signal-to-noise ratio set Gaussian capacity through the Shannon-Hartley theorem."
+      },
+      {
+        "question": "Before modulation, a transmitter adds parity so the receiver can repair bit flips. Which task is that?",
+        "options": [
+          "Modulation",
+          "Password selection",
+          "Source coding",
+          "Channel coding"
+        ],
+        "correctAnswer": "Channel coding",
+        "explanation": "Adding redundancy against channel errors is channel coding."
+      },
+      {
+        "question": "A block code sends 7 bits for every 4 information bits. What is its code rate?",
+        "options": [
+          "3/7",
+          "7/4",
+          "4",
+          "4/7"
+        ],
+        "correctAnswer": "4/7",
+        "explanation": "Code rate is information symbols over transmitted symbols, so 4/7."
+      },
+      {
+        "question": "Compare 10110 with 10011. What is the Hamming distance?",
+        "options": [
+          "1",
+          "3",
+          "2",
+          "5"
+        ],
+        "correctAnswer": "2",
+        "explanation": "The strings differ in the third and fifth positions, so the distance is 2."
+      },
+      {
+        "question": "A code's closest distinct codewords differ in three positions. How many errors can it correct?",
+        "options": [
+          "1",
+          "3",
+          "2",
+          "0"
+        ],
+        "correctAnswer": "1",
+        "explanation": "A minimum distance of 3 corrects one error, because floor of (3-1)/2 is 1."
+      },
+      {
+        "question": "Even parity is applied to data bits 1011. What parity bit should be appended?",
+        "options": [
+          "0",
+          "2",
+          "1011",
+          "1"
+        ],
+        "correctAnswer": "1",
+        "explanation": "Three ones are odd, so the even-parity bit must be 1."
+      },
+      {
+        "question": "Each bit is sent three times and decoded by majority vote. How many bit errors in a triple can this correct?",
+        "options": [
+          "0",
+          "1",
+          "3",
+          "2"
+        ],
+        "correctAnswer": "1",
+        "explanation": "A length-3 repetition code corrects one error and fails if two copies are wrong."
+      },
+      {
+        "question": "Four data bits are encoded as seven bits that can correct any single flip. Which code family is that?",
+        "options": [
+          "Hamming code",
+          "Convolutional code",
+          "Huffman code",
+          "Repetition code"
+        ],
+        "correctAnswer": "Hamming code",
+        "explanation": "The binary (7,4) single-error-correcting code is a Hamming code."
+      },
+      {
+        "question": "A checksum fails and the receiver asks for a retransmission instead of guessing the data. Which capability was used?",
+        "options": [
+          "Power control",
+          "Error correction",
+          "Compression",
+          "Error detection"
+        ],
+        "correctAnswer": "Error detection",
+        "explanation": "Noticing corruption without repairing it is error detection."
+      },
+      {
+        "question": "A decoder uses a syndrome to flip one wrong bit and delivers the original data. Which capability is that?",
+        "options": [
+          "Source compression",
+          "Error correction",
+          "Error detection only",
+          "Frame discard"
+        ],
+        "correctAnswer": "Error correction",
+        "explanation": "Restoring the transmitted codeword is error correction."
+      }
+    ],
+    "15": [
+      {
+        "question": "The parity checks on a received word all pass, producing an all-zero check result. What does that result say?",
+        "options": [
+          "A double error is certain",
+          "The source entropy is zero",
+          "The word is a codeword",
+          "The carrier was erased"
+        ],
+        "correctAnswer": "The word is a codeword",
+        "explanation": "A zero syndrome means the received word satisfies every parity check."
+      },
+      {
+        "question": "A receiver quantises the channel output before decoding. Can that quantised value carry more information about the input than the raw output?",
+        "options": [
+          "Only on a noiseless channel",
+          "Yes",
+          "No",
+          "Only if the quantiser is fine"
+        ],
+        "correctAnswer": "No",
+        "explanation": "The data processing inequality says post-processing cannot create new information about the input."
+      },
+      {
+        "question": "A decoder is wrong on half of the blocks. Can the remaining uncertainty about the input be nearly zero?",
+        "options": [
+          "No",
+          "Only if the code is Huffman",
+          "Only for a binary source",
+          "Yes"
+        ],
+        "correctAnswer": "No",
+        "explanation": "Fano's inequality links a large error probability to leftover uncertainty."
+      },
+      {
+        "question": "A continuous noise variable has a very small variance and its differential entropy is negative. Is that possible?",
+        "options": [
+          "Yes",
+          "Only for a discrete coin",
+          "No, entropy cannot be negative",
+          "Only if the variable is constant"
+        ],
+        "correctAnswer": "Yes",
+        "explanation": "Differential entropy is not discrete entropy and may be negative."
+      },
+      {
+        "question": "An analogue sample is replaced by the nearest of 256 levels before it is coded. Which operation made it discrete?",
+        "options": [
+          "Linear filtering",
+          "Channel coding",
+          "Huffman coding",
+          "Quantisation"
+        ],
+        "correctAnswer": "Quantisation",
+        "explanation": "Replacing a continuous amplitude by a finite level is quantisation."
+      },
+      {
+        "question": "A codeword begins with the original data bits and appends parity. Which structural property is that?",
+        "options": [
+          "Uncoded transmission",
+          "Systematic form",
+          "A nonsystematic mix",
+          "Variable-length source coding"
+        ],
+        "correctAnswer": "Systematic form",
+        "explanation": "Unchanged information bits plus parity means the code is systematic."
+      },
+      {
+        "question": "Each group of k bits is encoded alone into n bits, with no dependence on earlier groups. Which code class is that?",
+        "options": [
+          "Convolutional code",
+          "Uncoded signalling",
+          "Block code",
+          "Huffman code"
+        ],
+        "correctAnswer": "Block code",
+        "explanation": "Independent mapping of fixed blocks is a block code."
+      },
+      {
+        "question": "Each output depends on the new bit and several previous bits held in a shift register. Which code class is that?",
+        "options": [
+          "Convolutional code",
+          "A one-bit repetition",
+          "Block code",
+          "Huffman code"
+        ],
+        "correctAnswer": "Convolutional code",
+        "explanation": "Parity from a sliding encoder memory is a convolutional code."
+      },
+      {
+        "question": "A fade corrupts 20 consecutive symbols, but after reordering they fall into separate correctable positions. Which technique did that?",
+        "options": [
+          "Interleaving",
+          "Adjacent repetition",
+          "A power boost",
+          "Huffman sorting"
+        ],
+        "correctAnswer": "Interleaving",
+        "explanation": "Spreading a burst into isolated errors is interleaving."
+      },
+      {
+        "question": "A receiver records a random voltage from electron motion even while the transmitter is silent. Which disturbance is that?",
+        "options": [
+          "Noise",
+          "Source self-information",
+          "A parity bit",
+          "A fixed amplifier gain"
+        ],
+        "correctAnswer": "Noise",
+        "explanation": "An unwanted random disturbance at the receiver is noise."
+      }
+    ]
+  }
+}

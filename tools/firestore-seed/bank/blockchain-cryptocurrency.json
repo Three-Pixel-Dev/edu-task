@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Block",
+    "definition": "A container of a header and a set of transactions that extends a blockchain.",
+    "wrongs": [
+      "A private key that authorizes spending from a wallet.",
+      "A fee paid to move a transaction ahead of others.",
+      "A word list used to back up a wallet."
+    ],
+    "why": "Nodes append accepted transactions by packaging them in a block linked to earlier blocks.",
+    "example": "A new Bitcoin block contains a header plus the transactions that the successful miner included.",
+    "scenario": "A miner has a header and a group of valid transactions ready to append to a chain. What container are they building?",
+    "scenarioAnswer": "A block",
+    "scenarioWrongs": [
+      "A seed phrase",
+      "A private key",
+      "A gas refund"
+    ],
+    "scenarioWhy": "A block packages a header and transactions so they can extend the chain."
+  },
+  {
+    "term": "Blockchain",
+    "definition": "A sequence of blocks in which each block includes a hash linking it to the previous block.",
+    "wrongs": [
+      "A single spreadsheet stored on one company server and edited in place.",
+      "A list of passwords kept in a browser.",
+      "A folder of unrelated files with no hashes between them."
+    ],
+    "why": "The hash link means a change in an earlier block changes the hash every later block must match.",
+    "example": "Each campus-demo block stores the hash of the block before it, so students can walk the links back to the start.",
+    "scenario": "Students can follow a hash in each header back to the first block. What structure are they tracing?",
+    "scenarioAnswer": "A blockchain",
+    "scenarioWrongs": [
+      "A single editable spreadsheet",
+      "A browser password list",
+      "An unordered folder of files"
+    ],
+    "scenarioWhy": "A blockchain is the hash-linked sequence of blocks they are following."
+  },
+  {
+    "term": "Block hash",
+    "definition": "The cryptographic hash of a block header, which commits to that header's contents and parent link.",
+    "wrongs": [
+      "The plain-language name of the miner who produced the block.",
+      "The wallet address printed on a paper receipt.",
+      "The fee a user typed into a wallet screen."
+    ],
+    "why": "Hashing the header covers the parent hash, Merkle root, and other header fields in one digest.",
+    "example": "A block explorer shows the hash of block 800000, computed from that block's header.",
+    "scenario": "A node must identify a header by a digest of its parent link, Merkle root, and other header fields. What does it compute?",
+    "scenarioAnswer": "The block hash",
+    "scenarioWrongs": [
+      "The miner's display name",
+      "The wallet's paper receipt",
+      "The typed transaction fee"
+    ],
+    "scenarioWhy": "The block hash is the digest of the header and therefore of the fields inside it."
+  },
+  {
+    "term": "Consensus mechanism",
+    "definition": "The protocol rules nodes use to agree on which blocks and transactions belong in the ledger.",
+    "wrongs": [
+      "A company's private meeting where one manager edits the accounts.",
+      "A password that every wallet owner must share.",
+      "A font used to display balances in a wallet app."
+    ],
+    "why": "Without a shared rule for choosing the ledger, nodes could keep incompatible histories.",
+    "example": "Bitcoin nodes apply proof-of-work rules to decide which competing block becomes part of the ledger.",
+    "scenario": "Many independent nodes must follow the same rule for which new block is accepted. What is that family of rules called?",
+    "scenarioAnswer": "A consensus mechanism",
+    "scenarioWrongs": [
+      "A private accounting meeting",
+      "A shared wallet password",
+      "A display font"
+    ],
+    "scenarioWhy": "A consensus mechanism is the shared rule set for agreeing on the ledger's contents."
+  },
+  {
+    "term": "Proof of work",
+    "definition": "A consensus method that requires computational effort to produce a block hash meeting a difficulty target.",
+    "wrongs": [
+      "A method that selects the next block producer only from coins locked as stake.",
+      "A method in which a named committee signs blocks with no public cost.",
+      "A wallet backup made of twelve or twenty-four words."
+    ],
+    "why": "The producer must find a header hash below the target, which takes many hash attempts.",
+    "example": "Bitcoin miners vary a nonce until the block header's hash is below the current target.",
+    "scenario": "A network accepts a block only after someone expends computation to hit a hash target. Which consensus method is that?",
+    "scenarioAnswer": "Proof of work",
+    "scenarioWrongs": [
+      "Proof of stake",
+      "A closed committee with no public cost",
+      "A seed-phrase backup"
+    ],
+    "scenarioWhy": "Proof of work ties block production to the computational effort of meeting a hash target."
+  },
+  {
+    "term": "Proof of stake",
+    "definition": "A consensus method that selects validators using locked coins rather than computational puzzles.",
+    "wrongs": [
+      "A method that requires miners to expend hash attempts against a difficulty target.",
+      "A method that stores all keys on one exchange server.",
+      "A file format for saving an unencrypted private key in email."
+    ],
+    "why": "Validators lock stake and can be rewarded or penalized according to the protocol rules.",
+    "example": "On a proof-of-stake network, a validator with locked coins is chosen to propose the next block.",
+    "scenario": "A network chooses block proposers from participants who lock coins, not from hash puzzles. Which method is that?",
+    "scenarioAnswer": "Proof of stake",
+    "scenarioWrongs": [
+      "Proof of work",
+      "Storage of every key on one exchange",
+      "Emailing private keys"
+    ],
+    "scenarioWhy": "Proof of stake uses locked coins to select validators instead of a mining puzzle."
+  },
+  {
+    "term": "Cryptocurrency wallet",
+    "definition": "Software or hardware that stores keys and can build, sign, and broadcast transactions.",
+    "wrongs": [
+      "The blockchain itself, which holds everyone's transaction history.",
+      "A block explorer website that only displays public data.",
+      "A miner that produces proof-of-work blocks."
+    ],
+    "why": "The wallet manages keys and transaction signing; the ledger of balances lives on the blockchain.",
+    "example": "A phone wallet holds a student's keys and signs a small test-network payment before broadcasting it.",
+    "scenario": "A student needs an app that keeps keys and signs a payment, not the global ledger itself. What do they use?",
+    "scenarioAnswer": "A cryptocurrency wallet",
+    "scenarioWrongs": [
+      "The blockchain ledger",
+      "A public block explorer",
+      "A proof-of-work miner"
+    ],
+    "scenarioWhy": "A wallet stores the keys and creates signed transactions; it is not the shared ledger."
+  },
+  {
+    "term": "Public key",
+    "definition": "A key that others can use to check signatures and that can be shared without revealing the private key.",
+    "wrongs": [
+      "The secret key that must stay private because it authorizes spending.",
+      "A block hash that identifies a header.",
+      "A transaction fee offered to a miner."
+    ],
+    "why": "Signatures made with the private key can be checked with the matching public key.",
+    "example": "A wallet derives an address from a public key and shows that address to classmates who will send test coins.",
+    "scenario": "Classmates need a value they can use to verify a signature, and seeing it must not expose the spending key. Which key is shared?",
+    "scenarioAnswer": "The public key",
+    "scenarioWrongs": [
+      "The private key",
+      "The seed phrase",
+      "The validator's slashing key secret"
+    ],
+    "scenarioWhy": "The public key verifies signatures and is safe to share, unlike the private key."
+  },
+  {
+    "term": "Private key",
+    "definition": "A secret key that authorizes transactions for its funds and must remain known only to the owner.",
+    "wrongs": [
+      "A public address that anyone may see in a block explorer.",
+      "The Merkle root published in a block header.",
+      "The network's difficulty target."
+    ],
+    "why": "Anyone who knows the private key can create valid signatures that spend the associated funds.",
+    "example": "A student keeps a test-wallet private key offline because anyone who copies it can sign transactions for those coins.",
+    "scenario": "A token transfer should be signable only by the owner. Which secret must the owner protect?",
+    "scenarioAnswer": "The private key",
+    "scenarioWrongs": [
+      "The receiving address",
+      "The block hash",
+      "The public difficulty target"
+    ],
+    "scenarioWhy": "The private key is the secret that creates the signature authorizing the transfer."
+  },
+  {
+    "term": "Smart contract",
+    "definition": "A program stored on a blockchain whose code runs when transactions call it, under consensus rules.",
+    "wrongs": [
+      "A paper contract signed with ink and stored in a filing cabinet.",
+      "A wallet password written on a sticky note.",
+      "A miner hardware manual."
+    ],
+    "why": "Every honest node runs the same contract code, so the resulting state is part of the ledger.",
+    "example": "A class deploys a small contract that records a vote when students send a transaction to its address.",
+    "scenario": "Students need on-chain code that every node will run when a transaction calls it. What should they deploy?",
+    "scenarioAnswer": "A smart contract",
+    "scenarioWrongs": [
+      "A paper form in a cabinet",
+      "A sticky-note password",
+      "A hardware manual"
+    ],
+    "scenarioWhy": "A smart contract is ledger code that nodes execute as part of processing the calling transaction."
+  },
+  {
+    "term": "Double spending",
+    "definition": "Trying to use the same coins in two conflicting transactions that one ledger cannot both accept.",
+    "wrongs": [
+      "Paying a miner a higher fee so one honest transaction is included sooner.",
+      "Backing up a seed phrase in two sealed envelopes.",
+      "Running two full nodes that store the same chain."
+    ],
+    "why": "Consensus must accept only one history, so the same output cannot be spent twice in the final ledger.",
+    "example": "Two transactions try to spend the same output, and the network's chosen chain keeps only one of them.",
+    "scenario": "A shop sees two conflicting payments that spend the same output. What can one consistent ledger finally do?",
+    "scenarioAnswer": "Accept only one of the two histories",
+    "scenarioWrongs": [
+      "Credit the same coins to both recipients as final",
+      "Erase the genesis block to allow both",
+      "Turn both payments into extra gas"
+    ],
+    "scenarioWhy": "A single ledger cannot treat two conflicting spends of the same coins as both final."
+  },
+  {
+    "term": "Fork",
+    "definition": "A point where two or more competing chains share a history and then diverge.",
+    "wrongs": [
+      "A backup copy of a seed phrase stored offline.",
+      "A wallet setting that shows balances in another currency.",
+      "A hardware device that signs transactions."
+    ],
+    "why": "Divergence happens when different blocks claim the same parent and nodes have not yet settled on one branch.",
+    "example": "Two valid blocks are found at the same height, so some nodes briefly follow one branch and some follow the other.",
+    "scenario": "Two valid blocks claim the same parent, and different nodes temporarily follow different branches. What is that split called?",
+    "scenarioAnswer": "A fork",
+    "scenarioWrongs": [
+      "A seed backup",
+      "A currency display setting",
+      "A hardware signer"
+    ],
+    "scenarioWhy": "A fork is the divergence of competing chains that share history up to a common parent."
+  },
+  {
+    "term": "Genesis block",
+    "definition": "The first block of a chain, which has no parent block.",
+    "wrongs": [
+      "The latest block at the tip of the chain.",
+      "A block that was orphaned and left off the main chain.",
+      "Any block that pays a transaction fee."
+    ],
+    "why": "Every later block links back through parent hashes to this first block.",
+    "example": "Bitcoin's genesis block is the starting block that later blocks reference through the chain of parent hashes.",
+    "scenario": "Students follow parent hashes backward until they reach a block with no parent. Which block is that?",
+    "scenarioAnswer": "The genesis block",
+    "scenarioWrongs": [
+      "The current tip",
+      "An orphaned side block",
+      "The most recent fee-paying block"
+    ],
+    "scenarioWhy": "The genesis block is the start of the chain and therefore has no parent."
+  },
+  {
+    "term": "Merkle tree",
+    "definition": "A binary tree of hashes whose leaves are transaction hashes and whose parents hash their children.",
+    "wrongs": [
+      "A list of wallet passwords stored in alphabetical order.",
+      "A hardware tree of mining machines in a warehouse.",
+      "A diagram of a company's management ranks."
+    ],
+    "why": "Hashing pairs of child hashes up the tree produces one root that commits to every listed transaction.",
+    "example": "A Bitcoin block builds a Merkle tree over its transactions so the header can store a single root.",
+    "scenario": "A block must commit to every included transaction through paired hashes that end in one root. Which structure does that?",
+    "scenarioAnswer": "A Merkle tree",
+    "scenarioWrongs": [
+      "An alphabetical password list",
+      "A warehouse equipment map",
+      "A corporate organization chart"
+    ],
+    "scenarioWhy": "A Merkle tree hashes transactions upward until one root represents the whole set."
+  },
+  {
+    "term": "Merkle root",
+    "definition": "The single top hash of a block's Merkle tree, stored in the block header.",
+    "wrongs": [
+      "The private key of the miner who found the block.",
+      "The first transaction fee in the block.",
+      "The network port used by a wallet."
+    ],
+    "why": "Changing any included transaction changes the hashes above it and therefore changes the root.",
+    "example": "A block header contains a Merkle root that students recompute from the block's transaction list.",
+    "scenario": "A header must store one hash that commits to all transactions in the block. Which field is that?",
+    "scenarioAnswer": "The Merkle root",
+    "scenarioWrongs": [
+      "The miner's private key",
+      "The first transaction fee",
+      "The wallet's network port"
+    ],
+    "scenarioWhy": "The Merkle root is the one header hash that summarizes the block's transactions."
+  },
+  {
+    "term": "Transaction",
+    "definition": "A signed ledger operation that transfers value or calls a contract according to protocol rules.",
+    "wrongs": [
+      "An unsigned note in a group chat about wanting to send coins.",
+      "A block header with no payment or contract call.",
+      "A seed phrase written for backup."
+    ],
+    "why": "Nodes accept a transaction only if its signatures and rules check out, then a block may include it.",
+    "example": "A signed payment names inputs and outputs, and a node relays it after the signature checks succeed.",
+    "scenario": "A wallet produces a signed payment that nodes can check and miners may include. What object is that?",
+    "scenarioAnswer": "A transaction",
+    "scenarioWrongs": [
+      "An unsigned chat message",
+      "A header with no payment",
+      "A seed phrase"
+    ],
+    "scenarioWhy": "A transaction is the signed operation that moves value or invokes a contract."
+  },
+  {
+    "term": "Unspent transaction output",
+    "definition": "An output from an earlier transaction that has not yet been used as an input of a later one.",
+    "wrongs": [
+      "An output that a later transaction has already consumed.",
+      "The Merkle root of a block.",
+      "A validator's locked staking deposit."
+    ],
+    "why": "In the UTXO model, spendable coins are exactly the outputs that no later input has consumed.",
+    "example": "A Bitcoin wallet lists an output from last week's payment because no later transaction has spent it.",
+    "scenario": "A Bitcoin wallet shows coins that can still be spent because no later input has consumed them. What are those coins?",
+    "scenarioAnswer": "Unspent transaction outputs",
+    "scenarioWrongs": [
+      "Outputs already consumed",
+      "Merkle roots",
+      "Staking deposits on a proof-of-stake chain"
+    ],
+    "scenarioWhy": "An unspent transaction output is an output that has not been used as a later input."
+  },
+  {
+    "term": "Mining",
+    "definition": "Competing to produce a valid proof-of-work block and thereby append it to the chain.",
+    "wrongs": [
+      "Locking coins to be selected as a proof-of-stake validator.",
+      "Writing down a seed phrase on paper.",
+      "Browsing a block explorer without producing blocks."
+    ],
+    "why": "Miners perform the proof-of-work search and, if successful, publish a block other nodes can check.",
+    "example": "A teaching miner changes the nonce repeatedly until a test-network header hash meets the easy target.",
+    "scenario": "Participants search for a header hash that meets a work target so they can publish the next block. What is that activity?",
+    "scenarioAnswer": "Mining",
+    "scenarioWrongs": [
+      "Staking",
+      "Writing a seed phrase",
+      "Only viewing a block explorer"
+    ],
+    "scenarioWhy": "Mining is the competition to find a valid proof-of-work block."
+  },
+  {
+    "term": "Difficulty",
+    "definition": "A measure of how hard it is to find a block hash that the proof-of-work rules will accept.",
+    "wrongs": [
+      "The number of words in a seed phrase.",
+      "The size of a wallet's address book.",
+      "The color theme of a block explorer."
+    ],
+    "why": "The protocol adjusts difficulty so that blocks arrive near the intended average interval.",
+    "example": "Bitcoin raises difficulty when blocks have been found faster than the ten-minute target pace.",
+    "scenario": "Blocks are being found much faster than the protocol intends. Which proof-of-work setting should rise?",
+    "scenarioAnswer": "Difficulty",
+    "scenarioWrongs": [
+      "Seed-phrase length",
+      "Address-book size",
+      "Explorer color theme"
+    ],
+    "scenarioWhy": "Difficulty controls how hard it is to find an acceptable proof-of-work hash."
+  },
+  {
+    "term": "Block reward",
+    "definition": "New coins, often plus fees, that the protocol pays to the producer of a valid block.",
+    "wrongs": [
+      "A fine taken from a validator for breaking consensus rules.",
+      "A seed phrase given to the block producer.",
+      "The parent hash stored in the header."
+    ],
+    "why": "The reward compensates the producer and, on many public chains, is how new coins enter circulation.",
+    "example": "A Bitcoin block's first transaction pays the miner the current subsidy plus the fees of included transactions.",
+    "scenario": "A protocol mints new coins for the node that publishes a valid block. What is that payment called?",
+    "scenarioAnswer": "The block reward",
+    "scenarioWrongs": [
+      "A slashing penalty",
+      "A seed phrase",
+      "The parent hash"
+    ],
+    "scenarioWhy": "The block reward is the protocol payment to the producer of a valid block."
+  },
+  {
+    "term": "Transaction fee",
+    "definition": "An amount offered to the block producer for including a transaction in a block.",
+    "wrongs": [
+      "The new-coin subsidy paid even when a block contains no user transactions.",
+      "The price of a hardware wallet in a store.",
+      "A tax printed on a paper receipt outside the protocol."
+    ],
+    "why": "Producers have limited block space, so the offered fee influences which valid transactions they include.",
+    "example": "A wallet adds a small fee so a test-network miner will include the student's transaction in the next block.",
+    "scenario": "Block space is limited, and a user wants a producer to include one valid payment. What do they attach to the payment?",
+    "scenarioAnswer": "A transaction fee",
+    "scenarioWrongs": [
+      "The genesis block",
+      "A hardware-store price",
+      "A paper sales tax"
+    ],
+    "scenarioWhy": "A transaction fee is the amount offered for inclusion in a block."
+  },
+  {
+    "term": "Mempool",
+    "definition": "A node's temporary set of valid transactions that are waiting to be included in a block.",
+    "wrongs": [
+      "The permanent set of blocks already buried under thousands of confirmations.",
+      "A cold wallet stored in a safe.",
+      "The genesis block of the chain."
+    ],
+    "why": "Transactions reach nodes before a block includes them, and the mempool holds those pending transactions.",
+    "example": "After a student broadcasts a payment, a node shows it in the mempool until a block includes it.",
+    "scenario": "A valid payment has been broadcast but is not in a block yet. Where does a node typically hold it?",
+    "scenarioAnswer": "In the mempool",
+    "scenarioWrongs": [
+      "In the genesis block",
+      "In a cold-wallet safe",
+      "Among ancient finalized blocks only"
+    ],
+    "scenarioWhy": "The mempool is the waiting area for valid transactions that are not yet in a block."
+  },
+  {
+    "term": "Confirmation",
+    "definition": "Inclusion of a transaction in a block, with another confirmation added by each later block built on that chain.",
+    "wrongs": [
+      "A phone notification that a wallet app finished installing.",
+      "A bank employee saying a wire looks familiar.",
+      "A miner announcing an intention before any block exists."
+    ],
+    "why": "Each added block makes it harder for an alternative branch to remove that transaction.",
+    "example": "A merchant waits until a payment sits six blocks deep before treating it as sufficiently confirmed.",
+    "scenario": "A payment is in a block, and five more blocks have been built on that chain. How many confirmations does it have?",
+    "scenarioAnswer": "Six",
+    "scenarioWrongs": [
+      "Zero",
+      "One",
+      "Five"
+    ],
+    "scenarioWhy": "The including block is the first confirmation, and each of the five blocks on top adds another."
+  },
+  {
+    "term": "Soft fork",
+    "definition": "A rule tightening under which blocks valid by the new rules remain valid under the old rules.",
+    "wrongs": [
+      "A rule change that old nodes treat as invalid, forcing every node to upgrade or split.",
+      "A temporary fork caused only by two miners finding blocks at the same moment.",
+      "A wallet update that changes only the app's color."
+    ],
+    "why": "Old nodes still accept the stricter blocks, so the chain can upgrade without an immediate permanent split.",
+    "example": "A soft-fork upgrade rejects a class of transactions that older rules would have allowed, while old nodes still accept the new blocks.",
+    "scenario": "New rules reject some previously allowed transactions, but nodes that have not upgraded still accept the new blocks. Which change is that?",
+    "scenarioAnswer": "A soft fork",
+    "scenarioWrongs": [
+      "A hard fork",
+      "A wallet color change",
+      "A simultaneous two-miner tie only"
+    ],
+    "scenarioWhy": "A soft fork tightens rules while keeping the new blocks acceptable to old nodes."
+  },
+  {
+    "term": "Hard fork",
+    "definition": "A rule change that makes some blocks valid under the new rules invalid under the old rules.",
+    "wrongs": [
+      "A tighter rule set whose new blocks old nodes still accept.",
+      "A display change in a wallet that does not affect consensus.",
+      "A backup of keys onto paper."
+    ],
+    "why": "Nodes that do not upgrade will reject the new blocks, so the network can split if both sets continue.",
+    "example": "A chain changes block format, and nodes that keep the old software reject the new blocks as invalid.",
+    "scenario": "Upgraded nodes accept a new block format that non-upgraded nodes reject. Which kind of change is that?",
+    "scenarioAnswer": "A hard fork",
+    "scenarioWrongs": [
+      "A soft fork",
+      "A theme update in a wallet",
+      "A paper key backup"
+    ],
+    "scenarioWhy": "A hard fork creates blocks that old rules consider invalid, so non-upgraded nodes will not follow them."
+  },
+  {
+    "term": "Full node",
+    "definition": "A node that downloads blocks and checks transactions itself against the consensus rules.",
+    "wrongs": [
+      "A wallet that trusts a random website to say what the balance is, without checking blocks.",
+      "A block explorer run as a picture with no verification.",
+      "A miner that publishes blocks but never checks rules."
+    ],
+    "why": "A full node keeps its own verified copy rather than trusting another server's claim about the ledger.",
+    "example": "A lab computer runs a full node that rejects a test block whose transaction signatures do not verify.",
+    "scenario": "A computer should reject invalid blocks itself instead of trusting a website's balance. What should it run?",
+    "scenarioAnswer": "A full node",
+    "scenarioWrongs": [
+      "A wallet that trusts an unverified website",
+      "A screenshot of an explorer",
+      "A publisher that skips rule checks"
+    ],
+    "scenarioWhy": "A full node downloads and validates the chain against the consensus rules on its own."
+  },
+  {
+    "term": "Address",
+    "definition": "A public identifier, often derived from a public key, that others use to send funds to a recipient.",
+    "wrongs": [
+      "The secret seed that regenerates every private key in a wallet.",
+      "The difficulty target of the network.",
+      "The private key itself."
+    ],
+    "why": "An address is meant to be shared so payers know where to send coins, without revealing the private key.",
+    "example": "A student posts a test-network address on the class forum so others can send practice coins.",
+    "scenario": "A student wants classmates to send practice coins without receiving any secret key. What should the student post?",
+    "scenarioAnswer": "An address",
+    "scenarioWrongs": [
+      "The seed phrase",
+      "The private key",
+      "The difficulty target"
+    ],
+    "scenarioWhy": "An address is a public receiving identifier and does not reveal the private key."
+  },
+  {
+    "term": "Seed phrase",
+    "definition": "An ordered list of words from which a wallet can regenerate its private keys.",
+    "wrongs": [
+      "A public receiving address safe to post on a forum.",
+      "The hash of the latest block.",
+      "A transaction fee quoted in the wallet."
+    ],
+    "why": "Deterministic wallets derive the same keys from the same seed, so the word list is a backup of those keys.",
+    "example": "After a phone is replaced, a wallet app regenerates the same test keys from the student's written seed phrase.",
+    "scenario": "A wallet app on a new phone must recreate the same keys after the old phone is lost. Which backup does that?",
+    "scenarioAnswer": "The seed phrase",
+    "scenarioWrongs": [
+      "The public address alone",
+      "The latest block hash",
+      "A list of past fees"
+    ],
+    "scenarioWhy": "The seed phrase is the word list a deterministic wallet uses to regenerate its private keys."
+  },
+  {
+    "term": "Hot wallet",
+    "definition": "A wallet whose private keys are present on a machine that is connected to a network.",
+    "wrongs": [
+      "A wallet whose keys are generated and kept entirely offline.",
+      "A dedicated signing device that never exposes keys to the computer.",
+      "A watch-only display that holds no private keys at all."
+    ],
+    "why": "Network exposure makes the keys easier to use and also more exposed to malware on that machine.",
+    "example": "A phone wallet used for small test payments keeps its keys on the internet-connected phone.",
+    "scenario": "Keys for small daily payments sit on an internet-connected phone. What kind of wallet is that?",
+    "scenarioAnswer": "A hot wallet",
+    "scenarioWrongs": [
+      "A cold wallet",
+      "A hardware wallet kept offline",
+      "A watch-only view with no keys"
+    ],
+    "scenarioWhy": "A hot wallet stores private keys on a networked device."
+  },
+  {
+    "term": "Cold wallet",
+    "definition": "A wallet whose private keys are created and stored offline, away from networked computers.",
+    "wrongs": [
+      "A wallet whose keys stay on an internet-connected phone.",
+      "A public block explorer account.",
+      "A full node that stores no user keys but is online."
+    ],
+    "why": "Keeping keys offline reduces the chance that networked malware can copy them.",
+    "example": "A club generates a savings-wallet seed on an offline computer and stores the written seed in a locked drawer.",
+    "scenario": "A club wants long-term savings keys that never sit on an internet-connected computer. Which wallet type fits?",
+    "scenarioAnswer": "A cold wallet",
+    "scenarioWrongs": [
+      "A hot wallet on a phone",
+      "A block-explorer login",
+      "An online full node with no separate key storage"
+    ],
+    "scenarioWhy": "A cold wallet keeps the private keys offline."
+  },
+  {
+    "term": "Gas",
+    "definition": "A unit that meters how much computation and storage a transaction may use on a smart-contract platform.",
+    "wrongs": [
+      "The proof-of-work difficulty target.",
+      "The number of confirmations a merchant waits for.",
+      "The count of words in a seed phrase."
+    ],
+    "why": "Metering computation stops a transaction from running without limit and prices the work nodes must do.",
+    "example": "An Ethereum-style transaction states a gas limit so a looping call cannot run forever on every node.",
+    "scenario": "A smart-contract call must have a metered limit so it cannot run forever on every node. What unit sets that budget?",
+    "scenarioAnswer": "Gas",
+    "scenarioWrongs": [
+      "Difficulty",
+      "Confirmation count",
+      "Seed-phrase length"
+    ],
+    "scenarioWhy": "Gas meters the computation and storage the call is allowed to consume."
+  },
+  {
+    "term": "Validator",
+    "definition": "A proof-of-stake participant chosen to propose or attest to blocks according to the protocol.",
+    "wrongs": [
+      "A proof-of-work miner searching for a hash below a target.",
+      "A block explorer that only displays data.",
+      "A hardware wallet with no role in consensus."
+    ],
+    "why": "Validators take turns proposing or voting on blocks, and their stake can be rewarded or penalized.",
+    "example": "A staked node is selected to propose the next block and broadcasts that block to the network.",
+    "scenario": "A proof-of-stake network must choose a participant to propose the next block. What is that participant called?",
+    "scenarioAnswer": "A validator",
+    "scenarioWrongs": [
+      "A proof-of-work miner",
+      "A block explorer",
+      "A hardware wallet"
+    ],
+    "scenarioWhy": "A validator is the proof-of-stake participant selected to propose or attest to blocks."
+  },
+  {
+    "term": "Staking",
+    "definition": "Locking coins so a participant can act as a validator under a proof-of-stake protocol.",
+    "wrongs": [
+      "Spending electricity to search for a proof-of-work hash.",
+      "Publishing a receiving address on a website.",
+      "Downloading block headers without locking coins."
+    ],
+    "why": "The locked stake is the economic bond that lets the protocol reward or penalize the validator.",
+    "example": "A participant locks coins in a stake contract and then becomes eligible to attest to new blocks.",
+    "scenario": "A holder wants to become eligible to attest on a proof-of-stake network by locking coins. What action is that?",
+    "scenarioAnswer": "Staking",
+    "scenarioWrongs": [
+      "Mining with hash power",
+      "Posting a public address",
+      "Downloading headers only"
+    ],
+    "scenarioWhy": "Staking locks coins so the holder can participate as a proof-of-stake validator."
+  },
+  {
+    "term": "Longest-chain rule",
+    "definition": "The proof-of-work fork-choice rule that follows the chain with the most accumulated work.",
+    "wrongs": [
+      "A rule that always prefers the chain with the fewest blocks.",
+      "A rule that lets each wallet pick a private history.",
+      "A rule that chooses the chain whose latest block has the largest fee."
+    ],
+    "why": "Nodes adopt the chain that represents the greatest accumulated proof of work and switch if another chain overtakes it.",
+    "example": "When two Bitcoin branches compete, nodes follow the branch whose total proof of work becomes greater.",
+    "scenario": "Two proof-of-work branches compete, and nodes must pick one. Which rule tells them to follow the branch with the most accumulated work?",
+    "scenarioAnswer": "The longest-chain rule",
+    "scenarioWrongs": [
+      "Prefer the branch with the fewest blocks",
+      "Let each wallet keep a private history",
+      "Choose the branch with one large fee"
+    ],
+    "scenarioWhy": "The longest-chain rule, in proof of work, selects the chain with the most accumulated work."
+  },
+  {
+    "term": "Block header",
+    "definition": "The compact block fields, including the parent hash, Merkle root, time, and consensus data, without the full transaction bodies.",
+    "wrongs": [
+      "The complete list of every transaction's input scripts.",
+      "A wallet's seed phrase.",
+      "The human-readable name of a token."
+    ],
+    "why": "The header is what gets hashed for the block hash and what links the block to its parent and transactions.",
+    "example": "A light client stores Bitcoin headers, each containing a parent hash and a Merkle root, without every transaction body.",
+    "scenario": "A light client stores parent hashes and Merkle roots but not every transaction body. Which part of each block is it keeping?",
+    "scenarioAnswer": "The block header",
+    "scenarioWrongs": [
+      "Every transaction input script",
+      "The user's seed phrase",
+      "A token's display name"
+    ],
+    "scenarioWhy": "The block header holds the parent hash, Merkle root, and related fields without the full transaction bodies."
+  },
+  {
+    "term": "Coinbase transaction",
+    "definition": "The special first transaction in a block that creates the block reward for the block producer.",
+    "wrongs": [
+      "A user payment that spends an earlier output.",
+      "A trade on a company that happens to share this technical name.",
+      "A contract call that only moves an existing token."
+    ],
+    "why": "This transaction has no previous output; it is how the protocol introduces the reward into the block.",
+    "example": "The first transaction in a Bitcoin block pays the miner the subsidy and fees and spends no earlier output.",
+    "scenario": "The first transaction in a new block pays the miner and does not spend an earlier output. What is that transaction?",
+    "scenarioAnswer": "The coinbase transaction",
+    "scenarioWrongs": [
+      "An ordinary user payment",
+      "A token transfer between two wallets",
+      "A stake-withdrawal request"
+    ],
+    "scenarioWhy": "The coinbase transaction is the block's first transaction and the one that creates the block reward."
+  },
+  {
+    "term": "Multisignature",
+    "definition": "A spending condition that requires valid signatures from more than one key before funds can move.",
+    "wrongs": [
+      "A condition that any single leaked key can satisfy alone when the policy requires several.",
+      "A hash of the block with no keys involved.",
+      "A public address with no signing requirement."
+    ],
+    "why": "The locking condition checks that the required number of distinct authorized signatures is present.",
+    "example": "A club wallet moves funds only when two of three officers each provide a signature.",
+    "scenario": "A club wants funds to move only when two of three officers sign. Which spending condition is that?",
+    "scenarioAnswer": "Multisignature",
+    "scenarioWrongs": [
+      "Any one officer's key alone",
+      "A block hash with no signatures",
+      "A public address and no signature check"
+    ],
+    "scenarioWhy": "Multisignature requires more than one authorized signature before the funds can be spent."
+  },
+  {
+    "term": "Distributed ledger",
+    "definition": "A shared record of transactions that many nodes maintain and update under consensus rules.",
+    "wrongs": [
+      "A private spreadsheet that only one accountant can edit.",
+      "A paper notebook locked in one office.",
+      "A single bank database with no copies at other nodes."
+    ],
+    "why": "Each participating node keeps a copy and applies the same rules to accept updates.",
+    "example": "Several lab computers each store the class blockchain and accept a new block only when its proof checks.",
+    "scenario": "Several nodes each keep a copy of the same transaction history and update it by shared rules. What is that record?",
+    "scenarioAnswer": "A distributed ledger",
+    "scenarioWrongs": [
+      "One accountant's private spreadsheet",
+      "A single locked paper notebook",
+      "One bank database with no other copies"
+    ],
+    "scenarioWhy": "A distributed ledger is the shared transaction record maintained by many nodes."
+  },
+  {
+    "term": "Immutability",
+    "definition": "The resistance of confirmed history to silent edits, because changing a block changes its hash and later links.",
+    "wrongs": [
+      "The freedom to rewrite an old block in place without changing any later hash.",
+      "The ability of one wallet to edit another person's confirmed payment quietly.",
+      "A guarantee that no competing branch can ever exist even for one block."
+    ],
+    "why": "The hash chain makes an in-place edit evident, since later blocks would no longer link to the edited block.",
+    "example": "Changing one confirmed transaction in a class chain breaks the stored hash of that block and every following parent link.",
+    "scenario": "Someone edits a confirmed transaction inside an old block but leaves later headers untouched. What will other nodes notice?",
+    "scenarioAnswer": "Later hashes no longer link to that block",
+    "scenarioWrongs": [
+      "Nothing, because old blocks can be edited in place",
+      "Only a change in the wallet's color theme",
+      "The seed phrase becomes public"
+    ],
+    "scenarioWhy": "Immutability here means the edit changes the block hash, so the later links no longer match."
+  },
+  {
+    "term": "Peer-to-peer network",
+    "definition": "A network in which nodes exchange blocks and transactions directly, without one server owning the ledger.",
+    "wrongs": [
+      "A design in which only one company server is allowed to store the official ledger.",
+      "A phone call between two wallet owners.",
+      "A cable that connects a hardware wallet to a laptop."
+    ],
+    "why": "Each node can relay to other nodes, so the ledger is not stored solely by a central operator.",
+    "example": "A new lab node downloads blocks from several classmate nodes rather than from one official server.",
+    "scenario": "Nodes pass blocks to one another, and no single server is the owner of the ledger. What kind of network is that?",
+    "scenarioAnswer": "A peer-to-peer network",
+    "scenarioWrongs": [
+      "A single company server that alone stores the ledger",
+      "A phone call",
+      "A USB cable to a hardware wallet"
+    ],
+    "scenarioWhy": "A peer-to-peer network lets nodes exchange ledger data directly without a central owner."
+  },
+  {
+    "term": "Chain reorganization",
+    "definition": "A switch from one branch to another when the fork-choice rule decides the other branch is preferred.",
+    "wrongs": [
+      "A permanent edit that changes an old block but keeps the same block hash.",
+      "A wallet renaming an address in its contact list.",
+      "A user increasing a transaction fee before broadcast."
+    ],
+    "why": "Nodes replace the previous tip when a competing branch becomes the preferred chain under the fork-choice rule.",
+    "example": "Nodes that briefly followed block A switch to a competing branch after that branch accumulates more proof of work.",
+    "scenario": "Nodes were on branch A, then branch B accumulates more work and they adopt B instead. What is that switch called?",
+    "scenarioAnswer": "A chain reorganization",
+    "scenarioWrongs": [
+      "An in-place edit that keeps the old hash",
+      "Renaming an address book entry",
+      "Raising a fee before broadcast"
+    ],
+    "scenarioWhy": "A chain reorganization is the adoption of a different branch under the fork-choice rule."
+  },
+  {
+    "term": "Merkle proof",
+    "definition": "The sibling hashes needed to recompute a Merkle root from one transaction and show that it was included.",
+    "wrongs": [
+      "The private key of the transaction's sender.",
+      "A full copy of every transaction in every block.",
+      "The seed phrase of the block producer."
+    ],
+    "why": "Given the transaction, the sibling hashes, and the root, a light client can check inclusion without the whole block body.",
+    "example": "A light client receives a payment's sibling hashes and checks that they lead to the Merkle root in a header it already stores.",
+    "scenario": "A light client knows a header's Merkle root and wants to check one payment was in that block without downloading every transaction. What does it need?",
+    "scenarioAnswer": "A Merkle proof",
+    "scenarioWrongs": [
+      "The sender's private key",
+      "Every transaction ever made",
+      "The producer's seed phrase"
+    ],
+    "scenarioWhy": "A Merkle proof supplies the sibling hashes that connect one transaction to the known root."
+  },
+  {
+    "term": "Permissionless blockchain",
+    "definition": "A blockchain design that allows anyone who follows the protocol to run a node or attempt to produce blocks.",
+    "wrongs": [
+      "A ledger where only a pre-approved organization list may validate transactions.",
+      "A private database with a single administrator account.",
+      "A wallet that requires a store receipt before it can display a balance."
+    ],
+    "why": "Open participation is part of the design: identity approval is not required to join the network.",
+    "example": "Anyone may start a Bitcoin full node and relay transactions without asking a central registrar for approval.",
+    "scenario": "Anyone who follows the rules may run a node and try to produce blocks, with no membership approval. Which design is that?",
+    "scenarioAnswer": "A permissionless blockchain",
+    "scenarioWrongs": [
+      "A ledger limited to a pre-approved validator list",
+      "A single-administrator database",
+      "A wallet that requires a store receipt"
+    ],
+    "scenarioWhy": "A permissionless blockchain lets anyone participate by following the protocol."
+  },
+  {
+    "term": "Permissioned blockchain",
+    "definition": "A blockchain design in which a known set of organizations controls who may validate or write transactions.",
+    "wrongs": [
+      "A network that lets any stranger produce blocks without approval.",
+      "A public proof-of-work chain with anonymous miners.",
+      "A paper ledger with no computers."
+    ],
+    "why": "Membership is restricted, so the validators' identities are known to the governing organizations.",
+    "example": "A consortium of universities runs a ledger where only the member registrars' nodes may validate new blocks.",
+    "scenario": "Only approved university registrars may validate blocks on a shared ledger. Which design is that?",
+    "scenarioAnswer": "A permissioned blockchain",
+    "scenarioWrongs": [
+      "An open network any stranger may mine",
+      "A public chain with anonymous miners",
+      "A paper notebook"
+    ],
+    "scenarioWhy": "A permissioned blockchain limits validation to a known, approved set of participants."
+  },
+  {
+    "term": "Nakamoto consensus",
+    "definition": "The family of protocols that combine hash-linked blocks with a probabilistic fork-choice rule such as proof of work.",
+    "wrongs": [
+      "A vote among a fixed committee that finalizes each block with no chain of hashes.",
+      "A single administrator who overwrites a database row.",
+      "A wallet standard for deriving addresses."
+    ],
+    "why": "Nakamoto consensus uses the chain structure and accumulated work so nodes can agree without a fixed voting committee.",
+    "example": "Bitcoin nodes follow Nakamoto consensus when they adopt the proof-of-work chain with the most accumulated work.",
+    "scenario": "Nodes agree by extending hash-linked blocks and preferring the chain with the most proof of work, with no fixed committee. Which consensus family is that?",
+    "scenarioAnswer": "Nakamoto consensus",
+    "scenarioWrongs": [
+      "A fixed committee vote with no hash chain",
+      "One administrator overwriting a row",
+      "An address-derivation standard"
+    ],
+    "scenarioWhy": "Nakamoto consensus is the hash-chain, probabilistic fork-choice design introduced with Bitcoin."
+  },
+  {
+    "term": "Slashing",
+    "definition": "A protocol penalty that takes part of a validator's stake for provably breaking consensus rules.",
+    "wrongs": [
+      "A bonus paid for producing a valid block.",
+      "A refund of unused gas to a contract caller.",
+      "A wallet feature that hides small balances."
+    ],
+    "why": "The penalty makes specified misbehavior, such as signing two conflicting blocks, costly for the validator.",
+    "example": "A proof-of-stake protocol destroys part of a validator's locked coins after evidence shows the validator signed two conflicting blocks.",
+    "scenario": "A validator signs two conflicting blocks for the same duty, and the protocol can prove it. What can happen to the locked stake?",
+    "scenarioAnswer": "Part of the stake can be slashed",
+    "scenarioWrongs": [
+      "The validator must receive a larger block reward",
+      "The stake is converted into a public seed phrase",
+      "The genesis block is deleted"
+    ],
+    "scenarioWhy": "Slashing is the protocol's penalty that removes part of the stake for provable rule breaking."
+  },
+  {
+    "term": "Hardware wallet",
+    "definition": "A dedicated device that holds private keys and signs transactions without exposing those keys to the attached computer.",
+    "wrongs": [
+      "A phone app that stores private keys in ordinary application memory on a networked phone.",
+      "A website that displays block hashes.",
+      "A full node that stores the ledger but not the user's keys."
+    ],
+    "why": "The keys stay on the device, and the computer receives a signature rather than the key itself.",
+    "example": "A treasurer connects a hardware wallet, confirms the payment on the device screen, and the computer receives only the signature.",
+    "scenario": "A computer may prepare a payment, but the private key should stay inside a separate signing device. Which device is that?",
+    "scenarioAnswer": "A hardware wallet",
+    "scenarioWrongs": [
+      "A networked phone app that stores the key in ordinary memory",
+      "A block-explorer website",
+      "A full node with no user keys"
+    ],
+    "scenarioWhy": "A hardware wallet signs inside the device so the attached computer does not receive the private key."
+  },
+  {
+    "term": "Deterministic execution",
+    "definition": "The requirement that honest nodes, given the same state and transaction, compute the same result.",
+    "wrongs": [
+      "The idea that each node may freely compute a different contract result and still agree.",
+      "The requirement that a wallet show a different balance on every screen refresh.",
+      "The rule that miners ignore transaction contents."
+    ],
+    "why": "Consensus about contract state is possible only if every honest node reaches the same result.",
+    "example": "Two Ethereum-style nodes process the same vote transaction and both store the same new vote total.",
+    "scenario": "Two honest nodes process the same contract call from the same state. What must their results be?",
+    "scenarioAnswer": "The same result",
+    "scenarioWrongs": [
+      "Different results that are both final",
+      "A result chosen by each wallet's theme",
+      "No result, because contract code is ignored"
+    ],
+    "scenarioWhy": "Deterministic execution means the same inputs produce the same contract result on every honest node."
+  },
+  {
+    "term": "Hash rate",
+    "definition": "The number of proof-of-work hash attempts a miner or a whole network can perform per second.",
+    "wrongs": [
+      "The number of seed words stored in a wallet backup.",
+      "The number of addresses in a contact list.",
+      "The number of smart contracts a wallet can display."
+    ],
+    "why": "A higher hash rate means more attempts per second to find a header hash that meets the target.",
+    "example": "A teaching dashboard reports that the lab's test miner is trying one thousand header hashes each second.",
+    "scenario": "A dashboard counts how many proof-of-work header hashes the lab miner tries each second. What quantity is that?",
+    "scenarioAnswer": "Hash rate",
+    "scenarioWrongs": [
+      "Seed-word count",
+      "Address-book length",
+      "Contracts shown on screen"
+    ],
+    "scenarioWhy": "Hash rate measures proof-of-work hash attempts per second."
+  },
+  {
+    "term": "Finality",
+    "definition": "The condition under which a protocol treats a block as irreversible, either after deep confirmation or explicit finalization.",
+    "wrongs": [
+      "The moment a transaction is typed but not yet broadcast.",
+      "The display of an unconfirmed payment sitting only in a mempool.",
+      "A wallet's local note that the user hopes a payment will succeed."
+    ],
+    "why": "Finality describes when the protocol's rules say a block should no longer be replaced by a competing branch.",
+    "example": "After a proof-of-stake checkpoint is finalized, nodes treat that block as irreversible under the protocol's assumptions.",
+    "scenario": "A protocol checkpoint is finalized, and nodes will no longer replace that block under their rules. What condition has the block reached?",
+    "scenarioAnswer": "Finality",
+    "scenarioWrongs": [
+      "It is still only typed on a screen",
+      "It sits unconfirmed in the mempool",
+      "It is only a user's private hope"
+    ],
+    "scenarioWhy": "Finality is the protocol condition that treats the block as irreversible."
+  }
+]

@@ -34,6 +34,21 @@ const dryRun = flag('--dry-run');
 const prune = flag('--prune');
 const dataDir = path.resolve(option('--data') ?? path.join(here, 'data'));
 
+async function loadRetiredIds() {
+  const file = path.join(dataDir, 'retiredSubjectIds.json');
+  let ids;
+  try {
+    ids = JSON.parse(await readFile(file, 'utf8'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+  if (!Array.isArray(ids) || ids.some((id) => typeof id !== 'string' || id.trim() === '')) {
+    throw new Error('retiredSubjectIds.json must be an array of subject ids');
+  }
+  return ids;
+}
+
 async function knownFeatherIcons() {
   // Optional: validate icon names against the app's icon set when it's installed.
   const glyphs = path.resolve(here, '../../node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/glyphmaps/Feather.json');
@@ -58,7 +73,14 @@ function printCoverage(data) {
 
 async function main() {
   const data = await loadSeedData(dataDir);
+  const retiredIds = await loadRetiredIds();
+  const activeIds = new Set(data.subjects.map((s) => s.id));
   const problems = validateSeed(data, await knownFeatherIcons());
+  for (const id of retiredIds) {
+    if (activeIds.has(id)) problems.push(`retiredSubjectIds: "${id}" is also an active subject`);
+  }
+  const duplicateRetired = retiredIds.filter((id, i) => retiredIds.indexOf(id) !== i);
+  for (const id of new Set(duplicateRetired)) problems.push(`retiredSubjectIds: duplicate id "${id}"`);
 
   console.log(`Loaded ${data.subjectFields.length} fields, ${data.subjects.length} subjects, ${data.questions.length} questions from ${dataDir}`);
   if (problems.length) {
@@ -68,6 +90,9 @@ async function main() {
   }
   console.log('✓ Data is valid.');
   printCoverage(data);
+  if (retiredIds.length) {
+    console.log(`\nRetired subjects (isActive set to false, documents kept): ${retiredIds.length}`);
+  }
 
   if (dryRun) {
     console.log('\nDry run — nothing was written.');
@@ -117,6 +142,17 @@ async function main() {
       removed += stale.length;
     }
     console.log(`  pruned ${removed} question(s) no longer in data/`);
+  }
+
+  if (retiredIds.length) {
+    for (let i = 0; i < retiredIds.length; i += 400) {
+      const batch = db.batch();
+      retiredIds.slice(i, i + 400).forEach((id) => {
+        batch.set(db.collection('subjects').doc(id), { isActive: false }, { merge: true });
+      });
+      await batch.commit();
+    }
+    console.log(`  marked ${retiredIds.length} retired subject(s) inactive (documents kept)`);
   }
 
   console.log('\n✓ Seed complete.');

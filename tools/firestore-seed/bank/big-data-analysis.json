@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Big Data Analysis",
+    "definition": "The study of data whose size, speed, or variety exceeds one computer, using distributed storage and parallel computation.",
+    "wrongs": [
+      "A spreadsheet method that sorts a few thousand rows on a laptop.",
+      "A single-server backup that copies one database to a second disk.",
+      "A charting step that only changes the colors of an existing report."
+    ],
+    "why": "Big Data Analysis exists because volume, velocity, or variety makes single-machine storage and processing impractical.",
+    "example": "A city analyzes a year of transit-card taps, too large for one workstation, on a cluster.",
+    "scenario": "A phone carrier's daily event logs no longer fit or finish on one server. Which subject area studies how to analyze them on a cluster?",
+    "scenarioAnswer": "Big Data Analysis",
+    "scenarioWrongs": ["Desktop pivot tables", "Single-disk backup", "Report recoloring"],
+    "scenarioWhy": "Data too large or fast for one machine, analyzed with distributed tools, is Big Data Analysis."
+  },
+  {
+    "term": "Volume",
+    "definition": "The sheer amount of data, large enough that storing or scanning it exceeds one machine.",
+    "wrongs": [
+      "The speed at which new records arrive and must be processed.",
+      "The mix of tables, logs, JSON, and media in one collection.",
+      "The doubt about whether recorded values are trustworthy."
+    ],
+    "why": "Volume refers to scale in bytes or records, which is why clusters and distributed file systems are used.",
+    "example": "A science archive holds petabytes of telescope images that cannot fit on one disk.",
+    "scenario": "A retailer keeps ten years of item-level receipts totaling many terabytes. Which big-data dimension is the main issue?",
+    "scenarioAnswer": "Volume",
+    "scenarioWrongs": ["Velocity", "Variety", "Veracity"],
+    "scenarioWhy": "The difficulty is how much data is stored, so the dimension is volume."
+  },
+  {
+    "term": "Velocity",
+    "definition": "The speed at which data are generated and must be ingested or analyzed.",
+    "wrongs": [
+      "The total number of bytes kept in the archive.",
+      "The number of different file formats sitting in a lake.",
+      "The fraction of fields that fail a quality check."
+    ],
+    "why": "Velocity is about arrival rate and the time available to process each new record.",
+    "example": "A stock feed delivers millions of quotes per second that a risk screen must see immediately.",
+    "scenario": "Click events from a game arrive continuously at hundreds of thousands per second. Which dimension dominates the design?",
+    "scenarioAnswer": "Velocity",
+    "scenarioWrongs": ["Volume of a closed archive", "Variety of file types", "Veracity of old surveys"],
+    "scenarioWhy": "The design pressure is how fast events arrive, which is velocity."
+  },
+  {
+    "term": "Variety",
+    "definition": "The mix of data forms, including tables, logs, JSON, text, images, and other media.",
+    "wrongs": [
+      "The total byte count of one homogeneous table.",
+      "The arrival rate of a single sensor stream.",
+      "The replication count of one file block."
+    ],
+    "why": "Variety means the collection is not one rigid table, so tools must accept differing structures.",
+    "example": "A support project joins ticket tables, chat transcripts, and phone-audio files in one analysis.",
+    "scenario": "An investigation must combine CSV exports, JSON APIs, and PDF scans. Which dimension describes that mix?",
+    "scenarioAnswer": "Variety",
+    "scenarioWrongs": ["Volume", "Velocity", "Block replication"],
+    "scenarioWhy": "Several incompatible forms in one analysis are variety."
+  },
+  {
+    "term": "Veracity",
+    "definition": "Uncertainty about data quality, including noise, bias, conflicts, and missing values.",
+    "wrongs": [
+      "The byte size of a data set that forces distributed storage.",
+      "The rate at which sensor messages arrive.",
+      "The count of file formats stored in a lake."
+    ],
+    "why": "Veracity asks whether values can be trusted, which is separate from how much data there is or how fast it arrives.",
+    "example": "A health lake contains conflicting patient birth dates from two source hospitals.",
+    "scenario": "Two source systems disagree on the same customer's address, so analysts doubt the field. Which dimension is that doubt?",
+    "scenarioAnswer": "Veracity",
+    "scenarioWrongs": ["Volume", "Velocity", "Variety"],
+    "scenarioWhy": "Distrust caused by conflicting values is a veracity problem."
+  },
+  {
+    "term": "Hadoop",
+    "definition": "An open-source framework for storing and processing large data sets across a cluster of ordinary computers.",
+    "wrongs": [
+      "A single-node relational engine limited to memory of one workstation.",
+      "A desktop chart tool that only draws bar graphs.",
+      "A network switch that routes packets but stores no user files."
+    ],
+    "why": "Hadoop provides distributed storage and job execution so Big Data Analysis can run on many commodity machines.",
+    "example": "A university cluster runs Hadoop so students can query a multi-terabyte click log.",
+    "scenario": "A lab wants an open-source cluster stack whose file system and jobs span many cheap servers. Which framework is the usual choice?",
+    "scenarioAnswer": "Hadoop",
+    "scenarioWrongs": ["A single-node spreadsheet", "A charting package", "A network switch"],
+    "scenarioWhy": "Hadoop is the open-source framework built to store and process data across ordinary servers."
+  },
+  {
+    "term": "HDFS",
+    "definition": "The distributed file system that splits large files into blocks and stores replicas across a cluster.",
+    "wrongs": [
+      "A resource negotiator that only assigns CPU and memory containers.",
+      "An in-memory table API with named columns and a query planner.",
+      "A SQL parser that never stores bytes on disk."
+    ],
+    "why": "HDFS is the storage layer: files become large blocks, and copies of those blocks live on data nodes.",
+    "example": "A 1 terabyte log is cut into large blocks and placed on several servers in the campus cluster.",
+    "scenario": "Engineers need a file system that breaks a huge log into blocks and keeps copies on different servers. Which component is that?",
+    "scenarioAnswer": "HDFS",
+    "scenarioWrongs": ["YARN", "A Spark DataFrame", "The Hive query parser"],
+    "scenarioWhy": "Block storage with replicas across the cluster is HDFS."
+  },
+  {
+    "term": "MapReduce",
+    "definition": "A programming model that processes data with a parallel map step and then a key-based reduce step.",
+    "wrongs": [
+      "A file system that only stores block replicas and runs no user function.",
+      "A streaming watermark that closes late event windows.",
+      "A schema check that rejects rows at load time."
+    ],
+    "why": "Map tasks emit key-value pairs and reduce tasks aggregate all values that share a key.",
+    "example": "Word-count mappers emit each word with a count of 1, and reducers sum the counts per word.",
+    "scenario": "A course lab must emit key-value pairs from each input split and then sum values by key. Which model is that?",
+    "scenarioAnswer": "MapReduce",
+    "scenarioWrongs": ["HDFS block placement", "Watermarking", "Schema-on-write"],
+    "scenarioWhy": "A map over splits followed by a keyed aggregation is MapReduce."
+  },
+  {
+    "term": "Spark",
+    "definition": "A distributed engine that plans work as a directed graph and can keep intermediate data in memory.",
+    "wrongs": [
+      "A disk block store that only replicates file chunks.",
+      "A master that stores only file-namespace metadata.",
+      "A batch model that always writes every intermediate result to disk before the next step."
+    ],
+    "why": "Spark builds a job graph and can reuse partitions in memory, which avoids rereading every intermediate result from disk.",
+    "example": "An iterative page-rank job keeps the current rank vector in memory between Spark stages.",
+    "scenario": "A machine-learning loop must reuse a multi-gigabyte intermediate data set in memory across passes. Which engine fits that habit?",
+    "scenarioAnswer": "Spark",
+    "scenarioWrongs": ["HDFS alone", "The NameNode", "Classic MapReduce disk stages"],
+    "scenarioWhy": "Keeping intermediate partitions in memory between stages is a defining Spark behavior."
+  },
+  {
+    "term": "Data partitioning",
+    "definition": "Dividing a data set into subsets stored on different nodes so the subsets can be processed in parallel.",
+    "wrongs": [
+      "Copying one entire file onto every node in the cluster.",
+      "Enforcing a table schema before any byte is written.",
+      "Sorting a final report on a single coordinator only."
+    ],
+    "why": "Each partition can be read and transformed by a local task, which is how parallel jobs divide the work.",
+    "example": "A sales table is split by country so each country folder is processed by a different worker.",
+    "scenario": "A daily log is divided by hour into separate pieces, each handled by one worker. Which technique is that division?",
+    "scenarioAnswer": "Partitioning",
+    "scenarioWrongs": ["Full replication to every node", "Schema enforcement on load", "Single-node report sorting"],
+    "scenarioWhy": "Splitting the log into independently processed pieces is data partitioning."
+  },
+  {
+    "term": "Schema-on-read",
+    "definition": "Leaving stored files without one enforced schema and applying structure only when a query reads them.",
+    "wrongs": [
+      "Rejecting every row that does not match a declared schema at ingest time.",
+      "Requiring a star-schema load before any raw file may land on disk.",
+      "Storing only primary-key indexes and no raw payload."
+    ],
+    "why": "The bytes are stored first, and each job interprets columns when it reads, which is the data-lake style.",
+    "example": "Raw JSON clicks sit in a lake, and a later Spark job projects only the fields that report needs.",
+    "scenario": "Logs are stored as-is, and two teams apply different column interpretations when they query. Which approach is that?",
+    "scenarioAnswer": "Schema-on-read",
+    "scenarioWrongs": ["Schema-on-write", "A mandatory star-schema load", "Index-only storage"],
+    "scenarioWhy": "Structure is applied at query time rather than at ingest, which is schema-on-read."
+  },
+  {
+    "term": "Schema-on-write",
+    "definition": "Checking data against a declared schema when it is loaded and rejecting rows that do not fit.",
+    "wrongs": [
+      "Storing raw files first and deciding columns only when a query runs.",
+      "Appending events to a log with no column check at all.",
+      "Replicating blocks without inspecting their records."
+    ],
+    "why": "The schema is a gate at write time, so later readers can assume the stored table already conforms.",
+    "example": "A warehouse load rejects a sales row whose date column cannot be parsed as a date.",
+    "scenario": "A warehouse refuses to insert a row that lacks the declared order-id column. Which policy is that?",
+    "scenarioAnswer": "Schema-on-write",
+    "scenarioWrongs": ["Schema-on-read", "Unchecked log append", "Blind block replication"],
+    "scenarioWhy": "Validating structure before the row is stored is schema-on-write."
+  },
+  {
+    "term": "NoSQL analytics",
+    "definition": "Analysis that uses flexible non-relational stores, such as key-value, document, or wide-column databases, at large scale.",
+    "wrongs": [
+      "A single normalized relational schema enforced on one laptop.",
+      "A tape backup format that cannot be queried.",
+      "A pixel filter applied to a photograph."
+    ],
+    "why": "These stores scale out and accept evolving or sparse records that are awkward in one rigid relational table.",
+    "example": "Click documents with differing fields are aggregated in a document database for a product report.",
+    "scenario": "Event documents have uneven fields and must be aggregated at cluster scale without a fixed relational schema. Which storage style fits?",
+    "scenarioAnswer": "A NoSQL analytics store",
+    "scenarioWrongs": ["One laptop relational file", "An offline tape", "An image kernel"],
+    "scenarioWhy": "Flexible non-relational storage used for large-scale analysis is NoSQL analytics."
+  },
+  {
+    "term": "Batch processing",
+    "definition": "Running a job over a finite data set that is already stored, producing output when the job completes.",
+    "wrongs": [
+      "Updating a result continuously as each new event arrives.",
+      "Holding each sample constant between audio sampling instants.",
+      "Classifying one image pixel from its neighbors."
+    ],
+    "why": "The input is a bounded, stored collection, and the job runs to completion over that collection.",
+    "example": "A nightly job recomputes yesterday's complete web-log summaries after the files have landed.",
+    "scenario": "Each night a job reads the closed sales files for that day and writes a finished summary. Which processing style is that?",
+    "scenarioAnswer": "Batch processing",
+    "scenarioWrongs": ["Stream processing", "Zero-order hold", "Spatial filtering"],
+    "scenarioWhy": "A completed, stored data set processed as one job is batch processing."
+  },
+  {
+    "term": "Stream processing",
+    "definition": "Continuously computing results on events as they arrive, without waiting for a data set to close.",
+    "wrongs": [
+      "Waiting until a full day's files are stored and then starting one job.",
+      "Rewriting a whole table only after a manual monthly load.",
+      "Sorting one finite CSV on a single machine."
+    ],
+    "why": "The input is unbounded, so operators update results as events flow through the system.",
+    "example": "A transit dashboard updates passenger counts as each gate scan arrives.",
+    "scenario": "Fraud scores must update as each card swipe arrives, with no end-of-day file to wait for. Which style is required?",
+    "scenarioAnswer": "Stream processing",
+    "scenarioWrongs": ["Nightly batch", "A monthly full reload", "A one-shot laptop sort"],
+    "scenarioWhy": "Computing on events as they arrive is stream processing."
+  },
+  {
+    "term": "NameNode",
+    "definition": "The HDFS master that stores the directory tree and the map of which DataNodes hold each block.",
+    "wrongs": [
+      "A worker that stores the actual file-block bytes.",
+      "A reducer that sums values for one key.",
+      "A query planner that optimizes DataFrame operations."
+    ],
+    "why": "Clients ask the NameNode where blocks live, while the file bytes themselves stay on DataNodes.",
+    "example": "A read of a huge log first asks the NameNode which servers hold the needed blocks.",
+    "scenario": "A process must look up which servers store the blocks of a path, and it does not hold the file bytes itself. Which role is that?",
+    "scenarioAnswer": "NameNode",
+    "scenarioWrongs": ["DataNode", "Reducer", "Catalyst planner"],
+    "scenarioWhy": "Namespace and block-location metadata, without the block bytes, belong to the NameNode."
+  },
+  {
+    "term": "DataNode",
+    "definition": "A worker that stores HDFS blocks and serves the read and write requests for those blocks.",
+    "wrongs": [
+      "The master that keeps only the file namespace and block map.",
+      "A container scheduler that assigns CPU and memory.",
+      "A SQL translator that submits jobs but stores no blocks."
+    ],
+    "why": "Block bytes reside on DataNodes, which send those bytes to clients after the NameNode supplies locations.",
+    "example": "Three servers each keep a copy of one 128 MB block of a lecture-video file.",
+    "scenario": "A machine on the cluster physically stores file blocks and returns their bytes to readers. Which role is that machine playing?",
+    "scenarioAnswer": "DataNode",
+    "scenarioWrongs": ["NameNode", "YARN ResourceManager", "Hive server"],
+    "scenarioWhy": "Storing and serving block bytes is the DataNode's job."
+  },
+  {
+    "term": "Block replication",
+    "definition": "Storing multiple copies of each HDFS block on different nodes so the data survive a disk or node failure.",
+    "wrongs": [
+      "Splitting one key across reducers with no extra copies.",
+      "Compressing a column so it occupies fewer bytes but has only one copy.",
+      "Caching a partition in RAM without writing a durable copy."
+    ],
+    "why": "If one replica is lost, HDFS can still serve the block from another replica.",
+    "example": "The cluster keeps the usual three copies of each block of a census file on different machines.",
+    "scenario": "After one disk dies, readers can still open a file because other servers hold the same blocks. Which HDFS feature made that possible?",
+    "scenarioAnswer": "Block replication",
+    "scenarioWrongs": ["A reducer shuffle", "Column compression alone", "A memory-only cache"],
+    "scenarioWhy": "Extra copies of each block on other nodes are block replication."
+  },
+  {
+    "term": "YARN",
+    "definition": "Hadoop's resource layer that assigns CPU and memory containers on cluster nodes to distributed jobs.",
+    "wrongs": [
+      "The file system that stores replicated data blocks.",
+      "A columnar file format used for analytic scans.",
+      "A document database that stores JSON records."
+    ],
+    "why": "YARN separates resource scheduling from the storage layer, so different engines can request containers.",
+    "example": "A Spark job asks YARN for containers on ten workers before its executors start.",
+    "scenario": "Several engines must share one cluster by requesting CPU and memory containers. Which Hadoop layer grants them?",
+    "scenarioAnswer": "YARN",
+    "scenarioWrongs": ["HDFS", "Parquet", "A document store"],
+    "scenarioWhy": "Container scheduling for cluster jobs is YARN."
+  },
+  {
+    "term": "Map task",
+    "definition": "The MapReduce step that reads an input split and emits intermediate key-value pairs.",
+    "wrongs": [
+      "The step that aggregates all values sharing one key after the shuffle.",
+      "The master lookup of block locations.",
+      "The final write of a small report to a user's laptop only."
+    ],
+    "why": "Each map task sees one split of the input and independently produces pairs for later grouping.",
+    "example": "A mapper reads one slice of a novel and emits each word paired with the count 1.",
+    "scenario": "Each worker reads one input split of a log and outputs pairs of user id and a partial count. Which MapReduce step is that?",
+    "scenarioAnswer": "The map task",
+    "scenarioWrongs": ["The reduce task", "A NameNode lookup", "A laptop export"],
+    "scenarioWhy": "Reading a split and emitting key-value pairs is the map task."
+  },
+  {
+    "term": "Reduce task",
+    "definition": "The MapReduce step that aggregates all values sharing a key after they have been grouped.",
+    "wrongs": [
+      "The step that scans one input split and emits the first key-value pairs.",
+      "The copy of a block onto a second DataNode.",
+      "The planning of a query that has not started running."
+    ],
+    "why": "After the shuffle groups values by key, the reducer combines those values into a final result per key.",
+    "example": "One reducer receives every partial count for the word river and outputs the total.",
+    "scenario": "All partial sums for customer 42 arrive at one worker, which outputs a single total. Which step is that worker performing?",
+    "scenarioAnswer": "The reduce task",
+    "scenarioWrongs": ["The map task", "Block replication", "Lazy planning"],
+    "scenarioWhy": "Aggregating every value for one key is the reduce task."
+  },
+  {
+    "term": "Shuffle",
+    "definition": "The transfer and sort that groups intermediate keys so each reducer receives the values for its keys.",
+    "wrongs": [
+      "The initial split of an input file into map-sized pieces.",
+      "The final replication of an output block onto three disks.",
+      "The display of a bar chart in a notebook."
+    ],
+    "why": "Pairs must move across the network and be sorted by key before a reducer can see a complete group.",
+    "example": "Partial word counts travel across the cluster so every count for one word meets at one reducer.",
+    "scenario": "Map outputs must be moved and grouped by key before reducers can sum them. Which phase does that movement?",
+    "scenarioAnswer": "The shuffle",
+    "scenarioWrongs": ["Input splitting", "Output replication", "Chart rendering"],
+    "scenarioWhy": "Network transfer and grouping by key between map and reduce is the shuffle."
+  },
+  {
+    "term": "Resilient distributed dataset",
+    "definition": "An immutable, partitioned Spark collection that remembers its lineage so lost partitions can be recomputed.",
+    "wrongs": [
+      "A mutable spreadsheet cell range stored on one laptop.",
+      "The HDFS master metadata file that lists block locations.",
+      "A single reducer output file with no record of how it was built."
+    ],
+    "why": "Partitions are immutable and the lineage of transformations lets Spark rebuild a lost partition instead of relying on a copy of every intermediate result.",
+    "example": "After a worker fails, Spark recomputes one missing partition of a filtered log from the original file.",
+    "scenario": "A Spark collection is immutable and partitioned, and a lost piece is rebuilt from the record of transformations. What is that collection called?",
+    "scenarioAnswer": "An RDD",
+    "scenarioWrongs": ["A laptop cell range", "The NameNode metadata", "A lone reducer file"],
+    "scenarioWhy": "Immutable partitions plus lineage for recomputation define a resilient distributed dataset."
+  },
+  {
+    "term": "Spark DataFrame",
+    "definition": "A distributed table of named columns that Spark can optimize with a query planner before running.",
+    "wrongs": [
+      "An untyped bag of opaque blocks with no column names.",
+      "A single-row configuration file on the driver only.",
+      "A resource manager queue of pending containers."
+    ],
+    "why": "Named columns let the planner push filters and prune columns before the distributed job runs.",
+    "example": "Analysts select only the fare and distance columns of a distributed taxi table, and Spark skips the other fields.",
+    "scenario": "A distributed taxi table has named columns, and the engine reorders filters before execution. Which Spark abstraction is that?",
+    "scenarioAnswer": "A DataFrame",
+    "scenarioWrongs": ["An opaque block bag", "A driver config file", "A YARN queue"],
+    "scenarioWhy": "Named columns plus planner optimization describe a Spark DataFrame."
+  },
+  {
+    "term": "Lazy evaluation",
+    "definition": "Delaying Spark work until an action needs a result, so transformations can be planned together.",
+    "wrongs": [
+      "Running every transformation immediately as soon as the line of code is called.",
+      "Writing each intermediate RDD fully to HDFS before the next call returns.",
+      "Starting reducers before any map task has been scheduled."
+    ],
+    "why": "Transformations only build a plan, and an action such as a count or a write triggers execution of that plan.",
+    "example": "Two filter calls on a log build a plan, and nothing is read until a count action runs.",
+    "scenario": "A student chains filters and a select, and the cluster stays idle until a write action is called. Which Spark behavior is that?",
+    "scenarioAnswer": "Lazy evaluation",
+    "scenarioWrongs": ["Immediate execution of each call", "A forced disk write after each step", "Starting reducers first"],
+    "scenarioWhy": "Waiting for an action before running the planned transformations is lazy evaluation."
+  },
+  {
+    "term": "Narrow transformation",
+    "definition": "A Spark step in which each output partition depends on a single input partition, so no shuffle is required.",
+    "wrongs": [
+      "A step that must regroup keys from many partitions across the network.",
+      "A full sort of every record by one key across the cluster.",
+      "A join that matches a large table to another large table on a key."
+    ],
+    "why": "Because each parent partition feeds at most one child partition, the work stays local and no exchange is needed.",
+    "example": "A map that converts each taxi row's fare from cents to dollars touches each partition independently.",
+    "scenario": "A per-row fare conversion never moves records between workers. Which kind of Spark transformation is that?",
+    "scenarioAnswer": "A narrow transformation",
+    "scenarioWrongs": ["A wide transformation", "A cluster-wide sort", "A large-table join"],
+    "scenarioWhy": "A per-partition map with no data exchange is a narrow transformation."
+  },
+  {
+    "term": "Wide transformation",
+    "definition": "A Spark step in which an output partition depends on many input partitions, requiring a shuffle.",
+    "wrongs": [
+      "A filter that keeps or drops each record inside its current partition.",
+      "A type cast applied independently on every partition.",
+      "Reading a file split that already sits on the local disk."
+    ],
+    "why": "Records with the same key must be brought together from many partitions, which is a shuffle.",
+    "example": "Grouping taxi trips by driver id moves rows so each driver's trips meet in one partition.",
+    "scenario": "Grouping trips by driver id forces records to move across the cluster. Which kind of transformation is that?",
+    "scenarioAnswer": "A wide transformation",
+    "scenarioWrongs": ["A narrow filter", "A per-partition cast", "A local file read"],
+    "scenarioWhy": "A group-by that reshuffles keys across partitions is a wide transformation."
+  },
+  {
+    "term": "Partition skew",
+    "definition": "An imbalance in which one partition holds far more data than the others and delays the whole stage.",
+    "wrongs": [
+      "A perfectly even split of keys across every reducer.",
+      "A higher replication factor on every block.",
+      "A faster network that shortens every shuffle equally."
+    ],
+    "why": "The stage cannot finish until the overloaded partition finishes, so one hot key stalls the job.",
+    "example": "One celebrity account owns most of the clicks, so its reducer runs for hours while other reducers finish quickly.",
+    "scenario": "One key owns 90 percent of the events, and its task runs long after the other tasks finish. Which problem is that?",
+    "scenarioAnswer": "Partition skew",
+    "scenarioWrongs": ["Even key balance", "Extra block replicas", "A uniformly faster network"],
+    "scenarioWhy": "One oversized partition holding up the stage is partition skew."
+  },
+  {
+    "term": "Horizontal scaling",
+    "definition": "Increasing capacity by adding more machines rather than by replacing one machine with a larger one.",
+    "wrongs": [
+      "Adding CPUs and disks only inside the same single server.",
+      "Compressing a file so one laptop can open it.",
+      "Deleting old partitions until the data fit in memory."
+    ],
+    "why": "Big Data Analysis grows a cluster outward, distributing partitions across the added nodes.",
+    "example": "When a nightly job starts missing its deadline, the team adds four more servers to the cluster.",
+    "scenario": "A pipeline is slow, and the team adds nodes instead of buying a bigger single computer. Which scaling approach is that?",
+    "scenarioAnswer": "Horizontal scaling",
+    "scenarioWrongs": ["Vertical scaling of one box", "Compressing onto a laptop", "Deleting data to fit RAM"],
+    "scenarioWhy": "Adding machines to share the work is horizontal scaling."
+  },
+  {
+    "term": "Commodity hardware",
+    "definition": "Inexpensive ordinary servers used together in a cluster instead of one specialized high-end computer.",
+    "wrongs": [
+      "A custom mainframe that is the only machine allowed to store the data.",
+      "A laptop used as the permanent production store.",
+      "A tape robot that cannot run computation."
+    ],
+    "why": "Hadoop-style systems expect many cheap servers, with software handling failures instead of exotic hardware.",
+    "example": "A startup builds its lake on racks of standard two-socket servers from a catalog.",
+    "scenario": "A design brief says to use many ordinary servers and let software tolerate failures. Which hardware approach is that?",
+    "scenarioAnswer": "Commodity hardware",
+    "scenarioWrongs": ["A single custom mainframe", "A laptop as the store", "Tape-only storage"],
+    "scenarioWhy": "Clusters of ordinary servers are commodity hardware."
+  },
+  {
+    "term": "Fault tolerance",
+    "definition": "Continuing a job after a node fails by reading a replica or recomputing lost partitions.",
+    "wrongs": [
+      "Stopping the entire cluster permanently when any one disk reports an error.",
+      "Ignoring input checksums and writing partial answers as if they were complete.",
+      "Requiring a human to retype lost records before the job may resume."
+    ],
+    "why": "Replicas and lineage let the system replace lost pieces without restarting the whole analysis from scratch by hand.",
+    "example": "When one worker dies mid-job, Spark recomputes that worker's partition and the query still returns.",
+    "scenario": "A DataNode crashes during a query, yet the job finishes by using other copies and recomputation. Which property is being shown?",
+    "scenarioAnswer": "Fault tolerance",
+    "scenarioWrongs": ["A full permanent stop", "Silent partial answers", "Manual retyping"],
+    "scenarioWhy": "Finishing after a node loss by replica reads or recomputation is fault tolerance."
+  },
+  {
+    "term": "Data locality",
+    "definition": "Scheduling a task on a node that already stores the block it needs, to avoid a network read.",
+    "wrongs": [
+      "Always shipping every block to one fixed coordinator before computation.",
+      "Randomly placing tasks with no regard to where blocks live.",
+      "Storing the namespace on the same disk as every user block."
+    ],
+    "why": "Moving the program to the data is cheaper than moving large blocks across the network.",
+    "example": "Hadoop starts a map task on the server that already holds the log block being counted.",
+    "scenario": "The scheduler prefers to run a task on the server that already has the needed block. Which principle is that?",
+    "scenarioAnswer": "Data locality",
+    "scenarioWrongs": ["Always reading at a central node", "Random task placement", "Putting metadata on every block disk"],
+    "scenarioWhy": "Placing the task where the block already resides is data locality."
+  },
+  {
+    "term": "Combiner",
+    "definition": "An optional local aggregation of map output on the same node, used to shrink data before the shuffle.",
+    "wrongs": [
+      "The final authority that replaces the reducer and runs on a different set of keys.",
+      "A NameNode checkpoint of the namespace.",
+      "A schema file stored beside a columnar data file."
+    ],
+    "why": "The combiner partially aggregates pairs locally so fewer bytes cross the network, without changing a compatible final reduce.",
+    "example": "Each mapper sums its own word counts before sending much smaller totals into the shuffle.",
+    "scenario": "Word-count mappers add local counts before the network transfer so less data moves. Which optional step is that?",
+    "scenarioAnswer": "A combiner",
+    "scenarioWrongs": ["A replacement reducer on other keys", "A namespace checkpoint", "A sidecar schema"],
+    "scenarioWhy": "Local pre-aggregation of map output before the shuffle is a combiner."
+  },
+  {
+    "term": "Speculative execution",
+    "definition": "Starting a duplicate copy of a slow task and keeping whichever copy finishes first.",
+    "wrongs": [
+      "Deleting a slow task and marking its input as empty.",
+      "Moving the NameNode onto the slowest worker.",
+      "Disabling replication while a job is late."
+    ],
+    "why": "A straggler may be stuck on a unhealthy node, so a second attempt elsewhere can finish the task sooner.",
+    "example": "One map task stalls, Hadoop launches a second copy on another node, and the first copy to finish is kept.",
+    "scenario": "A straggler task is duplicated on another node, and the faster copy's result is kept. Which Hadoop behavior is that?",
+    "scenarioAnswer": "Speculative execution",
+    "scenarioWrongs": ["Dropping the slow input", "Moving the NameNode", "Turning off replication"],
+    "scenarioWhy": "Launching a backup attempt of a slow task is speculative execution."
+  },
+  {
+    "term": "Apache Hive",
+    "definition": "A SQL-like warehouse layer that queries data in HDFS and translates statements into distributed jobs.",
+    "wrongs": [
+      "A block-storage daemon that only serves file chunks.",
+      "A container scheduler with no query language.",
+      "A stream watermark used to close event-time windows."
+    ],
+    "why": "Hive exposes tables and a SQL-like language while the execution still runs as cluster jobs on the stored files.",
+    "example": "An analyst writes a SQL-like query over a year of logs in HDFS, and Hive launches the underlying jobs.",
+    "scenario": "Business students query HDFS tables with SQL-like statements that compile into cluster jobs. Which layer are they using?",
+    "scenarioAnswer": "Hive",
+    "scenarioWrongs": ["A DataNode", "YARN alone", "A watermark operator"],
+    "scenarioWhy": "SQL-like queries translated into jobs over HDFS data are Hive."
+  },
+  {
+    "term": "Columnar storage",
+    "definition": "Laying out values of each column together so a query can read only the columns it needs.",
+    "wrongs": [
+      "Storing each entire record contiguously so every query reads every field.",
+      "Storing only keys and discarding values.",
+      "Keeping one row per file with no column grouping."
+    ],
+    "why": "Analytic scans often touch a few columns of many rows, and contiguous columns make that scan cheaper.",
+    "example": "A fare analysis reads only the price column of a huge trip table and skips rider names.",
+    "scenario": "A report needs 2 columns from a 200-column table and should not read the other fields. Which layout helps most?",
+    "scenarioAnswer": "Columnar storage",
+    "scenarioWrongs": ["Pure row storage", "Key-only storage", "One-row files"],
+    "scenarioWhy": "Grouping values by column lets the scan skip unneeded fields."
+  },
+  {
+    "term": "Parquet",
+    "definition": "A compressed columnar file format widely used for analytical tables in Hadoop and Spark.",
+    "wrongs": [
+      "A row-oriented exchange format whose schema travels with the records.",
+      "A resource-manager protocol for requesting containers.",
+      "A stream processor that only handles event time."
+    ],
+    "why": "Parquet stores columns contiguously with compression and statistics, which suits selective analytic reads.",
+    "example": "A Spark job writes taxi trips as Parquet so later fare queries skip unused columns.",
+    "scenario": "A team stores a warehouse table in a compressed columnar format for Spark scans. Which format is the common choice?",
+    "scenarioAnswer": "Parquet",
+    "scenarioWrongs": ["Avro as a row format", "YARN", "A stream engine"],
+    "scenarioWhy": "The common compressed columnar analytic format on this stack is Parquet."
+  },
+  {
+    "term": "Avro",
+    "definition": "A row-oriented binary format that stores records together with a schema, often for data exchange.",
+    "wrongs": [
+      "A columnar scan format designed so queries skip unread fields.",
+      "An in-memory Spark table API.",
+      "A block-replication policy inside HDFS."
+    ],
+    "why": "Avro writes records row by row and keeps a schema so producers and consumers agree on fields.",
+    "example": "An ingest service writes click events as Avro messages that a later job deserializes with the same schema.",
+    "scenario": "Services exchange complete records in a compact binary form that carries a schema, row by row. Which format fits?",
+    "scenarioAnswer": "Avro",
+    "scenarioWrongs": ["Parquet", "A DataFrame", "HDFS replication"],
+    "scenarioWhy": "Row-oriented binary records with a schema are Avro."
+  },
+  {
+    "term": "Key-value model",
+    "definition": "A NoSQL model that stores each record as a unique key and an opaque value for fast lookups.",
+    "wrongs": [
+      "A model of self-describing documents with many named fields.",
+      "A model of sparse column families inside each row key.",
+      "A relational model that requires joins across normalized tables."
+    ],
+    "why": "The access path is the key, and the value can be retrieved without a relational join.",
+    "example": "A session store fetches a user's cart by session id and returns one opaque blob.",
+    "scenario": "An application retrieves each shopping cart by a single id and does not query inside the payload. Which NoSQL model matches?",
+    "scenarioAnswer": "Key-value",
+    "scenarioWrongs": ["Document", "Wide-column", "Normalized relational"],
+    "scenarioWhy": "Lookup by a unique key of an opaque value is the key-value model."
+  },
+  {
+    "term": "Document model",
+    "definition": "A NoSQL model that stores self-describing records, often JSON-like, so fields can differ across records.",
+    "wrongs": [
+      "A model that allows only one opaque blob per key and no field names.",
+      "A model that stores fixed relational rows with a schema enforced on write.",
+      "A model used only to place HDFS block replicas."
+    ],
+    "why": "Each document carries its own fields, which lets analysts store evolving event structures.",
+    "example": "Product reviews are stored as JSON documents, some with photos and some without.",
+    "scenario": "Events are JSON objects whose fields differ by event type and must stay queryable. Which NoSQL model fits?",
+    "scenarioAnswer": "Document",
+    "scenarioWrongs": ["Opaque key-value", "Rigid relational rows", "HDFS block placement"],
+    "scenarioWhy": "Self-describing JSON-like records with varying fields are the document model."
+  },
+  {
+    "term": "Wide-column model",
+    "definition": "A NoSQL model that stores rows with large numbers of sparse, grouped columns for big analytical tables.",
+    "wrongs": [
+      "A model of one opaque value per key with no columns.",
+      "A three-column relational table that forbids extra fields.",
+      "A pixel grid used for image filtering."
+    ],
+    "why": "Column families can be sparse and very wide, which suits tall analytical data such as time series per row key.",
+    "example": "A metrics store keeps one row per device and a huge sparse set of timestamped measurement columns.",
+    "scenario": "Each device row needs a huge sparse set of timestamp columns, not one opaque blob. Which NoSQL model fits?",
+    "scenarioAnswer": "Wide-column",
+    "scenarioWrongs": ["Key-value", "A fixed three-column table", "An image grid"],
+    "scenarioWhy": "Rows with many sparse grouped columns are the wide-column model."
+  },
+  {
+    "term": "CAP theorem",
+    "definition": "The claim that during a network partition a distributed store cannot guarantee both strong consistency and full availability.",
+    "wrongs": [
+      "The claim that every store can be consistent, available, and partition-tolerant at the same time.",
+      "A rule that replication factor must equal the number of columns.",
+      "A statement that batch jobs are always faster than streaming jobs."
+    ],
+    "why": "When messages between nodes fail, the system must either refuse some requests or serve data that may not be the latest.",
+    "example": "During a split between data centers, a cart service either rejects writes or accepts writes that replicas have not all seen.",
+    "scenario": "A partition separates two data centers, and designers must choose between up-to-date reads and answering every request. Which theorem frames that choice?",
+    "scenarioAnswer": "The CAP theorem",
+    "scenarioWrongs": ["A claim that all three goals hold together", "A replication-equals-columns rule", "A batch-is-always-faster rule"],
+    "scenarioWhy": "The consistency-versus-availability choice during a partition is the CAP theorem."
+  },
+  {
+    "term": "Eventual consistency",
+    "definition": "A guarantee that replicas will agree if new updates stop, even if reads briefly disagree.",
+    "wrongs": [
+      "A guarantee that every read sees the latest write immediately on all nodes.",
+      "A guarantee that a partition never happens.",
+      "A guarantee that schemas are checked before every write."
+    ],
+    "why": "Updates propagate asynchronously, so replicas converge once the system is given time without new conflicting writes.",
+    "example": "A profile edit shows on one server immediately and on a second server a few seconds later.",
+    "scenario": "Two replicas of a shopping cart may differ for a short time, but they match after updates pause. Which guarantee is that?",
+    "scenarioAnswer": "Eventual consistency",
+    "scenarioWrongs": ["Immediate strong consistency", "Freedom from partitions", "Schema-on-write"],
+    "scenarioWhy": "Temporary disagreement that disappears after updates stop is eventual consistency."
+  },
+  {
+    "term": "Lambda architecture",
+    "definition": "A design with a batch layer for accurate recomputation, a speed layer for recent data, and a serving layer that merges them.",
+    "wrongs": [
+      "A stream-only design that reprocesses history from one log and has no separate batch layer.",
+      "A single nightly batch with no path for recent events.",
+      "A cache of one laptop file with no serving tier."
+    ],
+    "why": "The batch layer recomputes correct views, while the speed layer covers data the batch has not absorbed yet.",
+    "example": "A dashboard reads a nightly master count and adds a fast layer of clicks that arrived since midnight.",
+    "scenario": "A product keeps an accurate batch view and a separate fast view of the latest hour, merged for queries. Which architecture is that?",
+    "scenarioAnswer": "Lambda architecture",
+    "scenarioWrongs": ["Kappa architecture", "Batch only", "A laptop cache"],
+    "scenarioWhy": "A batch layer plus a speed layer merged at query time is the lambda architecture."
+  },
+  {
+    "term": "Kappa architecture",
+    "definition": "A stream-only design that serves both live results and reprocessed history from one log, without a separate batch layer.",
+    "wrongs": [
+      "A design that always pairs a batch layer with a distinct speed layer.",
+      "A warehouse that only runs a monthly cube build.",
+      "A file system that only replicates blocks."
+    ],
+    "why": "Reprocessing means replaying the same log through the stream pipeline, so a second batch codebase is unnecessary.",
+    "example": "To fix a bug, engineers replay the click log through the same streaming job that handles live clicks.",
+    "scenario": "A team handles both live traffic and historical corrections by replaying one log, with no second batch system. Which architecture is that?",
+    "scenarioAnswer": "Kappa architecture",
+    "scenarioWrongs": ["Lambda architecture", "A monthly cube only", "HDFS replication"],
+    "scenarioWhy": "One stream pipeline for live data and replayed history is the kappa architecture."
+  },
+  {
+    "term": "Event-time window",
+    "definition": "A grouping of events by the time they occurred, not by the time the system received them.",
+    "wrongs": [
+      "A grouping based only on when the server happened to process each event.",
+      "A grouping of rows by a customer id with no time involved.",
+      "A fixed HDFS block size used for every file."
+    ],
+    "why": "Event time stays meaningful even when events arrive late or out of order.",
+    "example": "Gate scans are counted by the minute printed on the scan, even if a phone uploads the scan late.",
+    "scenario": "Late-arriving ticket scans must still count in the minute they were scanned, not the minute they were uploaded. Which window basis is that?",
+    "scenarioAnswer": "Event time",
+    "scenarioWrongs": ["Processing time", "A customer-id group", "Block size"],
+    "scenarioWhy": "Bucketing by when the event happened is an event-time window."
+  },
+  {
+    "term": "Watermark",
+    "definition": "A moving event-time threshold that states how late an event can be and still enter its window.",
+    "wrongs": [
+      "A disk usage alert that only measures how full HDFS is.",
+      "A schema version number stored in a table catalog.",
+      "A replication factor printed in a file report."
+    ],
+    "why": "The watermark estimates progress in event time so the engine can close windows while still allowing limited lateness.",
+    "example": "A job treats scan time as complete up to 2 minutes ago and drops scans older than that watermark.",
+    "scenario": "A streaming count closes a minute once event time is judged to have passed it by 2 minutes. Which marker tracks that lateness bound?",
+    "scenarioAnswer": "A watermark",
+    "scenarioWrongs": ["A disk-full alert", "A schema version", "A replication factor"],
+    "scenarioWhy": "The lateness bound that lets windows close is a watermark."
+  },
+  {
+    "term": "Micro-batch",
+    "definition": "Processing a stream as a sequence of small batches collected over short time intervals.",
+    "wrongs": [
+      "Processing one unbounded event at a time with no batch boundary at all.",
+      "Waiting for a full closed day before any computation starts.",
+      "Storing a file once and never computing on new arrivals."
+    ],
+    "why": "Each short interval becomes a tiny batch job, which is how classic Spark Streaming handles streams.",
+    "example": "A dashboard recomputes click totals every two seconds from the events collected in that slice.",
+    "scenario": "A Spark stream job runs a small batch every few seconds instead of one record at a time or one nightly job. Which style is that?",
+    "scenarioAnswer": "Micro-batch",
+    "scenarioWrongs": ["Pure record-at-a-time only", "A single daily batch", "A one-time file store"],
+    "scenarioWhy": "Repeated short batches over a stream are micro-batch processing."
+  },
+  {
+    "term": "Data lake",
+    "definition": "A large store of raw data kept in its original formats until a specific analysis needs it.",
+    "wrongs": [
+      "A tightly modeled warehouse that accepts only cleaned rows matching a star schema.",
+      "A single CSV on a laptop desktop.",
+      "A cache of query results with the raw sources deleted."
+    ],
+    "why": "The lake retains raw variety at scale so different jobs can apply schema-on-read later.",
+    "example": "An airline keeps raw JSON bookings, CSV delays, and text complaints together in one lake.",
+    "scenario": "A company stores raw logs, dumps, and media in place and interprets them only when jobs run. Which repository style is that?",
+    "scenarioAnswer": "A data lake",
+    "scenarioWrongs": ["A schema-enforcing warehouse only", "A desktop CSV", "A result cache with sources deleted"],
+    "scenarioWhy": "Keeping raw data in native formats for later interpretation is a data lake."
+  },
+  {
+    "term": "ELT",
+    "definition": "Loading raw data into the cluster first and transforming it there, instead of transforming everything before the load.",
+    "wrongs": [
+      "Cleaning and reshaping every record on a separate server before any byte reaches the cluster.",
+      "Deleting raw data and keeping only a final chart image.",
+      "Replicating blocks with no transformation step at any time."
+    ],
+    "why": "The cluster has the scale to transform data after landing, which matches schema-on-read lakes.",
+    "example": "Click files land raw in the lake overnight, and a morning Spark job builds the cleaned session table.",
+    "scenario": "Raw files are loaded first, and the heavy cleanup runs inside the cluster afterward. Which pipeline pattern is that?",
+    "scenarioAnswer": "ELT",
+    "scenarioWrongs": ["Transform-before-load ETL", "Keeping only a chart", "Replication with no transform"],
+    "scenarioWhy": "Load first and transform inside the platform is ELT."
+  }
+]

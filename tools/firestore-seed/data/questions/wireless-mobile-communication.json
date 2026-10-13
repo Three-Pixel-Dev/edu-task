@@ -1,0 +1,1685 @@
+{
+  "subjectId": "wireless-mobile-communication",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Path loss?",
+        "options": [
+          "A sudden hardware fault that mutes only the base-station clock.",
+          "A coding overhead added so the receiver can detect bit errors.",
+          "The time an idle phone waits before it answers a page.",
+          "Reduction in received radio power as the transmitter and receiver move farther apart."
+        ],
+        "correctAnswer": "Reduction in received radio power as the transmitter and receiver move farther apart.",
+        "explanation": "Radiated energy spreads and is absorbed, so less power arrives as range increases."
+      },
+      {
+        "question": "What is Free-space path loss?",
+        "options": [
+          "Loss that appears only when two cells reuse one channel.",
+          "Line-of-sight power loss caused only by geometric spreading, with no obstacles or ground reflections.",
+          "Loss caused by hills blocking an otherwise short radio hop.",
+          "Loss inserted by a channel code before modulation."
+        ],
+        "correctAnswer": "Line-of-sight power loss caused only by geometric spreading, with no obstacles or ground reflections.",
+        "explanation": "In free space the same energy is spread over a larger sphere as range grows."
+      },
+      {
+        "question": "What is Multipath propagation?",
+        "options": [
+          "Encryption of one packet into several cipher blocks.",
+          "A single optical fibre path from a studio to a tower.",
+          "Travel of one transmitted signal along several reflected, diffracted, or scattered paths.",
+          "Transmission of independent users on separate assigned frequencies."
+        ],
+        "correctAnswer": "Travel of one transmitted signal along several reflected, diffracted, or scattered paths.",
+        "explanation": "Buildings and the ground create copies that arrive at different times."
+      },
+      {
+        "question": "What is Fading?",
+        "options": [
+          "A fixed amplifier gain chosen once when the site is built.",
+          "A scheduled reduction of transmit power at night.",
+          "The steady loss of a cable of unchanging length.",
+          "Variation of received signal strength over time or position caused by multipath or obstruction."
+        ],
+        "correctAnswer": "Variation of received signal strength over time or position caused by multipath or obstruction.",
+        "explanation": "Multipath copies add and cancel, and obstacles change, so amplitude is not steady."
+      },
+      {
+        "question": "What is Rayleigh fading?",
+        "options": [
+          "Slow blockage by a single large building only.",
+          "Fading dominated by one strong direct path plus weak echoes.",
+          "A purely deterministic loss that never varies with position.",
+          "Small-scale fading when many scattered paths arrive and no line-of-sight path dominates."
+        ],
+        "correctAnswer": "Small-scale fading when many scattered paths arrive and no line-of-sight path dominates.",
+        "explanation": "With no dominant path the quadrature components are roughly Gaussian, so the envelope is Rayleigh."
+      },
+      {
+        "question": "What is Rician fading?",
+        "options": [
+          "Fading with no dominant path at all.",
+          "Interference from a neighbouring frequency plan.",
+          "Only the slow shadow of a hill, with no multipath.",
+          "Small-scale fading when a strong line-of-sight path arrives together with weaker scattered paths."
+        ],
+        "correctAnswer": "Small-scale fading when a strong line-of-sight path arrives together with weaker scattered paths.",
+        "explanation": "The steady direct component changes the envelope from Rayleigh to Rician."
+      },
+      {
+        "question": "What is Shadowing?",
+        "options": [
+          "Fast ripple of amplitude over a few wavelengths from multipath.",
+          "Intentional power reduction commanded by the scheduler.",
+          "Slow change in local-mean received power caused by large obstacles blocking the path.",
+          "A Doppler shift of the carrier frequency."
+        ],
+        "correctAnswer": "Slow change in local-mean received power caused by large obstacles blocking the path.",
+        "explanation": "Hills and buildings attenuate the whole signal for many metres, unlike fast multipath ripple."
+      },
+      {
+        "question": "What is Doppler shift?",
+        "options": [
+          "A phase code applied by the modulator on purpose.",
+          "A frequency error from an unlicensed Wi-Fi channel plan.",
+          "Change in observed carrier frequency when transmitter and receiver move relative to each other.",
+          "A time offset caused only by a longer propagation path."
+        ],
+        "correctAnswer": "Change in observed carrier frequency when transmitter and receiver move relative to each other.",
+        "explanation": "Motion changes how fast wave crests arrive, so the received frequency moves."
+      },
+      {
+        "question": "What is Coherence time?",
+        "options": [
+          "The time interval over which the channel impulse response stays approximately constant.",
+          "The gap between the first and last multipath echoes.",
+          "The frequency band over which fading stays correlated.",
+          "The slot length assigned to one GSM user."
+        ],
+        "correctAnswer": "The time interval over which the channel impulse response stays approximately constant.",
+        "explanation": "Motion changes multipath phases at a rate set by Doppler spread, which fixes this interval."
+      },
+      {
+        "question": "What is Coherence bandwidth?",
+        "options": [
+          "The Doppler shift of the fastest user.",
+          "The range of frequencies over which the channel gain remains highly correlated.",
+          "The total licensed spectrum of an operator.",
+          "The time for which a channel estimate stays valid."
+        ],
+        "correctAnswer": "The range of frequencies over which the channel gain remains highly correlated.",
+        "explanation": "Large delay spread makes frequencies fade differently, so this range becomes narrower."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Delay spread?",
+        "options": [
+          "The time span between the earliest and latest significant copies of a multipath signal.",
+          "How long the channel gain stays constant in time.",
+          "The duration of one OFDM cyclic prefix by definition only.",
+          "The round-trip time of a core-network ping."
+        ],
+        "correctAnswer": "The time span between the earliest and latest significant copies of a multipath signal.",
+        "explanation": "Different path lengths make copies of the same symbol arrive spread out in time."
+      },
+      {
+        "question": "What is Flat fading?",
+        "options": [
+          "A fade that always changes inside one symbol.",
+          "Fading that puts a deep notch in only part of the signal band.",
+          "Interference that arrives only from the adjacent carrier.",
+          "Fading in which every frequency in the signal bandwidth sees nearly the same gain."
+        ],
+        "correctAnswer": "Fading in which every frequency in the signal bandwidth sees nearly the same gain.",
+        "explanation": "This occurs when the signal bandwidth is much smaller than the coherence bandwidth."
+      },
+      {
+        "question": "What is Frequency-selective fading?",
+        "options": [
+          "Slow shadowing that is identical at every frequency.",
+          "Fading that scales the whole signal spectrum by one gain.",
+          "A filter that removes an entire licensed band on purpose.",
+          "Fading in which different frequencies inside the signal bandwidth experience different gains."
+        ],
+        "correctAnswer": "Fading in which different frequencies inside the signal bandwidth experience different gains.",
+        "explanation": "A large delay spread makes the frequency response vary and can cause inter-symbol interference."
+      },
+      {
+        "question": "What is Fast fading?",
+        "options": [
+          "Fading that changes appreciably within one symbol, so the gain is not constant over that symbol.",
+          "Fading that stays fixed for many symbols.",
+          "A shadow that changes only when the user turns a corner.",
+          "Fading that is identical on every subcarrier."
+        ],
+        "correctAnswer": "Fading that changes appreciably within one symbol, so the gain is not constant over that symbol.",
+        "explanation": "The coherence time is then shorter than the symbol duration."
+      },
+      {
+        "question": "What is Slow fading?",
+        "options": [
+          "Fading that stays nearly constant over many successive symbols.",
+          "Fading that changes inside every symbol.",
+          "An instantaneous Doppler jump once per bit.",
+          "A different gain on every subcarrier at one instant."
+        ],
+        "correctAnswer": "Fading that stays nearly constant over many successive symbols.",
+        "explanation": "The coherence time is then much longer than the symbol duration, so one estimate covers a burst."
+      },
+      {
+        "question": "What is Cell?",
+        "options": [
+          "A location area made of many sites used only for paging.",
+          "The core-network database that stores subscriber profiles.",
+          "The geographic service area covered by one base-station site and its radio channels.",
+          "The entire country served by one mobile operator."
+        ],
+        "correctAnswer": "The geographic service area covered by one base-station site and its radio channels.",
+        "explanation": "Users in that area are served by that site, which is the basic unit of a cellular plan."
+      },
+      {
+        "question": "What is Frequency reuse?",
+        "options": [
+          "Hopping a single call across all channels each burst.",
+          "Encrypting the same bits with a repeated cipher key.",
+          "Giving every cell in the network a completely unique band.",
+          "Assigning the same carrier frequencies again in cells that are far enough apart."
+        ],
+        "correctAnswer": "Assigning the same carrier frequencies again in cells that are far enough apart.",
+        "explanation": "Distance lowers co-channel interference, so a limited band can serve many cells."
+      },
+      {
+        "question": "What is Cluster size?",
+        "options": [
+          "The number of sectors on a single tower.",
+          "The radius of a cell measured in kilometres.",
+          "The number of time slots inside one GSM frame.",
+          "The number of cells that together use each channel once before the reuse pattern repeats."
+        ],
+        "correctAnswer": "The number of cells that together use each channel once before the reuse pattern repeats.",
+        "explanation": "A larger cluster separates co-channel cells more, trading capacity per cell for less interference."
+      },
+      {
+        "question": "What is Co-channel interference?",
+        "options": [
+          "Leakage from a transmitter on the next carrier frequency.",
+          "Interference from other transmitters that operate on the same carrier frequency.",
+          "Noise generated inside the receiver's own electronics.",
+          "A delayed copy of the wanted signal from the same transmitter."
+        ],
+        "correctAnswer": "Interference from other transmitters that operate on the same carrier frequency.",
+        "explanation": "Reuse places the same channel in other cells, and those signals enter the victim receiver."
+      },
+      {
+        "question": "What is Adjacent-channel interference?",
+        "options": [
+          "Noise that does not depend on any other transmitter.",
+          "Interference from a distant cell on the identical carrier.",
+          "Interference from energy that leaks into the receiver from a neighbouring carrier.",
+          "A fade caused only by two multipath copies cancelling."
+        ],
+        "correctAnswer": "Interference from energy that leaks into the receiver from a neighbouring carrier.",
+        "explanation": "Imperfect filters and transmitter masks let nearby frequencies spill into the wanted channel."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Handover?",
+        "options": [
+          "An idle phone's report that it entered a new location area.",
+          "The first registration after the phone is switched on.",
+          "Transfer of an ongoing mobile connection from one base station to another.",
+          "A broadcast asking an idle phone to answer a call."
+        ],
+        "correctAnswer": "Transfer of an ongoing mobile connection from one base station to another.",
+        "explanation": "As the user moves, the radio link must follow the cell with the better signal."
+      },
+      {
+        "question": "What is Hard handover?",
+        "options": [
+          "A cell change that releases the old radio link before the new link is established.",
+          "A cell change that keeps two base-station links up together.",
+          "A core-network restart that drops every session.",
+          "An idle reselections with no active call."
+        ],
+        "correctAnswer": "A cell change that releases the old radio link before the new link is established.",
+        "explanation": "The mobile cannot hold both channels at once, so there is a short break-before-make gap."
+      },
+      {
+        "question": "What is Soft handover?",
+        "options": [
+          "A forced release of the call when load is high.",
+          "A break-before-make change that uses only one link at a time.",
+          "A cell change during which the mobile keeps radio links to more than one base station.",
+          "A change of IP address with no radio involvement."
+        ],
+        "correctAnswer": "A cell change during which the mobile keeps radio links to more than one base station.",
+        "explanation": "CDMA can combine the same signal from several sites before one link is dropped."
+      },
+      {
+        "question": "What is Handover hysteresis?",
+        "options": [
+          "The delay added by a speech transcoder.",
+          "The minimum power a phone may use on any channel.",
+          "An extra signal margin a neighbour must exceed before a handover is allowed.",
+          "The number of cells in a reuse cluster."
+        ],
+        "correctAnswer": "An extra signal margin a neighbour must exceed before a handover is allowed.",
+        "explanation": "The margin stops switching when two cell signals are nearly equal and fluctuating."
+      },
+      {
+        "question": "What is Ping-pong handover?",
+        "options": [
+          "An idle phone updating its location once per day.",
+          "Rapid repeated handovers of the same connection back and forth between two cells.",
+          "A single successful move from a weak cell to a strong cell.",
+          "Combining two downlinks without releasing either."
+        ],
+        "correctAnswer": "Rapid repeated handovers of the same connection back and forth between two cells.",
+        "explanation": "Signal fluctuation around a tight threshold reverses the handover decision again and again."
+      },
+      {
+        "question": "What is Location update?",
+        "options": [
+          "A move of an active traffic channel to a new cell.",
+          "A network broadcast searching for one idle phone.",
+          "A message from an idle mobile reporting that it has entered a new location area.",
+          "A measurement of neighbour cells during a call."
+        ],
+        "correctAnswer": "A message from an idle mobile reporting that it has entered a new location area.",
+        "explanation": "The network stores that area so it later knows where to page the mobile."
+      },
+      {
+        "question": "What is Paging?",
+        "options": [
+          "Transfer of an active call to a stronger cell.",
+          "A network broadcast that asks one specific idle mobile to respond to an incoming session.",
+          "A request for an uplink grant to send a photo.",
+          "An idle mobile telling the network its new location area."
+        ],
+        "correctAnswer": "A network broadcast that asks one specific idle mobile to respond to an incoming session.",
+        "explanation": "The network often knows only the location area, so it calls the mobile across that area."
+      },
+      {
+        "question": "What is GSM?",
+        "options": [
+          "A fourth-generation system with OFDMA and an all-IP core.",
+          "A second-generation cellular standard that uses TDMA and GMSK on 200 kHz carriers.",
+          "An analogue first-generation system with one FM channel per user.",
+          "A short-range personal radio that hops in the 2.4 GHz band."
+        ],
+        "correctAnswer": "A second-generation cellular standard that uses TDMA and GMSK on 200 kHz carriers.",
+        "explanation": "GSM carries digital voice in eight time slots on each 200 kHz GMSK carrier."
+      },
+      {
+        "question": "What is TDMA?",
+        "options": [
+          "Letting every user transmit whenever the channel looks idle.",
+          "Sharing one carrier by giving each user a distinct repeating time slot.",
+          "Separating users only by spreading codes.",
+          "Giving each user a separate frequency at the same time."
+        ],
+        "correctAnswer": "Sharing one carrier by giving each user a distinct repeating time slot.",
+        "explanation": "Users transmit in turn, so they are separated in time on the same frequency."
+      },
+      {
+        "question": "What is FDMA?",
+        "options": [
+          "Assigning users different time slots on one shared carrier.",
+          "Assigning groups of orthogonal subcarriers that can change each slot.",
+          "Sharing a band by assigning each user a distinct frequency channel.",
+          "Assigning users different spreading codes on one carrier."
+        ],
+        "correctAnswer": "Sharing a band by assigning each user a distinct frequency channel.",
+        "explanation": "Filters and guard bands keep users apart because they occupy different frequencies together."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is CDMA?",
+        "options": [
+          "Serving only one user in the whole cell at a time.",
+          "Sharing time and frequency while separating users with unique spreading codes.",
+          "Separating users only by time slot.",
+          "Separating users only by carrier frequency."
+        ],
+        "correctAnswer": "Sharing time and frequency while separating users with unique spreading codes.",
+        "explanation": "A receiver despreads its own code and treats other users as interference."
+      },
+      {
+        "question": "What is OFDMA?",
+        "options": [
+          "Giving each user one wide non-overlapping analogue channel.",
+          "Letting stations contend with random backoff.",
+          "Sharing a band by assigning different groups of orthogonal subcarriers to different users.",
+          "Separating users only with spreading codes."
+        ],
+        "correctAnswer": "Sharing a band by assigning different groups of orthogonal subcarriers to different users.",
+        "explanation": "Orthogonal subcarriers can be packed tightly and grouped to follow each user's channel."
+      },
+      {
+        "question": "What is LTE?",
+        "options": [
+          "A 3G wideband CDMA system with a circuit-switched core.",
+          "A 2G system of eight GMSK time slots on 200 kHz.",
+          "A fourth-generation cellular system using OFDMA downlink, SC-FDMA uplink, and an all-IP core.",
+          "A personal-area hop radio for headsets."
+        ],
+        "correctAnswer": "A fourth-generation cellular system using OFDMA downlink, SC-FDMA uplink, and an all-IP core.",
+        "explanation": "LTE schedules packet data on a shared OFDMA carrier and does not use circuit-switched radio bearers."
+      },
+      {
+        "question": "What is 5G NR?",
+        "options": [
+          "The fifth-generation New Radio interface, with scalable subcarrier spacing and massive MIMO support.",
+          "A 2G standard locked to 200 kHz GMSK carriers.",
+          "A wireless LAN standard in the IEEE 802.11 family.",
+          "A 4G system whose subcarrier spacing is fixed at 15 kHz."
+        ],
+        "correctAnswer": "The fifth-generation New Radio interface, with scalable subcarrier spacing and massive MIMO support.",
+        "explanation": "NR numerology lets one design serve wide millimetre-wave carriers and short low-latency slots."
+      },
+      {
+        "question": "What is Small cell?",
+        "options": [
+          "A handset operating as a measuring tool only.",
+          "A core router that switches packets between cities.",
+          "A low-power base station that covers a short range, such as a street, room, or venue.",
+          "A high tower planned to cover several kilometres."
+        ],
+        "correctAnswer": "A low-power base station that covers a short range, such as a street, room, or venue.",
+        "explanation": "Short range lets spectrum be reused densely and fills gaps a macro site covers poorly."
+      },
+      {
+        "question": "What is MIMO?",
+        "options": [
+          "Repeating one stream on separated antennas only to survive a fade.",
+          "Hopping one stream across many carriers.",
+          "Use of multiple antennas at both ends to send several spatial data streams on one frequency.",
+          "Assigning each antenna a different licensed band."
+        ],
+        "correctAnswer": "Use of multiple antennas at both ends to send several spatial data streams on one frequency.",
+        "explanation": "Scattering makes the spatial paths different enough for the receiver to separate the streams."
+      },
+      {
+        "question": "What is Beamforming?",
+        "options": [
+          "Compressing the user data before transmission.",
+          "Weighting an antenna array so more radiated energy is aimed toward a chosen user.",
+          "Splitting users by orthogonal codes.",
+          "Radiating equally in every direction from one dipole."
+        ],
+        "correctAnswer": "Weighting an antenna array so more radiated energy is aimed toward a chosen user.",
+        "explanation": "Phase weights make the waves add toward the user and partly cancel elsewhere."
+      },
+      {
+        "question": "What is Massive MIMO?",
+        "options": [
+          "A base-station array with very many antennas serving many users on the same time-frequency resources.",
+          "Two antennas used only to pick the stronger branch.",
+          "A Wi-Fi contention network with one antenna.",
+          "A single rooftop dipole covering a sector."
+        ],
+        "correctAnswer": "A base-station array with very many antennas serving many users on the same time-frequency resources.",
+        "explanation": "Dozens or hundreds of antennas form tight beams and separate users in space."
+      },
+      {
+        "question": "What is Wi-Fi?",
+        "options": [
+          "The IEEE 802.11 family of wireless local-area networks, usually operated in unlicensed bands.",
+          "A licensed cellular standard with a SIM and a core network.",
+          "A wired Ethernet standard over twisted pair.",
+          "A one-hop satellite broadcast toward fixed dishes."
+        ],
+        "correctAnswer": "The IEEE 802.11 family of wireless local-area networks, usually operated in unlicensed bands.",
+        "explanation": "802.11 defines wireless LAN frames, contention access, and bands such as 2.4 and 5 GHz."
+      },
+      {
+        "question": "What is CSMA/CA?",
+        "options": [
+          "A Wi-Fi access method that listens for a busy medium and waits a random backoff before sending.",
+          "Sending immediately with no sensing and no backoff.",
+          "Detecting collisions on a coaxial cable while transmitting.",
+          "A base station assigning every user a fixed slot."
+        ],
+        "correctAnswer": "A Wi-Fi access method that listens for a busy medium and waits a random backoff before sending.",
+        "explanation": "A wireless sender cannot reliably hear a collision while it transmits, so it tries to avoid one."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Hidden node?",
+        "options": [
+          "A node whose signal captures the receiver despite a weaker collision.",
+          "A station that defers because it hears a sender, though its own destination is clear.",
+          "A station that cannot hear another sender even though both can collide at the same receiver.",
+          "Two phones separated by codes on a CDMA carrier."
+        ],
+        "correctAnswer": "A station that cannot hear another sender even though both can collide at the same receiver.",
+        "explanation": "Distance or an obstacle hides one sender, so carrier sense does not prevent a collision."
+      },
+      {
+        "question": "What is Bluetooth?",
+        "options": [
+          "A wireless LAN access-point standard for whole buildings.",
+          "A short-range personal-area radio that frequency-hops in the 2.4 GHz band.",
+          "A long-haul microwave link between hilltop towers.",
+          "A cellular wide-area standard managed by a mobile operator."
+        ],
+        "correctAnswer": "A short-range personal-area radio that frequency-hops in the 2.4 GHz band.",
+        "explanation": "Classic Bluetooth hops among 79 one-megahertz channels to live with other 2.4 GHz users."
+      },
+      {
+        "question": "What is Frequency hopping?",
+        "options": [
+          "Spreading each bit by a fast code while staying on one carrier.",
+          "Keeping one fixed channel for the whole session.",
+          "Assigning a permanent frequency in a cellular cluster plan.",
+          "Changing the carrier many times per second using a sequence known to both ends."
+        ],
+        "correctAnswer": "Changing the carrier many times per second using a sequence known to both ends.",
+        "explanation": "A narrow interferer then damages only some hops, and the link can recover the others."
+      },
+      {
+        "question": "What is QPSK?",
+        "options": [
+          "A modulation with only two phases, carrying one bit per symbol.",
+          "On-off keying that turns the carrier on or off.",
+          "A square grid that uses several amplitudes as well as phases.",
+          "A modulation that maps each two-bit group to one of four carrier phases 90 degrees apart."
+        ],
+        "correctAnswer": "A modulation that maps each two-bit group to one of four carrier phases 90 degrees apart.",
+        "explanation": "Four phases carry two bits per symbol and can keep a constant envelope."
+      },
+      {
+        "question": "What is QAM?",
+        "options": [
+          "A modulation that encodes bits in both the amplitude and the phase of the carrier.",
+          "A two-phase modulation that carries only one bit per symbol.",
+          "Frequency-shift keying between two tones.",
+          "Pulse-position modulation with a constant carrier amplitude."
+        ],
+        "correctAnswer": "A modulation that encodes bits in both the amplitude and the phase of the carrier.",
+        "explanation": "A rectangular constellation packs several bits into one symbol when the link is strong enough."
+      },
+      {
+        "question": "What is Link adaptation?",
+        "options": [
+          "Changing modulation and coding during a session to match the current channel quality.",
+          "Planning reuse distances on a paper frequency map.",
+          "Keeping one constellation and code rate for the whole session.",
+          "Authenticating the SIM before any data flows."
+        ],
+        "correctAnswer": "Changing modulation and coding during a session to match the current channel quality.",
+        "explanation": "A strong channel can use a denser constellation, while a weak channel needs a tougher mode."
+      },
+      {
+        "question": "What is Spatial diversity?",
+        "options": [
+          "Carrying the same information on separated antennas so one fade is unlikely to hit every copy.",
+          "Compressing the source to fewer bits.",
+          "Splitting a site into directional sectors with different channels.",
+          "Sending independent data streams on the same antennas."
+        ],
+        "correctAnswer": "Carrying the same information on separated antennas so one fade is unlikely to hit every copy.",
+        "explanation": "Antennas spaced by a fraction of a wavelength see partly independent multipath."
+      },
+      {
+        "question": "What is Sectorisation?",
+        "options": [
+          "Hopping every sector through the same single channel.",
+          "Combining two sites during a soft handover.",
+          "Covering the whole site with one omnidirectional antenna.",
+          "Dividing one site into angular sectors, each served by a directional antenna."
+        ],
+        "correctAnswer": "Dividing one site into angular sectors, each served by a directional antenna.",
+        "explanation": "Each sector sees a smaller angle of interference and can carry its own channels."
+      },
+      {
+        "question": "What is Mobility management?",
+        "options": [
+          "Manufacturing the handset antenna.",
+          "Compressing speech before it enters the channel coder.",
+          "Billing the subscriber at the end of the month.",
+          "Network functions that track where a mobile is and keep its session as it moves between cells."
+        ],
+        "correctAnswer": "Network functions that track where a mobile is and keep its session as it moves between cells.",
+        "explanation": "It includes idle-area tracking and active handover so reachability and sessions survive motion."
+      },
+      {
+        "question": "What is SINR?",
+        "options": [
+          "Received signal strength with no comparison to interference or noise.",
+          "The delay between the first and last multipath echoes.",
+          "The number of cells that share one reuse pattern.",
+          "The ratio of wanted signal power to the sum of interference power and noise power."
+        ],
+        "correctAnswer": "The ratio of wanted signal power to the sum of interference power and noise power.",
+        "explanation": "Both interference and noise corrupt symbols, so schedulers and decoders use this ratio."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Path loss?",
+        "options": [
+          "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged.",
+          "A clear satellite downlink loses power with both distance and carrier frequency.",
+          "A handset two kilometres from a tower receives far less power than one at 200 metres.",
+          "On a city street the same beacon reaches a phone from a wall, a bus, and the road."
+        ],
+        "correctAnswer": "A handset two kilometres from a tower receives far less power than one at 200 metres.",
+        "explanation": "Radiated energy spreads and is absorbed, so less power arrives as range increases."
+      },
+      {
+        "question": "Which situation illustrates Free-space path loss?",
+        "options": [
+          "On a city street the same beacon reaches a phone from a wall, a bus, and the road.",
+          "A downtown pedestrian whose tower is hidden by blocks of flats sees a Rayleigh envelope.",
+          "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged.",
+          "A clear satellite downlink loses power with both distance and carrier frequency."
+        ],
+        "correctAnswer": "A clear satellite downlink loses power with both distance and carrier frequency.",
+        "explanation": "In free space the same energy is spread over a larger sphere as range grows."
+      },
+      {
+        "question": "Which situation illustrates Multipath propagation?",
+        "options": [
+          "A downtown pedestrian whose tower is hidden by blocks of flats sees a Rayleigh envelope.",
+          "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading.",
+          "On a city street the same beacon reaches a phone from a wall, a bus, and the road.",
+          "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged."
+        ],
+        "correctAnswer": "On a city street the same beacon reaches a phone from a wall, a bus, and the road.",
+        "explanation": "Buildings and the ground create copies that arrive at different times."
+      },
+      {
+        "question": "Which situation illustrates Fading?",
+        "options": [
+          "A downtown pedestrian whose tower is hidden by blocks of flats sees a Rayleigh envelope.",
+          "Driving behind a hill drops a call's average level by about 10 dB until the ridge clears.",
+          "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged.",
+          "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading."
+        ],
+        "correctAnswer": "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged.",
+        "explanation": "Multipath copies add and cancel, and obstacles change, so amplitude is not steady."
+      },
+      {
+        "question": "Which situation illustrates Rayleigh fading?",
+        "options": [
+          "Driving behind a hill drops a call's average level by about 10 dB until the ridge clears.",
+          "A downtown pedestrian whose tower is hidden by blocks of flats sees a Rayleigh envelope.",
+          "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading.",
+          "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted."
+        ],
+        "correctAnswer": "A downtown pedestrian whose tower is hidden by blocks of flats sees a Rayleigh envelope.",
+        "explanation": "With no dominant path the quadrature components are roughly Gaussian, so the envelope is Rayleigh."
+      },
+      {
+        "question": "Which situation illustrates Rician fading?",
+        "options": [
+          "A pedestrian channel stays similar for milliseconds, while a bullet-train channel changes sooner.",
+          "Driving behind a hill drops a call's average level by about 10 dB until the ridge clears.",
+          "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading.",
+          "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted."
+        ],
+        "correctAnswer": "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading.",
+        "explanation": "The steady direct component changes the envelope from Rayleigh to Rician."
+      },
+      {
+        "question": "Which situation illustrates Shadowing?",
+        "options": [
+          "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier.",
+          "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted.",
+          "Driving behind a hill drops a call's average level by about 10 dB until the ridge clears.",
+          "A pedestrian channel stays similar for milliseconds, while a bullet-train channel changes sooner."
+        ],
+        "correctAnswer": "Driving behind a hill drops a call's average level by about 10 dB until the ridge clears.",
+        "explanation": "Hills and buildings attenuate the whole signal for many metres, unlike fast multipath ripple."
+      },
+      {
+        "question": "Which situation illustrates Doppler shift?",
+        "options": [
+          "A pedestrian channel stays similar for milliseconds, while a bullet-train channel changes sooner.",
+          "In a hilly suburb the last strong echo of a pulse arrives 3 microseconds after the first.",
+          "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted.",
+          "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier."
+        ],
+        "correctAnswer": "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted.",
+        "explanation": "Motion changes how fast wave crests arrive, so the received frequency moves."
+      },
+      {
+        "question": "Which situation illustrates Coherence time?",
+        "options": [
+          "A pedestrian channel stays similar for milliseconds, while a bullet-train channel changes sooner.",
+          "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+          "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier.",
+          "In a hilly suburb the last strong echo of a pulse arrives 3 microseconds after the first."
+        ],
+        "correctAnswer": "A pedestrian channel stays similar for milliseconds, while a bullet-train channel changes sooner.",
+        "explanation": "Motion changes multipath phases at a rate set by Doppler spread, which fixes this interval."
+      },
+      {
+        "question": "Which situation illustrates Coherence bandwidth?",
+        "options": [
+          "An urban LTE resource block shows a deep notch on some subcarriers but not on others.",
+          "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+          "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier.",
+          "In a hilly suburb the last strong echo of a pulse arrives 3 microseconds after the first."
+        ],
+        "correctAnswer": "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier.",
+        "explanation": "Large delay spread makes frequencies fade differently, so this range becomes narrower."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Delay spread?",
+        "options": [
+          "An urban LTE resource block shows a deep notch on some subcarriers but not on others.",
+          "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+          "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+          "In a hilly suburb the last strong echo of a pulse arrives 3 microseconds after the first."
+        ],
+        "correctAnswer": "In a hilly suburb the last strong echo of a pulse arrives 3 microseconds after the first.",
+        "explanation": "Different path lengths make copies of the same symbol arrive spread out in time."
+      },
+      {
+        "question": "Which situation illustrates Flat fading?",
+        "options": [
+          "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+          "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+          "An urban LTE resource block shows a deep notch on some subcarriers but not on others.",
+          "At walking speed an LTE channel estimate is reused across a subframe because the fade is slow."
+        ],
+        "correctAnswer": "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+        "explanation": "This occurs when the signal bandwidth is much smaller than the coherence bandwidth."
+      },
+      {
+        "question": "Which situation illustrates Frequency-selective fading?",
+        "options": [
+          "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+          "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+          "An urban LTE resource block shows a deep notch on some subcarriers but not on others.",
+          "At walking speed an LTE channel estimate is reused across a subframe because the fade is slow."
+        ],
+        "correctAnswer": "An urban LTE resource block shows a deep notch on some subcarriers but not on others.",
+        "explanation": "A large delay spread makes the frequency response vary and can cause inter-symbol interference."
+      },
+      {
+        "question": "Which situation illustrates Fast fading?",
+        "options": [
+          "Channel 45 is used in a north-side cell and again in a cell four sites away.",
+          "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+          "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+          "At walking speed an LTE channel estimate is reused across a subframe because the fade is slow."
+        ],
+        "correctAnswer": "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+        "explanation": "The coherence time is then shorter than the symbol duration."
+      },
+      {
+        "question": "Which situation illustrates Slow fading?",
+        "options": [
+          "A seven-cell cluster means each channel appears once in every group of seven cells.",
+          "At walking speed an LTE channel estimate is reused across a subframe because the fade is slow.",
+          "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+          "Channel 45 is used in a north-side cell and again in a cell four sites away."
+        ],
+        "correctAnswer": "At walking speed an LTE channel estimate is reused across a subframe because the fade is slow.",
+        "explanation": "The coherence time is then much longer than the symbol duration, so one estimate covers a burst."
+      },
+      {
+        "question": "Which situation illustrates Cell?",
+        "options": [
+          "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+          "A call on channel 12 is degraded by another cell transmitting on channel 12 three sites away.",
+          "Channel 45 is used in a north-side cell and again in a cell four sites away.",
+          "A seven-cell cluster means each channel appears once in every group of seven cells."
+        ],
+        "correctAnswer": "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+        "explanation": "Users in that area are served by that site, which is the basic unit of a cellular plan."
+      },
+      {
+        "question": "Which situation illustrates Frequency reuse?",
+        "options": [
+          "A seven-cell cluster means each channel appears once in every group of seven cells.",
+          "Channel 45 is used in a north-side cell and again in a cell four sites away.",
+          "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver.",
+          "A call on channel 12 is degraded by another cell transmitting on channel 12 three sites away."
+        ],
+        "correctAnswer": "Channel 45 is used in a north-side cell and again in a cell four sites away.",
+        "explanation": "Distance lowers co-channel interference, so a limited band can serve many cells."
+      },
+      {
+        "question": "Which situation illustrates Cluster size?",
+        "options": [
+          "A seven-cell cluster means each channel appears once in every group of seven cells.",
+          "A voice call stays up while a car crosses from a city cell into a motorway cell.",
+          "A call on channel 12 is degraded by another cell transmitting on channel 12 three sites away.",
+          "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver."
+        ],
+        "correctAnswer": "A seven-cell cluster means each channel appears once in every group of seven cells.",
+        "explanation": "A larger cluster separates co-channel cells more, trading capacity per cell for less interference."
+      },
+      {
+        "question": "Which situation illustrates Co-channel interference?",
+        "options": [
+          "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver.",
+          "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+          "A call on channel 12 is degraded by another cell transmitting on channel 12 three sites away.",
+          "A voice call stays up while a car crosses from a city cell into a motorway cell."
+        ],
+        "correctAnswer": "A call on channel 12 is degraded by another cell transmitting on channel 12 three sites away.",
+        "explanation": "Reuse places the same channel in other cells, and those signals enter the victim receiver."
+      },
+      {
+        "question": "Which situation illustrates Adjacent-channel interference?",
+        "options": [
+          "A voice call stays up while a car crosses from a city cell into a motorway cell.",
+          "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+          "A UMTS phone at a cell edge exchanges traffic with two Node Bs at the same time.",
+          "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver."
+        ],
+        "correctAnswer": "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver.",
+        "explanation": "Imperfect filters and transmitter masks let nearby frequencies spill into the wanted channel."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Handover?",
+        "options": [
+          "A voice call stays up while a car crosses from a city cell into a motorway cell.",
+          "A UMTS phone at a cell edge exchanges traffic with two Node Bs at the same time.",
+          "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+          "A neighbour must be at least 3 dB stronger than the serving cell before the call moves."
+        ],
+        "correctAnswer": "A voice call stays up while a car crosses from a city cell into a motorway cell.",
+        "explanation": "As the user moves, the radio link must follow the cell with the better signal."
+      },
+      {
+        "question": "Which situation illustrates Hard handover?",
+        "options": [
+          "A neighbour must be at least 3 dB stronger than the serving cell before the call moves.",
+          "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+          "A UMTS phone at a cell edge exchanges traffic with two Node Bs at the same time.",
+          "A phone standing on a boundary is moved between two towers four times in one minute."
+        ],
+        "correctAnswer": "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+        "explanation": "The mobile cannot hold both channels at once, so there is a short break-before-make gap."
+      },
+      {
+        "question": "Which situation illustrates Soft handover?",
+        "options": [
+          "A UMTS phone at a cell edge exchanges traffic with two Node Bs at the same time.",
+          "After a bus crosses a location-area border, the idle phone updates the network and returns to idle.",
+          "A neighbour must be at least 3 dB stronger than the serving cell before the call moves.",
+          "A phone standing on a boundary is moved between two towers four times in one minute."
+        ],
+        "correctAnswer": "A UMTS phone at a cell edge exchanges traffic with two Node Bs at the same time.",
+        "explanation": "CDMA can combine the same signal from several sites before one link is dropped."
+      },
+      {
+        "question": "Which situation illustrates Handover hysteresis?",
+        "options": [
+          "A phone standing on a boundary is moved between two towers four times in one minute.",
+          "When a friend dials the number, cells in the stored area broadcast that phone's paging identity.",
+          "A neighbour must be at least 3 dB stronger than the serving cell before the call moves.",
+          "After a bus crosses a location-area border, the idle phone updates the network and returns to idle."
+        ],
+        "correctAnswer": "A neighbour must be at least 3 dB stronger than the serving cell before the call moves.",
+        "explanation": "The margin stops switching when two cell signals are nearly equal and fluctuating."
+      },
+      {
+        "question": "Which situation illustrates Ping-pong handover?",
+        "options": [
+          "After a bus crosses a location-area border, the idle phone updates the network and returns to idle.",
+          "A phone standing on a boundary is moved between two towers four times in one minute.",
+          "When a friend dials the number, cells in the stored area broadcast that phone's paging identity.",
+          "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz."
+        ],
+        "correctAnswer": "A phone standing on a boundary is moved between two towers four times in one minute.",
+        "explanation": "Signal fluctuation around a tight threshold reverses the handover decision again and again."
+      },
+      {
+        "question": "Which situation illustrates Location update?",
+        "options": [
+          "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz.",
+          "When a friend dials the number, cells in the stored area broadcast that phone's paging identity.",
+          "After a bus crosses a location-area border, the idle phone updates the network and returns to idle.",
+          "On a GSM carrier, one user transmits only in slot 3 of every frame."
+        ],
+        "correctAnswer": "After a bus crosses a location-area border, the idle phone updates the network and returns to idle.",
+        "explanation": "The network stores that area so it later knows where to page the mobile."
+      },
+      {
+        "question": "Which situation illustrates Paging?",
+        "options": [
+          "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz.",
+          "When a friend dials the number, cells in the stored area broadcast that phone's paging identity.",
+          "An older trunked radio gives each active call its own 12.5 kHz channel at the same time.",
+          "On a GSM carrier, one user transmits only in slot 3 of every frame."
+        ],
+        "correctAnswer": "When a friend dials the number, cells in the stored area broadcast that phone's paging identity.",
+        "explanation": "The network often knows only the location area, so it calls the mobile across that area."
+      },
+      {
+        "question": "Which situation illustrates GSM?",
+        "options": [
+          "An older trunked radio gives each active call its own 12.5 kHz channel at the same time.",
+          "On a GSM carrier, one user transmits only in slot 3 of every frame.",
+          "Two UMTS phones transmit together in the same 5 MHz block and are separated by codes.",
+          "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz."
+        ],
+        "correctAnswer": "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz.",
+        "explanation": "GSM carries digital voice in eight time slots on each 200 kHz GMSK carrier."
+      },
+      {
+        "question": "Which situation illustrates TDMA?",
+        "options": [
+          "On a GSM carrier, one user transmits only in slot 3 of every frame.",
+          "An older trunked radio gives each active call its own 12.5 kHz channel at the same time.",
+          "Two UMTS phones transmit together in the same 5 MHz block and are separated by codes.",
+          "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol."
+        ],
+        "correctAnswer": "On a GSM carrier, one user transmits only in slot 3 of every frame.",
+        "explanation": "Users transmit in turn, so they are separated in time on the same frequency."
+      },
+      {
+        "question": "Which situation illustrates FDMA?",
+        "options": [
+          "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol.",
+          "A smartphone download is scheduled as resource blocks on a 20 MHz LTE carrier.",
+          "Two UMTS phones transmit together in the same 5 MHz block and are separated by codes.",
+          "An older trunked radio gives each active call its own 12.5 kHz channel at the same time."
+        ],
+        "correctAnswer": "An older trunked radio gives each active call its own 12.5 kHz channel at the same time.",
+        "explanation": "Filters and guard bands keep users apart because they occupy different frequencies together."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates CDMA?",
+        "options": [
+          "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz.",
+          "Two UMTS phones transmit together in the same 5 MHz block and are separated by codes.",
+          "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol.",
+          "A smartphone download is scheduled as resource blocks on a 20 MHz LTE carrier."
+        ],
+        "correctAnswer": "Two UMTS phones transmit together in the same 5 MHz block and are separated by codes.",
+        "explanation": "A receiver despreads its own code and treats other users as interference."
+      },
+      {
+        "question": "Which situation illustrates OFDMA?",
+        "options": [
+          "A smartphone download is scheduled as resource blocks on a 20 MHz LTE carrier.",
+          "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz.",
+          "A cafe installs a low-power cellular radio that covers the shop and the pavement outside.",
+          "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol."
+        ],
+        "correctAnswer": "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol.",
+        "explanation": "Orthogonal subcarriers can be packed tightly and grouped to follow each user's channel."
+      },
+      {
+        "question": "Which situation illustrates LTE?",
+        "options": [
+          "A cafe installs a low-power cellular radio that covers the shop and the pavement outside.",
+          "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+          "A smartphone download is scheduled as resource blocks on a 20 MHz LTE carrier.",
+          "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz."
+        ],
+        "correctAnswer": "A smartphone download is scheduled as resource blocks on a 20 MHz LTE carrier.",
+        "explanation": "LTE schedules packet data on a shared OFDMA carrier and does not use circuit-switched radio bearers."
+      },
+      {
+        "question": "Which situation illustrates 5G NR?",
+        "options": [
+          "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz.",
+          "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+          "A cafe installs a low-power cellular radio that covers the shop and the pavement outside.",
+          "A 5G panel steers a narrow beam that follows one phone as it moves across a hall."
+        ],
+        "correctAnswer": "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz.",
+        "explanation": "NR numerology lets one design serve wide millimetre-wave carriers and short low-latency slots."
+      },
+      {
+        "question": "Which situation illustrates Small cell?",
+        "options": [
+          "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+          "A 5G panel steers a narrow beam that follows one phone as it moves across a hall.",
+          "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+          "A cafe installs a low-power cellular radio that covers the shop and the pavement outside."
+        ],
+        "correctAnswer": "A cafe installs a low-power cellular radio that covers the shop and the pavement outside.",
+        "explanation": "Short range lets spectrum be reused densely and fills gaps a macro site covers poorly."
+      },
+      {
+        "question": "Which situation illustrates MIMO?",
+        "options": [
+          "A lecture-hall laptop joins an 802.11 network advertised by the campus SSID.",
+          "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+          "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+          "A 5G panel steers a narrow beam that follows one phone as it moves across a hall."
+        ],
+        "correctAnswer": "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+        "explanation": "Scattering makes the spatial paths different enough for the receiver to separate the streams."
+      },
+      {
+        "question": "Which situation illustrates Beamforming?",
+        "options": [
+          "A lecture-hall laptop joins an 802.11 network advertised by the campus SSID.",
+          "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+          "Two laptops both find the medium idle, then each waits a different random backoff.",
+          "A 5G panel steers a narrow beam that follows one phone as it moves across a hall."
+        ],
+        "correctAnswer": "A 5G panel steers a narrow beam that follows one phone as it moves across a hall.",
+        "explanation": "Phase weights make the waves add toward the user and partly cancel elsewhere."
+      },
+      {
+        "question": "Which situation illustrates Massive MIMO?",
+        "options": [
+          "A lecture-hall laptop joins an 802.11 network advertised by the campus SSID.",
+          "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+          "Laptops on opposite sides of a pillar both transmit to one access point and corrupt each other.",
+          "Two laptops both find the medium idle, then each waits a different random backoff."
+        ],
+        "correctAnswer": "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+        "explanation": "Dozens or hundreds of antennas form tight beams and separate users in space."
+      },
+      {
+        "question": "Which situation illustrates Wi-Fi?",
+        "options": [
+          "Laptops on opposite sides of a pillar both transmit to one access point and corrupt each other.",
+          "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence.",
+          "Two laptops both find the medium idle, then each waits a different random backoff.",
+          "A lecture-hall laptop joins an 802.11 network advertised by the campus SSID."
+        ],
+        "correctAnswer": "A lecture-hall laptop joins an 802.11 network advertised by the campus SSID.",
+        "explanation": "802.11 defines wireless LAN frames, contention access, and bands such as 2.4 and 5 GHz."
+      },
+      {
+        "question": "Which situation illustrates CSMA/CA?",
+        "options": [
+          "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence.",
+          "A radio dwells on 2402 MHz, then 2430 MHz, then 2475 MHz, following a shared pattern.",
+          "Laptops on opposite sides of a pillar both transmit to one access point and corrupt each other.",
+          "Two laptops both find the medium idle, then each waits a different random backoff."
+        ],
+        "correctAnswer": "Two laptops both find the medium idle, then each waits a different random backoff.",
+        "explanation": "A wireless sender cannot reliably hear a collision while it transmits, so it tries to avoid one."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Hidden node?",
+        "options": [
+          "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+          "A radio dwells on 2402 MHz, then 2430 MHz, then 2475 MHz, following a shared pattern.",
+          "Laptops on opposite sides of a pillar both transmit to one access point and corrupt each other.",
+          "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence."
+        ],
+        "correctAnswer": "Laptops on opposite sides of a pillar both transmit to one access point and corrupt each other.",
+        "explanation": "Distance or an obstacle hides one sender, so carrier sense does not prevent a collision."
+      },
+      {
+        "question": "Which situation illustrates Bluetooth?",
+        "options": [
+          "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence.",
+          "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+          "A strong Wi-Fi link uses 64-QAM so that each symbol carries six bits.",
+          "A radio dwells on 2402 MHz, then 2430 MHz, then 2475 MHz, following a shared pattern."
+        ],
+        "correctAnswer": "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence.",
+        "explanation": "Classic Bluetooth hops among 79 one-megahertz channels to live with other 2.4 GHz users."
+      },
+      {
+        "question": "Which situation illustrates Frequency hopping?",
+        "options": [
+          "A radio dwells on 2402 MHz, then 2430 MHz, then 2475 MHz, following a shared pattern.",
+          "A strong Wi-Fi link uses 64-QAM so that each symbol carries six bits.",
+          "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+          "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM."
+        ],
+        "correctAnswer": "A radio dwells on 2402 MHz, then 2430 MHz, then 2475 MHz, following a shared pattern.",
+        "explanation": "A narrow interferer then damages only some hops, and the link can recover the others."
+      },
+      {
+        "question": "Which situation illustrates QPSK?",
+        "options": [
+          "A base station selects the stronger of two rooftop antennas when one sits in a deep fade.",
+          "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+          "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM.",
+          "A strong Wi-Fi link uses 64-QAM so that each symbol carries six bits."
+        ],
+        "correctAnswer": "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+        "explanation": "Four phases carry two bits per symbol and can keep a constant envelope."
+      },
+      {
+        "question": "Which situation illustrates QAM?",
+        "options": [
+          "A strong Wi-Fi link uses 64-QAM so that each symbol carries six bits.",
+          "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM.",
+          "A base station selects the stronger of two rooftop antennas when one sits in a deep fade.",
+          "A tower uses three 120-degree panels, each with its own channel set."
+        ],
+        "correctAnswer": "A strong Wi-Fi link uses 64-QAM so that each symbol carries six bits.",
+        "explanation": "A rectangular constellation packs several bits into one symbol when the link is strong enough."
+      },
+      {
+        "question": "Which situation illustrates Link adaptation?",
+        "options": [
+          "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM.",
+          "During a commute the core updates the tracking area and the radio network hands over the bearer.",
+          "A tower uses three 120-degree panels, each with its own channel set.",
+          "A base station selects the stronger of two rooftop antennas when one sits in a deep fade."
+        ],
+        "correctAnswer": "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM.",
+        "explanation": "A strong channel can use a denser constellation, while a weak channel needs a tougher mode."
+      },
+      {
+        "question": "Which situation illustrates Spatial diversity?",
+        "options": [
+          "A base station selects the stronger of two rooftop antennas when one sits in a deep fade.",
+          "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+          "During a commute the core updates the tracking area and the radio network hands over the bearer.",
+          "A tower uses three 120-degree panels, each with its own channel set."
+        ],
+        "correctAnswer": "A base station selects the stronger of two rooftop antennas when one sits in a deep fade.",
+        "explanation": "Antennas spaced by a fraction of a wavelength see partly independent multipath."
+      },
+      {
+        "question": "Which situation illustrates Sectorisation?",
+        "options": [
+          "A handset two kilometres from a tower receives far less power than one at 200 metres.",
+          "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+          "A tower uses three 120-degree panels, each with its own channel set.",
+          "During a commute the core updates the tracking area and the radio network hands over the bearer."
+        ],
+        "correctAnswer": "A tower uses three 120-degree panels, each with its own channel set.",
+        "explanation": "Each sector sees a smaller angle of interference and can carry its own channels."
+      },
+      {
+        "question": "Which situation illustrates Mobility management?",
+        "options": [
+          "During a commute the core updates the tracking area and the radio network hands over the bearer.",
+          "A clear satellite downlink loses power with both distance and carrier frequency.",
+          "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+          "A handset two kilometres from a tower receives far less power than one at 200 metres."
+        ],
+        "correctAnswer": "During a commute the core updates the tracking area and the radio network hands over the bearer.",
+        "explanation": "It includes idle-area tracking and active handover so reachability and sessions survive motion."
+      },
+      {
+        "question": "Which situation illustrates SINR?",
+        "options": [
+          "A clear satellite downlink loses power with both distance and carrier frequency.",
+          "A handset two kilometres from a tower receives far less power than one at 200 metres.",
+          "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+          "On a city street the same beacon reaches a phone from a wall, a bus, and the road."
+        ],
+        "correctAnswer": "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+        "explanation": "Both interference and noise corrupt symbols, so schedulers and decoders use this ratio."
+      }
+    ],
+    "11": [
+      {
+        "question": "Doubling the range from a tower drops received power by several decibels even on a clear path. Which effect explains that drop?",
+        "options": [
+          "Paging delay",
+          "Path loss",
+          "Handover hysteresis",
+          "Ciphering overhead"
+        ],
+        "correctAnswer": "Path loss",
+        "explanation": "Received power falls with distance because the wave spreads, which is path loss."
+      },
+      {
+        "question": "A rooftop microwave budget, with a clear line of sight, includes a loss that grows with frequency and distance. Which loss is that?",
+        "options": [
+          "Free-space path loss",
+          "Coding gain",
+          "Shadowing",
+          "Adjacent-channel leakage"
+        ],
+        "correctAnswer": "Free-space path loss",
+        "explanation": "With no obstacles, distance and frequency loss is free-space path loss."
+      },
+      {
+        "question": "A receiver recording shows three delayed copies of one transmitted pulse. Which propagation effect produced those copies?",
+        "options": [
+          "Multipath propagation",
+          "Sectorisation",
+          "Thermal noise",
+          "Power-control lag"
+        ],
+        "correctAnswer": "Multipath propagation",
+        "explanation": "Distinct delayed copies mean the signal took more than one path."
+      },
+      {
+        "question": "A seated laptop holds a steady Wi-Fi rate, but pacing the same room makes the rate swing. Which channel effect is the walking user seeing?",
+        "options": [
+          "Fading",
+          "IP fragmentation",
+          "Clock drift",
+          "DNS caching"
+        ],
+        "correctAnswer": "Fading",
+        "explanation": "Small movements change how multipath copies combine, which is fading."
+      },
+      {
+        "question": "A campus model assumes no line of sight and many similar scatterers around the handset. Which envelope distribution fits?",
+        "options": [
+          "Rayleigh",
+          "Constant amplitude",
+          "Uniform from zero to one",
+          "Rician"
+        ],
+        "correctAnswer": "Rayleigh",
+        "explanation": "Many scattered paths and no dominant path give a Rayleigh envelope."
+      },
+      {
+        "question": "A rural link has one strong direct path plus a few ground reflections. Which fading model fits that mix?",
+        "options": [
+          "Rician fading",
+          "Frequency reuse",
+          "Pure shadowing",
+          "Rayleigh fading"
+        ],
+        "correctAnswer": "Rician fading",
+        "explanation": "A dominant path plus weaker scatterers is the Rician case."
+      },
+      {
+        "question": "Over hundreds of metres the local mean wobbles as vans and buildings block a street-level user. Which large-scale effect is that?",
+        "options": [
+          "A pure Doppler offset",
+          "Shadowing",
+          "Slot stealing",
+          "Fast fading"
+        ],
+        "correctAnswer": "Shadowing",
+        "explanation": "Obstacle blockage of the local mean is shadowing, often modelled as log-normal."
+      },
+      {
+        "question": "A high-speed train receiver sees the downlink carrier move by several hundred hertz. Which motion effect is that?",
+        "options": [
+          "Header compression",
+          "Extra path delay",
+          "Doppler shift",
+          "Quantisation"
+        ],
+        "correctAnswer": "Doppler shift",
+        "explanation": "Relative speed changes the received frequency, which is Doppler shift."
+      },
+      {
+        "question": "A designer needs how long one channel estimate remains usable for a moving user. Which quantity is that interval?",
+        "options": [
+          "Beacon interval",
+          "Delay spread",
+          "Cluster size",
+          "Coherence time"
+        ],
+        "correctAnswer": "Coherence time",
+        "explanation": "The time the channel stays steady is the coherence time."
+      },
+      {
+        "question": "Engineers compare the signal bandwidth with the band where the gain stays similar. Which channel measure is that band?",
+        "options": [
+          "Reuse distance",
+          "Coherence bandwidth",
+          "Hop rate",
+          "Coherence time"
+        ],
+        "correctAnswer": "Coherence bandwidth",
+        "explanation": "Correlation of fading across frequency is the coherence bandwidth."
+      }
+    ],
+    "12": [
+      {
+        "question": "Sounding shows the first echo at 0.2 microseconds and the last strong echo at 4 microseconds. Which quantity is about 3.8 microseconds?",
+        "options": [
+          "Hop dwell",
+          "Delay spread",
+          "Coherence time",
+          "Timing advance"
+        ],
+        "correctAnswer": "Delay spread",
+        "explanation": "The span from the first to the last significant echo is the delay spread."
+      },
+      {
+        "question": "A 25 kHz signal has a coherence bandwidth of several hundred kilohertz. Which fading type should the link assume?",
+        "options": [
+          "Flat fading",
+          "Frequency-selective fading",
+          "Adjacent-channel fading",
+          "Wideband notch fading"
+        ],
+        "correctAnswer": "Flat fading",
+        "explanation": "A signal narrower than the coherence bandwidth sees flat fading."
+      },
+      {
+        "question": "A wideband waveform sees a notch that removes only part of its spectrum. Which fading type is that?",
+        "options": [
+          "Log-normal shadowing",
+          "Flat fading",
+          "Slow power-control error",
+          "Frequency-selective fading"
+        ],
+        "correctAnswer": "Frequency-selective fading",
+        "explanation": "A notch across only part of the band is frequency-selective fading."
+      },
+      {
+        "question": "The coherence time is shorter than the symbol period, so one symbol sees a changing gain. Which fading speed is that?",
+        "options": [
+          "Fast fading",
+          "Static line of sight",
+          "Shadowing only",
+          "Slow fading"
+        ],
+        "correctAnswer": "Fast fading",
+        "explanation": "A channel that varies inside a symbol is fast fading."
+      },
+      {
+        "question": "Estimates taken once per subframe stay valid for dozens of symbols at pedestrian speed. Which fading speed is that?",
+        "options": [
+          "Slow fading",
+          "Fast fading",
+          "Impulsive noise",
+          "Frequency-selective fading"
+        ],
+        "correctAnswer": "Slow fading",
+        "explanation": "A gain that holds over many symbols is slow fading."
+      },
+      {
+        "question": "Planners draw a hexagon around one tower to show the area that tower is meant to serve. Which planning unit is the hexagon?",
+        "options": [
+          "Location area",
+          "SIM identity",
+          "Core switch",
+          "Cell"
+        ],
+        "correctAnswer": "Cell",
+        "explanation": "The area served by one base-station site is a cell."
+      },
+      {
+        "question": "An operator has only 60 voice channels but hundreds of cells. Which planning method lets distant cells share those channels?",
+        "options": [
+          "Frequency reuse",
+          "A unique band for every cell",
+          "Cipher-key refresh",
+          "Soft combining"
+        ],
+        "correctAnswer": "Frequency reuse",
+        "explanation": "Sharing carriers among distant cells is frequency reuse."
+      },
+      {
+        "question": "Hexagonal planning uses shift parameters i=2 and j=1. How many cells are in one cluster?",
+        "options": [
+          "12",
+          "9",
+          "7",
+          "4"
+        ],
+        "correctAnswer": "7",
+        "explanation": "Cluster size is i squared plus i times j plus j squared, which equals 7."
+      },
+      {
+        "question": "Two distant cells both use 935.2 MHz, and each phone hears the other cell. Which interference is that?",
+        "options": [
+          "Self-echo multipath",
+          "Co-channel interference",
+          "Adjacent-channel interference",
+          "Thermal noise"
+        ],
+        "correctAnswer": "Co-channel interference",
+        "explanation": "The same carrier used in another cell produces co-channel interference."
+      },
+      {
+        "question": "A handset tuned to carrier f is disturbed by a nearby tower on the next 200 kHz carrier. Which interference is that?",
+        "options": [
+          "Doppler spread",
+          "Code collision",
+          "Co-channel interference",
+          "Adjacent-channel interference"
+        ],
+        "correctAnswer": "Adjacent-channel interference",
+        "explanation": "Leakage from the next carrier is adjacent-channel interference."
+      }
+    ],
+    "13": [
+      {
+        "question": "During a live call the serving signal falls and a neighbour becomes stronger, so the network moves the radio link. Which procedure is that?",
+        "options": [
+          "Location update",
+          "Initial attach",
+          "Paging",
+          "Handover"
+        ],
+        "correctAnswer": "Handover",
+        "explanation": "Moving an active connection between cells is a handover."
+      },
+      {
+        "question": "A GSM call drops the old traffic channel and only afterwards uses the new cell. Which handover style is that?",
+        "options": [
+          "Hard handover",
+          "Soft handover",
+          "Softer handover",
+          "Idle reselection"
+        ],
+        "correctAnswer": "Hard handover",
+        "explanation": "Releasing the old link before the new one is hard handover."
+      },
+      {
+        "question": "A CDMA phone stays in the active set of two base stations and combines both downlinks. Which handover style is that?",
+        "options": [
+          "Location update",
+          "Soft handover",
+          "Hard handover",
+          "Directed retry"
+        ],
+        "correctAnswer": "Soft handover",
+        "explanation": "Holding links to two base stations at once is soft handover."
+      },
+      {
+        "question": "Two cells differ by only 1 dB and the required margin is 3 dB, so the call stays. Which parameter is blocking the move?",
+        "options": [
+          "Timing advance",
+          "Speech-coding rate",
+          "Handover hysteresis",
+          "Reuse factor"
+        ],
+        "correctAnswer": "Handover hysteresis",
+        "explanation": "The extra margin that must be cleared is handover hysteresis."
+      },
+      {
+        "question": "A stationary user on a boundary is switched between two cells every few seconds. Which handover fault is that?",
+        "options": [
+          "Stable soft handover",
+          "Normal call setup",
+          "One-time cell reselection",
+          "Ping-pong handover"
+        ],
+        "correctAnswer": "Ping-pong handover",
+        "explanation": "Oscillating between two cells is ping-pong handover."
+      },
+      {
+        "question": "An idle phone enters a new location area and must tell the network before the next incoming call. Which message does it send?",
+        "options": [
+          "Location update",
+          "Handover command",
+          "Paging response",
+          "Active measurement report"
+        ],
+        "correctAnswer": "Location update",
+        "explanation": "Idle mobiles report a new location area with a location update."
+      },
+      {
+        "question": "An idle subscriber is called, and base stations in the stored area broadcast a request for that handset. Which procedure is the broadcast?",
+        "options": [
+          "Handover",
+          "Location update",
+          "Uplink random access",
+          "Paging"
+        ],
+        "correctAnswer": "Paging",
+        "explanation": "Searching an area for an idle mobile is paging."
+      },
+      {
+        "question": "A legacy network puts eight users in successive slots on one 200 kHz GMSK carrier. Which cellular standard is that?",
+        "options": [
+          "Bluetooth",
+          "LTE",
+          "GSM",
+          "5G NR"
+        ],
+        "correctAnswer": "GSM",
+        "explanation": "Eight-slot TDMA and GMSK on 200 kHz carriers identify GSM."
+      },
+      {
+        "question": "Four users share one frequency, each sending only in its own repeating slot. Which multiple-access method is that?",
+        "options": [
+          "CDMA",
+          "CSMA/CA",
+          "TDMA",
+          "FDMA"
+        ],
+        "correctAnswer": "TDMA",
+        "explanation": "Separation by time slots on one carrier is TDMA."
+      },
+      {
+        "question": "Three calls run at once on 825, 825.03, and 825.06 MHz with no time sharing. Which access method is that?",
+        "options": [
+          "TDMA",
+          "FDMA",
+          "ALOHA",
+          "CDMA"
+        ],
+        "correctAnswer": "FDMA",
+        "explanation": "Distinct frequencies used at the same time are FDMA."
+      }
+    ],
+    "14": [
+      {
+        "question": "Several users occupy the same 5 MHz block at the same time and are separated only by codes. Which access method is that?",
+        "options": [
+          "TDMA",
+          "CDMA",
+          "SDMA",
+          "FDMA"
+        ],
+        "correctAnswer": "CDMA",
+        "explanation": "Code separation on a shared carrier is CDMA."
+      },
+      {
+        "question": "A scheduler gives user A subcarriers 0-11 and user B subcarriers 24-35 in the same symbol. Which access method is that?",
+        "options": [
+          "CDMA",
+          "Classic single-carrier FDMA",
+          "CSMA/CA",
+          "OFDMA"
+        ],
+        "correctAnswer": "OFDMA",
+        "explanation": "Assigning groups of orthogonal subcarriers is OFDMA."
+      },
+      {
+        "question": "A 4G air interface uses OFDMA toward the phone, SC-FDMA from the phone, and an all-IP core. Which system is that?",
+        "options": [
+          "LTE",
+          "UMTS Release 99",
+          "Bluetooth",
+          "GSM"
+        ],
+        "correctAnswer": "LTE",
+        "explanation": "OFDMA downlink, SC-FDMA uplink, and an all-IP core identify LTE."
+      },
+      {
+        "question": "A new air interface can select 15, 30, or 120 kHz subcarrier spacing and large antenna arrays. Which standard is that?",
+        "options": [
+          "LTE",
+          "Wi-Fi",
+          "GSM",
+          "5G NR"
+        ],
+        "correctAnswer": "5G NR",
+        "explanation": "Scalable subcarrier spacing is a defining feature of 5G NR."
+      },
+      {
+        "question": "An operator adds a low-power node for one railway platform and keeps the macro tower. Which site type is the new node?",
+        "options": [
+          "Macro cell",
+          "Core router",
+          "Small cell",
+          "Satellite gateway"
+        ],
+        "correctAnswer": "Small cell",
+        "explanation": "A low-power, short-range base station is a small cell."
+      },
+      {
+        "question": "A link uses four transmit and four receive antennas to carry four independent streams on one carrier. Which technique is that?",
+        "options": [
+          "Time duplexing alone",
+          "MIMO",
+          "FDMA",
+          "Receive diversity of one stream"
+        ],
+        "correctAnswer": "MIMO",
+        "explanation": "Multiple independent spatial streams are MIMO."
+      },
+      {
+        "question": "An array applies phase shifts so the downlink adds up at one handset and is weaker elsewhere. Which technique is that?",
+        "options": [
+          "Beamforming",
+          "Omnidirectional broadcast",
+          "Frequency hopping",
+          "Source coding"
+        ],
+        "correctAnswer": "Beamforming",
+        "explanation": "Steering array energy toward one user is beamforming."
+      },
+      {
+        "question": "A site uses 64 antennas to beamform many phones at once on the same subcarriers. Which architecture is that?",
+        "options": [
+          "A Bluetooth piconet",
+          "Massive MIMO",
+          "A single dipole",
+          "A classic three-sector GSM site"
+        ],
+        "correctAnswer": "Massive MIMO",
+        "explanation": "A very large array serving many co-channel users is massive MIMO."
+      },
+      {
+        "question": "Students connect laptops to an IEEE 802.11 access point in the unlicensed 5 GHz band. Which technology is that?",
+        "options": [
+          "5G NR",
+          "GSM",
+          "Wi-Fi",
+          "LTE"
+        ],
+        "correctAnswer": "Wi-Fi",
+        "explanation": "An IEEE 802.11 wireless LAN is Wi-Fi."
+      },
+      {
+        "question": "A station senses the medium and, if it is idle, still waits a random number of slots before a data frame. Which method is that?",
+        "options": [
+          "Pure ALOHA",
+          "CSMA/CA",
+          "CSMA/CD",
+          "TDMA"
+        ],
+        "correctAnswer": "CSMA/CA",
+        "explanation": "Listen-before-talk with random backoff is CSMA/CA."
+      }
+    ],
+    "15": [
+      {
+        "question": "Station A cannot hear station B, yet their frames collide at the access point between them. Which problem is that?",
+        "options": [
+          "Exposed node",
+          "Capture effect",
+          "Near-far effect",
+          "Hidden node"
+        ],
+        "correctAnswer": "Hidden node",
+        "explanation": "Mutually hidden senders colliding at the receiver are a hidden node."
+      },
+      {
+        "question": "A headset and a phone keep a short-range 2.4 GHz link that hops across dozens of channels. Which technology fits?",
+        "options": [
+          "Bluetooth",
+          "GSM",
+          "LTE",
+          "A geostationary satellite link"
+        ],
+        "correctAnswer": "Bluetooth",
+        "explanation": "A short-range frequency-hopping personal link is Bluetooth."
+      },
+      {
+        "question": "A link changes carrier 1600 times per second using a sequence the receiver already knows. Which method is that?",
+        "options": [
+          "Fixed-channel FDMA",
+          "Time hopping alone",
+          "Frequency hopping",
+          "Direct-sequence spreading"
+        ],
+        "correctAnswer": "Frequency hopping",
+        "explanation": "A shared rapid sequence of carriers is frequency hopping."
+      },
+      {
+        "question": "A constellation has four points on a circle, each representing a different two-bit pair. Which modulation is that?",
+        "options": [
+          "16-QAM",
+          "QPSK",
+          "OOK",
+          "BPSK"
+        ],
+        "correctAnswer": "QPSK",
+        "explanation": "Four equally spaced phases and two bits per symbol identify QPSK."
+      },
+      {
+        "question": "A constellation is a square grid of several amplitudes and phases, with six bits on each symbol. Which family is that?",
+        "options": [
+          "BPSK",
+          "OOK",
+          "QAM",
+          "BFSK"
+        ],
+        "correctAnswer": "QAM",
+        "explanation": "A grid that uses both amplitude and phase is QAM."
+      },
+      {
+        "question": "The scheduler selects a higher-order constellation only after the reported channel quality improves. Which technique is that?",
+        "options": [
+          "Fixed modulation",
+          "Link adaptation",
+          "SIM authentication",
+          "Frequency planning"
+        ],
+        "correctAnswer": "Link adaptation",
+        "explanation": "Matching modulation and code rate to channel quality is link adaptation."
+      },
+      {
+        "question": "Two receive antennas carry the same stream, and the receiver keeps the stronger branch. Which technique is that?",
+        "options": [
+          "Spatial multiplexing",
+          "Source coding",
+          "Sectorisation",
+          "Spatial diversity"
+        ],
+        "correctAnswer": "Spatial diversity",
+        "explanation": "Separated antennas protecting one stream provide spatial diversity."
+      },
+      {
+        "question": "One site is split into three 120-degree panels, and each panel has its own channels. Which technique is that?",
+        "options": [
+          "Single-channel hopping",
+          "Omnidirectional coverage",
+          "Sectorisation",
+          "Soft handover"
+        ],
+        "correctAnswer": "Sectorisation",
+        "explanation": "Directional panels that split a site are sectorisation."
+      },
+      {
+        "question": "Packets must still arrive after a user changes cells and later enters a new tracking area. Which function set handles that?",
+        "options": [
+          "Mobility management",
+          "Billing mediation",
+          "Speech compression",
+          "Antenna design"
+        ],
+        "correctAnswer": "Mobility management",
+        "explanation": "Tracking location and maintaining sessions during motion is mobility management."
+      },
+      {
+        "question": "A scheduler compares wanted power with interference plus noise before choosing a modulation. Which metric is it using?",
+        "options": [
+          "SINR",
+          "RSSI alone",
+          "Cluster size",
+          "Delay spread"
+        ],
+        "correctAnswer": "SINR",
+        "explanation": "Wanted power over interference plus noise is SINR."
+      }
+    ]
+  }
+}

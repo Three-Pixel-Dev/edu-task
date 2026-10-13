@@ -1,0 +1,1685 @@
+{
+  "subjectId": "internship",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Learning Objective?",
+        "options": [
+          "A vague wish to have a good experience, with no ability named.",
+          "The number of hours in a working week.",
+          "A specific statement of what the intern intends to be able to do by the end of the placement.",
+          "The employer's profit target for the quarter."
+        ],
+        "correctAnswer": "A specific statement of what the intern intends to be able to do by the end of the placement.",
+        "explanation": "A learning objective names a capability the intern should gain, so progress can be judged."
+      },
+      {
+        "question": "What is Learning Agreement?",
+        "options": [
+          "A secret note the intern writes and never shows to the supervisor.",
+          "The company's annual financial statement.",
+          "A bus timetable for the commute.",
+          "A written plan, agreed by the intern, workplace, and university, that sets goals, duties, and supervision."
+        ],
+        "correctAnswer": "A written plan, agreed by the intern, workplace, and university, that sets goals, duties, and supervision.",
+        "explanation": "A learning agreement is the shared plan of goals, duties, and supervision among intern, host, and university."
+      },
+      {
+        "question": "What is Workplace Supervisor?",
+        "options": [
+          "The receptionist who issues a visitor badge only.",
+          "The staff member at the host organisation who assigns the intern's work and gives day-to-day feedback.",
+          "The university tutor who never visits the workplace and does not assign daily tasks.",
+          "A friend who texts advice but has no role at the host."
+        ],
+        "correctAnswer": "The staff member at the host organisation who assigns the intern's work and gives day-to-day feedback.",
+        "explanation": "The workplace supervisor is the host employee responsible for assigning work and supervising it."
+      },
+      {
+        "question": "What is Academic Supervisor?",
+        "options": [
+          "The university staff member who checks the placement against academic requirements and assesses the intern's learning.",
+          "The client whose product the intern is testing.",
+          "A classmate on a different placement.",
+          "The host employee who assigns daily operational tasks."
+        ],
+        "correctAnswer": "The university staff member who checks the placement against academic requirements and assesses the intern's learning.",
+        "explanation": "The academic supervisor represents the university's learning and assessment requirements."
+      },
+      {
+        "question": "What is Supervision Meeting?",
+        "options": [
+          "A scheduled conversation in which the intern and supervisor review progress, problems, and the next tasks.",
+          "A silent desk session with no review of work.",
+          "The fire-alarm drill for the whole building.",
+          "A social lunch with no discussion of tasks."
+        ],
+        "correctAnswer": "A scheduled conversation in which the intern and supervisor review progress, problems, and the next tasks.",
+        "explanation": "A supervision meeting is planned time to review progress and set the next work."
+      },
+      {
+        "question": "What is Workplace Conduct?",
+        "options": [
+          "Behaving exactly as you would at a private party, including ignoring start times.",
+          "The behaviour expected at work, including punctuality, respect, honesty, and following local rules.",
+          "A technical standard for cable colours.",
+          "The intern's hobby outside working hours that does not affect work."
+        ],
+        "correctAnswer": "The behaviour expected at work, including punctuality, respect, honesty, and following local rules.",
+        "explanation": "Workplace conduct is the standard of behaviour the host expects while the intern is at work."
+      },
+      {
+        "question": "What is Punctuality?",
+        "options": [
+          "Sending an apology only after missing a client meeting.",
+          "Finishing early and leaving without telling anyone about unfinished shared work.",
+          "Arriving and delivering work at the agreed time, and warning the supervisor early if a delay is unavoidable.",
+          "Arriving whenever convenient as long as the total weekly hours look similar."
+        ],
+        "correctAnswer": "Arriving and delivering work at the agreed time, and warning the supervisor early if a delay is unavoidable.",
+        "explanation": "Punctuality means meeting agreed times and giving early warning when a delay cannot be avoided."
+      },
+      {
+        "question": "What is Professional Dress?",
+        "options": [
+          "Whatever is most comfortable at home, even if the host forbids it on site.",
+          "A uniform from a different employer that misidentifies you.",
+          "A costume that hides a required safety vest.",
+          "Clothing and grooming that meet the host organisation's standard for the workplace and the day's duties."
+        ],
+        "correctAnswer": "Clothing and grooming that meet the host organisation's standard for the workplace and the day's duties.",
+        "explanation": "Professional dress follows the host's standard and the safety needs of the day's work."
+      },
+      {
+        "question": "What is Workplace Confidentiality?",
+        "options": [
+          "A rule that applies only to full-time staff and never to interns.",
+          "A duty to post interesting client stories on a public blog for your portfolio.",
+          "The duty not to share the organisation's or clients' non-public information beyond people authorised to see it.",
+          "Permission to discuss live incidents in a crowded cafe."
+        ],
+        "correctAnswer": "The duty not to share the organisation's or clients' non-public information beyond people authorised to see it.",
+        "explanation": "Interns share the duty to keep non-public organisational and client information within authorised people."
+      },
+      {
+        "question": "What is Client Data Handling?",
+        "options": [
+          "Collecting, storing, and sending client information only in the ways the workplace policy allows.",
+          "Leaving printed client lists on a train seat.",
+          "Copying client files to a personal laptop so they are easier to read at home.",
+          "Pasting client records into a private chat because it is faster."
+        ],
+        "correctAnswer": "Collecting, storing, and sending client information only in the ways the workplace policy allows.",
+        "explanation": "Client data must stay on approved systems and follow the host policy for collection, storage, and transfer."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Reflection?",
+        "options": [
+          "Waiting until graduation and then forgetting the placement.",
+          "Copying the day's task list with no thought about learning.",
+          "Deliberate thinking about what happened, what was learned, and what should be done differently next time.",
+          "Blaming others and deciding nothing will change."
+        ],
+        "correctAnswer": "Deliberate thinking about what happened, what was learned, and what should be done differently next time.",
+        "explanation": "Reflection connects an experience to learning and to a change in future action."
+      },
+      {
+        "question": "What is Reflective Journal?",
+        "options": [
+          "A public social post about clients.",
+          "A regular written record of experiences, lessons, and next steps, kept to show learning during the placement.",
+          "A timesheet that records only hours.",
+          "The company's audited accounts."
+        ],
+        "correctAnswer": "A regular written record of experiences, lessons, and next steps, kept to show learning during the placement.",
+        "explanation": "A reflective journal is a continuing private record of experience and learning, not a timesheet or a public post."
+      },
+      {
+        "question": "What is Gibbs Reflective Cycle?",
+        "options": [
+          "A project schedule of design, build, and test.",
+          "A statistical test of two group means.",
+          "A fire-evacuation route with six exits.",
+          "A six-stage structure for reflection: description, feelings, evaluation, analysis, conclusion, and action plan."
+        ],
+        "correctAnswer": "A six-stage structure for reflection: description, feelings, evaluation, analysis, conclusion, and action plan.",
+        "explanation": "Gibbs' cycle is a known sequence for structured reflection ending in an action plan."
+      },
+      {
+        "question": "What is Timesheet?",
+        "options": [
+          "A record of hours worked, usually by day and task, submitted so attendance and effort can be verified.",
+          "A project Gantt chart for the whole company.",
+          "A payslip issued by the payroll department.",
+          "A reflective essay about feelings, with no hours."
+        ],
+        "correctAnswer": "A record of hours worked, usually by day and task, submitted so attendance and effort can be verified.",
+        "explanation": "A timesheet records the hours the intern worked so the host and university can verify attendance and effort."
+      },
+      {
+        "question": "What is Attendance Record?",
+        "options": [
+          "A menu of the staff canteen.",
+          "A diary of technical lessons learned.",
+          "A log of days present, absent, or late, used to confirm that the placement requirement was met.",
+          "A list of software versions installed."
+        ],
+        "correctAnswer": "A log of days present, absent, or late, used to confirm that the placement requirement was met.",
+        "explanation": "An attendance record shows presence and absence, which universities often require for a valid placement."
+      },
+      {
+        "question": "What is Feedback?",
+        "options": [
+          "A compliment with no information about the work.",
+          "An automated out-of-office reply.",
+          "A salary figure on a contract.",
+          "Information from a supervisor or colleague about the quality of your work and how it can improve."
+        ],
+        "correctAnswer": "Information from a supervisor or colleague about the quality of your work and how it can improve.",
+        "explanation": "Feedback tells you how the work was judged and what to change; it is more than praise or a contractual number."
+      },
+      {
+        "question": "What is Constructive Feedback?",
+        "options": [
+          "Specific comments that describe what worked, what did not, and what change is expected, without personal attack.",
+          "Silence after a failed task.",
+          "Praise that names no behaviour worth repeating.",
+          "A general insult about the person's character."
+        ],
+        "correctAnswer": "Specific comments that describe what worked, what did not, and what change is expected, without personal attack.",
+        "explanation": "Constructive feedback is specific and forward-looking, and it separates the work from a personal attack."
+      },
+      {
+        "question": "What is Feedforward?",
+        "options": [
+          "Suggestions aimed at improving the next piece of work, rather than only judging work already finished.",
+          "A complaint about a task that will not be repeated and with no transferable advice.",
+          "A record of hours already worked.",
+          "A final mark with no advice for the next task."
+        ],
+        "correctAnswer": "Suggestions aimed at improving the next piece of work, rather than only judging work already finished.",
+        "explanation": "Feedforward points to the next performance so the person can apply the advice immediately."
+      },
+      {
+        "question": "What is Professional Email?",
+        "options": [
+          "A text to friends using nicknames and no sign-off.",
+          "A chat line written in all capitals with no context.",
+          "A message that starts with hey and contains only an unexplained attachment.",
+          "A work message with a clear subject, a courteous greeting, a short statement of purpose, and a professional sign-off."
+        ],
+        "correctAnswer": "A work message with a clear subject, a courteous greeting, a short statement of purpose, and a professional sign-off.",
+        "explanation": "Professional email is identifiable, polite, and purposeful so a busy reader can act on it."
+      },
+      {
+        "question": "What is Email Subject Line?",
+        "options": [
+          "The single word hello on every message you send.",
+          "A blank heading because the body will explain everything.",
+          "The short heading of an email that states the topic so the reader can prioritise and find the message later.",
+          "A full copy of the email body pasted into the heading."
+        ],
+        "correctAnswer": "The short heading of an email that states the topic so the reader can prioritise and find the message later.",
+        "explanation": "The subject line is a specific heading that helps the recipient sort and retrieve the message."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Carbon Copy?",
+        "options": [
+          "A printed photocopy of a paper letter.",
+          "A copy of an email sent to people who should see the message but are not the primary person expected to act.",
+          "A hidden copy used to conceal a recipient from everyone else.",
+          "The main recipient who is expected to carry out the request."
+        ],
+        "correctAnswer": "A copy of an email sent to people who should see the message but are not the primary person expected to act.",
+        "explanation": "Carbon copy informs secondary readers, while the To field holds the person expected to act."
+      },
+      {
+        "question": "What is Reply All?",
+        "options": [
+          "A new message to an unrelated department.",
+          "Deleting the original thread.",
+          "A reply that goes only to the sender, which is right when others do not need it.",
+          "The email action that sends a response to every recipient of the original message, suitable only when all of them need it."
+        ],
+        "correctAnswer": "The email action that sends a response to every recipient of the original message, suitable only when all of them need it.",
+        "explanation": "Reply all widens the audience to every listed recipient, so it should be used only when each person needs the response."
+      },
+      {
+        "question": "What is Health and Safety Induction?",
+        "options": [
+          "A tour of nearby cafes with no mention of hazards.",
+          "The briefing at the start of a placement that explains site hazards, emergency routes, and the rules that keep people safe.",
+          "A software tutorial unrelated to the site.",
+          "The final performance review at the end of the placement."
+        ],
+        "correctAnswer": "The briefing at the start of a placement that explains site hazards, emergency routes, and the rules that keep people safe.",
+        "explanation": "Health and safety induction is the opening briefing that tells a new person how to stay safe on that site."
+      },
+      {
+        "question": "What is Hazard?",
+        "options": [
+          "Anything at work with the potential to cause injury, ill health, or damage.",
+          "A safe walkway with no source of harm.",
+          "The likelihood that harm will occur, which is part of risk rather than the source of harm.",
+          "A completed incident form."
+        ],
+        "correctAnswer": "Anything at work with the potential to cause injury, ill health, or damage.",
+        "explanation": "A hazard is the source that could cause harm; risk also considers how likely and severe that harm is."
+      },
+      {
+        "question": "What is Workplace Risk Assessment?",
+        "options": [
+          "A guess that everything is fine because no one was hurt yesterday.",
+          "A list of hazards with no thought about controls.",
+          "A systematic look at hazards, who could be harmed, how serious that harm could be, and what controls are needed.",
+          "The intern's personal reflection on a meeting."
+        ],
+        "correctAnswer": "A systematic look at hazards, who could be harmed, how serious that harm could be, and what controls are needed.",
+        "explanation": "A risk assessment examines hazards, people, severity, and controls rather than assuming past luck will continue."
+      },
+      {
+        "question": "What is Personal Protective Equipment?",
+        "options": [
+          "A software password.",
+          "Ordinary fashion accessories with no safety function.",
+          "Equipment worn to reduce a remaining risk, such as gloves or eye protection, after other controls have been considered.",
+          "The first and only control, used so the employer can ignore removing the hazard."
+        ],
+        "correctAnswer": "Equipment worn to reduce a remaining risk, such as gloves or eye protection, after other controls have been considered.",
+        "explanation": "Personal protective equipment reduces remaining risk to the wearer and does not replace removing the hazard where that is reasonable."
+      },
+      {
+        "question": "What is Near Miss?",
+        "options": [
+          "A hazard that nobody has encountered yet.",
+          "An unplanned event that could have caused harm but did not, and that should still be reported so controls can improve.",
+          "An injury that has already occurred.",
+          "A planned fire drill that goes as scripted."
+        ],
+        "correctAnswer": "An unplanned event that could have caused harm but did not, and that should still be reported so controls can improve.",
+        "explanation": "A near miss is an event that nearly caused harm and is reported so the next occurrence can be prevented."
+      },
+      {
+        "question": "What is Emergency Procedure?",
+        "options": [
+          "The agreed steps for raising the alarm, evacuating, and accounting for people when a serious incident occurs.",
+          "The everyday process for making coffee.",
+          "A rule to finish the current email before leaving during a fire alarm.",
+          "A plan written after the evacuation and never practised."
+        ],
+        "correctAnswer": "The agreed steps for raising the alarm, evacuating, and accounting for people when a serious incident occurs.",
+        "explanation": "An emergency procedure is the pre-agreed response, including alarm, evacuation, and accounting for people."
+      },
+      {
+        "question": "What is Workplace Orientation?",
+        "options": [
+          "A map of a different city.",
+          "The final reference written at the end.",
+          "A technical exam given before the intern has seen the workplace.",
+          "The introduction to the site, team, tools, and daily routines that helps a new intern work safely and effectively."
+        ],
+        "correctAnswer": "The introduction to the site, team, tools, and daily routines that helps a new intern work safely and effectively.",
+        "explanation": "Orientation introduces the newcomer to the actual workplace so they can start work safely."
+      },
+      {
+        "question": "What is Mentor?",
+        "options": [
+          "An experienced colleague who offers informal guidance on how work is done, distinct from the supervisor who assigns and assesses tasks.",
+          "A stranger met once at a conference.",
+          "The manager who sets official tasks and conducts the performance review.",
+          "A client who only receives the finished work."
+        ],
+        "correctAnswer": "An experienced colleague who offers informal guidance on how work is done, distinct from the supervisor who assigns and assesses tasks.",
+        "explanation": "A mentor advises informally; the supervisor remains the person who assigns and assesses official work."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Task Log?",
+        "options": [
+          "A list of tasks the intern hopes to do but never starts.",
+          "A running list of tasks undertaken, with dates and outcomes, used as evidence of what the intern actually did.",
+          "The company's five-year strategy.",
+          "A log of only personal errands."
+        ],
+        "correctAnswer": "A running list of tasks undertaken, with dates and outcomes, used as evidence of what the intern actually did.",
+        "explanation": "A task log records completed and current placement work so the intern can evidence what was done."
+      },
+      {
+        "question": "What is Weekly Report?",
+        "options": [
+          "A daily social-media story.",
+          "A short regular summary for the supervisor of work completed, problems, and plans for the coming week.",
+          "An annual company report to shareholders.",
+          "The full thesis written at the end of a degree."
+        ],
+        "correctAnswer": "A short regular summary for the supervisor of work completed, problems, and plans for the coming week.",
+        "explanation": "A weekly report keeps the supervisor informed of progress, problems, and the immediate plan."
+      },
+      {
+        "question": "What is Internship Portfolio?",
+        "options": [
+          "A curated set of evidence, such as work samples, reflections, and feedback, showing the learning objectives were met.",
+          "A single timesheet with no work samples or reflection.",
+          "A folder of confidential client data taken home.",
+          "The host's marketing brochure."
+        ],
+        "correctAnswer": "A curated set of evidence, such as work samples, reflections, and feedback, showing the learning objectives were met.",
+        "explanation": "A portfolio selects evidence that the intern met the learning objectives, without removing confidential material improperly."
+      },
+      {
+        "question": "What is SMART Objective?",
+        "options": [
+          "A goal that is specific, measurable, achievable, relevant, and time-bound.",
+          "A goal that says learn networking someday, with no measure or date.",
+          "A goal unrelated to the placement, such as learn to cook.",
+          "A goal to become perfect at every technology by tomorrow."
+        ],
+        "correctAnswer": "A goal that is specific, measurable, achievable, relevant, and time-bound.",
+        "explanation": "SMART is a test of whether a goal is specific, measurable, achievable, relevant, and time-bound."
+      },
+      {
+        "question": "What is Skill Gap?",
+        "options": [
+          "The intern's age subtracted from the supervisor's age.",
+          "A gap in the office fence.",
+          "The difference between the skills a task or objective requires and the skills the intern can already demonstrate.",
+          "A missing page in a novel."
+        ],
+        "correctAnswer": "The difference between the skills a task or objective requires and the skills the intern can already demonstrate.",
+        "explanation": "A skill gap is the missing capability between current skill and what the work requires."
+      },
+      {
+        "question": "What is Professional Boundary?",
+        "options": [
+          "A requirement to share personal problems with every client.",
+          "The limit that keeps relationships and requests appropriate to the intern role, including refusing work they are not authorised to do.",
+          "A rule that interns must do any personal favour a colleague requests.",
+          "Permission to approve expenditure the intern was told not to approve."
+        ],
+        "correctAnswer": "The limit that keeps relationships and requests appropriate to the intern role, including refusing work they are not authorised to do.",
+        "explanation": "Professional boundaries keep the intern's relationships and decisions inside the authority of the role."
+      },
+      {
+        "question": "What is Asking for Help?",
+        "options": [
+          "Asking the same answered question every hour without trying the advice.",
+          "Hiding confusion until a client is given a wrong answer.",
+          "Seeking guidance early when a task is unclear or beyond current skill, rather than guessing on work that affects others.",
+          "Handing the entire role to someone else on day one."
+        ],
+        "correctAnswer": "Seeking guidance early when a task is unclear or beyond current skill, rather than guessing on work that affects others.",
+        "explanation": "Asking for help at the right time prevents harmful guesses while the intern still attempts the work they can do."
+      },
+      {
+        "question": "What is Meeting Etiquette?",
+        "options": [
+          "Speaking only in jokes that hide the decision.",
+          "Arriving late, interrupting, and leaving with no note of actions.",
+          "Reading unrelated messages for the whole meeting.",
+          "Expected behaviour in meetings, including arriving prepared, letting others speak, and leaving with clear actions."
+        ],
+        "correctAnswer": "Expected behaviour in meetings, including arriving prepared, letting others speak, and leaving with clear actions.",
+        "explanation": "Meeting etiquette helps the group reach and record decisions without excluding people."
+      },
+      {
+        "question": "What is Active Listening?",
+        "options": [
+          "Agreeing immediately to a request you did not hear.",
+          "Waiting silently for a turn to repeat your own point, without checking theirs.",
+          "Paying full attention, checking that you have understood, and responding to what was actually said.",
+          "Typing an unrelated message while they speak."
+        ],
+        "correctAnswer": "Paying full attention, checking that you have understood, and responding to what was actually said.",
+        "explanation": "Active listening checks understanding of the other person's message before you respond."
+      },
+      {
+        "question": "What is Note-Taking?",
+        "options": [
+          "Writing only doodles with no decisions.",
+          "Recording a client's secrets in a public notebook you leave behind.",
+          "Recording decisions, facts, and actions during a meeting or task so they can be confirmed and followed up.",
+          "Trying to remember every action with no written note."
+        ],
+        "correctAnswer": "Recording decisions, facts, and actions during a meeting or task so they can be confirmed and followed up.",
+        "explanation": "Notes capture decisions and actions so they can be checked and done, while still respecting confidentiality."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Deadline Commitment?",
+        "options": [
+          "An agreement to finish a task by a stated time, accepted only when that time is realistic.",
+          "Moving a date secretly without telling the person who is waiting.",
+          "Saying yes to every date to appear keen, including dates you know you will miss.",
+          "Ignoring a date you already accepted."
+        ],
+        "correctAnswer": "An agreement to finish a task by a stated time, accepted only when that time is realistic.",
+        "explanation": "A deadline commitment should be realistic and, once made, should be kept or renegotiated early."
+      },
+      {
+        "question": "What is Scope of Authority?",
+        "options": [
+          "The decisions and actions an intern is allowed to take without further approval.",
+          "Every decision a permanent manager is allowed to take.",
+          "Whatever a client demands in the moment.",
+          "No decisions at all, even those the supervisor has explicitly delegated."
+        ],
+        "correctAnswer": "The decisions and actions an intern is allowed to take without further approval.",
+        "explanation": "Scope of authority is the set of actions already delegated to the intern; other actions need approval."
+      },
+      {
+        "question": "What is Workplace Escalation?",
+        "options": [
+          "Posting the problem on a public network before telling the supervisor.",
+          "Asking an uninvolved friend to change company systems.",
+          "Telling the supervisor about a problem the intern cannot safely or properly resolve alone.",
+          "Hiding a safety problem to avoid looking inexperienced."
+        ],
+        "correctAnswer": "Telling the supervisor about a problem the intern cannot safely or properly resolve alone.",
+        "explanation": "Escalation at work takes an unresolved or unsafe problem to the person who can act."
+      },
+      {
+        "question": "What is Workplace Disagreement?",
+        "options": [
+          "Something an intern must always ignore, even when work is blocked.",
+          "A reason to insult a colleague in a public channel.",
+          "A licence to refuse every task you dislike.",
+          "A difference about tasks or behaviour that should be raised early, calmly, and with the person who can resolve it."
+        ],
+        "correctAnswer": "A difference about tasks or behaviour that should be raised early, calmly, and with the person who can resolve it.",
+        "explanation": "A workplace disagreement should be addressed early and through the proper person, without public insult."
+      },
+      {
+        "question": "What is Team Norms?",
+        "options": [
+          "The shared expectations a team sets for how members communicate, share work, and treat one another.",
+          "The default settings of a chat tool, if the team works differently.",
+          "One person's private habit that the team has not agreed.",
+          "A national law that applies whether or not the team discussed it."
+        ],
+        "correctAnswer": "The shared expectations a team sets for how members communicate, share work, and treat one another.",
+        "explanation": "Team norms are the expectations the team itself agrees, such as how quickly messages are answered."
+      },
+      {
+        "question": "What is Receiving Feedback?",
+        "options": [
+          "Arguing before you have understood the comment.",
+          "Agreeing aloud and then repeating the same error with no attempt to change.",
+          "Hearing comments without immediate defensiveness, checking what is expected, and applying the agreed change.",
+          "Taking the comment as a judgement of your worth as a person."
+        ],
+        "correctAnswer": "Hearing comments without immediate defensiveness, checking what is expected, and applying the agreed change.",
+        "explanation": "Receiving feedback well means understanding the expected change and then applying it."
+      },
+      {
+        "question": "What is Self-Assessment?",
+        "options": [
+          "The supervisor's mark, which is someone else's judgement.",
+          "A claim of excellence with no example from the placement.",
+          "The intern's own judgement of progress against the learning objectives, supported by examples from the work.",
+          "A copy of a classmate's assessment."
+        ],
+        "correctAnswer": "The intern's own judgement of progress against the learning objectives, supported by examples from the work.",
+        "explanation": "Self-assessment is the intern's evidence-based judgement of their own progress toward the agreed objectives."
+      },
+      {
+        "question": "What is Final Internship Report?",
+        "options": [
+          "The end-of-placement document that describes duties, evidence of learning, and reflection against the agreed objectives.",
+          "A daily standup note from week one only.",
+          "A one-line timesheet total.",
+          "The host's sales brochure."
+        ],
+        "correctAnswer": "The end-of-placement document that describes duties, evidence of learning, and reflection against the agreed objectives.",
+        "explanation": "The final report pulls duties, evidence, and reflection together against the objectives agreed at the start."
+      },
+      {
+        "question": "What is Handover Note?",
+        "options": [
+          "A full rewrite of the company strategy.",
+          "A deleted folder and no explanation.",
+          "A brief document that tells the next person the status of unfinished work, where files are, and what still needs attention.",
+          "A goodbye card with no work status."
+        ],
+        "correctAnswer": "A brief document that tells the next person the status of unfinished work, where files are, and what still needs attention.",
+        "explanation": "A handover note lets the next person continue unfinished work without guessing where things stand."
+      },
+      {
+        "question": "What is Professional Reference?",
+        "options": [
+          "A reference the intern writes and signs as if they were the supervisor.",
+          "A promise to hide poor attendance if asked.",
+          "A statement from a supervisor about the intern's observed conduct and performance, given truthfully and usually with the intern's knowledge.",
+          "A social-media like from a classmate."
+        ],
+        "correctAnswer": "A statement from a supervisor about the intern's observed conduct and performance, given truthfully and usually with the intern's knowledge.",
+        "explanation": "A professional reference is the supervisor's truthful account of observed work, not a self-written endorsement."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Learning Objective?",
+        "options": [
+          "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+          "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+          "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals.",
+          "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals."
+        ],
+        "correctAnswer": "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+        "explanation": "A learning objective names a capability the intern should gain, so progress can be judged."
+      },
+      {
+        "question": "Which situation illustrates Learning Agreement?",
+        "options": [
+          "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals.",
+          "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks.",
+          "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+          "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals."
+        ],
+        "correctAnswer": "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals.",
+        "explanation": "A learning agreement is the shared plan of goals, duties, and supervision among intern, host, and university."
+      },
+      {
+        "question": "Which situation illustrates Workplace Supervisor?",
+        "options": [
+          "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+          "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals.",
+          "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks.",
+          "The intern arrives on time, speaks respectfully in client calls, and does not share passwords."
+        ],
+        "correctAnswer": "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+        "explanation": "The workplace supervisor is the host employee responsible for assigning work and supervising it."
+      },
+      {
+        "question": "Which situation illustrates Academic Supervisor?",
+        "options": [
+          "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+          "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals.",
+          "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+          "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks."
+        ],
+        "correctAnswer": "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals.",
+        "explanation": "The academic supervisor represents the university's learning and assessment requirements."
+      },
+      {
+        "question": "Which situation illustrates Supervision Meeting?",
+        "options": [
+          "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks.",
+          "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+          "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+          "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge."
+        ],
+        "correctAnswer": "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks.",
+        "explanation": "A supervision meeting is planned time to review progress and set the next work."
+      },
+      {
+        "question": "Which situation illustrates Workplace Conduct?",
+        "options": [
+          "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge.",
+          "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+          "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+          "The intern refuses to describe a client's outage when friends ask about the placement over dinner."
+        ],
+        "correctAnswer": "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+        "explanation": "Workplace conduct is the standard of behaviour the host expects while the intern is at work."
+      },
+      {
+        "question": "Which situation illustrates Punctuality?",
+        "options": [
+          "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge.",
+          "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+          "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+          "The intern refuses to describe a client's outage when friends ask about the placement over dinner."
+        ],
+        "correctAnswer": "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+        "explanation": "Punctuality means meeting agreed times and giving early warning when a delay cannot be avoided."
+      },
+      {
+        "question": "Which situation illustrates Professional Dress?",
+        "options": [
+          "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+          "The intern refuses to describe a client's outage when friends ask about the placement over dinner.",
+          "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+          "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge."
+        ],
+        "correctAnswer": "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge.",
+        "explanation": "Professional dress follows the host's standard and the safety needs of the day's work."
+      },
+      {
+        "question": "Which situation illustrates Workplace Confidentiality?",
+        "options": [
+          "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+          "The intern refuses to describe a client's outage when friends ask about the placement over dinner.",
+          "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+          "Each Friday the intern writes what was tried, what failed, and one change for the following week."
+        ],
+        "correctAnswer": "The intern refuses to describe a client's outage when friends ask about the placement over dinner.",
+        "explanation": "Interns share the duty to keep non-public organisational and client information within authorised people."
+      },
+      {
+        "question": "Which situation illustrates Client Data Handling?",
+        "options": [
+          "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+          "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+          "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+          "Each Friday the intern writes what was tried, what failed, and one change for the following week."
+        ],
+        "correctAnswer": "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+        "explanation": "Client data must stay on approved systems and follow the host policy for collection, storage, and transfer."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Reflection?",
+        "options": [
+          "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+          "Each Friday the intern writes what was tried, what failed, and one change for the following week.",
+          "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+          "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday."
+        ],
+        "correctAnswer": "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+        "explanation": "Reflection connects an experience to learning and to a change in future action."
+      },
+      {
+        "question": "Which situation illustrates Reflective Journal?",
+        "options": [
+          "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday.",
+          "Each Friday the intern writes what was tried, what failed, and one change for the following week.",
+          "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+          "The sheet shows the intern present every weekday in March except one sick day notified that morning."
+        ],
+        "correctAnswer": "Each Friday the intern writes what was tried, what failed, and one change for the following week.",
+        "explanation": "A reflective journal is a continuing private record of experience and learning, not a timesheet or a public post."
+      },
+      {
+        "question": "Which situation illustrates Gibbs Reflective Cycle?",
+        "options": [
+          "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+          "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+          "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday.",
+          "The sheet shows the intern present every weekday in March except one sick day notified that morning."
+        ],
+        "correctAnswer": "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+        "explanation": "Gibbs' cycle is a known sequence for structured reflection ending in an action plan."
+      },
+      {
+        "question": "Which situation illustrates Timesheet?",
+        "options": [
+          "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+          "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday.",
+          "The sheet shows the intern present every weekday in March except one sick day notified that morning.",
+          "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday."
+        ],
+        "correctAnswer": "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday.",
+        "explanation": "A timesheet records the hours the intern worked so the host and university can verify attendance and effort."
+      },
+      {
+        "question": "Which situation illustrates Attendance Record?",
+        "options": [
+          "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+          "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+          "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday.",
+          "The sheet shows the intern present every weekday in March except one sick day notified that morning."
+        ],
+        "correctAnswer": "The sheet shows the intern present every weekday in March except one sick day notified that morning.",
+        "explanation": "An attendance record shows presence and absence, which universities often require for a valid placement."
+      },
+      {
+        "question": "Which situation illustrates Feedback?",
+        "options": [
+          "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday.",
+          "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+          "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+          "The supervisor says the network diagram was accurate but the labels were too small for the client to read."
+        ],
+        "correctAnswer": "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+        "explanation": "Feedback tells you how the work was judged and what to change; it is more than praise or a contractual number."
+      },
+      {
+        "question": "Which situation illustrates Constructive Feedback?",
+        "options": [
+          "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+          "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+          "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+          "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday."
+        ],
+        "correctAnswer": "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday.",
+        "explanation": "Constructive feedback is specific and forward-looking, and it separates the work from a personal attack."
+      },
+      {
+        "question": "Which situation illustrates Feedforward?",
+        "options": [
+          "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+          "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+          "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+          "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it."
+        ],
+        "correctAnswer": "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+        "explanation": "Feedforward points to the next performance so the person can apply the advice immediately."
+      },
+      {
+        "question": "Which situation illustrates Professional Email?",
+        "options": [
+          "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+          "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+          "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it.",
+          "The heading Leave request 12 May is used instead of a blank subject on a message about that day."
+        ],
+        "correctAnswer": "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+        "explanation": "Professional email is identifiable, polite, and purposeful so a busy reader can act on it."
+      },
+      {
+        "question": "Which situation illustrates Email Subject Line?",
+        "options": [
+          "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+          "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it.",
+          "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+          "On day one the intern is shown the fire exits, the assembly point, and how to report a spill."
+        ],
+        "correctAnswer": "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+        "explanation": "The subject line is a specific heading that helps the recipient sort and retrieve the message."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Carbon Copy?",
+        "options": [
+          "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+          "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+          "On day one the intern is shown the fire exits, the assembly point, and how to report a spill.",
+          "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it."
+        ],
+        "correctAnswer": "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it.",
+        "explanation": "Carbon copy informs secondary readers, while the To field holds the person expected to act."
+      },
+      {
+        "question": "Which situation illustrates Reply All?",
+        "options": [
+          "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation.",
+          "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+          "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+          "On day one the intern is shown the fire exits, the assembly point, and how to report a spill."
+        ],
+        "correctAnswer": "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+        "explanation": "Reply all widens the audience to every listed recipient, so it should be used only when each person needs the response."
+      },
+      {
+        "question": "Which situation illustrates Health and Safety Induction?",
+        "options": [
+          "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+          "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation.",
+          "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+          "On day one the intern is shown the fire exits, the assembly point, and how to report a spill."
+        ],
+        "correctAnswer": "On day one the intern is shown the fire exits, the assembly point, and how to report a spill.",
+        "explanation": "Health and safety induction is the opening briefing that tells a new person how to stay safe on that site."
+      },
+      {
+        "question": "Which situation illustrates Hazard?",
+        "options": [
+          "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt.",
+          "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+          "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+          "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation."
+        ],
+        "correctAnswer": "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+        "explanation": "A hazard is the source that could cause harm; risk also considers how likely and severe that harm is."
+      },
+      {
+        "question": "Which situation illustrates Workplace Risk Assessment?",
+        "options": [
+          "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation.",
+          "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+          "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt.",
+          "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed."
+        ],
+        "correctAnswer": "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation.",
+        "explanation": "A risk assessment examines hazards, people, severity, and controls rather than assuming past luck will continue."
+      },
+      {
+        "question": "Which situation illustrates Personal Protective Equipment?",
+        "options": [
+          "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs.",
+          "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt.",
+          "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+          "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction."
+        ],
+        "correctAnswer": "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+        "explanation": "Personal protective equipment reduces remaining risk to the wearer and does not replace removing the hazard where that is reasonable."
+      },
+      {
+        "question": "Which situation illustrates Near Miss?",
+        "options": [
+          "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs.",
+          "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+          "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+          "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt."
+        ],
+        "correctAnswer": "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt.",
+        "explanation": "A near miss is an event that nearly caused harm and is reported so the next occurrence can be prevented."
+      },
+      {
+        "question": "Which situation illustrates Emergency Procedure?",
+        "options": [
+          "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+          "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+          "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+          "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs."
+        ],
+        "correctAnswer": "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+        "explanation": "An emergency procedure is the pre-agreed response, including alarm, evacuation, and accounting for people."
+      },
+      {
+        "question": "Which situation illustrates Workplace Orientation?",
+        "options": [
+          "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday.",
+          "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+          "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+          "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs."
+        ],
+        "correctAnswer": "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs.",
+        "explanation": "Orientation introduces the newcomer to the actual workplace so they can start work safely."
+      },
+      {
+        "question": "Which situation illustrates Mentor?",
+        "options": [
+          "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal.",
+          "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+          "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+          "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday."
+        ],
+        "correctAnswer": "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+        "explanation": "A mentor advises informally; the supervisor remains the person who assigns and assesses official work."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Task Log?",
+        "options": [
+          "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+          "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal.",
+          "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+          "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday."
+        ],
+        "correctAnswer": "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+        "explanation": "A task log records completed and current placement work so the intern can evidence what was done."
+      },
+      {
+        "question": "Which situation illustrates Weekly Report?",
+        "options": [
+          "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday.",
+          "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+          "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap.",
+          "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal."
+        ],
+        "correctAnswer": "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday.",
+        "explanation": "A weekly report keeps the supervisor informed of progress, problems, and the immediate plan."
+      },
+      {
+        "question": "Which situation illustrates Internship Portfolio?",
+        "options": [
+          "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+          "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal.",
+          "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+          "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap."
+        ],
+        "correctAnswer": "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal.",
+        "explanation": "A portfolio selects evidence that the intern met the learning objectives, without removing confidential material improperly."
+      },
+      {
+        "question": "Which situation illustrates SMART Objective?",
+        "options": [
+          "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+          "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch.",
+          "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap.",
+          "Document ten live switches to the team template by 30 June is used instead of get better at networks."
+        ],
+        "correctAnswer": "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+        "explanation": "SMART is a test of whether a goal is specific, measurable, achievable, relevant, and time-bound."
+      },
+      {
+        "question": "Which situation illustrates Skill Gap?",
+        "options": [
+          "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch.",
+          "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+          "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap.",
+          "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving."
+        ],
+        "correctAnswer": "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap.",
+        "explanation": "A skill gap is the missing capability between current skill and what the work requires."
+      },
+      {
+        "question": "Which situation illustrates Professional Boundary?",
+        "options": [
+          "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving.",
+          "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix.",
+          "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+          "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch."
+        ],
+        "correctAnswer": "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+        "explanation": "Professional boundaries keep the intern's relationships and decisions inside the authority of the role."
+      },
+      {
+        "question": "Which situation illustrates Asking for Help?",
+        "options": [
+          "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+          "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch.",
+          "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix.",
+          "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving."
+        ],
+        "correctAnswer": "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch.",
+        "explanation": "Asking for help at the right time prevents harmful guesses while the intern still attempts the work they can do."
+      },
+      {
+        "question": "Which situation illustrates Meeting Etiquette?",
+        "options": [
+          "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix.",
+          "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+          "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving.",
+          "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead."
+        ],
+        "correctAnswer": "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving.",
+        "explanation": "Meeting etiquette helps the group reach and record decisions without excluding people."
+      },
+      {
+        "question": "Which situation illustrates Active Listening?",
+        "options": [
+          "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+          "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead.",
+          "The intern may close low-priority tickets but must ask before rebooting a production server.",
+          "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix."
+        ],
+        "correctAnswer": "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix.",
+        "explanation": "Active listening checks understanding of the other person's message before you respond."
+      },
+      {
+        "question": "Which situation illustrates Note-Taking?",
+        "options": [
+          "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead.",
+          "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+          "The intern may close low-priority tickets but must ask before rebooting a production server.",
+          "When a client demands a production change, the intern stops and tells the supervisor rather than making the change."
+        ],
+        "correctAnswer": "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+        "explanation": "Notes capture decisions and actions so they can be checked and done, while still respecting confidentiality."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Deadline Commitment?",
+        "options": [
+          "When a client demands a production change, the intern stops and tells the supervisor rather than making the change.",
+          "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+          "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead.",
+          "The intern may close low-priority tickets but must ask before rebooting a production server."
+        ],
+        "correctAnswer": "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead.",
+        "explanation": "A deadline commitment should be realistic and, once made, should be kept or renegotiated early."
+      },
+      {
+        "question": "Which situation illustrates Scope of Authority?",
+        "options": [
+          "The team agrees that questions in the project channel get a reply the same working day.",
+          "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+          "When a client demands a production change, the intern stops and tells the supervisor rather than making the change.",
+          "The intern may close low-priority tickets but must ask before rebooting a production server."
+        ],
+        "correctAnswer": "The intern may close low-priority tickets but must ask before rebooting a production server.",
+        "explanation": "Scope of authority is the set of actions already delegated to the intern; other actions need approval."
+      },
+      {
+        "question": "Which situation illustrates Workplace Escalation?",
+        "options": [
+          "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+          "When a client demands a production change, the intern stops and tells the supervisor rather than making the change.",
+          "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+          "The team agrees that questions in the project channel get a reply the same working day."
+        ],
+        "correctAnswer": "When a client demands a production change, the intern stops and tells the supervisor rather than making the change.",
+        "explanation": "Escalation at work takes an unresolved or unsafe problem to the person who can act."
+      },
+      {
+        "question": "Which situation illustrates Workplace Disagreement?",
+        "options": [
+          "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+          "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for.",
+          "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+          "The team agrees that questions in the project channel get a reply the same working day."
+        ],
+        "correctAnswer": "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+        "explanation": "A workplace disagreement should be addressed early and through the proper person, without public insult."
+      },
+      {
+        "question": "Which situation illustrates Team Norms?",
+        "options": [
+          "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for.",
+          "The team agrees that questions in the project channel get a reply the same working day.",
+          "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective.",
+          "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day."
+        ],
+        "correctAnswer": "The team agrees that questions in the project channel get a reply the same working day.",
+        "explanation": "Team norms are the expectations the team itself agrees, such as how quickly messages are answered."
+      },
+      {
+        "question": "Which situation illustrates Receiving Feedback?",
+        "options": [
+          "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+          "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for.",
+          "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+          "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective."
+        ],
+        "correctAnswer": "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+        "explanation": "Receiving feedback well means understanding the expected change and then applying it."
+      },
+      {
+        "question": "Which situation illustrates Self-Assessment?",
+        "options": [
+          "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective.",
+          "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+          "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+          "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for."
+        ],
+        "correctAnswer": "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for.",
+        "explanation": "Self-assessment is the intern's evidence-based judgement of their own progress toward the agreed objectives."
+      },
+      {
+        "question": "Which situation illustrates Final Internship Report?",
+        "options": [
+          "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+          "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+          "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+          "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective."
+        ],
+        "correctAnswer": "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective.",
+        "explanation": "The final report pulls duties, evidence, and reflection together against the objectives agreed at the start."
+      },
+      {
+        "question": "Which situation illustrates Handover Note?",
+        "options": [
+          "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+          "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+          "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+          "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals."
+        ],
+        "correctAnswer": "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+        "explanation": "A handover note lets the next person continue unfinished work without guessing where things stand."
+      },
+      {
+        "question": "Which situation illustrates Professional Reference?",
+        "options": [
+          "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+          "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+          "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+          "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals."
+        ],
+        "correctAnswer": "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+        "explanation": "A professional reference is the supervisor's truthful account of observed work, not a self-written endorsement."
+      }
+    ],
+    "11": [
+      {
+        "question": "The placement plan says have a good time and names no capability. Which replacement is a learning objective?",
+        "options": [
+          "Have a good experience",
+          "Help the firm raise quarterly profit",
+          "Work thirty-five hours each week",
+          "Be able to configure a switch using the team checklist by week ten"
+        ],
+        "correctAnswer": "Be able to configure a switch using the team checklist by week ten",
+        "explanation": "A learning objective states a specific ability the intern should have by a stated point."
+      },
+      {
+        "question": "Goals and weekly supervision must be agreed by you, the host, and the university before the placement. Which document records that?",
+        "options": [
+          "A private note nobody else sees",
+          "The company's financial statement",
+          "The learning agreement",
+          "The bus timetable"
+        ],
+        "correctAnswer": "The learning agreement",
+        "explanation": "The learning agreement is the shared written plan of goals, duties, and supervision."
+      },
+      {
+        "question": "Someone at the host must assign today's ticket and review it later. Which role is that?",
+        "options": [
+          "The receptionist who only issues badges",
+          "The university tutor who is not on site",
+          "A friend with no role at the host",
+          "The workplace supervisor"
+        ],
+        "correctAnswer": "The workplace supervisor",
+        "explanation": "The workplace supervisor assigns host work and reviews it during the placement."
+      },
+      {
+        "question": "The mid-placement report must be judged against university learning goals. Which person is responsible for that academic check?",
+        "options": [
+          "The host employee who assigns tickets",
+          "The external client",
+          "The academic supervisor",
+          "A classmate on another placement"
+        ],
+        "correctAnswer": "The academic supervisor",
+        "explanation": "The academic supervisor monitors and assesses the placement against university requirements."
+      },
+      {
+        "question": "You need a set time to review blockers and agree next week's tasks with your supervisor. Which event is that?",
+        "options": [
+          "A supervision meeting",
+          "The building fire drill",
+          "A silent desk session",
+          "A social lunch with no work discussed"
+        ],
+        "correctAnswer": "A supervision meeting",
+        "explanation": "A supervision meeting is the scheduled review of progress, problems, and upcoming tasks."
+      },
+      {
+        "question": "You are late without warning and joke about a client on a call. Which standard have you missed?",
+        "options": [
+          "Workplace conduct",
+          "The right to ignore start times as if at a party",
+          "A weekend hobby that does not affect work",
+          "A cable-colour standard"
+        ],
+        "correctAnswer": "Workplace conduct",
+        "explanation": "Punctuality and respectful behaviour toward clients are part of workplace conduct."
+      },
+      {
+        "question": "A cancelled train will make you late for the standup. Which action shows punctuality?",
+        "options": [
+          "Warn the supervisor before the meeting",
+          "Arrive when convenient and say nothing",
+          "Apologise only after the client meeting was missed",
+          "Skip the warning because weekly hours will balance"
+        ],
+        "correctAnswer": "Warn the supervisor before the meeting",
+        "explanation": "Punctuality includes early warning when an agreed time cannot be met."
+      },
+      {
+        "question": "Induction says client-site days require smart clothes and a visitor badge, not gym wear. Which choice meets professional dress?",
+        "options": [
+          "Gym wear because it is comfortable",
+          "Smart clothes and the visitor badge",
+          "A costume that covers the required safety vest",
+          "Another company's uniform"
+        ],
+        "correctAnswer": "Smart clothes and the visitor badge",
+        "explanation": "Professional dress follows the host's stated standard for that day's duties."
+      },
+      {
+        "question": "Friends ask for details of a client's outage that is not public. Which response keeps workplace confidentiality?",
+        "options": [
+          "Decline and keep the details private",
+          "Share it because interns are exempt",
+          "Discuss the live incident in a crowded cafe",
+          "Describe the outage for your portfolio blog"
+        ],
+        "correctAnswer": "Decline and keep the details private",
+        "explanation": "Workplace confidentiality forbids sharing non-public client information with unauthorised people."
+      },
+      {
+        "question": "You want a client export at home tonight. Policy allows only the approved drive. Which action is correct client data handling?",
+        "options": [
+          "Leave the export on the approved drive",
+          "Paste the records into a private chat",
+          "Print it and read it on the train",
+          "Copy it to a personal laptop"
+        ],
+        "correctAnswer": "Leave the export on the approved drive",
+        "explanation": "Client data handling means using only the storage and transfer methods the workplace policy allows."
+      }
+    ],
+    "12": [
+      {
+        "question": "A client call went badly because you never confirmed the goal. Which note shows reflection?",
+        "options": [
+          "A decision to forget the call",
+          "Next time confirm the goal at the start",
+          "A copied task list with no lesson",
+          "A note that only blames the client and changes nothing"
+        ],
+        "correctAnswer": "Next time confirm the goal at the start",
+        "explanation": "Reflection turns the experience into a specific change for next time."
+      },
+      {
+        "question": "The tutor wants weekly evidence of what you learned, not only hours worked. Which record fits?",
+        "options": [
+          "A timesheet of hours only",
+          "A reflective journal",
+          "A public post about a client",
+          "The audited accounts"
+        ],
+        "correctAnswer": "A reflective journal",
+        "explanation": "A reflective journal regularly records experiences, lessons, and next steps."
+      },
+      {
+        "question": "You must structure a reflection from what happened through to a next action. Which sequence matches Gibbs' cycle?",
+        "options": [
+          "Null, test, and p-value",
+          "Design, build, and test",
+          "Alarm, exit, and assembly point only",
+          "Description, feelings, evaluation, analysis, conclusion, action plan"
+        ],
+        "correctAnswer": "Description, feelings, evaluation, analysis, conclusion, action plan",
+        "explanation": "Gibbs' reflective cycle moves from description and feelings through evaluation and analysis to a conclusion and action plan."
+      },
+      {
+        "question": "The university asks for proof of the hours you worked each day. Which record should you submit?",
+        "options": [
+          "A payslip you did not create",
+          "A feelings essay with no hours",
+          "The company Gantt chart",
+          "A timesheet"
+        ],
+        "correctAnswer": "A timesheet",
+        "explanation": "A timesheet is the record of hours worked, used to verify attendance and effort."
+      },
+      {
+        "question": "The faculty must confirm you were present for the required days, aside from notified absence. Which log is checked?",
+        "options": [
+          "The canteen menu",
+          "The attendance record",
+          "A list of installed software",
+          "A journal of technical lessons"
+        ],
+        "correctAnswer": "The attendance record",
+        "explanation": "The attendance record logs days present, absent, or late against the placement requirement."
+      },
+      {
+        "question": "You need to know how your diagram was judged and what to change. Which message is feedback?",
+        "options": [
+          "The diagram is accurate, but the labels are too small to read",
+          "Your salary is stated in the contract",
+          "An out-of-office reply",
+          "Nice work, with no further detail"
+        ],
+        "correctAnswer": "The diagram is accurate, but the labels are too small to read",
+        "explanation": "Feedback gives information about quality and a specific improvement."
+      },
+      {
+        "question": "A draft missed the risk section. Which comment is constructive feedback?",
+        "options": [
+          "Add the risk section in Friday's draft",
+          "You are careless as a person",
+          "Good job, with no detail",
+          "No comment after the failed draft"
+        ],
+        "correctAnswer": "Add the risk section in Friday's draft",
+        "explanation": "Constructive feedback names the gap and the expected change without attacking the person."
+      },
+      {
+        "question": "Tomorrow's client call has not happened. The supervisor tells you to restate the goal in the first minute. Which label fits that advice?",
+        "options": [
+          "A timesheet of past hours",
+          "A complaint with no transferable point",
+          "Feedforward",
+          "A final mark with no advice"
+        ],
+        "correctAnswer": "Feedforward",
+        "explanation": "Advice aimed at the next piece of work is feedforward."
+      },
+      {
+        "question": "You must ask your supervisor a question by email. Which message is professional?",
+        "options": [
+          "An all-capitals chat line with no context",
+          "A nickname text with no sign-off",
+          "Hey plus an unexplained attachment",
+          "A clear subject, greeting, one question, and your full name"
+        ],
+        "correctAnswer": "A clear subject, greeting, one question, and your full name",
+        "explanation": "A professional email states the topic, is courteous, gives the purpose, and shows who sent it."
+      },
+      {
+        "question": "You are requesting leave on 12 May. Which subject line helps the supervisor find the message later?",
+        "options": [
+          "A blank subject",
+          "Leave request 12 May",
+          "Hello",
+          "The entire email body copied into the subject"
+        ],
+        "correctAnswer": "Leave request 12 May",
+        "explanation": "A subject line should state the specific topic so the message can be prioritised and found."
+      }
+    ],
+    "13": [
+      {
+        "question": "The supervisor must act, and the tutor should see the request but is not asked to act. Where should the tutor's address go?",
+        "options": [
+          "On carbon copy",
+          "On a hidden copy so the supervisor cannot see the tutor",
+          "As the only To recipient, with the supervisor omitted",
+          "On a paper photocopy instead of the email"
+        ],
+        "correctAnswer": "On carbon copy",
+        "explanation": "Carbon copy is for someone who should see the email but is not the primary actor."
+      },
+      {
+        "question": "One manager asks you a private question on a twenty-person thread, and the others do not need the answer. Which action fits?",
+        "options": [
+          "Forward the private answer to an unrelated department",
+          "Reply all with the private answer",
+          "Delete the thread so nobody can read the question",
+          "Reply only to that manager"
+        ],
+        "correctAnswer": "Reply only to that manager",
+        "explanation": "Reply all is appropriate only when every recipient needs the response, which they do not here."
+      },
+      {
+        "question": "It is day one and you do not know the fire exit or how to report a spill. Which briefing should you complete first?",
+        "options": [
+          "A software tutorial with no site safety",
+          "A cafe tour",
+          "The health and safety induction",
+          "The end-of-placement review"
+        ],
+        "correctAnswer": "The health and safety induction",
+        "explanation": "Health and safety induction covers hazards, emergency routes, and reporting before other work."
+      },
+      {
+        "question": "A power cable lies across a busy walkway and could trip someone. Which term names the cable in that state?",
+        "options": [
+          "A hazard",
+          "A clear walkway",
+          "The company's annual profit",
+          "A completed incident form"
+        ],
+        "correctAnswer": "A hazard",
+        "explanation": "A hazard is something that can cause harm, such as a cable that could trip a person."
+      },
+      {
+        "question": "Interns will enter a lab with chemicals. Which process should identify who could be harmed and which controls are required?",
+        "options": [
+          "Assuming safety because yesterday was quiet",
+          "A workplace risk assessment",
+          "Listing chemicals and stopping there",
+          "A personal reflection on a meeting"
+        ],
+        "correctAnswer": "A workplace risk assessment",
+        "explanation": "A risk assessment examines hazards, who could be harmed, and the controls required."
+      },
+      {
+        "question": "A lab still has a splash risk after containers are kept closed. Which extra control is personal protective equipment?",
+        "options": [
+          "A longer computer password",
+          "Wearing goggles",
+          "Ignoring the splash because goggles exist somewhere",
+          "A fashionable hat with no safety rating"
+        ],
+        "correctAnswer": "Wearing goggles",
+        "explanation": "Goggles are equipment worn to reduce the remaining splash risk."
+      },
+      {
+        "question": "A box falls and misses a colleague, so nobody is hurt. Which action treats the event correctly?",
+        "options": [
+          "Wait until someone is actually injured",
+          "Report the near miss so the shelf can be fixed",
+          "Record it as a completed fire drill",
+          "Ignore it because there was no injury"
+        ],
+        "correctAnswer": "Report the near miss so the shelf can be fixed",
+        "explanation": "A near miss should be reported so controls improve before harm occurs."
+      },
+      {
+        "question": "The fire alarm sounds. Which sequence follows a typical emergency procedure?",
+        "options": [
+          "Finish the email first",
+          "Stay to make coffee for the team",
+          "Leave by the stairs and go to the assembly point",
+          "Use the lift so you can carry the laptop"
+        ],
+        "correctAnswer": "Leave by the stairs and go to the assembly point",
+        "explanation": "The emergency procedure is to evacuate by the safe route and account for people at the assembly point."
+      },
+      {
+        "question": "On the first morning you do not know the team, the tool store, or the standup time. Which activity should supply that?",
+        "options": [
+          "Workplace orientation",
+          "A map of another city",
+          "A final reference",
+          "An exam before you see the site"
+        ],
+        "correctAnswer": "Workplace orientation",
+        "explanation": "Workplace orientation introduces the site, people, tools, and routines."
+      },
+      {
+        "question": "You want informal advice on how this team writes tickets, separate from the person who grades you. Which person fits?",
+        "options": [
+          "A client who receives the work",
+          "A stranger from a conference",
+          "A mentor",
+          "Only the manager who conducts the formal review"
+        ],
+        "correctAnswer": "A mentor",
+        "explanation": "A mentor gives informal guidance and is distinct from the supervisor who assigns and assesses."
+      }
+    ],
+    "14": [
+      {
+        "question": "The tutor asks for evidence of the tasks you actually completed, with dates. Which record fits?",
+        "options": [
+          "The five-year strategy",
+          "A log of personal errands",
+          "A wishlist of tasks never started",
+          "A task log"
+        ],
+        "correctAnswer": "A task log",
+        "explanation": "A task log lists work undertaken with dates and outcomes."
+      },
+      {
+        "question": "Your supervisor wants each Friday's completed work, blockers, and Monday's plan. Which document is that?",
+        "options": [
+          "A weekly report",
+          "The shareholder annual report",
+          "A social-media story",
+          "The final degree thesis"
+        ],
+        "correctAnswer": "A weekly report",
+        "explanation": "A weekly report summarises completed work, problems, and the next week's plan."
+      },
+      {
+        "question": "The tutor wants proof you met the switch-configuration goal, without raw client data. Which set fits?",
+        "options": [
+          "Only a timesheet",
+          "A portfolio with a redacted sample, feedback, and a reflection",
+          "A folder of confidential client files",
+          "The host's marketing brochure"
+        ],
+        "correctAnswer": "A portfolio with a redacted sample, feedback, and a reflection",
+        "explanation": "An internship portfolio curates evidence of learning, such as samples, feedback, and reflection."
+      },
+      {
+        "question": "Which placement goal is SMART?",
+        "options": [
+          "Become perfect at every technology by tomorrow",
+          "Document ten switches to the team template by 30 June",
+          "Learn networking someday",
+          "Learn to cook during the placement"
+        ],
+        "correctAnswer": "Document ten switches to the team template by 30 June",
+        "explanation": "The switch goal is specific, measurable, realistic for the role, relevant, and dated."
+      },
+      {
+        "question": "The role needs basic SQL and you have never written a query. Which description fits that difference?",
+        "options": [
+          "A skill gap",
+          "A missing page in a novel",
+          "The age difference with the supervisor",
+          "A hole in the office fence"
+        ],
+        "correctAnswer": "A skill gap",
+        "explanation": "The difference between required SQL skill and current skill is a skill gap."
+      },
+      {
+        "question": "A client asks you to approve a discount you were told only a manager may approve. Which response respects the professional boundary?",
+        "options": [
+          "Ask the client to keep the approval secret",
+          "Decline and refer the request to the supervisor",
+          "Approve it to seem helpful",
+          "Share your personal finances with the client while deciding"
+        ],
+        "correctAnswer": "Decline and refer the request to the supervisor",
+        "explanation": "The boundary of the role excludes approving a discount, so the intern must refer it."
+      },
+      {
+        "question": "You are unsure which VLAN a live switch port should use. Which action is the right request for help?",
+        "options": [
+          "Wait until a client outage proves the guess was wrong",
+          "Ask the supervisor before changing the live port",
+          "Guess on the live switch and tell nobody",
+          "Give the whole placement back on day one"
+        ],
+        "correctAnswer": "Ask the supervisor before changing the live port",
+        "explanation": "Asking before changing live equipment avoids a harmful guess on work beyond current certainty."
+      },
+      {
+        "question": "You are invited to a client meeting with an agenda. Which behaviour matches meeting etiquette?",
+        "options": [
+          "Read unrelated messages throughout",
+          "Read the agenda, take your turn, and confirm your action",
+          "Arrive late and interrupt",
+          "Hide the decision inside jokes"
+        ],
+        "correctAnswer": "Read the agenda, take your turn, and confirm your action",
+        "explanation": "Meeting etiquette means being prepared, sharing the floor, and leaving with clear actions."
+      },
+      {
+        "question": "A client describes a fault. Which response shows active listening?",
+        "options": [
+          "Agree to a fix you did not hear",
+          "Restate the symptoms and ask if that summary is right",
+          "Type an unrelated message while they speak",
+          "Wait only to repeat your own idea"
+        ],
+        "correctAnswer": "Restate the symptoms and ask if that summary is right",
+        "explanation": "Active listening checks that you understood what was said before you act on it."
+      },
+      {
+        "question": "The standup assigns you two actions with deadlines. Which note-taking practice is sound?",
+        "options": [
+          "Write the actions, owners, and deadlines, then confirm them",
+          "Leave a public notebook of client secrets behind",
+          "Doodle and record no actions",
+          "Rely on memory alone"
+        ],
+        "correctAnswer": "Write the actions, owners, and deadlines, then confirm them",
+        "explanation": "Useful notes record the decisions and actions so they can be confirmed and followed up."
+      }
+    ],
+    "15": [
+      {
+        "question": "You are asked for a report tomorrow morning, but testing cannot finish until noon. Which response is a sound deadline commitment?",
+        "options": [
+          "Slip the date secretly",
+          "Accept the morning and then ignore it",
+          "Promise tomorrow morning knowing you will miss it",
+          "Offer a realistic end-of-day delivery and agree that"
+        ],
+        "correctAnswer": "Offer a realistic end-of-day delivery and agree that",
+        "explanation": "A deadline should be agreed only when it is realistic, and then honoured."
+      },
+      {
+        "question": "You may close low-priority tickets, but a reboot of production was not delegated. Which action stays inside your authority?",
+        "options": [
+          "Approve a budget change",
+          "Sign a contract for the company",
+          "Close the low-priority ticket",
+          "Reboot production because a client asked"
+        ],
+        "correctAnswer": "Close the low-priority ticket",
+        "explanation": "Scope of authority includes only the actions delegated to the intern, such as closing low-priority tickets."
+      },
+      {
+        "question": "A client demands a production change you are not allowed to make. Which step is proper workplace escalation?",
+        "options": [
+          "Tell the supervisor and wait for a decision",
+          "Make the change so the client is happy",
+          "Ask a friend outside the company to log in and do it",
+          "Post the argument publicly first"
+        ],
+        "correctAnswer": "Tell the supervisor and wait for a decision",
+        "explanation": "Escalation means taking a problem you cannot properly resolve to the supervisor who can."
+      },
+      {
+        "question": "You and another intern disagree about who owns a ticket, and the client chat is not the place to argue. Which step fits?",
+        "options": [
+          "Refuse all further tasks",
+          "Insult the other intern in the client chat",
+          "Ask the supervisor to decide ownership calmly",
+          "Ignore the block until the deadline fails"
+        ],
+        "correctAnswer": "Ask the supervisor to decide ownership calmly",
+        "explanation": "A disagreement about task ownership should be raised calmly with the person who can resolve it."
+      },
+      {
+        "question": "The team has agreed that project-channel questions get a same-day reply. Which idea is that agreement?",
+        "options": [
+          "A law the team never discussed",
+          "A private habit nobody else accepted",
+          "A software default the team does not follow",
+          "A team norm"
+        ],
+        "correctAnswer": "A team norm",
+        "explanation": "A shared expectation about how the team communicates is a team norm."
+      },
+      {
+        "question": "Your supervisor says the diagram labels are too small for the client. Which response receives that feedback well?",
+        "options": [
+          "Argue before asking what size is needed",
+          "Agree and submit the same labels again",
+          "Treat the comment as an attack on your worth",
+          "Confirm the size required and update the diagram"
+        ],
+        "correctAnswer": "Confirm the size required and update the diagram",
+        "explanation": "Receiving feedback means clarifying the expected change and applying it."
+      },
+      {
+        "question": "You must judge your own progress on the switch goal using placement evidence. Which statement is self-assessment?",
+        "options": [
+          "A classmate's assessment copied over",
+          "A claim of excellence with no example",
+          "The supervisor's mark alone",
+          "Four of the ten switches are documented, so the goal is partly met"
+        ],
+        "correctAnswer": "Four of the ten switches are documented, so the goal is partly met",
+        "explanation": "Self-assessment uses your own examples to judge progress against the objective."
+      },
+      {
+        "question": "The faculty wants one end document covering duties, evidence, and reflection on the agreed goals. Which document is that?",
+        "options": [
+          "The host's sales brochure",
+          "A one-line hours total",
+          "Only the first standup note",
+          "The final internship report"
+        ],
+        "correctAnswer": "The final internship report",
+        "explanation": "The final internship report brings together duties, learning evidence, and reflection."
+      },
+      {
+        "question": "You are leaving with two tickets still open. Which document lets the next person continue them?",
+        "options": [
+          "Deleting the folder without explanation",
+          "A handover note with status, file paths, and the remaining test",
+          "Rewriting the company strategy",
+          "A goodbye card with no status"
+        ],
+        "correctAnswer": "A handover note with status, file paths, and the remaining test",
+        "explanation": "A handover note states unfinished work, where the files are, and what still needs attention."
+      },
+      {
+        "question": "A future employer asks your supervisor about your placement. Which reference is professional?",
+        "options": [
+          "A classmate's social-media reaction",
+          "A truthful account of conduct and work the supervisor observed",
+          "A promise to hide poor attendance",
+          "A reference you write and sign as the supervisor"
+        ],
+        "correctAnswer": "A truthful account of conduct and work the supervisor observed",
+        "explanation": "A professional reference is the supervisor's truthful statement about observed conduct and performance."
+      }
+    ]
+  }
+}

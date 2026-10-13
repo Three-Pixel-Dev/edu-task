@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Spatial locality",
+    "definition": "The tendency of a program to access memory addresses close to those it used recently.",
+    "wrongs": [
+      "The tendency to reuse the exact same address many times in a short interval.",
+      "A cache policy that updates main memory on every store.",
+      "A page-table bit that marks a page as recently referenced."
+    ],
+    "why": "Nearby addresses are often needed together, so a cache fetches a whole line rather than a single word.",
+    "example": "A loop reads pixels left to right, so the next pixel often arrives in the line fetched for the current one.",
+    "scenario": "A scan of an array misses less often after the line size grows from 4 bytes to 64 bytes. Which locality does the larger line exploit?",
+    "scenarioAnswer": "Spatial locality",
+    "scenarioWrongs": ["Temporal locality", "Write locality", "Instruction locality alone"],
+    "scenarioWhy": "Consecutive elements share a cache line, so one miss supplies several later sequential accesses."
+  },
+  {
+    "term": "Temporal locality",
+    "definition": "The tendency of a program to reference the same memory location again soon after using it.",
+    "wrongs": [
+      "The tendency to access addresses that sit next to the last address used.",
+      "A guarantee that every instruction finishes in one clock cycle.",
+      "The time a block spends waiting in a write buffer."
+    ],
+    "why": "A value used recently is likely to be needed again, so keeping it in a fast cache avoids another trip to memory.",
+    "example": "A loop accumulator is read and written on every iteration, so its latest value stays in a register or in L1.",
+    "scenario": "A tight loop updates one accumulator a million times and almost never misses on that variable. Which locality explains the hits?",
+    "scenarioAnswer": "Temporal locality",
+    "scenarioWrongs": ["Spatial locality", "Compulsory misses", "False sharing"],
+    "scenarioWhy": "The accumulator is reused immediately, so the copy already in cache satisfies the later accesses."
+  },
+  {
+    "term": "Cache hit",
+    "definition": "A memory access that finds its data in the cache and returns it without using the next memory level.",
+    "wrongs": [
+      "A memory access that must be fetched from main memory because no valid copy is cached.",
+      "A store that updates main memory and the cache in the same cycle by policy.",
+      "A translation that misses in the TLB and starts a page-table walk."
+    ],
+    "why": "A valid line whose tag matches the requested address already holds the data the CPU needs.",
+    "example": "The second load of a stack variable in one function returns from L1 in a few cycles.",
+    "scenario": "A load finds a valid tag match in the selected cache set. How is that access classified?",
+    "scenarioAnswer": "Cache hit",
+    "scenarioWrongs": ["Cache miss", "Page fault", "TLB shootdown"],
+    "scenarioWhy": "A valid matching tag means the requested block is already resident in the cache."
+  },
+  {
+    "term": "Cache miss",
+    "definition": "A memory access whose block is not valid in the cache, so the block must be fetched from a lower level.",
+    "wrongs": [
+      "A memory access satisfied entirely from a valid matching cache line.",
+      "A branch whose direction was guessed correctly.",
+      "A disk transfer performed entirely by a DMA controller."
+    ],
+    "why": "Without a valid matching line, the cache cannot supply the data and must fill from the next level.",
+    "example": "The first reference to a cold array element brings a line in from DRAM.",
+    "scenario": "The tag compare fails for every way in the set. What must happen before the load can complete?",
+    "scenarioAnswer": "The block is fetched from the next memory level",
+    "scenarioWrongs": ["The data is returned from a matching line", "The TLB is flushed", "The branch predictor is warmed"],
+    "scenarioWhy": "No valid tag matched the address, so the block is absent and has to be filled."
+  },
+  {
+    "term": "Compulsory miss",
+    "definition": "A cache miss on the first reference to a block that has never been loaded.",
+    "wrongs": [
+      "A miss caused because the working set is larger than the cache.",
+      "A miss caused because several live blocks map to the same set.",
+      "A miss caused by writing a dirty line back to memory."
+    ],
+    "why": "A block that has never been touched cannot already be cached, so its first reference misses.",
+    "example": "After a cold start, the first instruction fetch of main misses even though the cache still has empty lines.",
+    "scenario": "An empty cache misses on the first touch of every new block, and a larger cache does not remove those misses. Which miss type is that?",
+    "scenarioAnswer": "Compulsory miss",
+    "scenarioWrongs": ["Capacity miss", "Conflict miss", "Coherence miss"],
+    "scenarioWhy": "Those blocks were never resident, so the first reference misses regardless of capacity or associativity."
+  },
+  {
+    "term": "Capacity miss",
+    "definition": "A cache miss that occurs because the working set does not fit, even if the cache is fully associative.",
+    "wrongs": [
+      "A miss on the very first reference to a block that was never cached.",
+      "A miss caused only by two blocks colliding in one direct-mapped line.",
+      "A miss caused by a stale translation in the TLB."
+    ],
+    "why": "A fully associative cache of the same size would still have to evict a live block, so the miss is due to capacity.",
+    "example": "A matrix multiply whose working set is 2 MB keeps thrashing a 32 KB L1 cache however the lines are mapped.",
+    "scenario": "Misses remain after a direct-mapped cache is replaced by a fully associative cache of the same size. Which miss type remains?",
+    "scenarioAnswer": "Capacity miss",
+    "scenarioWrongs": ["Conflict miss", "Compulsory miss", "Structural hazard"],
+    "scenarioWhy": "Full associativity removes mapping conflicts, so leftover misses mean the working set exceeds the cache."
+  },
+  {
+    "term": "Conflict miss",
+    "definition": "A miss caused when too many live blocks map to one set even though other lines in the cache are unused.",
+    "wrongs": [
+      "A miss that remains even in a fully associative cache of the same size.",
+      "A miss on the first reference to a block that was never cached.",
+      "A miss caused by two cores writing the same shared variable."
+    ],
+    "why": "The placement rule confines the block to a set that is already full of other live blocks.",
+    "example": "Two hot arrays whose addresses share a direct-mapped index evict each other on every iteration.",
+    "scenario": "A direct-mapped cache thrashes on two blocks, but a fully associative cache of the same size hits on both. Which miss was removed?",
+    "scenarioAnswer": "Conflict miss",
+    "scenarioWrongs": ["Capacity miss", "Compulsory miss", "Page fault"],
+    "scenarioWhy": "The blocks fit in the cache, but direct-mapped placement forced them into the same line."
+  },
+  {
+    "term": "Direct-mapped cache",
+    "definition": "A cache in which each memory block may occupy only one line, selected by index bits.",
+    "wrongs": [
+      "A cache in which a block may occupy any line in the cache.",
+      "A cache in which a block may occupy any of several lines inside one set.",
+      "A cache that stores no tags because every address hits."
+    ],
+    "why": "The index selects exactly one candidate line, so placement uses a single tag comparison.",
+    "example": "Index bits of an address always select line 47, and only that line may hold the block.",
+    "scenario": "A block may reside in exactly one line, and a second block with the same index replaces it. Which organization is this?",
+    "scenarioAnswer": "Direct-mapped",
+    "scenarioWrongs": ["Two-way set-associative", "Fully associative", "Write-back"],
+    "scenarioWhy": "One index maps to one line, so any other block with that index must replace the resident block."
+  },
+  {
+    "term": "Set-associative cache",
+    "definition": "A cache that groups lines into sets and lets a block occupy any line inside its one set.",
+    "wrongs": [
+      "A cache that lets a block occupy any line in the whole cache.",
+      "A cache that assigns each block to exactly one line.",
+      "A cache that has no tags and compares only the block offset."
+    ],
+    "why": "The index selects a set of several ways, which needs more comparators but removes some mapping conflicts.",
+    "example": "In a four-way cache, four blocks that share an index can reside together, and a fifth must replace one.",
+    "scenario": "Each address maps to a set of four lines, and those four tags are compared in parallel. Which organization is this?",
+    "scenarioAnswer": "Four-way set-associative",
+    "scenarioWrongs": ["Direct-mapped", "Fully associative", "Write-through"],
+    "scenarioWhy": "Four ways are searched in the indexed set, which is four-way set associativity."
+  },
+  {
+    "term": "Fully associative cache",
+    "definition": "A cache in which a memory block may be placed in any line, with every tag compared together.",
+    "wrongs": [
+      "A cache in which each block maps to exactly one line.",
+      "A cache that uses an index and never compares more than one tag.",
+      "A cache that writes every store straight to DRAM."
+    ],
+    "why": "There is no index restriction, so a block is rejected only when every line holds something more useful.",
+    "example": "A 64-entry TLB compares all 64 tags and may hold any 64 recent page translations.",
+    "scenario": "A small cache compares the incoming tag with every line and may store the block in any free line. Which organization is this?",
+    "scenarioAnswer": "Fully associative",
+    "scenarioWrongs": ["Direct-mapped", "One-way set-associative", "Write-back"],
+    "scenarioWhy": "Any line is a legal home for the block, so every tag must be compared."
+  },
+  {
+    "term": "Write-through cache",
+    "definition": "A write policy that updates the cache line and the next memory level on every store.",
+    "wrongs": [
+      "A policy that updates only the cache and writes memory when a dirty line is evicted.",
+      "A policy that drops the store when the line is absent and does not update memory.",
+      "A policy that loads a missing block on a read but never accepts stores."
+    ],
+    "why": "Memory sees each new value immediately, so a line does not need a dirty bit for correctness.",
+    "example": "Every store to a frame buffer updates L1 and is also sent onward to DRAM.",
+    "scenario": "Stores never set a dirty bit because main memory is updated on every store. Which write policy is in use?",
+    "scenarioAnswer": "Write-through",
+    "scenarioWrongs": ["Write-back", "Write allocate", "Write combining"],
+    "scenarioWhy": "Memory is kept current on each store, so eviction does not need to write a dirty line."
+  },
+  {
+    "term": "Write-back cache",
+    "definition": "A write policy that updates only the cache and copies a line to memory later if that line is dirty.",
+    "wrongs": [
+      "A policy that writes main memory on every store.",
+      "A policy that caches instructions and never accepts data stores.",
+      "A policy that invalidates a line on every load."
+    ],
+    "why": "Repeated stores hit in the cache, and memory traffic waits until a dirty line is evicted.",
+    "example": "A loop stores to one line a thousand times, and DRAM is written once when that dirty line is replaced.",
+    "scenario": "A line is marked dirty on a store, and DRAM is written only when that line is replaced. Which policy is this?",
+    "scenarioAnswer": "Write-back",
+    "scenarioWrongs": ["Write-through", "No-write-allocate bypass", "Instruction-only caching"],
+    "scenarioWhy": "The dirty bit records that memory is stale and must be updated if the line is evicted."
+  },
+  {
+    "term": "Write allocate",
+    "definition": "A write-miss policy that loads the missing block into the cache and then performs the store.",
+    "wrongs": [
+      "A write-miss policy that updates lower memory and does not load the block into the cache.",
+      "A read policy that bypasses the cache on every load.",
+      "A policy that allocates a physical page on a TLB hit."
+    ],
+    "why": "Bringing the block in lets later reads and writes to that block hit in the cache.",
+    "example": "A store to a cold stack slot misses, the line is filled from DRAM, and the byte is then updated in cache.",
+    "scenario": "A store misses, the cache fetches the block, and only then updates the word. Which write-miss policy is this?",
+    "scenarioAnswer": "Write allocate",
+    "scenarioWrongs": ["Write-no-allocate", "Read allocate", "Dirty bypass"],
+    "scenarioWhy": "The missing block is allocated in the cache so the store can update the cached copy."
+  },
+  {
+    "term": "Cache line",
+    "definition": "The fixed-size block moved and stored as one cache entry, together with its tag and state bits.",
+    "wrongs": [
+      "A single bit stored in a flip-flop inside the ALU.",
+      "The set of wires that carry only interrupt numbers.",
+      "A page-table entry that maps one virtual page."
+    ],
+    "why": "The cache fills, hits, and evicts data in lines so one miss can serve several nearby addresses.",
+    "example": "A 64-byte fill brings in sixteen 32-bit words after a miss on any byte in that aligned block.",
+    "scenario": "A miss on one byte fetches 64 aligned bytes into the cache. What unit was transferred?",
+    "scenarioAnswer": "A cache line",
+    "scenarioWrongs": ["A virtual page", "A register", "A disk sector"],
+    "scenarioWhy": "The cache fill size is one line, so the neighboring bytes in that aligned block come in together."
+  },
+  {
+    "term": "LRU replacement",
+    "definition": "A replacement rule that evicts the line in a set which has gone unused for the longest time.",
+    "wrongs": [
+      "A rule that always evicts the line that was used most recently.",
+      "A rule that evicts a line chosen at random from the entire cache.",
+      "A rule that evicts only invalid lines and never a valid one."
+    ],
+    "why": "Under temporal locality, the line unused the longest is the least likely to be needed soon.",
+    "example": "In a two-way set, the way that was not touched on the previous hit is replaced on the next miss.",
+    "scenario": "A two-way set holds blocks A and B. A was used more recently, and a miss needs a victim. Which block does LRU evict?",
+    "scenarioAnswer": "B",
+    "scenarioWrongs": ["A", "Both A and B", "Neither block"],
+    "scenarioWhy": "B has been unused longer than A, so least-recently-used replacement selects B."
+  },
+  {
+    "term": "Virtual memory",
+    "definition": "A technique that gives each process a private address space mapped onto physical memory and secondary storage.",
+    "wrongs": [
+      "A small CPU cache that holds only the most recently used data line.",
+      "A bus that carries physical addresses from the processor to DRAM.",
+      "A disk layout that stripes blocks across drives with no redundancy."
+    ],
+    "why": "Programs use virtual addresses, and hardware plus the operating system translate them so processes stay isolated.",
+    "example": "Two processes both use address 0x400000, but those pages are mapped to different physical frames.",
+    "scenario": "Each process appears to own a private address space that can be larger than installed RAM. Which mechanism provides that view?",
+    "scenarioAnswer": "Virtual memory",
+    "scenarioWrongs": ["A direct-mapped L1 cache", "RAID 0", "Memory-mapped I/O"],
+    "scenarioWhy": "Page translation gives each process its own addresses backed by frames and disk."
+  },
+  {
+    "term": "Page table",
+    "definition": "A per-process structure that records which physical frame, if any, holds each virtual page.",
+    "wrongs": [
+      "A cache of recent branch target addresses inside the fetch unit.",
+      "A list of dirty cache lines waiting to be written back.",
+      "A table of interrupt-handler addresses in a microcontroller."
+    ],
+    "why": "The memory-management unit uses this table to turn a virtual page number into a frame number and permissions.",
+    "example": "Virtual page 12 is marked present in frame 90, so addresses in that page translate using frame 90.",
+    "scenario": "The MMU needs the frame number and permission bits for virtual page 40. Which structure supplies them?",
+    "scenarioAnswer": "The page table",
+    "scenarioWrongs": ["The branch target buffer", "The reorder buffer", "The register file"],
+    "scenarioWhy": "The page table is the structure that maps virtual pages to frames and access rights."
+  },
+  {
+    "term": "TLB",
+    "definition": "A small cache of recent virtual-to-physical page translations that avoids a full page-table walk.",
+    "wrongs": [
+      "A cache of data lines fetched from DRAM.",
+      "A buffer that holds stores until they commit to disk.",
+      "A predictor that guesses whether a branch is taken."
+    ],
+    "why": "Translation is on the critical path of every memory access, so recent page-table entries are cached beside the MMU.",
+    "example": "After the first load on a page, later loads on that page hit in the TLB and skip the multi-level walk.",
+    "scenario": "A load's page is resident in RAM, but its translation is absent from the MMU cache, so a walk begins. What missed?",
+    "scenarioAnswer": "The TLB",
+    "scenarioWrongs": ["The page, causing a fault", "The branch predictor", "The data-bus grant"],
+    "scenarioWhy": "The page is already in memory, so this is a translation-cache miss rather than a page fault."
+  },
+  {
+    "term": "Page fault",
+    "definition": "An exception raised when a process references a virtual page that is not currently in physical memory.",
+    "wrongs": [
+      "A TLB miss for a page that is already resident in RAM.",
+      "A cache miss that is filled from DRAM without involving the operating system.",
+      "A branch misprediction that flushes the pipeline."
+    ],
+    "why": "The page-table present bit is clear, so the operating system must bring the page in or reject the access.",
+    "example": "The first touch of a new heap page traps, and the operating system allocates a frame before retrying the instruction.",
+    "scenario": "The present bit of the referenced page is clear and the instruction traps to the operating system. Which exception is this?",
+    "scenarioAnswer": "A page fault",
+    "scenarioWrongs": ["A TLB hit", "A cache hit", "A control hazard"],
+    "scenarioWhy": "A clear present bit means the virtual page has no frame, so hardware cannot complete the reference."
+  },
+  {
+    "term": "Demand paging",
+    "definition": "A policy that loads a page from secondary storage only when a reference to that page faults.",
+    "wrongs": [
+      "A policy that copies every page of a program into RAM before the program starts.",
+      "A policy that pins all pages so they can never be evicted.",
+      "A policy that writes every store through to disk immediately."
+    ],
+    "why": "Pages that are never touched consume neither a frame nor a transfer from disk.",
+    "example": "A photo editor starts immediately, and a filter's code page is read from disk only when the user first applies that filter.",
+    "scenario": "A process starts with no code pages resident, and each new page is read from disk on its first reference. Which policy is this?",
+    "scenarioAnswer": "Demand paging",
+    "scenarioWrongs": ["Loading the entire image first", "Pinning every page", "Write-through caching"],
+    "scenarioWhy": "Pages are fetched in response to faults rather than being loaded before execution begins."
+  },
+  {
+    "term": "Instruction pipeline",
+    "definition": "An organization that overlaps stages of several instructions, such as fetch, decode, execute, and writeback.",
+    "wrongs": [
+      "A design that finishes one instruction completely before fetching the next.",
+      "A design that issues several instructions in one cycle to multiple functional units.",
+      "A buffer that retires instructions in a different order from program order."
+    ],
+    "why": "While one instruction executes, another can be decoded and a third fetched, raising throughput toward one instruction per cycle.",
+    "example": "On one clock edge, five instructions occupy the five stages of a classic pipeline.",
+    "scenario": "The fetch of instruction 5 overlaps the execution of instruction 3. Which technique allows that overlap?",
+    "scenarioAnswer": "Pipelining",
+    "scenarioWrongs": ["Strictly sequential execution", "RAID striping", "Demand paging"],
+    "scenarioWhy": "Different instructions occupy different stages at the same time, which is pipelining."
+  },
+  {
+    "term": "Data hazard",
+    "definition": "A pipeline dependence in which an instruction needs a value that an earlier instruction has not yet written.",
+    "wrongs": [
+      "A situation in which the next PC is unknown until a branch resolves.",
+      "A situation in which two instructions need the same hardware unit in one cycle.",
+      "A situation in which two cores lack a coherent copy of one block."
+    ],
+    "why": "The consumer reads a register or memory location before the producer has made the new value visible.",
+    "example": "An add writes r1 in writeback, but the next instruction reads r1 during decode, before that write.",
+    "scenario": "Instruction 2 reads r3, which instruction 1 will write, but the write has not reached the register file. Which hazard is this?",
+    "scenarioAnswer": "Data hazard",
+    "scenarioWrongs": ["Control hazard", "Structural hazard", "Page fault"],
+    "scenarioWhy": "The second instruction depends on a result that the first instruction has not yet produced."
+  },
+  {
+    "term": "Control hazard",
+    "definition": "A pipeline delay that occurs because the next instruction address is unknown until a branch resolves.",
+    "wrongs": [
+      "A delay caused because a source register has not yet been written.",
+      "A delay caused because two instructions need the only divider.",
+      "A delay caused by writing a dirty cache line back to DRAM."
+    ],
+    "why": "Fetch cannot know which instruction follows until the branch condition and target are known.",
+    "example": "After a conditional branch is fetched, the pipeline does not yet know whether to fetch the fall-through or the target.",
+    "scenario": "Fetch stalls because a conditional branch has not yet produced the next PC. Which hazard is this?",
+    "scenarioAnswer": "Control hazard",
+    "scenarioWrongs": ["Data hazard", "Structural hazard", "Capacity miss"],
+    "scenarioWhy": "The unresolved branch leaves the address of the next instruction unknown."
+  },
+  {
+    "term": "Structural hazard",
+    "definition": "A pipeline conflict in which two instructions need the same hardware resource in the same cycle.",
+    "wrongs": [
+      "A conflict in which one instruction needs a result that is not yet written.",
+      "A conflict caused only by an unresolved branch target.",
+      "A conflict between two virtual pages that share one frame."
+    ],
+    "why": "Overlapped instructions can collide when the machine has only one copy of a unit such as a memory port.",
+    "example": "An instruction fetch and a data load both need the single memory port on the same clock, so one waits.",
+    "scenario": "A load in the memory stage and an instruction fetch both need the only memory port this cycle. Which hazard is this?",
+    "scenarioAnswer": "Structural hazard",
+    "scenarioWrongs": ["Data hazard", "Control hazard", "False sharing"],
+    "scenarioWhy": "The instructions are contending for one physical resource even though their data are independent."
+  },
+  {
+    "term": "Operand forwarding",
+    "definition": "A bypass that sends a result from a later pipeline stage directly to an earlier stage that needs it.",
+    "wrongs": [
+      "A stall that inserts a bubble until the register file is written.",
+      "A guess of whether a branch will be taken.",
+      "A map from architectural register names to physical registers."
+    ],
+    "why": "The result already exists in a pipeline register before writeback, so a dependent instruction can use it immediately.",
+    "example": "An add result leaving the ALU is fed to the next instruction's ALU input instead of waiting for the register write.",
+    "scenario": "A dependent add uses the previous ALU result from the execute-memory pipeline register and does not stall. Which technique avoided the stall?",
+    "scenarioAnswer": "Operand forwarding",
+    "scenarioWrongs": ["A pipeline bubble", "Branch prediction", "Register renaming"],
+    "scenarioWhy": "The bypass path supplied the result to the consumer before the register file was updated."
+  },
+  {
+    "term": "Pipeline stall",
+    "definition": "A deliberate delay that holds an instruction and inserts a bubble until a hazard clears.",
+    "wrongs": [
+      "A bypass that supplies a result without waiting for writeback.",
+      "A prediction used to keep fetching along a guessed branch path.",
+      "The eviction of the least recently used line in a set."
+    ],
+    "why": "If a needed value or resource is not available and cannot be bypassed, the dependent instruction must wait.",
+    "example": "The instruction after a load waits one cycle because the loaded data is not ready for the next ALU operation.",
+    "scenario": "Decode freezes and a bubble is inserted because the next instruction needs a load result that is not yet available. What was inserted?",
+    "scenarioAnswer": "A pipeline stall",
+    "scenarioWrongs": ["A forwarding path", "A taken-branch prediction", "A cache write-back"],
+    "scenarioWhy": "The consumer cannot proceed until the load data returns, so the hardware inserts a bubble."
+  },
+  {
+    "term": "Branch prediction",
+    "definition": "A guess, made before a branch resolves, of whether the branch is taken so that fetch can continue.",
+    "wrongs": [
+      "A rule that every branch is taken and the fall-through path is never fetched.",
+      "A bypass of an ALU result to a dependent instruction.",
+      "A table that translates virtual page numbers into frames."
+    ],
+    "why": "Waiting for the true next PC would stall fetch, so a likely path is fetched and later checked.",
+    "example": "A backward loop branch is predicted taken after many taken outcomes, and fetch follows the loop body.",
+    "scenario": "Fetch follows the loop body before the compare that controls the branch has finished. What supplied that direction?",
+    "scenarioAnswer": "A branch predictor",
+    "scenarioWrongs": ["The reorder buffer", "The page table", "Operand forwarding"],
+    "scenarioWhy": "The direction was chosen before the branch condition was known, which is prediction."
+  },
+  {
+    "term": "Branch target buffer",
+    "definition": "A cache indexed by branch address that stores predicted target addresses of recent branches.",
+    "wrongs": [
+      "A buffer of retired store data waiting to be written to DRAM.",
+      "A table of physical frames for every virtual page of a process.",
+      "A queue of instruction results waiting to commit in program order."
+    ],
+    "why": "Fetch needs a predicted target in the same cycle it recognizes a branch, before decode computes that target.",
+    "example": "The entry for a call supplies the callee address so the next fetch does not wait for the target calculation.",
+    "scenario": "Fetch looks up the current PC and immediately obtains a predicted next PC for a branch. Which structure returned that PC?",
+    "scenarioAnswer": "Branch target buffer",
+    "scenarioWrongs": ["Reorder buffer", "Page table", "Store buffer"],
+    "scenarioWhy": "A cache of branch targets indexed by the branch PC is a branch target buffer."
+  },
+  {
+    "term": "Speculative execution",
+    "definition": "Execution of instructions on a predicted path before that prediction is known to be correct.",
+    "wrongs": [
+      "Execution that waits for every branch to resolve before fetching further instructions.",
+      "Execution of two processes at once on two separate cores.",
+      "Execution that writes architectural state before an instruction has been fetched."
+    ],
+    "why": "The processor uses otherwise idle cycles on the predicted path and discards that work if the prediction was wrong.",
+    "example": "Instructions after a predicted-taken branch run, then are squashed when the branch is actually not taken.",
+    "scenario": "Instructions past a branch execute before its condition is known, and they are discarded when the guess is wrong. What is this called?",
+    "scenarioAnswer": "Speculative execution",
+    "scenarioWrongs": ["In-order retirement only", "Demand paging", "Write-through stores"],
+    "scenarioWhy": "Work proceeded on a guess and was thrown away when the guess failed."
+  },
+  {
+    "term": "Superscalar processor",
+    "definition": "A processor that can issue more than one instruction in the same cycle to multiple functional units.",
+    "wrongs": [
+      "A processor that overlaps pipeline stages but issues only one instruction per cycle.",
+      "A processor that runs one instruction to completion before fetching another.",
+      "A chip with several cores that run separate threads."
+    ],
+    "why": "Multiple issue uses instruction-level parallelism beyond the one-instruction-per-cycle limit of a scalar pipeline.",
+    "example": "In one cycle an integer add is sent to the ALU while an independent load is sent to the memory unit.",
+    "scenario": "In one cycle the processor issues an add and an independent load to two different units. Which organization is this?",
+    "scenarioAnswer": "Superscalar",
+    "scenarioWrongs": ["A scalar pipeline", "A multicore chip", "A non-pipelined single-cycle design"],
+    "scenarioWhy": "Two instructions from the pipeline were issued in the same cycle, which is superscalar execution."
+  },
+  {
+    "term": "Out-of-order execution",
+    "definition": "Execution that starts an instruction when its operands are ready, even if an earlier instruction is still waiting.",
+    "wrongs": [
+      "Execution that always runs instructions in exact program order.",
+      "Execution that issues only one instruction per cycle on one pipeline.",
+      "Execution that commits stores to memory before the instruction is decoded."
+    ],
+    "why": "A stalled instruction should not block later independent instructions whose inputs are already available.",
+    "example": "A cache-missing load waits, while a later add that does not use the loaded value executes and holds its result.",
+    "scenario": "A load misses, and a later independent add executes before that load completes. Which policy allowed the add to run early?",
+    "scenarioAnswer": "Out-of-order execution",
+    "scenarioWrongs": ["Strict program order", "In-order issue and execute", "Store sequential consistency"],
+    "scenarioWhy": "The add ran before an earlier instruction finished because the add's own operands were ready."
+  },
+  {
+    "term": "Register renaming",
+    "definition": "Mapping architectural registers onto a larger physical set so that each new write receives a fresh name.",
+    "wrongs": [
+      "Bypassing an ALU result to the next instruction without assigning a new register.",
+      "Saving callee-saved registers on the stack during a function call.",
+      "Translating virtual addresses to physical frames."
+    ],
+    "why": "A new physical register removes write-after-read and write-after-write hazards, which are not true data dependences.",
+    "example": "Two adds both write architectural r1, but renaming assigns the results to physical registers p12 and p17.",
+    "scenario": "A later add writes r1 while an earlier instruction still must read the old r1, and the add receives a new physical register. Which hazard is removed?",
+    "scenarioAnswer": "A write-after-read hazard",
+    "scenarioWrongs": ["A true read-after-write dependence", "A control hazard", "A capacity miss"],
+    "scenarioWhy": "The new write uses a different physical register, so it does not overwrite the value the earlier reader still needs."
+  },
+  {
+    "term": "Reorder buffer",
+    "definition": "A structure that holds results of instructions finished out of order until they can commit in program order.",
+    "wrongs": [
+      "A cache of predicted branch target addresses.",
+      "A buffer that stores only dirty cache lines waiting for write-back.",
+      "The page table consulted on a TLB miss."
+    ],
+    "why": "In-order commit keeps architectural state precise and lets wrongly speculated instructions be discarded.",
+    "example": "An add finishes before an earlier load, and its result stays buffered until that load has committed.",
+    "scenario": "An instruction has executed, but its result updates the architectural registers only after every older instruction commits. Where is the result held?",
+    "scenarioAnswer": "In the reorder buffer",
+    "scenarioWrongs": ["In the branch target buffer", "In the page table", "Only on the data bus"],
+    "scenarioWhy": "The reorder buffer delays retirement so updates to architectural state stay in program order."
+  },
+  {
+    "term": "Instruction-level parallelism",
+    "definition": "Independent instructions from one thread that can be overlapped or issued at the same time.",
+    "wrongs": [
+      "Different threads running at the same time on separate cores.",
+      "Disk blocks striped across several drives.",
+      "Two cores updating different words of one shared cache line."
+    ],
+    "why": "Instructions that do not depend on each other can occupy multiple functional units or pipeline stages together.",
+    "example": "An address calculation and an unrelated floating-point multiply from the same thread issue in one cycle.",
+    "scenario": "Two instructions in one thread have no data dependence and issue together to different units. Which parallelism is being used?",
+    "scenarioAnswer": "Instruction-level parallelism",
+    "scenarioWrongs": ["Thread-level parallelism", "Disk striping", "Request-level parallelism"],
+    "scenarioWhy": "The independent work comes from one instruction stream rather than from separate threads."
+  },
+  {
+    "term": "Address bus",
+    "definition": "The lines that carry the address of the memory location or device register being accessed.",
+    "wrongs": [
+      "The lines that carry the data value being read or written.",
+      "The lines that carry read, write, and interrupt commands.",
+      "The lines that carry only cache-coherence state."
+    ],
+    "why": "Memory and devices decode this address to select which location the transfer refers to.",
+    "example": "A load drives 0x2000 onto the address lines so the DRAM selects that word.",
+    "scenario": "During a read, the CPU drives the location to be read while other lines will carry the returned word. Which bus carries the location?",
+    "scenarioAnswer": "Address bus",
+    "scenarioWrongs": ["Data bus", "Control bus", "Interrupt bus"],
+    "scenarioWhy": "The selected location is an address, so it travels on the address bus."
+  },
+  {
+    "term": "Data bus",
+    "definition": "The lines that carry the value being read or written between the CPU, memory, and devices.",
+    "wrongs": [
+      "The lines that carry only the address of the selected location.",
+      "The lines that carry only read and write commands.",
+      "The bypass wires that forward an ALU result inside one core."
+    ],
+    "why": "After a location is selected, the payload of the transfer moves on the data lines.",
+    "example": "A store of the value 42 drives 42 on the data lines while the address lines select the destination word.",
+    "scenario": "The address is already driven, and the word being stored now travels toward DRAM. Which bus carries that word?",
+    "scenarioAnswer": "Data bus",
+    "scenarioWrongs": ["Address bus", "Control bus", "Coherence bus"],
+    "scenarioWhy": "The value being written is data, so it is transferred on the data bus."
+  },
+  {
+    "term": "Control bus",
+    "definition": "The lines that carry command and timing signals such as read, write, and interrupt request.",
+    "wrongs": [
+      "The lines that carry the memory address.",
+      "The lines that carry the data word being transferred.",
+      "The lines that carry parity bits among RAID disks."
+    ],
+    "why": "A device must be told whether the cycle is a read or a write and when the address and data are valid.",
+    "example": "Asserting the memory-write strobe tells DRAM to store the data-bus value at the addressed location.",
+    "scenario": "Address and data are already driven, and a separate signal says this cycle is a write. Which bus carries that signal?",
+    "scenarioAnswer": "Control bus",
+    "scenarioWrongs": ["Address bus", "Data bus", "Parity bus"],
+    "scenarioWhy": "A read or write command is a control signal, not the address and not the payload."
+  },
+  {
+    "term": "RAID 0",
+    "definition": "A disk layout that stripes blocks across drives and keeps no redundant copy, so one drive failure loses the array.",
+    "wrongs": [
+      "A layout that stores a full second copy of every block on another drive.",
+      "A layout that stripes data with rotating parity and survives one disk failure.",
+      "A layout that keeps two independent parity blocks and survives two disk failures."
+    ],
+    "why": "Striping lets drives transfer in parallel, but there is no mirror or parity from which a lost block can be rebuilt.",
+    "example": "Even-numbered blocks sit on disk A and odd-numbered blocks on disk B, and loss of either disk destroys the file.",
+    "scenario": "Two disks stripe a file for speed, and the file is unreadable after either disk fails. Which RAID level is this?",
+    "scenarioAnswer": "RAID 0",
+    "scenarioWrongs": ["RAID 1", "RAID 5", "RAID 6"],
+    "scenarioWhy": "Striping without a mirror or parity cannot reconstruct data after a disk is lost."
+  },
+  {
+    "term": "RAID 1",
+    "definition": "A disk layout that stores a full copy of every block on a second drive so either drive can supply the data.",
+    "wrongs": [
+      "A layout that stripes blocks and stores no second copy.",
+      "A layout that stores parity instead of a complete second copy of each block.",
+      "A layout that survives two disk failures by keeping double parity."
+    ],
+    "why": "Mirroring means the surviving disk still holds every block after one drive fails.",
+    "example": "Each database page is written to both disk A and disk B, and a read may be served by either disk.",
+    "scenario": "Every block is written to two disks, and the array still serves all data after one disk dies. Which RAID level is this?",
+    "scenarioAnswer": "RAID 1",
+    "scenarioWrongs": ["RAID 0", "RAID 5", "JBOD"],
+    "scenarioWhy": "A complete second copy of every block is mirroring, which is RAID 1."
+  },
+  {
+    "term": "RAID 5",
+    "definition": "A disk layout that stripes data and rotates parity across the drives so the array can survive one disk failure.",
+    "wrongs": [
+      "A layout that stripes data with no parity and fails if any one disk fails.",
+      "A layout that mirrors every block onto a pair of disks.",
+      "A layout with two parity blocks that can survive two disk failures."
+    ],
+    "why": "XOR parity can rebuild one missing block, and rotating that parity avoids a single parity-disk bottleneck.",
+    "example": "When disk B of a three-disk RAID 5 array fails, its blocks are rebuilt by XORing the surviving data and parity.",
+    "scenario": "Four disks use rotating parity, keep serving data after one disk fails, and cannot survive a second failure. Which RAID level is this?",
+    "scenarioAnswer": "RAID 5",
+    "scenarioWrongs": ["RAID 0", "RAID 1", "RAID 6"],
+    "scenarioWhy": "Single distributed parity tolerates one failure, while tolerance of two failures would be double parity."
+  },
+  {
+    "term": "Multicore processor",
+    "definition": "A chip that contains two or more complete cores able to run different threads at the same time.",
+    "wrongs": [
+      "A single core that issues several instructions from one thread in one cycle.",
+      "A five-stage pipeline inside one core.",
+      "A disk controller attached to several drives."
+    ],
+    "why": "Each core has its own execution resources, so separate threads can make progress concurrently.",
+    "example": "A four-core chip runs a compiler thread and three other threads at the same instant.",
+    "scenario": "One chip executes four independent threads at once, and each thread has its own register file. Which design is this?",
+    "scenarioAnswer": "A multicore processor",
+    "scenarioWrongs": ["A superscalar core", "A five-stage pipeline", "A RAID controller"],
+    "scenarioWhy": "Separate cores, each with private registers, execute different threads concurrently."
+  },
+  {
+    "term": "Amdahl's law",
+    "definition": "A speedup bound showing that the serial fraction of a program limits the benefit of more parallel hardware.",
+    "wrongs": [
+      "A claim that doubling the number of cores always doubles the whole program's speed.",
+      "A claim that doubling cache capacity always halves the miss rate.",
+      "A claim that a parity array always survives two disk failures."
+    ],
+    "why": "The portion that cannot be parallelized still takes the same time no matter how many cores run the rest.",
+    "example": "When one quarter of the runtime is serial, even unlimited cores cannot speed the program up by more than four times.",
+    "scenario": "A program spends one fifth of its time in code that cannot be parallelized. With unlimited cores, what maximum speedup does the bound give?",
+    "scenarioAnswer": "5",
+    "scenarioWrongs": ["20", "4", "1.25"],
+    "scenarioWhy": "The serial fraction is one fifth, so the speedup bound is one divided by that fraction, which equals 5."
+  },
+  {
+    "term": "Cache coherence",
+    "definition": "The requirement that cores not permanently disagree about the value of one memory location held in private caches.",
+    "wrongs": [
+      "The rules for the order in which writes to different addresses become visible to other cores.",
+      "The mapping of virtual pages onto physical frames.",
+      "The striping of disk blocks across an array of drives."
+    ],
+    "why": "A write must invalidate or update other cached copies so a later read of that same address cannot keep seeing a stale line.",
+    "example": "After core 0 writes x, core 1's old cache line for x is invalidated before core 1 reads the new x.",
+    "scenario": "Two cores cache x, core 0 writes x, and core 1 must not keep its old copy of x indefinitely. Which property requires that?",
+    "scenarioAnswer": "Cache coherence",
+    "scenarioWrongs": ["RAID parity", "Virtual-address translation", "Branch prediction"],
+    "scenarioWhy": "Coherence concerns a single address and forbids another cache from retaining a stale copy forever."
+  },
+  {
+    "term": "MESI protocol",
+    "definition": "A cache-coherence protocol whose line states are Modified, Exclusive, Shared, and Invalid.",
+    "wrongs": [
+      "A page-replacement policy that keeps four queues of pages.",
+      "A disk layout that stores four copies of every block.",
+      "A branch predictor that remembers only four history bits."
+    ],
+    "why": "Each state records whether the line is dirty, solely owned, shared and clean, or unusable.",
+    "example": "A shared line becomes Modified when this core writes it, and other caches receive invalidations.",
+    "scenario": "A cache line is dirty and this cache alone has the up-to-date copy. Which MESI state is that?",
+    "scenarioAnswer": "Modified",
+    "scenarioWrongs": ["Shared", "Invalid", "Exclusive"],
+    "scenarioWhy": "Modified means the line is dirty and is not present as a valid copy in any other cache."
+  },
+  {
+    "term": "Memory consistency",
+    "definition": "The model that states which orders of loads and stores to memory may become visible to other processors.",
+    "wrongs": [
+      "The protocol that only keeps the cached copies of a single address from diverging forever.",
+      "The translation of one process's virtual addresses into physical frames.",
+      "The prediction of which instruction follows a branch."
+    ],
+    "why": "Coherence covers one location, while consistency covers how accesses to different locations may be reordered as others observe them.",
+    "example": "Under a relaxed model, another core can observe a write to y before it observes an earlier write to x from the same core.",
+    "scenario": "A core writes x and then y, and another core may see the new y while still seeing the old x. What decides whether that order is allowed?",
+    "scenarioAnswer": "The memory consistency model",
+    "scenarioWrongs": ["The coherence protocol for one address only", "The page-replacement policy", "The branch target buffer"],
+    "scenarioWhy": "Consistency rules govern the observable order of accesses to different addresses."
+  },
+  {
+    "term": "Sequential consistency",
+    "definition": "A model whose result matches some single interleaving that preserves each core's program order.",
+    "wrongs": [
+      "A model that allows one core's writes to become visible to others out of program order.",
+      "A cache policy that updates memory only when a dirty line is evicted.",
+      "A scheduler that always runs the highest-priority ready task."
+    ],
+    "why": "All cores agree on one total order, and each core's own accesses appear in that order as the program issued them.",
+    "example": "If one core writes data and then a flag, no other core can observe the new flag together with the old data.",
+    "scenario": "Core 0 writes data before a flag, and every core that sees the new flag is guaranteed to see the new data, with no extra fence. Which model provides that guarantee?",
+    "scenarioAnswer": "Sequential consistency",
+    "scenarioWrongs": ["A relaxed consistency model", "Write-back caching by itself", "RAID 1"],
+    "scenarioWhy": "Program order is preserved in one global interleaving, so the earlier data write is visible no later than the later flag write."
+  },
+  {
+    "term": "False sharing",
+    "definition": "Extra coherence traffic caused when cores write different data that happen to lie on the same cache line.",
+    "wrongs": [
+      "Two cores writing the same variable, which truly must be kept coherent.",
+      "Two blocks that collide in a direct-mapped cache inside one core.",
+      "Two processes mapping the same virtual page with the page table."
+    ],
+    "why": "Coherence tracks whole lines, so a write to one word invalidates another core's copy of the neighboring words.",
+    "example": "Core 0 increments counter A while core 1 increments counter B, and both counters occupy one 64-byte line.",
+    "scenario": "Two cores update different counters, the program slows down, and moving the counters onto separate lines fixes it. What was the problem?",
+    "scenarioAnswer": "False sharing",
+    "scenarioWrongs": ["True sharing of one variable", "An L1 capacity miss", "A page fault"],
+    "scenarioWhy": "The counters were independent, but they shared a line, so each write invalidated the other core's copy."
+  },
+  {
+    "term": "DMA",
+    "definition": "A transfer in which a device moves blocks to or from memory without the CPU copying each word.",
+    "wrongs": [
+      "A transfer in which the CPU executes a load or store for every word.",
+      "A transfer of page-table entries into the TLB.",
+      "A transfer of predicted targets into the branch buffer."
+    ],
+    "why": "The device or its controller becomes bus master, so the CPU can do other work while the block moves.",
+    "example": "A disk controller writes a 4 KB sector into a RAM buffer and interrupts the CPU only when the sector is complete.",
+    "scenario": "A network card writes an incoming packet into RAM and interrupts the CPU only after the packet is complete. What moved the bytes?",
+    "scenarioAnswer": "A DMA engine",
+    "scenarioWrongs": ["A programmed I/O loop", "The page-fault handler", "The branch predictor"],
+    "scenarioWhy": "The device wrote memory directly, and the CPU did not copy the bytes with loads and stores."
+  },
+  {
+    "term": "Memory-mapped I/O",
+    "definition": "A scheme in which device registers are read and written with ordinary loads and stores to reserved addresses.",
+    "wrongs": [
+      "A scheme that uses separate input and output instructions and a distinct I/O port space.",
+      "A scheme that maps virtual pages to blocks on disk.",
+      "A scheme that maps architectural registers to physical registers."
+    ],
+    "why": "Devices decode ranges of the physical address space, so the same load and store paths reach their registers.",
+    "example": "A store to address 0x40001000 writes a UART transmit register rather than a DRAM location.",
+    "scenario": "Firmware turns on an LED by storing 1 to a GPIO register at a normal memory address. Which I/O organization is this?",
+    "scenarioAnswer": "Memory-mapped I/O",
+    "scenarioWrongs": ["Isolated port I/O", "Demand paging", "Register renaming"],
+    "scenarioWhy": "The device register is selected by an ordinary address instead of by a separate I/O port instruction."
+  },
+  {
+    "term": "Bus arbitration",
+    "definition": "The choice of which requesting master may drive a shared bus during a given cycle.",
+    "wrongs": [
+      "The choice of which cache line to evict from a set.",
+      "The choice of which path to fetch after a branch.",
+      "The choice of which disk stores the parity block."
+    ],
+    "why": "Only one master can drive the shared address and data lines at a time, so an arbiter grants the bus.",
+    "example": "The CPU and a DMA controller both request the memory bus, and the arbiter grants it to the controller first.",
+    "scenario": "The CPU and a disk controller both need the memory bus in the same cycle. What selects which one may drive it?",
+    "scenarioAnswer": "Bus arbitration",
+    "scenarioWrongs": ["Cache replacement", "Branch prediction", "Page replacement"],
+    "scenarioWhy": "An arbiter grants the shared bus to one master so two devices do not drive the lines together."
+  }
+]

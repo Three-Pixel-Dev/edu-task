@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Research Question",
+    "definition": "A clear question that the study is designed to answer and that is narrow enough for the chosen methods.",
+    "wrongs": [
+      "A broad topic title with no question the study could answer.",
+      "The list of references at the end of a paper.",
+      "The researcher's personal hope that the result will be interesting."
+    ],
+    "why": "A research question states what the study will answer and guides the choice of method and data.",
+    "example": "The study asks whether a two-minute video guide reduces password-reset calls among first-year students.",
+    "scenario": "A proposal has only the title student passwords and no question the data could answer. What must be added before the method can be chosen?",
+    "scenarioAnswer": "A clear research question",
+    "scenarioWrongs": [
+      "A longer topic title and nothing else",
+      "The reference list from another paper",
+      "A statement that the result should be interesting"
+    ],
+    "scenarioWhy": "Methods are chosen to answer a research question, so a topic title alone is not enough."
+  },
+  {
+    "term": "Research Objective",
+    "definition": "A specific outcome the study intends to achieve, written so a reader can tell when it has been met.",
+    "wrongs": [
+      "A slogan such as explore the area, with no checkable outcome.",
+      "The name of the statistics package.",
+      "The word count of the report."
+    ],
+    "why": "An objective is a concrete outcome of the study, specific enough that completion can be judged.",
+    "example": "One objective is to measure the change in reset calls in the month after the video guide is published.",
+    "scenario": "The proposal says explore passwords. Reviewers cannot tell when the study would be finished. Which replacement is a research objective?",
+    "scenarioAnswer": "Measure the change in reset calls one month after the guide",
+    "scenarioWrongs": [
+      "Explore the area of passwords",
+      "Use a well-known statistics package",
+      "Reach a preferred word count"
+    ],
+    "scenarioWhy": "A research objective states a checkable outcome, such as measuring a defined change."
+  },
+  {
+    "term": "Literature Review",
+    "definition": "A critical synthesis of published work that shows what is already known and where the new study fits.",
+    "wrongs": [
+      "A list of quotations placed one after another with no comparison or argument.",
+      "The raw data tables from the author's own new experiment.",
+      "A bibliography that names sources but never discusses them."
+    ],
+    "why": "A literature review argues from existing work; it is more than a sequence of summaries or a bare list of titles.",
+    "example": "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+    "scenario": "A draft lists twenty quotations in date order and never compares them. Which improvement would make it a literature review?",
+    "scenarioAnswer": "Synthesise the sources into an argument about what is known and missing",
+    "scenarioWrongs": [
+      "Add more quotations and still not compare them",
+      "Replace the chapter with the new experiment's raw tables",
+      "Leave a list of titles with no discussion"
+    ],
+    "scenarioWhy": "A literature review critically synthesises sources to show the state of knowledge and the gap."
+  },
+  {
+    "term": "Citation",
+    "definition": "A reference that identifies the source of an idea, quotation, figure, or finding used in the work.",
+    "wrongs": [
+      "A decorative footnote that points to no real source.",
+      "Changing a few words so the source need not be named.",
+      "A compliment paid to the supervisor in the acknowledgements."
+    ],
+    "why": "A citation tells the reader exactly which source supports a borrowed idea or result.",
+    "example": "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list.",
+    "scenario": "You use another study's finding about reset calls in your introduction. Which addition gives the reader the source?",
+    "scenarioAnswer": "A citation that identifies that study",
+    "scenarioWrongs": [
+      "A footnote that names no source",
+      "A wording tweak so the source can be hidden",
+      "A thank-you to the supervisor"
+    ],
+    "scenarioWhy": "A citation identifies the source of the finding so the reader can trace it."
+  },
+  {
+    "term": "Peer-Reviewed Source",
+    "definition": "A publication that experts in the field have examined for quality before it was accepted.",
+    "wrongs": [
+      "Any page that appears near the top of a general web search.",
+      "An anonymous blog post with no editorial checks.",
+      "An advertisement written by the product's vendor."
+    ],
+    "why": "Peer review means qualified reviewers assessed the work before publication, which is a quality filter, not a guarantee.",
+    "example": "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog.",
+    "scenario": "You need a quality-checked study of training videos rather than a vendor advert. Which source type fits?",
+    "scenarioAnswer": "A peer-reviewed journal article",
+    "scenarioWrongs": [
+      "The first web hit with no review",
+      "An anonymous unchecked blog",
+      "The vendor's advertisement"
+    ],
+    "scenarioWhy": "A peer-reviewed article has been examined by field experts before acceptance."
+  },
+  {
+    "term": "Primary Source",
+    "definition": "Original research or firsthand evidence, such as a paper in which the authors report a study they conducted.",
+    "wrongs": [
+      "A textbook chapter that only summarises other people's studies.",
+      "A news story that retells a journal article.",
+      "A lecture slide that cites a review paper."
+    ],
+    "why": "A primary source presents original evidence, whereas secondary sources interpret or summarise that evidence.",
+    "example": "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+    "scenario": "You need the authors' own report of their video-guide experiment, not a retelling. Which source should you read?",
+    "scenarioAnswer": "The primary research paper",
+    "scenarioWrongs": [
+      "A textbook summary of that paper",
+      "A news retelling",
+      "A slide that cites a review"
+    ],
+    "scenarioWhy": "The paper in which the authors report their own study is the primary source."
+  },
+  {
+    "term": "Secondary Source",
+    "definition": "A work that summarises, reviews, or interprets primary research rather than reporting a new study by its author.",
+    "wrongs": [
+      "The dataset collected by the original experimenters.",
+      "A lab notebook from the study itself.",
+      "The patent filed by the people who ran the trial."
+    ],
+    "why": "A secondary source comments on or synthesises primary work; it is not the original evidence.",
+    "example": "A review article compares twelve password studies but does not itself run a new experiment.",
+    "scenario": "An article compares twelve studies and runs no new experiment. Which label fits that article?",
+    "scenarioAnswer": "A secondary source",
+    "scenarioWrongs": [
+      "The original experimenters' dataset",
+      "A lab notebook from one of the trials",
+      "The inventors' patent on a new device"
+    ],
+    "scenarioWhy": "A review that interprets other studies, without a new study, is a secondary source."
+  },
+  {
+    "term": "Research Gap",
+    "definition": "An unanswered or weakly supported question in the literature that a new study can justifiably address.",
+    "wrongs": [
+      "A topic that many recent studies have already settled with consistent evidence.",
+      "A spelling mistake in one old paper.",
+      "The researcher's dislike of a previous author's writing style."
+    ],
+    "why": "A research gap is a genuine opening in what is known, which justifies a new study.",
+    "example": "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+    "scenario": "Many papers agree on exam scores after training videos, but none measure help-desk calls. Which opening can justify a new study?",
+    "scenarioAnswer": "The unmeasured effect on help-desk calls",
+    "scenarioWrongs": [
+      "A result that recent studies have already settled",
+      "A spelling mistake in an old paper",
+      "Dislike of an author's style"
+    ],
+    "scenarioWhy": "A research gap is an unanswered question, here the effect on help-desk calls."
+  },
+  {
+    "term": "Theoretical Framework",
+    "definition": "A set of established theories used to explain the phenomenon and to guide what the study examines.",
+    "wrongs": [
+      "The researcher's informal hunch with no link to established theory.",
+      "The spreadsheet layout used to store responses.",
+      "The ethics form's contact details."
+    ],
+    "why": "A theoretical framework uses existing theory to explain the phenomenon and shape the study.",
+    "example": "The study uses cognitive load theory to explain why a short video might beat a long written policy.",
+    "scenario": "You explain the expected benefit of a short video by using cognitive load theory. Which role is that theory playing?",
+    "scenarioAnswer": "The theoretical framework",
+    "scenarioWrongs": [
+      "An unsupported personal hunch",
+      "The spreadsheet layout",
+      "The ethics form's phone number"
+    ],
+    "scenarioWhy": "Using an established theory to explain and guide the study makes it the theoretical framework."
+  },
+  {
+    "term": "Conceptual Framework",
+    "definition": "The researcher's description or diagram of the concepts in the study and the expected links among them.",
+    "wrongs": [
+      "A named body of established theory adopted without showing the study's own concepts.",
+      "The consent form signed by participants.",
+      "The printer driver used to produce the diagram."
+    ],
+    "why": "A conceptual framework shows how this study's concepts are expected to relate, often in a diagram.",
+    "example": "A diagram links video length to understanding and then to the number of reset calls.",
+    "scenario": "A diagram shows video length affecting understanding, which then affects reset calls. Which artefact is that diagram?",
+    "scenarioAnswer": "The conceptual framework",
+    "scenarioWrongs": [
+      "A consent form",
+      "A printer driver",
+      "A theory name with no concepts from this study"
+    ],
+    "scenarioWhy": "A diagram of this study's concepts and expected links is the conceptual framework."
+  },
+  {
+    "term": "Hypothesis",
+    "definition": "A testable statement that predicts a relationship or difference between variables.",
+    "wrongs": [
+      "A question that does not predict what will be found.",
+      "A moral judgement that cannot be tested with data.",
+      "A description of the sample size."
+    ],
+    "why": "A hypothesis predicts an observable relationship or difference so that data can support or contradict it.",
+    "example": "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text.",
+    "scenario": "You predict that the video group will log fewer reset calls than the text group. Which kind of statement is that prediction?",
+    "scenarioAnswer": "A hypothesis",
+    "scenarioWrongs": [
+      "A question with no predicted outcome",
+      "A moral claim that data cannot test",
+      "The planned sample size"
+    ],
+    "scenarioWhy": "A testable prediction of a difference between groups is a hypothesis."
+  },
+  {
+    "term": "Null Hypothesis",
+    "definition": "A statement, used for statistical testing, that there is no effect or no difference in the population.",
+    "wrongs": [
+      "The prediction that the treatment group will do better than the control group.",
+      "The research question written as a sentence.",
+      "The conclusion the author hopes reviewers will like."
+    ],
+    "why": "The null hypothesis states no effect or no difference and is the statement the test attempts to reject.",
+    "example": "The null states that mean reset calls do not differ between the video group and the text group.",
+    "scenario": "The test assumes no difference in mean reset calls between the two groups. Which statement is that?",
+    "scenarioAnswer": "The null hypothesis",
+    "scenarioWrongs": [
+      "The prediction that video is better",
+      "The research question",
+      "The conclusion the author prefers"
+    ],
+    "scenarioWhy": "A statement of no difference, used as the basis of the test, is the null hypothesis."
+  },
+  {
+    "term": "Alternative Hypothesis",
+    "definition": "A statement that there is an effect or a difference, considered if the evidence leads you to reject the null.",
+    "wrongs": [
+      "The statement that there is no effect in the population.",
+      "A description of how the sample was recruited.",
+      "The list of variables with no predicted effect."
+    ],
+    "why": "The alternative hypothesis states that an effect or difference exists and is adopted only if the null is rejected.",
+    "example": "The alternative states that mean reset calls differ between students who saw the video and those who read the text.",
+    "scenario": "You will claim a difference in mean calls only if the test rejects no difference. Which statement expresses that difference?",
+    "scenarioAnswer": "The alternative hypothesis",
+    "scenarioWrongs": [
+      "The statement of no effect",
+      "The recruitment method",
+      "A variable list with no predicted effect"
+    ],
+    "scenarioWhy": "The statement that a difference exists is the alternative hypothesis."
+  },
+  {
+    "term": "Independent Variable",
+    "definition": "The variable that the researcher changes or groups by, in order to examine its relationship with an outcome.",
+    "wrongs": [
+      "The outcome that is measured to see whether it changes.",
+      "A factor deliberately held constant so it cannot explain the result.",
+      "The name of the ethics committee."
+    ],
+    "why": "The independent variable is the presumed influence or grouping, not the measured outcome.",
+    "example": "The study assigns students to either a short video or a text policy, which is the independent variable.",
+    "scenario": "Students are assigned either a video or a text, and reset calls are counted afterwards. Which is the independent variable?",
+    "scenarioAnswer": "The guide type, video or text",
+    "scenarioWrongs": [
+      "The number of reset calls",
+      "The classroom, which is kept the same",
+      "The name of the ethics committee"
+    ],
+    "scenarioWhy": "The factor the researcher assigns, the type of guide, is the independent variable."
+  },
+  {
+    "term": "Dependent Variable",
+    "definition": "The outcome variable that is measured to see whether it is associated with, or affected by, the independent variable.",
+    "wrongs": [
+      "The condition the researcher assigns to participants.",
+      "A factor held constant throughout the study.",
+      "The software brand used to draw a chart."
+    ],
+    "why": "The dependent variable is the measured outcome, not the condition the researcher manipulates.",
+    "example": "The number of password-reset calls in the following month is the dependent variable.",
+    "scenario": "Guide type is assigned, and the study counts reset calls over the next month. Which is the dependent variable?",
+    "scenarioAnswer": "The number of reset calls",
+    "scenarioWrongs": [
+      "Whether the student saw video or text",
+      "The week of term, which was held constant",
+      "The chart software"
+    ],
+    "scenarioWhy": "The measured outcome, reset calls, is the dependent variable."
+  },
+  {
+    "term": "Control Variable",
+    "definition": "A factor that is held constant or accounted for so it does not distort the relationship being studied.",
+    "wrongs": [
+      "The outcome the study measures.",
+      "The condition that is deliberately varied between groups.",
+      "A factor left free to differ even though it could explain the result."
+    ],
+    "why": "A control variable is managed so that it cannot offer an alternative explanation of the outcome.",
+    "example": "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+    "scenario": "Both groups share the same help-desk and the same week so those factors cannot explain the result. What role do those factors play?",
+    "scenarioAnswer": "Control variables",
+    "scenarioWrongs": [
+      "Dependent variables",
+      "Independent variables that were varied",
+      "Factors left free to confound the result"
+    ],
+    "scenarioWhy": "Factors held constant so they cannot explain the outcome are control variables."
+  },
+  {
+    "term": "Operational Definition",
+    "definition": "A statement of how a concept will be observed or measured in a particular study.",
+    "wrongs": [
+      "A dictionary definition that never says how this study will measure the concept.",
+      "The researcher's private feeling about the concept.",
+      "The title of the statistics textbook."
+    ],
+    "why": "An operational definition makes a concept measurable by stating the exact observation this study will use.",
+    "example": "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide.",
+    "scenario": "The study must say exactly how understanding will be measured. Which statement is an operational definition?",
+    "scenarioAnswer": "The score on a ten-item quiz taken right after the guide",
+    "scenarioWrongs": [
+      "A dictionary sentence that sets no measure",
+      "The researcher's feeling that students understood",
+      "The title of a statistics book"
+    ],
+    "scenarioWhy": "An operational definition states the concrete measurement used in this study."
+  },
+  {
+    "term": "Population",
+    "definition": "The full set of people, items, or events about which the study aims to draw a conclusion.",
+    "wrongs": [
+      "The subset that is actually measured.",
+      "The list used to draw the sample, if that list omits part of the group of interest.",
+      "The number of questions on the questionnaire."
+    ],
+    "why": "The population is the entire group the conclusions are meant to cover, not only those who were observed.",
+    "example": "The population is all first-year undergraduates at the university, not only the 200 who answered the survey.",
+    "scenario": "Conclusions are meant to cover every first-year student, but only 200 answer. Which group is the population?",
+    "scenarioAnswer": "All first-year undergraduates at the university",
+    "scenarioWrongs": [
+      "The 200 who answered",
+      "The questionnaire's question count",
+      "Only students who happened to be in one cafe"
+    ],
+    "scenarioWhy": "The population is the full set the study wants to conclude about, here every first-year student."
+  },
+  {
+    "term": "Sample",
+    "definition": "The subset of the population that is actually observed or measured in the study.",
+    "wrongs": [
+      "The entire population, including people who were never contacted.",
+      "The sampling method's name, rather than the people selected.",
+      "The hypothesis being tested."
+    ],
+    "why": "The sample is the part of the population from which data are actually collected.",
+    "example": "Of all first-year students, the 200 who completed the quiz form the sample.",
+    "scenario": "Data come from 200 first-year students, not from every first-year student. Which group is the sample?",
+    "scenarioAnswer": "The 200 students who were measured",
+    "scenarioWrongs": [
+      "Every first-year student, including those not contacted",
+      "The name of the sampling method",
+      "The hypothesis"
+    ],
+    "scenarioWhy": "The sample is the subset that was actually observed."
+  },
+  {
+    "term": "Sampling Frame",
+    "definition": "The list or other representation of the population from which the sample is actually drawn.",
+    "wrongs": [
+      "The people who end up in the final dataset.",
+      "The theoretical population, including people missing from every available list.",
+      "The questionnaire itself."
+    ],
+    "why": "The sampling frame is the operational list used for selection and may not perfectly match the population.",
+    "example": "The frame is the registrar's enrolment list, which omits two late-joining students.",
+    "scenario": "Names are drawn from the registrar's enrolment list, which misses late joiners. Which item is the sampling frame?",
+    "scenarioAnswer": "The registrar's enrolment list",
+    "scenarioWrongs": [
+      "Only the students who already replied",
+      "The ideal population including people on no list",
+      "The questionnaire"
+    ],
+    "scenarioWhy": "The list from which the sample is drawn is the sampling frame."
+  },
+  {
+    "term": "Simple Random Sampling",
+    "definition": "A probability method in which every member of the frame has an equal chance of being included.",
+    "wrongs": [
+      "Picking whoever is easiest to reach in a corridor.",
+      "Choosing people because they volunteered after an advert.",
+      "Taking every person from only one convenient class."
+    ],
+    "why": "Simple random sampling gives each member of the frame an equal chance of selection.",
+    "example": "A program draws 200 names at random from the full enrolment list, each student having an equal chance.",
+    "scenario": "Each student on the enrolment list must have the same chance of selection. Which method fits?",
+    "scenarioAnswer": "Simple random sampling",
+    "scenarioWrongs": [
+      "Asking whoever walks past",
+      "Taking only volunteers from an advert",
+      "Using one convenient class in full"
+    ],
+    "scenarioWhy": "Equal chance of selection for every member of the frame is simple random sampling."
+  },
+  {
+    "term": "Stratified Sampling",
+    "definition": "A method that divides the population into subgroups and then draws a sample from each subgroup.",
+    "wrongs": [
+      "Drawing names from the whole list with no subgroups.",
+      "Choosing the easiest people regardless of subgroup.",
+      "Letting one subgroup stand in for all the others."
+    ],
+    "why": "Stratified sampling samples within defined subgroups so those subgroups are represented.",
+    "example": "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+    "scenario": "Each faculty must be represented, so names are drawn at random inside every faculty. Which method is that?",
+    "scenarioAnswer": "Stratified sampling",
+    "scenarioWrongs": [
+      "One simple random draw with no faculty split",
+      "Picking the easiest students only",
+      "Surveying a single faculty and ignoring the rest"
+    ],
+    "scenarioWhy": "Dividing into subgroups and sampling from each one is stratified sampling."
+  },
+  {
+    "term": "Convenience Sampling",
+    "definition": "A non-probability method that selects whoever is easiest to reach, which limits how far results can be generalised.",
+    "wrongs": [
+      "A method in which every member of the frame has an equal chance.",
+      "A method that samples randomly inside every important subgroup.",
+      "A census that measures the entire population."
+    ],
+    "why": "Convenience sampling trades representativeness for ease, so generalisation is weak.",
+    "example": "The researcher surveys students who happen to be in the library on a Tuesday afternoon.",
+    "scenario": "You survey only students sitting in the library on Tuesday because they are easy to reach. Which method is that?",
+    "scenarioAnswer": "Convenience sampling",
+    "scenarioWrongs": [
+      "Simple random sampling from the full list",
+      "Random draws inside every faculty",
+      "A census of all students"
+    ],
+    "scenarioWhy": "Selecting whoever is easiest to reach is convenience sampling and limits generalisation."
+  },
+  {
+    "term": "Sample Size",
+    "definition": "The number of observations included in the study, which affects precision and the ability to detect an effect.",
+    "wrongs": [
+      "The number of questions on the form, if each person answers once.",
+      "The size of the population the study hopes to talk about.",
+      "The number of authors on the paper."
+    ],
+    "why": "Sample size is how many observations are analysed, and larger samples usually give more precise estimates.",
+    "example": "The study analyses quiz scores from 180 students, so the sample size is 180.",
+    "scenario": "Quiz scores from 180 students will be analysed, one score each. Which number is the sample size?",
+    "scenarioAnswer": "180",
+    "scenarioWrongs": [
+      "The 10 questions on the quiz",
+      "The 4,000 students in the population",
+      "The 2 authors of the report"
+    ],
+    "scenarioWhy": "Sample size is the number of observations, here the 180 student scores."
+  },
+  {
+    "term": "Bias",
+    "definition": "A systematic error that pushes results away from the true value, rather than random variation around it.",
+    "wrongs": [
+      "Chance differences that average out as more data are collected.",
+      "A clearly reported limitation that does not shift the estimate.",
+      "The use of a random sample from a complete frame."
+    ],
+    "why": "Bias is systematic: it pushes the result in a direction, unlike random error that varies around the truth.",
+    "example": "Only students who loved the video reply, so the measured satisfaction is higher than the true class value.",
+    "scenario": "Only students who loved the video reply, and satisfaction looks higher than it is for the class. Which problem is that?",
+    "scenarioAnswer": "Bias",
+    "scenarioWrongs": [
+      "Random variation that would shrink with more replies",
+      "A random sample from a complete list",
+      "A limitation that does not move the estimate"
+    ],
+    "scenarioWhy": "A systematic push away from the true value, here from who chooses to reply, is bias."
+  },
+  {
+    "term": "Internal Validity",
+    "definition": "The extent to which a study supports a causal conclusion in its own setting, rather than a result caused by a confound.",
+    "wrongs": [
+      "The extent to which the finding applies to other universities and years.",
+      "The consistency of a questionnaire when it is repeated.",
+      "The number of references in the literature chapter."
+    ],
+    "why": "Internal validity concerns whether the study itself can support a cause-and-effect claim.",
+    "example": "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+    "scenario": "A critic says a holiday week, not the video, caused fewer calls. Which property is being challenged?",
+    "scenarioAnswer": "Internal validity",
+    "scenarioWrongs": [
+      "Whether the result applies to other universities",
+      "Whether the quiz gives the same score twice",
+      "The length of the reference list"
+    ],
+    "scenarioWhy": "A possible confound attacks internal validity, the basis for a causal claim inside the study."
+  },
+  {
+    "term": "External Validity",
+    "definition": "The extent to which findings can be generalised to other people, settings, or times.",
+    "wrongs": [
+      "Whether the study's own design rules out confounds.",
+      "Whether a scale produces the same score on a retest.",
+      "Whether the null hypothesis was rejected."
+    ],
+    "why": "External validity is about generalisation beyond the people and setting actually studied.",
+    "example": "A result from one small private college may not generalise to a large public university.",
+    "scenario": "The result comes from one small college, and you ask whether it applies to large public universities. Which property is that question about?",
+    "scenarioAnswer": "External validity",
+    "scenarioWrongs": [
+      "Whether a confound explains the college result",
+      "Whether the quiz is stable on retest",
+      "Whether the p-value was below 0.05"
+    ],
+    "scenarioWhy": "Generalising beyond the studied setting is a question of external validity."
+  },
+  {
+    "term": "Construct Validity",
+    "definition": "The extent to which a measure actually captures the concept it is intended to represent.",
+    "wrongs": [
+      "Whether the sample can be generalised to another country.",
+      "Whether two groups were assigned fairly.",
+      "Whether the paper was peer reviewed."
+    ],
+    "why": "Construct validity asks if the measurement matches the concept, not if the sample generalises.",
+    "example": "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+    "scenario": "The quiz asks about the presenter's clothes, but the concept is password-reset skill. Which property is weak?",
+    "scenarioAnswer": "Construct validity",
+    "scenarioWrongs": [
+      "Generalisation to another country",
+      "Fairness of random assignment",
+      "Whether reviewers accepted the paper"
+    ],
+    "scenarioWhy": "Construct validity is weak when the measure does not capture the intended concept."
+  },
+  {
+    "term": "Reliability",
+    "definition": "The consistency of a measure when it is repeated under the same conditions.",
+    "wrongs": [
+      "Proof that the measure captures the right concept.",
+      "Proof that the result applies to every university.",
+      "Proof that one variable causes another."
+    ],
+    "why": "Reliability means consistency of measurement; a measure can be consistent and still measure the wrong concept.",
+    "example": "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+    "scenario": "The same students retake the same quiz under the same conditions and scores barely change. Which property does that support?",
+    "scenarioAnswer": "Reliability",
+    "scenarioWrongs": [
+      "Proof the quiz measures the intended concept",
+      "Proof the result applies worldwide",
+      "Proof that the video causes fewer calls"
+    ],
+    "scenarioWhy": "Similar scores on repetition support reliability, which is consistency, not correctness of the concept."
+  },
+  {
+    "term": "Quantitative Research",
+    "definition": "Research that collects numerical data and uses statistical analysis to test relationships or differences.",
+    "wrongs": [
+      "Research that interprets interviews and documents without numerical testing.",
+      "A literature review that includes no new data.",
+      "A project diary written only in prose."
+    ],
+    "why": "Quantitative research uses numbers and statistics to examine relationships or group differences.",
+    "example": "The study compares mean reset-call counts between two groups with a statistical test.",
+    "scenario": "You will compare mean call counts between two groups with a statistical test. Which approach is that?",
+    "scenarioAnswer": "Quantitative research",
+    "scenarioWrongs": [
+      "Interpreting interviews with no numerical test",
+      "A literature review with no new data",
+      "A prose diary of the project"
+    ],
+    "scenarioWhy": "Collecting numerical data and testing a difference statistically is quantitative research."
+  },
+  {
+    "term": "Qualitative Research",
+    "definition": "Research that collects non-numerical data, such as interviews or documents, to interpret meanings and experiences.",
+    "wrongs": [
+      "Research whose main analysis is a statistical test of numerical group differences.",
+      "A census that only counts people.",
+      "A calculation of a mean and a standard deviation alone."
+    ],
+    "why": "Qualitative research interprets meanings in non-numerical material such as talk or text.",
+    "example": "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+    "scenario": "You interview students about why they ignore prompts and code themes from the transcripts. Which approach is that?",
+    "scenarioAnswer": "Qualitative research",
+    "scenarioWrongs": [
+      "A statistical test of two mean scores",
+      "A census that only counts people",
+      "Computing a mean and standard deviation only"
+    ],
+    "scenarioWhy": "Interpreting interview meanings through themes is qualitative research."
+  },
+  {
+    "term": "Descriptive Statistics",
+    "definition": "Numerical summaries, such as averages and spreads, that describe the data actually collected.",
+    "wrongs": [
+      "Tests that use a sample to draw a conclusion about a wider population.",
+      "The ethical rules for recruiting participants.",
+      "The sampling method's name."
+    ],
+    "why": "Descriptive statistics summarise the observed data and do not, by themselves, infer beyond that data.",
+    "example": "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2.",
+    "scenario": "You report the mean and spread of the 180 scores you collected, with no claim about all students. Which statistics are those?",
+    "scenarioAnswer": "Descriptive statistics",
+    "scenarioWrongs": [
+      "A test used to infer a population effect",
+      "The ethics rules",
+      "The name of the sampling method"
+    ],
+    "scenarioWhy": "Summaries of the data in hand, such as mean and spread, are descriptive statistics."
+  },
+  {
+    "term": "Inferential Statistics",
+    "definition": "Methods that use sample data to draw conclusions about a larger population, including estimates and hypothesis tests.",
+    "wrongs": [
+      "Summaries that describe only the observed scores and make no population claim.",
+      "The consent statement read to participants.",
+      "A diagram of the concepts with no data."
+    ],
+    "why": "Inferential statistics go beyond the sample to estimate or test claims about a population.",
+    "example": "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population.",
+    "scenario": "The sample is used to judge whether video and text differ for all first-year students. Which methods do that?",
+    "scenarioAnswer": "Inferential statistics",
+    "scenarioWrongs": [
+      "A mean that describes only the sample",
+      "The consent statement",
+      "A concept diagram with no data"
+    ],
+    "scenarioWhy": "Using sample data to conclude about a larger population is inferential statistics."
+  },
+  {
+    "term": "Mean",
+    "definition": "The arithmetic average of a set of numbers, found by dividing their sum by how many values there are.",
+    "wrongs": [
+      "The middle value when the numbers are ordered.",
+      "The most frequently occurring value.",
+      "The difference between the largest and smallest values."
+    ],
+    "why": "The mean is the sum of the values divided by the count of values.",
+    "example": "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+    "scenario": "Three quiz scores are 6, 7, and 8. Which value is their mean?",
+    "scenarioAnswer": "7",
+    "scenarioWrongs": [
+      "6",
+      "8",
+      "2"
+    ],
+    "scenarioWhy": "The mean is the sum divided by the count: 21 divided by 3 equals 7."
+  },
+  {
+    "term": "Standard Deviation",
+    "definition": "A measure of how far values in a data set typically sit from their mean.",
+    "wrongs": [
+      "The arithmetic average of the values.",
+      "The middle value of the ordered list.",
+      "The probability of the data given the null hypothesis."
+    ],
+    "why": "Standard deviation summarises typical distance from the mean, so it describes spread rather than centre.",
+    "example": "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+    "scenario": "Two classes share a mean of 70, but one class's scores cluster tightly and the other's are widely spread. Which measure shows that difference?",
+    "scenarioAnswer": "Standard deviation",
+    "scenarioWrongs": [
+      "The mean, which is the same",
+      "The middle name of the teacher",
+      "The p-value of an unrelated test"
+    ],
+    "scenarioWhy": "Standard deviation measures typical distance from the mean, so it distinguishes the tight and wide classes."
+  },
+  {
+    "term": "Confidence Interval",
+    "definition": "A range computed from a sample that, under the method's assumptions, would cover the true population value in a stated percentage of repeated samples.",
+    "wrongs": [
+      "The probability that this particular interval already calculated is the only correct one in a personal sense.",
+      "The range from the smallest to the largest raw observation, with no inferential claim.",
+      "The set of all values the researcher would prefer to see."
+    ],
+    "why": "A confidence interval is an inferential range for a population value, with a stated confidence level tied to the method.",
+    "example": "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7.",
+    "scenario": "A sample produces a 95 percent interval of 7.1 to 7.7 for the population mean score. Which result is that interval?",
+    "scenarioAnswer": "A confidence interval",
+    "scenarioWrongs": [
+      "The range of the raw scores only",
+      "The values the researcher hopes for",
+      "The standard deviation of the sample"
+    ],
+    "scenarioWhy": "A range estimated from the sample for a population value, at a stated confidence level, is a confidence interval."
+  },
+  {
+    "term": "p-Value",
+    "definition": "The probability of data at least as extreme as those observed if the null hypothesis were true.",
+    "wrongs": [
+      "The probability that the null hypothesis itself is true.",
+      "The probability that the alternative hypothesis is true.",
+      "The size of the effect in practical units."
+    ],
+    "why": "A p-value is computed assuming the null is true; it is not the probability that the null is true.",
+    "example": "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03.",
+    "scenario": "A classmate says the p-value of 0.03 is the probability that the null hypothesis is true. Which correction is right?",
+    "scenarioAnswer": "It is the probability of data at least this extreme if the null were true",
+    "scenarioWrongs": [
+      "It is the probability that the null is true",
+      "It is the probability that the alternative is true",
+      "It is the practical size of the call-rate difference"
+    ],
+    "scenarioWhy": "The p-value assumes the null is true and states how surprising the data would then be."
+  },
+  {
+    "term": "Statistical Significance",
+    "definition": "A result unlikely under the null hypothesis at a pre-set threshold, treated as evidence against that null.",
+    "wrongs": [
+      "A result that is automatically large enough to matter in practice.",
+      "Proof that the null hypothesis is false beyond any doubt.",
+      "A finding that must be true of every future sample."
+    ],
+    "why": "Statistical significance means the result is unlikely given the null and the chosen threshold; it is not practical importance.",
+    "example": "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant.",
+    "scenario": "The threshold was set at 0.05 and the p-value is 0.03. Which claim is justified by that comparison alone?",
+    "scenarioAnswer": "The result is statistically significant",
+    "scenarioWrongs": [
+      "The effect is certainly important in practice",
+      "The null is impossible",
+      "Every future sample will match this one"
+    ],
+    "scenarioWhy": "A p-value below the pre-set threshold supports calling the result statistically significant, not practically important."
+  },
+  {
+    "term": "Type I Error",
+    "definition": "Rejecting a null hypothesis that is actually true, also called a false positive.",
+    "wrongs": [
+      "Failing to reject a null hypothesis that is actually false.",
+      "Measuring the spread of a sample.",
+      "Choosing a sample that is too convenient."
+    ],
+    "why": "A Type I error is a false claim of an effect when the null is true.",
+    "example": "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+    "scenario": "There is truly no difference, yet the test rejects the null and a difference is claimed. Which error is that?",
+    "scenarioAnswer": "A Type I error",
+    "scenarioWrongs": [
+      "A Type II error",
+      "A calculation of the standard deviation",
+      "The use of a convenience sample"
+    ],
+    "scenarioWhy": "Rejecting a true null is a Type I error, a false positive."
+  },
+  {
+    "term": "Type II Error",
+    "definition": "Failing to reject a null hypothesis that is actually false, also called a false negative.",
+    "wrongs": [
+      "Rejecting a null hypothesis that is actually true.",
+      "Reporting a confidence interval correctly.",
+      "Citing the source of a statistic."
+    ],
+    "why": "A Type II error misses a real effect by failing to reject a false null.",
+    "example": "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+    "scenario": "The video truly reduces calls, but the test does not reject no difference. Which error is that?",
+    "scenarioAnswer": "A Type II error",
+    "scenarioWrongs": [
+      "A Type I error",
+      "A correctly reported confidence interval",
+      "A proper citation"
+    ],
+    "scenarioWhy": "Failing to reject a false null is a Type II error, a false negative."
+  },
+  {
+    "term": "Correlation",
+    "definition": "A statistical association in which two variables vary together, which by itself does not prove that one causes the other.",
+    "wrongs": [
+      "Proof that changing one variable will produce a change in the other.",
+      "A difference between the means of two experimentally assigned groups.",
+      "The ethical approval number of a study."
+    ],
+    "why": "Correlation describes association; causation needs a design that can support a causal claim.",
+    "example": "Hours of video watched and quiz scores rise together, but the study did not assign the hours.",
+    "scenario": "Video hours and quiz scores rise together, and nothing was assigned by the researcher. Which claim is justified?",
+    "scenarioAnswer": "The two variables are correlated",
+    "scenarioWrongs": [
+      "Watching more video causes the higher scores",
+      "The means of two randomised groups differ",
+      "The study has ethical approval because of the association"
+    ],
+    "scenarioWhy": "Joint variation without a causal design supports correlation, not causation."
+  },
+  {
+    "term": "Causation",
+    "definition": "A relationship in which a change in one variable produces a change in another, supported by design rather than by association alone.",
+    "wrongs": [
+      "Any correlation, which is enough on its own to prove cause.",
+      "Two variables that were measured at the same time with no attempt to rule out other explanations.",
+      "A significant p-value from a convenience sample with obvious confounds."
+    ],
+    "why": "A causal claim needs a design, such as controlled assignment, that can rule out alternative explanations.",
+    "example": "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+    "scenario": "You want to claim the video produces fewer calls, not merely that the two are associated. Which design feature is required?",
+    "scenarioAnswer": "A design that rules out alternative explanations, such as random assignment",
+    "scenarioWrongs": [
+      "A correlation by itself",
+      "Measuring both variables once with no controls",
+      "A small p-value from a confounded convenience sample"
+    ],
+    "scenarioWhy": "Causation requires a design that can support a production claim, not association alone."
+  },
+  {
+    "term": "Research Informed Consent",
+    "definition": "Voluntary agreement to take part, given after the person understands the purpose, procedures, risks, and right to withdraw.",
+    "wrongs": [
+      "A requirement to participate because the person is enrolled in a class.",
+      "A signature collected with no explanation of the study.",
+      "Consent given by the researcher on the participant's behalf."
+    ],
+    "why": "Research consent is informed and voluntary, and it includes the freedom to withdraw.",
+    "example": "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree.",
+    "scenario": "You want to interview students. Which step secures research informed consent?",
+    "scenarioAnswer": "Explain purpose, risks, and withdrawal, then accept only voluntary agreement",
+    "scenarioWrongs": [
+      "Require participation because they are in the class",
+      "Collect a signature with no explanation",
+      "Sign the form yourself for them"
+    ],
+    "scenarioWhy": "Informed consent is a voluntary agreement after the participant understands the study and the right to withdraw."
+  },
+  {
+    "term": "Research Ethics",
+    "definition": "Principles that protect participants and the integrity of a study, including consent, avoidance of harm, and honesty.",
+    "wrongs": [
+      "A rule that interesting results justify hiding risks from participants.",
+      "A requirement to fabricate data if the hypothesis looks weak.",
+      "A ban on telling participants they may withdraw."
+    ],
+    "why": "Research ethics protect people and require honest conduct; they are not waived for an interesting result.",
+    "example": "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+    "scenario": "A design would collect live staff passwords and cannot explain a matching benefit. Which demand of research ethics applies?",
+    "scenarioAnswer": "Change the design to avoid unjustified harm",
+    "scenarioWrongs": [
+      "Hide the risk because the result would be interesting",
+      "Invent safer-looking data",
+      "Forbid participants to withdraw"
+    ],
+    "scenarioWhy": "Research ethics require avoidance of unjustified harm, so the dangerous design must change."
+  },
+  {
+    "term": "Anonymity",
+    "definition": "A condition in which the researcher cannot link a response to the identity of the person who provided it.",
+    "wrongs": [
+      "A promise to store names securely while the researcher still knows who answered.",
+      "Using first names in a published transcript.",
+      "Collecting student IDs on every questionnaire."
+    ],
+    "why": "Anonymity means even the researcher cannot connect responses to identities, which is stronger than confidential storage of names.",
+    "example": "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them.",
+    "scenario": "You must ensure that even you cannot tell who gave which quiz sheet. Which condition are you creating?",
+    "scenarioAnswer": "Anonymity",
+    "scenarioWrongs": [
+      "Confidential storage of a name list you can still match",
+      "Publishing first names",
+      "Printing student IDs on every sheet"
+    ],
+    "scenarioWhy": "Anonymity means responses cannot be linked to identities, including by the researcher."
+  },
+  {
+    "term": "Research Confidentiality",
+    "definition": "The duty to protect participants' identities and data from unauthorised disclosure, even when the researcher knows who they are.",
+    "wrongs": [
+      "A design in which nobody, including the researcher, can ever match a response to a person.",
+      "A right to publish names because the findings are useful.",
+      "Storing consent forms and named transcripts on a public website."
+    ],
+    "why": "Confidentiality protects known identities from disclosure; it is different from anonymity, where identities are not known.",
+    "example": "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+    "scenario": "You know who was interviewed and must stop others identifying them in the thesis. Which duty is that?",
+    "scenarioAnswer": "Research confidentiality",
+    "scenarioWrongs": [
+      "Anonymity, which you no longer have because you know the names",
+      "A right to publish the names",
+      "Uploading named transcripts to a public site"
+    ],
+    "scenarioWhy": "Protecting identities you do know from unauthorised disclosure is confidentiality."
+  },
+  {
+    "term": "Fabrication",
+    "definition": "Making up data or results and reporting them as if they had been collected.",
+    "wrongs": [
+      "Excluding a pre-stated outlier using a rule written before the data were seen.",
+      "Reporting a non-significant result honestly.",
+      "Citing a source you actually read."
+    ],
+    "why": "Fabrication is invention of data or results, which is research misconduct.",
+    "example": "A student who lost the questionnaires types plausible scores and presents them as real responses.",
+    "scenario": "The questionnaires were lost, so a student types plausible scores and treats them as real. Which misconduct is that?",
+    "scenarioAnswer": "Fabrication",
+    "scenarioWrongs": [
+      "Applying a pre-stated outlier rule",
+      "Reporting a non-significant result",
+      "Citing a source that was read"
+    ],
+    "scenarioWhy": "Inventing data and reporting them as collected is fabrication."
+  },
+  {
+    "term": "Falsification",
+    "definition": "Manipulating research materials, equipment, or data so that the reported record misrepresents the study.",
+    "wrongs": [
+      "Inventing an entire dataset that was never collected.",
+      "Correcting a typo in a transcription and noting the correction.",
+      "Analysing the data with the test named in the proposal."
+    ],
+    "why": "Falsification changes real materials or data so the report no longer represents what happened.",
+    "example": "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+    "scenario": "Real questionnaires that contradict the hypothesis are deleted and the deletion is hidden. Which misconduct is that?",
+    "scenarioAnswer": "Falsification",
+    "scenarioWrongs": [
+      "Inventing a dataset that never existed",
+      "Noting a transcription typo that was fixed",
+      "Using the statistical test named in the proposal"
+    ],
+    "scenarioWhy": "Altering the real data record so it misrepresents the study is falsification."
+  },
+  {
+    "term": "Research Plagiarism",
+    "definition": "Using another person's words, ideas, or data without proper credit and presenting that material as your own.",
+    "wrongs": [
+      "Quoting a source with quotation marks and a matching citation.",
+      "Paraphrasing an idea and citing the source.",
+      "Reporting data you collected yourself."
+    ],
+    "why": "Plagiarism presents someone else's work as yours; quotation or paraphrase with credit avoids it.",
+    "example": "A method section copies a paper's procedure paragraph and does not cite that paper.",
+    "scenario": "A procedure paragraph is copied from a paper and no source is given. Which label fits the draft?",
+    "scenarioAnswer": "Research plagiarism",
+    "scenarioWrongs": [
+      "A quotation with marks and a citation",
+      "A paraphrase that cites the source",
+      "A report of data you collected"
+    ],
+    "scenarioWhy": "Copying another's words into the thesis without credit is plagiarism."
+  },
+  {
+    "term": "Research Report",
+    "definition": "A structured account of a study that states the question, method, results, and interpretation so others can evaluate it.",
+    "wrongs": [
+      "A press release that gives only a slogan and no method.",
+      "The raw data file with no explanation.",
+      "An ethics application written before any results exist."
+    ],
+    "why": "A research report lets others judge the study by presenting question, method, results, and interpretation together.",
+    "example": "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+    "scenario": "Readers must be able to judge how the call-rate question was studied and what was found. Which document does that?",
+    "scenarioAnswer": "The research report",
+    "scenarioWrongs": [
+      "A slogan-only press release",
+      "A raw data file with no explanation",
+      "The ethics form written before the results"
+    ],
+    "scenarioWhy": "A research report presents the question, method, results, and interpretation for evaluation."
+  }
+]
