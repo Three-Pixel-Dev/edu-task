@@ -55,10 +55,9 @@ export default function RootLayout() {
 
 /**
  * Splash → Firebase auth check → (auth) screens or the main app.
- * While Firebase is still restoring the session the splash stays up, so the
- * login screen never flashes for a signed-in user. Stack.Protected swaps the
- * available routes when the auth state changes, so login/logout redirect
- * automatically.
+ * The stack stays unmounted while the session is restoring. Otherwise the only
+ * registered screen is +not-found, and Expo Router keeps that screen after the
+ * session resolves. Stack.Protected then swaps routes on login and logout.
  */
 function RootNavigator({ ready }: { ready: boolean }) {
   const { status } = useAuth();
@@ -67,6 +66,8 @@ function RootNavigator({ ready }: { ready: boolean }) {
   useEffect(() => {
     if (ready && !checking) void SplashScreen.hideAsync();
   }, [ready, checking]);
+
+  if (checking) return null;
 
   const signedIn = status === 'signedIn';
 
@@ -84,7 +85,7 @@ function RootNavigator({ ready }: { ready: boolean }) {
         <Stack.Screen name="tasks/create" options={{ presentation: 'modal' }} />
         <Stack.Screen name="tasks/edit" options={{ presentation: 'modal' }} />
       </Stack.Protected>
-      <Stack.Protected guard={!signedIn && !checking}>
+      <Stack.Protected guard={!signedIn}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
       <Stack.Screen name="+not-found" />
