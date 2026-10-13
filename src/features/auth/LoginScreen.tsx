@@ -68,8 +68,9 @@ export function LoginScreen() {
         placeholder="you@student.ceit.edu"
         keyboardType="email-address"
         autoCapitalize="none"
+        autoCorrect={false}
         autoComplete="email"
-        textContentType="username"
+        textContentType="emailAddress"
         returnKeyType="next"
         onSubmitEditing={() => passwordRef.current?.focus()}
       />
@@ -79,6 +80,9 @@ export function LoginScreen() {
         leftIcon="lock"
         revealable
         secureTextEntry
+        autoCapitalize="none"
+        autoCorrect={false}
+        spellCheck={false}
         value={password}
         onChangeText={setPassword}
         error={errors.password}

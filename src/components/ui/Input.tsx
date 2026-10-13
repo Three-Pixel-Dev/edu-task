@@ -1,4 +1,4 @@
-import { forwardRef, useState, type ReactNode } from 'react';
+import { forwardRef, memo, useCallback, useState, type ReactNode } from 'react';
 import { Pressable, StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
 import { colors, fonts, radius, spacing, touch } from '@/theme';
 import { AppText } from './AppText';
@@ -15,13 +15,14 @@ interface InputProps extends TextInputProps {
   footer?: ReactNode;
 }
 
-export const Input = forwardRef<TextInput, InputProps>(function Input(
+const InputInner = forwardRef<TextInput, InputProps>(function Input(
   { label, error, hint, leftIcon, revealable, optional, footer, multiline, secureTextEntry, style, onFocus, onBlur, ...rest },
   ref,
 ) {
-  const [focused, setFocused] = useState(false);
   const [revealed, setRevealed] = useState(false);
-  const borderColor = error ? colors.error : focused ? colors.primary : colors.borderStrong;
+  const borderColor = error ? colors.error : colors.borderStrong;
+
+  const toggleRevealed = useCallback(() => setRevealed((v) => !v), []);
 
   return (
     <View style={styles.wrapper}>
@@ -33,11 +34,10 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
         style={[
           styles.field,
           multiline && styles.multiline,
-          { borderColor, borderWidth: error || focused ? 1.5 : 1 },
-          focused && !error && styles.focusRing,
+          { borderColor, borderWidth: error ? 1.5 : 1 },
         ]}
       >
-        {leftIcon ? <Icon name={leftIcon} size={19} color={focused ? 'primary' : 'icon'} /> : null}
+        {leftIcon ? <Icon name={leftIcon} size={19} color="icon" /> : null}
         <TextInput
           ref={ref}
           accessibilityLabel={label}
@@ -48,14 +48,8 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
           multiline={multiline}
           textAlignVertical={multiline ? 'top' : 'center'}
           maxFontSizeMultiplier={1.4}
-          onFocus={(e) => {
-            setFocused(true);
-            onFocus?.(e);
-          }}
-          onBlur={(e) => {
-            setFocused(false);
-            onBlur?.(e);
-          }}
+          onFocus={onFocus}
+          onBlur={onBlur}
           style={[styles.input, multiline && styles.inputMultiline, style]}
           {...rest}
         />
@@ -63,7 +57,7 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
           <Pressable
             accessibilityRole="button"
             accessibilityLabel={revealed ? 'Hide password' : 'Show password'}
-            onPress={() => setRevealed((v) => !v)}
+            onPress={toggleRevealed}
             hitSlop={8}
             style={styles.reveal}
           >
@@ -88,6 +82,13 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
   );
 });
 
+/**
+ * Memoised so parent re-renders (e.g. onChangeText → setForm) don't force the
+ * native TextInput to blur and re-focus — which caused the jumping-input loop
+ * reported on Android Expo Go.
+ */
+export const Input = memo(InputInner) as typeof InputInner;
+
 const styles = StyleSheet.create({
   wrapper: { gap: spacing.sm },
   field: {
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
     gap: spacing.sm + 2,
   },
   multiline: { alignItems: 'flex-start', paddingVertical: spacing.md },
-  focusRing: { shadowColor: colors.primary, shadowOpacity: 0.15, shadowRadius: 4, shadowOffset: { width: 0, height: 0 } },
   input: {
     flex: 1,
     fontFamily: fonts.regular,

@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
-import { useRef, useState } from 'react';
-import { StyleSheet, View, type TextInput } from 'react-native';
+import { memo, useCallback, useMemo, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { AppText, Button, Icon, InlineAlert, Input } from '@/components';
 import { AUTH } from '@/constants/app';
 import { routes } from '@/constants/routes';
@@ -12,12 +12,48 @@ import { AuthLayout } from './AuthLayout';
 
 type Form = RegisterForm;
 
-const strengthMeta = [
+const STRENGTH_META = [
   { label: '8+ characters, letters & numbers', color: colors.border },
   { label: 'Not strong enough', color: colors.warning },
   { label: 'Good', color: colors.primary },
   { label: 'Strong password', color: colors.success },
 ] as const;
+
+// ─── Stable sub-components (defined outside the screen so they never remount) ───
+
+interface StrengthFooterProps {
+  strength: number;
+}
+const PasswordStrengthFooter = memo(function PasswordStrengthFooter({ strength }: StrengthFooterProps) {
+  const meta = STRENGTH_META[strength];
+  return (
+    <View style={styles.strength} accessible accessibilityLabel={`Password strength: ${meta.label}`}>
+      {[1, 2, 3].map((step) => (
+        <View key={step} style={[styles.bar, { backgroundColor: strength >= step ? meta.color : colors.border }]} />
+      ))}
+      <AppText variant="caption" color="textSecondary" style={styles.strengthLabel}>
+        {meta.label}
+      </AppText>
+    </View>
+  );
+});
+
+interface MatchFooterProps {
+  visible: boolean;
+}
+const PasswordMatchFooter = memo(function PasswordMatchFooter({ visible }: MatchFooterProps) {
+  if (!visible) return null;
+  return (
+    <View style={styles.match}>
+      <Icon name="check" size={14} color="successText" />
+      <AppText variant="caption" color="successText">
+        Passwords match
+      </AppText>
+    </View>
+  );
+});
+
+// ────────────────────────────────────────────────────────────────────────────────
 
 export function RegisterScreen() {
   const { register } = useAuth();
@@ -25,15 +61,21 @@ export function RegisterScreen() {
   const [errors, setErrors] = useState<FieldErrors<Form>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const emailRef = useRef<TextInput>(null);
-  const passwordRef = useRef<TextInput>(null);
-  const confirmRef = useRef<TextInput>(null);
 
-  const set = (key: keyof Form) => (value: string) => setForm((f) => ({ ...f, [key]: value }));
+  // Stable setters — never re-created so TextInput onChangeText props stay the same reference.
+  const setDisplayName = useCallback((value: string) => setForm((f) => ({ ...f, displayName: value })), []);
+  const setEmail = useCallback((value: string) => setForm((f) => ({ ...f, email: value })), []);
+  const setPassword = useCallback((value: string) => setForm((f) => ({ ...f, password: value })), []);
+  const setConfirmPassword = useCallback((value: string) => setForm((f) => ({ ...f, confirmPassword: value })), []);
+
   const strength = passwordStrength(form.password);
-  const matches = form.confirmPassword.length > 0 && form.confirmPassword === form.password;
+  const matchesVisible = form.confirmPassword.length > 0 && form.confirmPassword === form.password && !errors.confirmPassword;
 
-  const submit = async () => {
+  // Keep footer nodes stable — only update when the derived value changes.
+  const strengthFooter = useMemo(() => <PasswordStrengthFooter strength={strength} />, [strength]);
+  const matchFooter = useMemo(() => <PasswordMatchFooter visible={matchesVisible} />, [matchesVisible]);
+
+  const submit = useCallback(async () => {
     const found = validateRegister(form);
     setErrors(found);
     setFormError(null);
@@ -46,7 +88,8 @@ export function RegisterScreen() {
       setFormError(messageOf(e));
       setSubmitting(false);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form]);
 
   return (
     <AuthLayout compactHero>
@@ -65,78 +108,61 @@ export function RegisterScreen() {
         label="Full name"
         leftIcon="user"
         value={form.displayName}
-        onChangeText={set('displayName')}
+        onChangeText={setDisplayName}
         error={errors.displayName}
         maxLength={AUTH.displayNameMaxLength}
         placeholder="Your full name"
         autoComplete="name"
         textContentType="name"
         returnKeyType="next"
-        onSubmitEditing={() => emailRef.current?.focus()}
       />
       <Input
-        ref={emailRef}
         label="Email"
         leftIcon="mail"
         value={form.email}
-        onChangeText={set('email')}
+        onChangeText={setEmail}
         error={errors.email}
         placeholder="you@student.ceit.edu"
         keyboardType="email-address"
         autoCapitalize="none"
+        autoCorrect={false}
         autoComplete="email"
         textContentType="emailAddress"
         returnKeyType="next"
-        onSubmitEditing={() => passwordRef.current?.focus()}
       />
       <Input
-        ref={passwordRef}
         label="Password"
         leftIcon="lock"
         revealable
         secureTextEntry
+        autoCapitalize="none"
+        autoCorrect={false}
+        spellCheck={false}
         value={form.password}
-        onChangeText={set('password')}
+        onChangeText={setPassword}
         error={errors.password}
         placeholder="Create a password"
-        autoComplete="new-password"
+        autoComplete="password-new"
         textContentType="newPassword"
         returnKeyType="next"
-        onSubmitEditing={() => confirmRef.current?.focus()}
-        footer={
-          <View style={styles.strength} accessible accessibilityLabel={`Password strength: ${strengthMeta[strength].label}`}>
-            {[1, 2, 3].map((step) => (
-              <View key={step} style={[styles.bar, { backgroundColor: strength >= step ? strengthMeta[strength].color : colors.border }]} />
-            ))}
-            <AppText variant="caption" color="textSecondary" style={styles.strengthLabel}>
-              {strengthMeta[strength].label}
-            </AppText>
-          </View>
-        }
+        footer={strengthFooter}
       />
       <Input
-        ref={confirmRef}
         label="Confirm password"
         leftIcon="lock"
         secureTextEntry
+        autoCapitalize="none"
+        autoCorrect={false}
+        spellCheck={false}
         value={form.confirmPassword}
-        onChangeText={set('confirmPassword')}
+        onChangeText={setConfirmPassword}
         error={errors.confirmPassword}
         placeholder="Re-enter password"
-        autoComplete="new-password"
-        textContentType="newPassword"
+        autoComplete="off"
+        textContentType="none"
         returnKeyType="go"
         onSubmitEditing={submit}
-        footer={
-          matches && !errors.confirmPassword ? (
-            <View style={styles.match}>
-              <Icon name="check" size={14} color="successText" />
-              <AppText variant="caption" color="successText">
-                Passwords match
-              </AppText>
-            </View>
-          ) : null
-        }
+        footer={matchFooter}
       />
 
       <Button title="Sign up" onPress={submit} loading={submitting} style={styles.cta} />
