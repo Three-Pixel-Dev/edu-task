@@ -1,0 +1,17 @@
+{
+  "subjectId": "computer-architecture",
+  "levels": {
+    "1": [
+      { "question": "Which logic gate outputs 1 only when both inputs are 1?", "options": ["OR", "AND", "XOR", "NOR"], "correctAnswer": "AND", "explanation": "AND is true only when every input is true." },
+      { "question": "How many bits are in one byte?", "options": ["4", "8", "16", "32"], "correctAnswer": "8", "explanation": "A byte is 8 bits." },
+      { "question": "Which gate is called a universal gate?", "options": ["XOR", "NAND", "OR", "NOT"], "correctAnswer": "NAND", "explanation": "Any Boolean function can be built from NAND gates alone." },
+      { "question": "The binary number 1011 equals which decimal value?", "options": ["9", "10", "11", "13"], "correctAnswer": "11", "explanation": "8 + 0 + 2 + 1 = 11." },
+      { "question": "Which register holds the address of the next instruction?", "options": ["Accumulator", "Program counter", "Stack pointer", "Status register"], "correctAnswer": "Program counter", "explanation": "The program counter points to the next instruction to fetch." },
+      { "question": "Cache memory sits between:", "options": ["The CPU and main memory", "The disk and the network", "RAM and the disk only", "The keyboard and the CPU"], "correctAnswer": "The CPU and main memory", "explanation": "Cache reduces the average time the CPU needs to access main memory." },
+      { "question": "A flip-flop stores:", "options": ["One bit", "One byte", "One word", "Nothing"], "correctAnswer": "One bit", "explanation": "A flip-flop is a 1-bit memory element." },
+      { "question": "RISC processors typically use:", "options": ["Few, simple, fixed-length instructions", "Many complex variable-length instructions", "No registers", "Only microcode"], "correctAnswer": "Few, simple, fixed-length instructions", "explanation": "Simple instructions make pipelining easier." },
+      { "question": "In pipelining, a data hazard occurs when:", "options": ["Power fails", "An instruction needs a result that isn’t ready yet", "The cache is full", "The clock is too slow"], "correctAnswer": "An instruction needs a result that isn’t ready yet", "explanation": "Dependent instructions can read values before earlier instructions write them." },
+      { "question": "Which bus carries the memory location to read or write?", "options": ["Data bus", "Address bus", "Control bus", "USB"], "correctAnswer": "Address bus", "explanation": "The address bus selects the memory location." }
+    ]
+  }
+}

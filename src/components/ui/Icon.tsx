@@ -13,6 +13,11 @@ interface IconProps {
   tint?: string;
 }
 
+/** Validates an icon name stored in Firestore; unknown names fall back. */
+export function toIconName(name: string | undefined, fallback: IconName = 'book-open'): IconName {
+  return name && Object.prototype.hasOwnProperty.call(Feather.glyphMap, name) ? (name as IconName) : fallback;
+}
+
 export function Icon({ name, size = 20, color = 'icon', tint }: IconProps) {
   return <Feather name={name} size={size} color={tint ?? colors[color]} accessibilityElementsHidden importantForAccessibility="no" />;
 }

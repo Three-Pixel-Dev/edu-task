@@ -1,48 +1,40 @@
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 import {
   AppText,
+  AttemptRow,
   Avatar,
-  Badge,
   Button,
   Card,
+  ErrorState,
   ListGroup,
   ListRow,
   ProgressBar,
   Screen,
   ScreenHeader,
   SectionHeader,
+  Skeleton,
   StatGroup,
   StatTile,
-  SwitchRow,
 } from '@/components';
 import { routes } from '@/constants/routes';
-import { useAuth, useCurrentUser, useQuiz, useQuizStats, useTasks, useTaskSections } from '@/hooks';
-import { isFirebaseConfigured } from '@/services/firebase';
-import { preferencesService, resetLocalData } from '@/services/preferences';
-import { colors, spacing } from '@/theme';
-import { formatShortDate } from '@/utils/date';
+import { useAuth, useProfile, useQuizHistory, useQuizStats, useTasks, useTaskSections } from '@/hooks';
+import { messageOf } from '@/services/errors';
+import { colors, radius, spacing } from '@/theme';
+import { formatLongDate } from '@/utils/date';
+
+const HISTORY_PREVIEW = 5;
 
 export function ProfileScreen() {
-  const user = useCurrentUser();
-  const { logout } = useAuth();
+  const { logout, resetPassword } = useAuth();
+  const { profile, status: profileStatus, error: profileError, displayName, email } = useProfile();
+  const quiz = useQuizHistory();
   const quizStats = useQuizStats();
-  const { counts } = useTaskSections();
   const tasks = useTasks();
-  const quiz = useQuiz();
-  const [reminders, setReminders] = useState(true);
+  const { counts } = useTaskSections();
   const [loggingOut, setLoggingOut] = useState(false);
-
-  useEffect(() => {
-    void preferencesService.get(user.id).then((p) => setReminders(p.deadlineReminders));
-  }, [user.id]);
-
-  const toggleReminders = (value: boolean) => {
-    setReminders(value);
-    void preferencesService.set(user.id, { deadlineReminders: value });
-  };
 
   const confirmLogout = () => {
     Alert.alert('Log out of EduTask?', 'You can log back in any time with your email and password.', [
@@ -52,26 +44,36 @@ export function ProfileScreen() {
         style: 'destructive',
         onPress: async () => {
           setLoggingOut(true);
-          await logout();
+          try {
+            await logout(); // Firebase signOut → auth listener → login screen
+          } catch (e) {
+            setLoggingOut(false);
+            Alert.alert('Couldn’t log out', messageOf(e));
+          }
         },
       },
     ]);
   };
 
-  const confirmReset = () => {
-    Alert.alert('Reset demo data?', 'This restores the sample tasks and quiz history and signs you out.', [
+  const sendReset = () => {
+    Alert.alert('Change password', `We’ll email a password reset link to ${email}.`, [
       { text: 'Cancel', style: 'cancel' },
       {
-        text: 'Reset',
-        style: 'destructive',
+        text: 'Send link',
         onPress: async () => {
-          await resetLocalData();
-          await logout();
+          try {
+            await resetPassword(email);
+            Alert.alert('Check your inbox', `A reset link has been sent to ${email}.`);
+          } catch (e) {
+            Alert.alert('Couldn’t send the link', messageOf(e));
+          }
         },
       },
     ]);
   };
 
+  const quizLoading = quiz.status === 'loading';
+  const tasksLoading = tasks.status === 'loading';
   const completionRate = counts.total ? counts.completed / counts.total : 0;
 
   return (
@@ -79,66 +81,99 @@ export function ProfileScreen() {
       <ScreenHeader large title="Profile" />
 
       <Card style={styles.identity}>
-        <Avatar name={user.fullName} size={64} />
+        <Avatar name={displayName || '?'} size={64} />
         <View style={styles.flex}>
-          <AppText variant="heading">{user.fullName}</AppText>
+          {profileStatus === 'loading' && !displayName ? (
+            <Skeleton width={150} height={22} />
+          ) : (
+            <AppText variant="heading">{displayName}</AppText>
+          )}
           <AppText variant="label" color="textSecondary" numberOfLines={1}>
-            {user.email}
+            {email}
           </AppText>
-          <View style={styles.badges}>
-            <Badge label={`${user.program} · Year ${user.year}`} tone="primary" />
-          </View>
         </View>
       </Card>
+      {profileStatus === 'error' ? <ErrorState title="Couldn’t load your profile" message={profileError ?? undefined} /> : null}
 
       <View style={styles.section}>
-        <SectionHeader title="Student information" />
+        <SectionHeader title="Account" />
         <ListGroup>
-          <ListRow title="Student ID" value={user.studentId} />
-          <ListRow title="Program" value={user.program} divider />
-          <ListRow title="Year" value={`Year ${user.year}`} divider />
-          <ListRow title="Member since" value={formatShortDate(user.createdAt)} divider />
+          <ListRow title="Name" value={displayName || '—'} />
+          <ListRow title="Email" value={email || '—'} divider />
+          <ListRow title="Member since" value={profile ? formatLongDate(profile.createdAt) : '—'} divider />
         </ListGroup>
       </View>
 
       <View style={styles.section}>
-        <SectionHeader title="Quiz statistics" actionLabel="Quiz history" onAction={() => router.navigate(routes.quizTab)} />
-        <StatGroup>
-          <StatTile label="Quiz attempts" value={quiz.status === 'loading' ? '–' : quizStats.attempts} />
-          <StatTile label="Average score" value={quiz.status === 'loading' ? '–' : `${quizStats.average}%`} valueColor="primaryDark" />
-          <StatTile label="Levels done" value={quiz.status === 'loading' ? '–' : quizStats.levelsCompleted} />
-        </StatGroup>
+        <SectionHeader title="Quiz statistics" />
+        {quiz.status === 'error' ? (
+          <Card>
+            <ErrorState title="Couldn’t load quiz statistics" message={quiz.error ?? undefined} onRetry={quiz.retry} />
+          </Card>
+        ) : (
+          <StatGroup>
+            <StatTile label="Quiz attempts" value={quizLoading ? '–' : quizStats.attempts} />
+            <StatTile label="Average score" value={quizLoading ? '–' : `${quizStats.average}%`} valueColor="primaryDark" />
+            <StatTile label="Levels done" value={quizLoading ? '–' : quizStats.levelsCompleted} />
+          </StatGroup>
+        )}
+      </View>
+
+      <View style={styles.section}>
+        <SectionHeader
+          title="Quiz history"
+          actionLabel={quiz.results.length > HISTORY_PREVIEW ? 'See all' : undefined}
+          onAction={() => router.push(routes.quizHistory)}
+        />
+        {quizLoading ? (
+          <Skeleton height={140} rounded={radius.xxl} />
+        ) : quiz.status === 'error' ? null : quiz.results.length === 0 ? (
+          <Card tone="muted">
+            <AppText variant="body" color="textSecondary">
+              No quiz attempts yet.
+            </AppText>
+          </Card>
+        ) : (
+          <Card padded={false} style={styles.list}>
+            {quiz.results.slice(0, HISTORY_PREVIEW).map((result, i) => (
+              <AttemptRow key={result.id} result={result} divider={i > 0} onPress={() => router.push(routes.quizResult(result.id))} />
+            ))}
+          </Card>
+        )}
       </View>
 
       <View style={styles.section}>
         <SectionHeader title="Task statistics" actionLabel="My tasks" onAction={() => router.navigate(routes.tasksTab)} />
-        <StatGroup>
-          <StatTile label="Completed" value={tasks.status === 'loading' ? '–' : counts.completed} valueColor="successText" />
-          <StatTile label="Active" value={tasks.status === 'loading' ? '–' : counts.active} />
-          <StatTile label="Overdue" value={tasks.status === 'loading' ? '–' : counts.overdue} valueColor={counts.overdue ? 'errorText' : 'text'} />
-        </StatGroup>
-        <Card style={styles.rate}>
-          <View style={styles.rateLabels}>
-            <AppText variant="caption" color="textSecondary">
-              Completion rate
-            </AppText>
-            <AppText variant="captionStrong">{`${counts.completed} of ${counts.total} · ${Math.round(completionRate * 100)}%`}</AppText>
-          </View>
-          <ProgressBar value={completionRate} height={8} color={colors.success} accessibilityLabel="Task completion rate" />
-        </Card>
+        {tasks.status === 'error' ? (
+          <Card>
+            <ErrorState title="Couldn’t load task statistics" message={tasks.error ?? undefined} onRetry={tasks.retry} />
+          </Card>
+        ) : (
+          <>
+            <StatGroup>
+              <StatTile label="Completed" value={tasksLoading ? '–' : counts.completed} valueColor="successText" />
+              <StatTile label="Active" value={tasksLoading ? '–' : counts.active} />
+              <StatTile label="Overdue" value={tasksLoading ? '–' : counts.overdue} valueColor={counts.overdue ? 'errorText' : 'text'} />
+            </StatGroup>
+            {!tasksLoading && counts.total > 0 ? (
+              <Card style={styles.rate}>
+                <View style={styles.rateLabels}>
+                  <AppText variant="caption" color="textSecondary">
+                    Completion rate
+                  </AppText>
+                  <AppText variant="captionStrong">{`${counts.completed} of ${counts.total} · ${Math.round(completionRate * 100)}%`}</AppText>
+                </View>
+                <ProgressBar value={completionRate} height={8} color={colors.success} accessibilityLabel="Task completion rate" />
+              </Card>
+            ) : null}
+          </>
+        )}
       </View>
 
       <View style={styles.section}>
         <SectionHeader title="Settings" />
         <ListGroup>
-          <SwitchRow title="Deadline reminders" subtitle="Remind me the day before a task is due" value={reminders} onValueChange={toggleReminders} />
-          <ListRow
-            title="Data source"
-            icon="database"
-            value={isFirebaseConfigured ? 'Firebase' : 'Demo data'}
-            divider
-          />
-          {!isFirebaseConfigured ? <ListRow title="Reset demo data" icon="refresh-cw" onPress={confirmReset} divider /> : null}
+          <ListRow title="Change password" icon="lock" onPress={sendReset} />
         </ListGroup>
       </View>
 
@@ -151,10 +186,10 @@ export function ProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-  flex: { flex: 1, gap: 2 },
+  flex: { flex: 1, gap: 4 },
   identity: { flexDirection: 'row', alignItems: 'center', gap: spacing.lg },
-  badges: { flexDirection: 'row', marginTop: spacing.sm },
   section: { gap: spacing.md },
+  list: { overflow: 'hidden' },
   rate: { gap: spacing.sm },
   rateLabels: { flexDirection: 'row', justifyContent: 'space-between' },
 });

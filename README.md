@@ -1,94 +1,71 @@
 # EduTask
 
-A mobile learning and academic task app for CEIT students — level-based IT quizzes, an assignment tracker and a student profile.
+A mobile learning and task app for CEIT students: level-based IT quizzes, an assignment manager and a student profile.
 
-Built with **React Native + Expo (SDK 57) + TypeScript + Expo Router**. It runs on local demo data out of the box and is structured so Firebase (Auth + Firestore) can be switched on without changing any screen.
+**Stack:** React Native · Expo SDK 57 · TypeScript (strict) · Expo Router · Firebase Authentication · Cloud Firestore (Firebase JS SDK). There's no backend server and no mock data; everything is stored in your Firebase project. It runs in **Expo Go**.
 
-## Run it
+## Quick start
 
 ```bash
 npm install
-npx expo start
+cp .env.example .env        # fill in your Firebase web app config
+npx expo start -c           # scan the QR code with Expo Go
 ```
 
-Scan the QR code with **Expo Go** (Android) or the Camera app (iOS). Everything used is bundled in Expo Go — no development build is required.
+The first time, follow the **setup checklist in [`docs/firebase.md`](docs/firebase.md)**: create the project, enable Email/Password, create Firestore, deploy rules and indexes, then seed the subjects and questions. Without a config the app opens a "Connect Firebase" screen listing what's missing.
 
-**Demo login** (mock mode): `alvin.tan@student.ceit.edu` / `edutask123` — or tap the demo card on the login screen. You can also register a new account; new accounts start with empty tasks and quiz history so you can see the empty states.
-
-| Command | What it does |
+| Command | |
 | --- | --- |
-| `npm start` | Start the Expo dev server |
-| `npm run typecheck` | Strict TypeScript check |
-| `npm run lint` | ESLint (Expo config, React hooks rules) |
-| `npm run doctor` | `expo-doctor` dependency checks |
+| `npm start` | Expo dev server |
+| `npm run typecheck` | `tsc --noEmit` (strict) |
+| `npm run lint` | ESLint (Expo config + React hooks rules) |
+| `firebase deploy --only firestore` | Deploy rules + indexes |
+| `cd tools/firestore-seed && npm run validate` / `npm run seed -- --project <id>` | Check / load academic content (admin only) |
 
-## Features
+## What works
 
-- **Auth** — log in, register, log out, password reset, session persistence (splash → session check → login or app).
-- **Home** — greeting, Continue Quiz card, quick access, recent subjects, task summary, pull to refresh.
-- **Quiz** — Field → Subject → Level (1–15) → 10 multiple-choice questions → Result.
-  - The 7 client-defined fields, 28 subjects with codes, search on the subject list.
-  - Level grid shows *completed*, *in progress* and *available* (no unlocking rules).
-  - Questions: large answer cards, selected state, **Check answer → feedback (correct / incorrect + explanation) → Next**, Previous to review, 10-minute timer, autosave so you can leave and **Continue** later, automatic submit when time runs out.
-  - Result: score ring, correct / incorrect / total, subject and level, question-by-question review, Try again / Back to Quiz.
-- **Tasks** — Today / Upcoming / Completed with filters, overdue and due-soon colouring, quick complete with Undo, details, create, edit, delete with confirmation, native date and time pickers, searchable subject picker.
-- **Profile** — student info, quiz and task statistics, reminder setting, reset demo data, log out.
-- **States** — skeleton loading, empty, error with retry, form validation, success feedback, disabled buttons.
+- **Auth:** register (also creates `users/{uid}`), login, logout, password reset, and sessions that survive app restarts. The splash screen stays up while Firebase restores the session, so the login screen never flashes.
+- **Quiz:** Field → Subject → Level 1–15 → 10 questions → Result. Fields, subjects and questions all come from Firestore.
+  - Each attempt picks 10 unique questions in random order. With fewer than 10 the app shows *"Not enough questions are available for this level yet"* plus the current count.
+  - Answering works as: check answer → feedback (correct or incorrect, with an explanation) → next.
+  - There's a 10-minute timer, and progress autosaves so **Continue quiz** works.
+  - Submission is idempotent: double taps or retries can't create duplicate results.
+  - The result is saved to `quizResults` with the review answers, and history updates in real time.
+- **Tasks:** create, list, details, edit, complete (with Undo) and delete, all in Firestore.
+  - The list updates live through `onSnapshot`.
+  - Unconfirmed local changes are marked "Not synced yet".
+- **Home / Profile:** live name, Continue quiz, task summary, upcoming tasks, recent subjects, recent attempts, and quiz and task statistics. Every section has loading, empty and error states.
+- **Security:** `firestore.rules` gives per-user isolation for users, tasks, results and sessions; validates task and result fields; and makes quiz content read-only for students. See [`docs/firebase.md`](docs/firebase.md#security-rules-firestorerules).
 
 ## Project structure
 
 ```
-app/                    Expo Router routes — thin files that re-export a screen
-  _layout.tsx           fonts, providers, splash, auth-guarded Stack (Stack.Protected)
-  (auth)/               login, register
-  (tabs)/               index (Home), quiz, tasks, profile
-  quiz/                 fields, subjects, levels, questions, result
-  tasks/                create, [id], edit
+app/                         Expo Router routes (thin: each re-exports a screen)
+  _layout.tsx                fonts, providers, splash, config check, auth-guarded Stack
+  (auth)/ login, register     (tabs)/ index, quiz, tasks, profile
+  quiz/ fields, subjects, levels, questions, result, history
+  tasks/ create, [id], edit
 src/
-  features/             screen components grouped by area (auth, home, quiz, tasks, profile)
-  components/
-    ui/                 Button, Card, Input, Screen, ScreenHeader, SectionHeader, ProgressBar,
-                        Badge, StatTile, ListRow, SegmentedControl, Toast, Empty/Loading/Error states…
-    quiz/               FieldCard, SubjectCard, LevelCard, QuizOption, AnswerFeedback, ScoreRing, QuizTimer…
-    tasks/              TaskCard, SubjectPicker, DueDateField, PriorityPicker
-  hooks/                useAuth, useTasks, useQuiz, useQuizSession, useAsync, useCountdown, useResponsive
-  store/                React Context providers (Auth, Tasks, Quiz) — no Redux
-  services/             firebase, auth, tasks, quiz, storage, preferences
-  data/                 mock catalogue (fields, subjects, questions), demo users, seed data
-  types/                shared domain types (User, SubjectField, Subject, Quiz, Question, QuizAnswer, QuizResult, Task…)
-  constants/            app constants, storage keys, typed route builders
-  theme/                colors, spacing, typography, shadows
-  utils/                quiz scoring, dates, validation, formatting
-assets/images/          app icon, adaptive icon, splash
-docs/firebase.md        Firebase setup and data model
-firestore.rules         starter security rules
+  services/                  ALL Firebase access lives here
+    firebase.ts              single init: app, auth (AsyncStorage persistence), firestore
+    auth.ts users.ts subjects.ts quizzes.ts quizResults.ts tasks.ts
+    errors.ts                friendly error mapping + write/read timeouts
+    converters.ts            safe Firestore → typed model conversion
+  providers/                 AuthProvider (onAuthStateChanged + profile), TasksProvider and
+                             QuizProvider (one real-time listener each, shared by screens)
+  hooks/                     useAuth, useProfile, useSubjectFields, useSubjects, useSubjectCatalog,
+                             useQuizHistory, useQuizSession, useTasks, useTaskActions, useNetworkStatus…
+  features/                  screens by area (auth, home, quiz, tasks, profile, setup)
+  components/                ui/ (design system), quiz/, tasks/
+  utils/                     quiz selection and grading, validation, dates (pure, testable)
+  theme/ types/ constants/
+firestore.rules  firestore.indexes.json  firebase.json  storage.rules (deny-all placeholder)
+tools/firestore-seed/        admin-only Node script (Firebase Admin SDK) + data/ (fields, subjects, questions)
+docs/firebase.md             setup checklist, data model, rules, indexes, offline behaviour
 ```
 
-**Data flow:** screen → hook → context store → service → (mock AsyncStorage | Firebase). Screens never import Firebase.
+Data flow: **screen → hook → provider/service → Firebase.** Screens never import Firebase directly. The Admin SDK lives only in `tools/` and is excluded from Metro, TypeScript and the app bundle.
 
-## Design system
+## Design
 
-The theme in `src/theme` is the single source for colours, spacing, radii and type — screens don't hard-code hex values.
-
-- Brand: Primary `#2563EB`, Primary dark `#1D4ED8`, Background `#F8FAFC`, Card `#FFFFFF`, Text `#0F172A`, Secondary `#64748B`, Success `#16A34A`, Warning `#F59E0B`, Error `#DC2626`, Accent `#7C3AED`.
-- Status text uses darker shades (`#15803D`, `#92400E`, `#B91C1C`) so it meets WCAG AA; the brand status colours are used for dots, rings and borders.
-- Type: Inter (400/500/600/700) and Geist Mono for subject codes and the timer, loaded with `expo-font`.
-- Icons: Feather via `@expo/vector-icons` (the outline set Lucide is based on).
-
-## Device support & accessibility
-
-- Safe areas on every screen (notches, home indicator); sticky bottom actions for one-handed use.
-- Responsive gutters for small (< 360pt), normal and large (≥ 428pt) phones; content capped at 640pt and the level grid goes to 5 columns on tablets.
-- Touch targets ≥ 44pt (primary buttons 52pt); Dynamic Type supported up to 1.4×.
-- Screen-reader labels and roles on all controls (`radio`, `checkbox`, `progressbar`, `timer`, `alert`), selection shown with more than colour.
-
-## Firebase
-
-Add your web app config to `.env` (see `.env.example`) and restart with `npx expo start -c`. Details, data model and rules: [`docs/firebase.md`](docs/firebase.md).
-
-## Roadmap
-
-| Phase | Status |
-| --- | --- |
-| 1 – 11: setup, theme, navigation, components, auth UI, Home, quiz flow, result, tasks, profile, mock data | Done |
-| 12: Firebase | Services ready for Auth, `users`, `tasks`, `quizResults`; move quiz content to Firestore next |
+The design is unchanged from the approved EduTask mobile UI: the light theme in `src/theme` (Primary `#2563EB`, etc.), Inter + Geist Mono, Feather icons, 44pt+ touch targets, safe-area aware layouts and screen-reader labels.

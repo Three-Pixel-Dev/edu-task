@@ -3,36 +3,43 @@ import { getApp, getApps, initializeApp, type FirebaseApp, type FirebaseOptions 
 // getReactNativePersistence exists in Firebase's React Native build (which Metro
 // resolves), but not in the public typings — see src/types/firebase-auth.d.ts.
 import { getAuth, getReactNativePersistence, initializeAuth, type Auth } from 'firebase/auth';
-import { getFirestore, type Firestore } from 'firebase/firestore';
+import { getFirestore, initializeFirestore, memoryLocalCache, type Firestore } from 'firebase/firestore';
+import { getStorage, type FirebaseStorage } from 'firebase/storage';
 
 /**
- * Firebase is optional during development.
+ * Firebase configuration comes from Expo public env variables (see .env.example).
+ * These are the *web app* config values — they identify the project and are
+ * safe to ship in a client app. Access is protected by Firestore security
+ * rules, never by keeping these values secret. Never put service-account or
+ * Admin SDK credentials in an EXPO_PUBLIC_ variable.
  *
- * Add the values below to a `.env` file (see `.env.example`). Expo inlines
- * EXPO_PUBLIC_* variables at build time. If any required value is missing the
- * app runs entirely on local mock data, so it still works in Expo Go with no
- * setup. Never commit real keys.
+ * Expo only inlines `process.env.EXPO_PUBLIC_*` when written out literally,
+ * so each key is listed explicitly.
  */
-const config: FirebaseOptions = {
-  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
-};
+const env = {
+  EXPO_PUBLIC_FIREBASE_API_KEY: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+  EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  EXPO_PUBLIC_FIREBASE_PROJECT_ID: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  EXPO_PUBLIC_FIREBASE_APP_ID: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
+} as const;
 
-export const isFirebaseConfigured = Boolean(config.apiKey && config.projectId && config.appId);
+/** Names of required env variables that are missing — shown on the setup screen. */
+export const missingFirebaseConfig = (Object.keys(env) as (keyof typeof env)[]).filter((key) => !env[key]?.trim());
+
+export const isFirebaseConfigured = missingFirebaseConfig.length === 0;
 
 /** Firestore collection names — one place to change them. */
 export const COLLECTIONS = {
   users: 'users',
   subjectFields: 'subjectFields',
   subjects: 'subjects',
-  quizzes: 'quizzes',
   questions: 'questions',
   quizResults: 'quizResults',
   tasks: 'tasks',
+  /** Subcollection under users/{uid} */
+  quizSessions: 'quizSessions',
 } as const;
 
 interface FirebaseServices {
@@ -42,22 +49,54 @@ interface FirebaseServices {
 }
 
 let services: FirebaseServices | null = null;
+let storage: FirebaseStorage | null = null;
 
-/** Lazily initialises Firebase. Only call when `isFirebaseConfigured` is true. */
+/**
+ * Returns the single Firebase instance, initialising it on first use.
+ * Module-level caching means re-renders never re-initialise Firebase, and the
+ * getApps() check keeps Fast Refresh (which re-runs modules) safe.
+ */
 export function getFirebase(): FirebaseServices {
-  if (!isFirebaseConfigured) {
-    throw new Error('Firebase is not configured. Add EXPO_PUBLIC_FIREBASE_* values to .env.');
-  }
   if (services) return services;
+  if (!isFirebaseConfigured) {
+    throw new Error(`Firebase is not configured. Missing: ${missingFirebaseConfig.join(', ')}`);
+  }
 
   const alreadyInitialised = getApps().length > 0;
-  const app = alreadyInitialised ? getApp() : initializeApp(config);
-  // initializeAuth may only be called once per app (Fast Refresh re-runs modules).
-  const auth = alreadyInitialised
-    ? getAuth(app)
-    : initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
-  const db = getFirestore(app);
+  const app = alreadyInitialised
+    ? getApp()
+    : initializeApp({
+        apiKey: env.EXPO_PUBLIC_FIREBASE_API_KEY,
+        authDomain: env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+        storageBucket: env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+        appId: env.EXPO_PUBLIC_FIREBASE_APP_ID,
+      } satisfies FirebaseOptions);
+
+  // React Native needs initializeAuth + AsyncStorage persistence so the session
+  // survives app restarts (getAuth alone would keep it in memory only).
+  // initializeAuth may only run once per app, hence getAuth after a Fast Refresh.
+  const auth = alreadyInitialised ? getAuth(app) : initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
+
+  // Firestore's persistent (IndexedDB) cache isn't available in React Native,
+  // so we use the in-memory cache: listeners still update instantly for local
+  // writes, but a write is only "saved" once the server confirms it.
+  // Long-polling auto-detection keeps the connection working on RN networks.
+  const db = alreadyInitialised
+    ? getFirestore(app)
+    : initializeFirestore(app, { localCache: memoryLocalCache(), experimentalAutoDetectLongPolling: true });
 
   services = { app, auth, db };
   return services;
+}
+
+/**
+ * Firebase Storage is not used yet — EduTask has no file uploads. This accessor
+ * exists so assignment attachments can be added later under
+ * `users/{uid}/tasks/{taskId}/…` without touching initialisation code.
+ */
+export function getFirebaseStorage(): FirebaseStorage {
+  if (!storage) storage = getStorage(getFirebase().app);
+  return storage;
 }

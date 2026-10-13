@@ -1,16 +1,16 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo } from 'react';
-import { EmptyState, Screen } from '@/components';
-import { useTask, useTasks } from '@/hooks';
+import { EmptyState, LoadingState, Screen, ScreenHeader } from '@/components';
+import { useTask, useTaskActions } from '@/hooks';
 import type { TaskInput } from '@/types';
 import { TaskFormScreen } from './TaskFormScreen';
 
 export function EditTaskScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const task = useTask(id);
-  const { updateTask } = useTasks();
+  const { task, status } = useTask(id);
+  const { updateTask } = useTaskActions();
 
-  // Memoised so the form's "unsaved changes" check has a stable baseline.
+  // Memoised on the id so live updates don't reset what the student is typing.
   const initial = useMemo<TaskInput | undefined>(
     () =>
       task
@@ -19,6 +19,15 @@ export function EditTaskScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [task?.id],
   );
+
+  if (!initial && status === 'loading') {
+    return (
+      <Screen>
+        <ScreenHeader back backIcon="x" backLabel="Close" />
+        <LoadingState rows={4} label="Loading task" />
+      </Screen>
+    );
+  }
 
   if (!task || !initial) {
     return (

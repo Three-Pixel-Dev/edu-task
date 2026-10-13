@@ -1,32 +1,150 @@
 rules_version = '2';
 
-// Starter rules for EduTask. Students can only read and write their own
-// profile, tasks and quiz results. Quiz content is read-only for clients.
+// EduTask Firestore security rules.
+//
+// • Students can only read and write their own profile, tasks, quiz results
+//   and unfinished quiz sessions. The UID always comes from Firebase Auth
+//   (request.auth.uid) — a userId sent by the client is never trusted.
+// • Quiz content (subjectFields, subjects, questions) is read-only for
+//   students. Only accounts with the custom claim `admin: true` may write it
+//   (the seed tool uses the Admin SDK, which bypasses rules entirely).
+// • Nothing is ever open with `if true`.
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // ── Helpers ─────────────────────────────────────────────────────────
     function signedIn() { return request.auth != null; }
-    function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
+    function isUser(uid) { return signedIn() && request.auth.uid == uid; }
+    function isAdmin() { return signedIn() && request.auth.token.admin == true; }
+    function incoming() { return request.resource.data; }
+    function text(v, min, max) { return v is string && v.trim().size() >= min && v.size() <= max; }
+    function intIn(v, min, max) { return v is int && v >= min && v <= max; }
 
+    // ── users/{uid} ─────────────────────────────────────────────────────
     match /users/{userId} {
-      allow read, write: if isOwner(userId);
+      allow get: if isUser(userId);
+      allow list: if false;
+
+      allow create: if isUser(userId)
+        && incoming().keys().hasAll(['uid', 'displayName', 'email', 'createdAt', 'updatedAt'])
+        && incoming().keys().hasOnly(['uid', 'displayName', 'email', 'createdAt', 'updatedAt'])
+        && incoming().uid == userId
+        && text(incoming().displayName, 1, 60)
+        && incoming().email is string
+        && incoming().email.lower() == request.auth.token.email.lower()
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      // Only the display name can change; uid, email and createdAt are fixed.
+      allow update: if isUser(userId)
+        && incoming().diff(resource.data).affectedKeys().hasOnly(['displayName', 'updatedAt'])
+        && text(incoming().displayName, 1, 60)
+        && incoming().updatedAt == request.time;
+
+      allow delete: if false;
+
+      // ── users/{uid}/quizSessions/{sessionId} — unfinished quizzes ────
+      match /quizSessions/{sessionId} {
+        allow read, delete: if isUser(userId);
+        allow create, update: if isUser(userId) && validSession(incoming());
+      }
     }
 
-    match /tasks/{taskId} {
-      allow read, delete: if isOwner(resource.data.userId);
-      allow create: if isOwner(request.resource.data.userId);
-      allow update: if isOwner(resource.data.userId) && request.resource.data.userId == resource.data.userId;
+    function validSession(d) {
+      return d.keys().hasOnly(['subjectId', 'subjectName', 'subjectCode', 'level', 'questionIds', 'answers', 'checked',
+                               'currentIndex', 'remainingSeconds', 'resultId', 'startedAt', 'updatedAt'])
+        && text(d.subjectId, 1, 100)
+        && d.subjectName is string && d.subjectCode is string
+        && intIn(d.level, 1, 15)
+        && d.questionIds is list && d.questionIds.size() == 10
+        && d.answers is map && d.answers.size() <= 10
+        && d.checked is list && d.checked.size() <= 10
+        && intIn(d.currentIndex, 0, 9)
+        && d.remainingSeconds is number && d.remainingSeconds >= 0 && d.remainingSeconds <= 600
+        && text(d.resultId, 1, 100)
+        && d.startedAt is timestamp
+        && d.updatedAt == request.time;
     }
 
+    // ── quizResults/{resultId} ──────────────────────────────────────────
     match /quizResults/{resultId} {
-      allow read: if isOwner(resource.data.userId);
-      allow create: if isOwner(request.resource.data.userId);
-      allow update, delete: if false; // results are immutable
+      // `resource == null` lets the app check whether a result exists
+      // (retry after a timeout) without revealing anything.
+      allow get: if signedIn() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && validResult(incoming());
+      // Results are permanent: no edits, no deletes from the app.
+      allow update, delete: if false;
     }
 
-    // Catalogue: managed from the Firebase console or an admin script.
-    match /subjectFields/{id} { allow read: if signedIn(); allow write: if false; }
-    match /subjects/{id}      { allow read: if signedIn(); allow write: if false; }
-    match /quizzes/{id}       { allow read: if signedIn(); allow write: if false; }
-    match /questions/{id}     { allow read: if signedIn(); allow write: if false; }
+    function validResult(d) {
+      return d.keys().hasAll(['userId', 'subjectId', 'subjectName', 'subjectCode', 'level', 'totalQuestions', 'correctAnswers',
+                              'incorrectAnswers', 'score', 'percentage', 'durationSeconds', 'answers', 'completedAt'])
+        && d.keys().hasOnly(['userId', 'subjectId', 'subjectName', 'subjectCode', 'level', 'totalQuestions', 'correctAnswers',
+                             'incorrectAnswers', 'score', 'percentage', 'durationSeconds', 'answers', 'completedAt'])
+        && d.userId == request.auth.uid
+        && text(d.subjectId, 1, 100)
+        && exists(/databases/$(database)/documents/subjects/$(d.subjectId))
+        && d.subjectName is string && d.subjectCode is string
+        && intIn(d.level, 1, 15)
+        && d.totalQuestions == 10
+        && intIn(d.correctAnswers, 0, 10)
+        && d.incorrectAnswers == d.totalQuestions - d.correctAnswers
+        && d.score == d.correctAnswers
+        && d.percentage == d.correctAnswers * 10
+        && intIn(d.durationSeconds, 0, 3600)
+        && d.answers is list && d.answers.size() == d.totalQuestions
+        && d.completedAt == request.time;
+    }
+
+    // ── tasks/{taskId} ──────────────────────────────────────────────────
+    match /tasks/{taskId} {
+      allow get: if signedIn() && (resource == null || resource.data.userId == request.auth.uid);
+      // Queries must filter on userId == own uid, otherwise they're rejected.
+      allow list: if signedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if signedIn()
+        && incoming().userId == request.auth.uid
+        && validTask(incoming())
+        && incoming().status == 'pending'
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if signedIn()
+        && resource.data.userId == request.auth.uid
+        && incoming().userId == resource.data.userId       // can't hand a task to someone else
+        && incoming().createdAt == resource.data.createdAt // creation time is fixed
+        && incoming().updatedAt == request.time
+        && validTask(incoming());
+
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    function validTask(d) {
+      return d.keys().hasAll(['userId', 'title', 'description', 'subjectId', 'dueDate', 'priority', 'status', 'completedAt', 'createdAt', 'updatedAt'])
+        && d.keys().hasOnly(['userId', 'title', 'description', 'subjectId', 'dueDate', 'priority', 'status', 'completedAt', 'createdAt', 'updatedAt'])
+        && text(d.title, 1, 80)
+        && d.description is string && d.description.size() <= 500
+        && text(d.subjectId, 1, 100)
+        && d.dueDate is timestamp
+        && d.priority in ['low', 'medium', 'high']
+        && ((d.status == 'pending' && d.completedAt == null) || (d.status == 'completed' && d.completedAt is timestamp));
+    }
+
+    // ── Academic content: read-only for students ────────────────────────
+    match /subjectFields/{fieldId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+    match /subjects/{subjectId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+    match /questions/{questionId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // Anything not matched above is denied by default.
   }
 }

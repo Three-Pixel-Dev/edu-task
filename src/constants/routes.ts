@@ -18,6 +18,7 @@ export const routes = {
       pathname: '/quiz/questions',
       params: { subjectId, level: String(level), ...(restart ? { restart: '1' } : {}) },
     }) as const,
+  quizHistory: '/quiz/history',
   quizResult: (resultId: string, timeUp = false) =>
     ({ pathname: '/quiz/result', params: { resultId, ...(timeUp ? { timeUp: '1' } : {}) } }) as const,
 

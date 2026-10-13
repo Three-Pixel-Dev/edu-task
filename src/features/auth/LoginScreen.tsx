@@ -3,11 +3,9 @@ import { useRef, useState } from 'react';
 import { Alert, Pressable, StyleSheet, View, type TextInput } from 'react-native';
 import { AppText, Button, InlineAlert, Input } from '@/components';
 import { routes } from '@/constants/routes';
-import { DEMO_EMAIL, DEMO_PASSWORD } from '@/data';
 import { useAuth } from '@/hooks';
-import { isFirebaseConfigured } from '@/services/firebase';
-import { messageOf } from '@/services/storage';
-import { colors, radius, spacing } from '@/theme';
+import { messageOf } from '@/services/errors';
+import { spacing } from '@/theme';
 import { hasErrors, isEmail, validateLogin } from '@/utils/validation';
 import { AuthLayout } from './AuthLayout';
 
@@ -62,7 +60,7 @@ export function LoginScreen() {
       {formError ? <InlineAlert message={formError} /> : null}
 
       <Input
-        label="Email or username"
+        label="Email"
         leftIcon="mail"
         value={email}
         onChangeText={setEmail}
@@ -99,27 +97,6 @@ export function LoginScreen() {
 
       <Button title="Log in" onPress={submit} loading={submitting} />
 
-      {!isFirebaseConfigured ? (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Fill in the demo account"
-          onPress={() => {
-            setEmail(DEMO_EMAIL);
-            setPassword(DEMO_PASSWORD);
-            setErrors({});
-            setFormError(null);
-          }}
-          style={styles.demo}
-        >
-          <AppText variant="captionStrong" color="textBody">
-            Demo mode · tap to use the sample student
-          </AppText>
-          <AppText variant="code" color="textSecondary">
-            {`${DEMO_EMAIL}  ·  ${DEMO_PASSWORD}`}
-          </AppText>
-        </Pressable>
-      ) : null}
-
       <View style={styles.footer}>
         <AppText variant="body" color="textSecondary">
           Don’t have an account?{' '}
@@ -137,15 +114,6 @@ export function LoginScreen() {
 const styles = StyleSheet.create({
   heading: { gap: spacing.xs + 2 },
   forgot: { alignSelf: 'flex-end', marginTop: -spacing.sm, minHeight: 32, justifyContent: 'center' },
-  demo: {
-    gap: spacing.xs,
-    padding: spacing.md,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: colors.borderStrong,
-    backgroundColor: colors.background,
-  },
   footer: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 'auto', paddingTop: spacing.lg, flexWrap: 'wrap' },
   link: { paddingVertical: spacing.sm },
 });

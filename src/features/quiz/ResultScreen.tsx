@@ -7,50 +7,57 @@ import {
   Button,
   Card,
   CodeChip,
-  EmptyState,
+  ErrorState,
   Icon,
   InlineAlert,
+  LoadingState,
   ScoreRing,
   Screen,
+  ScreenHeader,
   SectionHeader,
   StatGroup,
   StatTile,
 } from '@/components';
 import { routes } from '@/constants/routes';
-import { findSubject, findQuestion } from '@/data';
-import { useCurrentUser, useQuiz } from '@/hooks';
+import { useAsync, useProfile, useQuizHistory, useUid } from '@/hooks';
+import { getQuizResult } from '@/services/quizResults';
 import { colors, radius, spacing } from '@/theme';
+import type { QuizResult } from '@/types';
 import { formatLongDate } from '@/utils/date';
 import { firstNameOf } from '@/utils/format';
-import { formatClock, percentageOf, scoreMessage } from '@/utils/quiz';
+import { formatClock, scoreMessage } from '@/utils/quiz';
 
 export function ResultScreen() {
-  const { resultId, timeUp } = useLocalSearchParams<{ resultId: string; timeUp?: string }>();
-  const user = useCurrentUser();
-  const { results } = useQuiz();
-  const result = useMemo(() => results.find((r) => r.id === resultId), [results, resultId]);
-  const [showReview, setShowReview] = useState(false);
+  const { resultId = '', timeUp } = useLocalSearchParams<{ resultId: string; timeUp?: string }>();
+  const uid = useUid();
+  const { results } = useQuizHistory();
+  const fromListener = useMemo(() => results.find((r) => r.id === resultId), [results, resultId]);
+  // Opened from a link or before the listener has caught up → read it directly.
+  const fetched = useAsync(() => (fromListener ? Promise.resolve(fromListener) : getQuizResult(uid, resultId)), [resultId, Boolean(fromListener)]);
+  const result = fromListener ?? fetched.data;
 
   const backToQuiz = () => router.dismissTo(routes.quizTab);
 
   if (!result) {
     return (
       <Screen>
-        <EmptyState
-          icon="file-text"
-          title="Result not found"
-          message="This quiz result is no longer available."
-          actionLabel="Back to Quiz"
-          actionIcon="arrow-left"
-          onAction={backToQuiz}
-        />
+        <ScreenHeader back backIcon="x" backLabel="Close" onBack={backToQuiz} />
+        {fetched.status === 'error' ? (
+          <ErrorState title="Couldn’t load this result" message={fetched.error ?? undefined} onRetry={fetched.reload} />
+        ) : (
+          <LoadingState rows={3} label="Loading result" />
+        )}
       </Screen>
     );
   }
 
-  const subject = findSubject(result.subjectId);
-  const pct = percentageOf(result);
-  const message = scoreMessage(pct, firstNameOf(user.fullName));
+  return <ResultView result={result} timeUp={timeUp === '1'} onBack={backToQuiz} />;
+}
+
+function ResultView({ result, timeUp, onBack }: { result: QuizResult; timeUp: boolean; onBack: () => void }) {
+  const { displayName } = useProfile();
+  const [showReview, setShowReview] = useState(false);
+  const message = scoreMessage(result.percentage, firstNameOf(displayName || 'there'));
 
   return (
     <Screen
@@ -64,7 +71,7 @@ export function ResultScreen() {
             style={styles.flex}
             onPress={() => router.replace(routes.quizQuestions(result.subjectId, result.level, true))}
           />
-          <Button title="Back to Quiz" fullWidth={false} style={styles.flex} onPress={backToQuiz} />
+          <Button title="Back to Quiz" fullWidth={false} style={styles.flex} onPress={onBack} />
         </View>
       }
     >
@@ -83,7 +90,7 @@ export function ResultScreen() {
         </View>
       </View>
 
-      {timeUp === '1' ? <InlineAlert message="Time’s up — unanswered questions were marked incorrect." /> : null}
+      {timeUp ? <InlineAlert message="Time’s up — unanswered questions were marked incorrect." /> : null}
 
       <StatGroup>
         <StatTile label="Correct" value={result.correctAnswers} dot={colors.success} valueColor="successText" />
@@ -94,56 +101,53 @@ export function ResultScreen() {
       <Card style={styles.details}>
         <View style={styles.detailsTop}>
           <View style={styles.flex}>
-            <AppText variant="bodyStrong">{subject?.name ?? 'Subject'}</AppText>
-            {subject ? <CodeChip code={subject.code} /> : null}
+            <AppText variant="bodyStrong">{result.subjectName}</AppText>
+            {result.subjectCode ? <CodeChip code={result.subjectCode} /> : null}
           </View>
           <Badge label={`Level ${result.level}`} tone="primary" />
         </View>
         <View style={styles.detailsRow}>
+          <Detail icon="percent" label="Score" value={`${result.score} / ${result.totalQuestions} · ${result.percentage}%`} />
           <Detail icon="clock" label="Time taken" value={formatClock(result.durationSeconds)} />
           <Detail icon="calendar" label="Completed" value={formatLongDate(result.completedAt)} />
         </View>
       </Card>
 
-      <View style={styles.section}>
-        <SectionHeader title="Question review" actionLabel={showReview ? 'Hide answers' : 'Show answers'} onAction={() => setShowReview((v) => !v)} />
-        <View style={styles.marks}>
-          {result.answers.map((answer, i) => (
-            <View
-              key={answer.questionId}
-              accessible
-              accessibilityLabel={`Question ${i + 1}: ${answer.isCorrect ? 'correct' : 'incorrect'}`}
-              style={[styles.mark, { backgroundColor: answer.isCorrect ? colors.successSurfaceStrong : colors.errorSurfaceStrong }]}
-            >
-              <AppText variant="captionStrong" color={answer.isCorrect ? 'successText' : 'errorText'}>
-                {i + 1}
-              </AppText>
-            </View>
-          ))}
-        </View>
-        {showReview ? (
-          <Card padded={false} style={styles.review}>
-            {result.answers.map((answer, i) => {
-              const q = findQuestion(answer.questionId);
-              if (!q) return null;
-              const chosen = q.options.find((o) => o.id === answer.selectedOptionId)?.text ?? 'No answer';
-              const correct = q.options.find((o) => o.id === q.correctOptionId)?.text ?? '';
-              return (
-                <View key={answer.questionId} style={[styles.reviewRow, i > 0 && styles.divider]}>
+      {result.answers.length ? (
+        <View style={styles.section}>
+          <SectionHeader title="Question review" actionLabel={showReview ? 'Hide answers' : 'Show answers'} onAction={() => setShowReview((v) => !v)} />
+          <View style={styles.marks}>
+            {result.answers.map((answer, i) => (
+              <View
+                key={answer.questionId || i}
+                accessible
+                accessibilityLabel={`Question ${i + 1}: ${answer.isCorrect ? 'correct' : 'incorrect'}`}
+                style={[styles.mark, { backgroundColor: answer.isCorrect ? colors.successSurfaceStrong : colors.errorSurfaceStrong }]}
+              >
+                <AppText variant="captionStrong" color={answer.isCorrect ? 'successText' : 'errorText'}>
+                  {i + 1}
+                </AppText>
+              </View>
+            ))}
+          </View>
+          {showReview ? (
+            <Card padded={false} style={styles.review}>
+              {result.answers.map((answer, i) => (
+                <View key={answer.questionId || i} style={[styles.reviewRow, i > 0 && styles.divider]}>
                   <Icon name={answer.isCorrect ? 'check-circle' : 'x-circle'} size={18} color={answer.isCorrect ? 'success' : 'error'} />
                   <View style={styles.flex}>
-                    <AppText variant="label">{`${i + 1}. ${q.prompt}`}</AppText>
-                    <AppText variant="caption" color={answer.isCorrect ? 'successText' : 'errorText'}>{`Your answer: ${chosen}`}</AppText>
-                    {!answer.isCorrect ? (
-                      <AppText variant="caption" color="textBody">{`Correct answer: ${correct}`}</AppText>
-                    ) : null}
+                    <AppText variant="label">{`${i + 1}. ${answer.question}`}</AppText>
+                    <AppText variant="caption" color={answer.isCorrect ? 'successText' : 'errorText'}>
+                      {`Your answer: ${answer.selectedAnswer || 'No answer'}`}
+                    </AppText>
+                    {!answer.isCorrect ? <AppText variant="caption" color="textBody">{`Correct answer: ${answer.correctAnswer}`}</AppText> : null}
                   </View>
                 </View>
-              );
-            })}
-          </Card>
-        ) : null}
-      </View>
+              ))}
+            </Card>
+          ) : null}
+        </View>
+      ) : null}
 
       <Pressable accessibilityRole="button" onPress={() => router.dismissTo(routes.quizLevels(result.subjectId))} style={styles.levelsLink}>
         <AppText variant="label" color="primaryDark">
@@ -154,7 +158,7 @@ export function ResultScreen() {
   );
 }
 
-function Detail({ icon, label, value }: { icon: 'clock' | 'calendar'; label: string; value: string }) {
+function Detail({ icon, label, value }: { icon: 'clock' | 'calendar' | 'percent'; label: string; value: string }) {
   return (
     <View style={styles.detail}>
       <Icon name={icon} size={16} />

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useEffectEvent, useState } from 'react';
-import { messageOf } from '@/services/storage';
+import { messageOf } from '@/services/errors';
 import type { AsyncStatus } from '@/types';
 
 type Key = string | number | boolean | null | undefined;

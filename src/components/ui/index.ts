@@ -4,7 +4,7 @@ export { Badge, CodeChip } from './Badge';
 export type { BadgeTone } from './Badge';
 export { Button } from './Button';
 export { Card } from './Card';
-export { Icon } from './Icon';
+export { Icon, toIconName } from './Icon';
 export type { IconName } from './Icon';
 export { IconButton } from './IconButton';
 export { Input } from './Input';
@@ -20,3 +20,4 @@ export { EmptyState, ErrorState, InlineAlert, LoadingState, Skeleton } from './S
 export { Toast, useToast } from './Toast';
 export type { ToastMessage } from './Toast';
 export { Logo } from './Logo';
+export { OfflineBanner } from './OfflineBanner';

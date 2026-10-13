@@ -1,0 +1,15 @@
+{
+  "name": "edutask-firestore-seed",
+  "private": true,
+  "type": "module",
+  "description": "Admin-only tool that loads EduTask academic content into Firestore. Never bundled into the app.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "validate": "node seed.mjs --dry-run",
+    "seed": "node seed.mjs",
+    "set-admin": "node set-admin.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}

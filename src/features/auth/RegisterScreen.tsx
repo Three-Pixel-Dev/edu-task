@@ -2,25 +2,26 @@ import { Link } from 'expo-router';
 import { useRef, useState } from 'react';
 import { StyleSheet, View, type TextInput } from 'react-native';
 import { AppText, Button, Icon, InlineAlert, Input } from '@/components';
+import { AUTH } from '@/constants/app';
 import { routes } from '@/constants/routes';
 import { useAuth } from '@/hooks';
-import { messageOf } from '@/services/storage';
+import { messageOf } from '@/services/errors';
 import { colors, spacing } from '@/theme';
-import { hasErrors, passwordStrength, validateRegister, type FieldErrors } from '@/utils/validation';
+import { hasErrors, passwordStrength, validateRegister, type FieldErrors, type RegisterForm } from '@/utils/validation';
 import { AuthLayout } from './AuthLayout';
 
-type Form = { fullName: string; email: string; password: string; confirmPassword: string };
+type Form = RegisterForm;
 
 const strengthMeta = [
-  { label: 'At least 8 characters', color: colors.border },
-  { label: 'Too short', color: colors.warning },
+  { label: '8+ characters, letters & numbers', color: colors.border },
+  { label: 'Not strong enough', color: colors.warning },
   { label: 'Good', color: colors.primary },
   { label: 'Strong password', color: colors.success },
 ] as const;
 
 export function RegisterScreen() {
   const { register } = useAuth();
-  const [form, setForm] = useState<Form>({ fullName: '', email: '', password: '', confirmPassword: '' });
+  const [form, setForm] = useState<Form>({ displayName: '', email: '', password: '', confirmPassword: '' });
   const [errors, setErrors] = useState<FieldErrors<Form>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -39,7 +40,8 @@ export function RegisterScreen() {
     if (hasErrors(found)) return;
     setSubmitting(true);
     try {
-      await register({ fullName: form.fullName, email: form.email, password: form.password });
+      await register({ displayName: form.displayName, email: form.email, password: form.password });
+      // The auth listener + Stack.Protected take the student into the app.
     } catch (e) {
       setFormError(messageOf(e));
       setSubmitting(false);
@@ -62,10 +64,11 @@ export function RegisterScreen() {
       <Input
         label="Full name"
         leftIcon="user"
-        value={form.fullName}
-        onChangeText={set('fullName')}
-        error={errors.fullName}
-        placeholder="e.g. Alvin Tan"
+        value={form.displayName}
+        onChangeText={set('displayName')}
+        error={errors.displayName}
+        maxLength={AUTH.displayNameMaxLength}
+        placeholder="Your full name"
         autoComplete="name"
         textContentType="name"
         returnKeyType="next"

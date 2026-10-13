@@ -1,5 +1,4 @@
 import { Pressable, StyleSheet, View } from 'react-native';
-import { findSubject } from '@/data';
 import { colors, radius, spacing } from '@/theme';
 import type { Task, TaskUrgency } from '@/types';
 import { dueLabel, taskUrgency } from '@/utils/date';
@@ -8,6 +7,8 @@ import { AppText, Badge, Icon, type BadgeTone } from '../ui';
 
 interface TaskCardProps {
   task: Task;
+  /** From the Firestore subject catalogue; undefined while it loads. */
+  subjectName?: string;
   onPress: () => void;
   onToggle: () => void;
 }
@@ -28,10 +29,9 @@ const ringColor: Record<TaskUrgency, string> = {
 
 export const priorityFlag = { high: colors.error, medium: colors.warning, low: colors.textDisabled } as const;
 
-export function TaskCard({ task, onPress, onToggle }: TaskCardProps) {
+export function TaskCard({ task, subjectName, onPress, onToggle }: TaskCardProps) {
   const urgency = taskUrgency(task);
   const done = task.status === 'completed';
-  const subject = findSubject(task.subjectId);
   const due = dueLabel(task);
 
   return (
@@ -55,7 +55,7 @@ export function TaskCard({ task, onPress, onToggle }: TaskCardProps) {
 
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={`${task.title}, ${subject?.name ?? ''}, ${due}, ${priorityLabel[task.priority]} priority`}
+        accessibilityLabel={`${task.title}, ${subjectName ?? ''}, ${due}, ${priorityLabel[task.priority]} priority${task.hasPendingWrites ? ', not synced yet' : ''}`}
         accessibilityHint="Opens task details"
         onPress={onPress}
         style={({ pressed }) => [styles.body, pressed && styles.pressed]}
@@ -64,7 +64,7 @@ export function TaskCard({ task, onPress, onToggle }: TaskCardProps) {
           {task.title}
         </AppText>
         <AppText variant="caption" color="textSecondary" numberOfLines={1}>
-          {subject?.name ?? 'Unknown subject'}
+          {subjectName ?? ' '}
         </AppText>
         <View style={styles.meta}>
           <Badge label={due} tone={urgencyTone[urgency]} icon="calendar" />
@@ -76,6 +76,7 @@ export function TaskCard({ task, onPress, onToggle }: TaskCardProps) {
               </AppText>
             </View>
           ) : null}
+          {task.hasPendingWrites ? <Badge label="Not synced yet" tone="neutral" icon="upload-cloud" /> : null}
         </View>
       </Pressable>
       <Icon name="chevron-right" size={18} color="textDisabled" />

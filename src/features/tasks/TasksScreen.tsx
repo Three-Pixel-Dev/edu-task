@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, RefreshControl, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, View } from 'react-native';
 import {
   AppText,
   EmptyState,
@@ -16,9 +16,9 @@ import {
   useToast,
 } from '@/components';
 import { routes } from '@/constants/routes';
-import { useTasks, useTaskSections } from '@/hooks';
-import { messageOf } from '@/services/storage';
-import { colors, spacing } from '@/theme';
+import { useSubjectCatalog, useTaskActions, useTasks, useTaskSections } from '@/hooks';
+import { messageOf } from '@/services/errors';
+import { spacing } from '@/theme';
 import type { Task, TaskSection } from '@/types';
 import { pluralise } from '@/utils/format';
 
@@ -29,39 +29,39 @@ const COMPLETED_PREVIEW = 3;
 const sectionTitle: Record<TaskSection, string> = { today: 'Today', upcoming: 'Upcoming', completed: 'Completed' };
 
 export function TasksScreen() {
-  const { tasks, status, error, reload, setCompleted } = useTasks();
+  // Real-time: the list updates by itself after every add / edit / delete.
+  const { tasks, status, error, retry } = useTasks();
+  const { completeTask } = useTaskActions();
+  const catalog = useSubjectCatalog();
   const { groups, counts } = useTaskSections();
   const [filter, setFilter] = useState<Filter>('all');
   const [showAllCompleted, setShowAllCompleted] = useState(false);
-  const [refreshing, setRefreshing] = useState(false);
   const { toast, show, hide } = useToast();
 
   const toggle = async (task: Task) => {
     const completing = task.status !== 'completed';
     try {
-      await setCompleted(task.id, completing);
+      await completeTask(task.id, completing);
       if (completing) {
-        show({ text: `“${task.title}” completed`, actionLabel: 'Undo', onAction: () => void setCompleted(task.id, false) });
+        show({
+          text: `“${task.title}” completed`,
+          actionLabel: 'Undo',
+          onAction: () => void completeTask(task.id, false).catch((e: unknown) => Alert.alert('Couldn’t undo', messageOf(e))),
+        });
       }
     } catch (e) {
       Alert.alert('Couldn’t update the task', messageOf(e));
     }
   };
 
-  const refresh = async () => {
-    setRefreshing(true);
-    await reload();
-    setRefreshing(false);
-  };
-
   const visible: TaskSection[] = filter === 'all' ? ['today', 'upcoming', 'completed'] : [filter];
   const subtitle = counts.total === 0 ? 'Plan your assignments and deadlines.' : `${counts.active} active${counts.overdue ? ` · ${counts.overdue} overdue` : ''}`;
 
   let body: React.ReactNode;
-  if (status === 'loading' && tasks.length === 0) {
+  if (status === 'loading') {
     body = <LoadingState rows={5} label="Loading tasks" />;
   } else if (status === 'error') {
-    body = <ErrorState title="Couldn’t load your tasks" message={error ?? undefined} onRetry={reload} />;
+    body = <ErrorState title="Couldn’t load your tasks" message={error ?? undefined} onRetry={retry} />;
   } else if (tasks.length === 0) {
     body = (
       <EmptyState
@@ -98,7 +98,7 @@ export function TasksScreen() {
                 </AppText>
               ) : (
                 limited.map((task) => (
-                  <TaskCard key={task.id} task={task} onPress={() => router.push(routes.taskDetail(task.id))} onToggle={() => void toggle(task)} />
+                  <TaskCard key={task.id} task={task} subjectName={catalog.subjectById.get(task.subjectId)?.name} onPress={() => router.push(routes.taskDetail(task.id))} onToggle={() => void toggle(task)} />
                 ))
               )}
               {limited.length < items.length ? (
@@ -117,7 +117,7 @@ export function TasksScreen() {
 
   return (
     <View style={styles.flex}>
-      <Screen inTabs refreshControl={<RefreshControl refreshing={refreshing} onRefresh={refresh} tintColor={colors.primary} />}>
+      <Screen inTabs>
         <ScreenHeader
           large
           title="My Tasks"

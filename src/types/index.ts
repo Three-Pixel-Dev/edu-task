@@ -1,21 +1,26 @@
 /**
- * Shared domain types. These mirror the planned Firestore collections:
- * users, subjectFields, subjects, quizzes, questions, quizResults, tasks.
- * Dates are stored as ISO-8601 strings so they serialise the same way in
- * AsyncStorage (mock mode) and Firestore.
+ * Domain types. Each one maps to a Firestore collection:
+ *   users/{uid}                         → UserProfile
+ *   subjectFields/{fieldId}             → SubjectField
+ *   subjects/{subjectId}                → Subject
+ *   questions/{questionId}              → Question
+ *   quizResults/{resultId}              → QuizResult
+ *   tasks/{taskId}                      → Task
+ *   users/{uid}/quizSessions/{id}       → QuizSession (an unfinished quiz, for "Continue quiz")
+ *
+ * Firestore Timestamps are converted to ISO-8601 strings when read (see
+ * services/converters.ts) so screens never deal with Timestamp objects.
  */
 
 export type ISODateString = string;
 
 // ── Users ────────────────────────────────────────────────────────────────
-export interface User {
-  id: string;
-  fullName: string;
+export interface UserProfile {
+  uid: string;
+  displayName: string;
   email: string;
-  studentId: string;
-  program: string;
-  year: number;
   createdAt: ISODateString;
+  updatedAt: ISODateString;
 }
 
 export interface Credentials {
@@ -24,24 +29,16 @@ export interface Credentials {
 }
 
 export interface RegisterInput extends Credentials {
-  fullName: string;
+  displayName: string;
 }
 
-// ── Quiz content ─────────────────────────────────────────────────────────
-export type FieldIconName =
-  | 'cpu'
-  | 'code'
-  | 'share-2'
-  | 'shield'
-  | 'bar-chart-2'
-  | 'activity'
-  | 'clipboard';
-
+// ── Quiz content (read-only for students) ────────────────────────────────
 export interface SubjectField {
   id: string;
   name: string;
   description: string;
-  icon: FieldIconName;
+  /** Feather icon name, e.g. "cpu". Unknown names fall back to a book icon. */
+  icon: string;
   order: number;
 }
 
@@ -50,37 +47,31 @@ export interface Subject {
   fieldId: string;
   code: string;
   name: string;
-  levelCount: number;
-}
-
-export interface QuestionOption {
-  id: string;
-  text: string;
+  description: string;
+  order: number;
+  isActive: boolean;
 }
 
 export interface Question {
   id: string;
-  /** Question banks are attached to a subject, or shared across a field. */
-  subjectId?: string;
-  fieldId: string;
-  prompt: string;
-  options: QuestionOption[];
-  correctOptionId: string;
-  explanation: string;
-}
-
-/** One quiz = one subject + one level, always QUESTIONS_PER_QUIZ questions. */
-export interface Quiz {
-  id: string;
   subjectId: string;
   level: number;
-  questionIds: string[];
-  durationSeconds: number;
+  question: string;
+  options: string[];
+  /** Must equal one of `options`. */
+  correctAnswer: string;
+  explanation: string;
+  order: number;
+  isActive: boolean;
 }
 
+// ── Quiz attempts ────────────────────────────────────────────────────────
 export interface QuizAnswer {
   questionId: string;
-  selectedOptionId: string;
+  /** Snapshot of the question text so history stays readable if content changes. */
+  question: string;
+  selectedAnswer: string;
+  correctAnswer: string;
   isCorrect: boolean;
 }
 
@@ -88,28 +79,35 @@ export interface QuizResult {
   id: string;
   userId: string;
   subjectId: string;
+  subjectName: string;
+  subjectCode: string;
   level: number;
-  score: number;
   totalQuestions: number;
   correctAnswers: number;
   incorrectAnswers: number;
-  answers: QuizAnswer[];
+  score: number;
+  percentage: number;
   durationSeconds: number;
+  answers: QuizAnswer[];
   completedAt: ISODateString;
 }
 
-/** An unfinished quiz the student can resume ("Continue quiz"). */
+/** An unfinished quiz, saved so the student can leave and continue later. */
 export interface QuizSession {
-  quizId: string;
+  id: string;
   subjectId: string;
+  subjectName: string;
+  subjectCode: string;
   level: number;
   questionIds: string[];
-  /** questionId → selected option id */
-  selections: Record<string, string>;
+  /** questionId → selected option text */
+  answers: Record<string, string>;
   /** questionIds whose answer has been checked (feedback shown, answer locked) */
   checked: string[];
   currentIndex: number;
   remainingSeconds: number;
+  /** Pre-generated quizResults document id — makes submission idempotent. */
+  resultId: string;
   startedAt: ISODateString;
   updatedAt: ISODateString;
 }
@@ -137,9 +135,11 @@ export interface Task {
   dueDate: ISODateString;
   priority: TaskPriority;
   status: TaskStatus;
-  completedAt?: ISODateString;
+  completedAt: ISODateString | null;
   createdAt: ISODateString;
   updatedAt: ISODateString;
+  /** True while a local change hasn't been confirmed by the server yet. */
+  hasPendingWrites: boolean;
 }
 
 export type TaskInput = Pick<Task, 'title' | 'description' | 'subjectId' | 'dueDate' | 'priority'>;
@@ -150,4 +150,4 @@ export type TaskUrgency = 'overdue' | 'dueSoon' | 'upcoming' | 'completed';
 export type TaskSection = 'today' | 'upcoming' | 'completed';
 
 // ── Misc ─────────────────────────────────────────────────────────────────
-export type AsyncStatus = 'idle' | 'loading' | 'success' | 'error';
+export type AsyncStatus = 'loading' | 'success' | 'error';

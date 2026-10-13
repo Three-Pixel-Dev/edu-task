@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Modal, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { findSubject, subjectFields, subjects } from '@/data';
+import { useSubjectCatalog } from '@/hooks/useCatalog';
 import { colors, fonts, radius, spacing, touch } from '@/theme';
 import type { Subject } from '@/types';
-import { AppText, CodeChip, Icon, IconButton } from '../ui';
+import { AppText, CodeChip, ErrorState, Icon, IconButton, LoadingState } from '../ui';
 
 interface SubjectPickerProps {
   value: string;
@@ -12,25 +12,26 @@ interface SubjectPickerProps {
   error?: string;
 }
 
-const fieldName = new Map(subjectFields.map((f) => [f.id, f.name]));
-
-/** A field that opens a searchable full-screen subject list. */
+/** A field that opens a searchable list of subjects loaded from Firestore. */
 export function SubjectPicker({ value, onChange, error }: SubjectPickerProps) {
+  const catalog = useSubjectCatalog();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const insets = useSafeAreaInsets();
-  const selected = findSubject(value);
+  const selected = catalog.subjectById.get(value);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return subjects.filter((s) => !q || s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q));
-  }, [query]);
+    return catalog.subjects.filter((s) => !q || s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q));
+  }, [query, catalog.subjects]);
 
   const choose = (subject: Subject) => {
     onChange(subject.id);
     setOpen(false);
     setQuery('');
   };
+
+  const label = selected ? selected.name : value && catalog.status === 'loading' ? 'Loading subject…' : 'Choose a subject';
 
   return (
     <View style={styles.wrapper}>
@@ -46,7 +47,7 @@ export function SubjectPicker({ value, onChange, error }: SubjectPickerProps) {
       >
         <Icon name="book-open" size={19} />
         <AppText variant="body" color={selected ? 'text' : 'textDisabled'} style={styles.flex} numberOfLines={1}>
-          {selected ? selected.name : 'Choose a subject'}
+          {label}
         </AppText>
         <Icon name="chevron-down" size={18} />
       </Pressable>
@@ -64,52 +65,60 @@ export function SubjectPicker({ value, onChange, error }: SubjectPickerProps) {
             </AppText>
             <IconButton icon="x" accessibilityLabel="Close subject list" onPress={() => setOpen(false)} />
           </View>
-          <View style={styles.search}>
-            <Icon name="search" size={18} />
-            <TextInput
-              value={query}
-              onChangeText={setQuery}
-              placeholder="Search by name or code"
-              placeholderTextColor={colors.textDisabled}
-              accessibilityLabel="Search subjects"
-              autoCorrect={false}
-              style={styles.searchInput}
-            />
-          </View>
-          <FlatList
-            data={results}
-            keyExtractor={(s) => s.id}
-            keyboardShouldPersistTaps="handled"
-            contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
-            ListEmptyComponent={
-              <AppText variant="body" color="textSecondary" align="center" style={styles.empty}>
-                No subjects match “{query}”.
-              </AppText>
-            }
-            renderItem={({ item }) => {
-              const active = item.id === value;
-              return (
-                <Pressable
-                  accessibilityRole="radio"
-                  accessibilityState={{ checked: active }}
-                  accessibilityLabel={`${item.name}, ${item.code}`}
-                  onPress={() => choose(item)}
-                  style={({ pressed }) => [styles.row, active && styles.rowActive, pressed && styles.rowPressed]}
-                >
-                  <View style={styles.flex}>
-                    <AppText variant="bodyMedium">{item.name}</AppText>
-                    <View style={styles.rowMeta}>
-                      <CodeChip code={item.code} />
-                      <AppText variant="caption" color="textSecondary" numberOfLines={1} style={styles.flex}>
-                        {fieldName.get(item.fieldId)}
-                      </AppText>
-                    </View>
-                  </View>
-                  {active ? <Icon name="check" size={20} color="primary" /> : null}
-                </Pressable>
-              );
-            }}
-          />
+          {catalog.status === 'loading' ? (
+            <LoadingState rows={6} label="Loading subjects" />
+          ) : catalog.status === 'error' ? (
+            <ErrorState title="Couldn’t load subjects" message={catalog.error ?? undefined} onRetry={catalog.reload} />
+          ) : (
+            <>
+              <View style={styles.search}>
+                <Icon name="search" size={18} />
+                <TextInput
+                  value={query}
+                  onChangeText={setQuery}
+                  placeholder="Search by name or code"
+                  placeholderTextColor={colors.textDisabled}
+                  accessibilityLabel="Search subjects"
+                  autoCorrect={false}
+                  style={styles.searchInput}
+                />
+              </View>
+              <FlatList
+                data={results}
+                keyExtractor={(s) => s.id}
+                keyboardShouldPersistTaps="handled"
+                contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
+                ListEmptyComponent={
+                  <AppText variant="body" color="textSecondary" align="center" style={styles.empty}>
+                    {catalog.subjects.length === 0 ? 'No subjects have been added yet.' : `No subjects match “${query}”.`}
+                  </AppText>
+                }
+                renderItem={({ item }) => {
+                  const active = item.id === value;
+                  return (
+                    <Pressable
+                      accessibilityRole="radio"
+                      accessibilityState={{ checked: active }}
+                      accessibilityLabel={`${item.name}, ${item.code}`}
+                      onPress={() => choose(item)}
+                      style={({ pressed }) => [styles.row, active && styles.rowActive, pressed && styles.rowPressed]}
+                    >
+                      <View style={styles.flex}>
+                        <AppText variant="bodyMedium">{item.name}</AppText>
+                        <View style={styles.rowMeta}>
+                          <CodeChip code={item.code} />
+                          <AppText variant="caption" color="textSecondary" numberOfLines={1} style={styles.flex}>
+                            {catalog.fieldById.get(item.fieldId)?.name ?? ''}
+                          </AppText>
+                        </View>
+                      </View>
+                      {active ? <Icon name="check" size={20} color="primary" /> : null}
+                    </Pressable>
+                  );
+                }}
+              />
+            </>
+          )}
         </View>
       </Modal>
     </View>

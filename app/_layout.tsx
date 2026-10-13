@@ -11,11 +11,14 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { OfflineBanner } from '@/components';
+import { FirebaseSetupScreen } from '@/features/setup/FirebaseSetupScreen';
 import { useAuth } from '@/hooks';
-import { AppProviders } from '@/store/AppProviders';
+import { AppProviders } from '@/providers/AppProviders';
+import { isFirebaseConfigured } from '@/services/firebase';
 import { colors } from '@/theme';
 
-// Keep the native splash visible until fonts load and the session is restored.
+// Keep the native splash visible until fonts load and Firebase restores the session.
 void SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -27,32 +30,45 @@ export default function RootLayout() {
     GeistMono_500Medium,
     GeistMono_600SemiBold,
   });
+  const fontsReady = fontsLoaded || Boolean(fontError);
+
+  // No Firebase config → stop here and say exactly what's missing (no fallback data).
+  if (!isFirebaseConfigured) {
+    return (
+      <SafeAreaProvider>
+        <StatusBar style="dark" />
+        <FirebaseSetupScreen ready={fontsReady} />
+      </SafeAreaProvider>
+    );
+  }
 
   return (
     <SafeAreaProvider>
       <AppProviders>
         <StatusBar style="dark" />
-        <RootNavigator ready={fontsLoaded || Boolean(fontError)} />
+        <RootNavigator ready={fontsReady} />
+        <OfflineBanner />
       </AppProviders>
     </SafeAreaProvider>
   );
 }
 
 /**
- * Splash → session check → (auth) or main app.
- * Stack.Protected swaps the available routes when the auth state changes,
- * so logging in/out redirects automatically.
+ * Splash → Firebase auth check → (auth) screens or the main app.
+ * The stack stays unmounted while the session is restoring. Otherwise the only
+ * registered screen is +not-found, and Expo Router keeps that screen after the
+ * session resolves. Stack.Protected then swaps routes on login and logout.
  */
 function RootNavigator({ ready }: { ready: boolean }) {
   const { status } = useAuth();
-  const restoring = status === 'restoring';
+  const checking = status === 'checking';
 
   useEffect(() => {
-    if (ready && !restoring) void SplashScreen.hideAsync();
-  }, [ready, restoring]);
+    if (ready && !checking) void SplashScreen.hideAsync();
+  }, [ready, checking]);
 
-  // The Stack always renders (the router needs a mounted navigator); the native
-  // splash stays on top until fonts are ready and the session check finishes.
+  if (checking) return null;
+
   const signedIn = status === 'signedIn';
 
   return (
@@ -64,6 +80,7 @@ function RootNavigator({ ready }: { ready: boolean }) {
         <Stack.Screen name="quiz/levels" />
         <Stack.Screen name="quiz/questions" options={{ gestureEnabled: false }} />
         <Stack.Screen name="quiz/result" options={{ gestureEnabled: false, animation: 'fade' }} />
+        <Stack.Screen name="quiz/history" />
         <Stack.Screen name="tasks/[id]" />
         <Stack.Screen name="tasks/create" options={{ presentation: 'modal' }} />
         <Stack.Screen name="tasks/edit" options={{ presentation: 'modal' }} />

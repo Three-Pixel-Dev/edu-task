@@ -1,13 +1,14 @@
 import { router } from 'expo-router';
-import { useState } from 'react';
-import { Pressable, RefreshControl, StyleSheet, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, View } from 'react-native';
 import {
   AppText,
+  AttemptRow,
   Avatar,
   Button,
   Card,
   CodeChip,
   ContinueQuizCard,
+  ErrorState,
   Icon,
   ProgressBar,
   Screen,
@@ -15,53 +16,62 @@ import {
   Skeleton,
   StatGroup,
   StatTile,
+  TaskCard,
   type IconName,
 } from '@/components';
+import { QUIZ } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useActiveSession, useCurrentUser, useQuiz, useRecentSubjects, useTasks, useTaskSections } from '@/hooks';
+import {
+  useActiveSession,
+  useProfile,
+  useQuizHistory,
+  useRecentSubjects,
+  useSubjectCatalog,
+  useTaskActions,
+  useTasks,
+  useTaskSections,
+} from '@/hooks';
+import { messageOf } from '@/services/errors';
 import { colors, radius, spacing } from '@/theme';
-import { pluralise, firstNameOf } from '@/utils/format';
+import { firstNameOf, pluralise } from '@/utils/format';
 
 export function HomeScreen() {
-  const user = useCurrentUser();
-  const quiz = useQuiz();
+  const { displayName, status: profileStatus } = useProfile();
+  const quiz = useQuizHistory();
   const tasks = useTasks();
   const active = useActiveSession();
-  const recent = useRecentSubjects(3);
-  const { counts } = useTaskSections();
-  const [refreshing, setRefreshing] = useState(false);
+  const recentSubjects = useRecentSubjects(3);
+  const { groups, counts } = useTaskSections();
+  const catalog = useSubjectCatalog();
+  const { completeTask } = useTaskActions();
 
-  const loading = quiz.status === 'loading' && quiz.results.length === 0;
-  const tasksLoading = tasks.status === 'loading' && tasks.tasks.length === 0;
-
-  const refresh = async () => {
-    setRefreshing(true);
-    await Promise.all([quiz.reload(), tasks.reload()]);
-    setRefreshing(false);
-  };
+  const quizLoading = quiz.status === 'loading';
+  const tasksLoading = tasks.status === 'loading';
+  const upcoming = [...groups.today, ...groups.upcoming].slice(0, 3);
+  const firstName = displayName ? firstNameOf(displayName) : '';
 
   return (
-    <Screen inTabs refreshControl={<RefreshControl refreshing={refreshing} onRefresh={refresh} tintColor={colors.primary} />}>
+    <Screen inTabs>
       <View style={styles.header}>
         <View style={styles.flex}>
-          <AppText variant="title" accessibilityRole="header">{`Hi, ${firstNameOf(user.fullName)} 👋`}</AppText>
+          {profileStatus === 'loading' && !firstName ? (
+            <Skeleton width={160} height={28} />
+          ) : (
+            <AppText variant="title" accessibilityRole="header">{`Hi, ${firstName || 'there'} 👋`}</AppText>
+          )}
           <AppText variant="body" color="textSecondary">
             Ready to test your knowledge?
           </AppText>
         </View>
         <Pressable accessibilityRole="button" accessibilityLabel="Open profile" onPress={() => router.navigate(routes.profileTab)} hitSlop={6}>
-          <Avatar name={user.fullName} size={44} />
+          <Avatar name={displayName || '?'} size={44} />
         </Pressable>
       </View>
 
-      {loading ? (
-        <Skeleton height={220} rounded={radius.xxl} />
+      {quizLoading ? (
+        <Skeleton height={200} rounded={radius.xxl} />
       ) : active ? (
-        <ContinueQuizCard
-          subject={active.subject}
-          session={active.session}
-          onContinue={() => router.push(routes.quizQuestions(active.subject.id, active.session.level))}
-        />
+        <ContinueQuizCard session={active} onContinue={() => router.push(routes.quizQuestions(active.subjectId, active.level))} />
       ) : (
         <Card tone="brand" style={styles.startCard}>
           <AppText variant="overline" color="onPrimaryMuted">
@@ -77,11 +87,11 @@ export function HomeScreen() {
       <View style={styles.section}>
         <SectionHeader title="Quick access" />
         <View style={styles.quickRow}>
-          <QuickTile icon="help-circle" title="Quiz" subtitle="7 fields · 15 levels" tint={colors.primarySurface} iconColor="primary" onPress={() => router.navigate(routes.quizTab)} />
+          <QuickTile icon="help-circle" title="Quiz" subtitle="Field → subject → level" tint={colors.primarySurface} iconColor="primary" onPress={() => router.navigate(routes.quizTab)} />
           <QuickTile
             icon="check-square"
             title="Tasks"
-            subtitle={tasksLoading ? 'Loading…' : `${counts.active} active`}
+            subtitle={tasksLoading ? 'Loading…' : pluralise(counts.active, 'active task')}
             tint={colors.accentSurface}
             iconColor="accent"
             onPress={() => router.navigate(routes.tasksTab)}
@@ -90,48 +100,13 @@ export function HomeScreen() {
       </View>
 
       <View style={styles.section}>
-        <SectionHeader title="Recent subjects" actionLabel="Browse" onAction={() => router.push(routes.quizFields)} />
-        {loading ? (
-          <Skeleton height={150} rounded={radius.xxl} />
-        ) : recent.length ? (
-          <Card padded={false} style={styles.listCard}>
-            {recent.map((item, i) => (
-              <Pressable
-                key={item.subject.id}
-                accessibilityRole="button"
-                accessibilityLabel={`${item.subject.name}, ${item.subject.code}, level ${item.level} of ${item.subject.levelCount}`}
-                onPress={() => router.push(routes.quizLevels(item.subject.id))}
-                style={({ pressed }) => [styles.subjectRow, i > 0 && styles.divider, pressed && styles.pressed]}
-              >
-                <View style={styles.flex}>
-                  <AppText variant="bodyStrong" numberOfLines={1}>
-                    {item.subject.name}
-                  </AppText>
-                  <View style={styles.subjectMeta}>
-                    <CodeChip code={item.subject.code} />
-                    <AppText variant="caption" color="textSecondary">{`Level ${item.level} of ${item.subject.levelCount}`}</AppText>
-                  </View>
-                </View>
-                <View style={styles.miniProgress}>
-                  <ProgressBar value={item.progress} height={4} />
-                </View>
-                <Icon name="chevron-right" size={18} color="textDisabled" />
-              </Pressable>
-            ))}
-          </Card>
-        ) : (
-          <Card tone="muted">
-            <AppText variant="body" color="textSecondary">
-              Subjects you practise will show up here.
-            </AppText>
-          </Card>
-        )}
-      </View>
-
-      <View style={styles.section}>
         <SectionHeader title="Task summary" actionLabel="View all" onAction={() => router.navigate(routes.tasksTab)} />
         {tasksLoading ? (
           <Skeleton height={84} rounded={radius.xxl} />
+        ) : tasks.status === 'error' ? (
+          <Card>
+            <ErrorState title="Couldn’t load your tasks" message={tasks.error ?? undefined} onRetry={tasks.retry} />
+          </Card>
         ) : (
           <>
             <StatGroup>
@@ -156,7 +131,107 @@ export function HomeScreen() {
           </>
         )}
       </View>
+
+      <View style={styles.section}>
+        <SectionHeader title="Upcoming tasks" actionLabel="Add task" onAction={() => router.push(routes.taskCreate)} />
+        {tasksLoading ? (
+          <Skeleton height={96} rounded={radius.xxl} />
+        ) : tasks.status === 'error' ? null : upcoming.length === 0 ? (
+          <EmptyNote
+            icon="clipboard"
+            text={counts.total === 0 ? 'You don’t have any tasks yet.' : 'Nothing due — you’re all caught up.'}
+            actionLabel={counts.total === 0 ? 'Add your first task' : undefined}
+            onAction={() => router.push(routes.taskCreate)}
+          />
+        ) : (
+          <View style={styles.list}>
+            {upcoming.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                subjectName={catalog.subjectById.get(task.subjectId)?.name}
+                onPress={() => router.push(routes.taskDetail(task.id))}
+                onToggle={() =>
+                  void completeTask(task.id, task.status !== 'completed').catch((e: unknown) => Alert.alert('Couldn’t update the task', messageOf(e)))
+                }
+              />
+            ))}
+          </View>
+        )}
+      </View>
+
+      <View style={styles.section}>
+        <SectionHeader title="Recent subjects" actionLabel="Browse" onAction={() => router.push(routes.quizFields)} />
+        {quizLoading ? (
+          <Skeleton height={140} rounded={radius.xxl} />
+        ) : quiz.status === 'error' ? (
+          <Card>
+            <ErrorState title="Couldn’t load your quiz history" message={quiz.error ?? undefined} onRetry={quiz.retry} />
+          </Card>
+        ) : recentSubjects.length === 0 ? (
+          <EmptyNote icon="book-open" text="Subjects you practise will show up here." />
+        ) : (
+          <Card padded={false} style={styles.listCard}>
+            {recentSubjects.map((item, i) => (
+              <Pressable
+                key={item.subjectId}
+                accessibilityRole="button"
+                accessibilityLabel={`${item.subjectName}, ${item.subjectCode}, level ${item.level} of ${QUIZ.levelCount}`}
+                onPress={() => router.push(routes.quizLevels(item.subjectId))}
+                style={({ pressed }) => [styles.subjectRow, i > 0 && styles.divider, pressed && styles.pressed]}
+              >
+                <View style={styles.flex}>
+                  <AppText variant="bodyStrong" numberOfLines={1}>
+                    {item.subjectName}
+                  </AppText>
+                  <View style={styles.subjectMeta}>
+                    {item.subjectCode ? <CodeChip code={item.subjectCode} /> : null}
+                    <AppText variant="caption" color="textSecondary">{`Level ${item.level} of ${QUIZ.levelCount}`}</AppText>
+                  </View>
+                </View>
+                <View style={styles.miniProgress}>
+                  <ProgressBar value={item.progress} height={4} />
+                </View>
+                <Icon name="chevron-right" size={18} color="textDisabled" />
+              </Pressable>
+            ))}
+          </Card>
+        )}
+      </View>
+
+      <View style={styles.section}>
+        <SectionHeader title="Recent quiz attempts" actionLabel={quiz.results.length ? 'See all' : undefined} onAction={() => router.push(routes.quizHistory)} />
+        {quizLoading ? (
+          <Skeleton height={140} rounded={radius.xxl} />
+        ) : quiz.status === 'error' ? null : quiz.results.length === 0 ? (
+          <EmptyNote icon="clock" text="No quiz attempts yet." actionLabel="Start a quiz" onAction={() => router.push(routes.quizFields)} />
+        ) : (
+          <Card padded={false} style={styles.listCard}>
+            {quiz.results.slice(0, 3).map((result, i) => (
+              <AttemptRow key={result.id} result={result} divider={i > 0} onPress={() => router.push(routes.quizResult(result.id))} />
+            ))}
+          </Card>
+        )}
+      </View>
     </Screen>
+  );
+}
+
+function EmptyNote({ icon, text, actionLabel, onAction }: { icon: IconName; text: string; actionLabel?: string; onAction?: () => void }) {
+  return (
+    <Card tone="muted" style={styles.empty}>
+      <Icon name={icon} size={18} color="textSecondary" />
+      <AppText variant="body" color="textSecondary" style={styles.flex}>
+        {text}
+      </AppText>
+      {actionLabel && onAction ? (
+        <Pressable accessibilityRole="button" onPress={onAction} hitSlop={8}>
+          <AppText variant="label" color="primaryDark">
+            {actionLabel}
+          </AppText>
+        </Pressable>
+      ) : null}
+    </Card>
   );
 }
 
@@ -194,6 +269,7 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   section: { gap: spacing.md },
+  list: { gap: spacing.sm + 2 },
   startCard: { padding: spacing.lg + 2, gap: spacing.md },
   quickRow: { flexDirection: 'row', gap: spacing.md },
   quickTile: { flex: 1, gap: spacing.md },
@@ -204,6 +280,7 @@ const styles = StyleSheet.create({
   pressed: { backgroundColor: colors.background },
   subjectMeta: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginTop: spacing.xs },
   miniProgress: { width: 44 },
+  empty: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   overdue: {
     flexDirection: 'row',
     alignItems: 'center',
