@@ -39,6 +39,21 @@ You need: a Google account, Node 18+, and the Firebase CLI (`npm i -g firebase-t
     ```
 
     This writes the 7 fields, 28 subjects and the starter question bank. Re-running is safe (documents have fixed IDs). Use `--prune` to also delete questions you removed from `data/`.
+
+    **Optional — demo student account** (matches the web UI mock: Alvin Tan, continue-quiz, 18 attempts, tasks):
+
+    ```bash
+    npm run seed:demo -- --project <your-project-id>
+    ```
+
+    Login after it finishes:
+
+    | Field | Value |
+    | --- | --- |
+    | Email | `alvin.tan@student.ceit.edu` |
+    | Password | `EduTask2026!` |
+
+    Re-running replaces that user’s demo quiz results, sessions and tasks. Override the password with `--password '…'` if you want.
 13. **Run the app** — `npx expo start -c` (the `-c` clears the cache so the new env values are picked up), scan the QR code with Expo Go, register an account.
 
 ## Data model
