@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Relation",
+    "definition": "A table of tuples that all have the same attributes.",
+    "wrongs": [
+      "A single column value stored in one cell.",
+      "A drawing of entities and diamonds used before tables exist.",
+      "A unit of work that commits or rolls back."
+    ],
+    "why": "In the relational model, a relation is the set of tuples that share one schema.",
+    "example": "A student table holds one row per student, and every row has id, name, and major.",
+    "scenario": "A designer stores students as rows that all use the same columns, rather than as nested lists. What is that table in the relational model?",
+    "scenarioAnswer": "A relation",
+    "scenarioWrongs": ["A trigger", "A transaction log", "A page frame"],
+    "scenarioWhy": "A relation is the table structure of tuples that share one set of attributes."
+  },
+  {
+    "term": "Tuple",
+    "definition": "One row of a relation, with a single value for each attribute.",
+    "wrongs": [
+      "The set of legal values an attribute may hold.",
+      "The name and column list of a table, without the current rows.",
+      "A column that describes one property of every row."
+    ],
+    "why": "Each tuple is one instance stored in the relation.",
+    "example": "The student row (102, Ada, CS) is one complete record in the student table.",
+    "scenario": "An import adds one student row containing an id, a name, and a major. What is that row called?",
+    "scenarioAnswer": "A tuple",
+    "scenarioWrongs": ["A domain", "A schema", "An index"],
+    "scenarioWhy": "A tuple is a single row that supplies one value for every attribute of the relation."
+  },
+  {
+    "term": "Attribute",
+    "definition": "A named column of a relation that describes one property of each tuple.",
+    "wrongs": [
+      "A complete row storing one value for every column.",
+      "A key that references a row in another table.",
+      "An auxiliary structure that speeds lookups."
+    ],
+    "why": "The schema lists attributes, and every tuple provides one value for each of them.",
+    "example": "In a course table, the credits column is a property recorded for every course row.",
+    "scenario": "A course table has columns named code, title, and credits. What is the credits column called?",
+    "scenarioAnswer": "An attribute",
+    "scenarioWrongs": ["A tuple", "A transaction", "A lock"],
+    "scenarioWhy": "An attribute is a column, so credits names one property of each course tuple."
+  },
+  {
+    "term": "Domain",
+    "definition": "The set of atomic values that an attribute is allowed to hold.",
+    "wrongs": [
+      "The current rows stored in a table.",
+      "A foreign key linking two relations.",
+      "The physical order of rows on disk."
+    ],
+    "why": "A domain constrains storage, for example integers for credits or strings for names.",
+    "example": "The credits column accepts only integers from 1 to 6 and rejects other values.",
+    "scenario": "A column must accept only integers from 1 to 6 and must reject the text six. What limits those legal values?",
+    "scenarioAnswer": "Its domain",
+    "scenarioWrongs": ["Its foreign key", "The transaction log", "The query cache"],
+    "scenarioWhy": "The domain is the set of legal atomic values for that attribute."
+  },
+  {
+    "term": "Relational schema",
+    "definition": "The name, attributes, and constraints of a relation, separate from the rows stored at the moment.",
+    "wrongs": [
+      "The rows that happen to be in the table right now.",
+      "A plan the optimizer chooses for one query.",
+      "A backup copy of the data files."
+    ],
+    "why": "The schema is the design, while an instance is the data at a particular time.",
+    "example": "Student(id, name, major) describes the table even when it currently contains no rows.",
+    "scenario": "A catalog design lists table names and columns before any student has enrolled. What is that design called?",
+    "scenarioAnswer": "A schema",
+    "scenarioWrongs": ["An instance", "A deadlock", "A dirty read"],
+    "scenarioWhy": "The schema describes structure and constraints, whether or not any rows have been inserted yet."
+  },
+  {
+    "term": "Primary key",
+    "definition": "The chosen candidate key that identifies each tuple and cannot be null.",
+    "wrongs": [
+      "Any set of columns that is unique only because extra columns were added.",
+      "A column that points at a key in another table.",
+      "A key that may contain nulls as long as the other values differ."
+    ],
+    "why": "One candidate key is selected as the primary key so every row has a unique, non-null identity.",
+    "example": "student_id identifies each student row, and the table rejects a second row with the same id.",
+    "scenario": "Every student row needs one unique, non-null identifier that other tables will reference. Which key should be designated?",
+    "scenarioAnswer": "A primary key",
+    "scenarioWrongs": ["A partial dependency", "A phantom read", "A view"],
+    "scenarioWhy": "The primary key is the unique, non-null identifier chosen for the table."
+  },
+  {
+    "term": "Candidate key",
+    "definition": "A minimal set of attributes that uniquely identifies each tuple.",
+    "wrongs": [
+      "A unique set that still contains attributes not needed for uniqueness.",
+      "A column that references another relation.",
+      "A non-unique column used only for sorting."
+    ],
+    "why": "Removing any attribute from a candidate key would leave some tuples indistinguishable.",
+    "example": "Both email and student_id uniquely identify a student, and neither needs an extra column.",
+    "scenario": "Both national_id and email uniquely identify a person, and neither set has a spare column. What is each of those sets?",
+    "scenarioAnswer": "A candidate key",
+    "scenarioWrongs": ["A foreign key", "A transitive dependency", "A checkpoint"],
+    "scenarioWhy": "Each set is minimal and unique, so each one is a candidate key."
+  },
+  {
+    "term": "Superkey",
+    "definition": "A set of attributes that uniquely identifies tuples, even if it includes extra attributes.",
+    "wrongs": [
+      "A minimal unique set with no attribute to spare.",
+      "A non-unique column that only describes a property.",
+      "A foreign key that may repeat."
+    ],
+    "why": "Every candidate key is a superkey, but a superkey may contain attributes that uniqueness does not need.",
+    "example": "The pair student_id and name still identifies each student because student_id alone is already unique.",
+    "scenario": "student_id plus major still identifies each student, but major is unnecessary for uniqueness. What kind of key is that larger set?",
+    "scenarioAnswer": "A superkey",
+    "scenarioWrongs": ["A candidate key", "A foreign key", "A weak entity"],
+    "scenarioWhy": "The set is unique, but it is not minimal, so it is a superkey rather than a candidate key."
+  },
+  {
+    "term": "Foreign key",
+    "definition": "An attribute set in one relation that must match a candidate key in another relation.",
+    "wrongs": [
+      "The primary identifier chosen for the same table.",
+      "A check that a numeric column stays inside a range.",
+      "An index used only to speed a search."
+    ],
+    "why": "Foreign keys are how rows in one table refer to rows in another.",
+    "example": "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+    "scenario": "An enrolment row must point at a student row that already exists. Which key column expresses that link?",
+    "scenarioAnswer": "A foreign key",
+    "scenarioWrongs": ["A check constraint on a number", "A hash index", "A savepoint"],
+    "scenarioWhy": "A foreign key requires the enrolment's student id to match an existing student key."
+  },
+  {
+    "term": "Composite key",
+    "definition": "A key formed by two or more attributes that together identify a tuple.",
+    "wrongs": [
+      "A single system-generated number used as the only key column.",
+      "A foreign key that copies one parent column.",
+      "A non-key column determined by another non-key column."
+    ],
+    "why": "No single attribute of the key is unique, but the combination is.",
+    "example": "An enrolment table uses the pair student_id and course_id because one student takes many courses.",
+    "scenario": "In an enrolment table, neither student_id nor course_id is unique alone, but the pair is unique. What is that key?",
+    "scenarioAnswer": "A composite key",
+    "scenarioWrongs": ["A surrogate key of one column", "A partial index", "A derived attribute"],
+    "scenarioWhy": "The key needs both columns together, so it is composite."
+  },
+  {
+    "term": "Entity",
+    "definition": "A distinguishable real-world thing represented in a conceptual database design.",
+    "wrongs": [
+      "An association between two things, such as enrolment.",
+      "The set of legal values for one column.",
+      "A committed unit of database work."
+    ],
+    "why": "Entity sets group instances of the same kind, and those sets are later mapped to relations.",
+    "example": "In a university design, each student and each course is a thing the model must remember.",
+    "scenario": "A university model must remember students, courses, and departments as the things of interest. What are those things called?",
+    "scenarioAnswer": "Entities",
+    "scenarioWrongs": ["Relationships", "Domains", "Transactions"],
+    "scenarioWhy": "Students, courses, and departments are the entity sets in the conceptual model."
+  },
+  {
+    "term": "Relationship",
+    "definition": "An association among entities, such as a student enrolling in a course.",
+    "wrongs": [
+      "A thing being modeled, such as a student or a course.",
+      "A column domain of allowed values.",
+      "A physical page of a data file."
+    ],
+    "why": "Relationships record how entity instances are connected and may carry attributes of their own.",
+    "example": "An enrols association links a student to a course and stores the term of that enrolment.",
+    "scenario": "The design must record which students take which courses, not only the students and the courses. What should connect those sets?",
+    "scenarioAnswer": "A relationship",
+    "scenarioWrongs": ["A domain", "A page", "A latch"],
+    "scenarioWhy": "A relationship associates student instances with the course instances they take."
+  },
+  {
+    "term": "Cardinality",
+    "definition": "The number of entity instances allowed on each side of a relationship.",
+    "wrongs": [
+      "The number of disk pages a table occupies.",
+      "The number of indexes defined on one column.",
+      "The isolation level of a transaction."
+    ],
+    "why": "Ratios such as one-to-many state how many instances on each side may participate.",
+    "example": "Each student has one department, while a department contains many students.",
+    "scenario": "Each department has many students, and each student belongs to exactly one department. Which cardinality describes the department-to-student relationship?",
+    "scenarioAnswer": "One-to-many",
+    "scenarioWrongs": ["One-to-one", "Many-to-many", "Many-to-one"],
+    "scenarioWhy": "One department relates to many students, so the department-to-student cardinality is one-to-many."
+  },
+  {
+    "term": "Weak entity",
+    "definition": "An entity that cannot be uniquely identified without the key of an owner entity.",
+    "wrongs": [
+      "An entity that has its own complete primary key.",
+      "A multivalued attribute drawn as a double oval.",
+      "A relationship with cardinality one-to-one."
+    ],
+    "why": "Its primary key combines a partial key with the owner entity's key.",
+    "example": "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+    "scenario": "A dependent cannot be identified by name alone and also needs the employee's id. What kind of entity is the dependent?",
+    "scenarioAnswer": "A weak entity",
+    "scenarioWrongs": ["A strong entity", "A derived attribute", "A multivalued attribute"],
+    "scenarioWhy": "The dependent has no identity of its own and borrows the owner employee's key."
+  },
+  {
+    "term": "ER diagram",
+    "definition": "A drawing of entities, attributes, and relationships used to design a database conceptually.",
+    "wrongs": [
+      "A sequence diagram of method calls in a program.",
+      "A Gantt chart of project tasks.",
+      "A page table that maps virtual pages to frames."
+    ],
+    "why": "The diagram communicates the conceptual schema before it is turned into tables.",
+    "example": "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond.",
+    "scenario": "Before creating tables, a team sketches rectangles for students and a diamond for enrolment. What kind of diagram is that?",
+    "scenarioAnswer": "An ER diagram",
+    "scenarioWrongs": ["A sequence diagram", "A Gantt chart", "A use-case diagram"],
+    "scenarioWhy": "Rectangles for entities and diamonds for relationships are the notation of an ER diagram."
+  },
+  {
+    "term": "SQL",
+    "definition": "The standard language for defining, querying, and changing data in a relational database.",
+    "wrongs": [
+      "A markup language for web page structure.",
+      "A stylesheet language for visual layout.",
+      "A document format of nested name-value pairs."
+    ],
+    "why": "SQL includes statements for schema definition, queries, updates, and access control.",
+    "example": "A lab uses statements in this language to create a student table and then read students in one major.",
+    "scenario": "An application must create tables and query rows in PostgreSQL using the standard relational language. Which language is that?",
+    "scenarioAnswer": "SQL",
+    "scenarioWrongs": ["HTML", "JSON", "CSS"],
+    "scenarioWhy": "SQL is the language relational systems use both to define tables and to query them."
+  },
+  {
+    "term": "Relational selection",
+    "definition": "An operation that keeps only the tuples that satisfy a condition.",
+    "wrongs": [
+      "An operation that drops columns and keeps a subset of attributes.",
+      "An operation that combines every tuple of one relation with every tuple of another.",
+      "An operation that sorts a relation by one attribute."
+    ],
+    "why": "Selection filters rows and corresponds to a WHERE condition in SQL.",
+    "example": "Keeping only students whose major is CS discards every other student tuple.",
+    "scenario": "A query must return only courses whose credits are greater than 3. Which relational-algebra operation filters those rows?",
+    "scenarioAnswer": "Selection",
+    "scenarioWrongs": ["Projection", "Union", "Rename"],
+    "scenarioWhy": "Selection keeps tuples that meet a predicate and drops the rest."
+  },
+  {
+    "term": "Projection",
+    "definition": "An operation that keeps only the named attributes of a relation.",
+    "wrongs": [
+      "An operation that keeps rows matching a condition.",
+      "An operation that matches tuples between two relations.",
+      "An operation that removes duplicate database servers."
+    ],
+    "why": "Projection chooses columns, and in the formal algebra it also removes duplicate result tuples.",
+    "example": "Asking only for name and major from a student table drops the id column from the result.",
+    "scenario": "A query should return name and major, not every column of the student table. Which relational operation drops the other columns?",
+    "scenarioAnswer": "Projection",
+    "scenarioWrongs": ["Selection", "Join", "Division"],
+    "scenarioWhy": "Projection retains the named attributes and discards the columns that were not requested."
+  },
+  {
+    "term": "Inner join",
+    "definition": "A join that returns only tuples whose join attributes match on both sides.",
+    "wrongs": [
+      "A join that keeps every left tuple even when the right side has no match.",
+      "A join that keeps unmatched tuples from both sides.",
+      "A product that pairs every left tuple with every right tuple."
+    ],
+    "why": "Tuples that fail the match condition are left out of the result.",
+    "example": "Matching enrolments to courses on course id omits an enrolment whose course id is missing.",
+    "scenario": "A report must list enrolments only when the course id exists in the course table. Which join keeps only those matches?",
+    "scenarioAnswer": "An inner join",
+    "scenarioWrongs": ["A left outer join", "A full outer join", "A cross join"],
+    "scenarioWhy": "An inner join drops enrolments that have no matching course row."
+  },
+  {
+    "term": "Left outer join",
+    "definition": "A join that keeps every tuple from the left relation and uses nulls when the right side does not match.",
+    "wrongs": [
+      "A join that drops left tuples with no matching right tuple.",
+      "A join that keeps unmatched tuples from both relations.",
+      "A union that stacks two results with the same columns."
+    ],
+    "why": "Unmatched left tuples remain visible so missing related data shows up as nulls.",
+    "example": "Listing students together with enrolments still shows a student who has not enrolled in any course.",
+    "scenario": "A student list must include students who have no enrolment, with nulls in the course columns. Which join does that?",
+    "scenarioAnswer": "A left outer join",
+    "scenarioWrongs": ["An inner join", "A right outer join from the enrolment side", "A semi-join"],
+    "scenarioWhy": "A left outer join preserves every student and fills missing enrolment columns with null."
+  },
+  {
+    "term": "Full outer join",
+    "definition": "A join that keeps unmatched tuples from both relations and fills the missing side with nulls.",
+    "wrongs": [
+      "A join that keeps only tuples that match on both sides.",
+      "A join that keeps unmatched tuples from only the left relation.",
+      "A join that returns a row only when the right side matches."
+    ],
+    "why": "Both left-only and right-only tuples survive, which an inner join would drop.",
+    "example": "Combining departments and employees shows empty departments and also employees who have no department.",
+    "scenario": "One result must show departments with no employees and employees with no department. Which join does that?",
+    "scenarioAnswer": "A full outer join",
+    "scenarioWrongs": ["An inner join", "A left outer join", "A semi-join"],
+    "scenarioWhy": "A full outer join retains unmatched rows from both the department side and the employee side."
+  },
+  {
+    "term": "GROUP BY",
+    "definition": "An SQL clause that gathers rows with equal values so aggregates can be computed for each group.",
+    "wrongs": [
+      "A clause that sorts the final result.",
+      "A clause that filters individual rows before any grouping.",
+      "A clause that removes duplicate rows without computing aggregates."
+    ],
+    "why": "Each distinct combination of grouping columns produces one group for functions such as COUNT.",
+    "example": "Counting students while grouping by major returns one count for each major.",
+    "scenario": "A registrar needs the number of students in each major, with one result row per major. Which clause forms those groups?",
+    "scenarioAnswer": "GROUP BY",
+    "scenarioWrongs": ["ORDER BY", "DISTINCT", "WHERE"],
+    "scenarioWhy": "GROUP BY major builds one group per major so COUNT can be computed for each group."
+  },
+  {
+    "term": "HAVING clause",
+    "definition": "A clause that keeps or drops groups after aggregation, using a condition on each group.",
+    "wrongs": [
+      "A clause that filters rows before they are placed into groups.",
+      "A clause that sorts groups alphabetically.",
+      "A clause that names the columns to display."
+    ],
+    "why": "WHERE filters input rows, while this clause filters the groups produced by GROUP BY.",
+    "example": "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+    "scenario": "After counting students per major, the query must drop groups whose count is 30 or less. Which clause filters the groups?",
+    "scenarioAnswer": "HAVING",
+    "scenarioWrongs": ["WHERE", "ORDER BY", "LIMIT"],
+    "scenarioWhy": "HAVING applies the count condition after groups exist, which is later than WHERE."
+  },
+  {
+    "term": "View",
+    "definition": "A named query stored in the database and used like a table.",
+    "wrongs": [
+      "A physical copy of a table stored only for backup.",
+      "An index that speeds searches on one column.",
+      "A procedure that runs automatically after an update."
+    ],
+    "why": "Reading a view usually runs its defining query rather than fetching separately stored rows.",
+    "example": "Analysts query a saved name that always means students whose status is active.",
+    "scenario": "Analysts often need only active students, and the administrator wants them to query a saved name instead of repeating the filter. What should be created?",
+    "scenarioAnswer": "A view",
+    "scenarioWrongs": ["A trigger", "An index", "A sequence"],
+    "scenarioWhy": "A view stores the active-student query under a name that can be selected like a table."
+  },
+  {
+    "term": "Index",
+    "definition": "An auxiliary structure that locates rows matching a search key without a full table scan.",
+    "wrongs": [
+      "A saved query that presents a subset of rows.",
+      "A constraint that rejects a missing parent key.",
+      "A log of committed transactions."
+    ],
+    "why": "The structure maps key values to row locations so the engine can read fewer pages.",
+    "example": "A structure on the email column lets a login find one student without reading every student row.",
+    "scenario": "Finding a user by email currently reads every row and is too slow. What should be added on the email column?",
+    "scenarioAnswer": "An index",
+    "scenarioWrongs": ["A view", "A trigger", "A check constraint"],
+    "scenarioWhy": "An index on email can point at the matching row without scanning the whole table."
+  },
+  {
+    "term": "B+ tree index",
+    "definition": "A balanced tree index whose sorted leaves support both equality and range searches.",
+    "wrongs": [
+      "An unordered heap file of table rows.",
+      "A bitmap used only for low-cardinality columns in a data warehouse.",
+      "A hash structure that cannot efficiently serve a range of keys."
+    ],
+    "why": "Leaf pages keep keys in order, so a range is a short walk along those leaves.",
+    "example": "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+    "scenario": "Queries often ask for invoices whose dates fall between two days, and the index should stay balanced. Which index structure fits?",
+    "scenarioAnswer": "A B+ tree",
+    "scenarioWrongs": ["A hash index", "An unordered heap", "A log file"],
+    "scenarioWhy": "A B+ tree keeps keys ordered in its leaves, so a date range is a contiguous leaf scan."
+  },
+  {
+    "term": "Clustered index",
+    "definition": "An index whose key order matches the physical order of the table's rows.",
+    "wrongs": [
+      "A secondary index that points at rows stored in a different order.",
+      "A full-text catalog of words inside documents.",
+      "A hash of the SQL text of a query."
+    ],
+    "why": "Range scans on the clustering key read nearby rows together, and a table has only one such order.",
+    "example": "A table stored in primary-key order keeps students with nearby ids on nearby pages.",
+    "scenario": "Range scans on student_id should read nearby rows in key order, and the table can be stored in only one order. What kind of index matches that storage?",
+    "scenarioAnswer": "A clustered index",
+    "scenarioWrongs": ["A nonclustered index", "A full-text index", "A function index on a hash"],
+    "scenarioWhy": "A clustered index is the one order in which the rows themselves are stored."
+  },
+  {
+    "term": "First normal form",
+    "definition": "The rule that every attribute value is atomic and repeating groups are not allowed.",
+    "wrongs": [
+      "The rule that every non-key column depends on the whole key.",
+      "The rule that non-key columns do not depend on other non-key columns.",
+      "The rule that every determinant is a candidate key."
+    ],
+    "why": "A cell may not hold a list of values or a repeating group of the same fact.",
+    "example": "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+    "scenario": "One student cell contains two phone numbers separated by a comma. Which normal form requires that cell to hold a single atomic value?",
+    "scenarioAnswer": "First normal form",
+    "scenarioWrongs": ["Second normal form", "Third normal form", "Boyce-Codd normal form"],
+    "scenarioWhy": "A comma-separated list is not an atomic value, so the table is not in first normal form."
+  },
+  {
+    "term": "Second normal form",
+    "definition": "The rule that every non-key attribute depends on the whole candidate key, not on part of it.",
+    "wrongs": [
+      "The rule that forbids repeating groups in a cell.",
+      "The rule that removes a dependency between two non-key attributes.",
+      "The rule that every determinant must be a candidate key."
+    ],
+    "why": "Partial dependencies appear when a composite key determines a column through only some of its attributes.",
+    "example": "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id.",
+    "scenario": "A table keyed by student_id and course_id stores student_name, which depends only on student_id. Which normal form removes that partial dependency?",
+    "scenarioAnswer": "Second normal form",
+    "scenarioWrongs": ["First normal form", "Third normal form", "Fourth normal form"],
+    "scenarioWhy": "student_name depends on part of the composite key, which is a partial dependency forbidden by second normal form."
+  },
+  {
+    "term": "Third normal form",
+    "definition": "The rule that every non-key attribute depends on the key rather than on another non-key attribute.",
+    "wrongs": [
+      "The rule that each cell holds a single atomic value.",
+      "The rule that non-key attributes depend on all parts of a composite key.",
+      "The rule that eliminates multivalued dependencies."
+    ],
+    "why": "Third normal form removes transitive dependencies in which a non-key column determines another column.",
+    "example": "If a student row stores both department id and department name, the name depends on the department id.",
+    "scenario": "Student stores dept_id and dept_name, and the name is determined by dept_id rather than by the student id. Which normal form removes that pattern?",
+    "scenarioAnswer": "Third normal form",
+    "scenarioWrongs": ["First normal form", "Second normal form", "Fourth normal form"],
+    "scenarioWhy": "dept_name depends on the non-key dept_id, a transitive dependency removed to reach third normal form."
+  },
+  {
+    "term": "Boyce-Codd normal form",
+    "definition": "A normal form in which every determinant of a functional dependency is a candidate key.",
+    "wrongs": [
+      "A form that only requires atomic attribute values.",
+      "A form that only removes partial dependencies on a composite key.",
+      "A form that only removes multivalued dependencies."
+    ],
+    "why": "It catches some dependencies that third normal form still allows when a determinant is not a candidate key.",
+    "example": "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form.",
+    "scenario": "In a timetable, room determines course and room is not a candidate key. Which normal form does that determinant violate?",
+    "scenarioAnswer": "Boyce-Codd normal form",
+    "scenarioWrongs": ["First normal form", "Second normal form", "Fourth normal form"],
+    "scenarioWhy": "Boyce-Codd normal form requires every determinant, including room, to be a candidate key."
+  },
+  {
+    "term": "Functional dependency",
+    "definition": "A constraint that each value of one attribute set corresponds to exactly one value of another.",
+    "wrongs": [
+      "A dependency in which one attribute set corresponds to several independent values of another.",
+      "A rule that a foreign key matches a parent row.",
+      "A requirement that a transaction's writes are durable."
+    ],
+    "why": "X determines Y when no two tuples agree on X and disagree on Y.",
+    "example": "Each student id is stored with only one major, never with two different majors.",
+    "scenario": "Each student id always appears with the same major. Which constraint describes that?",
+    "scenarioAnswer": "A functional dependency",
+    "scenarioWrongs": ["A multivalued dependency", "A join dependency", "An inclusion dependency"],
+    "scenarioWhy": "student_id determines major because one id never pairs with two majors."
+  },
+  {
+    "term": "Transitive dependency",
+    "definition": "A dependency in which a key determines an attribute through some intermediate non-key attribute.",
+    "wrongs": [
+      "A dependency on only part of a composite key.",
+      "A dependency in which a set of attributes determines itself.",
+      "A dependency that associates one value with several independent values."
+    ],
+    "why": "If A determines B and B determines C, with B not a key, then C depends on A transitively.",
+    "example": "Student id determines department id, and department id determines the department phone number.",
+    "scenario": "Student id determines department id, and department id determines the department phone. What kind of dependency reaches that phone?",
+    "scenarioAnswer": "A transitive dependency",
+    "scenarioWrongs": ["A partial dependency", "A trivial dependency", "A multivalued dependency"],
+    "scenarioWhy": "The phone depends on the student id only by way of the department id, so the dependency is transitive."
+  },
+  {
+    "term": "Normalization",
+    "definition": "Decomposing relations so each fact is stored once and update anomalies are reduced.",
+    "wrongs": [
+      "Adding redundant columns so a query can avoid a join.",
+      "Building an index to speed a search key.",
+      "Writing a log record before a data page is updated."
+    ],
+    "why": "Higher normal forms split tables so a change to one fact does not have to be repeated on many rows.",
+    "example": "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+    "scenario": "A department phone is copied onto every student row, so one phone change needs many updates. What process moves that fact into its own table?",
+    "scenarioAnswer": "Normalization",
+    "scenarioWrongs": ["Denormalization", "Indexing", "Logging"],
+    "scenarioWhy": "Normalization decomposes the table so the phone is stored once, with the department."
+  },
+  {
+    "term": "Transaction",
+    "definition": "A unit of database work that is applied completely or not at all.",
+    "wrongs": [
+      "A saved query used like a table.",
+      "An index on a search key.",
+      "A single column constraint on legal values."
+    ],
+    "why": "Its changes become visible together at commit, or they disappear if the transaction aborts.",
+    "example": "Moving money debits one account and credits another as one unit of work.",
+    "scenario": "A transfer must debit one account and credit another so both changes persist together or neither does. What should enclose those statements?",
+    "scenarioAnswer": "A transaction",
+    "scenarioWrongs": ["A view", "An index", "A trigger"],
+    "scenarioWhy": "A transaction groups the debit and the credit into one success or one failure."
+  },
+  {
+    "term": "Atomicity",
+    "definition": "The guarantee that every change in a transaction is applied, or none of them remain.",
+    "wrongs": [
+      "The guarantee that concurrent transactions do not see one another's partial results.",
+      "The guarantee that committed data survives a crash.",
+      "The guarantee that a constraint true before the transaction is still true afterward."
+    ],
+    "why": "If any step fails, recovery undoes the transaction so a partial update does not remain.",
+    "example": "If crediting the destination account fails, the debit of the source account is undone as well.",
+    "scenario": "A transfer debits an account and crashes before the credit. After recovery the debit is gone too. Which ACID property produced that outcome?",
+    "scenarioAnswer": "Atomicity",
+    "scenarioWrongs": ["Isolation", "Durability", "Consistency"],
+    "scenarioWhy": "Atomicity rolls the whole transfer back when it cannot complete every step."
+  },
+  {
+    "term": "Consistency",
+    "definition": "The guarantee that a committed transaction leaves the database in a valid state.",
+    "wrongs": [
+      "The guarantee that all steps of a transaction happen or none do.",
+      "The guarantee that committed writes survive a power failure.",
+      "The guarantee that one transaction cannot read another's uncommitted rows."
+    ],
+    "why": "Integrity constraints that hold before the transaction still hold after it commits.",
+    "example": "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+    "scenario": "After a transfer commits, the sum of all account balances is the same as before. Which ACID property is that outcome?",
+    "scenarioAnswer": "Consistency",
+    "scenarioWrongs": ["Atomicity", "Isolation", "Durability"],
+    "scenarioWhy": "Consistency means the committed transfer preserves the database's integrity rules."
+  },
+  {
+    "term": "Isolation",
+    "definition": "The guarantee that concurrent transactions do not observe one another's forbidden intermediate states.",
+    "wrongs": [
+      "The guarantee that a transaction is all or nothing.",
+      "The guarantee that a commit survives a crash.",
+      "The guarantee that a foreign key points at an existing row."
+    ],
+    "why": "Isolation levels specify which anomalies, such as dirty reads, concurrent transactions may allow.",
+    "example": "Two transfers on one account each behave as if one finished before the other started.",
+    "scenario": "Two clerks update the same account, and neither should see the other's uncommitted balance. Which ACID property requires that?",
+    "scenarioAnswer": "Isolation",
+    "scenarioWrongs": ["Atomicity", "Durability", "Consistency"],
+    "scenarioWhy": "Isolation hides uncommitted work so concurrent clerks do not read each other's intermediate balances."
+  },
+  {
+    "term": "Durability",
+    "definition": "The guarantee that changes from a committed transaction survive crashes and can be recovered.",
+    "wrongs": [
+      "The guarantee that a transaction can be undone before it commits.",
+      "The guarantee that concurrent transactions are unaware of each other.",
+      "The guarantee that a transaction preserves integrity constraints."
+    ],
+    "why": "After commit, the log can redo the changes even if memory contents are lost.",
+    "example": "A ticket purchase that has committed is still recorded after the server loses power.",
+    "scenario": "A booking commits, then the server loses power, and after restart the booking is still stored. Which ACID property explains that?",
+    "scenarioAnswer": "Durability",
+    "scenarioWrongs": ["Atomicity", "Isolation", "Consistency"],
+    "scenarioWhy": "Durability requires a committed booking to remain available after a crash."
+  },
+  {
+    "term": "Commit",
+    "definition": "The successful end of a transaction, after which its changes are permanent.",
+    "wrongs": [
+      "The command that undoes a transaction that has not finished.",
+      "A marker inside a transaction that is not yet a permanent end.",
+      "A privilege that lets a user read a table."
+    ],
+    "why": "Once it succeeds, the DBMS must be able to recover those changes and other transactions may see them.",
+    "example": "Ending an order insertion successfully makes that order durable and visible to later queries.",
+    "scenario": "Checkout has inserted the order and payment rows and now wants those changes to become permanent. Which command ends the transaction successfully?",
+    "scenarioAnswer": "COMMIT",
+    "scenarioWrongs": ["ROLLBACK", "SAVEPOINT", "GRANT"],
+    "scenarioWhy": "COMMIT makes the inserted rows durable and ends the transaction successfully."
+  },
+  {
+    "term": "Rollback",
+    "definition": "The undoing of a transaction's uncommitted changes so they do not become permanent.",
+    "wrongs": [
+      "The command that makes a transaction's changes permanent.",
+      "A command that deletes a table definition.",
+      "A command that grants a privilege to a user."
+    ],
+    "why": "The log is used to restore the state from the start of the transaction or from a savepoint.",
+    "example": "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+    "scenario": "A clerk notices a mistaken debit before finishing the transaction and wants the prior committed state back. Which command does that?",
+    "scenarioAnswer": "ROLLBACK",
+    "scenarioWrongs": ["COMMIT", "TRUNCATE", "GRANT"],
+    "scenarioWhy": "ROLLBACK undoes the uncommitted debit and returns the database to the last commit."
+  },
+  {
+    "term": "Two-phase locking",
+    "definition": "A rule that a transaction acquires all the locks it needs before it releases any lock.",
+    "wrongs": [
+      "A distributed commit protocol with a prepare phase and a commit phase.",
+      "A logging rule that writes the log record before the data page.",
+      "A recovery step that writes dirty pages during a quiet point."
+    ],
+    "why": "A growing phase followed by a shrinking phase keeps the schedule conflict serializable.",
+    "example": "A transfer locks both accounts, updates them, and only afterward releases those locks.",
+    "scenario": "The engine requires each transaction to finish acquiring locks before it unlocks anything. Which concurrency protocol is that?",
+    "scenarioAnswer": "Two-phase locking",
+    "scenarioWrongs": ["Two-phase commit", "Write-ahead logging", "Checkpointing"],
+    "scenarioWhy": "Two-phase locking separates a growing phase of lock acquisition from a shrinking phase of releases."
+  },
+  {
+    "term": "Database deadlock",
+    "definition": "A cycle in which each transaction waits for a lock held by the next transaction.",
+    "wrongs": [
+      "A read of data that another transaction later rolls back.",
+      "A repeated query that sees a newly inserted matching row.",
+      "A committed update that disappeared after a crash."
+    ],
+    "why": "None of the transactions can proceed, so the system detects the cycle and aborts one of them.",
+    "example": "One transfer holds account A and waits for B, while another holds B and waits for A.",
+    "scenario": "T1 waits for a row lock held by T2, and T2 waits for a row lock held by T1. What is that wait cycle?",
+    "scenarioAnswer": "A deadlock",
+    "scenarioWrongs": ["A dirty read", "A phantom read", "A lost update"],
+    "scenarioWhy": "Each transaction waits for the other, forming a lock-wait cycle called a deadlock."
+  },
+  {
+    "term": "Dirty read",
+    "definition": "A read of a value written by a transaction that has not committed.",
+    "wrongs": [
+      "A repeated query that sees an extra row inserted by a committed transaction.",
+      "Two transactions writing the same item so one update disappears.",
+      "A read that cannot be repeated because a committed transaction changed the row."
+    ],
+    "why": "If the writer later rolls back, the reader has used a value that never became permanent.",
+    "example": "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+    "scenario": "A report reads a balance written by another transaction that later aborts. Which anomaly occurred?",
+    "scenarioAnswer": "A dirty read",
+    "scenarioWrongs": ["A phantom read", "A lost update", "A nonrepeatable read"],
+    "scenarioWhy": "The report consumed an uncommitted balance that the writer subsequently rolled back."
+  },
+  {
+    "term": "Phantom read",
+    "definition": "A repeated query that returns a different set of rows because another transaction inserted or deleted matching rows.",
+    "wrongs": [
+      "A read of a value that is later rolled back by its writer.",
+      "Two writers each basing an update on the same old value.",
+      "A reread of one row that sees a new value in that same row."
+    ],
+    "why": "The new or missing rows are phantoms; the first query did not lock the whole predicate.",
+    "example": "A count of open seats changes because another transaction inserts a booking before the count is repeated.",
+    "scenario": "A transaction rereads seats whose status is open and finds a new row committed by someone else. Which anomaly is that?",
+    "scenarioAnswer": "A phantom read",
+    "scenarioWrongs": ["A dirty read", "A lost update", "A nonrepeatable read"],
+    "scenarioWhy": "The new open-seat row is a phantom that was not in the first result set."
+  },
+  {
+    "term": "Referential integrity",
+    "definition": "The rule that every foreign-key value matches an existing parent key, unless nulls are allowed.",
+    "wrongs": [
+      "The rule that a primary key is unique and not null.",
+      "The rule that a column's values belong to its domain.",
+      "The rule that a committed write survives a crash."
+    ],
+    "why": "The DBMS rejects a child row that would point at a missing parent, and it controls deletes of parent rows.",
+    "example": "Inserting an enrolment whose student id is not in the student table is rejected.",
+    "scenario": "An enrolment insert uses a student id that does not exist, and the DBMS rejects the insert. Which rule caused the rejection?",
+    "scenarioAnswer": "Referential integrity",
+    "scenarioWrongs": ["Entity integrity", "Domain integrity", "Durability"],
+    "scenarioWhy": "The foreign key has no matching student, so referential integrity forbids the insert."
+  },
+  {
+    "term": "Trigger",
+    "definition": "A procedure the database runs automatically when a specified insert, update, or delete occurs.",
+    "wrongs": [
+      "A named query that users select like a table.",
+      "A structure that speeds lookup by a key.",
+      "A number generator used for surrogate keys."
+    ],
+    "why": "The procedure can enforce a rule or write an audit row without a separate statement from the application.",
+    "example": "After an account balance changes, an automatic procedure writes the old and new balances to an audit table.",
+    "scenario": "Every account update must write an audit row even when the application issues only the update. What database object does that?",
+    "scenarioAnswer": "A trigger",
+    "scenarioWrongs": ["A view", "An index", "A sequence"],
+    "scenarioWhy": "A trigger on the update event runs the audit insert automatically."
+  },
+  {
+    "term": "Stored procedure",
+    "definition": "A named program stored in the database and invoked by clients with a call.",
+    "wrongs": [
+      "A saved SELECT that is queried like a table.",
+      "A constraint that checks one column's range.",
+      "An index used to avoid a table scan."
+    ],
+    "why": "The program runs on the server, close to the data, and many applications can call it.",
+    "example": "Applications call one server routine that debits one account and credits another.",
+    "scenario": "Several applications must run the same multi-statement transfer on the database server. What should hold that program?",
+    "scenarioAnswer": "A stored procedure",
+    "scenarioWrongs": ["A view", "A check constraint", "An index"],
+    "scenarioWhy": "A stored procedure keeps the transfer program in the database so every application can call it."
+  },
+  {
+    "term": "Query optimizer",
+    "definition": "The component that chooses an efficient execution plan for a SQL statement.",
+    "wrongs": [
+      "The component that decides which transaction gets a lock.",
+      "The component that writes log records for recovery.",
+      "The component that chooses which memory page to evict."
+    ],
+    "why": "It estimates the cost of scans, joins, and indexes, then picks a plan expected to be cheap.",
+    "example": "For a login lookup, the planner uses an email index instead of reading every user row.",
+    "scenario": "A SELECT could scan the whole table or use an index, and the engine picks the cheaper plan. Which component chooses?",
+    "scenarioAnswer": "The query optimizer",
+    "scenarioWrongs": ["The lock manager", "The log writer", "The buffer manager"],
+    "scenarioWhy": "The optimizer compares estimated costs and selects the plan used to run the statement."
+  },
+  {
+    "term": "Concurrency control",
+    "definition": "The techniques that let transactions run together without corrupting shared data.",
+    "wrongs": [
+      "The choice of a cheap plan for one SQL statement.",
+      "The redo of committed work after a crash.",
+      "The replacement of buffer pages to free memory."
+    ],
+    "why": "Locks, timestamps, or multiple versions coordinate conflicting reads and writes.",
+    "example": "Row locks stop two transfers from updating the same account balance at the same moment.",
+    "scenario": "Many tellers update accounts at the same time, and the DBMS must keep those updates from corrupting balances. What is that coordination called?",
+    "scenarioAnswer": "Concurrency control",
+    "scenarioWrongs": ["Query optimization", "Crash recovery", "Buffer replacement"],
+    "scenarioWhy": "Concurrency control coordinates the tellers' transactions so conflicting updates stay correct."
+  }
+]

@@ -1,0 +1,952 @@
+[
+  {
+    "term": "User Requirement",
+    "definition": "A statement of what a user or stakeholder needs the product to achieve, written in that person's terms.",
+    "wrongs": [
+      "A choice of database brand made by a programmer.",
+      "The colour of an internal log file.",
+      "A line of code that implements a loop."
+    ],
+    "why": "A user requirement states a need in stakeholder language, before technical design decisions are made.",
+    "example": "Students need to see today's classes on a phone without asking the faculty office.",
+    "scenario": "Students say they need today's classes on a phone without visiting the office. Which kind of statement is that?",
+    "scenarioAnswer": "A user requirement",
+    "scenarioWrongs": [
+      "A programmer's choice of database",
+      "The colour of a log file",
+      "A source-code loop"
+    ],
+    "scenarioWhy": "A need expressed in the user's terms is a user requirement."
+  },
+  {
+    "term": "System Requirement",
+    "definition": "A statement of what the product as a whole must do or constrain, derived from user needs and technical limits.",
+    "wrongs": [
+      "A personal preference of one developer that no stakeholder asked for.",
+      "The project team's favourite meeting time.",
+      "A slogan on the poster for the demonstration."
+    ],
+    "why": "A system requirement states a product-level behaviour or constraint derived from needs and real limits.",
+    "example": "The product must show a student's timetable from the faculty feed and work when the phone is offline for cached days.",
+    "scenario": "The product must show the faculty timetable feed and keep cached days available offline. Which statement is that?",
+    "scenarioAnswer": "A system requirement",
+    "scenarioWrongs": [
+      "One developer's unrequested preference",
+      "The team's favourite meeting time",
+      "The demonstration poster slogan"
+    ],
+    "scenarioWhy": "A product-level obligation derived from the user need is a system requirement."
+  },
+  {
+    "term": "Functional Requirement",
+    "definition": "A required behaviour of the product, such as an action it must perform for a user.",
+    "wrongs": [
+      "A target for response time or availability that names no behaviour.",
+      "The budget of the student project.",
+      "The font used on the title slide."
+    ],
+    "why": "A functional requirement names behaviour the product must provide, not a quality level or a budget.",
+    "example": "The app must let a student filter today's classes by module code.",
+    "scenario": "The app must let a student filter today's classes by module code. Which kind of requirement is that?",
+    "scenarioAnswer": "A functional requirement",
+    "scenarioWrongs": [
+      "A two-second response target with no behaviour",
+      "The project budget",
+      "The title-slide font"
+    ],
+    "scenarioWhy": "Filtering classes is a behaviour the product must perform, so the statement is functional."
+  },
+  {
+    "term": "Non-Functional Requirement",
+    "definition": "A required quality of the product, such as performance, reliability, security, or usability.",
+    "wrongs": [
+      "A named function, such as creating an account.",
+      "The name of the team leader.",
+      "A list of who will bring snacks to the demo."
+    ],
+    "why": "A non-functional requirement states how well the product must work, not which function it offers.",
+    "example": "The timetable screen must appear within two seconds on the agreed campus network.",
+    "scenario": "The timetable screen must appear within two seconds on the campus network. Which kind of requirement is that?",
+    "scenarioAnswer": "A non-functional requirement",
+    "scenarioWrongs": [
+      "A function that creates an account",
+      "The team leader's name",
+      "The demo snack list"
+    ],
+    "scenarioWhy": "A response-time quality is a non-functional requirement."
+  },
+  {
+    "term": "Requirement Traceability",
+    "definition": "The ability to follow a requirement from its source through design and tests to the feature that satisfies it.",
+    "wrongs": [
+      "Remembering requirements only in conversation, with no link to tests.",
+      "Numbering paragraphs in a novel.",
+      "Tracing a parcel through a courier company."
+    ],
+    "why": "Traceability links each requirement to the design and tests that show it has been met.",
+    "example": "Requirement R4 is linked to the filter screen in the design and to test case T12.",
+    "scenario": "A marker asks which test shows that the module-code filter was implemented. Which capability answers that?",
+    "scenarioAnswer": "Requirement traceability",
+    "scenarioWrongs": [
+      "An unrecorded conversation",
+      "Paragraph numbers in a novel",
+      "A courier tracking number"
+    ],
+    "scenarioWhy": "Traceability follows a requirement through design to the test that demonstrates it."
+  },
+  {
+    "term": "Traceability Matrix",
+    "definition": "A table that links each requirement to the design elements and test cases that cover it.",
+    "wrongs": [
+      "A Gantt chart of task dates.",
+      "A table of team members' phone numbers.",
+      "A matrix of risk scores with no requirements."
+    ],
+    "why": "A traceability matrix is the table that makes coverage of requirements by design and tests visible.",
+    "example": "The matrix row for R4 lists the filter screen and test cases T12 and T13.",
+    "scenario": "You need one table showing each requirement, its design element, and its tests. Which artefact is that?",
+    "scenarioAnswer": "A traceability matrix",
+    "scenarioWrongs": [
+      "A Gantt chart",
+      "A phone list",
+      "A risk-score matrix"
+    ],
+    "scenarioWhy": "A traceability matrix is the table linking requirements to design elements and test cases."
+  },
+  {
+    "term": "Use Case",
+    "definition": "A description of how an actor achieves a goal with the system, including the main steps and important alternatives.",
+    "wrongs": [
+      "A class diagram that shows only software structure.",
+      "A one-line wish with no steps.",
+      "A test log of defects already found."
+    ],
+    "why": "A use case describes an actor's goal, the main flow, and notable alternatives.",
+    "example": "The use case View today shows a student opening the app, seeing classes, and the alternative when the feed is down.",
+    "scenario": "You must describe the student's steps to see today's classes, including the feed-down alternative. Which description is that?",
+    "scenarioAnswer": "A use case",
+    "scenarioWrongs": [
+      "A class diagram of code structure",
+      "A one-line wish with no steps",
+      "A defect log"
+    ],
+    "scenarioWhy": "A use case records the actor's goal, main steps, and important alternatives."
+  },
+  {
+    "term": "User Story",
+    "definition": "A short requirement in the form of who wants what and why, used to plan a slice of user-visible value.",
+    "wrongs": [
+      "A detailed database schema.",
+      "A full test script with inputs and expected rows.",
+      "A story written for entertainment with no user or goal."
+    ],
+    "why": "A user story captures who wants a capability and why, at a size the team can plan.",
+    "example": "As a student, I want to filter by module code so I can find one class quickly.",
+    "scenario": "The team writes: as a student I want to filter by module so I can find a class quickly. Which artefact is that?",
+    "scenarioAnswer": "A user story",
+    "scenarioWrongs": [
+      "A database schema",
+      "A detailed test script",
+      "A fictional story with no user need"
+    ],
+    "scenarioWhy": "A short who-wants-what-and-why statement used for planning is a user story."
+  },
+  {
+    "term": "Acceptance Criteria",
+    "definition": "The conditions a requirement or story must meet before the team and sponsor agree it is done.",
+    "wrongs": [
+      "The date the coding happened to stop.",
+      "A developer's feeling that the screen looks finished.",
+      "The number of commits in the repository."
+    ],
+    "why": "Acceptance criteria are the agreed conditions that define done for a requirement or story.",
+    "example": "The filter is done only when a known module code shows that module's classes and an unknown code shows a clear message.",
+    "scenario": "The sponsor will accept the filter only if a known code lists the right classes and an unknown code shows a message. Which term names those conditions?",
+    "scenarioAnswer": "Acceptance criteria",
+    "scenarioWrongs": [
+      "The hour coding stopped",
+      "A feeling that the screen looks done",
+      "The commit count"
+    ],
+    "scenarioWhy": "Acceptance criteria are the agreed conditions that must be met before the story is accepted."
+  },
+  {
+    "term": "Team Role",
+    "definition": "A named set of responsibilities given to a member so the group covers requirements, build, test, and coordination.",
+    "wrongs": [
+      "A person's hobby outside the project.",
+      "A job title at a company the student does not work for.",
+      "A role that nobody can describe and that has no responsibilities."
+    ],
+    "why": "A team role assigns clear responsibilities so necessary project work has an owner.",
+    "example": "One member owns requirements, another owns integration, and another owns the test records.",
+    "scenario": "Work is being missed because nobody owns the test records. Which fix uses team roles?",
+    "scenarioAnswer": "Name a member responsible for the test records",
+    "scenarioWrongs": [
+      "Leave testing unowned",
+      "Assign everyone's hobbies instead",
+      "Copy a job title from an unrelated company"
+    ],
+    "scenarioWhy": "A team role gives a named member the responsibilities that were otherwise missing."
+  },
+  {
+    "term": "Team Leader",
+    "definition": "The member who coordinates the group, tracks commitments, and keeps decisions and blockers visible.",
+    "wrongs": [
+      "The person who writes every line of code alone while others wait.",
+      "A sponsor outside the team who never coordinates the members.",
+      "The repository, which cannot coordinate people."
+    ],
+    "why": "The team leader coordinates people and commitments; they are not required to produce every technical artefact alone.",
+    "example": "The leader keeps the task board current and raises a blocker when the faculty feed is unavailable.",
+    "scenario": "Commitments are slipping and blockers are invisible. Which role should make them visible and coordinate the group?",
+    "scenarioAnswer": "The team leader",
+    "scenarioWrongs": [
+      "A member who writes all the code alone",
+      "An external sponsor who does not coordinate the team",
+      "The code repository"
+    ],
+    "scenarioWhy": "The team leader coordinates the group and keeps commitments and blockers visible."
+  },
+  {
+    "term": "Requirements Lead",
+    "definition": "The member accountable for eliciting, recording, and keeping requirements consistent and agreed.",
+    "wrongs": [
+      "The member whose only job is to run performance tests.",
+      "A user who mentions a wish once and never reviews the record.",
+      "The person who only designs the poster."
+    ],
+    "why": "The requirements lead owns the quality and agreement of the requirement set.",
+    "example": "The requirements lead updates the filter story after the sponsor clarifies unknown module codes.",
+    "scenario": "Stories contradict each other and nobody has checked them with the sponsor. Which role should fix that?",
+    "scenarioAnswer": "The requirements lead",
+    "scenarioWrongs": [
+      "The person who only runs performance tests",
+      "A user who never reviews the record",
+      "The poster designer"
+    ],
+    "scenarioWhy": "The requirements lead keeps requirements consistent and agreed with stakeholders."
+  },
+  {
+    "term": "Integration Lead",
+    "definition": "The member accountable for planning how components come together and for resolving interface mismatches.",
+    "wrongs": [
+      "The member who only writes the user manual.",
+      "A tester who never sees the interfaces.",
+      "The sponsor who only attends the final demo."
+    ],
+    "why": "The integration lead plans the combination of components and deals with mismatches at their boundaries.",
+    "example": "When the app and the faculty feed disagree on date format, the integration lead gets the interface corrected.",
+    "scenario": "The app and the faculty feed disagree on date format at their boundary. Which role should drive the fix?",
+    "scenarioAnswer": "The integration lead",
+    "scenarioWrongs": [
+      "The user-manual author only",
+      "A tester who never sees interfaces",
+      "A sponsor who only attends the final demo"
+    ],
+    "scenarioWhy": "Resolving an interface mismatch is the integration lead's responsibility."
+  },
+  {
+    "term": "Test Lead",
+    "definition": "The member accountable for the test approach, the test cases, and the record of results against requirements.",
+    "wrongs": [
+      "A developer who refuses to record any test result.",
+      "The graphic designer of the logo.",
+      "A teammate who only books meeting rooms."
+    ],
+    "why": "The test lead owns how the product will be tested and how results are traced to requirements.",
+    "example": "The test lead maps each story to test cases and publishes which ones passed before the demonstration.",
+    "scenario": "The demo is soon and nobody knows which requirements have passed their tests. Which role should produce that record?",
+    "scenarioAnswer": "The test lead",
+    "scenarioWrongs": [
+      "A developer who keeps no results",
+      "The logo designer",
+      "The person who only books rooms"
+    ],
+    "scenarioWhy": "The test lead is accountable for test cases and the record of results against requirements."
+  },
+  {
+    "term": "Configuration Item",
+    "definition": "A versioned product of the project, such as a document, source module, or build, that is identified and controlled.",
+    "wrongs": [
+      "An unlabelled file that anyone may overwrite with no history.",
+      "A team member's mood.",
+      "The weather on demo day."
+    ],
+    "why": "A configuration item is an identified, versioned artefact the project controls.",
+    "example": "The interface specification is stored as version 1.3, and later edits create a new version rather than a silent overwrite.",
+    "scenario": "The interface specification must be identifiable and changes must not overwrite it silently. How should it be treated?",
+    "scenarioAnswer": "As a versioned configuration item",
+    "scenarioWrongs": [
+      "As an unlabelled file anyone may overwrite",
+      "As a team member's mood",
+      "As the weather forecast"
+    ],
+    "scenarioWhy": "A controlled, versioned project artefact is a configuration item."
+  },
+  {
+    "term": "Interface Specification",
+    "definition": "A description of how two components exchange data or calls, including formats, order, and error cases.",
+    "wrongs": [
+      "A photo of the two teams that built the components.",
+      "A user's wish with no data format.",
+      "The office seating plan."
+    ],
+    "why": "An interface specification defines the shared boundary so components can be built and tested against the same contract.",
+    "example": "The spec says the feed sends module code as text, date as ISO-8601, and error code 404 when the student is unknown.",
+    "scenario": "The app team and the feed team need an agreed date format and error codes. Which document should hold that agreement?",
+    "scenarioAnswer": "The interface specification",
+    "scenarioWrongs": [
+      "A team photograph",
+      "A wish with no format",
+      "The seating plan"
+    ],
+    "scenarioWhy": "An interface specification defines formats, sequences, and error cases between components."
+  },
+  {
+    "term": "System Integration",
+    "definition": "The work of combining components so they operate together as one product, not only as separate parts.",
+    "wrongs": [
+      "Testing a single function with no other component attached.",
+      "Writing the project poster.",
+      "Merging two social groups at a party."
+    ],
+    "why": "System integration combines components and checks that they work together as a product.",
+    "example": "The timetable screen is connected to the live faculty feed and shows real classes rather than hardcoded samples.",
+    "scenario": "The screen works with fake data, but it has never been connected to the live faculty feed. Which work is still missing?",
+    "scenarioAnswer": "System integration",
+    "scenarioWrongs": [
+      "Another isolated unit test only",
+      "The project poster",
+      "A social gathering"
+    ],
+    "scenarioWhy": "Connecting components so they work as one product is system integration."
+  },
+  {
+    "term": "Integration Strategy",
+    "definition": "The planned order and method for combining components, chosen so interface defects can be found.",
+    "wrongs": [
+      "Combining parts in whatever order people finish, with no plan.",
+      "A marketing plan for the demonstration.",
+      "The algorithm inside one function."
+    ],
+    "why": "An integration strategy decides the order and method of combination so interface problems are found deliberately.",
+    "example": "The team plans to connect the feed first, then notifications, testing each join before adding the next part.",
+    "scenario": "Components will finish at different times, and the team needs a deliberate order for joining them. Which plan is that?",
+    "scenarioAnswer": "An integration strategy",
+    "scenarioWrongs": [
+      "Joining parts in whatever order they finish",
+      "A marketing plan",
+      "The code inside one function"
+    ],
+    "scenarioWhy": "The planned order and method for combining components is the integration strategy."
+  },
+  {
+    "term": "Big-Bang Integration",
+    "definition": "An approach that combines all components in one step, which delays discovery of interface defects until late.",
+    "wrongs": [
+      "Adding one component at a time and testing after each addition.",
+      "Testing a single module before any joining.",
+      "A demonstration that shows only slides."
+    ],
+    "why": "Big-bang integration waits until every component is present, so interface faults appear late and are harder to isolate.",
+    "example": "The team connects feed, login, and notifications on the final weekend and cannot tell which join caused the date errors.",
+    "scenario": "All unfinished parts will be connected on the last weekend, with no earlier joins. Which approach is that?",
+    "scenarioAnswer": "Big-bang integration",
+    "scenarioWrongs": [
+      "Adding and testing one component at a time",
+      "A unit test of a single module",
+      "A slide-only demonstration"
+    ],
+    "scenarioWhy": "Combining every component in one late step is big-bang integration."
+  },
+  {
+    "term": "Incremental Integration",
+    "definition": "An approach that adds components in planned stages and tests each stage before the next component is added.",
+    "wrongs": [
+      "Waiting to combine every component in a single final step.",
+      "Never combining components at all.",
+      "Adding features to a slide deck one bullet at a time."
+    ],
+    "why": "Incremental integration tests each added component so a new interface fault can be tied to the latest change.",
+    "example": "The feed is integrated and tested before notifications are added, so a later fault is easier to locate.",
+    "scenario": "The team adds the feed, tests it, then adds notifications. Which integration approach is that?",
+    "scenarioAnswer": "Incremental integration",
+    "scenarioWrongs": [
+      "Connecting everything in one final step",
+      "Leaving every component separate",
+      "Adding bullets to a slide"
+    ],
+    "scenarioWhy": "Adding components in stages and testing each stage is incremental integration."
+  },
+  {
+    "term": "Unit Test",
+    "definition": "A test of a single module or function in isolation from the rest of the product.",
+    "wrongs": [
+      "A test of several components talking across their interfaces.",
+      "A test of the whole product in a realistic environment.",
+      "A sponsor's check against the original business need."
+    ],
+    "why": "A unit test isolates one module so a failure points to that module rather than to an interface.",
+    "example": "A test calls the date parser with an ISO string and does not start the faculty feed or the phone app.",
+    "scenario": "You want to check the date parser alone, without the feed or the app. Which test fits?",
+    "scenarioAnswer": "A unit test",
+    "scenarioWrongs": [
+      "A test of several components together",
+      "A test of the finished product on campus",
+      "The sponsor's acceptance check"
+    ],
+    "scenarioWhy": "Testing one module in isolation is a unit test."
+  },
+  {
+    "term": "Integration Test",
+    "definition": "A test that checks whether combined components communicate and behave correctly across their interfaces.",
+    "wrongs": [
+      "A test of one function with all neighbours replaced and no real interface.",
+      "A spelling check of the user manual.",
+      "A review of the project budget."
+    ],
+    "why": "Integration tests target the joins between components, which unit tests deliberately avoid.",
+    "example": "A test requests today's classes through the app's client and checks the parsed response from the faculty feed.",
+    "scenario": "The date parser works alone, but you must check that the app and the feed exchange dates correctly. Which test fits?",
+    "scenarioAnswer": "An integration test",
+    "scenarioWrongs": [
+      "Another isolated parser test",
+      "A spelling check of the manual",
+      "A budget review"
+    ],
+    "scenarioWhy": "Checking behaviour across the join between components is an integration test."
+  },
+  {
+    "term": "System Test",
+    "definition": "A test of the completed product against system requirements, in an environment close to intended use.",
+    "wrongs": [
+      "A test of one function on a developer's machine with stubs only.",
+      "A code review that does not execute the product.",
+      "A test of a single interface with the rest missing."
+    ],
+    "why": "System testing executes the whole product against system requirements in a realistic setting.",
+    "example": "On a campus phone and network, testers check that the full app meets the timetable requirements end to end.",
+    "scenario": "The full app must be checked against timetable requirements on a campus phone and network. Which test level is that?",
+    "scenarioAnswer": "System test",
+    "scenarioWrongs": [
+      "A single-function test with stubs",
+      "A code review that does not run the product",
+      "A test of one interface with the rest absent"
+    ],
+    "scenarioWhy": "Testing the completed product against system requirements in a near-real environment is system testing."
+  },
+  {
+    "term": "Acceptance Test",
+    "definition": "A test, often with the sponsor or users, that checks the product against the agreed acceptance criteria.",
+    "wrongs": [
+      "A developer's private check that never involves the agreed criteria.",
+      "A unit test of a helper function.",
+      "A rehearsal of who will speak, with the product switched off."
+    ],
+    "why": "Acceptance testing judges the product against the criteria the sponsor or users agreed.",
+    "example": "The faculty officer tries the filter with a real module code and confirms the acceptance message for an unknown code.",
+    "scenario": "The faculty officer will judge the filter against the agreed done conditions. Which test is that?",
+    "scenarioAnswer": "An acceptance test",
+    "scenarioWrongs": [
+      "A private check with no agreed criteria",
+      "A unit test of a helper",
+      "A speaking rehearsal with the product off"
+    ],
+    "scenarioWhy": "A check against agreed acceptance criteria, often by the sponsor or user, is an acceptance test."
+  },
+  {
+    "term": "Test Case",
+    "definition": "A specified set of preconditions, inputs, steps, and expected results used to check one aspect of the product.",
+    "wrongs": [
+      "A vague note that says try the app.",
+      "The requirement text with no inputs or expected result.",
+      "A list of team members."
+    ],
+    "why": "A test case specifies how to perform a check and what result counts as a pass.",
+    "example": "Test T12 sets a known module code, opens today's view, and expects only that module's classes.",
+    "scenario": "You must specify the input, steps, and expected classes for the module filter. Which artefact is that?",
+    "scenarioAnswer": "A test case",
+    "scenarioWrongs": [
+      "A note that only says try the app",
+      "The requirement with no expected result",
+      "The team list"
+    ],
+    "scenarioWhy": "A test case states preconditions, inputs, steps, and the expected result."
+  },
+  {
+    "term": "Expected Result",
+    "definition": "The outcome a test should produce if the requirement has been implemented correctly.",
+    "wrongs": [
+      "Whatever the current buggy build happens to show.",
+      "The tester's guess written after seeing the failure.",
+      "The time the test happened to finish."
+    ],
+    "why": "The expected result is defined from the requirement so the actual outcome can be judged as pass or fail.",
+    "example": "For an unknown module code, the expected result is the message No classes for that code and an empty list.",
+    "scenario": "An unknown module code is entered. Which outcome should be written as the expected result before the test is run?",
+    "scenarioAnswer": "The agreed message and an empty class list",
+    "scenarioWrongs": [
+      "Whatever the buggy build shows",
+      "A guess written after seeing the failure",
+      "The clock time when the test ended"
+    ],
+    "scenarioWhy": "The expected result is the correct outcome defined before execution, used to judge pass or fail."
+  },
+  {
+    "term": "Defect",
+    "definition": "A flaw in the product or its documentation that causes it to miss a requirement or an agreed standard.",
+    "wrongs": [
+      "A change request for behaviour nobody had agreed.",
+      "A passing test.",
+      "A team member's absence."
+    ],
+    "why": "A defect is a failure to meet an agreed requirement or standard, not a new wish or a staffing issue.",
+    "example": "The app shows classes for the wrong day, which breaks the requirement to show today's timetable.",
+    "scenario": "The app shows the wrong day's classes, contrary to the agreed requirement. Which item should be logged?",
+    "scenarioAnswer": "A defect",
+    "scenarioWrongs": [
+      "A new wish that was never agreed",
+      "A test that passed",
+      "Someone's sick day"
+    ],
+    "scenarioWhy": "Behaviour that misses an agreed requirement is a defect."
+  },
+  {
+    "term": "Defect Severity",
+    "definition": "A rating of how serious a defect's effect is on users or on meeting requirements, separate from how soon it will be fixed.",
+    "wrongs": [
+      "The order in which the team chooses to fix defects, which is priority.",
+      "The number of lines changed in the fix.",
+      "The tester's seniority."
+    ],
+    "why": "Severity rates the effect of the defect; priority is a separate decision about fix order.",
+    "example": "A crash on login is rated high severity even though the team schedules the fix after a smaller text change.",
+    "scenario": "Login crashes for every user, but the team will fix a typo first for the demo. Which rating describes the crash's effect?",
+    "scenarioAnswer": "High defect severity",
+    "scenarioWrongs": [
+      "Low severity because the typo is fixed first",
+      "Severity equal to the number of lines in the fix",
+      "Severity equal to the tester's year of study"
+    ],
+    "scenarioWhy": "Severity rates the crash's effect on users, independently of the order chosen for fixes."
+  },
+  {
+    "term": "Regression Test",
+    "definition": "A test run after a change to check that behaviour which previously worked still works.",
+    "wrongs": [
+      "The first test of a brand-new feature that never worked before.",
+      "A test skipped because the change looked small.",
+      "A review of the project risks."
+    ],
+    "why": "Regression testing protects existing behaviour from being broken by a later change.",
+    "example": "After the date-format fix, the team reruns the previously passing login tests.",
+    "scenario": "A date-format fix might have broken login, which used to pass. Which tests should be rerun?",
+    "scenarioAnswer": "Regression tests of the previously passing login behaviour",
+    "scenarioWrongs": [
+      "Only a test of a feature that never existed",
+      "No tests, because the change looked small",
+      "A review of the risk register"
+    ],
+    "scenarioWhy": "Regression tests check that behaviour which already worked still works after a change."
+  },
+  {
+    "term": "Design Review",
+    "definition": "A planned examination of a design against requirements, held so defects can be raised before build continues.",
+    "wrongs": [
+      "A demonstration of the finished product after build is complete.",
+      "An unplanned chat with no design and no record.",
+      "A test that executes code."
+    ],
+    "why": "A design review checks the design against requirements early enough for defects to be fixed before further build.",
+    "example": "Peers review the timetable screen design and note that offline cached days are missing from the agreed requirements.",
+    "scenario": "The screen design is ready, but coding of it has not started. You want peers to find gaps against requirements. Which event fits?",
+    "scenarioAnswer": "A design review",
+    "scenarioWrongs": [
+      "The final demonstration after everything is built",
+      "An unrecorded chat with no design present",
+      "Executing the code in a test"
+    ],
+    "scenarioWhy": "A design review examines the design against requirements before build continues."
+  },
+  {
+    "term": "Peer Review",
+    "definition": "An examination of a work product by colleagues who did not create it, aimed at finding defects early.",
+    "wrongs": [
+      "The author reading their own work and declaring it correct.",
+      "A manager approving a budget.",
+      "A user test of the finished app."
+    ],
+    "why": "Peer review uses colleagues other than the author to find defects in a work product.",
+    "example": "Two teammates who did not write the interface spec check it for missing error codes.",
+    "scenario": "The author of the interface spec wants others to hunt for missing error cases. Which activity fits?",
+    "scenarioAnswer": "A peer review by people who did not write the spec",
+    "scenarioWrongs": [
+      "The author approving their own spec alone",
+      "A budget approval",
+      "A user test of the finished app"
+    ],
+    "scenarioWhy": "Peer review is an examination by colleagues who did not create the work product."
+  },
+  {
+    "term": "Walkthrough",
+    "definition": "A review in which the author leads others through a work product step by step to collect comments.",
+    "wrongs": [
+      "A review where the author is absent and reviewers work only from the document.",
+      "A fire drill in the building.",
+      "A silent approval with no walk through the content."
+    ],
+    "why": "In a walkthrough the author guides the group through the work so questions and comments can be gathered.",
+    "example": "The author presents each screen of the timetable flow, and reviewers comment on the offline step.",
+    "scenario": "The author will lead the group through each screen of the flow to collect comments. Which review form is that?",
+    "scenarioAnswer": "A walkthrough",
+    "scenarioWrongs": [
+      "A review held with the author absent",
+      "A fire drill",
+      "A silent approval with no examination"
+    ],
+    "scenarioWhy": "A walkthrough is author-led, step-by-step presentation of a work product to gather comments."
+  },
+  {
+    "term": "Technical Documentation",
+    "definition": "Written material that describes the design, interfaces, and operation so others can build, test, or maintain the product.",
+    "wrongs": [
+      "A poster whose only purpose is to attract an audience to the demo.",
+      "An empty repository with no explanation.",
+      "A chat reaction emoji."
+    ],
+    "why": "Technical documentation explains the product well enough for someone else to build, test, or maintain it.",
+    "example": "The repository includes the architecture notes, the feed interface, and the steps to run the app locally.",
+    "scenario": "A marker who did not build the app must be able to understand the design and run it. Which material is required?",
+    "scenarioAnswer": "Technical documentation of design, interfaces, and run steps",
+    "scenarioWrongs": [
+      "Only a promotional poster",
+      "An empty repository",
+      "An emoji in the team chat"
+    ],
+    "scenarioWhy": "Technical documentation describes design, interfaces, and operation for people who must build, test, or maintain the product."
+  },
+  {
+    "term": "Design Specification",
+    "definition": "A document that records design decisions and structure in enough detail for the team to implement them consistently.",
+    "wrongs": [
+      "A user manual written only for end users after delivery.",
+      "A list of wishes with no design decisions.",
+      "The test results from the last run."
+    ],
+    "why": "A design specification captures decisions and structure so implementers follow the same design.",
+    "example": "The specification shows the screen structure, the cached-day rule, and how module filtering is applied.",
+    "scenario": "Two developers must implement filtering the same way. Which document should record that design decision?",
+    "scenarioAnswer": "The design specification",
+    "scenarioWrongs": [
+      "The end-user manual",
+      "A wish list with no decisions",
+      "Last night's test results"
+    ],
+    "scenarioWhy": "The design specification records structural decisions so implementation stays consistent."
+  },
+  {
+    "term": "User Manual",
+    "definition": "A document that explains how an end user performs tasks with the finished product.",
+    "wrongs": [
+      "A design specification aimed at implementers.",
+      "The source code itself.",
+      "A risk register."
+    ],
+    "why": "A user manual is written for end users and explains tasks, not internal design.",
+    "example": "The manual tells a student how to open today's view and filter by module code.",
+    "scenario": "Students need instructions for filtering classes, without internal design detail. Which document fits?",
+    "scenarioAnswer": "A user manual",
+    "scenarioWrongs": [
+      "The design specification for developers",
+      "The source code",
+      "The risk register"
+    ],
+    "scenarioWhy": "A user manual explains end-user tasks with the finished product."
+  },
+  {
+    "term": "API Documentation",
+    "definition": "A description of a programming interface, including operations, inputs, return values, and error conditions.",
+    "wrongs": [
+      "A guide showing only button clicks for a non-programmer.",
+      "A photograph of the server.",
+      "The team's meeting minutes."
+    ],
+    "why": "API documentation tells a programmer how to call an interface and what it returns, including errors.",
+    "example": "The feed docs list the timetable operation, the student-id parameter, the class list returned, and the unknown-student error.",
+    "scenario": "Another team must call your timetable operation correctly, including errors. Which document should you give them?",
+    "scenarioAnswer": "API documentation",
+    "scenarioWrongs": [
+      "A button-click guide for non-programmers",
+      "A photo of the server",
+      "Meeting minutes"
+    ],
+    "scenarioWhy": "API documentation describes operations, inputs, return values, and error conditions."
+  },
+  {
+    "term": "Architecture Diagram",
+    "definition": "A drawing that shows the major components of the product and how they connect.",
+    "wrongs": [
+      "A sketch of the classroom furniture.",
+      "A sequence of every source-code line.",
+      "A pie chart of the marks scheme."
+    ],
+    "why": "An architecture diagram communicates structure: the main parts and their connections.",
+    "example": "The diagram shows the phone app, the campus API, and the faculty feed, with arrows for timetable requests.",
+    "scenario": "The marker wants to see the app, the API, and the faculty feed and how they connect. Which drawing fits?",
+    "scenarioAnswer": "An architecture diagram",
+    "scenarioWrongs": [
+      "A sketch of the classroom furniture",
+      "A listing of every code line",
+      "A pie chart of marks"
+    ],
+    "scenarioWhy": "An architecture diagram shows major components and the connections among them."
+  },
+  {
+    "term": "Version Control",
+    "definition": "A system that records changes to project files over time so the team can compare, recover, and merge work.",
+    "wrongs": [
+      "Emailing files named final, final2, and final-really.",
+      "A paper notebook of meeting dates.",
+      "The undo button in a drawing tool used by one person with no shared history."
+    ],
+    "why": "Version control keeps a shared history of changes so work can be recovered and combined.",
+    "example": "Two members edit the app on branches, then merge, and can still recover yesterday's working version.",
+    "scenario": "Two members are editing the same app and must merge without losing yesterday's working version. Which system supports that?",
+    "scenarioAnswer": "Version control",
+    "scenarioWrongs": [
+      "Emailing copies named final and final2",
+      "A notebook of meeting dates",
+      "One person's undo button with no shared history"
+    ],
+    "scenarioWhy": "Version control records file history so the team can merge work and recover earlier versions."
+  },
+  {
+    "term": "Baseline",
+    "definition": "An agreed version of a requirement, design, or build that later changes must pass through change control.",
+    "wrongs": [
+      "A draft that anyone may change silently.",
+      "The first rough idea, never reviewed.",
+      "A personal backup on one laptop that the team has not agreed."
+    ],
+    "why": "A baseline is an agreed reference; changing it requires the project's change-control steps.",
+    "example": "After the sponsor agrees the stories, that set is baselined and further story changes are requested formally.",
+    "scenario": "The sponsor has agreed the stories, and later edits must be approved rather than made silently. Which status should that set have?",
+    "scenarioAnswer": "Baselined",
+    "scenarioWrongs": [
+      "A silent draft",
+      "An unreviewed rough idea",
+      "A private laptop backup"
+    ],
+    "scenarioWhy": "An agreed version that cannot change without control is a baseline."
+  },
+  {
+    "term": "Change Control",
+    "definition": "The process for proposing, assessing, approving, and recording changes to baselined requirements or design.",
+    "wrongs": [
+      "Editing the baselined story in the repository with no record.",
+      "Refusing every change even when the sponsor requests one.",
+      "A version-control commit message alone, with no assessment or approval."
+    ],
+    "why": "Change control makes a baseline change visible, assessed, and approved before it is adopted.",
+    "example": "Adding offline mode after baseline is written up, estimated, approved by the sponsor, and then added to the stories.",
+    "scenario": "After baseline, the sponsor wants offline mode. Which process should the team follow before building it?",
+    "scenarioAnswer": "Change control",
+    "scenarioWrongs": [
+      "A silent edit to the baselined stories",
+      "An automatic refusal of every sponsor request",
+      "A commit with no assessment or approval"
+    ],
+    "scenarioWhy": "Change control proposes, assesses, approves, and records a change to a baseline."
+  },
+  {
+    "term": "Demonstration",
+    "definition": "A live showing of the working product to stakeholders so they can see that agreed behaviour is present.",
+    "wrongs": [
+      "A slide talk with the product switched off.",
+      "A private test nobody else sees.",
+      "A poster session with no running software."
+    ],
+    "why": "A demonstration uses the working product so stakeholders can observe agreed behaviour.",
+    "example": "At the review the team opens the app, filters a real module, and shows the unknown-code message.",
+    "scenario": "The sponsor wants to see the filter work, not only hear about it. Which event meets that request?",
+    "scenarioAnswer": "A live demonstration of the working app",
+    "scenarioWrongs": [
+      "Slides with the product switched off",
+      "A private test with no sponsor",
+      "A poster and no running software"
+    ],
+    "scenarioWhy": "A demonstration shows the working product performing the agreed behaviour."
+  },
+  {
+    "term": "Demo Script",
+    "definition": "A planned sequence of steps and talking points so a demonstration covers the agreed scenarios.",
+    "wrongs": [
+      "An improvised click-through with no check that agreed scenarios appear.",
+      "The full source code read aloud.",
+      "A script for a film unrelated to the product."
+    ],
+    "why": "A demo script keeps the live showing focused on the scenarios the team agreed to present.",
+    "example": "The script says: log in as a student, open today, filter module CS101, then enter an unknown code.",
+    "scenario": "The team must be sure the demo covers login, today's view, a known module, and an unknown code. Which aid should they follow?",
+    "scenarioAnswer": "A demo script",
+    "scenarioWrongs": [
+      "Unplanned clicking",
+      "Reading the source code aloud",
+      "A film script about another topic"
+    ],
+    "scenarioWhy": "A demo script is the planned sequence that covers the agreed scenarios."
+  },
+  {
+    "term": "Prototype",
+    "definition": "An early partial version of the product, built to explore or check a design with users or the team.",
+    "wrongs": [
+      "The finished product accepted for delivery.",
+      "A written requirement with nothing a user can try.",
+      "A poster of the team logo."
+    ],
+    "why": "A prototype is a partial build used to learn about the design, not the accepted final product.",
+    "example": "The team shows a clickable timetable screen with fake data so students can comment before the feed is connected.",
+    "scenario": "Students should try the screen layout before the live feed exists. Which build fits that purpose?",
+    "scenarioAnswer": "A prototype with the layout and fake data",
+    "scenarioWrongs": [
+      "The final accepted product",
+      "A requirement paragraph with nothing to try",
+      "The team logo poster"
+    ],
+    "scenarioWhy": "A prototype is an early partial version used to check a design with users."
+  },
+  {
+    "term": "Proof of Concept",
+    "definition": "A small build used to test whether a risky technical idea works, not to deliver the full product.",
+    "wrongs": [
+      "The complete app with every story finished.",
+      "A literature essay about the idea.",
+      "A user manual for features that already exist."
+    ],
+    "why": "A proof of concept answers a narrow technical question and is not the delivered product.",
+    "example": "The team builds a tiny client that only checks whether the faculty feed accepts the campus login token.",
+    "scenario": "Nobody knows whether the faculty feed will accept the campus login token. Which build should answer that before full development?",
+    "scenarioAnswer": "A proof of concept that only tests the token",
+    "scenarioWrongs": [
+      "The finished app with every story",
+      "An essay about login",
+      "A manual for features already delivered"
+    ],
+    "scenarioWhy": "A proof of concept is a small build that tests one risky technical idea."
+  },
+  {
+    "term": "Milestone Demonstration",
+    "definition": "A scheduled demonstration tied to a project milestone, used to show progress and collect stakeholder feedback.",
+    "wrongs": [
+      "An unscheduled desk check with no milestone and no stakeholders.",
+      "The final exam of an unrelated module.",
+      "A demonstration held after the module has already closed and no feedback can be used."
+    ],
+    "why": "A milestone demonstration is planned against a milestone so progress is visible and feedback can still be used.",
+    "example": "At the mid-project milestone the team demonstrates login and today's view and records the sponsor's comments.",
+    "scenario": "The mid-project milestone requires stakeholders to see login and today's view and to give comments you can still use. Which event is that?",
+    "scenarioAnswer": "A milestone demonstration",
+    "scenarioWrongs": [
+      "A private desk check with no milestone",
+      "An unrelated module exam",
+      "A showing after the module has closed"
+    ],
+    "scenarioWhy": "A milestone demonstration is a scheduled showing at a milestone that gathers usable feedback."
+  },
+  {
+    "term": "Interface Control",
+    "definition": "The management of agreements about interfaces so a shared boundary is not changed without informing the other parties.",
+    "wrongs": [
+      "Each team changing the shared date format whenever it likes.",
+      "A ban on ever writing an interface specification.",
+      "Controlling only the office door keys."
+    ],
+    "why": "Interface control keeps agreed boundaries stable unless a change is communicated and agreed.",
+    "example": "The feed team cannot switch the date format until the app team has agreed an update to the interface specification.",
+    "scenario": "The feed team wants to change the date format the app already uses. Which practice stops a silent break?",
+    "scenarioAnswer": "Interface control that requires agreement before the change",
+    "scenarioWrongs": [
+      "Changing the format whenever the feed team likes",
+      "Having no written interface at all",
+      "Changing the office door keys"
+    ],
+    "scenarioWhy": "Interface control stops a shared boundary changing unless the other parties are informed and agree."
+  },
+  {
+    "term": "Test Stub",
+    "definition": "A stand-in for a component that is not ready, returning canned responses so its caller can be tested.",
+    "wrongs": [
+      "The finished faculty feed in production.",
+      "A program that calls the component under test and supplies inputs.",
+      "A user manual."
+    ],
+    "why": "A stub replaces a missing dependency and returns predetermined responses to the component being tested.",
+    "example": "Until the faculty feed exists, a stub returns two fixed classes when the app requests today.",
+    "scenario": "The app must be tested before the faculty feed exists. Which stand-in returns fixed classes to the app?",
+    "scenarioAnswer": "A test stub",
+    "scenarioWrongs": [
+      "The finished production feed",
+      "A driver that calls the app",
+      "The user manual"
+    ],
+    "scenarioWhy": "A stub stands in for a missing component and returns canned responses to its caller."
+  },
+  {
+    "term": "Test Driver",
+    "definition": "A temporary program that calls a component under test and supplies inputs when the real caller is not ready.",
+    "wrongs": [
+      "A stand-in that replaces a component the code under test needs to call.",
+      "The production mobile app shipped to students.",
+      "A person who drives the team to the demo."
+    ],
+    "why": "A driver calls the component being tested; a stub is what the component calls when a dependency is missing.",
+    "example": "A small program calls the date parser with sample strings because the app screens are not ready.",
+    "scenario": "The date parser is ready, but the app that should call it is not. Which temporary program can supply inputs and call the parser?",
+    "scenarioAnswer": "A test driver",
+    "scenarioWrongs": [
+      "A stub that replaces the parser",
+      "The finished student app",
+      "A car journey to the demo"
+    ],
+    "scenarioWhy": "A test driver is a temporary caller that supplies inputs to a component whose real caller is not ready."
+  },
+  {
+    "term": "Build",
+    "definition": "An assembled version of the product, identified so testers know exactly which revision they ran.",
+    "wrongs": [
+      "A pile of uncompiled source with no identifiable output.",
+      "The requirements document.",
+      "A verbal claim that it works on someone's machine."
+    ],
+    "why": "A build is a specific assembled revision that can be named, tested, and reproduced.",
+    "example": "Testers install build 0.4, identified by its commit, and record results against that identifier.",
+    "scenario": "Testers must record exactly which assembled app they ran. Which identifier should they cite?",
+    "scenarioAnswer": "The build identifier",
+    "scenarioWrongs": [
+      "An unnamed pile of source files",
+      "The requirements document title",
+      "A verbal claim with no revision"
+    ],
+    "scenarioWhy": "A build is an identified assembled version so test results refer to a known revision."
+  },
+  {
+    "term": "Release Note",
+    "definition": "A short document that lists what a build contains, which defects were fixed, and any known limits.",
+    "wrongs": [
+      "The full design specification.",
+      "A blank file attached to the build.",
+      "A marketing slogan with no build contents."
+    ],
+    "why": "Release notes tell users and testers what changed in a build and what is still limited.",
+    "example": "The note for build 0.4 says module filtering was added, the wrong-day defect was fixed, and offline mode is still absent.",
+    "scenario": "Testers receive build 0.4 and need to know what changed and what is still missing. Which document should accompany it?",
+    "scenarioAnswer": "A release note",
+    "scenarioWrongs": [
+      "The full design specification",
+      "A blank attachment",
+      "A slogan with no contents"
+    ],
+    "scenarioWhy": "A release note lists the build's contents, fixes, and known limits."
+  }
+]

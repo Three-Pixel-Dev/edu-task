@@ -2,16 +2,1684 @@
   "subjectId": "information-security",
   "levels": {
     "1": [
-      { "question": "Which algorithm is symmetric?", "options": ["RSA", "AES", "ECC", "Diffie–Hellman"], "correctAnswer": "AES", "explanation": "AES uses the same key to encrypt and decrypt." },
-      { "question": "The CIA triad stands for:", "options": ["Control, Integrity, Access", "Confidentiality, Integrity, Availability", "Cipher, Identity, Audit", "Confidentiality, Identity, Authorisation"], "correctAnswer": "Confidentiality, Integrity, Availability", "explanation": "These are the three core goals of information security." },
-      { "question": "A cryptographic hash function should be:", "options": ["Reversible", "One-way", "Different every time for the same input", "Dependent on a secret key"], "correctAnswer": "One-way", "explanation": "You should not be able to recover the input from its hash." },
-      { "question": "Phishing is an example of:", "options": ["Social engineering", "A buffer overflow", "Encryption", "A firewall rule"], "correctAnswer": "Social engineering", "explanation": "Phishing tricks people into revealing information or running malware." },
-      { "question": "Which attack injects code through unsanitised input fields?", "options": ["DDoS", "SQL injection", "Sniffing", "Spoofing"], "correctAnswer": "SQL injection", "explanation": "Unsanitised input can be executed as SQL; parameterised queries prevent it." },
-      { "question": "A digital signature mainly provides:", "options": ["Compression", "Authenticity and integrity", "Faster transfer", "Anonymity"], "correctAnswer": "Authenticity and integrity", "explanation": "It proves who signed and that the data wasn’t altered." },
-      { "question": "Which device filters traffic using rules?", "options": ["Hub", "Firewall", "Repeater", "Bridge"], "correctAnswer": "Firewall", "explanation": "Firewalls allow or block traffic based on rules." },
-      { "question": "Multi-factor authentication combines:", "options": ["Two passwords", "Different types of evidence", "Two usernames", "Encryption and hashing"], "correctAnswer": "Different types of evidence", "explanation": "For example something you know plus something you have." },
-      { "question": "In RSA, a public key is used to:", "options": ["Decrypt private messages", "Encrypt messages for the key owner", "Generate random numbers", "Hash passwords"], "correctAnswer": "Encrypt messages for the key owner", "explanation": "Only the matching private key can decrypt them." },
-      { "question": "A salt is added to passwords before hashing to:", "options": ["Make them shorter", "Defeat precomputed (rainbow table) attacks", "Encrypt them", "Speed up login"], "correctAnswer": "Defeat precomputed (rainbow table) attacks", "explanation": "Unique salts make identical passwords hash differently." }
+      {
+        "question": "Which algorithm is symmetric?",
+        "options": [
+          "RSA",
+          "AES",
+          "ECC",
+          "Diffie–Hellman"
+        ],
+        "correctAnswer": "AES",
+        "explanation": "AES uses the same key to encrypt and decrypt."
+      },
+      {
+        "question": "The CIA triad stands for:",
+        "options": [
+          "Control, Integrity, Access",
+          "Confidentiality, Integrity, Availability",
+          "Cipher, Identity, Audit",
+          "Confidentiality, Identity, Authorisation"
+        ],
+        "correctAnswer": "Confidentiality, Integrity, Availability",
+        "explanation": "These are the three core goals of information security."
+      },
+      {
+        "question": "A cryptographic hash function should be:",
+        "options": [
+          "Reversible",
+          "One-way",
+          "Different every time for the same input",
+          "Dependent on a secret key"
+        ],
+        "correctAnswer": "One-way",
+        "explanation": "You should not be able to recover the input from its hash."
+      },
+      {
+        "question": "Phishing is an example of:",
+        "options": [
+          "Social engineering",
+          "A buffer overflow",
+          "Encryption",
+          "A firewall rule"
+        ],
+        "correctAnswer": "Social engineering",
+        "explanation": "Phishing tricks people into revealing information or running malware."
+      },
+      {
+        "question": "Which attack injects code through unsanitised input fields?",
+        "options": [
+          "DDoS",
+          "SQL injection",
+          "Sniffing",
+          "Spoofing"
+        ],
+        "correctAnswer": "SQL injection",
+        "explanation": "Unsanitised input can be executed as SQL; parameterised queries prevent it."
+      },
+      {
+        "question": "A digital signature mainly provides:",
+        "options": [
+          "Compression",
+          "Authenticity and integrity",
+          "Faster transfer",
+          "Anonymity"
+        ],
+        "correctAnswer": "Authenticity and integrity",
+        "explanation": "It proves who signed and that the data wasn’t altered."
+      },
+      {
+        "question": "Which device filters traffic using rules?",
+        "options": [
+          "Hub",
+          "Firewall",
+          "Repeater",
+          "Bridge"
+        ],
+        "correctAnswer": "Firewall",
+        "explanation": "Firewalls allow or block traffic based on rules."
+      },
+      {
+        "question": "Multi-factor authentication combines:",
+        "options": [
+          "Two passwords",
+          "Different types of evidence",
+          "Two usernames",
+          "Encryption and hashing"
+        ],
+        "correctAnswer": "Different types of evidence",
+        "explanation": "For example something you know plus something you have."
+      },
+      {
+        "question": "In RSA, a public key is used to:",
+        "options": [
+          "Decrypt private messages",
+          "Encrypt messages for the key owner",
+          "Generate random numbers",
+          "Hash passwords"
+        ],
+        "correctAnswer": "Encrypt messages for the key owner",
+        "explanation": "Only the matching private key can decrypt them."
+      },
+      {
+        "question": "A salt is added to passwords before hashing to:",
+        "options": [
+          "Make them shorter",
+          "Defeat precomputed (rainbow table) attacks",
+          "Encrypt them",
+          "Speed up login"
+        ],
+        "correctAnswer": "Defeat precomputed (rainbow table) attacks",
+        "explanation": "Unique salts make identical passwords hash differently."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Threat actor?",
+        "options": [
+          "The database being protected.",
+          "The weakness that is exploited.",
+          "A person, group, or force that may carry out a threat against an asset.",
+          "The written rule staff must follow."
+        ],
+        "correctAnswer": "A person, group, or force that may carry out a threat against an asset.",
+        "explanation": "Actors differ in skill and motive, from careless insiders to criminal groups."
+      },
+      {
+        "question": "What is Attack surface?",
+        "options": [
+          "The backup copy stored offline.",
+          "The set of points where an attacker can try to enter a system or extract data.",
+          "The incident log after an attack has ended.",
+          "The list of assets ranked by value."
+        ],
+        "correctAnswer": "The set of points where an attacker can try to enter a system or extract data.",
+        "explanation": "Every exposed service, form, account, and interface adds a place that must be defended."
+      },
+      {
+        "question": "What is Security control?",
+        "options": [
+          "The weakness the safeguard is meant to fix.",
+          "The attacker who causes the event.",
+          "The harm measured after the event.",
+          "A safeguard that prevents, detects, or limits the harm from a security event."
+        ],
+        "correctAnswer": "A safeguard that prevents, detects, or limits the harm from a security event.",
+        "explanation": "Controls may be technical, administrative, or physical, and they exist to reduce risk."
+      },
+      {
+        "question": "What is Authentication?",
+        "options": [
+          "Merely stating a username with no proof.",
+          "Writing an audit log of later actions.",
+          "Deciding which files a known user may open.",
+          "Checking that a claimed identity is genuine by testing a secret, device, or biometric."
+        ],
+        "correctAnswer": "Checking that a claimed identity is genuine by testing a secret, device, or biometric.",
+        "explanation": "Authentication comes after a claim of identity and before granting that identity any rights."
+      },
+      {
+        "question": "What is Identification?",
+        "options": [
+          "Granting rights to read a file.",
+          "Proving the claim with a password or token.",
+          "Encrypting the session after login.",
+          "The act of claiming an identity, before that claim has been verified."
+        ],
+        "correctAnswer": "The act of claiming an identity, before that claim has been verified.",
+        "explanation": "A username or ID number asserts who the user is; a separate check must still prove it."
+      },
+      {
+        "question": "What is Authorisation?",
+        "options": [
+          "Checking that a password matches the account.",
+          "Deciding what an authenticated identity is allowed to do.",
+          "Claiming a username at the login prompt.",
+          "Hashing the password for storage."
+        ],
+        "correctAnswer": "Deciding what an authenticated identity is allowed to do.",
+        "explanation": "After identity is proved, policy still has to allow or deny each action."
+      },
+      {
+        "question": "What is Accountability?",
+        "options": [
+          "Hiding who performed an action on purpose.",
+          "Choosing a strong encryption algorithm.",
+          "The ability to trace actions on a system back to the identity that performed them.",
+          "Blocking traffic from an untrusted network."
+        ],
+        "correctAnswer": "The ability to trace actions on a system back to the identity that performed them.",
+        "explanation": "Unique accounts and reliable logs make it possible to answer who did what and when."
+      },
+      {
+        "question": "What is Multi-factor authentication?",
+        "options": [
+          "Checking a username and then skipping any secret.",
+          "Asking for two passwords, both things the user knows.",
+          "Authentication that requires evidence from at least two different factor types.",
+          "Using a longer single password and nothing else."
+        ],
+        "correctAnswer": "Authentication that requires evidence from at least two different factor types.",
+        "explanation": "Factors are something you know, have, or are; two of the same type do not make multiple factors."
+      },
+      {
+        "question": "What is Least privilege?",
+        "options": [
+          "Sharing one powerful account among a whole team.",
+          "Granting access to every file because the user has a job title.",
+          "Giving each account only the minimum rights it needs for its task.",
+          "Giving every user full administrator rights for convenience."
+        ],
+        "correctAnswer": "Giving each account only the minimum rights it needs for its task.",
+        "explanation": "Extra rights turn a mistake or a stolen account into a larger incident."
+      },
+      {
+        "question": "What is Separation of duties?",
+        "options": [
+          "Requiring two factor types at login.",
+          "Giving every user the same small set of rights.",
+          "Splitting a sensitive task so that one person cannot both start it and approve it.",
+          "Letting one administrator request, approve, and pay the same invoice."
+        ],
+        "correctAnswer": "Splitting a sensitive task so that one person cannot both start it and approve it.",
+        "explanation": "Collusion would be needed to abuse a process when no single person holds every step."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Need to know?",
+        "options": [
+          "Giving an entire clearance level access to every file at that level.",
+          "Choosing the shortest encryption key that still works.",
+          "Restricting information to people whose current duties require that specific information.",
+          "Publishing all internal documents on the intranet."
+        ],
+        "correctAnswer": "Restricting information to people whose current duties require that specific information.",
+        "explanation": "A clearance or job title is not enough; the person must also need that information for the task."
+      },
+      {
+        "question": "What is Access control list?",
+        "options": [
+          "A list of malware signatures on a scanner.",
+          "A system-wide label the data owner is not allowed to change.",
+          "A role catalogue that never mentions a particular object.",
+          "A list attached to an object that names subjects and the operations each subject may perform."
+        ],
+        "correctAnswer": "A list attached to an object that names subjects and the operations each subject may perform.",
+        "explanation": "The object carries entries such as 'user A may read' and 'user B may write'."
+      },
+      {
+        "question": "What is Role-based access control?",
+        "options": [
+          "Enforcing military labels that users cannot downgrade.",
+          "Assigning permissions to roles, then giving users those roles instead of direct per-file grants.",
+          "Checking only a password and granting every user the same rights.",
+          "Letting each file owner freely grant access to named friends."
+        ],
+        "correctAnswer": "Assigning permissions to roles, then giving users those roles instead of direct per-file grants.",
+        "explanation": "Changing a person's job means changing their role, and the role already carries the right permissions."
+      },
+      {
+        "question": "What is Mandatory access control?",
+        "options": [
+          "Permissions that come only from a job-role membership.",
+          "A password check with no labels or roles.",
+          "Access rules based on system-enforced labels that users are not allowed to override.",
+          "Rules that each file owner may rewrite for their friends."
+        ],
+        "correctAnswer": "Access rules based on system-enforced labels that users are not allowed to override.",
+        "explanation": "A central policy compares subject and object labels, as in classified government systems."
+      },
+      {
+        "question": "What is Discretionary access control?",
+        "options": [
+          "Labels enforced by the system that the owner cannot weaken.",
+          "Permissions granted only by membership of a central role.",
+          "Access rules that the owner of an object is allowed to set and change.",
+          "A network firewall rule on a router."
+        ],
+        "correctAnswer": "Access rules that the owner of an object is allowed to set and change.",
+        "explanation": "The owner decides who else may read or write, which is the usual model of personal file permissions."
+      },
+      {
+        "question": "What is Malware?",
+        "options": [
+          "A firewall that blocks unwanted packets.",
+          "A signed operating-system update from the vendor.",
+          "Software designed to disrupt a system, steal data, or gain unauthorised access.",
+          "Any program the user did not personally write."
+        ],
+        "correctAnswer": "Software designed to disrupt a system, steal data, or gain unauthorised access.",
+        "explanation": "The defining feature is malicious purpose, whether it is a virus, worm, Trojan, or ransomware."
+      },
+      {
+        "question": "What is Virus?",
+        "options": [
+          "Mail that tricks a user but contains no replicating code.",
+          "Malware that attaches to a host program and spreads when that host is executed.",
+          "A disguised installer that does not replicate.",
+          "A standalone program that spreads across networks by itself."
+        ],
+        "correctAnswer": "Malware that attaches to a host program and spreads when that host is executed.",
+        "explanation": "A virus needs a host file and user or system execution of that host to infect further files."
+      },
+      {
+        "question": "What is Worm?",
+        "options": [
+          "Malware that spreads only by infecting another program on the same disk.",
+          "Self-replicating malware that spreads to other systems without attaching to a host file.",
+          "A one-off disguised utility that never copies itself.",
+          "Spam that contains only a deceptive link."
+        ],
+        "correctAnswer": "Self-replicating malware that spreads to other systems without attaching to a host file.",
+        "explanation": "A worm uses the network or removable media to copy itself and run independently."
+      },
+      {
+        "question": "What is Trojan horse?",
+        "options": [
+          "Malware disguised as useful software that does not replicate itself.",
+          "A self-copying program that needs no disguise and no host file.",
+          "Code that attaches to documents and spreads when they open.",
+          "A hardware keylogger glued inside a keyboard."
+        ],
+        "correctAnswer": "Malware disguised as useful software that does not replicate itself.",
+        "explanation": "The user is tricked into running a program that looks legitimate while it performs a hidden action."
+      },
+      {
+        "question": "What is Ransomware?",
+        "options": [
+          "A worm whose only effect is to consume bandwidth.",
+          "A scanner that quarantines suspicious files for the user.",
+          "Malware that locks or encrypts data and demands payment to restore access.",
+          "Software that only shows advertisements."
+        ],
+        "correctAnswer": "Malware that locks or encrypts data and demands payment to restore access.",
+        "explanation": "The attacker withholds availability of the data, often after stealing a copy as extra pressure."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Spyware?",
+        "options": [
+          "Malware that encrypts files and demands a ransom.",
+          "A self-spreading program that only deletes files.",
+          "Malware that secretly collects information about a user or system.",
+          "A popup blocker installed on purpose by the user."
+        ],
+        "correctAnswer": "Malware that secretly collects information about a user or system.",
+        "explanation": "The harm is covert collection, which attacks confidentiality rather than encrypting the disk."
+      },
+      {
+        "question": "What is Phishing?",
+        "options": [
+          "Guessing a password by trying millions of hashes offline.",
+          "Exploiting an SQL query by typing commands into a form.",
+          "A fraudulent message that tricks a person into revealing secrets or running malware.",
+          "Flooding a server so it cannot answer."
+        ],
+        "correctAnswer": "A fraudulent message that tricks a person into revealing secrets or running malware.",
+        "explanation": "Phishing is social engineering delivered by email, text, or a fake site that imitates a trusted one."
+      },
+      {
+        "question": "What is Social engineering?",
+        "options": [
+          "Manipulating people into breaking security procedures or giving away sensitive information.",
+          "Exploiting only a buffer overflow, with no human target.",
+          "Installing a patch that closes a software bug.",
+          "Brute-forcing a key by computation alone."
+        ],
+        "correctAnswer": "Manipulating people into breaking security procedures or giving away sensitive information.",
+        "explanation": "The attacker uses trust, urgency, or authority instead of relying only on a technical flaw."
+      },
+      {
+        "question": "What is Security policy?",
+        "options": [
+          "Management's written statement of security goals, rules, and responsibilities.",
+          "A firewall configuration file on one router.",
+          "The technical log of a single incident.",
+          "A vendor's advertisement for an antivirus product."
+        ],
+        "correctAnswer": "Management's written statement of security goals, rules, and responsibilities.",
+        "explanation": "Policy sets what must be protected and who is accountable, and other procedures implement it."
+      },
+      {
+        "question": "What is Acceptable use policy?",
+        "options": [
+          "The technical design of the campus firewall.",
+          "A contract with a cloud provider about uptime.",
+          "Rules that tell users what they may and may not do with organisational systems.",
+          "The steps an incident team follows after a breach."
+        ],
+        "correctAnswer": "Rules that tell users what they may and may not do with organisational systems.",
+        "explanation": "It is a user-facing part of security policy covering behaviour such as account sharing and personal use."
+      },
+      {
+        "question": "What is Security incident?",
+        "options": [
+          "A planned fire drill with no security impact.",
+          "Any log line, including a successful normal login.",
+          "An event that violates security policy or harms confidentiality, integrity, or availability.",
+          "A published lecture slide."
+        ],
+        "correctAnswer": "An event that violates security policy or harms confidentiality, integrity, or availability.",
+        "explanation": "Not every event is an incident; an incident is a policy breach or an actual or imminent compromise."
+      },
+      {
+        "question": "What is Incident response?",
+        "options": [
+          "Writing the acceptable use policy for the first time.",
+          "Buying insurance with no technical or organisational follow-up.",
+          "The organised process for preparing for, handling, and learning from a security incident.",
+          "Ignoring alerts until the next annual audit."
+        ],
+        "correctAnswer": "The organised process for preparing for, handling, and learning from a security incident.",
+        "explanation": "A typical cycle prepares, detects, contains, eradicates, recovers, and records lessons."
+      },
+      {
+        "question": "What is Containment?",
+        "options": [
+          "Publishing a final lessons-learned report.",
+          "Choosing next year's security budget.",
+          "Rebuilding every system before the affected hosts are isolated.",
+          "Limiting the spread and immediate damage of an incident while response continues."
+        ],
+        "correctAnswer": "Limiting the spread and immediate damage of an incident while response continues.",
+        "explanation": "Short-term containment, such as isolating a host, stops the attacker moving further."
+      },
+      {
+        "question": "What is Business continuity?",
+        "options": [
+          "A penetration test of a single web form.",
+          "Planning so essential operations can continue during and after a serious disruption.",
+          "Restoring servers only, with no plan for teaching or customer service.",
+          "Daily antivirus scans on healthy machines."
+        ],
+        "correctAnswer": "Planning so essential operations can continue during and after a serious disruption.",
+        "explanation": "Continuity covers people, premises, and processes, not only the recovery of IT equipment."
+      },
+      {
+        "question": "What is Disaster recovery?",
+        "options": [
+          "Classifying data by sensitivity.",
+          "Restoring IT systems and data after a major outage so services can run again.",
+          "Preventing an incident that has not happened.",
+          "A plan for staffing and teaching that ignores technology."
+        ],
+        "correctAnswer": "Restoring IT systems and data after a major outage so services can run again.",
+        "explanation": "Disaster recovery is the technology part of surviving a disaster, using backups, sites, and restore procedures."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Defence in depth?",
+        "options": [
+          "Giving every account full rights behind one password.",
+          "Using several overlapping safeguards so the failure of one control does not expose everything.",
+          "Relying on a single firewall as the only protection.",
+          "Removing inner controls once the perimeter is trusted."
+        ],
+        "correctAnswer": "Using several overlapping safeguards so the failure of one control does not expose everything.",
+        "explanation": "Independent layers, such as network filtering, patching, and access control, cover each other's failures."
+      },
+      {
+        "question": "What is Firewall?",
+        "options": [
+          "A backup system that copies disks overnight.",
+          "Software that detects malware already running on a host by signatures alone.",
+          "A hash function used to store passwords.",
+          "A control that allows or blocks network traffic according to a set of rules."
+        ],
+        "correctAnswer": "A control that allows or blocks network traffic according to a set of rules.",
+        "explanation": "Rules match addresses, ports, or application behaviour and decide whether a packet or session may pass."
+      },
+      {
+        "question": "What is Intrusion detection system?",
+        "options": [
+          "A device whose main job is to block packets using an allow-list.",
+          "A monitor that analyses activity and raises alerts about suspected attacks.",
+          "A tool that only encrypts disks.",
+          "A backup scheduler."
+        ],
+        "correctAnswer": "A monitor that analyses activity and raises alerts about suspected attacks.",
+        "explanation": "Detection and alerting are the core; blocking is the job of an intrusion prevention system or firewall."
+      },
+      {
+        "question": "What is Encryption?",
+        "options": [
+          "Transforming readable data into ciphertext so only holders of the proper key can read it.",
+          "Producing a short digest that cannot be turned back into the message.",
+          "Compressing a file so it takes less disk space.",
+          "Signing data with a private key so others can check the signer."
+        ],
+        "correctAnswer": "Transforming readable data into ciphertext so only holders of the proper key can read it.",
+        "explanation": "Encryption provides confidentiality; integrity needs an additional check such as a MAC or signature."
+      },
+      {
+        "question": "What is Cryptographic hash?",
+        "options": [
+          "A reversible transform that hides data using a secret key.",
+          "A compression method that can restore the original file.",
+          "A one-way function that maps data to a short digest for integrity checks.",
+          "A private-key signature that also identifies the signer."
+        ],
+        "correctAnswer": "A one-way function that maps data to a short digest for integrity checks.",
+        "explanation": "A good hash makes it infeasible to recover the input or to find another input with the same digest."
+      },
+      {
+        "question": "What is Digital signature?",
+        "options": [
+          "A private-key operation on data that lets others verify the signer and detect changes.",
+          "A one-way digest with no secret key and no identified signer.",
+          "A handwritten name typed in a document footer.",
+          "Secret-key encryption whose purpose is to hide the contents."
+        ],
+        "correctAnswer": "A private-key operation on data that lets others verify the signer and detect changes.",
+        "explanation": "Only the private key can create the signature, and the public key lets anyone check it."
+      },
+      {
+        "question": "What is Denial of service?",
+        "options": [
+          "A change that alters grades but leaves the site online.",
+          "An attack that makes a system or data unavailable to legitimate users.",
+          "An attack whose main result is silent reading of secret files.",
+          "A login that uses a stolen but valid password."
+        ],
+        "correctAnswer": "An attack that makes a system or data unavailable to legitimate users.",
+        "explanation": "The attacker exhausts bandwidth, CPU, disk, or a process so authorised users cannot be served."
+      },
+      {
+        "question": "What is Patch management?",
+        "options": [
+          "Training users to recognise phishing.",
+          "The process of finding, testing, and applying updates that fix security weaknesses.",
+          "Changing passwords on a fixed schedule only.",
+          "Writing new features with no plan to install vendor fixes."
+        ],
+        "correctAnswer": "The process of finding, testing, and applying updates that fix security weaknesses.",
+        "explanation": "Known vulnerabilities stay exploitable until a tested patch is deployed and confirmed."
+      },
+      {
+        "question": "What is Security awareness?",
+        "options": [
+          "A firewall rule that users never hear about.",
+          "A penetration test that is not explained to staff.",
+          "Automatic installation of patches with no human audience.",
+          "Training and communication that help people recognise threats and follow security rules."
+        ],
+        "correctAnswer": "Training and communication that help people recognise threats and follow security rules.",
+        "explanation": "Many incidents start with a person, so behaviour is part of the control set."
+      },
+      {
+        "question": "What is Zero trust?",
+        "options": [
+          "Giving broad rights to anyone on the office Wi-Fi.",
+          "A model that verifies every user and device explicitly and does not trust them merely for being on the internal network.",
+          "Trusting every host inside the firewall and checking only the perimeter.",
+          "Removing authentication once a VPN connection is up."
+        ],
+        "correctAnswer": "A model that verifies every user and device explicitly and does not trust them merely for being on the internal network.",
+        "explanation": "Each request is authenticated and authorised in context, assuming the network may already be hostile."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Confidentiality?",
+        "options": [
+          "A downloaded installer is rejected because its hash does not match the publisher's hash.",
+          "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+          "A grade spreadsheet is readable by the module leader and not by other students.",
+          "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams."
+        ],
+        "correctAnswer": "A grade spreadsheet is readable by the module leader and not by other students.",
+        "explanation": "Secrecy controls such as encryption and access limits exist to prevent unauthorised disclosure."
+      },
+      {
+        "question": "Which situation illustrates Integrity?",
+        "options": [
+          "A signed submission receipt lets the school show that a student sent the coursework file.",
+          "A downloaded installer is rejected because its hash does not match the publisher's hash.",
+          "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+          "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams."
+        ],
+        "correctAnswer": "A downloaded installer is rejected because its hash does not match the publisher's hash.",
+        "explanation": "Hashes, signatures, and write controls protect correctness and completeness of data."
+      },
+      {
+        "question": "Which situation illustrates Availability?",
+        "options": [
+          "The student-record database, the exam servers, and the university's reputation are all assets.",
+          "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams.",
+          "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+          "A signed submission receipt lets the school show that a student sent the coursework file."
+        ],
+        "correctAnswer": "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+        "explanation": "Redundancy, backups, and protection from overload keep a service usable."
+      },
+      {
+        "question": "Which situation illustrates CIA triad?",
+        "options": [
+          "Ransomware is a threat to the availability of a department's file server.",
+          "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams.",
+          "The student-record database, the exam servers, and the university's reputation are all assets.",
+          "A signed submission receipt lets the school show that a student sent the coursework file."
+        ],
+        "correctAnswer": "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams.",
+        "explanation": "Most security requirements can be stated as protecting secrecy, correctness, or timely access."
+      },
+      {
+        "question": "Which situation illustrates Non-repudiation?",
+        "options": [
+          "A signed submission receipt lets the school show that a student sent the coursework file.",
+          "The student-record database, the exam servers, and the university's reputation are all assets.",
+          "Ransomware is a threat to the availability of a department's file server.",
+          "An unpatched library bug lets a remote attacker run code on the web server."
+        ],
+        "correctAnswer": "A signed submission receipt lets the school show that a student sent the coursework file.",
+        "explanation": "A digital signature checked with the signer's public key ties the action to that signer."
+      },
+      {
+        "question": "Which situation illustrates Asset?",
+        "options": [
+          "Ransomware is a threat to the availability of a department's file server.",
+          "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large.",
+          "An unpatched library bug lets a remote attacker run code on the web server.",
+          "The student-record database, the exam servers, and the university's reputation are all assets."
+        ],
+        "correctAnswer": "The student-record database, the exam servers, and the university's reputation are all assets.",
+        "explanation": "Risk work starts by listing valued items such as data, systems, people, and reputation."
+      },
+      {
+        "question": "Which situation illustrates Threat?",
+        "options": [
+          "An unpatched library bug lets a remote attacker run code on the web server.",
+          "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large.",
+          "Loss of the only exam-script store would delay graduation for an entire cohort.",
+          "Ransomware is a threat to the availability of a department's file server."
+        ],
+        "correctAnswer": "Ransomware is a threat to the availability of a department's file server.",
+        "explanation": "A threat is the possible danger, such as malware or a flood, not the weakness it uses."
+      },
+      {
+        "question": "Which situation illustrates Vulnerability?",
+        "options": [
+          "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large.",
+          "An unpatched library bug lets a remote attacker run code on the web server.",
+          "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password.",
+          "Loss of the only exam-script store would delay graduation for an entire cohort."
+        ],
+        "correctAnswer": "An unpatched library bug lets a remote attacker run code on the web server.",
+        "explanation": "Without a weakness to exploit, a threat cannot turn into a successful incident."
+      },
+      {
+        "question": "Which situation illustrates Risk?",
+        "options": [
+          "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+          "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password.",
+          "Loss of the only exam-script store would delay graduation for an entire cohort.",
+          "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large."
+        ],
+        "correctAnswer": "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large.",
+        "explanation": "Risk analysis weighs both the chance of an event and the damage to assets."
+      },
+      {
+        "question": "Which situation illustrates Impact?",
+        "options": [
+          "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+          "A firewall rule, a locked server room, and a mandatory backup policy are all controls.",
+          "Loss of the only exam-script store would delay graduation for an entire cohort.",
+          "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password."
+        ],
+        "correctAnswer": "Loss of the only exam-script store would delay graduation for an entire cohort.",
+        "explanation": "Impact is the consequence, such as lost marks data or a week of downtime, separate from likelihood."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Threat actor?",
+        "options": [
+          "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+          "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+          "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password.",
+          "A firewall rule, a locked server room, and a mandatory backup policy are all controls."
+        ],
+        "correctAnswer": "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password.",
+        "explanation": "Actors differ in skill and motive, from careless insiders to criminal groups."
+      },
+      {
+        "question": "Which situation illustrates Attack surface?",
+        "options": [
+          "Typing a student ID into a login form claims an identity but does not by itself prove it.",
+          "A firewall rule, a locked server room, and a mandatory backup policy are all controls.",
+          "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+          "A portal accepts the username only after the correct password and a phone prompt both succeed."
+        ],
+        "correctAnswer": "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+        "explanation": "Every exposed service, form, account, and interface adds a place that must be defended."
+      },
+      {
+        "question": "Which situation illustrates Security control?",
+        "options": [
+          "Typing a student ID into a login form claims an identity but does not by itself prove it.",
+          "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+          "A firewall rule, a locked server room, and a mandatory backup policy are all controls.",
+          "A logged-in student may read their own marks but may not edit the class list."
+        ],
+        "correctAnswer": "A firewall rule, a locked server room, and a mandatory backup policy are all controls.",
+        "explanation": "Controls may be technical, administrative, or physical, and they exist to reduce risk."
+      },
+      {
+        "question": "Which situation illustrates Authentication?",
+        "options": [
+          "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+          "Audit logs show which staff account downloaded a full student list at 02:10.",
+          "A logged-in student may read their own marks but may not edit the class list.",
+          "Typing a student ID into a login form claims an identity but does not by itself prove it."
+        ],
+        "correctAnswer": "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+        "explanation": "Authentication comes after a claim of identity and before granting that identity any rights."
+      },
+      {
+        "question": "Which situation illustrates Identification?",
+        "options": [
+          "Typing a student ID into a login form claims an identity but does not by itself prove it.",
+          "Staff enter a password and then approve a prompt on a registered phone.",
+          "A logged-in student may read their own marks but may not edit the class list.",
+          "Audit logs show which staff account downloaded a full student list at 02:10."
+        ],
+        "correctAnswer": "Typing a student ID into a login form claims an identity but does not by itself prove it.",
+        "explanation": "A username or ID number asserts who the user is; a separate check must still prove it."
+      },
+      {
+        "question": "Which situation illustrates Authorisation?",
+        "options": [
+          "Staff enter a password and then approve a prompt on a registered phone.",
+          "A help-desk account can reset student passwords but cannot read the payroll database.",
+          "Audit logs show which staff account downloaded a full student list at 02:10.",
+          "A logged-in student may read their own marks but may not edit the class list."
+        ],
+        "correctAnswer": "A logged-in student may read their own marks but may not edit the class list.",
+        "explanation": "After identity is proved, policy still has to allow or deny each action."
+      },
+      {
+        "question": "Which situation illustrates Accountability?",
+        "options": [
+          "A help-desk account can reset student passwords but cannot read the payroll database.",
+          "Staff enter a password and then approve a prompt on a registered phone.",
+          "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+          "Audit logs show which staff account downloaded a full student list at 02:10."
+        ],
+        "correctAnswer": "Audit logs show which staff account downloaded a full student list at 02:10.",
+        "explanation": "Unique accounts and reliable logs make it possible to answer who did what and when."
+      },
+      {
+        "question": "Which situation illustrates Multi-factor authentication?",
+        "options": [
+          "Staff enter a password and then approve a prompt on a registered phone.",
+          "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+          "A help-desk account can reset student passwords but cannot read the payroll database.",
+          "Two staff with the same role see different student cases, each only for the advisees they handle."
+        ],
+        "correctAnswer": "Staff enter a password and then approve a prompt on a registered phone.",
+        "explanation": "Factors are something you know, have, or are; two of the same type do not make multiple factors."
+      },
+      {
+        "question": "Which situation illustrates Least privilege?",
+        "options": [
+          "A help-desk account can reset student passwords but cannot read the payroll database.",
+          "Two staff with the same role see different student cases, each only for the advisees they handle.",
+          "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+          "One clerk creates a supplier and a different officer must approve any payment to that supplier."
+        ],
+        "correctAnswer": "A help-desk account can reset student passwords but cannot read the payroll database.",
+        "explanation": "Extra rights turn a mistake or a stolen account into a larger incident."
+      },
+      {
+        "question": "Which situation illustrates Separation of duties?",
+        "options": [
+          "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+          "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+          "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+          "Two staff with the same role see different student cases, each only for the advisees they handle."
+        ],
+        "correctAnswer": "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+        "explanation": "Collusion would be needed to abuse a process when no single person holds every step."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Need to know?",
+        "options": [
+          "Two staff with the same role see different student cases, each only for the advisees they handle.",
+          "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+          "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+          "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward."
+        ],
+        "correctAnswer": "Two staff with the same role see different student cases, each only for the advisees they handle.",
+        "explanation": "A clearance or job title is not enough; the person must also need that information for the task."
+      },
+      {
+        "question": "Which situation illustrates Access control list?",
+        "options": [
+          "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+          "A student owner of a project folder grants read access to one teammate and can revoke it later.",
+          "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+          "A file allows the owner to read and write, the tutor group to read, and everyone else no access."
+        ],
+        "correctAnswer": "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+        "explanation": "The object carries entries such as 'user A may read' and 'user B may write'."
+      },
+      {
+        "question": "Which situation illustrates Role-based access control?",
+        "options": [
+          "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+          "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+          "A hidden program sends copies of a user's documents to an unknown server.",
+          "A student owner of a project folder grants read access to one teammate and can revoke it later."
+        ],
+        "correctAnswer": "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+        "explanation": "Changing a person's job means changing their role, and the role already carries the right permissions."
+      },
+      {
+        "question": "Which situation illustrates Mandatory access control?",
+        "options": [
+          "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine.",
+          "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+          "A student owner of a project folder grants read access to one teammate and can revoke it later.",
+          "A hidden program sends copies of a user's documents to an unknown server."
+        ],
+        "correctAnswer": "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+        "explanation": "A central policy compares subject and object labels, as in classified government systems."
+      },
+      {
+        "question": "Which situation illustrates Discretionary access control?",
+        "options": [
+          "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+          "A hidden program sends copies of a user's documents to an unknown server.",
+          "A student owner of a project folder grants read access to one teammate and can revoke it later.",
+          "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine."
+        ],
+        "correctAnswer": "A student owner of a project folder grants read access to one teammate and can revoke it later.",
+        "explanation": "The owner decides who else may read or write, which is the usual model of personal file permissions."
+      },
+      {
+        "question": "Which situation illustrates Malware?",
+        "options": [
+          "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine.",
+          "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs.",
+          "A hidden program sends copies of a user's documents to an unknown server.",
+          "A program scans the campus network, logs into weak accounts, and copies itself onto those machines."
+        ],
+        "correctAnswer": "A hidden program sends copies of a user's documents to an unknown server.",
+        "explanation": "The defining feature is malicious purpose, whether it is a virus, worm, Trojan, or ransomware."
+      },
+      {
+        "question": "Which situation illustrates Virus?",
+        "options": [
+          "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine.",
+          "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+          "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+          "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs."
+        ],
+        "correctAnswer": "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine.",
+        "explanation": "A virus needs a host file and user or system execution of that host to infect further files."
+      },
+      {
+        "question": "Which situation illustrates Worm?",
+        "options": [
+          "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+          "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+          "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs.",
+          "A browser add-on records every site visited and uploads the list without telling the user."
+        ],
+        "correctAnswer": "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+        "explanation": "A worm uses the network or removable media to copy itself and run independently."
+      },
+      {
+        "question": "Which situation illustrates Trojan horse?",
+        "options": [
+          "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs.",
+          "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+          "A browser add-on records every site visited and uploads the list without telling the user.",
+          "Mail pretending to be the university asks students to enter passwords on a look-alike login page."
+        ],
+        "correctAnswer": "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs.",
+        "explanation": "The user is tricked into running a program that looks legitimate while it performs a hidden action."
+      },
+      {
+        "question": "Which situation illustrates Ransomware?",
+        "options": [
+          "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+          "Mail pretending to be the university asks students to enter passwords on a look-alike login page.",
+          "A browser add-on records every site visited and uploads the list without telling the user.",
+          "Someone phones the help desk pretending to be a dean and demands an urgent password reset."
+        ],
+        "correctAnswer": "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+        "explanation": "The attacker withholds availability of the data, often after stealing a copy as extra pressure."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Spyware?",
+        "options": [
+          "A university policy states that examination papers are confidential until the published start time.",
+          "A browser add-on records every site visited and uploads the list without telling the user.",
+          "Mail pretending to be the university asks students to enter passwords on a look-alike login page.",
+          "Someone phones the help desk pretending to be a dean and demands an urgent password reset."
+        ],
+        "correctAnswer": "A browser add-on records every site visited and uploads the list without telling the user.",
+        "explanation": "The harm is covert collection, which attacks confidentiality rather than encrypting the disk."
+      },
+      {
+        "question": "Which situation illustrates Phishing?",
+        "options": [
+          "A university policy states that examination papers are confidential until the published start time.",
+          "Students must not share passwords or use lab machines to attack other networks.",
+          "Someone phones the help desk pretending to be a dean and demands an urgent password reset.",
+          "Mail pretending to be the university asks students to enter passwords on a look-alike login page."
+        ],
+        "correctAnswer": "Mail pretending to be the university asks students to enter passwords on a look-alike login page.",
+        "explanation": "Phishing is social engineering delivered by email, text, or a fake site that imitates a trusted one."
+      },
+      {
+        "question": "Which situation illustrates Social engineering?",
+        "options": [
+          "Discovery that an attacker copied the student database is a security incident.",
+          "Someone phones the help desk pretending to be a dean and demands an urgent password reset.",
+          "Students must not share passwords or use lab machines to attack other networks.",
+          "A university policy states that examination papers are confidential until the published start time."
+        ],
+        "correctAnswer": "Someone phones the help desk pretending to be a dean and demands an urgent password reset.",
+        "explanation": "The attacker uses trust, urgency, or authority instead of relying only on a technical flaw."
+      },
+      {
+        "question": "Which situation illustrates Security policy?",
+        "options": [
+          "A university policy states that examination papers are confidential until the published start time.",
+          "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+          "Students must not share passwords or use lab machines to attack other networks.",
+          "Discovery that an attacker copied the student database is a security incident."
+        ],
+        "correctAnswer": "A university policy states that examination papers are confidential until the published start time.",
+        "explanation": "Policy sets what must be protected and who is accountable, and other procedures implement it."
+      },
+      {
+        "question": "Which situation illustrates Acceptable use policy?",
+        "options": [
+          "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+          "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+          "Discovery that an attacker copied the student database is a security incident.",
+          "Students must not share passwords or use lab machines to attack other networks."
+        ],
+        "correctAnswer": "Students must not share passwords or use lab machines to attack other networks.",
+        "explanation": "It is a user-facing part of security policy covering behaviour such as account sharing and personal use."
+      },
+      {
+        "question": "Which situation illustrates Security incident?",
+        "options": [
+          "Discovery that an attacker copied the student database is a security incident.",
+          "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+          "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+          "If the main campus closes, teaching moves online using a plan rehearsed at the start of term."
+        ],
+        "correctAnswer": "Discovery that an attacker copied the student database is a security incident.",
+        "explanation": "Not every event is an incident; an incident is a policy breach or an actual or imminent compromise."
+      },
+      {
+        "question": "Which situation illustrates Incident response?",
+        "options": [
+          "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+          "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+          "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+          "If the main campus closes, teaching moves online using a plan rehearsed at the start of term."
+        ],
+        "correctAnswer": "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+        "explanation": "A typical cycle prepares, detects, contains, eradicates, recovers, and records lessons."
+      },
+      {
+        "question": "Which situation illustrates Containment?",
+        "options": [
+          "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+          "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+          "If the main campus closes, teaching moves online using a plan rehearsed at the start of term.",
+          "A server sits behind a firewall, requires login, and still encrypts the database files on disk."
+        ],
+        "correctAnswer": "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+        "explanation": "Short-term containment, such as isolating a host, stops the attacker moving further."
+      },
+      {
+        "question": "Which situation illustrates Business continuity?",
+        "options": [
+          "If the main campus closes, teaching moves online using a plan rehearsed at the start of term.",
+          "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+          "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+          "A server sits behind a firewall, requires login, and still encrypts the database files on disk."
+        ],
+        "correctAnswer": "If the main campus closes, teaching moves online using a plan rehearsed at the start of term.",
+        "explanation": "Continuity covers people, premises, and processes, not only the recovery of IT equipment."
+      },
+      {
+        "question": "Which situation illustrates Disaster recovery?",
+        "options": [
+          "A server sits behind a firewall, requires login, and still encrypts the database files on disk.",
+          "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+          "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+          "After a data-centre fire, virtual machines are restored from off-site backups in another region."
+        ],
+        "correctAnswer": "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+        "explanation": "Disaster recovery is the technology part of surviving a disaster, using backups, sites, and restore procedures."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Defence in depth?",
+        "options": [
+          "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+          "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+          "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+          "A server sits behind a firewall, requires login, and still encrypts the database files on disk."
+        ],
+        "correctAnswer": "A server sits behind a firewall, requires login, and still encrypts the database files on disk.",
+        "explanation": "Independent layers, such as network filtering, patching, and access control, cover each other's failures."
+      },
+      {
+        "question": "Which situation illustrates Firewall?",
+        "options": [
+          "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+          "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+          "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+          "A course site publishes a SHA-256 digest so students can confirm an installer was not altered."
+        ],
+        "correctAnswer": "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+        "explanation": "Rules match addresses, ports, or application behaviour and decide whether a packet or session may pass."
+      },
+      {
+        "question": "Which situation illustrates Intrusion detection system?",
+        "options": [
+          "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+          "A published grade file carries a signature that verifies with the registry's public key.",
+          "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+          "A course site publishes a SHA-256 digest so students can confirm an installer was not altered."
+        ],
+        "correctAnswer": "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+        "explanation": "Detection and alerting are the core; blocking is the job of an intrusion prevention system or firewall."
+      },
+      {
+        "question": "Which situation illustrates Encryption?",
+        "options": [
+          "A course site publishes a SHA-256 digest so students can confirm an installer was not altered.",
+          "A published grade file carries a signature that verifies with the registry's public key.",
+          "Millions of requests from a botnet fill a web server's connections and students cannot enrol.",
+          "A laptop disk is encrypted, so a stolen drive is unreadable without the key."
+        ],
+        "correctAnswer": "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+        "explanation": "Encryption provides confidentiality; integrity needs an additional check such as a MAC or signature."
+      },
+      {
+        "question": "Which situation illustrates Cryptographic hash?",
+        "options": [
+          "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+          "A course site publishes a SHA-256 digest so students can confirm an installer was not altered.",
+          "A published grade file carries a signature that verifies with the registry's public key.",
+          "Millions of requests from a botnet fill a web server's connections and students cannot enrol."
+        ],
+        "correctAnswer": "A course site publishes a SHA-256 digest so students can confirm an installer was not altered.",
+        "explanation": "A good hash makes it infeasible to recover the input or to find another input with the same digest."
+      },
+      {
+        "question": "Which situation illustrates Digital signature?",
+        "options": [
+          "Millions of requests from a botnet fill a web server's connections and students cannot enrol.",
+          "New students complete a short module on spotting fake login pages before they receive campus email.",
+          "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+          "A published grade file carries a signature that verifies with the registry's public key."
+        ],
+        "correctAnswer": "A published grade file carries a signature that verifies with the registry's public key.",
+        "explanation": "Only the private key can create the signature, and the public key lets anyone check it."
+      },
+      {
+        "question": "Which situation illustrates Denial of service?",
+        "options": [
+          "Millions of requests from a botnet fill a web server's connections and students cannot enrol.",
+          "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+          "New students complete a short module on spotting fake login pages before they receive campus email.",
+          "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs."
+        ],
+        "correctAnswer": "Millions of requests from a botnet fill a web server's connections and students cannot enrol.",
+        "explanation": "The attacker exhausts bandwidth, CPU, disk, or a process so authorised users cannot be served."
+      },
+      {
+        "question": "Which situation illustrates Patch management?",
+        "options": [
+          "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+          "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+          "New students complete a short module on spotting fake login pages before they receive campus email.",
+          "A grade spreadsheet is readable by the module leader and not by other students."
+        ],
+        "correctAnswer": "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+        "explanation": "Known vulnerabilities stay exploitable until a tested patch is deployed and confirmed."
+      },
+      {
+        "question": "Which situation illustrates Security awareness?",
+        "options": [
+          "A grade spreadsheet is readable by the module leader and not by other students.",
+          "New students complete a short module on spotting fake login pages before they receive campus email.",
+          "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+          "A downloaded installer is rejected because its hash does not match the publisher's hash."
+        ],
+        "correctAnswer": "New students complete a short module on spotting fake login pages before they receive campus email.",
+        "explanation": "Many incidents start with a person, so behaviour is part of the control set."
+      },
+      {
+        "question": "Which situation illustrates Zero trust?",
+        "options": [
+          "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+          "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+          "A grade spreadsheet is readable by the module leader and not by other students.",
+          "A downloaded installer is rejected because its hash does not match the publisher's hash."
+        ],
+        "correctAnswer": "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+        "explanation": "Each request is authenticated and authorised in context, assuming the network may already be hostile."
+      }
+    ],
+    "11": [
+      {
+        "question": "An exam paper must stay hidden from candidates until the start time. Which security goal is that?",
+        "options": [
+          "Availability",
+          "Integrity",
+          "Confidentiality",
+          "Non-repudiation"
+        ],
+        "correctAnswer": "Confidentiality",
+        "explanation": "Preventing unauthorised disclosure is confidentiality."
+      },
+      {
+        "question": "A student record's marks change in transit and the mismatch is noticed before results are published. Which goal caught that?",
+        "options": [
+          "Integrity",
+          "Availability",
+          "Anonymity",
+          "Confidentiality"
+        ],
+        "correctAnswer": "Integrity",
+        "explanation": "Detecting improper change is an integrity goal."
+      },
+      {
+        "question": "A flood of junk requests stops students reaching the enrolment site. Which goal has been harmed?",
+        "options": [
+          "Non-repudiation",
+          "Integrity",
+          "Availability",
+          "Confidentiality"
+        ],
+        "correctAnswer": "Availability",
+        "explanation": "Users who should have access cannot get it, so availability failed."
+      },
+      {
+        "question": "A module brief lists secrecy of papers, detection of tampering, and uptime of the site as the three aims. Which model is that?",
+        "options": [
+          "Parkerian hexad only",
+          "OSI model",
+          "CAP theorem",
+          "CIA triad"
+        ],
+        "correctAnswer": "CIA triad",
+        "explanation": "Confidentiality, integrity, and availability together are the CIA triad."
+      },
+      {
+        "question": "A student denies submitting an essay, but a signature made with their private key verifies on the file. Which goal does that signature support?",
+        "options": [
+          "Anonymity of the student",
+          "Non-repudiation",
+          "Confidentiality of the essay",
+          "Availability of the server"
+        ],
+        "correctAnswer": "Non-repudiation",
+        "explanation": "Proof that the holder of the private key signed the file supports non-repudiation."
+      },
+      {
+        "question": "Analysts list the payroll database and the campus reputation before they list attackers. What are those listed items?",
+        "options": [
+          "Assets",
+          "Risk scores",
+          "Vulnerabilities",
+          "Threat actors"
+        ],
+        "correctAnswer": "Assets",
+        "explanation": "Things of value that need protection are assets."
+      },
+      {
+        "question": "A review names phishing campaigns as something that could harm staff mail accounts. Which term is the campaign?",
+        "options": [
+          "Threat",
+          "Vulnerability",
+          "Security control",
+          "Impact score"
+        ],
+        "correctAnswer": "Threat",
+        "explanation": "A potential cause of harm is a threat."
+      },
+      {
+        "question": "A missing patch lets outsiders run code, although no attack has happened yet. Which term is the missing patch?",
+        "options": [
+          "Threat actor",
+          "Asset",
+          "Residual risk",
+          "Vulnerability"
+        ],
+        "correctAnswer": "Vulnerability",
+        "explanation": "A weakness that can be exploited is a vulnerability."
+      },
+      {
+        "question": "A rare bug on an isolated lab PC is ranked lower than a likely bug on the payroll system. Which judgement is being made?",
+        "options": [
+          "Risk",
+          "Control installation",
+          "Vulnerability listing only",
+          "Threat naming only"
+        ],
+        "correctAnswer": "Risk",
+        "explanation": "Comparing likelihood and impact is a risk judgement."
+      },
+      {
+        "question": "Analysts estimate that a database wipe would delay graduation, without yet estimating how often that might happen. Which factor are they estimating?",
+        "options": [
+          "Threat-actor identity",
+          "Impact",
+          "Likelihood",
+          "Attack surface"
+        ],
+        "correctAnswer": "Impact",
+        "explanation": "The harm from an event, apart from its chance, is the impact."
+      }
+    ],
+    "12": [
+      {
+        "question": "A report blames a criminal gang, not the unpatched bug, for a ransomware outbreak. Which term is the gang?",
+        "options": [
+          "Asset",
+          "Vulnerability",
+          "Threat actor",
+          "Security policy"
+        ],
+        "correctAnswer": "Threat actor",
+        "explanation": "The party that carries out the attack is the threat actor."
+      },
+      {
+        "question": "Closing an unused admin port removes one place an outsider could try to connect. What has been reduced?",
+        "options": [
+          "Incident history",
+          "Asset value",
+          "Attack surface",
+          "Offline backup"
+        ],
+        "correctAnswer": "Attack surface",
+        "explanation": "Fewer entry points means a smaller attack surface."
+      },
+      {
+        "question": "A locked server-room door and a firewall rule are added to reduce the chance of a breach. What are those two measures?",
+        "options": [
+          "Security controls",
+          "Threat actors",
+          "Impact statements",
+          "Vulnerabilities"
+        ],
+        "correctAnswer": "Security controls",
+        "explanation": "Safeguards that reduce risk are security controls."
+      },
+      {
+        "question": "A site asks for a password after the user types a username, and it rejects a wrong password. Which step is the password check?",
+        "options": [
+          "Authorisation",
+          "Authentication",
+          "Identification only",
+          "Accounting"
+        ],
+        "correctAnswer": "Authentication",
+        "explanation": "Proving a claimed identity is authentication."
+      },
+      {
+        "question": "A user types a student number and has not yet entered a password. Which step has occurred?",
+        "options": [
+          "Authorisation",
+          "Encryption",
+          "Authentication",
+          "Identification"
+        ],
+        "correctAnswer": "Identification",
+        "explanation": "Stating who you are, without proof, is identification."
+      },
+      {
+        "question": "A verified lecturer may edit marks, while a verified student using the same site may not. Which decision is that?",
+        "options": [
+          "Authorisation",
+          "Password hashing",
+          "Identification",
+          "Authentication"
+        ],
+        "correctAnswer": "Authorisation",
+        "explanation": "Allowing or denying actions for a known identity is authorisation."
+      },
+      {
+        "question": "Investigators use unique logins and logs to show which account exported the student list. Which goal do those logs support?",
+        "options": [
+          "Anonymity",
+          "Network filtering",
+          "Accountability",
+          "Encryption strength"
+        ],
+        "correctAnswer": "Accountability",
+        "explanation": "Tracing an action to an identity is accountability."
+      },
+      {
+        "question": "Login demands a password and a code from a registered phone. Which control is that?",
+        "options": [
+          "Multi-factor authentication",
+          "A longer single password",
+          "Two passwords only",
+          "Username with no secret"
+        ],
+        "correctAnswer": "Multi-factor authentication",
+        "explanation": "A knowledge factor plus a possession factor is multi-factor authentication."
+      },
+      {
+        "question": "A lab assistant account can reboot lab PCs but cannot open the finance system. Which principle is being applied?",
+        "options": [
+          "Shared superuser accounts",
+          "Access to every file",
+          "Universal administrator rights",
+          "Least privilege"
+        ],
+        "correctAnswer": "Least privilege",
+        "explanation": "Rights limited to the job are least privilege."
+      },
+      {
+        "question": "The person who adds a supplier cannot also approve payments to that supplier. Which principle is that?",
+        "options": [
+          "Separation of duties",
+          "One person does every step",
+          "Identical rights for all users",
+          "Multi-factor login"
+        ],
+        "correctAnswer": "Separation of duties",
+        "explanation": "Dividing request and approval is separation of duties."
+      }
+    ],
+    "13": [
+      {
+        "question": "Two officers hold the same clearance, but each may open only the case files assigned to them. Which principle is that?",
+        "options": [
+          "Need to know",
+          "Open internal publishing",
+          "Short encryption keys",
+          "Blanket access for the clearance"
+        ],
+        "correctAnswer": "Need to know",
+        "explanation": "Access limited to assigned information is need to know."
+      },
+      {
+        "question": "One document lists Alice as editor and the tutor group as readers. Which mechanism stores those permissions?",
+        "options": [
+          "Access control list",
+          "A malware signature list",
+          "A role catalogue with no object",
+          "A mandatory label"
+        ],
+        "correctAnswer": "Access control list",
+        "explanation": "Per-object subject permissions are an access control list."
+      },
+      {
+        "question": "Permissions sit on the role Librarian, and new librarians receive that role rather than individual file grants. Which model is that?",
+        "options": [
+          "Role-based access control",
+          "Mandatory labelling",
+          "One identical right for every login",
+          "Discretionary grants by each owner"
+        ],
+        "correctAnswer": "Role-based access control",
+        "explanation": "Permissions attached to job roles are role-based access control."
+      },
+      {
+        "question": "The operating system denies a Confidential user access to a Secret file, and the user cannot change the file's label. Which model is that?",
+        "options": [
+          "Role-based access control",
+          "Discretionary access control",
+          "Mandatory access control",
+          "Password-only login"
+        ],
+        "correctAnswer": "Mandatory access control",
+        "explanation": "System-enforced labels the user cannot override are mandatory access control."
+      },
+      {
+        "question": "The owner of a folder grants read access to a teammate and can take that grant away. Which model is that?",
+        "options": [
+          "Discretionary access control",
+          "A router firewall rule",
+          "Mandatory access control",
+          "Role-based access control"
+        ],
+        "correctAnswer": "Discretionary access control",
+        "explanation": "Owner-controlled permissions are discretionary access control."
+      },
+      {
+        "question": "A hidden program copies documents to an attacker's server without consent. Which broad category fits it?",
+        "options": [
+          "A packet filter",
+          "Any unfamiliar program",
+          "A vendor security update",
+          "Malware"
+        ],
+        "correctAnswer": "Malware",
+        "explanation": "Software built to steal or harm is malware."
+      },
+      {
+        "question": "Malicious code rides inside a document and infects other documents only when they are opened. Which malware type is that?",
+        "options": [
+          "Trojan horse",
+          "A phishing message with no attachment",
+          "Virus",
+          "Worm"
+        ],
+        "correctAnswer": "Virus",
+        "explanation": "Code that spreads by infecting host files is a virus."
+      },
+      {
+        "question": "A program copies itself to other computers over the network and never infects a host document. Which malware type is that?",
+        "options": [
+          "Trojan horse",
+          "Worm",
+          "Phishing mail",
+          "Virus"
+        ],
+        "correctAnswer": "Worm",
+        "explanation": "Independent self-replication across systems is a worm."
+      },
+      {
+        "question": "A student runs a fake calculator app that quietly installs a backdoor and does not spread further by itself. Which malware type is that?",
+        "options": [
+          "Trojan horse",
+          "A physical keylogger",
+          "Worm",
+          "Virus"
+        ],
+        "correctAnswer": "Trojan horse",
+        "explanation": "Disguised malicious software that does not self-replicate is a Trojan horse."
+      },
+      {
+        "question": "Project files are encrypted and a note demands payment for the key. Which malware type is that?",
+        "options": [
+          "Antivirus quarantine",
+          "Adware",
+          "A bandwidth-only worm",
+          "Ransomware"
+        ],
+        "correctAnswer": "Ransomware",
+        "explanation": "Encryption plus a payment demand is ransomware."
+      }
+    ],
+    "14": [
+      {
+        "question": "An add-on silently records browsing history and uploads it. Which malware type is that?",
+        "options": [
+          "An intentional popup blocker",
+          "A destructive worm",
+          "Ransomware",
+          "Spyware"
+        ],
+        "correctAnswer": "Spyware",
+        "explanation": "Secret collection of user information is spyware."
+      },
+      {
+        "question": "Email that looks like the library asks users to type passwords into a copied login page. Which attack is that?",
+        "options": [
+          "SQL injection",
+          "Offline password cracking",
+          "A denial-of-service flood",
+          "Phishing"
+        ],
+        "correctAnswer": "Phishing",
+        "explanation": "A deceptive message that steals credentials is phishing."
+      },
+      {
+        "question": "An attacker phones the help desk, pretends to be a dean, and obtains a password reset. Which attack class is that?",
+        "options": [
+          "Pure key brute force",
+          "A buffer overflow",
+          "Patch installation",
+          "Social engineering"
+        ],
+        "correctAnswer": "Social engineering",
+        "explanation": "Tricking a person into bypassing procedure is social engineering."
+      },
+      {
+        "question": "The senate approves a document that assigns who must protect exam papers and which rules apply. Which document is that?",
+        "options": [
+          "Security policy",
+          "An incident log",
+          "One router's rule file",
+          "A product advertisement"
+        ],
+        "correctAnswer": "Security policy",
+        "explanation": "A management statement of security rules is a security policy."
+      },
+      {
+        "question": "A handbook forbids sharing accounts and using lab PCs to attack other sites. Which document is that?",
+        "options": [
+          "Acceptable use policy",
+          "A firewall design",
+          "An incident-response procedure",
+          "An uptime contract"
+        ],
+        "correctAnswer": "Acceptable use policy",
+        "explanation": "Rules of user behaviour on organisational systems form an acceptable use policy."
+      },
+      {
+        "question": "Staff confirm that an outsider copied the student database. Which term best describes that confirmed harm?",
+        "options": [
+          "A routine successful login",
+          "A planned fire drill",
+          "A public lecture slide",
+          "Security incident"
+        ],
+        "correctAnswer": "Security incident",
+        "explanation": "A real compromise of sensitive data is a security incident."
+      },
+      {
+        "question": "A named team isolates infected hosts, restores service, and writes what should change next time. Which process is that?",
+        "options": [
+          "Insurance purchase alone",
+          "Drafting the first acceptable use policy",
+          "Incident response",
+          "Waiting for the annual audit"
+        ],
+        "correctAnswer": "Incident response",
+        "explanation": "Handling an incident through containment, recovery, and lessons is incident response."
+      },
+      {
+        "question": "Responders unplug an infected subnet so the malware cannot reach the rest of campus. Which response step is that?",
+        "options": [
+          "Next year's budget",
+          "Full rebuild before isolation",
+          "The lessons-learned report",
+          "Containment"
+        ],
+        "correctAnswer": "Containment",
+        "explanation": "Stopping the incident from spreading further is containment."
+      },
+      {
+        "question": "When a building is unusable, teaching continues online under a rehearsed plan. Which planning area is that?",
+        "options": [
+          "Routine antivirus scanning",
+          "A single-form penetration test",
+          "IT restoration alone",
+          "Business continuity"
+        ],
+        "correctAnswer": "Business continuity",
+        "explanation": "Keeping essential operations going through a disruption is business continuity."
+      },
+      {
+        "question": "After a data-centre fire, servers and databases are rebuilt from off-site backups. Which plan is being executed?",
+        "options": [
+          "Disaster recovery",
+          "Data classification",
+          "Incident prevention",
+          "A staffing plan with no technology"
+        ],
+        "correctAnswer": "Disaster recovery",
+        "explanation": "Restoring IT after a disaster is disaster recovery."
+      }
+    ],
+    "15": [
+      {
+        "question": "A host is behind a firewall, still requires login, and encrypts its database even if an attacker gets in. Which principle is that?",
+        "options": [
+          "Defence in depth",
+          "Trusting the internal network fully",
+          "A single perimeter firewall",
+          "One shared administrator password"
+        ],
+        "correctAnswer": "Defence in depth",
+        "explanation": "Multiple independent layers are defence in depth."
+      },
+      {
+        "question": "A device permits inbound HTTPS to one server and blocks all other unsolicited inbound connections. Which control is that?",
+        "options": [
+          "Host antivirus",
+          "Firewall",
+          "Password hashing",
+          "Overnight backup"
+        ],
+        "correctAnswer": "Firewall",
+        "explanation": "Rule-based filtering of network traffic is a firewall."
+      },
+      {
+        "question": "A sensor emails the team that a host is port-scanning the lab, but it does not itself block the packets. Which tool is that?",
+        "options": [
+          "A backup scheduler",
+          "Intrusion detection system",
+          "Disk encryption",
+          "A blocking firewall"
+        ],
+        "correctAnswer": "Intrusion detection system",
+        "explanation": "Alerting on suspected attacks without being the blocker is intrusion detection."
+      },
+      {
+        "question": "A stolen laptop drive is unreadable unless the owner's key is supplied. Which protection produced that result?",
+        "options": [
+          "Hashing",
+          "Compression",
+          "Encryption",
+          "A digital signature alone"
+        ],
+        "correctAnswer": "Encryption",
+        "explanation": "Ciphertext that requires a key to read is encryption."
+      },
+      {
+        "question": "Students compare a downloaded file with a published digest to see whether any bit changed. Which tool is the digest?",
+        "options": [
+          "Lossless compression",
+          "A digital signature key",
+          "Encryption",
+          "Cryptographic hash"
+        ],
+        "correctAnswer": "Cryptographic hash",
+        "explanation": "A one-way digest used to detect change is a cryptographic hash."
+      },
+      {
+        "question": "Anyone can check, using a public key, that the registry signed a grade file and that it is unchanged. Which mechanism is that?",
+        "options": [
+          "Secret-key encryption",
+          "Digital signature",
+          "A typed name in the footer",
+          "An unsigned hash"
+        ],
+        "correctAnswer": "Digital signature",
+        "explanation": "Public verification of a private-key signature shows signer and integrity."
+      },
+      {
+        "question": "A botnet fills a web server's connections so students cannot open the enrolment page. Which attack is that?",
+        "options": [
+          "A silent grade change",
+          "Denial of service",
+          "Use of a stolen password",
+          "Passive eavesdropping"
+        ],
+        "correctAnswer": "Denial of service",
+        "explanation": "Exhausting resources so users lose access is denial of service."
+      },
+      {
+        "question": "A team tests a vendor fix for a remote-code bug, then deploys it to every lab PC. Which process is that?",
+        "options": [
+          "Phishing training",
+          "Patch management",
+          "Feature development with no updates",
+          "Password rotation alone"
+        ],
+        "correctAnswer": "Patch management",
+        "explanation": "Finding, testing, and deploying security fixes is patch management."
+      },
+      {
+        "question": "Before receiving campus email, new students must finish a module on fake login pages. Which control is that module?",
+        "options": [
+          "An invisible firewall rule",
+          "Unattended patching",
+          "Security awareness",
+          "An unexplained penetration test"
+        ],
+        "correctAnswer": "Security awareness",
+        "explanation": "Teaching people to recognise threats is security awareness."
+      },
+      {
+        "question": "An admin tool requires a managed device and strong login even for connections that already come from the campus network. Which model is that?",
+        "options": [
+          "Zero trust",
+          "Perimeter trust",
+          "Trust after VPN connect",
+          "Open rights on office Wi-Fi"
+        ],
+        "correctAnswer": "Zero trust",
+        "explanation": "Refusing to trust a connection just because it is internal is zero trust."
+      }
     ]
   }
 }

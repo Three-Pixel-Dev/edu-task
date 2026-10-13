@@ -1,0 +1,752 @@
+[
+  {
+    "term": "hardware",
+    "definition": "The physical parts of a computer, such as chips, boards, disks, cables, and the power supply.",
+    "wrongs": [
+      "Programs and data that tell the machine which tasks to perform.",
+      "A named collection of bytes stored under a single filename.",
+      "Rules that two computers follow when they exchange messages."
+    ],
+    "why": "Hardware is the tangible equipment that stores, moves, and processes data.",
+    "example": "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+    "scenario": "A checklist names a mouse, a keyboard, and a monitor. Classify those three items.",
+    "scenarioAnswer": "Hardware",
+    "scenarioWrongs": ["Application programs", "Network protocols", "User documents"],
+    "scenarioWhy": "A mouse, a keyboard, and a monitor are physical parts of the computer system."
+  },
+  {
+    "term": "software",
+    "definition": "Programs and related data that instruct the hardware which tasks to perform.",
+    "wrongs": [
+      "The metal chassis, chips, and cables inside the machine.",
+      "The wall outlet that supplies electrical power.",
+      "A cooling fan bolted to the processor heat sink."
+    ],
+    "why": "Software is the instructions and data, while the chips and cables only carry out those instructions.",
+    "example": "A photo editor installed on a laptop tells the machine how to crop and save pictures.",
+    "scenario": "A student installs a spreadsheet package on a laptop. Classify that package.",
+    "scenarioAnswer": "Software",
+    "scenarioWrongs": ["A memory module", "A power cable", "A cooling fan"],
+    "scenarioWhy": "An installed spreadsheet package is a program, so it is software."
+  },
+  {
+    "term": "the CPU",
+    "definition": "The processor that fetches instructions from memory and carries them out.",
+    "wrongs": [
+      "The long-term disk that keeps files after power is removed.",
+      "The screen that displays pixels to the user.",
+      "The board that only supplies fan power."
+    ],
+    "why": "The processor is the component that reads instructions and executes them.",
+    "example": "A laptop chip marked with a model number performs the steps of a running calculator program.",
+    "scenario": "A machine must fetch and perform each instruction of a loaded program. Which component does that work?",
+    "scenarioAnswer": "The processor",
+    "scenarioWrongs": ["The printer", "The keyboard", "The speaker"],
+    "scenarioWhy": "Fetching and performing instructions is the job of the processor."
+  },
+  {
+    "term": "the ALU",
+    "definition": "The processor section that performs arithmetic and logical operations on data.",
+    "wrongs": [
+      "The section that only decides which instruction to fetch next.",
+      "The disk controller that schedules platter reads.",
+      "The pixel array that forms an image on a screen."
+    ],
+    "why": "Addition, subtraction, and logical tests are carried out by the arithmetic and logic section of the processor.",
+    "example": "During a payroll run, the processor adds hours times wage inside its arithmetic section.",
+    "scenario": "A program adds two integers. Which processor section performs that addition?",
+    "scenarioAnswer": "The arithmetic and logic section",
+    "scenarioWrongs": ["The instruction sequencer", "The display panel", "The disk platter"],
+    "scenarioWhy": "Integer addition is an arithmetic operation, so the arithmetic and logic section performs it."
+  },
+  {
+    "term": "a control unit",
+    "definition": "The processor section that fetches instructions and directs the other parts to carry them out.",
+    "wrongs": [
+      "The section that only adds and compares numeric values.",
+      "The fan controller on the power supply.",
+      "The pixel clock inside a monitor."
+    ],
+    "why": "The control section generates the signals that sequence fetch, decode, and execute.",
+    "example": "On each tick, signals from the sequencing section open the path that loads the next instruction.",
+    "scenario": "Someone must direct fetch and decode, rather than add the numbers. Which processor section does that directing?",
+    "scenarioAnswer": "The control section",
+    "scenarioWrongs": ["The arithmetic section", "The power supply", "The optical drive"],
+    "scenarioWhy": "Sequencing fetch and decode is the role of the control section."
+  },
+  {
+    "term": "main memory",
+    "definition": "The working store that holds instructions and data of programs while they are running.",
+    "wrongs": [
+      "The printer tray that holds sheets of paper.",
+      "The keyboard buffer that only stores the last key.",
+      "The cooling duct that moves air across the case."
+    ],
+    "why": "A running program is loaded into the working store so the processor can fetch its instructions.",
+    "example": "After a browser launches, its code and open tabs occupy the computer's working store until it exits.",
+    "scenario": "After a program is launched, the processor fetches its instructions from which store?",
+    "scenarioAnswer": "The working store",
+    "scenarioWrongs": ["The printer tray", "The mouse sensor", "The speaker coil"],
+    "scenarioWhy": "Instructions of a running program are fetched from the working store, not from an output device."
+  },
+  {
+    "term": "RAM",
+    "definition": "Read-write working memory that can be accessed in any order and loses its contents when power is removed.",
+    "wrongs": [
+      "Read-mostly memory that keeps startup code after power is removed.",
+      "Magnetic platters that keep files for years without power.",
+      "A paper listing of hex dumps stored in a binder."
+    ],
+    "why": "Ordinary main memory can be read or written at any address and is volatile.",
+    "example": "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain.",
+    "scenario": "A technician removes power and the working memory modules forget their contents. Which memory behavior is that?",
+    "scenarioAnswer": "Volatile read-write memory",
+    "scenarioWrongs": ["Startup memory that keeps its code", "A magnetic disk", "A printed hex listing"],
+    "scenarioWhy": "Memory modules that can be rewritten and that forget their contents at power-off are ordinary working memory."
+  },
+  {
+    "term": "ROM",
+    "definition": "Non-volatile memory that keeps fixed data, such as startup code, and is mainly read during operation.",
+    "wrongs": [
+      "Working memory that is wiped every time power is removed.",
+      "A spinning platter used for user documents.",
+      "A temporary cache that holds only the newest pixels."
+    ],
+    "why": "Startup code must remain when the machine is off, so it is kept in non-volatile read-mostly memory.",
+    "example": "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+    "scenario": "Startup code must survive a power loss and is not rewritten during normal class use. Where is that code kept?",
+    "scenarioAnswer": "Non-volatile startup memory",
+    "scenarioWrongs": ["Volatile working memory", "A user document on disk", "The monitor's pixel buffer"],
+    "scenarioWhy": "Code that remains without power and is mainly read fits non-volatile startup memory."
+  },
+  {
+    "term": "cache memory",
+    "definition": "A small, fast memory that keeps copies of data the processor is likely to need again soon.",
+    "wrongs": [
+      "A high-capacity disk used to archive course videos.",
+      "The paper manual shipped with a printer.",
+      "A network cable that carries packets between rooms."
+    ],
+    "why": "Keeping recent data close to the processor avoids waiting for slower main memory.",
+    "example": "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+    "scenario": "A loop reuses one total many times, and the processor keeps a copy in a small fast store beside itself. Name that store's role.",
+    "scenarioAnswer": "A fast copy of likely data",
+    "scenarioWrongs": ["An archive of course videos", "A printed manual", "A cable between rooms"],
+    "scenarioWhy": "A small fast store of reused values is a cache sitting close to the processor."
+  },
+  {
+    "term": "secondary storage",
+    "definition": "High-capacity non-volatile storage that keeps programs and files when they are not active in main memory.",
+    "wrongs": [
+      "A handful of registers inside the processor.",
+      "The small fast copy store next to the processor.",
+      "The volatile modules that forget data at power-off."
+    ],
+    "why": "Disks and flash drives retain large amounts of data after power is removed.",
+    "example": "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning.",
+    "scenario": "An essay must remain after shutdown and is far larger than working memory. Which class of store should hold it?",
+    "scenarioAnswer": "Long-term high-capacity storage",
+    "scenarioWrongs": ["Processor registers", "The small fast copy store", "Volatile working modules"],
+    "scenarioWhy": "A large file that must survive shutdown belongs in long-term high-capacity storage."
+  },
+  {
+    "term": "an input device",
+    "definition": "A device that sends data from the outside world into the computer.",
+    "wrongs": [
+      "A device that only presents results from the computer to people.",
+      "A program that edits photographs.",
+      "A cable standard used only inside the processor package."
+    ],
+    "why": "Keyboards, mice, and scanners supply data to the computer rather than display results.",
+    "example": "A barcode scanner at a checkout sends each product code into the point-of-sale computer.",
+    "scenario": "A barcode scanner sends product codes into a checkout computer. Which role does the scanner play?",
+    "scenarioAnswer": "It brings data in",
+    "scenarioWrongs": ["It only displays results", "It edits photographs", "It is the processor package"],
+    "scenarioWhy": "A scanner supplies external data to the computer, so it brings data in."
+  },
+  {
+    "term": "an output device",
+    "definition": "A device that presents results from the computer to the outside world.",
+    "wrongs": [
+      "A device that only sends keystrokes into the computer.",
+      "The working memory that holds a running program.",
+      "The startup chip that stores boot code."
+    ],
+    "why": "Displays, printers, and speakers deliver processed results to people or other equipment.",
+    "example": "A classroom projector shows the laptop's slides on the wall during a lecture.",
+    "scenario": "A projector shows slides that come from a laptop. Which role does the projector play?",
+    "scenarioAnswer": "It presents results",
+    "scenarioWrongs": ["It only sends keystrokes in", "It stores the running program", "It holds startup code"],
+    "scenarioWhy": "A projector delivers the computer's images to the room, so it presents results."
+  },
+  {
+    "term": "a peripheral",
+    "definition": "A device attached to the computer to add input, output, or extra storage.",
+    "wrongs": [
+      "The arithmetic section inside the processor.",
+      "The core of the operating system.",
+      "A number system that uses digits 0 and 1."
+    ],
+    "why": "Printers, webcams, and external drives are attached devices, not the processor itself.",
+    "example": "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+    "scenario": "A USB webcam sits outside the main case and plugs into the computer. How should it be classified?",
+    "scenarioAnswer": "An attached extra device",
+    "scenarioWrongs": ["The arithmetic section", "The core of the operating system", "A base-2 number system"],
+    "scenarioWhy": "A webcam attached from outside the case is an extra device, not part of the processor."
+  },
+  {
+    "term": "a system bus",
+    "definition": "The shared address, data, and control lines that connect the processor, memory, and input/output.",
+    "wrongs": [
+      "A program that translates source code before it runs.",
+      "A folder that groups related documents.",
+      "A character code for English letters."
+    ],
+    "why": "The processor, memory, and devices exchange addresses, data, and control signals over shared lines.",
+    "example": "A memory read places an address on one set of lines and the stored byte returns on another set.",
+    "scenario": "The processor, memory, and devices must share pathways for addresses, data, and control signals. Name that pathway group.",
+    "scenarioAnswer": "The shared connecting lines",
+    "scenarioWrongs": ["A source-code translator", "A folder of documents", "An English character code"],
+    "scenarioWhy": "Addresses, data, and control signals travel on the shared lines that connect the main parts."
+  },
+  {
+    "term": "von Neumann architecture",
+    "definition": "A stored-program design in which instructions and data share one memory and travel over a common bus.",
+    "wrongs": [
+      "A design with separate memories and buses for instructions and for data.",
+      "A network in which every office is linked across several countries.",
+      "A screen layout built only from windows and icons."
+    ],
+    "why": "The classic stored-program computer keeps instructions and data in the same memory.",
+    "example": "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus.",
+    "scenario": "A teaching computer stores instructions and numbers in the same memory and uses one bus to fetch either. Name that organisation.",
+    "scenarioAnswer": "Shared-memory stored-program design",
+    "scenarioWrongs": ["Separate instruction and data memories", "A network spanning countries", "A window-and-icon screen layout"],
+    "scenarioWhy": "Sharing one memory and one bus for instructions and data is the stored-program organisation."
+  },
+  {
+    "term": "an instruction cycle",
+    "definition": "The repeating sequence in which the processor fetches, decodes, and executes an instruction.",
+    "wrongs": [
+      "The power-on sequence that loads the operating system once.",
+      "The handshake two computers use to open a connection.",
+      "The steps a user follows to rename a folder."
+    ],
+    "why": "Every instruction is handled by repeating fetch, decode, and execute.",
+    "example": "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+    "scenario": "The processor repeats fetch, decode, and execute for every ADD in a loop. Name that repeating sequence.",
+    "scenarioAnswer": "Fetch-decode-execute",
+    "scenarioWrongs": ["Power-on loading of the OS", "A network connection handshake", "Renaming a folder"],
+    "scenarioWhy": "Fetch, decode, and execute is the sequence applied to each instruction."
+  },
+  {
+    "term": "an operating system",
+    "definition": "System software that manages hardware and provides services so application programs can run.",
+    "wrongs": [
+      "A single drawing program used to make a poster.",
+      "The physical board that holds the processor socket.",
+      "A numeric label such as 192.168.1.10."
+    ],
+    "why": "Applications rely on the operating system to manage memory, files, and devices.",
+    "example": "When two apps open at once, the installed system software decides which one gets the processor next.",
+    "scenario": "Several applications run at once and something must manage memory, files, and devices for them. Which software does that?",
+    "scenarioAnswer": "The system manager for hardware and apps",
+    "scenarioWrongs": ["A poster-drawing program", "The processor socket board", "The label 192.168.1.10"],
+    "scenarioWhy": "Managing memory, files, and devices for applications is the role of the operating system."
+  },
+  {
+    "term": "application software",
+    "definition": "A program that helps a user carry out a task, such as writing, calculating, or browsing.",
+    "wrongs": [
+      "The privileged core that schedules processes and manages memory.",
+      "Startup code stored in a non-volatile chip on the board.",
+      "A device driver that only talks to a disk controller."
+    ],
+    "why": "Word processors and browsers serve user tasks rather than operating the hardware directly.",
+    "example": "A student writes a lab report in a word processor and checks spelling as they type.",
+    "scenario": "A student writes a report in a word processor. Which class of program is that word processor?",
+    "scenarioAnswer": "A user-task program",
+    "scenarioWrongs": ["The privileged scheduling core", "Board startup code", "A disk-controller driver"],
+    "scenarioWhy": "A word processor helps the user write, so it is a user-task program."
+  },
+  {
+    "term": "system software",
+    "definition": "Software that operates and supports the computer, including the operating system and device drivers.",
+    "wrongs": [
+      "A game the user plays after class.",
+      "A photo stored in a folder of pictures.",
+      "The metal case around the motherboard."
+    ],
+    "why": "Drivers and the operating system support the machine itself rather than a single user hobby.",
+    "example": "A disk driver loaded at startup lets the rest of the machine read and write the internal drive.",
+    "scenario": "A driver lets the machine talk to a disk controller. Which class of software is that driver?",
+    "scenarioAnswer": "Support software for the machine",
+    "scenarioWrongs": ["An after-class game", "A stored photograph", "The metal case"],
+    "scenarioWhy": "A disk driver supports the computer hardware, so it is support software."
+  },
+  {
+    "term": "a file",
+    "definition": "A named collection of data stored as one unit on a storage device.",
+    "wrongs": [
+      "A container that groups several named collections and other containers.",
+      "A single binary digit that is either 0 or 1.",
+      "The shared lines linking the processor and memory."
+    ],
+    "why": "The file system stores a document or photo as one named unit of bytes.",
+    "example": "A student saves a photo on a USB stick under the name campus.png.",
+    "scenario": "A photo is stored on a drive as one named sequence of bytes called campus.png. Name that stored unit.",
+    "scenarioAnswer": "A named data unit",
+    "scenarioWrongs": ["A container of many items", "A single 0 or 1", "The lines between processor and memory"],
+    "scenarioWhy": "One named sequence of bytes stored on a drive is a file."
+  },
+  {
+    "term": "a directory",
+    "definition": "A named container that groups files and other containers on a storage device.",
+    "wrongs": [
+      "One photo stored by itself under a single filename.",
+      "An eight-bit group used as a typical memory location.",
+      "A base-16 digit written with symbols 0 through F."
+    ],
+    "why": "Folders exist so related files can be grouped under one name.",
+    "example": "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names.",
+    "scenario": "Three lab reports are grouped under the single name Lab1 on a drive. Name that grouping.",
+    "scenarioAnswer": "A named container of files",
+    "scenarioWrongs": ["One photo stored alone", "An eight-bit memory location", "A base-16 digit"],
+    "scenarioWhy": "Lab1 groups several reports, so it is a container of files."
+  },
+  {
+    "term": "a bit",
+    "definition": "A single binary digit that holds either 0 or 1.",
+    "wrongs": [
+      "A group of eight binary digits.",
+      "A group of four binary digits.",
+      "A base-10 digit that may be from 0 through 9."
+    ],
+    "why": "The smallest unit of stored data is one binary digit.",
+    "example": "A door sensor records only closed as 0 and open as 1 in a status flag.",
+    "scenario": "A door sensor stores only the digit 0 or the digit 1. Name that unit of data.",
+    "scenarioAnswer": "One binary digit",
+    "scenarioWrongs": ["Eight binary digits", "Four binary digits", "A digit from 0 through 9"],
+    "scenarioWhy": "A lone 0 or 1 is one binary digit."
+  },
+  {
+    "term": "a byte",
+    "definition": "A group of eight bits, the usual size of one addressable memory location.",
+    "wrongs": [
+      "A single binary digit.",
+      "A group of four bits.",
+      "A group of sixteen bits."
+    ],
+    "why": "Modern computers address memory in units of eight bits.",
+    "example": "The letter A in a plain English text file occupies eight bits in memory.",
+    "scenario": "One addressable memory location holds eight binary digits. How many bits is that location?",
+    "scenarioAnswer": "8",
+    "scenarioWrongs": ["4", "16", "1"],
+    "scenarioWhy": "The usual addressable location is eight bits."
+  },
+  {
+    "term": "a kilobyte",
+    "definition": "A binary storage unit equal to 1024 bytes, the size commonly used when measuring memory.",
+    "wrongs": [
+      "A unit equal to 1000 bits.",
+      "A unit equal to 8 bytes.",
+      "A unit equal to 1024 bits."
+    ],
+    "why": "Memory sizes use powers of two, and 2 to the power 10 is 1024 bytes.",
+    "example": "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention.",
+    "scenario": "Using the binary memory convention, how many bytes are in 1 KB?",
+    "scenarioAnswer": "1024",
+    "scenarioWrongs": ["1000", "512", "8"],
+    "scenarioWhy": "In the binary convention used for memory, 1 KB is 2 to the power 10 bytes, which is 1024."
+  },
+  {
+    "term": "the binary number system",
+    "definition": "A base-2 place-value system that uses only the digits 0 and 1.",
+    "wrongs": [
+      "A base-10 system that uses digits 0 through 9.",
+      "A base-16 system that uses digits 0 through 9 and A through F.",
+      "A base-8 system that uses digits 0 through 7."
+    ],
+    "why": "Digital circuits have two stable states, so values are written in base 2.",
+    "example": "A row of four switches encodes the number thirteen as the pattern 1101.",
+    "scenario": "A value is written using only the digits 0 and 1, and each place is worth twice the place on its right. Name that system.",
+    "scenarioAnswer": "Base 2",
+    "scenarioWrongs": ["Base 10", "Base 16", "Base 8"],
+    "scenarioWhy": "Digits 0 and 1 with places that double are base 2."
+  },
+  {
+    "term": "the hexadecimal system",
+    "definition": "A base-16 place-value system whose digits run from 0 through 9 and A through F.",
+    "wrongs": [
+      "A base-2 system whose only digits are 0 and 1.",
+      "A base-8 system whose digits run from 0 through 7.",
+      "A base-10 system whose digits run from 0 through 9."
+    ],
+    "why": "Each hex digit replaces exactly four bits, which shortens long binary patterns.",
+    "example": "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+    "scenario": "The byte pattern 11111111 is written as FF. Which base uses the digit F?",
+    "scenarioAnswer": "Base 16",
+    "scenarioWrongs": ["Base 2", "Base 8", "Base 10"],
+    "scenarioWhy": "The digit F belongs to base 16, where it means fifteen."
+  },
+  {
+    "term": "the octal system",
+    "definition": "A base-8 place-value system that uses the digits 0 through 7.",
+    "wrongs": [
+      "A base-2 system that uses only 0 and 1.",
+      "A base-10 system that uses 0 through 9.",
+      "A base-16 system that uses 0 through 9 and A through F."
+    ],
+    "why": "Each octal digit replaces a group of three bits.",
+    "example": "The permission triple 755 is written with digits that never exceed 7.",
+    "scenario": "A permission code uses only digits 0 through 7, and each digit stands for three bits. Name that base.",
+    "scenarioAnswer": "Base 8",
+    "scenarioWrongs": ["Base 2", "Base 10", "Base 16"],
+    "scenarioWhy": "Digits limited to 0 through 7 form base 8."
+  },
+  {
+    "term": "the decimal system",
+    "definition": "A base-10 place-value system that uses the digits 0 through 9.",
+    "wrongs": [
+      "A base-2 system that uses only 0 and 1.",
+      "A base-8 system that uses only 0 through 7.",
+      "A base-16 system that uses 0 through 9 and A through F."
+    ],
+    "why": "Everyday counting uses ten digits, so each place is worth ten times the place on its right.",
+    "example": "A price tag shows 249, and each digit is one of 0 through 9.",
+    "scenario": "A price uses digits 0 through 9, and each place is worth ten times the place on its right. Name that base.",
+    "scenarioAnswer": "Base 10",
+    "scenarioWrongs": ["Base 2", "Base 8", "Base 16"],
+    "scenarioWhy": "Digits 0 through 9 with places that scale by ten are base 10."
+  },
+  {
+    "term": "ASCII",
+    "definition": "A 7-bit character code that represents English letters, digits, and common symbols.",
+    "wrongs": [
+      "A character standard that assigns codes to most of the world's writing systems.",
+      "A base-16 shorthand for binary patterns.",
+      "A picture format that stores rows of colored dots."
+    ],
+    "why": "The original American code uses seven bits, enough for English letters and common symbols.",
+    "example": "In a plain English file, the uppercase letter A is stored as the code value 65.",
+    "scenario": "An old terminal stores English letters in 7 bits, and uppercase A has code 65. Name that character code.",
+    "scenarioAnswer": "The 7-bit English character code",
+    "scenarioWrongs": ["A code set for the world's writing systems", "Base-16 shorthand", "A colored-dot picture format"],
+    "scenarioWhy": "Seven-bit codes for English letters, with A equal to 65, identify the classic English character code."
+  },
+  {
+    "term": "Unicode",
+    "definition": "A character standard that assigns code points to symbols from most of the world's writing systems.",
+    "wrongs": [
+      "A 7-bit code limited to English letters, digits, and common symbols.",
+      "A 5-bit teleprinter code used for early telegraphy.",
+      "A dot-and-dash signaling method used on a telegraph key."
+    ],
+    "why": "One standard must cover many languages, so its code space is far larger than seven bits.",
+    "example": "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points.",
+    "scenario": "A document must encode Chinese, Arabic, and emoji in one character standard. Which standard is built for that?",
+    "scenarioAnswer": "The multilingual character standard",
+    "scenarioWrongs": ["The 7-bit English code", "A 5-bit teleprinter code", "Dot-and-dash telegraph signaling"],
+    "scenarioWhy": "Chinese, Arabic, and emoji need a character standard far larger than the English 7-bit code."
+  },
+  {
+    "term": "a compiler",
+    "definition": "A translator that converts an entire high-level program into machine code before the program runs.",
+    "wrongs": [
+      "A tool that executes source code one statement at a time.",
+      "A tool that only combines already translated pieces into one executable.",
+      "A tool that loads an executable into memory and starts it."
+    ],
+    "why": "Compilation produces a machine-code result from the whole source program before execution.",
+    "example": "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+    "scenario": "A language tool translates an entire source program into machine code, and only then is the program run. Name that tool.",
+    "scenarioAnswer": "A whole-program translator",
+    "scenarioWrongs": ["A statement-by-statement executor", "A combiner of object files", "A loader that starts an executable"],
+    "scenarioWhy": "Translating the whole program into machine code before running it is compilation."
+  },
+  {
+    "term": "an interpreter",
+    "definition": "A program that reads and executes source code statement by statement.",
+    "wrongs": [
+      "A translator that converts the entire source program before execution begins.",
+      "A chip that performs arithmetic inside the processor.",
+      "A drive that stores files on flash chips."
+    ],
+    "why": "An interpreter does not require a separate full machine-code file before it can run the source.",
+    "example": "A classroom language tool runs each typed line of a script immediately, without writing an executable file.",
+    "scenario": "A language tool executes a script one statement at a time and never writes a separate machine-code file. Name that tool.",
+    "scenarioAnswer": "A statement-by-statement executor",
+    "scenarioWrongs": ["A whole-program translator", "The arithmetic section of the processor", "A flash file drive"],
+    "scenarioWhy": "Executing source one statement at a time, without a separate machine-code file, is interpretation."
+  },
+  {
+    "term": "an algorithm",
+    "definition": "A finite, ordered set of unambiguous steps that solves a problem or computes a result.",
+    "wrongs": [
+      "The physical chips that execute instructions.",
+      "A cable that links two computers in one room.",
+      "A picture element on a display."
+    ],
+    "why": "An algorithm is the procedure itself, independent of any one programming language.",
+    "example": "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age.",
+    "scenario": "A tutor writes a finite list of unambiguous steps that finds the oldest student in a roster. Name that list of steps.",
+    "scenarioAnswer": "A finite problem-solving procedure",
+    "scenarioWrongs": ["The chips that run instructions", "A cable between two computers", "One dot on a display"],
+    "scenarioWhy": "A finite ordered set of steps that solves a problem is an algorithm."
+  },
+  {
+    "term": "a motherboard",
+    "definition": "The main circuit board that connects the processor, memory, buses, and expansion slots.",
+    "wrongs": [
+      "A magnetic drive with spinning platters.",
+      "A flash drive with no moving parts.",
+      "A display panel that shows pixels."
+    ],
+    "why": "The processor socket, memory slots, and chipset are mounted on the main board.",
+    "example": "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+    "scenario": "Inside a desktop, one board holds the processor socket, memory slots, and expansion connectors. Name that board.",
+    "scenarioAnswer": "The main connecting board",
+    "scenarioWrongs": ["A spinning magnetic drive", "A flash drive", "A pixel display"],
+    "scenarioWhy": "The board that ties the processor, memory, and slots together is the main system board."
+  },
+  {
+    "term": "firmware",
+    "definition": "Software stored in non-volatile memory on a device, such as the startup code on a motherboard.",
+    "wrongs": [
+      "A spreadsheet the user edits and then deletes.",
+      "Volatile working memory that is empty after power-off.",
+      "A paper manual kept on a shelf."
+    ],
+    "why": "Firmware stays with the hardware in non-volatile memory and controls that hardware.",
+    "example": "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off.",
+    "scenario": "Startup code lives in a non-volatile chip on the board and controls the hardware. Which software category is that code?",
+    "scenarioAnswer": "Device software in non-volatile memory",
+    "scenarioWrongs": ["A user spreadsheet", "Volatile working memory", "A paper manual"],
+    "scenarioWhy": "Software kept in a device's non-volatile memory is firmware."
+  },
+  {
+    "term": "a hard disk drive",
+    "definition": "A secondary-storage device that records data as magnetic regions on spinning platters.",
+    "wrongs": [
+      "A storage device that keeps data in flash chips and has no spinning platter.",
+      "Volatile memory modules used as the working store.",
+      "A chip that only holds startup code."
+    ],
+    "why": "The read head senses magnetic patterns on rotating platters.",
+    "example": "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive.",
+    "scenario": "A drive stores the course archive as magnetic regions on spinning platters. Which drive type is it?",
+    "scenarioAnswer": "A magnetic platter drive",
+    "scenarioWrongs": ["A flash-chip drive with no platter", "Volatile working memory", "A startup-code chip"],
+    "scenarioWhy": "Magnetic regions on spinning platters identify a hard disk drive."
+  },
+  {
+    "term": "a solid-state drive",
+    "definition": "A secondary-storage device that stores data in flash memory and has no spinning platter.",
+    "wrongs": [
+      "A drive that records data magnetically on rotating platters.",
+      "A disc read by a laser from a reflective surface.",
+      "Working memory that loses data when power is removed."
+    ],
+    "why": "Flash chips retain files without mechanical motion.",
+    "example": "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins.",
+    "scenario": "A laptop drive keeps the operating system in flash chips and contains no spinning platter. Which drive type is it?",
+    "scenarioAnswer": "A flash storage drive",
+    "scenarioWrongs": ["A magnetic platter drive", "A laser-read reflective disc", "Volatile working memory"],
+    "scenarioWhy": "Flash chips with no spinning platter identify a solid-state drive."
+  },
+  {
+    "term": "a local area network",
+    "definition": "A network that connects computers within a small area such as a room, lab, or single building.",
+    "wrongs": [
+      "A network that links sites across cities or countries.",
+      "A single file shared by email attachment.",
+      "A character code for English text."
+    ],
+    "why": "Local networks cover a limited physical area and are usually owned by one organization.",
+    "example": "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+    "scenario": "Twenty computers in one building share a switch and do not need a telecom link between cities. Which network scope is that?",
+    "scenarioAnswer": "A network inside a small area",
+    "scenarioWrongs": ["A network across countries", "An emailed file", "An English character code"],
+    "scenarioWhy": "Computers connected within one building form a local-area network."
+  },
+  {
+    "term": "a wide area network",
+    "definition": "A network that connects computers across a large geographic area, such as cities or countries.",
+    "wrongs": [
+      "A network limited to one room or one building.",
+      "A folder stored on a single disk.",
+      "A processor clock rating in gigahertz."
+    ],
+    "why": "Long-distance links, often provided by a carrier, join distant sites.",
+    "example": "A company connects its Yangon office and its Singapore office through a telecom provider.",
+    "scenario": "Offices in two countries exchange data over a telecom provider. Which network scope connects them?",
+    "scenarioAnswer": "A network across a large region",
+    "scenarioWrongs": ["A network inside one building", "A folder on one disk", "A gigahertz clock rating"],
+    "scenarioWhy": "Sites in different countries joined by a carrier form a wide-area network."
+  },
+  {
+    "term": "an IP address",
+    "definition": "A numerical label that identifies a host on an IP network so packets can be delivered to it.",
+    "wrongs": [
+      "A hardware address burned into a network interface by its maker.",
+      "A name such as example.com resolved by the naming system.",
+      "A small integer that selects one service on a host, such as 443."
+    ],
+    "why": "Routers forward packets using the numerical IP label of the destination host.",
+    "example": "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets.",
+    "scenario": "A packet is addressed to the host numbered 10.0.0.5. Which kind of label is 10.0.0.5?",
+    "scenarioAnswer": "A numerical host label on an IP network",
+    "scenarioWrongs": ["A maker-burned interface address", "A human-readable site name", "A service selector such as 443"],
+    "scenarioWhy": "A dotted decimal host number such as 10.0.0.5 is an IP address."
+  },
+  {
+    "term": "a protocol",
+    "definition": "A set of rules that governs how computers format and exchange messages.",
+    "wrongs": [
+      "A finite list of steps for sorting a roster by hand.",
+      "A named container of files on a disk.",
+      "A physical plug on the side of a laptop."
+    ],
+    "why": "Communication succeeds only when both sides follow the same message rules.",
+    "example": "A browser and a web server both follow HTTP so a page request and the page response are understood.",
+    "scenario": "A browser and a server follow HTTP so requests and responses have an agreed format. Name that kind of rule set.",
+    "scenarioAnswer": "Agreed message rules",
+    "scenarioWrongs": ["Hand steps for sorting a roster", "A container of files", "A physical plug"],
+    "scenarioWhy": "HTTP is an agreed set of rules for exchanging web messages."
+  },
+  {
+    "term": "the client-server model",
+    "definition": "A network arrangement in which a client requests a service and a server provides it.",
+    "wrongs": [
+      "An arrangement in which equal peers both supply and request the same service.",
+      "A single computer that does all work with no network.",
+      "A bus inside one computer that links the processor and memory."
+    ],
+    "why": "The client initiates the request, and the server listens and responds.",
+    "example": "A browser on a student laptop requests a page, and a university web server sends that page back.",
+    "scenario": "A browser requests pages and a web server responds with those pages. Name that arrangement.",
+    "scenarioAnswer": "Requester and service provider",
+    "scenarioWrongs": ["Equal peers sharing the same role", "One computer with no network", "An internal processor-memory bus"],
+    "scenarioWhy": "One side requests a service and the other provides it, which is the client-server arrangement."
+  },
+  {
+    "term": "a graphical user interface",
+    "definition": "An interface that lets a person operate the computer through windows, icons, menus, and a pointer.",
+    "wrongs": [
+      "An interface that accepts only typed text commands.",
+      "A translator that produces machine code.",
+      "A magnetic drive with spinning platters."
+    ],
+    "why": "Pointing and clicking graphical objects is an alternative to typing commands.",
+    "example": "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+    "scenario": "A user deletes a file by dragging an icon to a trash picture. Which interface style is that?",
+    "scenarioAnswer": "Windows, icons, and a pointer",
+    "scenarioWrongs": ["Typed text commands only", "A machine-code translator", "A spinning magnetic drive"],
+    "scenarioWhy": "Dragging icons with a pointer is a graphical interface."
+  },
+  {
+    "term": "a command-line interface",
+    "definition": "An interface that lets a person operate the computer by typing text commands.",
+    "wrongs": [
+      "An interface built from windows, icons, and a pointer.",
+      "Startup code stored in a non-volatile chip.",
+      "A small fast memory next to the processor."
+    ],
+    "why": "The user types a command and the system prints a text response.",
+    "example": "At a prompt, an administrator types a text command to list the files in the current container.",
+    "scenario": "An administrator types a text command at a prompt and reads a text reply. Which interface style is that?",
+    "scenarioAnswer": "Typed text commands",
+    "scenarioWrongs": ["Windows, icons, and a pointer", "Startup code in a chip", "A small fast memory"],
+    "scenarioWhy": "Typing commands at a prompt is a command-line interface."
+  },
+  {
+    "term": "volatile memory",
+    "definition": "Memory that loses its stored contents when electrical power is removed.",
+    "wrongs": [
+      "Memory that keeps its contents after power is removed.",
+      "Magnetic storage that retains files for years without power.",
+      "A paper printout stored in a folder."
+    ],
+    "why": "Typical working memory and cache need power to hold their bits.",
+    "example": "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program.",
+    "scenario": "A power cut erases unsaved numbers that were held only in the working memory chips. Which memory property explains that loss?",
+    "scenarioAnswer": "Contents require power",
+    "scenarioWrongs": ["Contents survive without power", "Magnetic storage that lasts for years", "A paper printout"],
+    "scenarioWhy": "Data that disappears when power is removed was held in volatile memory."
+  },
+  {
+    "term": "non-volatile memory",
+    "definition": "Memory that keeps its stored contents after electrical power is removed.",
+    "wrongs": [
+      "Working memory that is empty after a power cut.",
+      "A processor register that forgets its value without a clock and power.",
+      "A cache line that is lost when the machine is unplugged."
+    ],
+    "why": "Startup chips and flash keep data with no applied power.",
+    "example": "A phone still holds its stored photos in flash after the battery is removed.",
+    "scenario": "Photos remain in a phone's flash chips after the battery is removed. Which memory property is that?",
+    "scenarioAnswer": "Contents survive without power",
+    "scenarioWrongs": ["Contents vanish at power-off", "A register that needs power", "A cache line lost when unplugged"],
+    "scenarioWhy": "Data that remains with no battery is stored in non-volatile memory."
+  },
+  {
+    "term": "booting",
+    "definition": "The start-up sequence that initializes hardware and loads the operating system into memory.",
+    "wrongs": [
+      "Translating a whole source program into machine code.",
+      "Rearranging file fragments so they lie in order on a disk.",
+      "Converting a binary pattern into hexadecimal digits."
+    ],
+    "why": "After power-on, firmware finds a bootable device and loads the operating system.",
+    "example": "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+    "scenario": "After the power button is pressed, firmware initializes the machine and loads the operating system. Name that sequence.",
+    "scenarioAnswer": "Start-up loading of the OS",
+    "scenarioWrongs": ["Translating source into machine code", "Reordering fragments on a disk", "Writing a pattern in base 16"],
+    "scenarioWhy": "Initializing hardware and loading the operating system is the start-up sequence."
+  },
+  {
+    "term": "the kernel",
+    "definition": "The privileged core of an operating system that manages processes, memory, and devices.",
+    "wrongs": [
+      "A web browser used to read documentation.",
+      "A text editor used to write source code.",
+      "A media player used to watch a lecture."
+    ],
+    "why": "The kernel runs in privileged mode and provides the core resource-management services.",
+    "example": "When an application asks for more memory, the privileged core grants pages and updates the process table.",
+    "scenario": "An application asks for memory, and a privileged core grants it and schedules the next process. Name that core.",
+    "scenarioAnswer": "The privileged resource manager",
+    "scenarioWrongs": ["A web browser", "A text editor", "A media player"],
+    "scenarioWhy": "Privileged management of memory and processes is done by the kernel."
+  },
+  {
+    "term": "a nibble",
+    "definition": "A group of four bits, equal to one hexadecimal digit.",
+    "wrongs": [
+      "A group of eight bits.",
+      "A group of sixteen bits.",
+      "A group of two bits."
+    ],
+    "why": "Four bits can represent the values 0 through 15, which is exactly one hex digit.",
+    "example": "The low half of the byte 3C is the hex digit C, and that half is four bits wide.",
+    "scenario": "One hexadecimal digit represents a group of bits. How many bits are in that group?",
+    "scenarioAnswer": "4",
+    "scenarioWrongs": ["8", "16", "2"],
+    "scenarioWhy": "One hex digit encodes four bits."
+  },
+  {
+    "term": "input/output",
+    "definition": "The transfer of data between the computer and external devices such as keyboards and displays.",
+    "wrongs": [
+      "The translation of an entire source program before it runs.",
+      "The conversion of a decimal value into base 2.",
+      "The grouping of files into a named container."
+    ],
+    "why": "Input brings external data in, and output sends results to external devices.",
+    "example": "A program reads a name from the keyboard and writes a greeting on the display.",
+    "scenario": "A program reads a name typed at the keyboard and writes a greeting on the display. Name that exchange with external devices.",
+    "scenarioAnswer": "Transfer with external devices",
+    "scenarioWrongs": ["Whole-program translation", "Conversion into base 2", "Grouping files in a container"],
+    "scenarioWhy": "Reading a keyboard and writing a display moves data between the computer and external devices."
+  }
+]

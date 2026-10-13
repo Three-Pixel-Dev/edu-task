@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Project Scope",
+    "definition": "The work that must be done, and the results that must be delivered, for the project to be complete.",
+    "wrongs": [
+      "Every idea anyone mentions, whether or not it was agreed.",
+      "Only the project manager's personal tasks, excluding deliverables.",
+      "The company's entire strategy for the next decade."
+    ],
+    "why": "Scope is the agreed boundary of work and deliverables that defines completion.",
+    "example": "The scope of a campus app covers student timetables but excludes fee payments, which stay in another system.",
+    "scenario": "Stakeholders argue about whether fee payments belong in a timetable app. Which statement should settle the argument?",
+    "scenarioAnswer": "The agreed project scope",
+    "scenarioWrongs": [
+      "The loudest new idea in the latest meeting",
+      "The project manager's private to-do list",
+      "The company's ten-year strategy in full"
+    ],
+    "scenarioWhy": "Project scope is the agreed work and deliverables, so it decides whether fee payments are included."
+  },
+  {
+    "term": "Scope Statement",
+    "definition": "A document that describes the project's deliverables, acceptance boundaries, and what is explicitly excluded.",
+    "wrongs": [
+      "A blank Gantt chart with no description of deliverables.",
+      "A list of every employee's hobbies.",
+      "A verbal hope that the team will know what to build."
+    ],
+    "why": "A scope statement writes down deliverables, boundaries, and exclusions so the agreement can be checked later.",
+    "example": "The statement says the portal will show grades and explicitly excludes online payment.",
+    "scenario": "A sponsor later asks for online payment. The team needs the written inclusions and exclusions. Which document is that?",
+    "scenarioAnswer": "The scope statement",
+    "scenarioWrongs": [
+      "A blank Gantt chart",
+      "A list of hobbies",
+      "An unwritten hope about the build"
+    ],
+    "scenarioWhy": "The scope statement records deliverables and explicit exclusions such as online payment."
+  },
+  {
+    "term": "Scope Creep",
+    "definition": "Uncontrolled growth of work or deliverables without a corresponding approved change to time, cost, or resources.",
+    "wrongs": [
+      "An approved change that adds time and budget for the new work.",
+      "Removing a feature so the team can finish on the original date.",
+      "Writing the original scope before any work starts."
+    ],
+    "why": "Scope creep is uncontrolled addition of work, unlike a change that is approved with matching time or cost.",
+    "example": "Designers keep adding unapproved report screens, and the launch date slips with no extra budget.",
+    "scenario": "Extra report screens are added every week with no approval and no extra time. Which problem is that?",
+    "scenarioAnswer": "Scope creep",
+    "scenarioWrongs": [
+      "An approved change with added budget",
+      "Cutting a feature to protect the date",
+      "Writing the original scope"
+    ],
+    "scenarioWhy": "Uncontrolled extra work without approved time or cost is scope creep."
+  },
+  {
+    "term": "Work Breakdown Structure",
+    "definition": "A hierarchical breakdown of the project scope into smaller, manageable components of work.",
+    "wrongs": [
+      "A calendar that only shows dates and hides the work components.",
+      "An organisation chart of the whole company, unrelated to this project's deliverables.",
+      "A risk list sorted by probability."
+    ],
+    "why": "A work breakdown structure decomposes scope into smaller components so work can be estimated and assigned.",
+    "example": "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+    "scenario": "The team needs the scope split into smaller pieces before estimating. Which artefact should they build?",
+    "scenarioAnswer": "A work breakdown structure",
+    "scenarioWrongs": [
+      "A calendar with dates only",
+      "The company organisation chart",
+      "A risk list sorted by probability"
+    ],
+    "scenarioWhy": "A work breakdown structure is the hierarchy that decomposes scope into manageable components."
+  },
+  {
+    "term": "Work Package",
+    "definition": "The lowest-level component in the work breakdown structure that can be estimated, assigned, and tracked.",
+    "wrongs": [
+      "The whole project treated as one lump with no owner.",
+      "A milestone diamond that marks a date but contains no work.",
+      "A stakeholder's job title outside the project."
+    ],
+    "why": "A work package is a leaf of the breakdown that is small enough to estimate, assign, and control.",
+    "example": "Build the timetable export is assigned to one developer, estimated at 40 hours, and tracked to done.",
+    "scenario": "One developer will own a 40-hour piece of the timetable export, tracked to completion. Which label fits that piece?",
+    "scenarioAnswer": "A work package",
+    "scenarioWrongs": [
+      "The entire project as one lump",
+      "A milestone with no work content",
+      "A stakeholder job title"
+    ],
+    "scenarioWhy": "A work package is the lowest breakdown item that can be estimated, assigned, and tracked."
+  },
+  {
+    "term": "Deliverable",
+    "definition": "A tangible or verifiable product, result, or capability that must be produced to complete part of the project.",
+    "wrongs": [
+      "A private intention that produces nothing others can check.",
+      "The number of meetings held, regardless of output.",
+      "A team member's years of experience."
+    ],
+    "why": "A deliverable is an output others can verify, not effort, meetings, or experience by themselves.",
+    "example": "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+    "scenario": "The sponsor asks what they will be able to inspect at the next review. Which item is a deliverable?",
+    "scenarioAnswer": "The tested login module",
+    "scenarioWrongs": [
+      "The number of meetings held",
+      "A private intention with no output",
+      "A developer's years of experience"
+    ],
+    "scenarioWhy": "A deliverable is a verifiable product such as the tested login module, not meetings or experience."
+  },
+  {
+    "term": "Acceptance Criteria",
+    "definition": "The conditions a deliverable must meet before the customer or sponsor agrees to accept it.",
+    "wrongs": [
+      "The project manager's private feeling that the work is good enough.",
+      "The date the work happened to finish.",
+      "The brand of laptop used to build it."
+    ],
+    "why": "Acceptance criteria are the agreed conditions that define when a deliverable is fit to accept.",
+    "example": "The search feature is accepted only if it returns results within two seconds on the agreed test set.",
+    "scenario": "The sponsor will accept search only if results return within two seconds on the agreed tests. Which term names those conditions?",
+    "scenarioAnswer": "Acceptance criteria",
+    "scenarioWrongs": [
+      "A private feeling that it looks fine",
+      "The date the coding happened to end",
+      "The laptop brand"
+    ],
+    "scenarioWhy": "Acceptance criteria are the agreed conditions, such as the two-second test, that govern acceptance."
+  },
+  {
+    "term": "Activity",
+    "definition": "A distinct piece of scheduled work that consumes time and usually resources, and that helps produce a deliverable.",
+    "wrongs": [
+      "A point in time with zero duration that only marks an event.",
+      "The name of the sponsoring department.",
+      "A risk that might happen later."
+    ],
+    "why": "An activity is work with duration on the schedule, unlike a milestone, which is a zero-duration marker.",
+    "example": "Write the user guide is scheduled for five days and assigned to the technical author.",
+    "scenario": "Write the user guide takes five days and is placed on the schedule. Which schedule element is it?",
+    "scenarioAnswer": "An activity",
+    "scenarioWrongs": [
+      "A zero-duration milestone",
+      "The sponsoring department's name",
+      "A risk that may occur later"
+    ],
+    "scenarioWhy": "Scheduled work that consumes time, such as five days of writing, is an activity."
+  },
+  {
+    "term": "Milestone",
+    "definition": "A zero-duration marker on the schedule that represents a significant event, such as an approval or a handover.",
+    "wrongs": [
+      "A five-day task in which someone writes a guide.",
+      "The total budget of the project.",
+      "A team member's hourly rate."
+    ],
+    "why": "A milestone marks an event and has no duration of its own, unlike an activity.",
+    "example": "Sponsor approval of the design is shown as a diamond on the date of the review, with no length of its own.",
+    "scenario": "The schedule must mark the day the sponsor approves the design, without giving that marker a duration. Which element is used?",
+    "scenarioAnswer": "A milestone",
+    "scenarioWrongs": [
+      "A five-day writing activity",
+      "The project budget",
+      "An hourly pay rate"
+    ],
+    "scenarioWhy": "A milestone is a zero-duration marker for a significant event such as design approval."
+  },
+  {
+    "term": "Gantt Chart",
+    "definition": "A bar chart that shows activities against a timescale, including their start, finish, and often their dependencies.",
+    "wrongs": [
+      "A hierarchy of scope components with no dates.",
+      "A list of risks and their owners.",
+      "A pie chart of the company share price."
+    ],
+    "why": "A Gantt chart displays schedule information as bars on a calendar, which a scope hierarchy does not.",
+    "example": "The chart shows testing as a two-week bar starting only after the build bar ends.",
+    "scenario": "The sponsor wants to see activity bars on a calendar, including which work starts after build. Which chart fits?",
+    "scenarioAnswer": "A Gantt chart",
+    "scenarioWrongs": [
+      "A work breakdown with no dates",
+      "A risk list",
+      "A share-price pie chart"
+    ],
+    "scenarioWhy": "A Gantt chart shows activities as bars on a timescale, including when one follows another."
+  },
+  {
+    "term": "Network Diagram",
+    "definition": "A graph of activities and their logical dependencies, used to find the paths through the schedule.",
+    "wrongs": [
+      "A drawing of the office computer cables.",
+      "A bar chart whose main feature is a calendar axis rather than logic paths.",
+      "An organisation chart of line managers."
+    ],
+    "why": "A network diagram shows logical dependencies among activities so paths, including the critical path, can be analysed.",
+    "example": "The diagram shows that training cannot start until both the software and the handbook are finished.",
+    "scenario": "The team must see that training waits on both the software and the handbook. Which diagram shows that logic?",
+    "scenarioAnswer": "A network diagram",
+    "scenarioWrongs": [
+      "A drawing of office cables",
+      "An organisation chart",
+      "A pie chart of costs"
+    ],
+    "scenarioWhy": "A network diagram shows logical dependencies, such as training waiting on two predecessors."
+  },
+  {
+    "term": "Dependency",
+    "definition": "A logical relationship in which one activity cannot start or finish until another activity has reached a required state.",
+    "wrongs": [
+      "Two tasks that merely share the same week by coincidence.",
+      "A personal friendship between two team members.",
+      "A preference for working near a window."
+    ],
+    "why": "A dependency is a logical constraint between activities, not a coincidence of dates or a personal preference.",
+    "example": "User testing depends on the test environment being ready, so testing is linked as a successor.",
+    "scenario": "User testing cannot start until the test environment is ready. Which relationship should the schedule record?",
+    "scenarioAnswer": "A dependency",
+    "scenarioWrongs": [
+      "A coincidental shared week",
+      "A friendship between testers",
+      "A preference for a window seat"
+    ],
+    "scenarioWhy": "A logical link that stops testing until the environment is ready is a dependency."
+  },
+  {
+    "term": "Schedule Lead",
+    "definition": "An overlap that allows a successor activity to start before its predecessor has finished.",
+    "wrongs": [
+      "A required wait inserted after a predecessor finishes before the successor may start.",
+      "The person who manages the schedule.",
+      "The total length of the critical path."
+    ],
+    "why": "Lead is an overlap that accelerates a successor, whereas lag is a delay between activities.",
+    "example": "Writing the guide starts five days before coding finishes, shown as a lead on that link.",
+    "scenario": "The guide may start five days before coding finishes. Which schedule feature records that overlap?",
+    "scenarioAnswer": "A schedule lead",
+    "scenarioWrongs": [
+      "A required wait after coding ends",
+      "The person who owns the schedule",
+      "The length of the critical path"
+    ],
+    "scenarioWhy": "An overlap that lets the successor start early is a lead, not a waiting lag."
+  },
+  {
+    "term": "Schedule Lag",
+    "definition": "A required delay between a predecessor and its successor, so the successor waits after the predecessor reaches the linked point.",
+    "wrongs": [
+      "An overlap that lets the successor start early.",
+      "Free time that an activity can slip without affecting the project finish.",
+      "The name of the scheduling tool."
+    ],
+    "why": "Lag is a deliberate delay on a dependency, not spare float and not an accelerating overlap.",
+    "example": "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts.",
+    "scenario": "Decorating must wait two days after plastering so the surface can dry. Which feature records that wait?",
+    "scenarioAnswer": "A schedule lag",
+    "scenarioWrongs": [
+      "An overlap that starts decorating early",
+      "Spare float on an unrelated task",
+      "The brand name of the scheduling tool"
+    ],
+    "scenarioWhy": "A required wait between predecessor and successor is lag."
+  },
+  {
+    "term": "Critical Path",
+    "definition": "The longest path of dependent activities through the schedule, whose delay delays the project finish.",
+    "wrongs": [
+      "The shortest list of easy tasks that can all slip without moving the end date.",
+      "The path the project manager walks to the meeting room.",
+      "Any task the sponsor mentions first in a meeting."
+    ],
+    "why": "The critical path is the longest dependent chain, so it determines the earliest finish and has no spare time.",
+    "example": "Design, build, and test form a 30-day chain, longer than any other path, so that chain sets the finish date.",
+    "scenario": "Design, build, and test form the longest chain and set the finish date. Which label applies to that chain?",
+    "scenarioAnswer": "The critical path",
+    "scenarioWrongs": [
+      "A set of tasks that can all slip freely",
+      "The walk to the meeting room",
+      "Whichever task was mentioned first"
+    ],
+    "scenarioWhy": "The longest dependent chain, which sets the project finish, is the critical path."
+  },
+  {
+    "term": "Total Float",
+    "definition": "The time an activity can be delayed without delaying the project finish date.",
+    "wrongs": [
+      "The time an activity can slip before it delays only its immediate successor, even if the project end is safe.",
+      "The amount of money left in the budget.",
+      "The number of people who are free this afternoon."
+    ],
+    "why": "Total float is slack relative to the project finish date, and critical activities have none.",
+    "example": "Documentation can slip three days and the go-live date still holds, so its total float is three days.",
+    "scenario": "Documentation can slip three days without moving go-live. Which measure is three days?",
+    "scenarioAnswer": "Total float",
+    "scenarioWrongs": [
+      "Money left in the budget",
+      "The number of free people",
+      "The full project duration"
+    ],
+    "scenarioWhy": "Total float is how long an activity can slip without delaying the project finish."
+  },
+  {
+    "term": "Schedule Baseline",
+    "definition": "The approved version of the schedule against which actual progress and changes are compared.",
+    "wrongs": [
+      "A rough sketch that nobody has approved and that changes silently each day.",
+      "The list of risks that might affect dates.",
+      "A photo of the team on the first day."
+    ],
+    "why": "The schedule baseline is the approved plan used as the reference for measuring delay and approving date changes.",
+    "example": "Progress reports compare actual finish dates with the baseline approved at the kickoff.",
+    "scenario": "Reports must show delay against the dates the sponsor approved at kickoff. Which version of the schedule is the reference?",
+    "scenarioAnswer": "The schedule baseline",
+    "scenarioWrongs": [
+      "An unapproved sketch that changes daily",
+      "The risk list",
+      "The team photograph"
+    ],
+    "scenarioWhy": "The schedule baseline is the approved schedule used to compare actual progress."
+  },
+  {
+    "term": "Project Risk",
+    "definition": "An uncertain event or condition that, if it occurs, has a positive or negative effect on project objectives.",
+    "wrongs": [
+      "A problem that has already happened and now needs action.",
+      "A fact that is already known and certain.",
+      "The project title printed on the cover."
+    ],
+    "why": "A risk is uncertain and may help or harm objectives, whereas an issue is a problem that has already occurred.",
+    "example": "A key supplier might miss the component date, which would delay build if it happens.",
+    "scenario": "A supplier might miss a component date, but it has not happened yet. Which label fits?",
+    "scenarioAnswer": "A project risk",
+    "scenarioWrongs": [
+      "An issue that has already occurred",
+      "A certain fact already known",
+      "The project title"
+    ],
+    "scenarioWhy": "An uncertain event that could affect objectives is a risk until it actually occurs."
+  },
+  {
+    "term": "Risk Register",
+    "definition": "A living log of identified risks, their ratings, owners, and planned responses.",
+    "wrongs": [
+      "A diary of problems that have already happened, with no uncertain events.",
+      "The approved budget spreadsheet.",
+      "A contact list with no risks recorded."
+    ],
+    "why": "The risk register is where identified risks, ratings, owners, and responses are recorded and updated.",
+    "example": "The register lists a late supplier, rates it high, names the procurement lead, and records a backup vendor.",
+    "scenario": "The team must record a late-supplier threat, its rating, its owner, and the backup-vendor response. Which log is used?",
+    "scenarioAnswer": "The risk register",
+    "scenarioWrongs": [
+      "A diary of past problems only",
+      "The budget spreadsheet",
+      "A contact list with no risks"
+    ],
+    "scenarioWhy": "The risk register logs identified risks together with ratings, owners, and responses."
+  },
+  {
+    "term": "Probability and Impact",
+    "definition": "The two ratings commonly used to judge a risk: how likely it is, and how severe the effect would be if it occurred.",
+    "wrongs": [
+      "The start date and finish date of a task.",
+      "The first name and surname of the sponsor.",
+      "The font size and colour of a slide."
+    ],
+    "why": "Risk rating combines likelihood and severity so the team can prioritise responses.",
+    "example": "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay.",
+    "scenario": "Two threats must be prioritised. One is likely and severe; the other is rare and mild. Which pair of ratings supports that ranking?",
+    "scenarioAnswer": "Probability and impact",
+    "scenarioWrongs": [
+      "Start date and finish date",
+      "The sponsor's names",
+      "Font size and colour"
+    ],
+    "scenarioWhy": "Probability and impact rate how likely a risk is and how severe it would be, which drives priority."
+  },
+  {
+    "term": "Risk Mitigation",
+    "definition": "A response that reduces the probability or the impact of a threat.",
+    "wrongs": [
+      "A response that removes the risky work entirely so the threat cannot occur.",
+      "A response that shifts the financial effect to an insurer and leaves the event unchanged.",
+      "Doing nothing and accepting the threat as it stands."
+    ],
+    "why": "Mitigation lowers likelihood or impact but does not necessarily eliminate the activity or transfer the loss.",
+    "example": "The team adds a second supplier so a delay is less likely, while still buying the same component.",
+    "scenario": "The team keeps the component but adds a second supplier to make delay less likely. Which response is that?",
+    "scenarioAnswer": "Risk mitigation",
+    "scenarioWrongs": [
+      "Dropping the component so the threat disappears",
+      "Insuring the loss and changing nothing else",
+      "Accepting the threat with no action"
+    ],
+    "scenarioWhy": "Reducing the likelihood of delay while continuing the work is mitigation."
+  },
+  {
+    "term": "Risk Avoidance",
+    "definition": "A response that removes a threat by changing the plan so the risky activity is no longer done.",
+    "wrongs": [
+      "Reducing the chance of a threat while still doing the same activity.",
+      "Buying insurance so someone else pays if the threat occurs.",
+      "Keeping the plan unchanged and accepting the threat."
+    ],
+    "why": "Avoidance eliminates exposure by changing the plan, rather than merely reducing or transferring the risk.",
+    "example": "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+    "scenario": "To eliminate a risky third-party login, the team removes that approach from the plan. Which response is that?",
+    "scenarioAnswer": "Risk avoidance",
+    "scenarioWrongs": [
+      "Keeping the login but adding monitoring",
+      "Insuring the login and leaving it in place",
+      "Accepting the risky login unchanged"
+    ],
+    "scenarioWhy": "Changing the plan so the risky activity is not done is risk avoidance."
+  },
+  {
+    "term": "Risk Transfer",
+    "definition": "A response that shifts the financial impact of a threat to a third party, such as through insurance or a contract clause.",
+    "wrongs": [
+      "Removing the risky work from the project entirely.",
+      "Adding tests so the threat is less likely, while the team still bears the loss.",
+      "Ignoring the threat because it feels unlikely."
+    ],
+    "why": "Transfer moves the financial consequence to another party; it does not remove the event or automatically reduce its chance.",
+    "example": "The contract makes the vendor pay agreed damages if their hosted service misses the uptime target.",
+    "scenario": "The vendor must pay damages if uptime is missed, while the service stays in the plan. Which response is that?",
+    "scenarioAnswer": "Risk transfer",
+    "scenarioWrongs": [
+      "Removing the service from the project",
+      "Adding tests while the team still pays for any loss",
+      "Ignoring the uptime threat"
+    ],
+    "scenarioWhy": "Shifting the financial impact to the vendor by contract is risk transfer."
+  },
+  {
+    "term": "Residual Risk",
+    "definition": "The risk that remains after the planned responses have been applied.",
+    "wrongs": [
+      "The risk as it was before any response was chosen.",
+      "A brand-new risk created by the response itself.",
+      "A problem that has already occurred."
+    ],
+    "why": "Residual risk is what is left of a threat once the chosen responses are in place.",
+    "example": "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+    "scenario": "A backup supplier is in place, yet a small chance of delay remains. Which label fits that remaining chance?",
+    "scenarioAnswer": "Residual risk",
+    "scenarioWrongs": [
+      "The original risk before any response",
+      "A new risk created by the response",
+      "An outage that happened yesterday"
+    ],
+    "scenarioWhy": "Risk left after the planned response is applied is residual risk."
+  },
+  {
+    "term": "Issue",
+    "definition": "A problem or decision that has already arisen and now needs action, rather than an uncertainty about the future.",
+    "wrongs": [
+      "An uncertain event that might affect the project if it occurs later.",
+      "A milestone that was completed successfully.",
+      "A benefit the sponsor hopes to gain."
+    ],
+    "why": "An issue is current and requires action, whereas a risk is still uncertain.",
+    "example": "The test server failed this morning, so the team logs an issue and assigns someone to restore it.",
+    "scenario": "The test server failed this morning and work is blocked. Which item should the team log?",
+    "scenarioAnswer": "An issue",
+    "scenarioWrongs": [
+      "A risk that might happen next month",
+      "A milestone already completed",
+      "A hoped-for benefit"
+    ],
+    "scenarioWhy": "A problem that has already happened and needs action is an issue, not a future risk."
+  },
+  {
+    "term": "Project Stakeholder",
+    "definition": "A person or group that can affect the project or that is affected by its decisions or results.",
+    "wrongs": [
+      "Only people named on the project payroll.",
+      "A person with neither influence nor any effect from the result.",
+      "The file format used for the schedule."
+    ],
+    "why": "Project stakeholders include anyone who influences the work or who is affected by it, not only paid team members.",
+    "example": "Students who will use a campus app are stakeholders even though they are not on the project team.",
+    "scenario": "Students will use the campus app but are not paid team members. How should the project treat them?",
+    "scenarioAnswer": "As project stakeholders",
+    "scenarioWrongs": [
+      "As people who can be ignored",
+      "As members of the paid project team",
+      "As a file format"
+    ],
+    "scenarioWhy": "People affected by the result are project stakeholders even when they are not on the payroll."
+  },
+  {
+    "term": "Stakeholder Register",
+    "definition": "A document that records stakeholders, their interests, influence, and the approach for engaging them.",
+    "wrongs": [
+      "A Gantt chart of activity dates.",
+      "A list of source-code files.",
+      "A budget broken down by cost type."
+    ],
+    "why": "The stakeholder register captures who matters, what they care about, and how the project will engage them.",
+    "example": "The register lists the registrar as high influence, interested in data privacy, and to be consulted monthly.",
+    "scenario": "The team needs each stakeholder's influence, interest, and engagement approach in one place. Which document is that?",
+    "scenarioAnswer": "The stakeholder register",
+    "scenarioWrongs": [
+      "The Gantt chart",
+      "The source-code list",
+      "The cost budget"
+    ],
+    "scenarioWhy": "The stakeholder register records stakeholders together with interest, influence, and engagement."
+  },
+  {
+    "term": "Communication Plan",
+    "definition": "A document that states what project information each audience needs, in what form, how often, and from whom.",
+    "wrongs": [
+      "A plan that only lists the technical tasks and their durations.",
+      "A single unplanned message sent during a crisis, with no agreed pattern.",
+      "A wiring diagram for the office network."
+    ],
+    "why": "A communication plan sets the audience, content, format, frequency, and sender for project information.",
+    "example": "The plan says students get a monthly plain-language update by email, written by the project manager.",
+    "scenario": "Students should get a monthly plain-language email from the project manager. Which document records that agreement?",
+    "scenarioAnswer": "The communication plan",
+    "scenarioWrongs": [
+      "The activity duration list",
+      "One unplanned crisis text",
+      "The network wiring diagram"
+    ],
+    "scenarioWhy": "The communication plan specifies audience, content, form, frequency, and sender."
+  },
+  {
+    "term": "RACI Matrix",
+    "definition": "A grid that assigns, for each task or decision, who is responsible, accountable, consulted, and informed.",
+    "wrongs": [
+      "A chart of activity bars on a calendar.",
+      "A list of risks sorted by score.",
+      "A budget of labour hours with no roles."
+    ],
+    "why": "RACI clarifies the four participation roles so each task has a clear doer and a single accountable owner.",
+    "example": "For the privacy review, the analyst is responsible, the sponsor is accountable, legal is consulted, and the team is informed.",
+    "scenario": "A privacy review needs one doer, one accountable owner, a legal consultee, and a team to notify. Which grid records that?",
+    "scenarioAnswer": "A RACI matrix",
+    "scenarioWrongs": [
+      "A Gantt chart",
+      "A scored risk list",
+      "A labour-hour budget"
+    ],
+    "scenarioWhy": "A RACI matrix assigns responsible, accountable, consulted, and informed roles for a task."
+  },
+  {
+    "term": "Status Report",
+    "definition": "A regular project update that compares progress with the plan and highlights issues, risks, and decisions needed.",
+    "wrongs": [
+      "The original charter that authorised the project.",
+      "A celebration email that hides a known delay.",
+      "The final lessons-learned note written after closure."
+    ],
+    "why": "A status report is a recurring comparison of actual progress with the plan, including problems that need attention.",
+    "example": "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+    "scenario": "Testing is three days behind the approved dates and a decision on overtime is needed. Which update should the sponsor receive?",
+    "scenarioAnswer": "A status report comparing progress with the plan",
+    "scenarioWrongs": [
+      "The original charter only",
+      "A celebration note that hides the delay",
+      "The closure lessons, which do not exist yet"
+    ],
+    "scenarioWhy": "A status report compares progress with the plan and raises the decision the sponsor must make."
+  },
+  {
+    "term": "Kickoff Meeting",
+    "definition": "The meeting that starts coordinated execution by aligning the team and stakeholders on goals, roles, and near-term work.",
+    "wrongs": [
+      "The meeting that closes the project and archives the files.",
+      "A private lunch with no discussion of goals or roles.",
+      "The interview that hired the project manager months earlier."
+    ],
+    "why": "Kickoff aligns people on purpose, roles, and the first work as execution begins.",
+    "example": "At kickoff the sponsor states the go-live date, the team confirms roles, and the first sprint goal is agreed.",
+    "scenario": "Execution is about to start and the team must align on the date, roles, and first goal. Which meeting is that?",
+    "scenarioAnswer": "The kickoff meeting",
+    "scenarioWrongs": [
+      "The closure meeting",
+      "A private lunch with no project content",
+      "The hiring interview from months ago"
+    ],
+    "scenarioWhy": "The kickoff meeting aligns team and stakeholders as coordinated execution starts."
+  },
+  {
+    "term": "Analogous Estimating",
+    "definition": "An estimate based on the actual cost or duration of a similar past project, adjusted for known differences.",
+    "wrongs": [
+      "An estimate built by summing detailed estimates of every small work package.",
+      "An estimate produced from a statistical rate times a measured quantity.",
+      "A guess with no reference to any past project."
+    ],
+    "why": "Analogous estimating uses a similar historical project as the base and then adjusts it.",
+    "example": "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration.",
+    "scenario": "Last year's similar app took 12 weeks, and this one has one extra integration worth about a week. Which estimating approach is being used?",
+    "scenarioAnswer": "Analogous estimating",
+    "scenarioWrongs": [
+      "Summing estimates of every work package",
+      "Multiplying a rate by a measured quantity",
+      "Guessing with no past project"
+    ],
+    "scenarioWhy": "Using a similar past duration and adjusting for a known difference is analogous estimating."
+  },
+  {
+    "term": "Parametric Estimating",
+    "definition": "An estimate produced by applying a statistical rate, such as hours per screen, to a measured quantity of work.",
+    "wrongs": [
+      "An estimate copied from one similar past project and then adjusted.",
+      "An estimate formed from optimistic, most likely, and pessimistic figures.",
+      "An estimate that adds up individually estimated work packages."
+    ],
+    "why": "Parametric estimating multiplies a known rate by a quantity, rather than copying one whole past project.",
+    "example": "Historical data show 6 hours per report, and 10 reports imply an estimate of 60 hours.",
+    "scenario": "History shows 6 hours per report, and there are 10 reports. Which method produces the 60-hour estimate?",
+    "scenarioAnswer": "Parametric estimating",
+    "scenarioWrongs": [
+      "Copying one past project and adjusting it",
+      "Averaging optimistic and pessimistic guesses only",
+      "Adding up each package with no rate"
+    ],
+    "scenarioWhy": "Applying a rate of hours per report to a count of reports is parametric estimating."
+  },
+  {
+    "term": "Three-Point Estimating",
+    "definition": "An estimating technique that uses optimistic, most likely, and pessimistic figures to produce an expected value.",
+    "wrongs": [
+      "A single figure copied from one past project.",
+      "A rate multiplied by a quantity, with no range of outcomes.",
+      "The average of three people's favourite numbers, unrelated to the work."
+    ],
+    "why": "Three-point estimating recognises uncertainty by combining optimistic, most likely, and pessimistic values.",
+    "example": "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+    "scenario": "The team has optimistic, most likely, and pessimistic durations for coding and wants one expected value. Which technique fits?",
+    "scenarioAnswer": "Three-point estimating",
+    "scenarioWrongs": [
+      "Copying a single past duration",
+      "Multiplying one rate by a quantity",
+      "Averaging numbers that are unrelated to the work"
+    ],
+    "scenarioWhy": "Combining optimistic, most likely, and pessimistic figures into an expected value is three-point estimating."
+  },
+  {
+    "term": "Bottom-Up Estimating",
+    "definition": "An estimate built by estimating the lowest work packages in detail and summing them to higher levels.",
+    "wrongs": [
+      "An estimate taken from one similar project without looking at the packages.",
+      "A rate applied to a single total quantity with no package detail.",
+      "A sponsor's target date imposed with no estimate of the work."
+    ],
+    "why": "Bottom-up estimating starts at detailed packages and adds them up, which takes effort but is more specific.",
+    "example": "Each of eight work packages is estimated, and the total of 26 days becomes the phase estimate.",
+    "scenario": "Eight work packages are estimated separately and then added to get the phase total. Which method is that?",
+    "scenarioAnswer": "Bottom-up estimating",
+    "scenarioWrongs": [
+      "Using one similar project with no package detail",
+      "Applying one rate to a single quantity",
+      "Adopting a target date with no estimate"
+    ],
+    "scenarioWhy": "Summing detailed estimates of the lowest work packages is bottom-up estimating."
+  },
+  {
+    "term": "Effort",
+    "definition": "The amount of labour required to complete an activity, often measured in person-hours, independent of calendar time.",
+    "wrongs": [
+      "The number of calendar days from start to finish, regardless of how many people work.",
+      "The money charged by a vendor for a licence.",
+      "The emotional energy of a meeting."
+    ],
+    "why": "Effort measures labour content, while duration measures elapsed calendar time.",
+    "example": "A review needs 16 person-hours, which two people can finish in one calendar day.",
+    "scenario": "A review needs 16 person-hours. Two people are available. Which figure is the 16 person-hours?",
+    "scenarioAnswer": "Effort",
+    "scenarioWrongs": [
+      "The calendar duration of one day",
+      "The vendor licence fee",
+      "The number of slides in the review"
+    ],
+    "scenarioWhy": "Person-hours of labour are effort, whereas the one calendar day is duration."
+  },
+  {
+    "term": "Duration",
+    "definition": "The amount of calendar time between the start and finish of an activity, given the resources assigned.",
+    "wrongs": [
+      "The total person-hours, ignoring how those hours are spread across days.",
+      "The project budget in money.",
+      "The count of stakeholders."
+    ],
+    "why": "Duration is elapsed calendar time, which depends on how effort is staffed.",
+    "example": "Sixteen person-hours staffed by two people has a duration of one working day.",
+    "scenario": "Sixteen person-hours are staffed with two people and finish in one working day. Which figure is that one day?",
+    "scenarioAnswer": "Duration",
+    "scenarioWrongs": [
+      "The 16 person-hours of effort",
+      "The project budget",
+      "The number of stakeholders"
+    ],
+    "scenarioWhy": "Duration is the calendar time from start to finish once staffing is taken into account."
+  },
+  {
+    "term": "Contingency Reserve",
+    "definition": "Time or money held inside the project baseline to cover identified risks that may occur.",
+    "wrongs": [
+      "A reserve kept by senior management for unknown unknowns, outside the project baseline.",
+      "Money already spent on completed work.",
+      "The profit the vendor hopes to make."
+    ],
+    "why": "Contingency reserve covers known risks and sits in the baseline; it is not management reserve for unidentified uncertainty.",
+    "example": "The schedule includes three contingency days because a known permit risk may delay installation.",
+    "scenario": "A known permit risk may delay installation, so the baseline includes three extra days for that risk. Which reserve is that?",
+    "scenarioAnswer": "Contingency reserve",
+    "scenarioWrongs": [
+      "Money already spent",
+      "The vendor's hoped-for profit",
+      "A senior reserve for risks nobody has identified"
+    ],
+    "scenarioWhy": "Time held in the baseline for an identified risk is contingency reserve."
+  },
+  {
+    "term": "Quality Planning",
+    "definition": "Deciding the quality standards for the project and how the team will meet them.",
+    "wrongs": [
+      "Inspecting a finished deliverable to count defects.",
+      "Auditing whether the team followed its quality process.",
+      "Choosing the office paint colour with no link to deliverables."
+    ],
+    "why": "Quality planning sets the standards and the approach before execution and inspection.",
+    "example": "The plan states that each release must pass the agreed accessibility checklist before demonstration.",
+    "scenario": "Before build, the team agrees that every release must pass an accessibility checklist. Which process is that agreement part of?",
+    "scenarioAnswer": "Quality planning",
+    "scenarioWrongs": [
+      "Counting defects in a finished build",
+      "Auditing whether the process was followed",
+      "Choosing paint for the office"
+    ],
+    "scenarioWhy": "Deciding the standards and how they will be met, before the work, is quality planning."
+  },
+  {
+    "term": "Quality Assurance",
+    "definition": "Checking that the project's quality processes are being followed so defects are less likely to be created.",
+    "wrongs": [
+      "Inspecting a deliverable against standards to find defects in that product.",
+      "Writing the quality standards for the first time.",
+      "Cancelling all reviews to save time."
+    ],
+    "why": "Quality assurance evaluates the process, whereas quality control inspects the product.",
+    "example": "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+    "scenario": "An auditor checks that required code reviews happened, rather than retesting the product. Which activity is that?",
+    "scenarioAnswer": "Quality assurance",
+    "scenarioWrongs": [
+      "Inspecting the product for defects",
+      "Writing the standards for the first time",
+      "Cancelling reviews"
+    ],
+    "scenarioWhy": "Checking that quality processes were followed is quality assurance, not an inspection of the product."
+  },
+  {
+    "term": "Quality Control",
+    "definition": "Inspecting deliverables against standards to find defects and confirm whether acceptance conditions are met.",
+    "wrongs": [
+      "Auditing whether people followed the quality process, without looking at the product.",
+      "Choosing which standards will apply next year.",
+      "Ignoring test results so the date can be met."
+    ],
+    "why": "Quality control examines the deliverable itself and compares it with the standard or acceptance conditions.",
+    "example": "Testers run the accessibility checklist on the release and log two failures before the demo.",
+    "scenario": "Testers run the checklist on the release and log failures in the product. Which activity is that?",
+    "scenarioAnswer": "Quality control",
+    "scenarioWrongs": [
+      "Auditing that meetings were held, without looking at the product",
+      "Choosing next year's standards",
+      "Ignoring the failures to protect the date"
+    ],
+    "scenarioWhy": "Inspecting the deliverable against the checklist is quality control."
+  },
+  {
+    "term": "Change Request",
+    "definition": "A formal proposal to modify an approved baseline, such as scope, schedule, or cost, so the change can be assessed.",
+    "wrongs": [
+      "A silent edit to the baseline with no record.",
+      "A suggestion shouted in a corridor and then forgotten.",
+      "The original approved scope itself."
+    ],
+    "why": "A change request makes a proposed baseline change visible so impact can be assessed and a decision recorded.",
+    "example": "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+    "scenario": "The sponsor wants fee payments added after the baseline was approved. Which item should be raised before the work starts?",
+    "scenarioAnswer": "A change request",
+    "scenarioWrongs": [
+      "A silent edit to the baseline",
+      "A forgotten corridor comment",
+      "The original scope with no modification"
+    ],
+    "scenarioWhy": "A formal change request lets the team assess a proposed change to the approved baseline before acting."
+  },
+  {
+    "term": "Baseline",
+    "definition": "An approved version of a plan, such as scope, schedule, or cost, used as the reference for measuring performance.",
+    "wrongs": [
+      "A draft that changes whenever someone has a new idea and has never been approved.",
+      "The actual results after the work is finished.",
+      "A stakeholder's personal opinion of quality."
+    ],
+    "why": "A baseline is the approved reference; performance is measured by comparing actual results with it.",
+    "example": "Cost reports compare actual spend with the cost baseline approved by the sponsor.",
+    "scenario": "Cost reports must show variance from the spend figure the sponsor approved. Which figure is that reference?",
+    "scenarioAnswer": "The cost baseline",
+    "scenarioWrongs": [
+      "An unapproved draft that changes daily",
+      "The actual spend after the fact",
+      "A personal opinion of quality"
+    ],
+    "scenarioWhy": "The baseline is the approved reference against which actual performance is compared."
+  },
+  {
+    "term": "Project Charter",
+    "definition": "A document issued by the sponsor that authorises the project and states its purpose, manager, and high-level constraints.",
+    "wrongs": [
+      "A detailed schedule of every activity and dependency.",
+      "A test log of defects found in the last build.",
+      "A vendor invoice for completed work."
+    ],
+    "why": "The charter authorises the project at a high level; it is not the detailed schedule or a test record.",
+    "example": "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal.",
+    "scenario": "The team needs written authority to start, including the manager, purpose, and budget cap. Which document provides that?",
+    "scenarioAnswer": "The project charter",
+    "scenarioWrongs": [
+      "A detailed activity network",
+      "A defect log",
+      "A vendor invoice"
+    ],
+    "scenarioWhy": "The project charter is the sponsor's authorisation, naming purpose, manager, and high-level constraints."
+  },
+  {
+    "term": "Project Sponsor",
+    "definition": "The person who provides authority and resources for the project and is accountable for its business outcome.",
+    "wrongs": [
+      "A contractor who only installs equipment and cannot approve scope.",
+      "A team member who writes code but does not own the business result.",
+      "A tool that stores the schedule."
+    ],
+    "why": "The sponsor champions the project, supplies resources, and answers for the business result.",
+    "example": "The registrar sponsors the enrolment project, approves its scope changes, and owns the promised reduction in queues.",
+    "scenario": "Someone must approve scope changes and answer for shorter enrolment queues. Which role is that?",
+    "scenarioAnswer": "The project sponsor",
+    "scenarioWrongs": [
+      "A contractor who only installs equipment",
+      "A developer with no authority over scope",
+      "The scheduling tool"
+    ],
+    "scenarioWhy": "The project sponsor provides authority and resources and is accountable for the business outcome."
+  },
+  {
+    "term": "Triple Constraint",
+    "definition": "The linked limits of scope, time, and cost, where changing one usually forces a change in at least one of the others.",
+    "wrongs": [
+      "Three unrelated office rules about dress, parking, and email.",
+      "A claim that scope, time, and cost can all be fixed while work is freely added.",
+      "The three names of the steering-group chairs."
+    ],
+    "why": "The triple constraint describes the trade-off among scope, time, and cost on a project.",
+    "example": "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+    "scenario": "The sponsor adds features but will not move the date or the budget. Which concept explains why that combination is unrealistic?",
+    "scenarioAnswer": "The triple constraint",
+    "scenarioWrongs": [
+      "Office rules on dress and parking",
+      "A claim that extra scope is free",
+      "The names of three chairs"
+    ],
+    "scenarioWhy": "The triple constraint means extra scope usually requires more time or cost, so all three cannot stay fixed."
+  },
+  {
+    "term": "Lessons Learned",
+    "definition": "Recorded knowledge from what went well and what did not, captured so later work can reuse it.",
+    "wrongs": [
+      "A blame list that names people but records no reusable knowledge.",
+      "The original business case, unchanged at the end.",
+      "A deleted mailbox with no notes kept."
+    ],
+    "why": "Lessons learned turn project experience into knowledge the next piece of work can use.",
+    "example": "The team records that late hardware orders caused delay, and the next project orders hardware at kickoff.",
+    "scenario": "Late hardware orders caused delay, and the next project should avoid that. Which record should carry that knowledge forward?",
+    "scenarioAnswer": "Lessons learned",
+    "scenarioWrongs": [
+      "A blame list with no reusable point",
+      "The unchanged original business case",
+      "A deleted mailbox"
+    ],
+    "scenarioWhy": "Lessons learned capture what happened and how later work should change, such as ordering hardware earlier."
+  },
+  {
+    "term": "Assumptions Log",
+    "definition": "A record of factors treated as true for planning purposes, which are checked because they may be wrong.",
+    "wrongs": [
+      "A list of uncertain events with probability and impact.",
+      "A list of problems that have already happened.",
+      "A catalogue of office furniture."
+    ],
+    "why": "Assumptions are planning premises treated as true, and the log makes them visible so they can be validated.",
+    "example": "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+    "scenario": "The schedule assumes the test lab is free in May, but nobody has confirmed it. Where should that premise be recorded and checked?",
+    "scenarioAnswer": "In the assumptions log",
+    "scenarioWrongs": [
+      "Only in a risk register as if it were already an event",
+      "In an issue log before anything is wrong",
+      "In a furniture catalogue"
+    ],
+    "scenarioWhy": "A planning premise treated as true, and still needing confirmation, belongs in the assumptions log."
+  },
+  {
+    "term": "Crashing",
+    "definition": "Shortening the schedule by adding resources to critical activities, usually at extra cost.",
+    "wrongs": [
+      "Overlapping activities that were planned in sequence, without adding resources.",
+      "Lengthening the schedule to reduce cost.",
+      "Removing scope so the date can be met with the same team."
+    ],
+    "why": "Crashing trades cost for time by adding resources on the critical path.",
+    "example": "A second developer is added to the critical build task so it finishes a week earlier at higher labour cost.",
+    "scenario": "The critical build must finish a week sooner, and the sponsor will pay for another developer. Which technique is that?",
+    "scenarioAnswer": "Crashing",
+    "scenarioWrongs": [
+      "Overlapping tasks without extra people",
+      "Extending the date to save money",
+      "Cutting scope and keeping the same team"
+    ],
+    "scenarioWhy": "Adding paid resources to shorten critical work is crashing."
+  },
+  {
+    "term": "Fast Tracking",
+    "definition": "Shortening the schedule by overlapping activities that were originally planned to run in sequence, which increases risk.",
+    "wrongs": [
+      "Adding people to a critical task so it finishes sooner at higher cost.",
+      "Inserting a delay between two activities.",
+      "Accepting a later finish date."
+    ],
+    "why": "Fast tracking overlaps sequential work to save calendar time and typically raises the chance of rework.",
+    "example": "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+    "scenario": "Testing will start before coding finishes to save a week, accepting more rework risk. Which technique is that?",
+    "scenarioAnswer": "Fast tracking",
+    "scenarioWrongs": [
+      "Adding paid staff to the same task",
+      "Inserting a waiting lag",
+      "Moving the finish date later"
+    ],
+    "scenarioWhy": "Overlapping work that was sequential, in order to shorten the schedule, is fast tracking."
+  }
+]

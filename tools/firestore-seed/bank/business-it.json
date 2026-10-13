@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Information System",
+    "definition": "A set of people, processes, data, and technology that collects, stores, and delivers information to support a business activity.",
+    "wrongs": [
+      "A single laptop, considered apart from people, data, and working methods.",
+      "A paper company logo with no data and no process behind it.",
+      "The building's electrical wiring diagram alone."
+    ],
+    "why": "An information system combines people, process, data, and technology in support of a business activity.",
+    "example": "A shop's till, stock database, cashiers, and reorder rules together form the sales information system.",
+    "scenario": "A manager describes only the new server and ignores staff, data, and the sales process. Which label is incomplete?",
+    "scenarioAnswer": "Calling the server alone the information system",
+    "scenarioWrongs": [
+      "Including people, data, process, and technology",
+      "Using the till data to reorder stock",
+      "Training cashiers to follow the sales steps"
+    ],
+    "scenarioWhy": "An information system is the combination of people, process, data, and technology, not the server by itself."
+  },
+  {
+    "term": "Transaction Processing System",
+    "definition": "A system that captures and processes routine business events, such as sales or payments, as they occur.",
+    "wrongs": [
+      "A tool used only by senior executives to scan a handful of strategic charts once a quarter.",
+      "A library of past project essays kept for students to read.",
+      "A drawing package used to design a company logo."
+    ],
+    "why": "Transaction processing systems exist to record high-volume routine events accurately and immediately.",
+    "example": "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+    "scenario": "The business needs every card payment recorded as it happens so stock stays correct. Which system type fits?",
+    "scenarioAnswer": "A transaction processing system",
+    "scenarioWrongs": [
+      "A logo design tool",
+      "A quarterly executive chart pack only",
+      "A shelf of printed essays"
+    ],
+    "scenarioWhy": "Recording routine events such as payments as they occur is the job of a transaction processing system."
+  },
+  {
+    "term": "Management Information System",
+    "definition": "A system that summarises operational data into regular reports managers use to monitor and control performance.",
+    "wrongs": [
+      "A system whose only job is to capture each sale at the moment it happens.",
+      "A robot that replaces every manager with no reports at all.",
+      "A social network used for personal photos."
+    ],
+    "why": "A management information system turns operational data into routine reports for monitoring, rather than only posting transactions.",
+    "example": "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+    "scenario": "Store managers want a weekly summary of sales by department, not a live till. Which system type fits?",
+    "scenarioAnswer": "A management information system",
+    "scenarioWrongs": [
+      "A personal photo network",
+      "A system that only prints receipts at the till",
+      "A robot that issues no reports"
+    ],
+    "scenarioWhy": "Summarising operational data into regular management reports is the role of a management information system."
+  },
+  {
+    "term": "Decision Support System",
+    "definition": "A system that combines data and models so a person can compare options for a decision that is not fully routine.",
+    "wrongs": [
+      "A system that posts each invoice automatically with no analysis of choices.",
+      "A fixed monthly report that never lets the user try alternative assumptions.",
+      "A lock on a server room door."
+    ],
+    "why": "Decision support helps a person explore alternatives with data and models when the decision is semi-structured.",
+    "example": "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff.",
+    "scenario": "A planner must compare three staffing plans under different forecasts before hiring. Which system type fits?",
+    "scenarioAnswer": "A decision support system",
+    "scenarioWrongs": [
+      "A door lock",
+      "An automatic invoice poster with no comparison",
+      "A fixed report that cannot change assumptions"
+    ],
+    "scenarioWhy": "Comparing options with data and models for a non-routine choice is decision support."
+  },
+  {
+    "term": "Executive Dashboard",
+    "definition": "A visual display of a small set of key indicators that senior managers use to see organisational performance quickly.",
+    "wrongs": [
+      "A dump of every raw transaction row from the last ten years.",
+      "A source-code editor for application developers.",
+      "A paper form used to apply for annual leave."
+    ],
+    "why": "An executive dashboard concentrates a few important indicators into a visual view for senior oversight.",
+    "example": "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery.",
+    "scenario": "A director wants one screen with revenue, complaints, and on-time delivery, not raw rows. Which tool fits?",
+    "scenarioAnswer": "An executive dashboard",
+    "scenarioWrongs": [
+      "A ten-year dump of every transaction row",
+      "A source-code editor",
+      "An annual-leave form"
+    ],
+    "scenarioWhy": "An executive dashboard shows a few key indicators visually so a senior manager can see performance quickly."
+  },
+  {
+    "term": "Enterprise Resource Planning",
+    "definition": "An integrated suite that shares one set of data across core functions such as finance, human resources, procurement, and inventory.",
+    "wrongs": [
+      "A single spreadsheet kept privately by one department and never linked to finance.",
+      "A customer chat widget that only answers frequently asked questions.",
+      "A standalone game installed on a reception PC."
+    ],
+    "why": "Enterprise resource planning integrates core business functions on shared data so the organisation does not run them as isolated systems.",
+    "example": "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+    "scenario": "Receiving goods must update stock, the purchase order, and the supplier balance together. Which system type fits?",
+    "scenarioAnswer": "An enterprise resource planning system",
+    "scenarioWrongs": [
+      "A private spreadsheet in one department",
+      "A frequently-asked-questions chat widget",
+      "A game on the reception PC"
+    ],
+    "scenarioWhy": "Enterprise resource planning shares one data set across functions such as inventory, purchasing, and finance."
+  },
+  {
+    "term": "Customer Relationship Management",
+    "definition": "A system that records customer interactions and supports sales, marketing, and service so relationships can be managed consistently.",
+    "wrongs": [
+      "A payroll system whose only records are staff salaries.",
+      "A tool that tracks raw materials inside a warehouse and never stores customer contacts.",
+      "A firewall that blocks network ports."
+    ],
+    "why": "Customer relationship management keeps a shared view of customers and supports sales, marketing, and service work.",
+    "example": "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+    "scenario": "Service staff need the customer's orders and recent calls on one screen before answering a complaint. Which system fits?",
+    "scenarioAnswer": "A customer relationship management system",
+    "scenarioWrongs": [
+      "A payroll system",
+      "A warehouse materials tracker with no customer records",
+      "A firewall port list"
+    ],
+    "scenarioWhy": "Customer relationship management stores interactions so sales and service share one view of the customer."
+  },
+  {
+    "term": "Supply Chain Management System",
+    "definition": "Software that coordinates the flow of materials, information, and money from suppliers through operations to customers.",
+    "wrongs": [
+      "A tool that only stores employee holiday requests.",
+      "A word processor used to write the annual report.",
+      "A badge reader that only opens the front door."
+    ],
+    "why": "Supply chain systems coordinate flows across suppliers, the organisation, and customers, not internal HR tasks.",
+    "example": "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders.",
+    "scenario": "Supplier deliveries, the factory schedule, and retailer orders must be planned together. Which system type fits?",
+    "scenarioAnswer": "A supply chain management system",
+    "scenarioWrongs": [
+      "A holiday-request tool",
+      "A word processor",
+      "A front-door badge reader"
+    ],
+    "scenarioWhy": "Supply chain management coordinates materials, information, and orders from suppliers through to customers."
+  },
+  {
+    "term": "Knowledge Management System",
+    "definition": "A system that captures, stores, and shares organisational knowledge so staff can find and reuse it.",
+    "wrongs": [
+      "A till that only records the price of each sale.",
+      "A payroll calculator with no articles, guides, or lessons learned.",
+      "A door alarm that sounds when left open."
+    ],
+    "why": "Knowledge management systems exist so expertise and documents can be found and reused, rather than remaining with one person.",
+    "example": "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree.",
+    "scenario": "New engineers need the approved reset steps without calling a retired expert. Which system type fits?",
+    "scenarioAnswer": "A knowledge management system",
+    "scenarioWrongs": [
+      "A sales till",
+      "A payroll calculator",
+      "A door alarm"
+    ],
+    "scenarioWhy": "A knowledge management system stores and shares organisational know-how so others can reuse it."
+  },
+  {
+    "term": "Business Process",
+    "definition": "A set of linked activities that turns inputs into a result of value to a customer or the organisation.",
+    "wrongs": [
+      "A single unconnected mouse click with no input or result.",
+      "The brand colour chosen for a website header.",
+      "A staff member's home address."
+    ],
+    "why": "A business process is the linked work that converts inputs into a valued output, not an isolated click or a colour choice.",
+    "example": "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+    "scenario": "Taking an order, picking stock, packing, and shipping are linked to deliver a parcel. Which term covers that chain?",
+    "scenarioAnswer": "A business process",
+    "scenarioWrongs": [
+      "A website header colour",
+      "One mouse click with no output",
+      "An employee's home address"
+    ],
+    "scenarioWhy": "A business process is the linked set of activities that produces a valued result, such as a delivered order."
+  },
+  {
+    "term": "Process Map",
+    "definition": "A diagram that shows the steps, decisions, and hand-offs in a business process.",
+    "wrongs": [
+      "A street map of the city where the office stands.",
+      "A list of employee birthdays.",
+      "A photograph of the chief executive."
+    ],
+    "why": "A process map is a diagram of how work flows, including decisions and hand-offs, not a geographical map.",
+    "example": "A team draws the refund process, including who approves amounts over a set limit.",
+    "scenario": "Staff disagree about who approves large refunds. Which artefact should show the steps and the decision?",
+    "scenarioAnswer": "A process map",
+    "scenarioWrongs": [
+      "A city street map",
+      "A birthday list",
+      "A portrait of the chief executive"
+    ],
+    "scenarioWhy": "A process map diagrams steps, decisions, and hand-offs so the refund approval path is visible."
+  },
+  {
+    "term": "As-Is Process",
+    "definition": "A description of how work is actually done today, including current delays and workarounds.",
+    "wrongs": [
+      "A picture of the ideal process after a future system is installed.",
+      "A slogan about the company's hopes for next year.",
+      "A list of features the vendor wishes the product had."
+    ],
+    "why": "The as-is process records current practice, including its problems, before improvement is designed.",
+    "example": "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+    "scenario": "Before buying software, analysts watch clerks retype invoices from email. Which description are they capturing?",
+    "scenarioAnswer": "The as-is process",
+    "scenarioWrongs": [
+      "The future process after the new system",
+      "Next year's advertising slogan",
+      "The vendor's wishlist of features"
+    ],
+    "scenarioWhy": "Watching how invoices are handled today, including the retyping workaround, captures the as-is process."
+  },
+  {
+    "term": "To-Be Process",
+    "definition": "A description of how a process should work after a planned improvement or system change.",
+    "wrongs": [
+      "A photograph of the queues and workarounds that exist this morning.",
+      "An unrelated historical novel about the industry.",
+      "The resignations submitted last year."
+    ],
+    "why": "The to-be process is the intended future way of working, used to guide design and change.",
+    "example": "The redesigned claim process shows customers uploading documents once, instead of posting paper copies.",
+    "scenario": "The design shows customers uploading a claim once, replacing today's paper copies. Which description is that?",
+    "scenarioAnswer": "The to-be process",
+    "scenarioWrongs": [
+      "Today's paper workaround",
+      "Last year's resignation letters",
+      "A novel about the industry"
+    ],
+    "scenarioWhy": "The intended future way of working, after the change, is the to-be process."
+  },
+  {
+    "term": "Process Owner",
+    "definition": "The person accountable for the performance and improvement of a named business process.",
+    "wrongs": [
+      "A visitor who uses the process once and then leaves.",
+      "A server that stores the process diagram.",
+      "Every employee equally, with nobody accountable."
+    ],
+    "why": "A process owner is the named person accountable for how well that process performs and how it improves.",
+    "example": "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+    "scenario": "Cycle time for applications is poor, and someone must be accountable for improving that process. Which role is that?",
+    "scenarioAnswer": "The process owner",
+    "scenarioWrongs": [
+      "A one-time visitor",
+      "The file server",
+      "Nobody, because everyone is equally accountable"
+    ],
+    "scenarioWhy": "The process owner is the person accountable for the performance and improvement of that named process."
+  },
+  {
+    "term": "Gap Analysis",
+    "definition": "A comparison of current performance or capability with a desired target, used to identify what must change.",
+    "wrongs": [
+      "A celebration of targets that ignores the current state.",
+      "A random list of software brands with no target.",
+      "Copying last year's plan without comparing it to today's capability."
+    ],
+    "why": "Gap analysis identifies the difference between where the organisation is and where it needs to be.",
+    "example": "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time.",
+    "scenario": "A clinic can book 40 visits a day and needs 70. Which analysis names that shortfall and what must change?",
+    "scenarioAnswer": "Gap analysis",
+    "scenarioWrongs": [
+      "A party for meeting the target",
+      "A brand list with no comparison",
+      "Reissuing last year's plan unchanged"
+    ],
+    "scenarioWhy": "Gap analysis compares the current 40 visits with the needed 70 and identifies what must change."
+  },
+  {
+    "term": "Stakeholder",
+    "definition": "A person or group that can affect, or is affected by, a business or system decision.",
+    "wrongs": [
+      "Only the programmer who writes the final line of code.",
+      "A person with no interest and no influence over the decision.",
+      "The brand of keyboard used in the office."
+    ],
+    "why": "Stakeholders are people or groups with influence on a decision or who feel its effects.",
+    "example": "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders.",
+    "scenario": "A new billing system will change what customers pay and what finance staff do, and a regulator sets rules. Who should be treated as stakeholders?",
+    "scenarioAnswer": "Customers, finance staff, and the regulator",
+    "scenarioWrongs": [
+      "Only the last programmer to commit code",
+      "People with no interest and no influence",
+      "The brand of office keyboard"
+    ],
+    "scenarioWhy": "Stakeholders include those affected, such as customers and staff, and those who can affect the decision, such as a regulator."
+  },
+  {
+    "term": "Business Sponsor",
+    "definition": "A senior manager who authorises a change, secures resources, and is accountable for its business outcome.",
+    "wrongs": [
+      "A contractor hired only to install a printer on one afternoon.",
+      "A student observer with no authority over budget or scope.",
+      "The software vendor's sales brochure."
+    ],
+    "why": "The business sponsor owns the outcome and provides authority and resources, rather than merely observing.",
+    "example": "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings.",
+    "scenario": "Someone must approve the budget for a billing replacement and answer for the savings. Which role is that?",
+    "scenarioAnswer": "The business sponsor",
+    "scenarioWrongs": [
+      "A one-afternoon printer contractor",
+      "A student with no authority",
+      "The vendor brochure"
+    ],
+    "scenarioWhy": "The business sponsor authorises the change, secures resources, and is accountable for the business outcome."
+  },
+  {
+    "term": "Business Requirement",
+    "definition": "A statement of what the organisation needs to achieve, written in business terms rather than as a technical design.",
+    "wrongs": [
+      "A choice of programming language made by a developer.",
+      "The colour of a server status LED.",
+      "A line of source code that implements a loop."
+    ],
+    "why": "A business requirement states a business need, leaving technical design choices to a later step.",
+    "example": "The business requires that a customer can receive a correct invoice within one day of delivery.",
+    "scenario": "The organisation needs customers to receive a correct invoice within one day of delivery. Which kind of statement is that?",
+    "scenarioAnswer": "A business requirement",
+    "scenarioWrongs": [
+      "A choice of programming language",
+      "The colour of a status LED",
+      "A source-code loop"
+    ],
+    "scenarioWhy": "A need stated in business terms, such as invoice timing, is a business requirement rather than a technical design."
+  },
+  {
+    "term": "Functional Requirement",
+    "definition": "A statement of a behaviour the system must provide, such as recording an order or producing an invoice.",
+    "wrongs": [
+      "A limit on response time, availability, or security that does not name a behaviour.",
+      "The project budget approved by the board.",
+      "The brand font used on posters."
+    ],
+    "why": "A functional requirement states a behaviour the system must perform, not a quality level or a budget.",
+    "example": "The system must let a clerk record a refund and notify the customer by email.",
+    "scenario": "The statement says the system must record a refund and email the customer. Which kind of requirement is that?",
+    "scenarioAnswer": "A functional requirement",
+    "scenarioWrongs": [
+      "A response-time limit with no behaviour named",
+      "The board's project budget",
+      "The poster font"
+    ],
+    "scenarioWhy": "Recording a refund and sending an email are behaviours the system must provide, so the statement is functional."
+  },
+  {
+    "term": "Non-Functional Requirement",
+    "definition": "A statement of a quality the system must meet, such as response time, availability, security, or usability.",
+    "wrongs": [
+      "A statement that the system must provide a named function, such as creating an order.",
+      "The name of the project sponsor.",
+      "A list of office furniture to be purchased."
+    ],
+    "why": "A non-functional requirement states how well the system must perform, not which business function it offers.",
+    "example": "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+    "scenario": "Checkout confirmation must appear within two seconds for 95 percent of requests. Which kind of requirement is that?",
+    "scenarioAnswer": "A non-functional requirement",
+    "scenarioWrongs": [
+      "A functional requirement to create an order",
+      "The sponsor's name",
+      "A furniture shopping list"
+    ],
+    "scenarioWhy": "A response-time target is a quality the system must meet, so it is a non-functional requirement."
+  },
+  {
+    "term": "IT Strategy",
+    "definition": "A plan that sets how technology investments will support the organisation's goals over several years.",
+    "wrongs": [
+      "A list of this morning's help-desk tickets.",
+      "A one-off password reset for a single user.",
+      "The canteen menu for the current week."
+    ],
+    "why": "IT strategy is a multi-year plan linking technology investment to organisational goals, not daily support work.",
+    "example": "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal.",
+    "scenario": "Leaders must decide five years of technology investment to support growth in remote students. Which plan is that?",
+    "scenarioAnswer": "The IT strategy",
+    "scenarioWrongs": [
+      "Today's help-desk ticket list",
+      "One user's password reset",
+      "This week's canteen menu"
+    ],
+    "scenarioWhy": "IT strategy sets how technology investment will support business goals over several years."
+  },
+  {
+    "term": "Strategic Alignment",
+    "definition": "The fit between IT projects and the organisation's stated business objectives.",
+    "wrongs": [
+      "Buying every new device because it is fashionable, with no link to objectives.",
+      "Aligning office desks so they face the same direction.",
+      "Making the IT budget exactly equal to the marketing budget by coincidence."
+    ],
+    "why": "Strategic alignment means IT work is chosen because it supports stated business objectives.",
+    "example": "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+    "scenario": "A proposed system does not support any stated business objective. Which judgement follows from strategic alignment?",
+    "scenarioAnswer": "It is a poor fit and should not be a priority",
+    "scenarioWrongs": [
+      "It should be bought because it is new",
+      "It aligns because the desks face one way",
+      "It aligns because two budgets happen to match"
+    ],
+    "scenarioWhy": "Strategic alignment requires an IT project to fit stated business objectives, so an unrelated system is a poor priority."
+  },
+  {
+    "term": "SWOT Analysis",
+    "definition": "A structured review of internal strengths and weaknesses and of external opportunities and threats.",
+    "wrongs": [
+      "A test that only measures the speed of a computer processor.",
+      "A contract clause about late payment.",
+      "A count of chairs in a meeting room."
+    ],
+    "why": "SWOT examines internal strengths and weaknesses together with external opportunities and threats.",
+    "example": "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+    "scenario": "A retailer lists a strong brand, weak delivery IT, a new market, and a powerful online rival. Which analysis is that?",
+    "scenarioAnswer": "A SWOT analysis",
+    "scenarioWrongs": [
+      "A processor speed test",
+      "A late-payment clause",
+      "A chair count"
+    ],
+    "scenarioWhy": "Strengths, weaknesses, opportunities, and threats are the four parts of a SWOT analysis."
+  },
+  {
+    "term": "Competitive Advantage",
+    "definition": "A durable edge that lets an organisation outperform rivals, which information systems may support but do not guarantee.",
+    "wrongs": [
+      "Any purchase of software, which automatically makes a firm unbeatable.",
+      "A one-day price cut that rivals copy the next morning.",
+      "Having more chairs than a neighbouring office."
+    ],
+    "why": "Competitive advantage is a lasting performance edge; technology can support it but does not create it automatically.",
+    "example": "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+    "scenario": "Rivals copy a one-day discount overnight, but they still cannot match your reliable routing system. Which item is the competitive advantage?",
+    "scenarioAnswer": "The durable delivery reliability rivals cannot match",
+    "scenarioWrongs": [
+      "The one-day discount they copied immediately",
+      "The mere fact that software was purchased",
+      "Having extra office chairs"
+    ],
+    "scenarioWhy": "Competitive advantage is a durable edge rivals cannot quickly copy, not a short-lived discount or a purchase by itself."
+  },
+  {
+    "term": "Value Chain",
+    "definition": "The sequence of primary and support activities through which an organisation creates value for its customers.",
+    "wrongs": [
+      "A metal chain used to lock bicycles outside the office.",
+      "The order of slides in a sales presentation only.",
+      "A list of shareholders and their voting weights."
+    ],
+    "why": "The value chain describes the activities that create customer value, including both primary work and support activities.",
+    "example": "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service.",
+    "scenario": "Leaders trace how parts, production, delivery, marketing, and service together create what customers pay for. Which model is that?",
+    "scenarioAnswer": "The value chain",
+    "scenarioWrongs": [
+      "A bicycle lock",
+      "The slide order in a pitch deck",
+      "A shareholder voting list"
+    ],
+    "scenarioWhy": "The value chain is the set of primary and support activities that create what the customer values."
+  },
+  {
+    "term": "Digital Transformation",
+    "definition": "A significant change in how an organisation uses digital technology to alter its processes, products, or customer experience.",
+    "wrongs": [
+      "Replacing one broken keyboard with the same model.",
+      "Scanning a single paper letter without changing the service.",
+      "Renaming the IT department without changing any process."
+    ],
+    "why": "Digital transformation changes how the organisation works or what it offers, not a like-for-like equipment swap.",
+    "example": "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+    "scenario": "A bank moves account opening fully online and redesigns branch jobs. Which description fits that change?",
+    "scenarioAnswer": "Digital transformation",
+    "scenarioWrongs": [
+      "Replacing one keyboard with the same model",
+      "Scanning one letter and leaving the service unchanged",
+      "Renaming the IT department only"
+    ],
+    "scenarioWhy": "Changing the customer journey and the related jobs through digital technology is digital transformation."
+  },
+  {
+    "term": "Make-or-Buy Decision",
+    "definition": "A choice between building a system in-house and purchasing or subscribing to an existing product.",
+    "wrongs": [
+      "A choice between two colours for the office walls.",
+      "A decision to hire or fire a particular receptionist.",
+      "A choice of sandwich fillings for a meeting."
+    ],
+    "why": "Make-or-buy compares building a capability internally with acquiring an existing product or service.",
+    "example": "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+    "scenario": "A charity can build a donor system or subscribe to an existing platform. Which decision is that?",
+    "scenarioAnswer": "A make-or-buy decision",
+    "scenarioWrongs": [
+      "A wall-colour choice",
+      "Hiring a receptionist",
+      "Choosing sandwich fillings"
+    ],
+    "scenarioWhy": "Choosing between an in-house build and an existing product is a make-or-buy decision."
+  },
+  {
+    "term": "Business Case",
+    "definition": "A documented argument that compares the expected benefits, costs, and risks of a proposed investment.",
+    "wrongs": [
+      "A suitcase used to carry a laptop to a client site.",
+      "A username and password for a finance system.",
+      "A poster advertising an existing product."
+    ],
+    "why": "A business case is the written justification of an investment, weighing benefits, costs, and risks.",
+    "example": "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+    "scenario": "The board wants the costs, benefits, and risks of a roster system before approving money. Which document should they read?",
+    "scenarioAnswer": "The business case",
+    "scenarioWrongs": [
+      "A laptop suitcase",
+      "A system password",
+      "An advert for a current product"
+    ],
+    "scenarioWhy": "A business case documents the expected benefits, costs, and risks of the proposed investment."
+  },
+  {
+    "term": "Cost-Benefit Analysis",
+    "definition": "A comparison of the expected costs of an option with its expected benefits, expressed in money where that is possible.",
+    "wrongs": [
+      "A list of benefits with every cost left out.",
+      "A list of costs with every benefit ignored.",
+      "A vote based only on which option has the nicest name."
+    ],
+    "why": "Cost-benefit analysis puts expected costs and expected benefits side by side so an option can be judged.",
+    "example": "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage.",
+    "scenario": "One option costs 80,000 and is expected to save 30,000 a year. Which technique sets those figures side by side?",
+    "scenarioAnswer": "Cost-benefit analysis",
+    "scenarioWrongs": [
+      "Listing benefits and hiding costs",
+      "Listing costs and ignoring benefits",
+      "Choosing the option with the nicest name"
+    ],
+    "scenarioWhy": "Cost-benefit analysis compares expected costs with expected benefits for the option."
+  },
+  {
+    "term": "Return on Investment",
+    "definition": "A measure of the net gain from an investment relative to its cost, often expressed as a percentage.",
+    "wrongs": [
+      "The number of people who attended the project launch party.",
+      "The physical distance between two offices.",
+      "The count of slides in a presentation."
+    ],
+    "why": "Return on investment relates net gain to the cost of the investment so options can be compared.",
+    "example": "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment.",
+    "scenario": "A 100,000 system returns 20,000 net in a year. Which measure states that gain relative to the cost?",
+    "scenarioAnswer": "Return on investment",
+    "scenarioWrongs": [
+      "The launch-party attendance",
+      "The distance between offices",
+      "The number of slides"
+    ],
+    "scenarioWhy": "Return on investment expresses net gain relative to investment cost, here 20,000 on 100,000."
+  },
+  {
+    "term": "Total Cost of Ownership",
+    "definition": "The full cost of owning a system over its life, including purchase, operation, support, training, and retirement.",
+    "wrongs": [
+      "The sticker price alone, ignoring support, training, and running costs.",
+      "Only the cost of electricity on the first day.",
+      "The salary of the chief executive, unrelated to the system."
+    ],
+    "why": "Total cost of ownership includes the whole life cost, not just the initial purchase price.",
+    "example": "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years.",
+    "scenario": "A cheap printer has high toner, maintenance, and downtime costs over four years. Which figure should drive the choice?",
+    "scenarioAnswer": "Total cost of ownership",
+    "scenarioWrongs": [
+      "The sticker price alone",
+      "The first day's electricity only",
+      "The chief executive's salary"
+    ],
+    "scenarioWhy": "Total cost of ownership adds purchase, running, support, and retirement costs over the system's life."
+  },
+  {
+    "term": "Payback Period",
+    "definition": "The time needed for the net benefits of an investment to recover its initial cost.",
+    "wrongs": [
+      "The time a vendor takes to answer a sales email.",
+      "The length of the chief executive's employment contract.",
+      "The number of years the company has existed."
+    ],
+    "why": "Payback period is how long cumulative net benefits take to cover the initial outlay.",
+    "example": "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+    "scenario": "A 60,000 kiosk saves 20,000 net each year. How long is the payback period?",
+    "scenarioAnswer": "Three years",
+    "scenarioWrongs": [
+      "Six months",
+      "Ten years",
+      "Sixty years"
+    ],
+    "scenarioWhy": "Payback is initial cost divided by annual net benefit, so 60,000 divided by 20,000 is three years."
+  },
+  {
+    "term": "Intangible Benefit",
+    "definition": "An expected gain that is real but hard to price reliably, such as better morale or a stronger reputation.",
+    "wrongs": [
+      "A saving that is already measured as fewer overtime hours with a known wage rate.",
+      "A cash refund received from a supplier.",
+      "A reduction in licence fees stated on an invoice."
+    ],
+    "why": "Intangible benefits matter but cannot be priced with the same confidence as a measured cash saving.",
+    "example": "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+    "scenario": "A portal should improve public reputation, but no reliable cash value can be given. Which label fits that gain?",
+    "scenarioAnswer": "An intangible benefit",
+    "scenarioWrongs": [
+      "A measured overtime saving at a known wage",
+      "A supplier cash refund",
+      "A licence-fee cut printed on an invoice"
+    ],
+    "scenarioWhy": "A real gain that cannot be priced reliably, such as reputation, is an intangible benefit."
+  },
+  {
+    "term": "Tangible Benefit",
+    "definition": "An expected gain that can be measured in money, such as reduced overtime cost or fewer lost sales.",
+    "wrongs": [
+      "A feeling that the brand seems more modern, with no measurable cash effect.",
+      "A hope that staff will be happier, with no agreed measure.",
+      "A rumour that customers like the new colour."
+    ],
+    "why": "A tangible benefit can be expressed in money from a stated measure, unlike a vague improvement in feeling.",
+    "example": "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+    "scenario": "Failed deliveries fall by 200 a month and each failure costs 15. Which label fits that monthly saving?",
+    "scenarioAnswer": "A tangible benefit",
+    "scenarioWrongs": [
+      "An unpriced feeling that the brand is modern",
+      "A hope about morale with no measure",
+      "A rumour about a popular colour"
+    ],
+    "scenarioWhy": "A gain that can be priced, here 200 failures times 15, is a tangible benefit."
+  },
+  {
+    "term": "Feasibility Study",
+    "definition": "An early assessment of whether a proposal is technically, economically, legally, and operationally workable.",
+    "wrongs": [
+      "The final user manual written after the system has already gone live.",
+      "A party to celebrate a completed project.",
+      "A decision to skip all investigation and start coding immediately."
+    ],
+    "why": "A feasibility study checks, before major commitment, whether the proposal can work on technical, economic, legal, and operational grounds.",
+    "example": "A hospital study finds a proposed app would breach a records law, so the project stops before build.",
+    "scenario": "Before spending build money, a hospital checks whether an app is legal, affordable, and operable. Which study is that?",
+    "scenarioAnswer": "A feasibility study",
+    "scenarioWrongs": [
+      "The final user manual after go-live",
+      "A completion party",
+      "Starting to code with no investigation"
+    ],
+    "scenarioWhy": "An early check of technical, economic, legal, and operational workability is a feasibility study."
+  },
+  {
+    "term": "Change Management",
+    "definition": "The structured approach to preparing and supporting people so they adopt a new process or system.",
+    "wrongs": [
+      "A technical patch that changes source code while ignoring the people who must use it.",
+      "A ban on ever altering a process, even when the business requires it.",
+      "The version history inside a code repository alone."
+    ],
+    "why": "Change management focuses on people adopting the new way of working, not only on the technical change.",
+    "example": "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+    "scenario": "A new roster will fail if supervisors and staff do not adopt it. Which work prepares and supports those people?",
+    "scenarioAnswer": "Change management",
+    "scenarioWrongs": [
+      "A code patch that ignores users",
+      "A ban on all process change",
+      "Reading the repository history only"
+    ],
+    "scenarioWhy": "Change management prepares and supports people so they actually adopt the new roster."
+  },
+  {
+    "term": "Resistance to Change",
+    "definition": "Reluctance to adopt a new system or process, often from fear of lost skill, extra work, or an unclear benefit.",
+    "wrongs": [
+      "Enthusiastic early use of a system people already trust.",
+      "A measured technical defect that stops the software starting.",
+      "A legal prohibition that makes the change unlawful."
+    ],
+    "why": "Resistance is human reluctance to adopt a change, and it is different from a technical fault or a legal ban.",
+    "example": "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets.",
+    "scenario": "Clerks keep old spreadsheets because they fear looking slow on the new system, which itself works. Which issue is that?",
+    "scenarioAnswer": "Resistance to change",
+    "scenarioWrongs": [
+      "A software crash that prevents login",
+      "A law that forbids the process",
+      "Eager adoption by staff who already trust the tool"
+    ],
+    "scenarioWhy": "Avoiding a working system from fear of lost standing is resistance to change, not a technical failure."
+  },
+  {
+    "term": "Change Champion",
+    "definition": "A respected staff member who promotes a change locally and helps colleagues adopt it.",
+    "wrongs": [
+      "A person who blocks every change without offering a reason.",
+      "An external celebrity with no role in the workplace.",
+      "A printed poster that nobody is asked to support."
+    ],
+    "why": "A change champion is a trusted insider who actively helps colleagues take up the new way of working.",
+    "example": "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+    "scenario": "A respected nurse demonstrates the new chart and helps colleagues on the first shifts. Which role is that?",
+    "scenarioAnswer": "Change champion",
+    "scenarioWrongs": [
+      "A person who blocks the change with no reason",
+      "An external celebrity with no workplace role",
+      "An unattended poster"
+    ],
+    "scenarioWhy": "A change champion is a respected colleague who promotes the change and helps others adopt it."
+  },
+  {
+    "term": "Training Needs Analysis",
+    "definition": "A study that identifies the skills people lack for a new process or system and the learning required to close that gap.",
+    "wrongs": [
+      "A count of how many chairs a training room can hold, with no look at skills.",
+      "A decision to buy software with no thought about who must learn it.",
+      "A list of everyone's favourite hobbies."
+    ],
+    "why": "Training needs analysis compares required skills with current skills so the right learning can be planned.",
+    "example": "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+    "scenario": "Cashiers cannot reverse card payments on the new till, and that skill is required. Which study should find and plan that lesson?",
+    "scenarioAnswer": "Training needs analysis",
+    "scenarioWrongs": [
+      "A count of chairs in the room",
+      "Buying software and ignoring learning",
+      "A list of hobbies"
+    ],
+    "scenarioWhy": "Training needs analysis identifies the missing skill and the learning needed before the new till is used."
+  },
+  {
+    "term": "Benefits Realisation",
+    "definition": "The ongoing work of checking whether the benefits promised in the business case actually occur after the change.",
+    "wrongs": [
+      "Writing hopeful benefits in a case and never measuring them later.",
+      "Celebrating approval of the budget as if the benefits had already arrived.",
+      "Counting the number of logos on the project slides."
+    ],
+    "why": "Benefits realisation tracks promised benefits after go-live and acts if they are not appearing.",
+    "example": "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+    "scenario": "Six months after launch, finance checks whether the promised postage savings happened. Which activity is that?",
+    "scenarioAnswer": "Benefits realisation",
+    "scenarioWrongs": [
+      "Writing benefits and never looking again",
+      "Treating budget approval as if savings already exist",
+      "Counting logos on slides"
+    ],
+    "scenarioWhy": "Benefits realisation measures whether the savings promised in the case have actually occurred after launch."
+  },
+  {
+    "term": "Key Performance Indicator",
+    "definition": "A quantified measure that shows how well an important business objective is being achieved.",
+    "wrongs": [
+      "A vague slogan such as be the best, with no measure.",
+      "A count of unrelated office plants.",
+      "The name of the objective with no number attached."
+    ],
+    "why": "A key performance indicator is a number tied to an important objective so performance can be judged.",
+    "example": "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+    "scenario": "The objective is fast support, and the team tracks the percentage of tickets closed within one day. Which label fits that measure?",
+    "scenarioAnswer": "A key performance indicator",
+    "scenarioWrongs": [
+      "A slogan with no number",
+      "A count of office plants",
+      "The objective name alone"
+    ],
+    "scenarioWhy": "A quantified measure of an important objective, such as same-day resolution rate, is a key performance indicator."
+  },
+  {
+    "term": "Data-Driven Decision",
+    "definition": "A choice based primarily on relevant and reliable evidence rather than on habit or unsupported opinion.",
+    "wrongs": [
+      "A choice made because it matches the loudest opinion in the room, with the data unread.",
+      "A choice copied from last year without checking whether conditions changed.",
+      "A choice based on a rumour in a corridor."
+    ],
+    "why": "A data-driven decision gives relevant, reliable evidence the leading role in the choice.",
+    "example": "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+    "scenario": "Evening opening is proposed for every store by habit, but sales data show demand after 6 p.m. in only some branches. Which decision is data-driven?",
+    "scenarioAnswer": "Open evenings only where the sales data show demand",
+    "scenarioWrongs": [
+      "Open every store because that is last year's habit",
+      "Follow the loudest opinion and ignore the data",
+      "Act on a corridor rumour about one shop"
+    ],
+    "scenarioWhy": "A data-driven decision follows the relevant sales evidence about where evening demand actually exists."
+  },
+  {
+    "term": "Data Quality",
+    "definition": "The fitness of data for its intended use, including accuracy, completeness, timeliness, and consistency.",
+    "wrongs": [
+      "The size of the database server, regardless of whether the figures are wrong.",
+      "The artistic layout of a report that hides missing values.",
+      "The number of colours in a dashboard theme."
+    ],
+    "why": "Data quality is whether data are fit to use, judged by properties such as accuracy, completeness, timeliness, and consistency.",
+    "example": "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use.",
+    "scenario": "Thirty percent of postcodes are blank, so labels would go to the wrong places. Which problem is that?",
+    "scenarioAnswer": "Poor data quality",
+    "scenarioWrongs": [
+      "A server that is too small but holds correct addresses",
+      "A dull colour theme on a correct report",
+      "A complete and current address file"
+    ],
+    "scenarioWhy": "Missing postcodes mean the address data are not complete enough for the mailing, which is a data-quality failure."
+  },
+  {
+    "term": "Master Data",
+    "definition": "Core business entities, such as customers, products, and suppliers, that are shared across systems and should stay consistent.",
+    "wrongs": [
+      "A one-off social message that is never reused.",
+      "The temperature reading from a sensor at a single moment, kept only in that device.",
+      "A temporary password that expires in one hour."
+    ],
+    "why": "Master data are the shared core records of the business, such as who the customers and products are.",
+    "example": "Customer name and account number are maintained once and reused by billing, support, and marketing.",
+    "scenario": "Billing, support, and marketing must use the same customer name and account number. Which data are those?",
+    "scenarioAnswer": "Master data",
+    "scenarioWrongs": [
+      "A one-off social message",
+      "A single momentary sensor reading",
+      "A password that expires in an hour"
+    ],
+    "scenarioWhy": "Shared core entities such as customers, kept consistent across systems, are master data."
+  },
+  {
+    "term": "Single Source of Truth",
+    "definition": "One authoritative store for a given data item so teams do not act on conflicting copies.",
+    "wrongs": [
+      "Several spreadsheets that staff update separately and then argue over.",
+      "A rule that every person keeps a private version and none is official.",
+      "Printing the same report from three different unofficial files."
+    ],
+    "why": "A single source of truth means one agreed place holds the authoritative value for that data item.",
+    "example": "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+    "scenario": "Two teams quote different prices because each edits its own spreadsheet. Which fix creates a single source of truth?",
+    "scenarioAnswer": "Make one product master the only authoritative price",
+    "scenarioWrongs": [
+      "Let every team keep a private price and call them all official",
+      "Add a third unofficial spreadsheet",
+      "Email conflicting prices and let staff guess"
+    ],
+    "scenarioWhy": "A single source of truth is one authoritative store, so teams stop acting on conflicting copies."
+  },
+  {
+    "term": "Business Intelligence",
+    "definition": "Tools and practices that turn organisational data into reports and analyses used for management decisions.",
+    "wrongs": [
+      "The human ability to score well on an IQ test, unrelated to business data.",
+      "A transaction screen used only to type in one sale.",
+      "A spam filter on the chief executive's mailbox."
+    ],
+    "why": "Business intelligence is the reporting and analysis of organisational data to support decisions.",
+    "example": "Managers explore a report of profit by region and product to decide which line to expand.",
+    "scenario": "Managers need to explore profit by region and product before choosing a line to expand. Which capability fits?",
+    "scenarioAnswer": "Business intelligence",
+    "scenarioWrongs": [
+      "An IQ test",
+      "A screen that only types in one sale",
+      "A personal spam filter"
+    ],
+    "scenarioWhy": "Turning organisational data into analysis for a management decision is business intelligence."
+  },
+  {
+    "term": "Data Warehouse",
+    "definition": "A subject-oriented store of integrated historical data, kept for analysis rather than for moment-by-moment transactions.",
+    "wrongs": [
+      "The live till system that must post each sale in real time.",
+      "A cupboard of blank paper forms.",
+      "A chat channel used for today's operational instructions."
+    ],
+    "why": "A data warehouse integrates history for analysis and is not the system that posts live transactions.",
+    "example": "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+    "scenario": "Analysts need five years of sales from many shops, integrated for trends, without querying the live tills. Which store fits?",
+    "scenarioAnswer": "A data warehouse",
+    "scenarioWrongs": [
+      "The live till system",
+      "A cupboard of blank forms",
+      "Today's operational chat channel"
+    ],
+    "scenarioWhy": "A data warehouse holds integrated historical data for analysis, separate from live transaction processing."
+  },
+  {
+    "term": "Operational System",
+    "definition": "A system that runs day-to-day transactions and is organised for current processing rather than for long-term analysis.",
+    "wrongs": [
+      "A historical warehouse designed for multi-year trend reports rather than posting today's sales.",
+      "A printed strategy covering the next five years.",
+      "An archive of retired marketing posters."
+    ],
+    "why": "An operational system processes current business events, whereas analytical stores are built for history and reporting.",
+    "example": "The reservations system records today's bookings and must stay available during opening hours.",
+    "scenario": "Staff must record today's bookings as they happen during opening hours. Which system type fits?",
+    "scenarioAnswer": "An operational system",
+    "scenarioWrongs": [
+      "A historical warehouse meant only for trend reports",
+      "A five-year strategy document",
+      "An archive of old posters"
+    ],
+    "scenarioWhy": "Recording current transactions as they happen is the job of an operational system."
+  },
+  {
+    "term": "Legacy System",
+    "definition": "An older system that is still required for operations but is costly or risky to change and poorly linked to newer tools.",
+    "wrongs": [
+      "A system launched last week on a current platform with full support.",
+      "A paper notebook that was never part of operations.",
+      "A future design that has not been built."
+    ],
+    "why": "A legacy system is old but still operational, and it is typically hard to change or integrate.",
+    "example": "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+    "scenario": "Payroll still depends on a twenty-year-old application that is risky to modify and cannot feed the new finance suite. Which term fits?",
+    "scenarioAnswer": "A legacy system",
+    "scenarioWrongs": [
+      "A platform launched last week",
+      "A personal notebook never used in operations",
+      "A design that has not been built"
+    ],
+    "scenarioWhy": "An old operational system that is hard to change and poorly integrated is a legacy system."
+  },
+  {
+    "term": "IT Governance",
+    "definition": "The decision rights and accountability framework that directs how technology is evaluated, directed, and monitored against business goals.",
+    "wrongs": [
+      "A single technician choosing every corporate system with no oversight.",
+      "The physical guard rota at the data-centre door, with no decision rights.",
+      "A ban on writing down who may approve IT spending."
+    ],
+    "why": "IT governance sets who decides, who is accountable, and how IT is monitored so it serves business goals.",
+    "example": "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+    "scenario": "Nobody knows who may approve large IT spend, and projects ignore business goals. Which missing framework addresses that?",
+    "scenarioAnswer": "IT governance",
+    "scenarioWrongs": [
+      "One technician choosing everything with no oversight",
+      "Only the data-centre door rota",
+      "A rule against recording decision rights"
+    ],
+    "scenarioWhy": "IT governance defines decision rights and accountability so technology is directed toward business goals."
+  }
+]

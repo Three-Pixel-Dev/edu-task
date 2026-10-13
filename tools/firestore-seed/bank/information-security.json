@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Confidentiality",
+    "definition": "The goal that information is disclosed only to people or systems allowed to see it.",
+    "wrongs": [
+      "The goal that data are not altered without detection.",
+      "The goal that systems stay reachable when users need them.",
+      "The goal that a sender cannot deny sending a message."
+    ],
+    "why": "Secrecy controls such as encryption and access limits exist to prevent unauthorised disclosure.",
+    "example": "A grade spreadsheet is readable by the module leader and not by other students.",
+    "scenario": "An exam paper must stay hidden from candidates until the start time. Which security goal is that?",
+    "scenarioAnswer": "Confidentiality",
+    "scenarioWrongs": ["Integrity", "Availability", "Non-repudiation"],
+    "scenarioWhy": "Preventing unauthorised disclosure is confidentiality."
+  },
+  {
+    "term": "Integrity",
+    "definition": "The goal that information is not improperly altered, or that alteration is detectable.",
+    "wrongs": [
+      "The goal that outsiders cannot read the information.",
+      "The goal that a service answers every request on time.",
+      "The goal of identifying which user clicked a button."
+    ],
+    "why": "Hashes, signatures, and write controls protect correctness and completeness of data.",
+    "example": "A downloaded installer is rejected because its hash does not match the publisher's hash.",
+    "scenario": "A student record's marks change in transit and the mismatch is noticed before results are published. Which goal caught that?",
+    "scenarioAnswer": "Integrity",
+    "scenarioWrongs": ["Confidentiality", "Availability", "Anonymity"],
+    "scenarioWhy": "Detecting improper change is an integrity goal."
+  },
+  {
+    "term": "Availability",
+    "definition": "The goal that authorised users can reach systems and data when they need them.",
+    "wrongs": [
+      "The goal of keeping the contents secret.",
+      "The goal of stopping silent modification.",
+      "The goal of proving who signed a document."
+    ],
+    "why": "Redundancy, backups, and protection from overload keep a service usable.",
+    "example": "A teaching site stays up during enrolment because spare servers absorb the extra load.",
+    "scenario": "A flood of junk requests stops students reaching the enrolment site. Which goal has been harmed?",
+    "scenarioAnswer": "Availability",
+    "scenarioWrongs": ["Confidentiality", "Integrity", "Non-repudiation"],
+    "scenarioWhy": "Users who should have access cannot get it, so availability failed."
+  },
+  {
+    "term": "CIA triad",
+    "definition": "The three core security goals: confidentiality, integrity, and availability.",
+    "wrongs": [
+      "Control, identity, and audit.",
+      "Cipher, inspection, and alerting.",
+      "Classification, isolation, and authentication."
+    ],
+    "why": "Most security requirements can be stated as protecting secrecy, correctness, or timely access.",
+    "example": "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams.",
+    "scenario": "A module brief lists secrecy of papers, detection of tampering, and uptime of the site as the three aims. Which model is that?",
+    "scenarioAnswer": "CIA triad",
+    "scenarioWrongs": ["Parkerian hexad only", "OSI model", "CAP theorem"],
+    "scenarioWhy": "Confidentiality, integrity, and availability together are the CIA triad."
+  },
+  {
+    "term": "Non-repudiation",
+    "definition": "Evidence that stops a party from falsely denying that they sent or signed something.",
+    "wrongs": [
+      "Hiding the contents of a message from eavesdroppers.",
+      "Keeping a server online during a traffic spike.",
+      "Letting a user choose any display name."
+    ],
+    "why": "A digital signature checked with the signer's public key ties the action to that signer.",
+    "example": "A signed submission receipt lets the school show that a student sent the coursework file.",
+    "scenario": "A student denies submitting an essay, but a signature made with their private key verifies on the file. Which goal does that signature support?",
+    "scenarioAnswer": "Non-repudiation",
+    "scenarioWrongs": ["Confidentiality of the essay", "Availability of the server", "Anonymity of the student"],
+    "scenarioWhy": "Proof that the holder of the private key signed the file supports non-repudiation."
+  },
+  {
+    "term": "Asset",
+    "definition": "Anything of value to an organisation that security is meant to protect.",
+    "wrongs": [
+      "A weakness that an attacker can exploit.",
+      "A person or group that might cause harm.",
+      "The chance that a threat will succeed."
+    ],
+    "why": "Risk work starts by listing valued items such as data, systems, people, and reputation.",
+    "example": "The student-record database, the exam servers, and the university's reputation are all assets.",
+    "scenario": "Analysts list the payroll database and the campus reputation before they list attackers. What are those listed items?",
+    "scenarioAnswer": "Assets",
+    "scenarioWrongs": ["Vulnerabilities", "Threat actors", "Risk scores"],
+    "scenarioWhy": "Things of value that need protection are assets."
+  },
+  {
+    "term": "Threat",
+    "definition": "A potential cause of an unwanted incident that may harm an asset.",
+    "wrongs": [
+      "A weakness in software or process that can be exploited.",
+      "The harm measured after an incident has already finished.",
+      "A safeguard put in place to reduce risk."
+    ],
+    "why": "A threat is the possible danger, such as malware or a flood, not the weakness it uses.",
+    "example": "Ransomware is a threat to the availability of a department's file server.",
+    "scenario": "A review names phishing campaigns as something that could harm staff mail accounts. Which term is the campaign?",
+    "scenarioAnswer": "Threat",
+    "scenarioWrongs": ["Vulnerability", "Impact score", "Security control"],
+    "scenarioWhy": "A potential cause of harm is a threat."
+  },
+  {
+    "term": "Vulnerability",
+    "definition": "A weakness in a system, control, or process that a threat can exploit.",
+    "wrongs": [
+      "The attacker or event that might cause harm.",
+      "The value of the data being protected.",
+      "The product of likelihood and impact."
+    ],
+    "why": "Without a weakness to exploit, a threat cannot turn into a successful incident.",
+    "example": "An unpatched library bug lets a remote attacker run code on the web server.",
+    "scenario": "A missing patch lets outsiders run code, although no attack has happened yet. Which term is the missing patch?",
+    "scenarioAnswer": "Vulnerability",
+    "scenarioWrongs": ["Threat actor", "Asset", "Residual risk"],
+    "scenarioWhy": "A weakness that can be exploited is a vulnerability."
+  },
+  {
+    "term": "Risk",
+    "definition": "The combination of how likely a harmful event is and how serious its impact would be.",
+    "wrongs": [
+      "A weakness by itself, with no likelihood or harm considered.",
+      "A threat name with no estimate of probability or damage.",
+      "A control that has already removed every danger."
+    ],
+    "why": "Risk analysis weighs both the chance of an event and the damage to assets.",
+    "example": "A likely phishing wave against finance staff is rated a high risk because fraud losses would be large.",
+    "scenario": "A rare bug on an isolated lab PC is ranked lower than a likely bug on the payroll system. Which judgement is being made?",
+    "scenarioAnswer": "Risk",
+    "scenarioWrongs": ["Vulnerability listing only", "Threat naming only", "Control installation"],
+    "scenarioWhy": "Comparing likelihood and impact is a risk judgement."
+  },
+  {
+    "term": "Impact",
+    "definition": "The harm that would follow if a particular security event occurred.",
+    "wrongs": [
+      "How often the event is expected to happen.",
+      "The name of the group that might attack.",
+      "The list of open network ports."
+    ],
+    "why": "Impact is the consequence, such as lost marks data or a week of downtime, separate from likelihood.",
+    "example": "Loss of the only exam-script store would delay graduation for an entire cohort.",
+    "scenario": "Analysts estimate that a database wipe would delay graduation, without yet estimating how often that might happen. Which factor are they estimating?",
+    "scenarioAnswer": "Impact",
+    "scenarioWrongs": ["Likelihood", "Threat-actor identity", "Attack surface"],
+    "scenarioWhy": "The harm from an event, apart from its chance, is the impact."
+  },
+  {
+    "term": "Threat actor",
+    "definition": "A person, group, or force that may carry out a threat against an asset.",
+    "wrongs": [
+      "The weakness that is exploited.",
+      "The database being protected.",
+      "The written rule staff must follow."
+    ],
+    "why": "Actors differ in skill and motive, from careless insiders to criminal groups.",
+    "example": "A criminal gang sending ransomware is a different actor from a student guessing a classmate's password.",
+    "scenario": "A report blames a criminal gang, not the unpatched bug, for a ransomware outbreak. Which term is the gang?",
+    "scenarioAnswer": "Threat actor",
+    "scenarioWrongs": ["Vulnerability", "Asset", "Security policy"],
+    "scenarioWhy": "The party that carries out the attack is the threat actor."
+  },
+  {
+    "term": "Attack surface",
+    "definition": "The set of points where an attacker can try to enter a system or extract data.",
+    "wrongs": [
+      "The list of assets ranked by value.",
+      "The incident log after an attack has ended.",
+      "The backup copy stored offline."
+    ],
+    "why": "Every exposed service, form, account, and interface adds a place that must be defended.",
+    "example": "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+    "scenario": "Closing an unused admin port removes one place an outsider could try to connect. What has been reduced?",
+    "scenarioAnswer": "Attack surface",
+    "scenarioWrongs": ["Asset value", "Incident history", "Offline backup"],
+    "scenarioWhy": "Fewer entry points means a smaller attack surface."
+  },
+  {
+    "term": "Security control",
+    "definition": "A safeguard that prevents, detects, or limits the harm from a security event.",
+    "wrongs": [
+      "The weakness the safeguard is meant to fix.",
+      "The attacker who causes the event.",
+      "The harm measured after the event."
+    ],
+    "why": "Controls may be technical, administrative, or physical, and they exist to reduce risk.",
+    "example": "A firewall rule, a locked server room, and a mandatory backup policy are all controls.",
+    "scenario": "A locked server-room door and a firewall rule are added to reduce the chance of a breach. What are those two measures?",
+    "scenarioAnswer": "Security controls",
+    "scenarioWrongs": ["Vulnerabilities", "Threat actors", "Impact statements"],
+    "scenarioWhy": "Safeguards that reduce risk are security controls."
+  },
+  {
+    "term": "Authentication",
+    "definition": "Checking that a claimed identity is genuine by testing a secret, device, or biometric.",
+    "wrongs": [
+      "Merely stating a username with no proof.",
+      "Deciding which files a known user may open.",
+      "Writing an audit log of later actions."
+    ],
+    "why": "Authentication comes after a claim of identity and before granting that identity any rights.",
+    "example": "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+    "scenario": "A site asks for a password after the user types a username, and it rejects a wrong password. Which step is the password check?",
+    "scenarioAnswer": "Authentication",
+    "scenarioWrongs": ["Identification only", "Authorisation", "Accounting"],
+    "scenarioWhy": "Proving a claimed identity is authentication."
+  },
+  {
+    "term": "Identification",
+    "definition": "The act of claiming an identity, before that claim has been verified.",
+    "wrongs": [
+      "Proving the claim with a password or token.",
+      "Granting rights to read a file.",
+      "Encrypting the session after login."
+    ],
+    "why": "A username or ID number asserts who the user is; a separate check must still prove it.",
+    "example": "Typing a student ID into a login form claims an identity but does not by itself prove it.",
+    "scenario": "A user types a student number and has not yet entered a password. Which step has occurred?",
+    "scenarioAnswer": "Identification",
+    "scenarioWrongs": ["Authentication", "Authorisation", "Encryption"],
+    "scenarioWhy": "Stating who you are, without proof, is identification."
+  },
+  {
+    "term": "Authorisation",
+    "definition": "Deciding what an authenticated identity is allowed to do.",
+    "wrongs": [
+      "Checking that a password matches the account.",
+      "Claiming a username at the login prompt.",
+      "Hashing the password for storage."
+    ],
+    "why": "After identity is proved, policy still has to allow or deny each action.",
+    "example": "A logged-in student may read their own marks but may not edit the class list.",
+    "scenario": "A verified lecturer may edit marks, while a verified student using the same site may not. Which decision is that?",
+    "scenarioAnswer": "Authorisation",
+    "scenarioWrongs": ["Authentication", "Identification", "Password hashing"],
+    "scenarioWhy": "Allowing or denying actions for a known identity is authorisation."
+  },
+  {
+    "term": "Accountability",
+    "definition": "The ability to trace actions on a system back to the identity that performed them.",
+    "wrongs": [
+      "Hiding who performed an action on purpose.",
+      "Choosing a strong encryption algorithm.",
+      "Blocking traffic from an untrusted network."
+    ],
+    "why": "Unique accounts and reliable logs make it possible to answer who did what and when.",
+    "example": "Audit logs show which staff account downloaded a full student list at 02:10.",
+    "scenario": "Investigators use unique logins and logs to show which account exported the student list. Which goal do those logs support?",
+    "scenarioAnswer": "Accountability",
+    "scenarioWrongs": ["Anonymity", "Encryption strength", "Network filtering"],
+    "scenarioWhy": "Tracing an action to an identity is accountability."
+  },
+  {
+    "term": "Multi-factor authentication",
+    "definition": "Authentication that requires evidence from at least two different factor types.",
+    "wrongs": [
+      "Asking for two passwords, both things the user knows.",
+      "Checking a username and then skipping any secret.",
+      "Using a longer single password and nothing else."
+    ],
+    "why": "Factors are something you know, have, or are; two of the same type do not make multiple factors.",
+    "example": "Staff enter a password and then approve a prompt on a registered phone.",
+    "scenario": "Login demands a password and a code from a registered phone. Which control is that?",
+    "scenarioAnswer": "Multi-factor authentication",
+    "scenarioWrongs": ["Two passwords only", "Username with no secret", "A longer single password"],
+    "scenarioWhy": "A knowledge factor plus a possession factor is multi-factor authentication."
+  },
+  {
+    "term": "Least privilege",
+    "definition": "Giving each account only the minimum rights it needs for its task.",
+    "wrongs": [
+      "Giving every user full administrator rights for convenience.",
+      "Sharing one powerful account among a whole team.",
+      "Granting access to every file because the user has a job title."
+    ],
+    "why": "Extra rights turn a mistake or a stolen account into a larger incident.",
+    "example": "A help-desk account can reset student passwords but cannot read the payroll database.",
+    "scenario": "A lab assistant account can reboot lab PCs but cannot open the finance system. Which principle is being applied?",
+    "scenarioAnswer": "Least privilege",
+    "scenarioWrongs": ["Universal administrator rights", "Shared superuser accounts", "Access to every file"],
+    "scenarioWhy": "Rights limited to the job are least privilege."
+  },
+  {
+    "term": "Separation of duties",
+    "definition": "Splitting a sensitive task so that one person cannot both start it and approve it.",
+    "wrongs": [
+      "Letting one administrator request, approve, and pay the same invoice.",
+      "Giving every user the same small set of rights.",
+      "Requiring two factor types at login."
+    ],
+    "why": "Collusion would be needed to abuse a process when no single person holds every step.",
+    "example": "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+    "scenario": "The person who adds a supplier cannot also approve payments to that supplier. Which principle is that?",
+    "scenarioAnswer": "Separation of duties",
+    "scenarioWrongs": ["One person does every step", "Identical rights for all users", "Multi-factor login"],
+    "scenarioWhy": "Dividing request and approval is separation of duties."
+  },
+  {
+    "term": "Need to know",
+    "definition": "Restricting information to people whose current duties require that specific information.",
+    "wrongs": [
+      "Giving an entire clearance level access to every file at that level.",
+      "Publishing all internal documents on the intranet.",
+      "Choosing the shortest encryption key that still works."
+    ],
+    "why": "A clearance or job title is not enough; the person must also need that information for the task.",
+    "example": "Two staff with the same role see different student cases, each only for the advisees they handle.",
+    "scenario": "Two officers hold the same clearance, but each may open only the case files assigned to them. Which principle is that?",
+    "scenarioAnswer": "Need to know",
+    "scenarioWrongs": ["Blanket access for the clearance", "Open internal publishing", "Short encryption keys"],
+    "scenarioWhy": "Access limited to assigned information is need to know."
+  },
+  {
+    "term": "Access control list",
+    "definition": "A list attached to an object that names subjects and the operations each subject may perform.",
+    "wrongs": [
+      "A role catalogue that never mentions a particular object.",
+      "A system-wide label the data owner is not allowed to change.",
+      "A list of malware signatures on a scanner."
+    ],
+    "why": "The object carries entries such as 'user A may read' and 'user B may write'.",
+    "example": "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+    "scenario": "One document lists Alice as editor and the tutor group as readers. Which mechanism stores those permissions?",
+    "scenarioAnswer": "Access control list",
+    "scenarioWrongs": ["A role catalogue with no object", "A mandatory label", "A malware signature list"],
+    "scenarioWhy": "Per-object subject permissions are an access control list."
+  },
+  {
+    "term": "Role-based access control",
+    "definition": "Assigning permissions to roles, then giving users those roles instead of direct per-file grants.",
+    "wrongs": [
+      "Letting each file owner freely grant access to named friends.",
+      "Enforcing military labels that users cannot downgrade.",
+      "Checking only a password and granting every user the same rights."
+    ],
+    "why": "Changing a person's job means changing their role, and the role already carries the right permissions.",
+    "example": "Everyone with the Registrar role can update enrolment, and a new registrar inherits that role.",
+    "scenario": "Permissions sit on the role Librarian, and new librarians receive that role rather than individual file grants. Which model is that?",
+    "scenarioAnswer": "Role-based access control",
+    "scenarioWrongs": ["Discretionary grants by each owner", "Mandatory labelling", "One identical right for every login"],
+    "scenarioWhy": "Permissions attached to job roles are role-based access control."
+  },
+  {
+    "term": "Mandatory access control",
+    "definition": "Access rules based on system-enforced labels that users are not allowed to override.",
+    "wrongs": [
+      "Rules that each file owner may rewrite for their friends.",
+      "Permissions that come only from a job-role membership.",
+      "A password check with no labels or roles."
+    ],
+    "why": "A central policy compares subject and object labels, as in classified government systems.",
+    "example": "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+    "scenario": "The operating system denies a Confidential user access to a Secret file, and the user cannot change the file's label. Which model is that?",
+    "scenarioAnswer": "Mandatory access control",
+    "scenarioWrongs": ["Discretionary access control", "Role-based access control", "Password-only login"],
+    "scenarioWhy": "System-enforced labels the user cannot override are mandatory access control."
+  },
+  {
+    "term": "Discretionary access control",
+    "definition": "Access rules that the owner of an object is allowed to set and change.",
+    "wrongs": [
+      "Labels enforced by the system that the owner cannot weaken.",
+      "Permissions granted only by membership of a central role.",
+      "A network firewall rule on a router."
+    ],
+    "why": "The owner decides who else may read or write, which is the usual model of personal file permissions.",
+    "example": "A student owner of a project folder grants read access to one teammate and can revoke it later.",
+    "scenario": "The owner of a folder grants read access to a teammate and can take that grant away. Which model is that?",
+    "scenarioAnswer": "Discretionary access control",
+    "scenarioWrongs": ["Mandatory access control", "Role-based access control", "A router firewall rule"],
+    "scenarioWhy": "Owner-controlled permissions are discretionary access control."
+  },
+  {
+    "term": "Malware",
+    "definition": "Software designed to disrupt a system, steal data, or gain unauthorised access.",
+    "wrongs": [
+      "Any program the user did not personally write.",
+      "A signed operating-system update from the vendor.",
+      "A firewall that blocks unwanted packets."
+    ],
+    "why": "The defining feature is malicious purpose, whether it is a virus, worm, Trojan, or ransomware.",
+    "example": "A hidden program sends copies of a user's documents to an unknown server.",
+    "scenario": "A hidden program copies documents to an attacker's server without consent. Which broad category fits it?",
+    "scenarioAnswer": "Malware",
+    "scenarioWrongs": ["Any unfamiliar program", "A vendor security update", "A packet filter"],
+    "scenarioWhy": "Software built to steal or harm is malware."
+  },
+  {
+    "term": "Virus",
+    "definition": "Malware that attaches to a host program and spreads when that host is executed.",
+    "wrongs": [
+      "A standalone program that spreads across networks by itself.",
+      "A disguised installer that does not replicate.",
+      "Mail that tricks a user but contains no replicating code."
+    ],
+    "why": "A virus needs a host file and user or system execution of that host to infect further files.",
+    "example": "Opening an infected spreadsheet macro copies the virus into other spreadsheets on the machine.",
+    "scenario": "Malicious code rides inside a document and infects other documents only when they are opened. Which malware type is that?",
+    "scenarioAnswer": "Virus",
+    "scenarioWrongs": ["Worm", "Trojan horse", "A phishing message with no attachment"],
+    "scenarioWhy": "Code that spreads by infecting host files is a virus."
+  },
+  {
+    "term": "Worm",
+    "definition": "Self-replicating malware that spreads to other systems without attaching to a host file.",
+    "wrongs": [
+      "Malware that spreads only by infecting another program on the same disk.",
+      "A one-off disguised utility that never copies itself.",
+      "Spam that contains only a deceptive link."
+    ],
+    "why": "A worm uses the network or removable media to copy itself and run independently.",
+    "example": "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+    "scenario": "A program copies itself to other computers over the network and never infects a host document. Which malware type is that?",
+    "scenarioAnswer": "Worm",
+    "scenarioWrongs": ["Virus", "Trojan horse", "Phishing mail"],
+    "scenarioWhy": "Independent self-replication across systems is a worm."
+  },
+  {
+    "term": "Trojan horse",
+    "definition": "Malware disguised as useful software that does not replicate itself.",
+    "wrongs": [
+      "A self-copying program that needs no disguise and no host file.",
+      "Code that attaches to documents and spreads when they open.",
+      "A hardware keylogger glued inside a keyboard."
+    ],
+    "why": "The user is tricked into running a program that looks legitimate while it performs a hidden action.",
+    "example": "A fake 'free PDF tool' installs a backdoor and never copies itself to other programs.",
+    "scenario": "A student runs a fake calculator app that quietly installs a backdoor and does not spread further by itself. Which malware type is that?",
+    "scenarioAnswer": "Trojan horse",
+    "scenarioWrongs": ["Worm", "Virus", "A physical keylogger"],
+    "scenarioWhy": "Disguised malicious software that does not self-replicate is a Trojan horse."
+  },
+  {
+    "term": "Ransomware",
+    "definition": "Malware that locks or encrypts data and demands payment to restore access.",
+    "wrongs": [
+      "Software that only shows advertisements.",
+      "A worm whose only effect is to consume bandwidth.",
+      "A scanner that quarantines suspicious files for the user."
+    ],
+    "why": "The attacker withholds availability of the data, often after stealing a copy as extra pressure.",
+    "example": "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+    "scenario": "Project files are encrypted and a note demands payment for the key. Which malware type is that?",
+    "scenarioAnswer": "Ransomware",
+    "scenarioWrongs": ["Adware", "A bandwidth-only worm", "Antivirus quarantine"],
+    "scenarioWhy": "Encryption plus a payment demand is ransomware."
+  },
+  {
+    "term": "Spyware",
+    "definition": "Malware that secretly collects information about a user or system.",
+    "wrongs": [
+      "Malware that encrypts files and demands a ransom.",
+      "A self-spreading program that only deletes files.",
+      "A popup blocker installed on purpose by the user."
+    ],
+    "why": "The harm is covert collection, which attacks confidentiality rather than encrypting the disk.",
+    "example": "A browser add-on records every site visited and uploads the list without telling the user.",
+    "scenario": "An add-on silently records browsing history and uploads it. Which malware type is that?",
+    "scenarioAnswer": "Spyware",
+    "scenarioWrongs": ["Ransomware", "A destructive worm", "An intentional popup blocker"],
+    "scenarioWhy": "Secret collection of user information is spyware."
+  },
+  {
+    "term": "Phishing",
+    "definition": "A fraudulent message that tricks a person into revealing secrets or running malware.",
+    "wrongs": [
+      "Guessing a password by trying millions of hashes offline.",
+      "Flooding a server so it cannot answer.",
+      "Exploiting an SQL query by typing commands into a form."
+    ],
+    "why": "Phishing is social engineering delivered by email, text, or a fake site that imitates a trusted one.",
+    "example": "Mail pretending to be the university asks students to enter passwords on a look-alike login page.",
+    "scenario": "Email that looks like the library asks users to type passwords into a copied login page. Which attack is that?",
+    "scenarioAnswer": "Phishing",
+    "scenarioWrongs": ["Offline password cracking", "A denial-of-service flood", "SQL injection"],
+    "scenarioWhy": "A deceptive message that steals credentials is phishing."
+  },
+  {
+    "term": "Social engineering",
+    "definition": "Manipulating people into breaking security procedures or giving away sensitive information.",
+    "wrongs": [
+      "Exploiting only a buffer overflow, with no human target.",
+      "Brute-forcing a key by computation alone.",
+      "Installing a patch that closes a software bug."
+    ],
+    "why": "The attacker uses trust, urgency, or authority instead of relying only on a technical flaw.",
+    "example": "Someone phones the help desk pretending to be a dean and demands an urgent password reset.",
+    "scenario": "An attacker phones the help desk, pretends to be a dean, and obtains a password reset. Which attack class is that?",
+    "scenarioAnswer": "Social engineering",
+    "scenarioWrongs": ["A buffer overflow", "Pure key brute force", "Patch installation"],
+    "scenarioWhy": "Tricking a person into bypassing procedure is social engineering."
+  },
+  {
+    "term": "Security policy",
+    "definition": "Management's written statement of security goals, rules, and responsibilities.",
+    "wrongs": [
+      "A firewall configuration file on one router.",
+      "The technical log of a single incident.",
+      "A vendor's advertisement for an antivirus product."
+    ],
+    "why": "Policy sets what must be protected and who is accountable, and other procedures implement it.",
+    "example": "A university policy states that examination papers are confidential until the published start time.",
+    "scenario": "The senate approves a document that assigns who must protect exam papers and which rules apply. Which document is that?",
+    "scenarioAnswer": "Security policy",
+    "scenarioWrongs": ["One router's rule file", "An incident log", "A product advertisement"],
+    "scenarioWhy": "A management statement of security rules is a security policy."
+  },
+  {
+    "term": "Acceptable use policy",
+    "definition": "Rules that tell users what they may and may not do with organisational systems.",
+    "wrongs": [
+      "The technical design of the campus firewall.",
+      "A contract with a cloud provider about uptime.",
+      "The steps an incident team follows after a breach."
+    ],
+    "why": "It is a user-facing part of security policy covering behaviour such as account sharing and personal use.",
+    "example": "Students must not share passwords or use lab machines to attack other networks.",
+    "scenario": "A handbook forbids sharing accounts and using lab PCs to attack other sites. Which document is that?",
+    "scenarioAnswer": "Acceptable use policy",
+    "scenarioWrongs": ["A firewall design", "An uptime contract", "An incident-response procedure"],
+    "scenarioWhy": "Rules of user behaviour on organisational systems form an acceptable use policy."
+  },
+  {
+    "term": "Security incident",
+    "definition": "An event that violates security policy or harms confidentiality, integrity, or availability.",
+    "wrongs": [
+      "Any log line, including a successful normal login.",
+      "A planned fire drill with no security impact.",
+      "A published lecture slide."
+    ],
+    "why": "Not every event is an incident; an incident is a policy breach or an actual or imminent compromise.",
+    "example": "Discovery that an attacker copied the student database is a security incident.",
+    "scenario": "Staff confirm that an outsider copied the student database. Which term best describes that confirmed harm?",
+    "scenarioAnswer": "Security incident",
+    "scenarioWrongs": ["A routine successful login", "A planned fire drill", "A public lecture slide"],
+    "scenarioWhy": "A real compromise of sensitive data is a security incident."
+  },
+  {
+    "term": "Incident response",
+    "definition": "The organised process for preparing for, handling, and learning from a security incident.",
+    "wrongs": [
+      "Ignoring alerts until the next annual audit.",
+      "Writing the acceptable use policy for the first time.",
+      "Buying insurance with no technical or organisational follow-up."
+    ],
+    "why": "A typical cycle prepares, detects, contains, eradicates, recovers, and records lessons.",
+    "example": "After ransomware is found, a named team isolates hosts, restores backups, and files a report.",
+    "scenario": "A named team isolates infected hosts, restores service, and writes what should change next time. Which process is that?",
+    "scenarioAnswer": "Incident response",
+    "scenarioWrongs": ["Waiting for the annual audit", "Drafting the first acceptable use policy", "Insurance purchase alone"],
+    "scenarioWhy": "Handling an incident through containment, recovery, and lessons is incident response."
+  },
+  {
+    "term": "Containment",
+    "definition": "Limiting the spread and immediate damage of an incident while response continues.",
+    "wrongs": [
+      "Rebuilding every system before the affected hosts are isolated.",
+      "Publishing a final lessons-learned report.",
+      "Choosing next year's security budget."
+    ],
+    "why": "Short-term containment, such as isolating a host, stops the attacker moving further.",
+    "example": "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+    "scenario": "Responders unplug an infected subnet so the malware cannot reach the rest of campus. Which response step is that?",
+    "scenarioAnswer": "Containment",
+    "scenarioWrongs": ["Full rebuild before isolation", "The lessons-learned report", "Next year's budget"],
+    "scenarioWhy": "Stopping the incident from spreading further is containment."
+  },
+  {
+    "term": "Business continuity",
+    "definition": "Planning so essential operations can continue during and after a serious disruption.",
+    "wrongs": [
+      "Restoring servers only, with no plan for teaching or customer service.",
+      "A penetration test of a single web form.",
+      "Daily antivirus scans on healthy machines."
+    ],
+    "why": "Continuity covers people, premises, and processes, not only the recovery of IT equipment.",
+    "example": "If the main campus closes, teaching moves online using a plan rehearsed at the start of term.",
+    "scenario": "When a building is unusable, teaching continues online under a rehearsed plan. Which planning area is that?",
+    "scenarioAnswer": "Business continuity",
+    "scenarioWrongs": ["IT restoration alone", "A single-form penetration test", "Routine antivirus scanning"],
+    "scenarioWhy": "Keeping essential operations going through a disruption is business continuity."
+  },
+  {
+    "term": "Disaster recovery",
+    "definition": "Restoring IT systems and data after a major outage so services can run again.",
+    "wrongs": [
+      "A plan for staffing and teaching that ignores technology.",
+      "Preventing an incident that has not happened.",
+      "Classifying data by sensitivity."
+    ],
+    "why": "Disaster recovery is the technology part of surviving a disaster, using backups, sites, and restore procedures.",
+    "example": "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+    "scenario": "After a data-centre fire, servers and databases are rebuilt from off-site backups. Which plan is being executed?",
+    "scenarioAnswer": "Disaster recovery",
+    "scenarioWrongs": ["A staffing plan with no technology", "Incident prevention", "Data classification"],
+    "scenarioWhy": "Restoring IT after a disaster is disaster recovery."
+  },
+  {
+    "term": "Defence in depth",
+    "definition": "Using several overlapping safeguards so the failure of one control does not expose everything.",
+    "wrongs": [
+      "Relying on a single firewall as the only protection.",
+      "Removing inner controls once the perimeter is trusted.",
+      "Giving every account full rights behind one password."
+    ],
+    "why": "Independent layers, such as network filtering, patching, and access control, cover each other's failures.",
+    "example": "A server sits behind a firewall, requires login, and still encrypts the database files on disk.",
+    "scenario": "A host is behind a firewall, still requires login, and encrypts its database even if an attacker gets in. Which principle is that?",
+    "scenarioAnswer": "Defence in depth",
+    "scenarioWrongs": ["A single perimeter firewall", "Trusting the internal network fully", "One shared administrator password"],
+    "scenarioWhy": "Multiple independent layers are defence in depth."
+  },
+  {
+    "term": "Firewall",
+    "definition": "A control that allows or blocks network traffic according to a set of rules.",
+    "wrongs": [
+      "Software that detects malware already running on a host by signatures alone.",
+      "A backup system that copies disks overnight.",
+      "A hash function used to store passwords."
+    ],
+    "why": "Rules match addresses, ports, or application behaviour and decide whether a packet or session may pass.",
+    "example": "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+    "scenario": "A device permits inbound HTTPS to one server and blocks all other unsolicited inbound connections. Which control is that?",
+    "scenarioAnswer": "Firewall",
+    "scenarioWrongs": ["Host antivirus", "Overnight backup", "Password hashing"],
+    "scenarioWhy": "Rule-based filtering of network traffic is a firewall."
+  },
+  {
+    "term": "Intrusion detection system",
+    "definition": "A monitor that analyses activity and raises alerts about suspected attacks.",
+    "wrongs": [
+      "A device whose main job is to block packets using an allow-list.",
+      "A tool that only encrypts disks.",
+      "A backup scheduler."
+    ],
+    "why": "Detection and alerting are the core; blocking is the job of an intrusion prevention system or firewall.",
+    "example": "A sensor warns the security team that a host is scanning every address on the lab subnet.",
+    "scenario": "A sensor emails the team that a host is port-scanning the lab, but it does not itself block the packets. Which tool is that?",
+    "scenarioAnswer": "Intrusion detection system",
+    "scenarioWrongs": ["A blocking firewall", "Disk encryption", "A backup scheduler"],
+    "scenarioWhy": "Alerting on suspected attacks without being the blocker is intrusion detection."
+  },
+  {
+    "term": "Encryption",
+    "definition": "Transforming readable data into ciphertext so only holders of the proper key can read it.",
+    "wrongs": [
+      "Producing a short digest that cannot be turned back into the message.",
+      "Signing data with a private key so others can check the signer.",
+      "Compressing a file so it takes less disk space."
+    ],
+    "why": "Encryption provides confidentiality; integrity needs an additional check such as a MAC or signature.",
+    "example": "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+    "scenario": "A stolen laptop drive is unreadable unless the owner's key is supplied. Which protection produced that result?",
+    "scenarioAnswer": "Encryption",
+    "scenarioWrongs": ["Hashing", "A digital signature alone", "Compression"],
+    "scenarioWhy": "Ciphertext that requires a key to read is encryption."
+  },
+  {
+    "term": "Cryptographic hash",
+    "definition": "A one-way function that maps data to a short digest for integrity checks.",
+    "wrongs": [
+      "A reversible transform that hides data using a secret key.",
+      "A private-key signature that also identifies the signer.",
+      "A compression method that can restore the original file."
+    ],
+    "why": "A good hash makes it infeasible to recover the input or to find another input with the same digest.",
+    "example": "A course site publishes a SHA-256 digest so students can confirm an installer was not altered.",
+    "scenario": "Students compare a downloaded file with a published digest to see whether any bit changed. Which tool is the digest?",
+    "scenarioAnswer": "Cryptographic hash",
+    "scenarioWrongs": ["Encryption", "A digital signature key", "Lossless compression"],
+    "scenarioWhy": "A one-way digest used to detect change is a cryptographic hash."
+  },
+  {
+    "term": "Digital signature",
+    "definition": "A private-key operation on data that lets others verify the signer and detect changes.",
+    "wrongs": [
+      "Secret-key encryption whose purpose is to hide the contents.",
+      "A one-way digest with no secret key and no identified signer.",
+      "A handwritten name typed in a document footer."
+    ],
+    "why": "Only the private key can create the signature, and the public key lets anyone check it.",
+    "example": "A published grade file carries a signature that verifies with the registry's public key.",
+    "scenario": "Anyone can check, using a public key, that the registry signed a grade file and that it is unchanged. Which mechanism is that?",
+    "scenarioAnswer": "Digital signature",
+    "scenarioWrongs": ["Secret-key encryption", "An unsigned hash", "A typed name in the footer"],
+    "scenarioWhy": "Public verification of a private-key signature shows signer and integrity."
+  },
+  {
+    "term": "Denial of service",
+    "definition": "An attack that makes a system or data unavailable to legitimate users.",
+    "wrongs": [
+      "An attack whose main result is silent reading of secret files.",
+      "A change that alters grades but leaves the site online.",
+      "A login that uses a stolen but valid password."
+    ],
+    "why": "The attacker exhausts bandwidth, CPU, disk, or a process so authorised users cannot be served.",
+    "example": "Millions of requests from a botnet fill a web server's connections and students cannot enrol.",
+    "scenario": "A botnet fills a web server's connections so students cannot open the enrolment page. Which attack is that?",
+    "scenarioAnswer": "Denial of service",
+    "scenarioWrongs": ["Passive eavesdropping", "A silent grade change", "Use of a stolen password"],
+    "scenarioWhy": "Exhausting resources so users lose access is denial of service."
+  },
+  {
+    "term": "Patch management",
+    "definition": "The process of finding, testing, and applying updates that fix security weaknesses.",
+    "wrongs": [
+      "Writing new features with no plan to install vendor fixes.",
+      "Changing passwords on a fixed schedule only.",
+      "Training users to recognise phishing."
+    ],
+    "why": "Known vulnerabilities stay exploitable until a tested patch is deployed and confirmed.",
+    "example": "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+    "scenario": "A team tests a vendor fix for a remote-code bug, then deploys it to every lab PC. Which process is that?",
+    "scenarioAnswer": "Patch management",
+    "scenarioWrongs": ["Feature development with no updates", "Password rotation alone", "Phishing training"],
+    "scenarioWhy": "Finding, testing, and deploying security fixes is patch management."
+  },
+  {
+    "term": "Security awareness",
+    "definition": "Training and communication that help people recognise threats and follow security rules.",
+    "wrongs": [
+      "A firewall rule that users never hear about.",
+      "Automatic installation of patches with no human audience.",
+      "A penetration test that is not explained to staff."
+    ],
+    "why": "Many incidents start with a person, so behaviour is part of the control set.",
+    "example": "New students complete a short module on spotting fake login pages before they receive campus email.",
+    "scenario": "Before receiving campus email, new students must finish a module on fake login pages. Which control is that module?",
+    "scenarioAnswer": "Security awareness",
+    "scenarioWrongs": ["An invisible firewall rule", "Unattended patching", "An unexplained penetration test"],
+    "scenarioWhy": "Teaching people to recognise threats is security awareness."
+  },
+  {
+    "term": "Zero trust",
+    "definition": "A model that verifies every user and device explicitly and does not trust them merely for being on the internal network.",
+    "wrongs": [
+      "Trusting every host inside the firewall and checking only the perimeter.",
+      "Removing authentication once a VPN connection is up.",
+      "Giving broad rights to anyone on the office Wi-Fi."
+    ],
+    "why": "Each request is authenticated and authorised in context, assuming the network may already be hostile.",
+    "example": "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+    "scenario": "An admin tool requires a managed device and strong login even for connections that already come from the campus network. Which model is that?",
+    "scenarioAnswer": "Zero trust",
+    "scenarioWrongs": ["Perimeter trust", "Trust after VPN connect", "Open rights on office Wi-Fi"],
+    "scenarioWhy": "Refusing to trust a connection just because it is internal is zero trust."
+  }
+]

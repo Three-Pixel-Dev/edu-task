@@ -1,0 +1,1685 @@
+{
+  "subjectId": "computer-forensics",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Chain of custody?",
+        "options": [
+          "A documented history of who collected, held, transferred, and stored an item of evidence.",
+          "A network route showing which routers forwarded a packet.",
+          "A hash of a file that replaces the need to record any custodian.",
+          "A software license that lets an examiner copy any disk without notes."
+        ],
+        "correctAnswer": "A documented history of who collected, held, transferred, and stored an item of evidence.",
+        "explanation": "Courts and reviewers use that history to judge whether the evidence stayed accounted for."
+      },
+      {
+        "question": "What is Forensic image?",
+        "options": [
+          "A list of file names typed from memory after the disk is returned.",
+          "A forensically acquired copy of digital media, preserved so the original can stay unchanged.",
+          "A screenshot of the desktop that replaces a copy of the disk.",
+          "A photograph of the outside of a computer case."
+        ],
+        "correctAnswer": "A forensically acquired copy of digital media, preserved so the original can stay unchanged.",
+        "explanation": "The image lets examiners work from a verified copy while the source media is protected."
+      },
+      {
+        "question": "What is Write blocker?",
+        "options": [
+          "Hardware or software that lets an examiner read source media while blocking write commands to it.",
+          "A tool that speeds up a disk by caching writes onto the evidence drive.",
+          "A filter that hides file names during a keyword search.",
+          "A program that encrypts the examiner's notes before they are saved."
+        ],
+        "correctAnswer": "Hardware or software that lets an examiner read source media while blocking write commands to it.",
+        "explanation": "Blocking writes protects the original evidence from changes made by the examination computer."
+      },
+      {
+        "question": "What is File carving?",
+        "options": [
+          "Copying only the files that currently appear in a normal folder listing.",
+          "Recovering file contents from raw stored bytes by matching file-structure patterns when directory entries are missing.",
+          "Compressing a forensic report so it fits in an email.",
+          "Renaming evidence files so their extensions match their hashes."
+        ],
+        "correctAnswer": "Recovering file contents from raw stored bytes by matching file-structure patterns when directory entries are missing.",
+        "explanation": "Carving uses internal file patterns, so it can find files whose file-system metadata is gone."
+      },
+      {
+        "question": "What is Timestamp?",
+        "options": [
+          "The serial number printed on the outside of a disk.",
+          "The hash of a file's contents, which does not record when anything happened.",
+          "The name of the examiner who later opened a report.",
+          "A recorded date and time tied to an event or to a file action such as creation or modification."
+        ],
+        "correctAnswer": "A recorded date and time tied to an event or to a file action such as creation or modification.",
+        "explanation": "Timestamps are the file system's or log's recorded times, which a timeline can place in order."
+      },
+      {
+        "question": "What is Volatile memory?",
+        "options": [
+          "Memory whose contents disappear when power is removed, including registers and RAM.",
+          "A printed log placed in the case folder.",
+          "A hard disk that keeps files after the computer is unplugged.",
+          "An archival tape stored in an evidence locker."
+        ],
+        "correctAnswer": "Memory whose contents disappear when power is removed, including registers and RAM.",
+        "explanation": "Volatile contents exist only while the system has power, so they are collected before shutdown when they matter."
+      },
+      {
+        "question": "What is Event log?",
+        "options": [
+          "A hash computed over an entire disk image.",
+          "A photograph of the desk where a computer was found.",
+          "A warrant that authorizes a search of one office.",
+          "A system record of notable activity such as logons, service errors, or process starts."
+        ],
+        "correctAnswer": "A system record of notable activity such as logons, service errors, or process starts.",
+        "explanation": "Event logs store time-stamped activity that can be correlated with other artifacts."
+      },
+      {
+        "question": "What is Forensic report?",
+        "options": [
+          "A vendor advertisement for a forensic tool.",
+          "A structured document that states the examiner's methods, findings, limitations, and conclusions.",
+          "A raw disk image with no description of methods or results.",
+          "An unsigned sticky note that only says the case is finished."
+        ],
+        "correctAnswer": "A structured document that states the examiner's methods, findings, limitations, and conclusions.",
+        "explanation": "The report is how findings, limits, and the process used are communicated to other reviewers."
+      },
+      {
+        "question": "What is Admissibility?",
+        "options": [
+          "The compression ratio of a stored disk image.",
+          "The legal fitness of evidence or expert testimony to be considered by a court.",
+          "The font size used on an evidence label.",
+          "The speed at which a forensic tool finishes a keyword search."
+        ],
+        "correctAnswer": "The legal fitness of evidence or expert testimony to be considered by a court.",
+        "explanation": "Admissibility depends on rules about relevance, reliability, and lawful collection, not on tool speed."
+      },
+      {
+        "question": "What is Order of volatility?",
+        "options": [
+          "The practice of imaging archival tapes before looking at a running system's memory.",
+          "The practice of labeling bags only after the case is closed.",
+          "The practice of collecting the most short-lived evidence before evidence that persists longer.",
+          "The practice of hashing paper notes before photographing the screen."
+        ],
+        "correctAnswer": "The practice of collecting the most short-lived evidence before evidence that persists longer.",
+        "explanation": "Evidence such as RAM can vanish quickly, while data on a powered-down disk remains longer."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Hash verification?",
+        "options": [
+          "Deleting a log because its hash was already written down.",
+          "Replacing the original disk with the examiner's notebook.",
+          "Comparing a newly computed cryptographic hash with an earlier hash to show a copy still matches.",
+          "Changing file contents until their hash equals a chosen value."
+        ],
+        "correctAnswer": "Comparing a newly computed cryptographic hash with an earlier hash to show a copy still matches.",
+        "explanation": "If the hashes match, the copied bits are the same as the bits hashed at acquisition."
+      },
+      {
+        "question": "What is Working copy?",
+        "options": [
+          "The duplicate that examiners analyze so the original evidence media can remain unchanged.",
+          "A blank drive that has not yet received any image.",
+          "A public web page describing the case in general terms.",
+          "The seized original disk that is mounted for everyday editing."
+        ],
+        "correctAnswer": "The duplicate that examiners analyze so the original evidence media can remain unchanged.",
+        "explanation": "Analysis belongs on the duplicate so routine examination does not alter the source."
+      },
+      {
+        "question": "What is Original media?",
+        "options": [
+          "A blank drive bought to hold an image.",
+          "A photocopy of the examiner's notes.",
+          "The lab computer used only to write the final report.",
+          "The source device or storage received as evidence, as distinct from copies made from it."
+        ],
+        "correctAnswer": "The source device or storage received as evidence, as distinct from copies made from it.",
+        "explanation": "The original is the source item whose condition and custody must be preserved."
+      },
+      {
+        "question": "What is Unallocated space?",
+        "options": [
+          "The paper margin on a printed forensic report.",
+          "The space inside a file that the application is currently editing.",
+          "Disk areas not currently assigned to an active file, which may still hold remnants of deleted data.",
+          "The empty shelf space in an evidence locker."
+        ],
+        "correctAnswer": "Disk areas not currently assigned to an active file, which may still hold remnants of deleted data.",
+        "explanation": "Deleting a file often removes its directory entry while leaving bytes in clusters that are no longer allocated."
+      },
+      {
+        "question": "What is File slack?",
+        "options": [
+          "Leftover bytes in a file's last allocated unit that are not part of that file's current contents.",
+          "The unused lines at the end of a written report.",
+          "The gap between two computers on a shelf.",
+          "The free space of an entire empty partition."
+        ],
+        "correctAnswer": "Leftover bytes in a file's last allocated unit that are not part of that file's current contents.",
+        "explanation": "Storage is allocated in units larger than the file's last partial unit, so older bytes can remain in the leftover part."
+      },
+      {
+        "question": "What is File header signature?",
+        "options": [
+          "The characteristic starting bytes that identify a file type, often called a magic number.",
+          "The handwritten signature on a chain-of-custody form.",
+          "The hash of the whole disk image.",
+          "The alphabetic extension typed at the end of a file name."
+        ],
+        "correctAnswer": "The characteristic starting bytes that identify a file type, often called a magic number.",
+        "explanation": "Many file types begin with a known byte pattern that identifies them even if the name is wrong or missing."
+      },
+      {
+        "question": "What is Metadata?",
+        "options": [
+          "Data about an item, such as its size, owner, or timestamps, as distinct from its visible content.",
+          "The photograph pixels that form the picture itself.",
+          "The paragraph text that a user typed inside a document.",
+          "The spoken words in an audio recording."
+        ],
+        "correctAnswer": "Data about an item, such as its size, owner, or timestamps, as distinct from its visible content.",
+        "explanation": "Metadata describes the item and its history, while content is what the item directly displays or plays."
+      },
+      {
+        "question": "What is Timeline analysis?",
+        "options": [
+          "Listing every tool the lab owns, without reference to the case.",
+          "Computing one hash for an entire case folder.",
+          "Sorting files only by name and ignoring when anything occurred.",
+          "Placing digital events and recorded file times into chronological order to reconstruct activity."
+        ],
+        "correctAnswer": "Placing digital events and recorded file times into chronological order to reconstruct activity.",
+        "explanation": "A timeline shows sequence, which helps relate logs, file times, and other artifacts."
+      },
+      {
+        "question": "What is Live acquisition?",
+        "options": [
+          "Collecting evidence from a system that is still powered on, including memory and running state.",
+          "Imaging a drive only after the computer has been shut down and unplugged.",
+          "Copying files from a backup tape stored offline.",
+          "Photographing a sealed bag days after the device left the scene."
+        ],
+        "correctAnswer": "Collecting evidence from a system that is still powered on, including memory and running state.",
+        "explanation": "A powered-on system still holds volatile state that a later shutdown would lose."
+      },
+      {
+        "question": "What is Dead acquisition?",
+        "options": [
+          "Imaging storage after the system has been powered down, so the drive is copied in a stable state.",
+          "Exporting a process list from a live operating system.",
+          "Recording the screen of an active video call.",
+          "Capturing RAM while the operating system is still running."
+        ],
+        "correctAnswer": "Imaging storage after the system has been powered down, so the drive is copied in a stable state.",
+        "explanation": "With the system off, the storage is not being changed by a running operating system during the copy."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Evidence seal?",
+        "options": [
+          "A hash stored in the forensic report.",
+          "A password used to log in to the examiner's workstation.",
+          "A software lock on a case-management program.",
+          "A tamper-evident closure on evidence packaging so later opening can be detected."
+        ],
+        "correctAnswer": "A tamper-evident closure on evidence packaging so later opening can be detected.",
+        "explanation": "A broken or replaced seal shows that the package may have been opened after it was closed."
+      },
+      {
+        "question": "What is Forensic soundness?",
+        "options": [
+          "The quality of a report's visual design.",
+          "The quality of a method that preserves original evidence and can be documented and reviewed.",
+          "The quality of finishing an exam as quickly as possible with no notes.",
+          "The quality of editing original files so they open faster."
+        ],
+        "correctAnswer": "The quality of a method that preserves original evidence and can be documented and reviewed.",
+        "explanation": "A sound process avoids changing the original and leaves enough documentation for another expert to review."
+      },
+      {
+        "question": "What is Validated tool?",
+        "options": [
+          "A camera that has not been tested because it is new.",
+          "Any newly downloaded utility that has never been checked on known data.",
+          "A word processor used only to type the report title.",
+          "A forensic tool whose output has been tested against known inputs and expected results."
+        ],
+        "correctAnswer": "A forensic tool whose output has been tested against known inputs and expected results.",
+        "explanation": "Validation shows that, for the tested tasks, the tool produces results that match known ground truth."
+      },
+      {
+        "question": "What is Repeatability?",
+        "options": [
+          "The ability to obtain a different result each time the same image is examined.",
+          "The ability to skip notes because the first examiner remembers the steps.",
+          "The ability of a qualified examiner, following the documented process, to reach the same result.",
+          "The ability to change the original so the result is easier to see."
+        ],
+        "correctAnswer": "The ability of a qualified examiner, following the documented process, to reach the same result.",
+        "explanation": "If the data and the documented method stay the same, another examiner should be able to reproduce the result."
+      },
+      {
+        "question": "What is Known-file filter?",
+        "options": [
+          "A comparison of file hashes with a library of known-good or known-bad files so examiners can prioritize the rest.",
+          "A spelling check of the forensic report.",
+          "A filter that hides every file larger than one kilobyte.",
+          "A sort that groups files only by their color icons."
+        ],
+        "correctAnswer": "A comparison of file hashes with a library of known-good or known-bad files so examiners can prioritize the rest.",
+        "explanation": "Matching a known hash lets examiners set aside standard files or highlight files already identified as notable."
+      },
+      {
+        "question": "What is Memory dump?",
+        "options": [
+          "A sector copy of a powered-off hard disk.",
+          "A photograph of a computer's serial-number sticker.",
+          "A captured copy of volatile memory contents, saved so they can be examined later.",
+          "A paper printout of a chain-of-custody form."
+        ],
+        "correctAnswer": "A captured copy of volatile memory contents, saved so they can be examined later.",
+        "explanation": "The dump preserves RAM contents that would otherwise disappear when the machine powers off."
+      },
+      {
+        "question": "What is Read-only mount?",
+        "options": [
+          "Attaching a file system so it can be viewed without writing changes back to that file system.",
+          "Formatting the evidence disk before searching it.",
+          "Opening a disk so the operating system may update access times and journals on it.",
+          "Copying the examiner's notes onto the seized drive."
+        ],
+        "correctAnswer": "Attaching a file system so it can be viewed without writing changes back to that file system.",
+        "explanation": "A read-only mount is one control, often used with a write blocker, to avoid changing the examined copy."
+      },
+      {
+        "question": "What is Bit-stream copy?",
+        "options": [
+          "A sector-by-sector copy of storage that includes active files, slack, and unallocated space.",
+          "A copy of only the files currently visible in folders.",
+          "A typed list of file names without their contents.",
+          "A compressed summary that keeps headings but drops file bytes."
+        ],
+        "correctAnswer": "A sector-by-sector copy of storage that includes active files, slack, and unallocated space.",
+        "explanation": "Copying every sector preserves remnants that a normal file-by-file copy would skip."
+      },
+      {
+        "question": "What is Logical acquisition?",
+        "options": [
+          "A capture of CPU registers and RAM.",
+          "A photograph of the physical device only.",
+          "A sector-by-sector image that includes slack and unallocated space.",
+          "A copy of data visible through the file system, which does not include unallocated space."
+        ],
+        "correctAnswer": "A copy of data visible through the file system, which does not include unallocated space.",
+        "explanation": "Logical acquisition follows the file system, so deleted remnants outside active files are left behind."
+      },
+      {
+        "question": "What is Sterile destination media?",
+        "options": [
+          "A folder of the examiner's personal photographs.",
+          "A used drive that still contains another case's files.",
+          "The seized source disk that is about to be imaged.",
+          "Target media that has been wiped and checked before an image is written, so old data cannot mix in."
+        ],
+        "correctAnswer": "Target media that has been wiped and checked before an image is written, so old data cannot mix in.",
+        "explanation": "Wiping and verifying the destination prevents leftover bytes from being mistaken for evidence."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Clock skew?",
+        "options": [
+          "The hash difference between two identical copies of a file.",
+          "The number of pages in a forensic report.",
+          "The difference between a device clock and a trusted reference time.",
+          "The physical distance between two evidence lockers."
+        ],
+        "correctAnswer": "The difference between a device clock and a trusted reference time.",
+        "explanation": "If the device clock is fast or slow, its timestamps must be interpreted against a known reference."
+      },
+      {
+        "question": "What is Locard's exchange principle?",
+        "options": [
+          "The idea that hashes replace the need to look for traces.",
+          "The idea that only paper documents can be evidence.",
+          "The idea that digital actions leave no artifacts of any kind.",
+          "The idea that contact or interaction leaves traces that a later examination may detect."
+        ],
+        "correctAnswer": "The idea that contact or interaction leaves traces that a later examination may detect.",
+        "explanation": "Digital actions such as connecting a device or opening a file often leave artifacts elsewhere on the system."
+      },
+      {
+        "question": "What is Legal hold?",
+        "options": [
+          "A request to delete logs once a complaint is received.",
+          "An instruction to preserve information that may be relevant because a legal matter is expected or underway.",
+          "A note that tells staff to reuse sterilized drives for personal files.",
+          "A tool setting that compresses images by discarding sectors."
+        ],
+        "correctAnswer": "An instruction to preserve information that may be relevant because a legal matter is expected or underway.",
+        "explanation": "A legal hold suspends ordinary deletion so potentially relevant information remains available."
+      },
+      {
+        "question": "What is Spoliation?",
+        "options": [
+          "The careful imaging of a drive onto sterile media.",
+          "The destruction or material alteration of evidence that should have been preserved for a legal process.",
+          "The signing of a chain-of-custody form.",
+          "The writing of contemporaneous examination notes."
+        ],
+        "correctAnswer": "The destruction or material alteration of evidence that should have been preserved for a legal process.",
+        "explanation": "Once a duty to preserve exists, destroying or materially changing that evidence is spoliation."
+      },
+      {
+        "question": "What is First responder?",
+        "options": [
+          "The juror who reads the final report.",
+          "The judge who later rules on admissibility.",
+          "The person who first secures a digital scene and begins preservation before a full laboratory examination.",
+          "The vendor that sold the imaging software."
+        ],
+        "correctAnswer": "The person who first secures a digital scene and begins preservation before a full laboratory examination.",
+        "explanation": "Early scene control reduces the chance that evidence will be lost, altered, or undocumented."
+      },
+      {
+        "question": "What is Tamper-evident packaging?",
+        "options": [
+          "Packaging built so that opening or altering it leaves a visible sign.",
+          "A reusable grocery bag with no closure record.",
+          "A clear sleeve that can be opened and resealed without any mark.",
+          "An unsealed cardboard box used for convenience."
+        ],
+        "correctAnswer": "Packaging built so that opening or altering it leaves a visible sign.",
+        "explanation": "Visible damage to the packaging warns custodians that the contents may have been accessed."
+      },
+      {
+        "question": "What is Contemporaneous notes?",
+        "options": [
+          "Notes written at the time of an action, recording what was done, when, and by whom.",
+          "A calendar invitation that only says a meeting exists.",
+          "A vendor manual that was never marked for the case.",
+          "A summary typed months later from memory with no dates."
+        ],
+        "correctAnswer": "Notes written at the time of an action, recording what was done, when, and by whom.",
+        "explanation": "Notes made at the time are more reliable than a reconstruction written long afterward."
+      },
+      {
+        "question": "What is Scope of authority?",
+        "options": [
+          "The legal limit on which devices, data, places, or time periods an examiner may search.",
+          "The shelf height of the evidence locker.",
+          "The font limit in the report template.",
+          "The maximum speed of the laboratory's imaging computer."
+        ],
+        "correctAnswer": "The legal limit on which devices, data, places, or time periods an examiner may search.",
+        "explanation": "Authority such as a warrant or consent defines the boundaries of a lawful examination."
+      },
+      {
+        "question": "What is Remote logging?",
+        "options": [
+          "Disabling logs whenever a disk becomes half full.",
+          "Printing logs and then shredding both the paper and the file.",
+          "Sending event records to another host so a later local change does not erase the only copy.",
+          "Keeping the only log copy in memory on the same machine being investigated."
+        ],
+        "correctAnswer": "Sending event records to another host so a later local change does not erase the only copy.",
+        "explanation": "A copy on another host can survive clearing or failure of the local log."
+      },
+      {
+        "question": "What is Syslog?",
+        "options": [
+          "A hash algorithm used only for disk images.",
+          "A court standard for qualifying expert witnesses.",
+          "A file system used to store photographs on camera cards.",
+          "A standard format and service for sending device event messages to a logging host."
+        ],
+        "correctAnswer": "A standard format and service for sending device event messages to a logging host.",
+        "explanation": "Syslog gives devices a common way to forward event messages to a collector."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is EXIF data?",
+        "options": [
+          "The hash of the forensic image that contains the photo.",
+          "Metadata stored inside a photo file, which can include camera details and the capture time.",
+          "A separate paper log that was never embedded in the file.",
+          "The visible pixels that make up the picture."
+        ],
+        "correctAnswer": "Metadata stored inside a photo file, which can include camera details and the capture time.",
+        "explanation": "EXIF is embedded metadata about the photo, not the picture pixels themselves."
+      },
+      {
+        "question": "What is Master file table?",
+        "options": [
+          "A paper index taped to the front of an evidence locker.",
+          "The first sector of a disk that holds boot code on older PCs.",
+          "The NTFS system file that stores a record for each file, including attributes and cluster locations.",
+          "A spreadsheet the examiner creates to list exhibit numbers."
+        ],
+        "correctAnswer": "The NTFS system file that stores a record for each file, including attributes and cluster locations.",
+        "explanation": "NTFS keeps file records in the master file table, so those records describe names, times, and locations."
+      },
+      {
+        "question": "What is Journaling?",
+        "options": [
+          "A paper diary kept by the examiner after hours.",
+          "A court reporter's transcript of testimony.",
+          "A hash list printed at the end of a report.",
+          "A file-system feature that records pending changes so the system can recover after an interruption."
+        ],
+        "correctAnswer": "A file-system feature that records pending changes so the system can recover after an interruption.",
+        "explanation": "The journal describes recent intended changes and can contain artifacts useful to a timeline."
+      },
+      {
+        "question": "What is Browser history artifact?",
+        "options": [
+          "A paper bookmark stuck to a monitor.",
+          "A firewall rule that blocks one domain for the whole campus.",
+          "A stored browser record, often in a local database, of pages visited by a user account.",
+          "The live web page as it exists on the public internet today."
+        ],
+        "correctAnswer": "A stored browser record, often in a local database, of pages visited by a user account.",
+        "explanation": "The artifact is local stored history, which can remain after the browser window is closed."
+      },
+      {
+        "question": "What is Evidence intake?",
+        "options": [
+          "The purchase of a new imaging computer.",
+          "The final courtroom testimony of an expert.",
+          "The deletion of a case folder when the report is printed.",
+          "The formal check-in of an item, recording its description, condition, identifiers, and receiving custodian."
+        ],
+        "correctAnswer": "The formal check-in of an item, recording its description, condition, identifiers, and receiving custodian.",
+        "explanation": "Intake starts the laboratory record of what arrived, in what condition, and who received it."
+      },
+      {
+        "question": "What is Isolated analysis environment?",
+        "options": [
+          "A laboratory setup kept off the general network so examination does not change live operational systems.",
+          "The production network where student services are running.",
+          "The original server left connected to the internet during testing.",
+          "A public computer lab used by any student during exams."
+        ],
+        "correctAnswer": "A laboratory setup kept off the general network so examination does not change live operational systems.",
+        "explanation": "Isolation reduces the risk of spreading malware or altering systems that are still in operation."
+      },
+      {
+        "question": "What is Daubert standard?",
+        "options": [
+          "A file-system feature that journals disk changes.",
+          "A US federal test of whether expert evidence rests on methods that are tested, reviewed, and reliable.",
+          "A hash comparison used only to verify an image copy.",
+          "A rule that accepts any tool output without asking about its reliability."
+        ],
+        "correctAnswer": "A US federal test of whether expert evidence rests on methods that are tested, reviewed, and reliable.",
+        "explanation": "Daubert focuses on the reliability of the method, including testing, peer review, and known error concerns."
+      },
+      {
+        "question": "What is Forensic readiness?",
+        "options": [
+          "Avoiding backups because they might contain records.",
+          "Deleting time sources so clocks cannot be compared.",
+          "Waiting until after logs are gone to decide whether logging was needed.",
+          "Preparing systems in advance so useful and trustworthy evidence can be preserved when an incident occurs."
+        ],
+        "correctAnswer": "Preparing systems in advance so useful and trustworthy evidence can be preserved when an incident occurs.",
+        "explanation": "Readiness includes logging, time synchronization, and retention choices made before an incident."
+      },
+      {
+        "question": "What is Cross-contamination?",
+        "options": [
+          "The unwanted mixing of data from one case, device, or action with a different item of evidence.",
+          "The use of a new seal for each evidence bag.",
+          "The storing of unrelated cases in separately labeled containers.",
+          "The deliberate separation of each case onto its own sterile media."
+        ],
+        "correctAnswer": "The unwanted mixing of data from one case, device, or action with a different item of evidence.",
+        "explanation": "Mixing remnants from another case can make later findings unreliable and hard to explain."
+      },
+      {
+        "question": "What is Dual hashing?",
+        "options": [
+          "Storing the evidence hash only in human memory.",
+          "Hashing two unrelated cases and expecting their digests to match.",
+          "Using one short checksum that is not meant to detect intentional changes.",
+          "Computing two different cryptographic hashes of the same evidence so both can be checked for a match."
+        ],
+        "correctAnswer": "Computing two different cryptographic hashes of the same evidence so both can be checked for a match.",
+        "explanation": "Agreement of two independent hashes, such as MD5 and SHA-256, strengthens the integrity check of the copy."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Chain of custody?",
+        "options": [
+          "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space.",
+          "An examiner connects a seized drive through a hardware write blocker and confirms the operating system cannot save files to it.",
+          "Each time a seized laptop moves from the scene officer to the lab locker, both people sign the transfer record.",
+          "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker."
+        ],
+        "correctAnswer": "Each time a seized laptop moves from the scene officer to the lab locker, both people sign the transfer record.",
+        "explanation": "Courts and reviewers use that history to judge whether the evidence stayed accounted for."
+      },
+      {
+        "question": "Which situation illustrates Forensic image?",
+        "options": [
+          "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker.",
+          "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space.",
+          "An examiner connects a seized drive through a hardware write blocker and confirms the operating system cannot save files to it.",
+          "A document's modified time shows 14:02, and examiners compare that time with the server log for the same minute."
+        ],
+        "correctAnswer": "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker.",
+        "explanation": "The image lets examiners work from a verified copy while the source media is protected."
+      },
+      {
+        "question": "Which situation illustrates Write blocker?",
+        "options": [
+          "A document's modified time shows 14:02, and examiners compare that time with the server log for the same minute.",
+          "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space.",
+          "A running server holds active network connections in RAM that will vanish if the server loses power.",
+          "An examiner connects a seized drive through a hardware write blocker and confirms the operating system cannot save files to it."
+        ],
+        "correctAnswer": "An examiner connects a seized drive through a hardware write blocker and confirms the operating system cannot save files to it.",
+        "explanation": "Blocking writes protects the original evidence from changes made by the examination computer."
+      },
+      {
+        "question": "Which situation illustrates File carving?",
+        "options": [
+          "A document's modified time shows 14:02, and examiners compare that time with the server log for the same minute.",
+          "A running server holds active network connections in RAM that will vanish if the server loses power.",
+          "A Windows security log shows a successful logon for a lab account at 09:14 on the exam morning.",
+          "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space."
+        ],
+        "correctAnswer": "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space.",
+        "explanation": "Carving uses internal file patterns, so it can find files whose file-system metadata is gone."
+      },
+      {
+        "question": "Which situation illustrates Timestamp?",
+        "options": [
+          "A document's modified time shows 14:02, and examiners compare that time with the server log for the same minute.",
+          "A running server holds active network connections in RAM that will vanish if the server loses power.",
+          "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector.",
+          "A Windows security log shows a successful logon for a lab account at 09:14 on the exam morning."
+        ],
+        "correctAnswer": "A document's modified time shows 14:02, and examiners compare that time with the server log for the same minute.",
+        "explanation": "Timestamps are the file system's or log's recorded times, which a timeline can place in order."
+      },
+      {
+        "question": "Which situation illustrates Volatile memory?",
+        "options": [
+          "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector.",
+          "A Windows security log shows a successful logon for a lab account at 09:14 on the exam morning.",
+          "A running server holds active network connections in RAM that will vanish if the server loses power.",
+          "A judge considers whether a drive image was lawfully seized and whether the lab process is reliable enough to present."
+        ],
+        "correctAnswer": "A running server holds active network connections in RAM that will vanish if the server loses power.",
+        "explanation": "Volatile contents exist only while the system has power, so they are collected before shutdown when they matter."
+      },
+      {
+        "question": "Which situation illustrates Event log?",
+        "options": [
+          "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector.",
+          "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes.",
+          "A Windows security log shows a successful logon for a lab account at 09:14 on the exam morning.",
+          "A judge considers whether a drive image was lawfully seized and whether the lab process is reliable enough to present."
+        ],
+        "correctAnswer": "A Windows security log shows a successful logon for a lab account at 09:14 on the exam morning.",
+        "explanation": "Event logs store time-stamped activity that can be correlated with other artifacts."
+      },
+      {
+        "question": "Which situation illustrates Forensic report?",
+        "options": [
+          "After imaging, the lab hashes the image again and checks that it equals the hash recorded when the drive was acquired.",
+          "A judge considers whether a drive image was lawfully seized and whether the lab process is reliable enough to present.",
+          "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes.",
+          "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector."
+        ],
+        "correctAnswer": "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector.",
+        "explanation": "The report is how findings, limits, and the process used are communicated to other reviewers."
+      },
+      {
+        "question": "Which situation illustrates Admissibility?",
+        "options": [
+          "A judge considers whether a drive image was lawfully seized and whether the lab process is reliable enough to present.",
+          "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage.",
+          "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes.",
+          "After imaging, the lab hashes the image again and checks that it equals the hash recorded when the drive was acquired."
+        ],
+        "correctAnswer": "A judge considers whether a drive image was lawfully seized and whether the lab process is reliable enough to present.",
+        "explanation": "Admissibility depends on rules about relevance, reliability, and lawful collection, not on tool speed."
+      },
+      {
+        "question": "Which situation illustrates Order of volatility?",
+        "options": [
+          "The seized laptop drive stays in a sealed bag, while all searching is done on an image made from it.",
+          "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage.",
+          "After imaging, the lab hashes the image again and checks that it equals the hash recorded when the drive was acquired.",
+          "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes."
+        ],
+        "correctAnswer": "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes.",
+        "explanation": "Evidence such as RAM can vanish quickly, while data on a powered-down disk remains longer."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Hash verification?",
+        "options": [
+          "After imaging, the lab hashes the image again and checks that it equals the hash recorded when the drive was acquired.",
+          "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+          "The seized laptop drive stays in a sealed bag, while all searching is done on an image made from it.",
+          "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage."
+        ],
+        "correctAnswer": "After imaging, the lab hashes the image again and checks that it equals the hash recorded when the drive was acquired.",
+        "explanation": "If the hashes match, the copied bits are the same as the bits hashed at acquisition."
+      },
+      {
+        "question": "Which situation illustrates Working copy?",
+        "options": [
+          "A 100-byte text file occupies a larger cluster, and the unused tail of that cluster still contains bytes from an older file.",
+          "The seized laptop drive stays in a sealed bag, while all searching is done on an image made from it.",
+          "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+          "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage."
+        ],
+        "correctAnswer": "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage.",
+        "explanation": "Analysis belongs on the duplicate so routine examination does not alter the source."
+      },
+      {
+        "question": "Which situation illustrates Original media?",
+        "options": [
+          "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+          "The seized laptop drive stays in a sealed bag, while all searching is done on an image made from it.",
+          "A 100-byte text file occupies a larger cluster, and the unused tail of that cluster still contains bytes from an older file.",
+          "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text."
+        ],
+        "correctAnswer": "The seized laptop drive stays in a sealed bag, while all searching is done on an image made from it.",
+        "explanation": "The original is the source item whose condition and custody must be preserved."
+      },
+      {
+        "question": "Which situation illustrates Unallocated space?",
+        "options": [
+          "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+          "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text.",
+          "A spreadsheet's cells are content, while its author name and last-saved time are metadata.",
+          "A 100-byte text file occupies a larger cluster, and the unused tail of that cluster still contains bytes from an older file."
+        ],
+        "correctAnswer": "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+        "explanation": "Deleting a file often removes its directory entry while leaving bytes in clusters that are no longer allocated."
+      },
+      {
+        "question": "Which situation illustrates File slack?",
+        "options": [
+          "A 100-byte text file occupies a larger cluster, and the unused tail of that cluster still contains bytes from an older file.",
+          "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+          "A spreadsheet's cells are content, while its author name and last-saved time are metadata.",
+          "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text."
+        ],
+        "correctAnswer": "A 100-byte text file occupies a larger cluster, and the unused tail of that cluster still contains bytes from an older file.",
+        "explanation": "Storage is allocated in units larger than the file's last partial unit, so older bytes can remain in the leftover part."
+      },
+      {
+        "question": "Which situation illustrates File header signature?",
+        "options": [
+          "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+          "Responders capture the RAM and active connection list of a server before anyone powers it down.",
+          "A spreadsheet's cells are content, while its author name and last-saved time are metadata.",
+          "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text."
+        ],
+        "correctAnswer": "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text.",
+        "explanation": "Many file types begin with a known byte pattern that identifies them even if the name is wrong or missing."
+      },
+      {
+        "question": "Which situation illustrates Metadata?",
+        "options": [
+          "A spreadsheet's cells are content, while its author name and last-saved time are metadata.",
+          "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it.",
+          "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+          "Responders capture the RAM and active connection list of a server before anyone powers it down."
+        ],
+        "correctAnswer": "A spreadsheet's cells are content, while its author name and last-saved time are metadata.",
+        "explanation": "Metadata describes the item and its history, while content is what the item directly displays or plays."
+      },
+      {
+        "question": "Which situation illustrates Timeline analysis?",
+        "options": [
+          "The evidence bag's numbered seal is intact when the drive reaches the lab, matching the number on the intake form.",
+          "Responders capture the RAM and active connection list of a server before anyone powers it down.",
+          "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+          "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it."
+        ],
+        "correctAnswer": "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+        "explanation": "A timeline shows sequence, which helps relate logs, file times, and other artifacts."
+      },
+      {
+        "question": "Which situation illustrates Live acquisition?",
+        "options": [
+          "The evidence bag's numbered seal is intact when the drive reaches the lab, matching the number on the intake form.",
+          "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+          "Responders capture the RAM and active connection list of a server before anyone powers it down.",
+          "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it."
+        ],
+        "correctAnswer": "Responders capture the RAM and active connection list of a server before anyone powers it down.",
+        "explanation": "A powered-on system still holds volatile state that a later shutdown would lose."
+      },
+      {
+        "question": "Which situation illustrates Dead acquisition?",
+        "options": [
+          "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+          "Before casework, the lab runs a carving tool on a test image with known files and compares the recovered set with the answer key.",
+          "The evidence bag's numbered seal is intact when the drive reaches the lab, matching the number on the intake form.",
+          "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it."
+        ],
+        "correctAnswer": "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it.",
+        "explanation": "With the system off, the storage is not being changed by a running operating system during the copy."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Evidence seal?",
+        "options": [
+          "A second examiner repeats the documented hash check on the same image and gets the same digest.",
+          "Before casework, the lab runs a carving tool on a test image with known files and compares the recovered set with the answer key.",
+          "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+          "The evidence bag's numbered seal is intact when the drive reaches the lab, matching the number on the intake form."
+        ],
+        "correctAnswer": "The evidence bag's numbered seal is intact when the drive reaches the lab, matching the number on the intake form.",
+        "explanation": "A broken or replaced seal shows that the package may have been opened after it was closed."
+      },
+      {
+        "question": "Which situation illustrates Forensic soundness?",
+        "options": [
+          "A second examiner repeats the documented hash check on the same image and gets the same digest.",
+          "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+          "The lab ignores thousands of standard operating-system files whose hashes match a known-good library and reviews the remaining files.",
+          "Before casework, the lab runs a carving tool on a test image with known files and compares the recovered set with the answer key."
+        ],
+        "correctAnswer": "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+        "explanation": "A sound process avoids changing the original and leaves enough documentation for another expert to review."
+      },
+      {
+        "question": "Which situation illustrates Validated tool?",
+        "options": [
+          "The lab ignores thousands of standard operating-system files whose hashes match a known-good library and reviews the remaining files.",
+          "A second examiner repeats the documented hash check on the same image and gets the same digest.",
+          "Before casework, the lab runs a carving tool on a test image with known files and compares the recovered set with the answer key.",
+          "Responders save a server's RAM to an external drive and later review the processes that were in memory."
+        ],
+        "correctAnswer": "Before casework, the lab runs a carving tool on a test image with known files and compares the recovered set with the answer key.",
+        "explanation": "Validation shows that, for the tested tasks, the tool produces results that match known ground truth."
+      },
+      {
+        "question": "Which situation illustrates Repeatability?",
+        "options": [
+          "Responders save a server's RAM to an external drive and later review the processes that were in memory.",
+          "The lab ignores thousands of standard operating-system files whose hashes match a known-good library and reviews the remaining files.",
+          "The lab mounts an image read-only so browsing folders does not update timestamps on that image.",
+          "A second examiner repeats the documented hash check on the same image and gets the same digest."
+        ],
+        "correctAnswer": "A second examiner repeats the documented hash check on the same image and gets the same digest.",
+        "explanation": "If the data and the documented method stay the same, another examiner should be able to reproduce the result."
+      },
+      {
+        "question": "Which situation illustrates Known-file filter?",
+        "options": [
+          "The lab ignores thousands of standard operating-system files whose hashes match a known-good library and reviews the remaining files.",
+          "The lab mounts an image read-only so browsing folders does not update timestamps on that image.",
+          "Responders save a server's RAM to an external drive and later review the processes that were in memory.",
+          "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file."
+        ],
+        "correctAnswer": "The lab ignores thousands of standard operating-system files whose hashes match a known-good library and reviews the remaining files.",
+        "explanation": "Matching a known hash lets examiners set aside standard files or highlight files already identified as notable."
+      },
+      {
+        "question": "Which situation illustrates Memory dump?",
+        "options": [
+          "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file.",
+          "A phone extraction copies the visible photo library and messages but not leftover bytes from deleted items.",
+          "Responders save a server's RAM to an external drive and later review the processes that were in memory.",
+          "The lab mounts an image read-only so browsing folders does not update timestamps on that image."
+        ],
+        "correctAnswer": "Responders save a server's RAM to an external drive and later review the processes that were in memory.",
+        "explanation": "The dump preserves RAM contents that would otherwise disappear when the machine powers off."
+      },
+      {
+        "question": "Which situation illustrates Read-only mount?",
+        "options": [
+          "A phone extraction copies the visible photo library and messages but not leftover bytes from deleted items.",
+          "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+          "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file.",
+          "The lab mounts an image read-only so browsing folders does not update timestamps on that image."
+        ],
+        "correctAnswer": "The lab mounts an image read-only so browsing folders does not update timestamps on that image.",
+        "explanation": "A read-only mount is one control, often used with a write blocker, to avoid changing the examined copy."
+      },
+      {
+        "question": "Which situation illustrates Bit-stream copy?",
+        "options": [
+          "A camera clock is 12 minutes fast compared with a trusted time source, so photo times are adjusted in the timeline notes.",
+          "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+          "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file.",
+          "A phone extraction copies the visible photo library and messages but not leftover bytes from deleted items."
+        ],
+        "correctAnswer": "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file.",
+        "explanation": "Copying every sector preserves remnants that a normal file-by-file copy would skip."
+      },
+      {
+        "question": "Which situation illustrates Logical acquisition?",
+        "options": [
+          "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+          "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged.",
+          "A camera clock is 12 minutes fast compared with a trusted time source, so photo times are adjusted in the timeline notes.",
+          "A phone extraction copies the visible photo library and messages but not leftover bytes from deleted items."
+        ],
+        "correctAnswer": "A phone extraction copies the visible photo library and messages but not leftover bytes from deleted items.",
+        "explanation": "Logical acquisition follows the file system, so deleted remnants outside active files are left behind."
+      },
+      {
+        "question": "Which situation illustrates Sterile destination media?",
+        "options": [
+          "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged.",
+          "After counsel issues a hold, the university stops its usual deletion of the relevant mailbox and server logs.",
+          "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+          "A camera clock is 12 minutes fast compared with a trusted time source, so photo times are adjusted in the timeline notes."
+        ],
+        "correctAnswer": "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+        "explanation": "Wiping and verifying the destination prevents leftover bytes from being mistaken for evidence."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Clock skew?",
+        "options": [
+          "After counsel issues a hold, the university stops its usual deletion of the relevant mailbox and server logs.",
+          "A camera clock is 12 minutes fast compared with a trusted time source, so photo times are adjusted in the timeline notes.",
+          "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation.",
+          "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged."
+        ],
+        "correctAnswer": "A camera clock is 12 minutes fast compared with a trusted time source, so photo times are adjusted in the timeline notes.",
+        "explanation": "If the device clock is fast or slow, its timestamps must be interpreted against a known reference."
+      },
+      {
+        "question": "Which situation illustrates Locard's exchange principle?",
+        "options": [
+          "After counsel issues a hold, the university stops its usual deletion of the relevant mailbox and server logs.",
+          "The on-call staff member isolates a running lab computer, photographs the screen, and records who is present before the drive is imaged.",
+          "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation.",
+          "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged."
+        ],
+        "correctAnswer": "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged.",
+        "explanation": "Digital actions such as connecting a device or opening a file often leave artifacts elsewhere on the system."
+      },
+      {
+        "question": "Which situation illustrates Legal hold?",
+        "options": [
+          "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation.",
+          "After counsel issues a hold, the university stops its usual deletion of the relevant mailbox and server logs.",
+          "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+          "The on-call staff member isolates a running lab computer, photographs the screen, and records who is present before the drive is imaged."
+        ],
+        "correctAnswer": "After counsel issues a hold, the university stops its usual deletion of the relevant mailbox and server logs.",
+        "explanation": "A legal hold suspends ordinary deletion so potentially relevant information remains available."
+      },
+      {
+        "question": "Which situation illustrates Spoliation?",
+        "options": [
+          "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+          "While imaging, the examiner writes the start time, tool version, and drive identifier in the case notebook.",
+          "The on-call staff member isolates a running lab computer, photographs the screen, and records who is present before the drive is imaged.",
+          "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation."
+        ],
+        "correctAnswer": "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation.",
+        "explanation": "Once a duty to preserve exists, destroying or materially changing that evidence is spoliation."
+      },
+      {
+        "question": "Which situation illustrates First responder?",
+        "options": [
+          "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include.",
+          "While imaging, the examiner writes the start time, tool version, and drive identifier in the case notebook.",
+          "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+          "The on-call staff member isolates a running lab computer, photographs the screen, and records who is present before the drive is imaged."
+        ],
+        "correctAnswer": "The on-call staff member isolates a running lab computer, photographs the screen, and records who is present before the drive is imaged.",
+        "explanation": "Early scene control reduces the chance that evidence will be lost, altered, or undocumented."
+      },
+      {
+        "question": "Which situation illustrates Tamper-evident packaging?",
+        "options": [
+          "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+          "While imaging, the examiner writes the start time, tool version, and drive identifier in the case notebook.",
+          "A firewall sends its logs to a separate server, which still has them after the firewall's local buffer is cleared.",
+          "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include."
+        ],
+        "correctAnswer": "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+        "explanation": "Visible damage to the packaging warns custodians that the contents may have been accessed."
+      },
+      {
+        "question": "Which situation illustrates Contemporaneous notes?",
+        "options": [
+          "A firewall sends its logs to a separate server, which still has them after the firewall's local buffer is cleared.",
+          "While imaging, the examiner writes the start time, tool version, and drive identifier in the case notebook.",
+          "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots.",
+          "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include."
+        ],
+        "correctAnswer": "While imaging, the examiner writes the start time, tool version, and drive identifier in the case notebook.",
+        "explanation": "Notes made at the time are more reliable than a reconstruction written long afterward."
+      },
+      {
+        "question": "Which situation illustrates Scope of authority?",
+        "options": [
+          "A lawfully seized camera photo has an EXIF capture time that examiners compare with the camera's clock offset.",
+          "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include.",
+          "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots.",
+          "A firewall sends its logs to a separate server, which still has them after the firewall's local buffer is cleared."
+        ],
+        "correctAnswer": "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include.",
+        "explanation": "Authority such as a warrant or consent defines the boundaries of a lawful examination."
+      },
+      {
+        "question": "Which situation illustrates Remote logging?",
+        "options": [
+          "A lawfully seized camera photo has an EXIF capture time that examiners compare with the camera's clock offset.",
+          "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run.",
+          "A firewall sends its logs to a separate server, which still has them after the firewall's local buffer is cleared.",
+          "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots."
+        ],
+        "correctAnswer": "A firewall sends its logs to a separate server, which still has them after the firewall's local buffer is cleared.",
+        "explanation": "A copy on another host can survive clearing or failure of the local log."
+      },
+      {
+        "question": "Which situation illustrates Syslog?",
+        "options": [
+          "A lawfully seized camera photo has an EXIF capture time that examiners compare with the camera's clock offset.",
+          "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots.",
+          "After a power loss, an NTFS volume uses its journal to finish or undo file-system changes that were in progress.",
+          "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run."
+        ],
+        "correctAnswer": "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots.",
+        "explanation": "Syslog gives devices a common way to forward event messages to a collector."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates EXIF data?",
+        "options": [
+          "A lawfully seized camera photo has an EXIF capture time that examiners compare with the camera's clock offset.",
+          "After a power loss, an NTFS volume uses its journal to finish or undo file-system changes that were in progress.",
+          "The lab reads a browser database on the image and finds a record of a library page visited at 16:40.",
+          "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run."
+        ],
+        "correctAnswer": "A lawfully seized camera photo has an EXIF capture time that examiners compare with the camera's clock offset.",
+        "explanation": "EXIF is embedded metadata about the photo, not the picture pixels themselves."
+      },
+      {
+        "question": "Which situation illustrates Master file table?",
+        "options": [
+          "At the lab door, staff record the laptop's serial number, the intact seal number, and the name of the person receiving it.",
+          "After a power loss, an NTFS volume uses its journal to finish or undo file-system changes that were in progress.",
+          "The lab reads a browser database on the image and finds a record of a library page visited at 16:40.",
+          "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run."
+        ],
+        "correctAnswer": "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run.",
+        "explanation": "NTFS keeps file records in the master file table, so those records describe names, times, and locations."
+      },
+      {
+        "question": "Which situation illustrates Journaling?",
+        "options": [
+          "After a power loss, an NTFS volume uses its journal to finish or undo file-system changes that were in progress.",
+          "Malware from a seized image is opened only on a lab bench network that has no route to campus services.",
+          "At the lab door, staff record the laptop's serial number, the intact seal number, and the name of the person receiving it.",
+          "The lab reads a browser database on the image and finds a record of a library page visited at 16:40."
+        ],
+        "correctAnswer": "After a power loss, an NTFS volume uses its journal to finish or undo file-system changes that were in progress.",
+        "explanation": "The journal describes recent intended changes and can contain artifacts useful to a timeline."
+      },
+      {
+        "question": "Which situation illustrates Browser history artifact?",
+        "options": [
+          "Before expert testimony, the court asks whether the lab's imaging method has been tested and whether its error rate is known.",
+          "The lab reads a browser database on the image and finds a record of a library page visited at 16:40.",
+          "At the lab door, staff record the laptop's serial number, the intact seal number, and the name of the person receiving it.",
+          "Malware from a seized image is opened only on a lab bench network that has no route to campus services."
+        ],
+        "correctAnswer": "The lab reads a browser database on the image and finds a record of a library page visited at 16:40.",
+        "explanation": "The artifact is local stored history, which can remain after the browser window is closed."
+      },
+      {
+        "question": "Which situation illustrates Evidence intake?",
+        "options": [
+          "Malware from a seized image is opened only on a lab bench network that has no route to campus services.",
+          "A department enables centralized logs and synchronized clocks months before any investigation is needed.",
+          "At the lab door, staff record the laptop's serial number, the intact seal number, and the name of the person receiving it.",
+          "Before expert testimony, the court asks whether the lab's imaging method has been tested and whether its error rate is known."
+        ],
+        "correctAnswer": "At the lab door, staff record the laptop's serial number, the intact seal number, and the name of the person receiving it.",
+        "explanation": "Intake starts the laboratory record of what arrived, in what condition, and who received it."
+      },
+      {
+        "question": "Which situation illustrates Isolated analysis environment?",
+        "options": [
+          "A department enables centralized logs and synchronized clocks months before any investigation is needed.",
+          "Malware from a seized image is opened only on a lab bench network that has no route to campus services.",
+          "Before expert testimony, the court asks whether the lab's imaging method has been tested and whether its error rate is known.",
+          "A destination drive still contained files from an older case, so those files appeared beside the new image."
+        ],
+        "correctAnswer": "Malware from a seized image is opened only on a lab bench network that has no route to campus services.",
+        "explanation": "Isolation reduces the risk of spreading malware or altering systems that are still in operation."
+      },
+      {
+        "question": "Which situation illustrates Daubert standard?",
+        "options": [
+          "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+          "Before expert testimony, the court asks whether the lab's imaging method has been tested and whether its error rate is known.",
+          "A destination drive still contained files from an older case, so those files appeared beside the new image.",
+          "A department enables centralized logs and synchronized clocks months before any investigation is needed."
+        ],
+        "correctAnswer": "Before expert testimony, the court asks whether the lab's imaging method has been tested and whether its error rate is known.",
+        "explanation": "Daubert focuses on the reliability of the method, including testing, peer review, and known error concerns."
+      },
+      {
+        "question": "Which situation illustrates Forensic readiness?",
+        "options": [
+          "A destination drive still contained files from an older case, so those files appeared beside the new image.",
+          "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+          "Each time a seized laptop moves from the scene officer to the lab locker, both people sign the transfer record.",
+          "A department enables centralized logs and synchronized clocks months before any investigation is needed."
+        ],
+        "correctAnswer": "A department enables centralized logs and synchronized clocks months before any investigation is needed.",
+        "explanation": "Readiness includes logging, time synchronization, and retention choices made before an incident."
+      },
+      {
+        "question": "Which situation illustrates Cross-contamination?",
+        "options": [
+          "A destination drive still contained files from an older case, so those files appeared beside the new image.",
+          "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+          "Each time a seized laptop moves from the scene officer to the lab locker, both people sign the transfer record.",
+          "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker."
+        ],
+        "correctAnswer": "A destination drive still contained files from an older case, so those files appeared beside the new image.",
+        "explanation": "Mixing remnants from another case can make later findings unreliable and hard to explain."
+      },
+      {
+        "question": "Which situation illustrates Dual hashing?",
+        "options": [
+          "An examiner connects a seized drive through a hardware write blocker and confirms the operating system cannot save files to it.",
+          "Each time a seized laptop moves from the scene officer to the lab locker, both people sign the transfer record.",
+          "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+          "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker."
+        ],
+        "correctAnswer": "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+        "explanation": "Agreement of two independent hashes, such as MD5 and SHA-256, strengthens the integrity check of the copy."
+      }
+    ],
+    "11": [
+      {
+        "question": "A seized phone changes hands three times before analysis. Which record shows who held it at each step?",
+        "options": [
+          "The examiner's class schedule",
+          "The phone's battery percentage",
+          "The chain of custody",
+          "The lab's software license"
+        ],
+        "correctAnswer": "The chain of custody",
+        "explanation": "The chain of custody is the ongoing record of each person who had the phone."
+      },
+      {
+        "question": "Examiners need a complete copy of a drive for analysis while the seized drive stays sealed. What should they create?",
+        "options": [
+          "A forensic image",
+          "A printed directory listing",
+          "A photo of the drive label",
+          "A summary written from memory"
+        ],
+        "correctAnswer": "A forensic image",
+        "explanation": "A forensic image is the working copy of the media, verified and kept separate from the original."
+      },
+      {
+        "question": "A seized disk must be read on a lab computer without that computer altering the disk. What device should sit between them?",
+        "options": [
+          "An ordinary USB hub with no write protection",
+          "A disk duplicator set to overwrite the source",
+          "A network hub",
+          "A write blocker"
+        ],
+        "correctAnswer": "A write blocker",
+        "explanation": "A write blocker permits reading the evidence disk and stops the lab computer from writing to it."
+      },
+      {
+        "question": "Directory entries for deleted pictures are gone, but the picture bytes may remain on the disk. Which method looks for those bytes by file structure?",
+        "options": [
+          "Checking the computer's warranty date",
+          "Printing the chain-of-custody form",
+          "File carving",
+          "Reading only the current folder listing"
+        ],
+        "correctAnswer": "File carving",
+        "explanation": "File carving searches raw data for known file patterns when the directory no longer points to the files."
+      },
+      {
+        "question": "Investigators want the recorded modification time of a report file, not a hash of its text. Which value do they read?",
+        "options": [
+          "The file's cryptographic hash",
+          "The file's timestamp",
+          "The disk's serial number",
+          "The examiner's job title"
+        ],
+        "correctAnswer": "The file's timestamp",
+        "explanation": "A timestamp is the stored date and time associated with the file action."
+      },
+      {
+        "question": "A running workstation will be unplugged. Which evidence is most likely to disappear when the power goes off?",
+        "options": [
+          "A tape stored in the evidence room",
+          "A printed inventory sheet",
+          "Files already stored on the hard disk",
+          "The contents of RAM"
+        ],
+        "correctAnswer": "The contents of RAM",
+        "explanation": "RAM is volatile memory, so its contents are lost when power is removed."
+      },
+      {
+        "question": "An examiner needs the recorded logon times for an account on a server. Which artifact is the usual source?",
+        "options": [
+          "The room's furniture inventory",
+          "The disk manufacturer's sticker",
+          "The event log",
+          "The computer's power-cable length"
+        ],
+        "correctAnswer": "The event log",
+        "explanation": "Event logs are the system's own record of activities such as account logons."
+      },
+      {
+        "question": "Counsel asks for the methods, hashes, findings, and limits of an examination in one document. What should the examiner provide?",
+        "options": [
+          "An unlabeled screenshot with no notes",
+          "Only the raw disk image",
+          "A tool vendor's brochure",
+          "The forensic report"
+        ],
+        "correctAnswer": "The forensic report",
+        "explanation": "A forensic report brings together the methods, evidence identifiers, findings, and limitations."
+      },
+      {
+        "question": "A judge must decide whether a drive image and the examiner's testimony may be considered at trial. What quality is being decided?",
+        "options": [
+          "Admissibility",
+          "Label font size",
+          "Image compression ratio",
+          "Search speed"
+        ],
+        "correctAnswer": "Admissibility",
+        "explanation": "Admissibility is the court's decision about whether that evidence may be considered."
+      },
+      {
+        "question": "A server is still running, and both RAM and the hard disk matter. Which source should be collected first?",
+        "options": [
+          "The spare drives still in sealed boxes",
+          "The RAM",
+          "The archival backup tapes",
+          "The printed rack diagram"
+        ],
+        "correctAnswer": "The RAM",
+        "explanation": "Order of volatility puts the short-lived RAM contents ahead of data that will still be on disk."
+      }
+    ],
+    "12": [
+      {
+        "question": "An image was hashed at acquisition, and the lab hashes it again before trial. What does a match support?",
+        "options": [
+          "The suspect wrote every file",
+          "The clock was set to universal time",
+          "The warrant covered every building",
+          "The image is unchanged since acquisition"
+        ],
+        "correctAnswer": "The image is unchanged since acquisition",
+        "explanation": "Matching hashes show the image bits are the same as when the acquisition hash was made."
+      },
+      {
+        "question": "Keyword searches should not be run on the sealed original disk. What should the examiner search instead?",
+        "options": [
+          "The sealed original disk",
+          "An empty destination drive",
+          "The evidence-room sign-in sheet",
+          "A working copy"
+        ],
+        "correctAnswer": "A working copy",
+        "explanation": "The working copy is the duplicate reserved for analysis while the original stays protected."
+      },
+      {
+        "question": "A bag labeled as evidence contains the drive taken from the scene, not the lab's later copy. What is that drive?",
+        "options": [
+          "The original media",
+          "The working copy",
+          "The report appendix",
+          "The sterile destination disk"
+        ],
+        "correctAnswer": "The original media",
+        "explanation": "Original media is the source item collected as evidence, before laboratory copies are made."
+      },
+      {
+        "question": "A user deleted a document and emptied the trash, yet remnants may remain outside any active file. Where do examiners look?",
+        "options": [
+          "Only the current desktop folder",
+          "The BIOS setup screen's help text",
+          "The printed user manual",
+          "Unallocated space"
+        ],
+        "correctAnswer": "Unallocated space",
+        "explanation": "Unallocated space can retain data from files that are no longer assigned a directory entry."
+      },
+      {
+        "question": "A short file does not fill its last cluster, and older bytes remain in the unused tail. What is that unused tail called?",
+        "options": [
+          "The file name extension",
+          "File slack",
+          "The entire unallocated volume",
+          "The master boot record"
+        ],
+        "correctAnswer": "File slack",
+        "explanation": "File slack is the unused remainder of the last allocated unit of a file."
+      },
+      {
+        "question": "A file's name ends in .txt, but examiners want the type indicated by its first bytes. What do they inspect?",
+        "options": [
+          "The custodian's handwritten signature",
+          "The color of the evidence bag",
+          "Only the three-letter extension",
+          "The file header signature"
+        ],
+        "correctAnswer": "The file header signature",
+        "explanation": "The header signature is the leading byte pattern that identifies the file type."
+      },
+      {
+        "question": "Examiners already have the words inside a letter and now want its author field and last-saved time. What are those fields?",
+        "options": [
+          "The examiner's conclusion",
+          "Metadata",
+          "The disk's total capacity",
+          "The letter's paragraph text"
+        ],
+        "correctAnswer": "Metadata",
+        "explanation": "Author and last-saved time describe the file, so they are metadata rather than the letter's wording."
+      },
+      {
+        "question": "An examiner wants to see whether a file change happened before or after a logon on the same computer. Which method helps?",
+        "options": [
+          "Sorting the files alphabetically",
+          "Hashing the examiner's notes",
+          "Timeline analysis",
+          "Counting the pages in the warrant"
+        ],
+        "correctAnswer": "Timeline analysis",
+        "explanation": "Timeline analysis puts the file time and the logon into one chronological sequence."
+      },
+      {
+        "question": "Encrypted containers are open only while a server stays on, and memory may hold useful state. Which collection approach fits?",
+        "options": [
+          "Live acquisition",
+          "Waiting to image a cold backup tape only",
+          "Photographing the powered-off screen",
+          "Pulling the power plug first"
+        ],
+        "correctAnswer": "Live acquisition",
+        "explanation": "Live acquisition collects evidence while the system is still running and that state still exists."
+      },
+      {
+        "question": "A desktop is already off, and the team needs a stable copy of its drive rather than RAM. Which acquisition fits?",
+        "options": [
+          "Dead acquisition",
+          "A memory dump from the running desktop",
+          "A photograph of the login screen",
+          "A copy of the examiner's live notes only"
+        ],
+        "correctAnswer": "Dead acquisition",
+        "explanation": "Dead acquisition images stable storage from a system that is not running."
+      }
+    ],
+    "13": [
+      {
+        "question": "A drive arrives with its bag closure cut and replaced by an unnumbered strip. What was supposed to show that change?",
+        "options": [
+          "The evidence seal",
+          "The disk's file-system journal",
+          "The report font",
+          "The examiner's password"
+        ],
+        "correctAnswer": "The evidence seal",
+        "explanation": "An evidence seal is meant to make opening the package detectable."
+      },
+      {
+        "question": "A procedure never alters the original disk and records enough detail for another expert to review it. Which quality does it have?",
+        "options": [
+          "Anonymous undocumented steps",
+          "Forensic soundness",
+          "Maximum editing speed",
+          "Decorative formatting"
+        ],
+        "correctAnswer": "Forensic soundness",
+        "explanation": "Forensic soundness means the original is preserved and the method can be reviewed."
+      },
+      {
+        "question": "A lab wants evidence that its imaging program copies a test disk correctly before using it in cases. What should that program be?",
+        "options": [
+          "A validated tool",
+          "A drawing program",
+          "An untested utility from an unknown site",
+          "A game used to stress the CPU"
+        ],
+        "correctAnswer": "A validated tool",
+        "explanation": "A validated tool has been tested on known data and produced the expected results."
+      },
+      {
+        "question": "Another qualified examiner follows the written steps on the same image and gets the same hash. Which property is that?",
+        "options": [
+          "A result that changes on every run",
+          "Reliance on unwritten memory",
+          "Editing the original until the hash matches",
+          "Repeatability"
+        ],
+        "correctAnswer": "Repeatability",
+        "explanation": "Repeatability means the documented process produces the same result when it is followed again."
+      },
+      {
+        "question": "Most files on a system disk are ordinary operating-system files. How can hashes help the examiner focus on the others?",
+        "options": [
+          "Delete every file whose name is short",
+          "Ignore hashes and open files at random",
+          "Compare them with a known-file library",
+          "Sort only by icon color"
+        ],
+        "correctAnswer": "Compare them with a known-file library",
+        "explanation": "A known-file filter uses hashes to separate familiar library files from the files that still need review."
+      },
+      {
+        "question": "Analysts need to study the processes that were in RAM after the server has been shut down. What must already have been saved?",
+        "options": [
+          "An image of a spare blank disk",
+          "A copy of the paper warranty",
+          "A photograph of the server front panel",
+          "A memory dump"
+        ],
+        "correctAnswer": "A memory dump",
+        "explanation": "A memory dump is the saved copy of RAM that can be examined after the live state is gone."
+      },
+      {
+        "question": "An examiner must browse an image without the operating system writing timestamps back to it. How should it be mounted?",
+        "options": [
+          "Read-only",
+          "Read-write with journaling enabled on the evidence",
+          "After formatting the image",
+          "As a drive that stores the examiner's notes"
+        ],
+        "correctAnswer": "Read-only",
+        "explanation": "A read-only mount lets the examiner view the file system without writing changes to it."
+      },
+      {
+        "question": "Deleted-file remnants in unallocated space must be included in the copy. Which copy type does that?",
+        "options": [
+          "A bit-stream copy",
+          "A backup of the examiner's email",
+          "A list of folder names",
+          "A copy of visible files only"
+        ],
+        "correctAnswer": "A bit-stream copy",
+        "explanation": "A bit-stream copy takes every sector, so unallocated space is included."
+      },
+      {
+        "question": "A copy includes current messages and photos but misses deleted data outside the file system. Which acquisition is that?",
+        "options": [
+          "A photograph of the device",
+          "Logical acquisition",
+          "A full bit-stream image",
+          "A RAM dump"
+        ],
+        "correctAnswer": "Logical acquisition",
+        "explanation": "Logical acquisition copies file-system-visible data and omits unallocated remnants."
+      },
+      {
+        "question": "A destination drive previously held another case. What must it be before a new image is written?",
+        "options": [
+          "Replaced by the seized source disk",
+          "Left full of the previous case",
+          "Used as the examiner's personal backup",
+          "Sterile destination media"
+        ],
+        "correctAnswer": "Sterile destination media",
+        "explanation": "Sterile destination media has been wiped and checked so previous data cannot mix with the new image."
+      }
+    ],
+    "14": [
+      {
+        "question": "A laptop clock is 20 minutes behind a trusted source. What is that 20-minute difference called?",
+        "options": [
+          "File slack",
+          "Chain-of-custody gap",
+          "A hash mismatch",
+          "Clock skew"
+        ],
+        "correctAnswer": "Clock skew",
+        "explanation": "Clock skew is the offset between the laptop clock and the trusted reference time."
+      },
+      {
+        "question": "A removable drive was connected and then removed. Which principle explains why the computer may still hold traces of that connection?",
+        "options": [
+          "Locard's exchange principle",
+          "The claim that use leaves no traces",
+          "The idea that a hash erases history",
+          "The rule that only paper is evidence"
+        ],
+        "correctAnswer": "Locard's exchange principle",
+        "explanation": "Locard's exchange principle says the interaction can leave detectable traces on the computer."
+      },
+      {
+        "question": "A lawsuit is anticipated, and routine deletion would remove relevant mail. What instruction should management issue first?",
+        "options": [
+          "A legal hold",
+          "A request to format the log server",
+          "An order to delete the mailboxes",
+          "A note to pause all backups forever without preserving anything"
+        ],
+        "correctAnswer": "A legal hold",
+        "explanation": "A legal hold directs staff to preserve information that may be relevant to the matter."
+      },
+      {
+        "question": "Relevant logs are wiped after a preservation duty has begun. What is that destruction called?",
+        "options": [
+          "Spoliation",
+          "Contemporaneous note-taking",
+          "Hash verification",
+          "Forensic imaging"
+        ],
+        "correctAnswer": "Spoliation",
+        "explanation": "Spoliation is the improper destruction or material alteration of evidence that should have been kept."
+      },
+      {
+        "question": "Someone must secure a live computer and start preservation before the full lab exam begins. Which role is that?",
+        "options": [
+          "The first responder",
+          "The trial judge",
+          "The software vendor",
+          "A juror"
+        ],
+        "correctAnswer": "The first responder",
+        "explanation": "The first responder is responsible for the initial securing and preservation of the scene."
+      },
+      {
+        "question": "Storage materials should make it obvious if someone opens a bag after it leaves the scene. What kind of packaging is required?",
+        "options": [
+          "Tamper-evident packaging",
+          "A reusable open tote",
+          "An ordinary unsealed box",
+          "A sleeve that reseals without a mark"
+        ],
+        "correctAnswer": "Tamper-evident packaging",
+        "explanation": "Tamper-evident packaging is designed to show a visible sign if it is opened."
+      },
+      {
+        "question": "Months later, nobody remembers the imaging start time. Which record should already contain it because it was written during the work?",
+        "options": [
+          "A blank calendar page",
+          "Contemporaneous notes",
+          "A memoir written long afterward",
+          "An unmarked product manual"
+        ],
+        "correctAnswer": "Contemporaneous notes",
+        "explanation": "Contemporaneous notes are made while the action happens, so the start time would be recorded then."
+      },
+      {
+        "question": "A warrant names one desktop and not the employees' phones. What sets that limit on the examination?",
+        "options": [
+          "The speed of the imaging PC",
+          "The size of the evidence room",
+          "The report template",
+          "The scope of authority"
+        ],
+        "correctAnswer": "The scope of authority",
+        "explanation": "The scope of authority is the legal boundary on what may be searched."
+      },
+      {
+        "question": "Investigators need firewall events from last week, but the firewall's local buffer was cleared yesterday. Which practice would have kept a copy?",
+        "options": [
+          "Remote logging",
+          "Disabling logging when the disk filled",
+          "Deleting the log server each night",
+          "Storing the only copy in the firewall's memory"
+        ],
+        "correctAnswer": "Remote logging",
+        "explanation": "Remote logging places a copy on another host that can survive clearing of the local buffer."
+      },
+      {
+        "question": "A switch can only keep a short local event buffer. Which standard service can forward those events to a logging server?",
+        "options": [
+          "A camera file system",
+          "A witness-qualification test",
+          "A disk-image hash",
+          "Syslog"
+        ],
+        "correctAnswer": "Syslog",
+        "explanation": "Syslog is the standard service used to send device events to a logging host."
+      }
+    ],
+    "15": [
+      {
+        "question": "Examiners have a seized photo and need the capture time stored inside the file, not a hash of the disk. What do they read?",
+        "options": [
+          "The evidence-room temperature log",
+          "The image hash of the whole disk",
+          "Only the picture pixels",
+          "The EXIF data"
+        ],
+        "correctAnswer": "The EXIF data",
+        "explanation": "EXIF data is the embedded metadata that can store the photo's capture time."
+      },
+      {
+        "question": "On an NTFS volume, where is the per-file record of a document's attributes and cluster locations stored?",
+        "options": [
+          "In the printed user manual",
+          "Only in the examiner's exhibit spreadsheet",
+          "In a paper locker index",
+          "In the master file table"
+        ],
+        "correctAnswer": "In the master file table",
+        "explanation": "The master file table is the NTFS structure that holds each file's record."
+      },
+      {
+        "question": "A volume records intended file-system changes so it can recover after a crash. What is that feature called?",
+        "options": [
+          "The report's hash appendix",
+          "The examiner's personal diary",
+          "A trial transcript",
+          "Journaling"
+        ],
+        "correctAnswer": "Journaling",
+        "explanation": "Journaling is the file system's own log of pending changes used for recovery."
+      },
+      {
+        "question": "A browser window is closed, but the account's visited pages may still be stored locally. What is that stored record?",
+        "options": [
+          "A paper note on the monitor",
+          "A browser history artifact",
+          "A campus firewall rule",
+          "Today's copy of the public website"
+        ],
+        "correctAnswer": "A browser history artifact",
+        "explanation": "A browser history artifact is the local stored record of pages the account visited."
+      },
+      {
+        "question": "A sealed laptop arrives at the lab. Which step records its serial number, condition, and the person who received it?",
+        "options": [
+          "Deleting the case folder",
+          "Evidence intake",
+          "Buying a new computer",
+          "The expert's trial testimony"
+        ],
+        "correctAnswer": "Evidence intake",
+        "explanation": "Evidence intake is the formal check-in that records the item, its condition, and its receiver."
+      },
+      {
+        "question": "A seized image may contain harmful software and must be reviewed without touching campus services. Where should that review happen?",
+        "options": [
+          "In an isolated analysis environment",
+          "On a public lab computer",
+          "On the production student portal",
+          "On the original internet-connected server"
+        ],
+        "correctAnswer": "In an isolated analysis environment",
+        "explanation": "An isolated analysis environment has no path to the live operational systems."
+      },
+      {
+        "question": "A US federal court asks whether an examiner's method is tested, reviewed, and reliable enough for expert testimony. Which standard is that?",
+        "options": [
+          "A rule that all tool output is automatically accepted",
+          "The Daubert standard",
+          "The image-hash procedure alone",
+          "The file-system journal format"
+        ],
+        "correctAnswer": "The Daubert standard",
+        "explanation": "The Daubert standard is the federal reliability test applied to expert methods and testimony."
+      },
+      {
+        "question": "A department wants useful logs and reliable clocks already in place before any incident. What preparation is that?",
+        "options": [
+          "Stopping all record retention",
+          "Turning logs on only after they have been deleted",
+          "Removing time synchronization",
+          "Forensic readiness"
+        ],
+        "correctAnswer": "Forensic readiness",
+        "explanation": "Forensic readiness is advance preparation so evidence can be preserved when an incident happens."
+      },
+      {
+        "question": "Files from an older case appear on the drive used for a new image because the drive was not wiped. What problem occurred?",
+        "options": [
+          "Proper use of sterile media",
+          "Cross-contamination",
+          "Separate labeling of each case",
+          "A successful hash match of one image"
+        ],
+        "correctAnswer": "Cross-contamination",
+        "explanation": "Cross-contamination is the mixing of leftover data from one case into another item of evidence."
+      },
+      {
+        "question": "The lab wants two independent digests of one image, such as MD5 and SHA-256, recorded together. What practice is that?",
+        "options": [
+          "Keeping the digest only in memory",
+          "Using a one-digit sum as the only check",
+          "Dual hashing",
+          "Hashing two different cases against each other"
+        ],
+        "correctAnswer": "Dual hashing",
+        "explanation": "Dual hashing computes two different cryptographic hashes over the same evidence."
+      }
+    ]
+  }
+}

@@ -1,0 +1,752 @@
+[
+  {
+    "term": "OSI Model",
+    "definition": "A seven-layer reference model, from physical up through application, used to describe network functions.",
+    "wrongs": [
+      "A four-layer Internet architecture that folds session and presentation into the application layer.",
+      "A life-cycle model that finishes each software phase before the next begins.",
+      "A formula for the capacity of a noisy communication channel."
+    ],
+    "why": "The model orders physical, data link, network, transport, session, presentation, and application responsibilities.",
+    "example": "A class maps cables, frames, IP, TCP, and HTTP onto seven ordered layers.",
+    "scenario": "Students map cables, frames, IP, TCP, and HTTP onto seven ordered layers. Which reference model are they using?",
+    "scenarioAnswer": "The OSI model",
+    "scenarioWrongs": ["The TCP/IP model", "The waterfall model", "The Shannon model"],
+    "scenarioWhy": "Seven ordered layers from the medium up to the application are the OSI model."
+  },
+  {
+    "term": "Physical Layer",
+    "definition": "The OSI layer that moves raw bits across a medium using signals, connectors, and encoding.",
+    "wrongs": [
+      "The layer that forwards packets using logical IP addresses.",
+      "The layer that delivers data between processes using port numbers.",
+      "The layer that provides services such as the web and email to applications."
+    ],
+    "why": "This layer is concerned with bits on the wire or fiber, not with frames, IP addresses, or ports.",
+    "example": "A technician replaces a damaged fiber and measures the light level, with no MAC address involved.",
+    "scenario": "A technician replaces a damaged fiber and checks the optical level, and no addresses are involved. Which OSI layer is being serviced?",
+    "scenarioAnswer": "Physical layer",
+    "scenarioWrongs": ["Network layer", "Transport layer", "Application layer"],
+    "scenarioWhy": "Signals and the medium, without addresses, belong to the physical layer."
+  },
+  {
+    "term": "Data Link Layer",
+    "definition": "The OSI layer that organizes bits into frames and delivers them across one link using MAC addresses.",
+    "wrongs": [
+      "The layer that routes packets between different IP networks.",
+      "The layer that moves raw bits as voltages or light with no frames.",
+      "The layer that chooses a process on a host by port number."
+    ],
+    "why": "Node-to-node delivery on a single link, using frames and MAC addresses, is the data link job.",
+    "example": "A switch chooses an output port from the destination MAC address in an Ethernet frame.",
+    "scenario": "A switch uses the destination MAC address to choose an output port. Which OSI layer makes that decision?",
+    "scenarioAnswer": "Data link layer",
+    "scenarioWrongs": ["Network layer", "Physical layer", "Session layer"],
+    "scenarioWhy": "Forwarding by MAC address on one link is a data link function."
+  },
+  {
+    "term": "Network Layer",
+    "definition": "The OSI layer that addresses hosts logically and forwards packets across interconnected networks.",
+    "wrongs": [
+      "The layer that delivers bytes to the correct process using a port number.",
+      "The layer that moves frames using MAC addresses on one link.",
+      "The layer that translates character sets for the application."
+    ],
+    "why": "Logical addressing and routing from one network to another are network-layer functions.",
+    "example": "A router chooses the next hop for a packet by looking up the destination IP prefix.",
+    "scenario": "A router chooses the next hop from the destination IP address. Which OSI layer is that choice?",
+    "scenarioAnswer": "Network layer",
+    "scenarioWrongs": ["Data link layer", "Transport layer", "Presentation layer"],
+    "scenarioWhy": "Choosing a next hop from a logical address is the network layer."
+  },
+  {
+    "term": "Transport Layer",
+    "definition": "The OSI layer that delivers data between processes on different hosts, using port numbers.",
+    "wrongs": [
+      "The layer that forwards packets between networks using IP addresses.",
+      "The layer that delivers frames across a single link using MAC addresses.",
+      "The layer that encodes bits as voltages on a cable."
+    ],
+    "why": "Port numbers let the transport layer distinguish processes even when they share one IP address.",
+    "example": "The stack delivers bytes to the process on port 443 rather than the process on port 22.",
+    "scenario": "Bytes must reach the process on port 443 rather than the process on port 22 on the same host. Which OSI layer uses that distinction?",
+    "scenarioAnswer": "Transport layer",
+    "scenarioWrongs": ["Network layer", "Data link layer", "Physical layer"],
+    "scenarioWhy": "Selecting a process by port number is a transport-layer function."
+  },
+  {
+    "term": "Session Layer",
+    "definition": "The OSI layer that establishes, manages, and ends dialogs between applications.",
+    "wrongs": [
+      "The layer that moves raw bits across a cable or fiber.",
+      "The layer that routes packets by IP address.",
+      "The layer that frames bits and uses MAC addresses."
+    ],
+    "why": "Dialog control, including checkpoints that let a conversation resume, is the session layer's role in the OSI model.",
+    "example": "An application opens a dialog, sets a checkpoint, and later resumes that dialog after a pause.",
+    "scenario": "An application opens a dialog, places a checkpoint, and later resumes after a pause. Which OSI layer describes that control?",
+    "scenarioAnswer": "Session layer",
+    "scenarioWrongs": ["Physical layer", "Network layer", "Data link layer"],
+    "scenarioWhy": "Opening, checkpointing, and resuming a dialog is session-layer control."
+  },
+  {
+    "term": "Presentation Layer",
+    "definition": "The OSI layer concerned with data format, encryption, and compression for the application.",
+    "wrongs": [
+      "The layer that manages dialog checkpoints between applications.",
+      "The layer that routes packets across IP networks.",
+      "The layer that transmits bits on the physical medium."
+    ],
+    "why": "The OSI presentation layer makes data understandable across systems by handling syntax, encryption, and compression.",
+    "example": "Two systems translate character encoding and decompress a payload before the application reads it.",
+    "scenario": "Two systems translate character encoding and decompress the payload before the application reads it. Which OSI layer is that job?",
+    "scenarioAnswer": "Presentation layer",
+    "scenarioWrongs": ["Session layer", "Network layer", "Physical layer"],
+    "scenarioWhy": "Format translation and compression for the application are presentation-layer jobs in OSI."
+  },
+  {
+    "term": "Application Layer",
+    "definition": "The OSI layer that provides network services directly to user applications, such as the web and email.",
+    "wrongs": [
+      "The layer that provides reliable delivery between ports.",
+      "The layer that forwards IP packets between networks.",
+      "The layer that sends frames using MAC addresses."
+    ],
+    "why": "Protocols such as HTTP, SMTP, and FTP are application-layer services used by programs.",
+    "example": "A mail client speaks SMTP to submit a message to a mail server.",
+    "scenario": "A mail client speaks SMTP to submit a message. Which OSI layer contains SMTP?",
+    "scenarioAnswer": "Application layer",
+    "scenarioWrongs": ["Transport layer", "Network layer", "Data link layer"],
+    "scenarioWhy": "SMTP is an application service, so it sits in the application layer."
+  },
+  {
+    "term": "TCP/IP Model",
+    "definition": "The Internet architecture whose layers are application, transport, internet, and network access.",
+    "wrongs": [
+      "A seven-layer model that keeps separate session and presentation layers.",
+      "A LAN standard that defines only Ethernet frames and MAC addresses.",
+      "A routing protocol that floods link states inside an autonomous system."
+    ],
+    "why": "The Internet stack groups OSI's top three layers into one application layer and uses IP at the internet layer.",
+    "example": "A textbook places HTTP, TCP, IP, and Ethernet into four layers rather than seven.",
+    "scenario": "HTTP is placed in the same layer that also absorbs OSI session and presentation duties. Which model is being used?",
+    "scenarioAnswer": "The TCP/IP model",
+    "scenarioWrongs": ["The OSI model", "The ATM model", "The waterfall model"],
+    "scenarioWhy": "Folding application, presentation, and session work into one layer matches the TCP/IP model."
+  },
+  {
+    "term": "Encapsulation",
+    "definition": "Adding a layer's header, and sometimes a trailer, around the data received from the layer above.",
+    "wrongs": [
+      "Removing headers as data moves up the stack toward the application.",
+      "Splitting one IP packet into pieces because it exceeds the link MTU.",
+      "Changing a carrier amplitude to send bits on a radio channel."
+    ],
+    "why": "Each lower layer wraps the upper layer's unit with the control information that layer needs.",
+    "example": "A TCP segment receives an IP header on the way down and then an Ethernet header and FCS.",
+    "scenario": "As a message moves down the stack, TCP adds a header and then IP adds another header. Which process is adding those headers?",
+    "scenarioAnswer": "Encapsulation",
+    "scenarioWrongs": ["Fragmentation", "Decapsulation", "Modulation"],
+    "scenarioWhy": "Wrapping data with the headers of lower layers is encapsulation."
+  },
+  {
+    "term": "PDU",
+    "definition": "The block of data defined at a given layer, such as a segment, packet, frame, or bit.",
+    "wrongs": [
+      "The largest payload a particular link is allowed to carry.",
+      "The maximum bit rate of a transmission link.",
+      "An endpoint identified by an IP address and a port."
+    ],
+    "why": "Each layer has its own protocol data unit: bits, frames, packets, and segments are layer-specific names.",
+    "example": "An instructor asks students to treat segment, packet, and frame as examples of one general term.",
+    "scenario": "Students must name the general term for a layer's unit, of which segment, packet, and frame are examples. Which term covers all of them?",
+    "scenarioAnswer": "Protocol data unit",
+    "scenarioWrongs": ["Maximum transmission unit", "Bandwidth", "Socket"],
+    "scenarioWhy": "Segment, packet, and frame are each a protocol data unit at a different layer."
+  },
+  {
+    "term": "Ethernet",
+    "definition": "The IEEE 802.3 family of LAN standards that sends frames addressed by 48-bit MAC addresses.",
+    "wrongs": [
+      "A wide-area virtual-circuit technology that uses DLCI numbers.",
+      "A cell-switching technology that uses 53-byte cells.",
+      "A ring LAN that passes a token before a station may transmit."
+    ],
+    "why": "Ethernet defines the frame format and the rules for carrying those frames on copper, fiber, or a switched LAN.",
+    "example": "The lab LAN uses IEEE 802.3 frames and 48-bit interface addresses on copper and fiber.",
+    "scenario": "The lab LAN uses IEEE 802.3 frames and 48-bit interface addresses. Which LAN family is this?",
+    "scenarioAnswer": "Ethernet",
+    "scenarioWrongs": ["Frame Relay", "ATM", "Token Ring"],
+    "scenarioWhy": "IEEE 802.3 frames with 48-bit MAC addresses are Ethernet."
+  },
+  {
+    "term": "MAC Address",
+    "definition": "A 48-bit layer-2 address that identifies a network interface on a local link.",
+    "wrongs": [
+      "A 32-bit logical address written as four decimal octets.",
+      "A 16-bit number that identifies an application process.",
+      "A number that identifies an autonomous system to BGP."
+    ],
+    "why": "The MAC address is burned into or assigned to the interface and is used in Ethernet frame headers.",
+    "example": "A vendor assigns the 48-bit address 3C-22-FB-00-11-22 to a network interface card.",
+    "scenario": "A vendor burns the 48-bit value 3C-22-FB-00-11-22 into a NIC. Which kind of address is it?",
+    "scenarioAnswer": "A MAC address",
+    "scenarioWrongs": ["An IPv4 address", "A port number", "An autonomous system number"],
+    "scenarioWhy": "A 48-bit interface address used on the local link is a MAC address."
+  },
+  {
+    "term": "Frame",
+    "definition": "The data-link unit that wraps a packet with a header and a trailer for delivery across one link.",
+    "wrongs": [
+      "The transport unit created by TCP, identified by port numbers.",
+      "A single binary digit on the wire.",
+      "The application message before any headers are added."
+    ],
+    "why": "On Ethernet, the frame adds MAC addresses, a type or length, and a frame check sequence around the packet.",
+    "example": "A NIC wraps an IP packet with destination and source MAC addresses, a type field, and an FCS.",
+    "scenario": "The NIC wraps an IP packet with MAC addresses, a type, and a frame check sequence. Which unit did it build?",
+    "scenarioAnswer": "A frame",
+    "scenarioWrongs": ["A segment", "A bit", "A session"],
+    "scenarioWhy": "A packet wrapped with link-layer header and trailer is a frame."
+  },
+  {
+    "term": "Switch",
+    "definition": "A device that forwards frames between ports using a table of MAC addresses.",
+    "wrongs": [
+      "A device that repeats every incoming bit out all other ports.",
+      "A device that forwards packets between IP networks using a routing table.",
+      "A device that resolves domain names to IP addresses."
+    ],
+    "why": "The switch learns which MAC address is reached through which port and forwards unicast frames only there.",
+    "example": "A frame arrives and the switch sends it only out the port where that destination MAC was learned.",
+    "scenario": "A device forwards a frame only out the port where the destination MAC was learned. Which device is this?",
+    "scenarioAnswer": "A switch",
+    "scenarioWrongs": ["A hub", "A repeater", "A media converter"],
+    "scenarioWhy": "Selective forwarding from a MAC address table is what a switch does."
+  },
+  {
+    "term": "Hub",
+    "definition": "A physical-layer device that repeats an incoming signal out every other port.",
+    "wrongs": [
+      "A device that forwards frames using a learned MAC address table.",
+      "A device that routes packets by IP prefix.",
+      "A device that filters packets with permit and deny rules."
+    ],
+    "why": "A hub has no MAC table, so every attached interface shares one collision domain.",
+    "example": "Whenever any PC transmits into a four-port hub, the bits appear on the other three ports.",
+    "scenario": "Every port hears the bits whenever any port transmits, and there is one collision domain. Which device is this?",
+    "scenarioAnswer": "A hub",
+    "scenarioWrongs": ["A switch", "A router", "A firewall"],
+    "scenarioWhy": "Repeating every signal to every other port is the behavior of a hub."
+  },
+  {
+    "term": "Collision Domain",
+    "definition": "A set of interfaces on which simultaneous transmissions can collide and corrupt one another.",
+    "wrongs": [
+      "The set of interfaces that receive a layer-2 broadcast, even on a full-duplex switch.",
+      "A group of IP networks summarized by one prefix.",
+      "The set of processes sharing one TCP port."
+    ],
+    "why": "Collisions occur only where a shared medium allows overlapping transmissions, such as a hub segment.",
+    "example": "Four PCs plugged into one hub form a single collision domain.",
+    "scenario": "Four PCs are connected only through one hub. How many collision domains are there?",
+    "scenarioAnswer": "1",
+    "scenarioWrongs": ["4", "2", "0"],
+    "scenarioWhy": "A hub repeats every transmission to every port, so all four PCs share one collision domain."
+  },
+  {
+    "term": "CSMA/CD",
+    "definition": "A half-duplex Ethernet method that listens before sending and, on a collision, jams and retries.",
+    "wrongs": [
+      "A wireless method that listens and then waits a random backoff without detecting collisions while sending.",
+      "A method in which a station may transmit only when it holds a token.",
+      "A method that polls each station in turn from a central controller."
+    ],
+    "why": "Carrier sense avoids a busy medium, and collision detection lets the sender stop quickly and schedule a retry.",
+    "example": "On a hub segment two stations transmit together, detect the overlap, send a jam, and back off.",
+    "scenario": "On a half-duplex Ethernet segment two stations transmit together, jam, and back off. Which method is this?",
+    "scenarioAnswer": "CSMA/CD",
+    "scenarioWrongs": ["CSMA/CA", "Token passing", "Polling"],
+    "scenarioWhy": "Listening, detecting a collision, jamming, and backing off is CSMA/CD."
+  },
+  {
+    "term": "IPv4 Address",
+    "definition": "A 32-bit logical address, usually written as four decimal octets, that identifies a network interface.",
+    "wrongs": [
+      "A 128-bit address written as hexadecimal groups separated by colons.",
+      "A 48-bit address burned into a network interface card.",
+      "A 16-bit transport number such as 80 or 443."
+    ],
+    "why": "IPv4 addresses are 32 bits long and are written in dotted decimal for the network layer.",
+    "example": "The address 172.16.5.9 contains 32 bits and identifies one host interface on an IP network.",
+    "scenario": "An address is written 172.16.5.9 and is 32 bits long. Which address family is it?",
+    "scenarioAnswer": "IPv4",
+    "scenarioWrongs": ["IPv6", "A MAC address", "A URL"],
+    "scenarioWhy": "A 32-bit dotted-decimal address is an IPv4 address."
+  },
+  {
+    "term": "Subnet Mask",
+    "definition": "A 32-bit mask whose 1 bits mark the network portion of an IPv4 address and whose 0 bits mark the host portion.",
+    "wrongs": [
+      "A mask in which a 0 bit means the address bit must match and a 1 bit is ignored.",
+      "A 48-bit value that names a LAN interface.",
+      "The next-hop address used when no specific route matches."
+    ],
+    "why": "The mask tells the host which bits identify the subnet and which bits identify the host inside it.",
+    "example": "The mask 255.255.255.0 means the first 24 bits are the network and the last 8 bits are the host.",
+    "scenario": "Which dotted mask is equivalent to the prefix length /24?",
+    "scenarioAnswer": "255.255.255.0",
+    "scenarioWrongs": ["255.0.0.0", "255.255.0.0", "255.255.255.255"],
+    "scenarioWhy": "Twenty-four leading 1 bits form the mask 255.255.255.0."
+  },
+  {
+    "term": "CIDR",
+    "definition": "A classless notation that writes a network as an address plus a prefix length, such as /24.",
+    "wrongs": [
+      "A rule that every network must use a class A, B, or C mask and no other length.",
+      "A protocol that maps IPv4 addresses to MAC addresses.",
+      "A protocol that leases IP addresses automatically."
+    ],
+    "why": "Classless Inter-Domain Routing allows any prefix length, so address blocks need not follow the old class boundaries.",
+    "example": "An ISP assigns 203.0.113.0/25, a block of 128 addresses, instead of a whole class C.",
+    "scenario": "A provider assigns 203.0.113.0/25 rather than a whole former class C network. Which addressing practice is this?",
+    "scenarioAnswer": "CIDR",
+    "scenarioWrongs": ["Classful addressing", "ARP", "DHCP"],
+    "scenarioWhy": "A prefix length that is not tied to class A, B, or C sizes is CIDR."
+  },
+  {
+    "term": "Subnetting",
+    "definition": "Dividing one IPv4 network into smaller subnetworks by borrowing bits from the host portion.",
+    "wrongs": [
+      "Translating private addresses to one public address.",
+      "Combining many specific prefixes into a single advertised summary.",
+      "Assigning MAC addresses to interfaces."
+    ],
+    "why": "Borrowed host bits become extra network bits, creating several smaller prefixes from one larger prefix.",
+    "example": "The network 192.168.1.0/24 is split into four /26 subnets for four departments.",
+    "scenario": "A /24 must be split into four equal subnets. Which new prefix length results?",
+    "scenarioAnswer": "/26",
+    "scenarioWrongs": ["/25", "/27", "/28"],
+    "scenarioWhy": "Four equal subnets require two borrowed bits, which changes /24 into /26."
+  },
+  {
+    "term": "Default Gateway",
+    "definition": "The router address a host uses to reach destinations that are not on its own subnet.",
+    "wrongs": [
+      "The server that translates domain names into IP addresses.",
+      "The server that leases an IP address to the host.",
+      "The switch port that blocks a loop."
+    ],
+    "why": "If the destination is outside the host's subnet, the host forwards the packet to its default gateway.",
+    "example": "Host 10.0.0.8/24 sends packets for 10.1.0.5 to its gateway 10.0.0.1.",
+    "scenario": "Host 10.0.0.8/24 must reach 10.1.0.5, which is off its subnet, via 10.0.0.1. Which role does 10.0.0.1 play?",
+    "scenarioAnswer": "Default gateway",
+    "scenarioWrongs": ["DNS server", "DHCP server", "NTP server"],
+    "scenarioWhy": "The router address used for off-subnet destinations is the default gateway."
+  },
+  {
+    "term": "Private IPv4 Address",
+    "definition": "An address from 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 that is not routed on the public Internet.",
+    "wrongs": [
+      "Any address whose first octet is 172, including 172.32.0.0 and above.",
+      "A globally routable address such as 8.8.8.8.",
+      "A 48-bit address assigned by a NIC vendor."
+    ],
+    "why": "RFC 1918 reserves those three ranges for internal use, and Internet routers do not forward them publicly.",
+    "example": "An office printer uses 192.168.10.4, which stays inside the organization.",
+    "scenario": "Which address is reserved for internal use and is not routed on the public Internet?",
+    "scenarioAnswer": "192.168.10.4",
+    "scenarioWrongs": ["8.8.8.8", "172.32.5.5", "192.167.0.1"],
+    "scenarioWhy": "192.168.10.4 lies in 192.168.0.0/16, which is an RFC 1918 private range."
+  },
+  {
+    "term": "ARP",
+    "definition": "The protocol that resolves an IPv4 address to a MAC address on the local link.",
+    "wrongs": [
+      "The system that maps domain names to IP addresses.",
+      "The protocol that leases an IP address, mask, and gateway to a host.",
+      "The protocol that carries web pages on port 80."
+    ],
+    "why": "A host broadcasts an ARP request containing the target IPv4 address and learns the matching MAC address.",
+    "example": "Before sending to its gateway, a PC broadcasts a request asking which MAC owns 10.0.0.1.",
+    "scenario": "A host knows the gateway's IPv4 address but not its MAC address. Which protocol should it use on the LAN?",
+    "scenarioAnswer": "ARP",
+    "scenarioWrongs": ["DNS", "DHCP", "HTTP"],
+    "scenarioWhy": "Resolving a known IPv4 address to a MAC address on the link is ARP."
+  },
+  {
+    "term": "DNS",
+    "definition": "The directory system that maps domain names to IP addresses and other resource records.",
+    "wrongs": [
+      "The protocol that maps an IPv4 address to a MAC address.",
+      "The protocol that automatically leases IP configuration to a host.",
+      "The protocol that reports unreachable destinations with error messages."
+    ],
+    "why": "Resolvers query the DNS hierarchy to turn a name such as a website into an address the network can use.",
+    "example": "A browser asks DNS for www.example.edu and receives the server's IPv4 address before connecting.",
+    "scenario": "The browser has www.example.edu but not the server's IP address. Which system resolves the name?",
+    "scenarioAnswer": "DNS",
+    "scenarioWrongs": ["ARP", "DHCP", "ICMP"],
+    "scenarioWhy": "Mapping a domain name to an IP address is the job of DNS."
+  },
+  {
+    "term": "DHCP",
+    "definition": "The protocol that automatically leases an IP address, subnet mask, gateway, and DNS server to a host.",
+    "wrongs": [
+      "The protocol that resolves a domain name to an IP address.",
+      "The protocol that resolves an IP address to a MAC address.",
+      "The protocol that transfers files with GET and PUT."
+    ],
+    "why": "DHCP removes manual address entry by leasing configuration for a limited time through its discover-offer exchange.",
+    "example": "A laptop joins the wireless LAN and receives 10.5.0.40, a mask, a gateway, and a DNS server automatically.",
+    "scenario": "A laptop joins the wireless LAN with no manual address configured. Which protocol leases it an address?",
+    "scenarioAnswer": "DHCP",
+    "scenarioWrongs": ["DNS", "ARP", "FTP"],
+    "scenarioWhy": "Automatic leasing of an IP configuration is DHCP."
+  },
+  {
+    "term": "TCP",
+    "definition": "A connection-oriented transport protocol that delivers a reliable, ordered byte stream between processes.",
+    "wrongs": [
+      "A connectionless transport protocol with no retransmission or ordering.",
+      "A network-layer protocol that forwards datagrams by IP address.",
+      "A link-layer method that detects collisions on half-duplex Ethernet."
+    ],
+    "why": "TCP sets up a connection and uses sequence numbers, acknowledgements, and retransmission to deliver bytes in order.",
+    "example": "A file transfer uses TCP so every byte arrives in order and lost segments are retransmitted.",
+    "scenario": "A file transfer must arrive complete and in order, and lost data must be retransmitted. Which transport protocol fits?",
+    "scenarioAnswer": "TCP",
+    "scenarioWrongs": ["UDP", "ICMP", "ARP"],
+    "scenarioWhy": "Reliable ordered delivery with retransmission is what TCP provides."
+  },
+  {
+    "term": "UDP",
+    "definition": "A connectionless transport protocol that sends datagrams without setup, retransmission, or ordering.",
+    "wrongs": [
+      "A transport protocol that guarantees ordered delivery with acknowledgements.",
+      "An application protocol that fetches web pages on port 80.",
+      "A protocol that maps names to IP addresses."
+    ],
+    "why": "UDP adds port numbers and a checksum but does not establish a session or recover lost datagrams.",
+    "example": "A live voice call sends UDP datagrams and plays through a lost packet instead of waiting for a retry.",
+    "scenario": "A live voice call prefers low delay and can tolerate a lost packet. Which transport protocol fits?",
+    "scenarioAnswer": "UDP",
+    "scenarioWrongs": ["TCP", "HTTP", "SMTP"],
+    "scenarioWhy": "Low-overhead datagrams without retransmission fit a loss-tolerant voice call, which is UDP."
+  },
+  {
+    "term": "Three-way Handshake",
+    "definition": "The TCP connection setup in which the client sends SYN, the server replies SYN-ACK, and the client sends ACK.",
+    "wrongs": [
+      "A two-step exchange in which the client sends data immediately and the server only acknowledges.",
+      "The closing exchange that uses FIN from each side.",
+      "A DNS query followed by a single DNS response."
+    ],
+    "why": "Both sides confirm the initial sequence numbers by exchanging SYN, SYN-ACK, and ACK before data.",
+    "example": "A browser sends SYN to port 443, the server returns SYN-ACK, and the browser completes the setup with ACK.",
+    "scenario": "The client has sent SYN and the server replies to open a TCP connection. Which flags should that reply carry?",
+    "scenarioAnswer": "SYN and ACK",
+    "scenarioWrongs": ["ACK only", "FIN and ACK", "RST only"],
+    "scenarioWhy": "The server's step in the three-way handshake is a segment with SYN and ACK."
+  },
+  {
+    "term": "Port Number",
+    "definition": "A 16-bit number that identifies an application process at the transport layer.",
+    "wrongs": [
+      "A 48-bit address that identifies a network interface on a LAN.",
+      "A 32-bit logical address that identifies an IP interface.",
+      "A prefix length such as /24 written after an IP address."
+    ],
+    "why": "TCP and UDP use the port number so multiple applications can share one IP address.",
+    "example": "Two web servers on one host are distinguished because one listens on port 80 and the other on port 8080.",
+    "scenario": "Two web servers run on one host and must be distinguished by the transport layer. Which identifier separates them?",
+    "scenarioAnswer": "A port number",
+    "scenarioWrongs": ["A MAC address", "A subnet mask", "A fiber strand color"],
+    "scenarioWhy": "Transport-layer port numbers distinguish processes on the same host."
+  },
+  {
+    "term": "Socket",
+    "definition": "An endpoint of communication identified by an IP address together with a transport port number.",
+    "wrongs": [
+      "A data-link frame carrying MAC addresses.",
+      "A set of interfaces that share one collision domain.",
+      "A subnet identified only by a prefix length."
+    ],
+    "why": "A TCP connection is identified by the pair of sockets, one at each end.",
+    "example": "A connection runs from 198.51.100.4 port 51515 to 198.51.100.10 port 443.",
+    "scenario": "One end of a connection is 198.51.100.4 port 51515 and the other is 198.51.100.10 port 443. What is each IP-plus-port pair?",
+    "scenarioAnswer": "A socket",
+    "scenarioWrongs": ["A frame", "A collision domain", "A subnet"],
+    "scenarioWhy": "An IP address combined with a port number identifies a socket."
+  },
+  {
+    "term": "Router",
+    "definition": "A device that forwards packets between networks by consulting a routing table of IP prefixes.",
+    "wrongs": [
+      "A device that forwards frames using a MAC address table.",
+      "A device that repeats bits to every port.",
+      "A device that connects LAN segments using only MAC addresses."
+    ],
+    "why": "Routers operate at the network layer and separate broadcast domains by forwarding on IP prefixes.",
+    "example": "A packet for another subnet is sent to the next hop listed for its prefix, out a chosen interface.",
+    "scenario": "A packet for another subnet is forwarded using the destination IP prefix, not a MAC table. Which device does that?",
+    "scenarioAnswer": "A router",
+    "scenarioWrongs": ["A switch", "A hub", "A bridge"],
+    "scenarioWhy": "Forwarding between networks by IP prefix is the job of a router."
+  },
+  {
+    "term": "Routing Table",
+    "definition": "The list of known prefixes, next hops, and interfaces a router uses to forward packets.",
+    "wrongs": [
+      "The table a switch uses to map MAC addresses to ports.",
+      "The cache that maps recent IP addresses to MAC addresses.",
+      "The cache that maps recent domain names to IP addresses."
+    ],
+    "why": "The longest matching prefix in the routing table selects the next hop and the outgoing interface.",
+    "example": "A router finds 203.0.113.0/24, notes the next hop, and sends the packet out GigabitEthernet0/1.",
+    "scenario": "A device looks up 203.0.113.0/24, finds a next hop, and sends the packet out a chosen interface. Which structure did it consult?",
+    "scenarioAnswer": "The routing table",
+    "scenarioWrongs": ["The MAC address table", "The ARP cache", "The DNS cache"],
+    "scenarioWhy": "Prefixes and next hops used to forward packets are stored in the routing table."
+  },
+  {
+    "term": "Static Route",
+    "definition": "A route entered by an administrator that remains until someone changes or removes it.",
+    "wrongs": [
+      "A route learned from a routing protocol and withdrawn when the advertisement stops.",
+      "A route to 0.0.0.0/0 used only when no other prefix matches.",
+      "A MAC address learned by inspecting incoming frames."
+    ],
+    "why": "A static route does not depend on routing updates; an administrator configures the prefix and next hop.",
+    "example": "An administrator configures 198.51.100.0/24 via 192.0.2.1 and no protocol advertises that route.",
+    "scenario": "An administrator configures 198.51.100.0/24 via 192.0.2.1 and no routing protocol advertises it. Which route is this?",
+    "scenarioAnswer": "A static route",
+    "scenarioWrongs": ["An OSPF route", "A RIP route", "A BGP route"],
+    "scenarioWhy": "A route configured by hand and not learned from a protocol is a static route."
+  },
+  {
+    "term": "Default Route",
+    "definition": "A route, usually 0.0.0.0/0, used when no more specific prefix matches the destination.",
+    "wrongs": [
+      "A host route that matches exactly one address with prefix /32.",
+      "A connected route created because an interface has an address.",
+      "A MAC table entry for the local gateway."
+    ],
+    "why": "The default prefix matches every destination, but a longer prefix is preferred when one exists.",
+    "example": "A small router sends every unknown Internet destination to 0.0.0.0/0 via its ISP next hop.",
+    "scenario": "The table has no entry for 198.51.100.8 except 0.0.0.0/0 via 192.0.2.1. Which route forwards the packet?",
+    "scenarioAnswer": "The default route",
+    "scenarioWrongs": ["A connected /32", "An ARP entry", "A host route that is absent"],
+    "scenarioWhy": "When 0.0.0.0/0 is the only match, the default route forwards the packet."
+  },
+  {
+    "term": "ICMP",
+    "definition": "An IP companion protocol that carries error reports and diagnostic queries such as echo request and reply.",
+    "wrongs": [
+      "A transport protocol that delivers a reliable byte stream.",
+      "A transport protocol that sends datagrams without retransmission.",
+      "An application protocol that transfers web pages."
+    ],
+    "why": "Routers and hosts use ICMP for messages such as destination unreachable, time exceeded, and echo used by ping.",
+    "example": "A router that cannot forward a packet returns an ICMP destination-unreachable message to the sender.",
+    "scenario": "A router cannot deliver a packet and returns a destination-unreachable message. Which protocol carries that message?",
+    "scenarioAnswer": "ICMP",
+    "scenarioWrongs": ["TCP", "UDP", "HTTP"],
+    "scenarioWhy": "Destination-unreachable reports are ICMP messages."
+  },
+  {
+    "term": "HTTP",
+    "definition": "An application protocol that requests and transfers web resources, typically over TCP port 80.",
+    "wrongs": [
+      "The same web protocol protected by TLS, typically on port 443.",
+      "A protocol used to transfer files with a separate control connection on port 21.",
+      "A remote login protocol that provides an encrypted shell on port 22."
+    ],
+    "why": "HTTP is a request-response protocol; a common request method is GET, and plain HTTP uses port 80.",
+    "example": "A browser sends GET for a page and receives HTML, with no TLS, on port 80.",
+    "scenario": "A browser requests a page with GET and receives HTML, with no TLS, on port 80. Which protocol is this?",
+    "scenarioAnswer": "HTTP",
+    "scenarioWrongs": ["HTTPS", "FTP", "SSH"],
+    "scenarioWhy": "Unencrypted web transfer on port 80 is HTTP."
+  },
+  {
+    "term": "HTTPS",
+    "definition": "HTTP protected by TLS, typically using TCP port 443, so the exchange is authenticated and encrypted.",
+    "wrongs": [
+      "Unencrypted HTTP typically using TCP port 80.",
+      "A name-resolution protocol typically using port 53.",
+      "A mail-transfer protocol typically using port 25."
+    ],
+    "why": "TLS provides encryption and server authentication around HTTP, and the usual port is 443.",
+    "example": "A browser shows a lock while loading a page over TLS on port 443.",
+    "scenario": "The browser shows a lock and the session uses TLS on port 443 to fetch a page. Which protocol is this?",
+    "scenarioAnswer": "HTTPS",
+    "scenarioWrongs": ["HTTP", "Telnet", "DNS"],
+    "scenarioWhy": "HTTP inside TLS on port 443 is HTTPS."
+  },
+  {
+    "term": "URL",
+    "definition": "An identifier that names a resource and how to reach it, including the scheme, host, and path.",
+    "wrongs": [
+      "A 48-bit address of a network interface.",
+      "A 32-bit mask that separates network and host bits.",
+      "A transport port number standing alone."
+    ],
+    "why": "A URL such as a web address combines the access method, the host name, and the resource path.",
+    "example": "The string https://lab.edu/grades names the scheme, the host, and the path of a page.",
+    "scenario": "The string https://lab.edu/grades names the scheme, the host, and the path of a page. What is that string?",
+    "scenarioAnswer": "A URL",
+    "scenarioWrongs": ["A MAC address", "A subnet mask", "A port number"],
+    "scenarioWhy": "Scheme, host, and path together form a URL."
+  },
+  {
+    "term": "Packet",
+    "definition": "The network-layer unit formed by an IP header plus the payload it carries.",
+    "wrongs": [
+      "The data-link unit that includes MAC addresses and a frame check sequence.",
+      "The transport unit created by TCP before IP adds a header.",
+      "A single bit on the physical medium."
+    ],
+    "why": "At the network layer the protocol data unit is the packet, which IP forwards toward the destination address.",
+    "example": "IP adds a header with source and destination addresses around a TCP segment, forming a packet.",
+    "scenario": "IP adds a header with source and destination addresses around a TCP segment. Which network-layer unit results?",
+    "scenarioAnswer": "A packet",
+    "scenarioWrongs": ["A frame", "A bit", "A session"],
+    "scenarioWhy": "An IP header plus its payload is a packet."
+  },
+  {
+    "term": "Broadcast",
+    "definition": "A transmission addressed so that every host in the local broadcast domain receives it.",
+    "wrongs": [
+      "A transmission addressed to one specific host.",
+      "A transmission addressed to a subscribed group, not necessarily every host.",
+      "A transmission delivered to the nearest of several servers that share one address."
+    ],
+    "why": "A broadcast address, such as the limited broadcast, is accepted by every host on that local domain.",
+    "example": "A DHCP discover is sent to 255.255.255.255 so every host on the local subnet can hear it.",
+    "scenario": "A DHCP discover is sent so every host on the local subnet receives it. Which addressing mode is that?",
+    "scenarioAnswer": "Broadcast",
+    "scenarioWrongs": ["Unicast", "Multicast", "Anycast"],
+    "scenarioWhy": "Delivery to every host in the local domain is a broadcast."
+  },
+  {
+    "term": "Unicast",
+    "definition": "A transmission addressed to one specific destination.",
+    "wrongs": [
+      "A transmission addressed to every host in the local broadcast domain.",
+      "A transmission addressed to a group of subscribers.",
+      "A transmission sent to the nearest node among several that share an address."
+    ],
+    "why": "The destination address names a single interface, so other hosts do not accept the packet as theirs.",
+    "example": "A server sends a web response only to 198.51.100.20 and not to the other hosts on the LAN.",
+    "scenario": "A server sends a web response only to 198.51.100.20. Which addressing mode is this?",
+    "scenarioAnswer": "Unicast",
+    "scenarioWrongs": ["Broadcast", "Multicast", "Anycast"],
+    "scenarioWhy": "Delivery to one specific destination is unicast."
+  },
+  {
+    "term": "TTL",
+    "definition": "The IPv4 header field that routers decrement, discarding the packet when the value reaches zero.",
+    "wrongs": [
+      "A field that counts how many bits are wrong in the packet.",
+      "A field that stores the maximum frame size of the next link.",
+      "A timer that sets how long a DHCP lease remains valid."
+    ],
+    "why": "Decrementing TTL and dropping a packet at zero stops packets from circulating forever in a routing loop.",
+    "example": "A packet arrives with TTL 1 at a router that would need to forward it, so the router discards it.",
+    "scenario": "A packet arrives at a router with TTL 1 and the router is not the destination. What should the router do?",
+    "scenarioAnswer": "Drop it and send ICMP Time Exceeded",
+    "scenarioWrongs": ["Forward it with TTL still 1", "Reset TTL to 255 and forward it", "Turn it into a broadcast"],
+    "scenarioWhy": "Forwarding would reduce TTL to zero, so the router drops the packet and reports time exceeded."
+  },
+  {
+    "term": "MTU",
+    "definition": "The largest packet size a link can carry; classic Ethernet's MTU is 1500 bytes.",
+    "wrongs": [
+      "The maximum bit rate of the link in bits per second.",
+      "The propagation delay of the link in microseconds.",
+      "The number of switch ports in a broadcast domain."
+    ],
+    "why": "A packet larger than the MTU must be fragmented, if allowed, or dropped if fragmentation is forbidden.",
+    "example": "An IPv4 packet of 2000 bytes cannot fit in one classic Ethernet frame whose MTU is 1500 bytes.",
+    "scenario": "An IPv4 packet of 2000 bytes must cross classic Ethernet, and the Don't Fragment bit is clear. What can the router do?",
+    "scenarioAnswer": "Fragment the packet",
+    "scenarioWrongs": ["Expand the Ethernet MTU by itself", "Convert the packet to UDP", "Ignore the size and send one 2000-byte frame"],
+    "scenarioWhy": "With Don't Fragment clear, an IPv4 router may fragment a packet that exceeds the 1500-byte Ethernet MTU."
+  },
+  {
+    "term": "Bandwidth",
+    "definition": "The maximum rate at which data can be sent over a link, usually in bits per second.",
+    "wrongs": [
+      "The rate actually achieved by a transfer, which may be lower than the link's maximum.",
+      "The delay from sending a bit until it arrives.",
+      "The variation in delay between successive packets."
+    ],
+    "why": "Bandwidth is the link's capacity, while throughput is how much of that capacity a transfer uses.",
+    "example": "A link can carry at most 1 Gbit/s, while a transfer currently achieves only 200 Mbit/s.",
+    "scenario": "A link can carry at most 1 Gbit/s, but a transfer currently achieves 200 Mbit/s. Which figure is the 1 Gbit/s?",
+    "scenarioAnswer": "Bandwidth",
+    "scenarioWrongs": ["Throughput", "Latency", "Jitter"],
+    "scenarioWhy": "The maximum rate of the link is its bandwidth; 200 Mbit/s is the achieved throughput."
+  },
+  {
+    "term": "Latency",
+    "definition": "The delay a packet experiences from the source to the destination.",
+    "wrongs": [
+      "The maximum bit rate of the path.",
+      "The largest packet the path can carry.",
+      "The fraction of packets that are lost."
+    ],
+    "why": "Latency includes contributions such as transmission, propagation, processing, and queuing delay.",
+    "example": "A packet leaves a camera and arrives at a monitor 40 ms later because of distance and queuing.",
+    "scenario": "A packet leaves a camera and arrives 40 ms later, mostly from distance and queuing. Which measure is the 40 ms?",
+    "scenarioAnswer": "Latency",
+    "scenarioWrongs": ["Bandwidth", "Throughput", "MTU"],
+    "scenarioWhy": "End-to-end delay is latency."
+  },
+  {
+    "term": "Network Interface",
+    "definition": "The hardware or logical endpoint that connects a host to a network and has a link-layer address.",
+    "wrongs": [
+      "A routing protocol that fills the routing table.",
+      "A collision between two transmissions.",
+      "A human-readable name stored in DNS."
+    ],
+    "why": "The interface is the host's attachment point, such as an Ethernet NIC with a MAC address and usually an IP address.",
+    "example": "A PC's Ethernet port has MAC 00-1A-2B-3C-4D-5E and an IP address on the lab LAN.",
+    "scenario": "A PC Ethernet port has a MAC address and an IP address on the lab LAN. What is that port called?",
+    "scenarioAnswer": "A network interface",
+    "scenarioWrongs": ["A routing protocol", "A collision", "A domain name"],
+    "scenarioWhy": "The host's attachment point with a link-layer address is a network interface."
+  },
+  {
+    "term": "Full Duplex",
+    "definition": "A link mode in which both ends may transmit at the same time without colliding.",
+    "wrongs": [
+      "A mode in which both ends share one channel and must take turns to avoid collisions.",
+      "A mode in which data flows in only one direction.",
+      "A half-duplex method that jams and retries after a collision."
+    ],
+    "why": "A switched point-to-point Ethernet link gives each direction its own path, so simultaneous transmission does not collide.",
+    "example": "A PC and its switch port send frames toward each other at the same instant with no collision.",
+    "scenario": "A switched PC link lets the PC and the switch transmit at the same time with no collisions. Which mode is the link using?",
+    "scenarioAnswer": "Full duplex",
+    "scenarioWrongs": ["Half duplex", "Simplex", "CSMA/CD"],
+    "scenarioWhy": "Simultaneous transmission in both directions without collisions is full duplex."
+  },
+  {
+    "term": "Well-Known Port",
+    "definition": "A transport port from 0 through 1023 reserved for a standard service, such as 443 for HTTPS.",
+    "wrongs": [
+      "A port from 49152 through 65535 chosen temporarily by a client.",
+      "A 48-bit address assigned to a server NIC.",
+      "An IP protocol number such as 6 for TCP."
+    ],
+    "why": "The well-known range is assigned to standard servers so clients know which port to contact.",
+    "example": "HTTPS servers listen on port 443, which is inside the well-known range.",
+    "scenario": "Which port number is reserved for HTTPS?",
+    "scenarioAnswer": "443",
+    "scenarioWrongs": ["80", "25", "53"],
+    "scenarioWhy": "HTTPS is assigned the well-known port 443; port 80 is HTTP."
+  }
+]

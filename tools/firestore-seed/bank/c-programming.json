@@ -1,0 +1,752 @@
+[
+  {
+    "term": "char type",
+    "definition": "An integer type used to hold a character code, whose size is defined to be one byte.",
+    "wrongs": [
+      "A floating-point type that stores a string of unlimited length.",
+      "A pointer type that always addresses a string.",
+      "A signed 32-bit integer on every implementation."
+    ],
+    "why": "The language defines the size of char as 1, and that byte is the unit in which every other object's size is measured.",
+    "example": "A variable declared as char can store the code for one letter such as the letter A.",
+    "scenario": "A program needs an integer object whose size is exactly one byte so it can hold one character code. Which type guarantees that size?",
+    "scenarioAnswer": "char",
+    "scenarioWrongs": ["float", "a pointer", "double"],
+    "scenarioWhy": "char is the integer type whose size is defined to be one byte."
+  },
+  {
+    "term": "int type",
+    "definition": "The basic signed integer type for whole numbers, required to be at least 16 bits wide.",
+    "wrongs": [
+      "A floating type with a fractional part and about 15 decimal digits.",
+      "An unsigned type that cannot represent a negative value.",
+      "A character type whose size is always exactly one byte."
+    ],
+    "why": "int is the natural integer for arithmetic, and the standard requires it to cover at least the range of a 16-bit signed value.",
+    "example": "A loop counter declared as int can hold a negative value such as minus 1.",
+    "scenario": "Portable code needs a signed whole-number type that is at least 16 bits wide. Which basic type guarantees that?",
+    "scenarioAnswer": "int",
+    "scenarioWrongs": ["float", "void", "a string"],
+    "scenarioWhy": "int is the signed integer type with a minimum width of 16 bits."
+  },
+  {
+    "term": "float type",
+    "definition": "A single-precision floating type, commonly 32 bits wide, that stores an approximate real number.",
+    "wrongs": [
+      "An integer type that stores only exact whole numbers.",
+      "A double-precision floating type that is commonly 64 bits wide.",
+      "A pointer to a floating constant."
+    ],
+    "why": "float offers a fractional range in a smaller format than double, with roughly seven decimal digits of precision.",
+    "example": "A gain stored in a float approximates one tenth and is not required to be that exact fraction.",
+    "scenario": "A value is stored as a 32-bit IEEE floating number rather than a 64-bit one. Which C type is the usual match?",
+    "scenarioAnswer": "float",
+    "scenarioWrongs": ["double", "int", "char"],
+    "scenarioWhy": "Single-precision floating point is the float type."
+  },
+  {
+    "term": "double type",
+    "definition": "A double-precision floating type, commonly 64 bits wide, that approximates real numbers more precisely than float.",
+    "wrongs": [
+      "A single-precision floating type that is commonly 32 bits wide.",
+      "A 64-bit integer with no fractional part.",
+      "A type required to be 128 bits on every platform."
+    ],
+    "why": "An unsuffixed floating constant has type double, and the usual math-library functions take double arguments.",
+    "example": "A literal such as two and a half has type double, and assigning it to a float may narrow it.",
+    "scenario": "An unsuffixed floating literal is passed to a math function that expects the wider real type. Which type does the literal have?",
+    "scenarioAnswer": "double",
+    "scenarioWrongs": ["float", "int", "long double on every compiler"],
+    "scenarioWhy": "C gives unsuffixed floating constants the type double."
+  },
+  {
+    "term": "sizeof",
+    "definition": "An operator that yields how many bytes a type or an object occupies.",
+    "wrongs": [
+      "A function that returns the number of elements in any array after it has been passed to a function.",
+      "A function that returns how many characters precede a null terminator.",
+      "An operator that counts the bits in a value only while the program is running."
+    ],
+    "why": "Object size is counted in units of char, and this operator reports that count for its operand.",
+    "example": "Where int occupies 4 bytes, applying the operator to an int object yields 4.",
+    "scenario": "A heap request must cover ten ints. Which operator provides the byte size of one int?",
+    "scenarioAnswer": "sizeof",
+    "scenarioWrongs": ["strlen", "a hardcoded 2", "the array name alone"],
+    "scenarioWhy": "sizeof reports the storage width of the type so the allocation size can be computed."
+  },
+  {
+    "term": "unsigned integer",
+    "definition": "An integer that represents only zero and positive values and wraps modulo a power of two.",
+    "wrongs": [
+      "A signed integer that can represent negative values.",
+      "A floating value that can represent a fraction.",
+      "A pointer, which the language defines as a signed integer."
+    ],
+    "why": "Unsigned arithmetic is defined to wrap modulo 2 to the width, unlike signed overflow, which is undefined.",
+    "example": "An 8-bit unsigned value of 255 becomes 0 when 1 is added.",
+    "scenario": "An 8-bit unsigned variable holding 255 becomes 0 after 1 is added. Which rule produced that result?",
+    "scenarioAnswer": "Unsigned wraparound",
+    "scenarioWrongs": ["Signed overflow", "Floating rounding", "A required trap"],
+    "scenarioWhy": "Unsigned arithmetic wraps modulo 2 to the n, so 255 plus 1 is 0 in eight bits."
+  },
+  {
+    "term": "Integer promotion",
+    "definition": "The widening of a small integer to int, or to unsigned int, before an arithmetic operator is applied.",
+    "wrongs": [
+      "The conversion of every integer to double before any arithmetic.",
+      "The truncation of every sum back to char after the operation.",
+      "The conversion of a pointer to a wider pointer type."
+    ],
+    "why": "Arithmetic operators do not calculate in char or short width; the operands are widened first.",
+    "example": "Adding the unsigned char values 200 and 100 can produce 300 because each value is widened before the addition.",
+    "scenario": "Two unsigned char values, 200 and 100, are added and the sum is 300 rather than an 8-bit wrapped result. Why?",
+    "scenarioAnswer": "They were promoted before the addition",
+    "scenarioWrongs": ["unsigned char can store 300", "The addition used floating point", "Char values are not allowed in arithmetic"],
+    "scenarioWhy": "Each unsigned char was promoted to int, and 300 fits in that int."
+  },
+  {
+    "term": "Modulus operator",
+    "definition": "The operator that yields the remainder after integer division of its left operand by its right operand.",
+    "wrongs": [
+      "The operator that yields the quotient of an integer division.",
+      "An operator that computes a floating remainder without a library function.",
+      "The operator that performs a bitwise exclusive or."
+    ],
+    "why": "For nonnegative integers, the result is what remains after the largest whole number of divisors is removed.",
+    "example": "The remainder of 17 divided by 5 is 2.",
+    "scenario": "A ring buffer uses the remainder when an index is divided by 8. What is the remainder of 11 divided by 8?",
+    "scenarioAnswer": "3",
+    "scenarioWrongs": ["1", "2", "8"],
+    "scenarioWhy": "11 is one multiple of 8 plus a remainder of 3."
+  },
+  {
+    "term": "Logical AND",
+    "definition": "An operator that is true only when both operands are nonzero and that skips the right operand when the left is zero.",
+    "wrongs": [
+      "A bit operator that combines corresponding bits and always evaluates both operands.",
+      "An operator that is true when at least one operand is nonzero.",
+      "An operator that multiplies its operands."
+    ],
+    "why": "It tests truth values rather than bits, and skipping the right side lets that side depend safely on the left.",
+    "example": "A test that a pointer is non-null and that the pointee equals 1 does not read the pointee when the pointer is null.",
+    "scenario": "A condition checks that p is non-null before it reads a member through p. Which operator makes that order safe?",
+    "scenarioAnswer": "Logical AND",
+    "scenarioWrongs": ["Bitwise AND", "Logical OR", "The comma operator"],
+    "scenarioWhy": "Logical AND does not evaluate the member access when the pointer test is false."
+  },
+  {
+    "term": "Bitwise AND",
+    "definition": "An operator that sets each result bit only where both operands have 1, and that evaluates both operands.",
+    "wrongs": [
+      "A truth operator that skips its right operand when the left operand is zero.",
+      "An operator that sets a result bit where either operand has a 1.",
+      "An operator that inverts every bit of one operand."
+    ],
+    "why": "Each bit position is combined independently, which is how a mask clears or tests selected bits.",
+    "example": "Combining the bit patterns of 0xF0 and 0x3C with this operator keeps only 0x30.",
+    "scenario": "A status byte must keep only its low four bits by combining it with the mask 0x0F. Which operator applies the mask?",
+    "scenarioAnswer": "Bitwise AND",
+    "scenarioWrongs": ["Logical AND", "Bitwise OR", "Left shift"],
+    "scenarioWhy": "AND with 0x0F clears every bit above the low four and leaves those four bits unchanged."
+  },
+  {
+    "term": "Left shift",
+    "definition": "An operator that moves the bits of an integer toward the high end and fills the vacated low bits with zeros.",
+    "wrongs": [
+      "An operator that moves bits toward the low end and drops the lowest bit.",
+      "An operator that rotates bits so a bit leaving one end reenters the other end.",
+      "A portable operator that shifts the significand of a float in C source."
+    ],
+    "why": "On an unsigned value, a shift by n that stays within the width multiplies the value by 2 to the n.",
+    "example": "The unsigned value 1 shifted left by 4 becomes 16.",
+    "scenario": "An unsigned value 3 is shifted left by 2, and the shift count is within range. What value results?",
+    "scenarioAnswer": "12",
+    "scenarioWrongs": ["6", "1", "32"],
+    "scenarioWhy": "A left shift by 2 multiplies the unsigned value by 4, and 3 times 4 is 12."
+  },
+  {
+    "term": "Operator precedence",
+    "definition": "The rules that decide which operator is applied first when an expression contains more than one operator.",
+    "wrongs": [
+      "A rule that every expression is grouped strictly left to right, ignoring operator rank.",
+      "A rule that parentheses never change grouping in C.",
+      "The count of operands an operator accepts."
+    ],
+    "why": "Different operators bind more tightly than others, so an expression has one defined grouping.",
+    "example": "In a plus b times c, the multiplication is performed before the addition.",
+    "scenario": "The expression 2 plus 3 times 4 is evaluated with ordinary C precedence. What value does it produce?",
+    "scenarioAnswer": "14",
+    "scenarioWrongs": ["20", "24", "9"],
+    "scenarioWhy": "Multiplication binds more tightly than addition, so the value is 2 plus 12."
+  },
+  {
+    "term": "Short-circuit evaluation",
+    "definition": "The rule that logical AND and logical OR do not evaluate the right operand when the left operand already decides the result.",
+    "wrongs": [
+      "The rule that both operands of a bitwise AND are always evaluated.",
+      "The rule that the right operand of the comma operator is skipped.",
+      "A guarantee that function arguments are evaluated from right to left."
+    ],
+    "why": "If the left side of AND is false, or the left side of OR is true, the combined result is already known.",
+    "example": "In a test that n is nonzero and then 10 is divided by n, the division does not run when n is zero.",
+    "scenario": "The test is that n is not zero and then that 10 divided by n is positive. When n is zero, the division does not run. Which rule prevented it?",
+    "scenarioAnswer": "Short-circuit evaluation",
+    "scenarioWrongs": ["Evaluation of both bitwise operands", "Integer promotion", "Left-to-right addition"],
+    "scenarioWhy": "Logical AND skips the division once the comparison on the left is false."
+  },
+  {
+    "term": "if statement",
+    "definition": "A statement that runs one branch when its condition is nonzero and an optional else branch otherwise.",
+    "wrongs": [
+      "A loop that repeats its body while a condition stays nonzero.",
+      "A multi-way branch that matches an integer against labeled cases.",
+      "An unconditional jump to a named label."
+    ],
+    "why": "The condition is tested once, and control enters exactly one of the two branches.",
+    "example": "If a temperature code is above a limit, firmware turns a fan on; otherwise it turns the fan off.",
+    "scenario": "One block must run when a flag is nonzero and a different block must run otherwise, with the flag tested once. Which statement fits?",
+    "scenarioAnswer": "if-else",
+    "scenarioWrongs": ["while", "switch", "goto"],
+    "scenarioWhy": "A single two-way test is an if statement with an else branch."
+  },
+  {
+    "term": "switch statement",
+    "definition": "A multi-way branch on an integer expression, where execution can continue into the next case if break is omitted.",
+    "wrongs": [
+      "A two-way branch that tests a floating condition.",
+      "A loop that repeats every case until a counter ends.",
+      "A function that returns the value of the matching case."
+    ],
+    "why": "Case labels do not end a branch by themselves, so control falls into the following case unless something transfers it away.",
+    "example": "A menu branch for the value 2 also runs the statements of the next case because the first case has no break.",
+    "scenario": "Case 1 contains no break, the switched value is 1, and the statements under case 2 also run. What caused case 2 to run?",
+    "scenarioAnswer": "Fall-through",
+    "scenarioWrongs": ["An else clause", "A loop back to case 1", "Integer promotion"],
+    "scenarioWhy": "Without a break, execution continues from case 1 into the next case."
+  },
+  {
+    "term": "for loop",
+    "definition": "A loop with an initializer, a condition tested before each body, and an update run after each body.",
+    "wrongs": [
+      "A loop that tests its condition only after the body has already run once.",
+      "A multi-way branch on case labels.",
+      "A conditional that runs at most one of two blocks."
+    ],
+    "why": "The condition is checked before the body, so the body can run zero times.",
+    "example": "A loop starts i at 0, continues while i is less than 3, and adds 1 to i, so the body sees 0, 1, and 2.",
+    "scenario": "A loop must set i to 0, test i before the body, and add 1 to i after the body. Which loop form matches?",
+    "scenarioAnswer": "for",
+    "scenarioWrongs": ["do-while", "switch", "if"],
+    "scenarioWhy": "An initializer, a pretest, and a post-body update are the three parts of a for loop."
+  },
+  {
+    "term": "while loop",
+    "definition": "A loop that tests its condition before the body and repeats only while that condition is nonzero.",
+    "wrongs": [
+      "A loop that always executes the body once before testing the condition.",
+      "A loop that requires a separate update clause between the test and the body.",
+      "A branch that chooses one of two blocks and does not repeat."
+    ],
+    "why": "The test occurs first, so a condition that starts false means the body never runs.",
+    "example": "While a buffer count is positive, a function consumes one byte and then tests the count again.",
+    "scenario": "A byte count starts at 0, and the body that would consume a byte must not run. Which loop test skips the body?",
+    "scenarioAnswer": "A while pretest",
+    "scenarioWrongs": ["A do-while post-test", "A switch", "An unconditional jump"],
+    "scenarioWhy": "A while loop tests the condition before the body, so a zero count prevents entry."
+  },
+  {
+    "term": "break statement",
+    "definition": "A statement that leaves the innermost enclosing loop or switch immediately.",
+    "wrongs": [
+      "A statement that skips only the rest of this iteration and continues the loop.",
+      "A statement that returns a value from the current function.",
+      "A statement that terminates the whole program."
+    ],
+    "why": "Control moves to the statement after the closest loop or switch, rather than to the next iteration.",
+    "example": "A search loop leaves as soon as the matching index is found, instead of examining the remaining elements.",
+    "scenario": "A break executes inside the inner of two nested loops. Which loop does it leave?",
+    "scenarioAnswer": "Only the inner loop",
+    "scenarioWrongs": ["Both loops", "Only the outer loop", "The whole program"],
+    "scenarioWhy": "break applies to the innermost enclosing loop or switch."
+  },
+  {
+    "term": "continue statement",
+    "definition": "A statement that skips the rest of the current loop iteration and goes on to the next iteration.",
+    "wrongs": [
+      "A statement that leaves the loop completely.",
+      "A statement that exits a switch but has no effect on a loop.",
+      "A statement that restarts the program from main."
+    ],
+    "why": "The loop remains active, but statements after continue in the current iteration are not executed.",
+    "example": "A loop skips the processing of a negative array element and moves on to the next index.",
+    "scenario": "continue runs in the middle of a for-loop body. What happens next?",
+    "scenarioAnswer": "The update runs, then the condition is tested",
+    "scenarioWrongs": ["The loop exits at once", "The update is skipped and the body restarts", "The function returns"],
+    "scenarioWhy": "In a for loop, continue jumps to the update expression and then tests the condition again."
+  },
+  {
+    "term": "Function prototype",
+    "definition": "A declaration that gives a function's return type and parameter types before a call is compiled.",
+    "wrongs": [
+      "The body of a function, including its local variables.",
+      "A macro that textually replaces the function name with a result.",
+      "The machine address of the function stored in a pointer at run time."
+    ],
+    "why": "The compiler uses the declared parameter types to check the call and convert the arguments.",
+    "example": "A header declares a function that takes an int, and a call that passes a double converts that argument.",
+    "scenario": "A call passes a double to a function declared to take an int, and the argument is converted. What declaration made that conversion known?",
+    "scenarioAnswer": "A prototype",
+    "scenarioWrongs": ["A macro", "An empty parentheses declaration", "The function body in another file with no visible declaration"],
+    "scenarioWhy": "A prototype provides the parameter type used to convert and check the argument."
+  },
+  {
+    "term": "Pass by value",
+    "definition": "The rule that a function receives its own copies of argument values rather than aliases of the caller's objects.",
+    "wrongs": [
+      "The rule that a parameter is another name for the caller's object.",
+      "The rule that an array argument is copied in full into an array parameter.",
+      "The rule that pointer arguments are forbidden."
+    ],
+    "why": "Assigning to a parameter changes only the function's copy, unless the argument is a pointer used to reach the caller's object.",
+    "example": "A function sets its int parameter to 0, and the caller's int is still 5 after the call returns.",
+    "scenario": "A function assigns 0 to its int parameter, yet the caller still observes 5. Why did the caller's variable stay unchanged?",
+    "scenarioAnswer": "The parameter is a copy",
+    "scenarioWrongs": ["The parameter aliases the caller", "The assignment was undefined and discarded", "Integers cannot be parameters"],
+    "scenarioWhy": "C copied the argument into the parameter, so the assignment changed only that copy."
+  },
+  {
+    "term": "Recursion",
+    "definition": "A function calling itself, directly or through another call, until a base case stops the calls.",
+    "wrongs": [
+      "A loop that repeats a body without making another call.",
+      "A single call from main to a different function that never calls back.",
+      "A macro that is expanded once before compilation."
+    ],
+    "why": "Each invocation has its own parameters and locals, so the function can solve a smaller version of the same problem.",
+    "example": "A factorial function returns 1 when its argument is 0 and otherwise multiplies the argument by a call on the argument minus 1.",
+    "scenario": "Computing factorial of 3 calls factorial of 2 before multiplying. What is that self-call?",
+    "scenarioAnswer": "Recursion",
+    "scenarioWrongs": ["A loop with no extra call", "Macro expansion", "A callback into main"],
+    "scenarioWhy": "The function invokes itself on a smaller argument, which is recursion."
+  },
+  {
+    "term": "Array",
+    "definition": "A contiguous sequence of elements of one type, with the first element at index zero.",
+    "wrongs": [
+      "A chain of elements that are not required to be adjacent in memory.",
+      "One object that holds several members of different types at the same time.",
+      "A pointer variable that by itself contains every element."
+    ],
+    "why": "Equal-sized elements occupy adjacent slots, so the element at index i lies i slots after the first.",
+    "example": "Five ints stored in an array occupy indexes 0 through 4 in consecutive memory.",
+    "scenario": "Five ints lie in adjacent slots and the first valid index is 0. What kind of object holds them?",
+    "scenarioAnswer": "An array",
+    "scenarioWrongs": ["A linked list", "A union", "One pointer that stores all five values"],
+    "scenarioWhy": "Contiguous elements of one type, indexed from zero, form an array."
+  },
+  {
+    "term": "Array decay",
+    "definition": "The conversion, in most expressions, of an array into a pointer to its first element.",
+    "wrongs": [
+      "The copying of every element into a true array parameter.",
+      "The conversion of a pointer back into an array that remembers its length.",
+      "The deletion of the first element."
+    ],
+    "why": "A parameter declared with array syntax is adjusted to a pointer, so the call passes the address of the first element.",
+    "example": "A parameter written as an int array of unknown bound actually receives a pointer to the first int.",
+    "scenario": "A parameter is declared as an int array of unknown bound, and its size equals the size of a pointer. What happened to the caller's array?",
+    "scenarioAnswer": "It decayed to a pointer",
+    "scenarioWrongs": ["The whole array was copied", "It became a struct", "Its first element was removed"],
+    "scenarioWhy": "Array parameters are adjusted to pointers, so the array length is not part of the argument."
+  },
+  {
+    "term": "Pointer",
+    "definition": "An object that stores the address of another object of a stated type, or a null address.",
+    "wrongs": [
+      "An object that stores a copy of an entire array.",
+      "An integer that is required to hold the target's value rather than its address.",
+      "An alias that must name an object and can never be null."
+    ],
+    "why": "The stored value is an address, and the pointer type says how to interpret the object at that address.",
+    "example": "A pointer holds the address of an int named x, and reading through the pointer yields x.",
+    "scenario": "A variable stores the address of an int rather than storing the int itself. What is that variable?",
+    "scenarioAnswer": "A pointer",
+    "scenarioWrongs": ["A copy of the int", "A reference alias", "An array of that int"],
+    "scenarioWhy": "An object whose value is the address of another object is a pointer."
+  },
+  {
+    "term": "Address-of operator",
+    "definition": "The unary operator that produces a pointer to its operand object.",
+    "wrongs": [
+      "The unary operator that reads or writes the object a pointer addresses.",
+      "The operator that yields the byte size of a type.",
+      "The operator that releases a heap block."
+    ],
+    "why": "Applying it to an object produces a pointer value that refers to that object.",
+    "example": "Taking the address of an int x produces a value that can be stored in an int pointer.",
+    "scenario": "A callee must be able to modify the caller's int x, so the call must pass a pointer to x. Which operator creates that pointer?",
+    "scenarioAnswer": "The address-of operator",
+    "scenarioWrongs": ["The dereference operator", "sizeof", "The multiplication operator"],
+    "scenarioWhy": "The address of x is a pointer to x, which the callee can use to write x."
+  },
+  {
+    "term": "Dereference operator",
+    "definition": "The unary operator that designates the object whose address is stored in a pointer.",
+    "wrongs": [
+      "The operator that produces a pointer to an existing object.",
+      "The operator that reports how many bytes a type occupies.",
+      "The operator that compares two strings."
+    ],
+    "why": "If a pointer holds the address of x, applying this operator reads or writes x.",
+    "example": "After a pointer addresses x, assigning 4 through that pointer stores 4 in x.",
+    "scenario": "Pointer p holds the address of x, and the program assigns 4 through the unary operator on p. What happens to x?",
+    "scenarioAnswer": "x becomes 4",
+    "scenarioWrongs": ["p becomes 4 and x is unchanged", "x is released", "x becomes the address of p"],
+    "scenarioWhy": "The operator designates the object p addresses, so the assignment writes x."
+  },
+  {
+    "term": "Pointer arithmetic",
+    "definition": "Adding an integer n to a pointer to T advances it by n elements of T, not by n bytes unless T is one byte.",
+    "wrongs": [
+      "Adding n always advances every pointer by exactly n bytes.",
+      "Adding n advances a pointer by n virtual pages.",
+      "C forbids adding an integer to a pointer."
+    ],
+    "why": "The compiler scales the integer by the size of the pointed-to type so the result addresses another element.",
+    "example": "Adding 1 to an int pointer moves the address forward by the size of one int.",
+    "scenario": "An int pointer addresses element 0 of an int array, and an int is 4 bytes. What does adding 1 to the pointer address?",
+    "scenarioAnswer": "Element 1",
+    "scenarioWrongs": ["The next byte inside element 0", "Element 4", "Address 1 regardless of type"],
+    "scenarioWhy": "The addition steps by elements, so plus 1 reaches the next int."
+  },
+  {
+    "term": "NULL pointer",
+    "definition": "A pointer value that does not address an object and that must not be dereferenced.",
+    "wrongs": [
+      "A pointer that is guaranteed to address a valid int whose value is zero.",
+      "The first character of an empty string, which may be read safely.",
+      "An uninitialized automatic pointer, which the language sets to null."
+    ],
+    "why": "A null pointer constant compares unequal to every pointer to an object, and using it to access an object is undefined.",
+    "example": "A failed heap allocation returns a null pointer, and the caller tests it before any access.",
+    "scenario": "A heap allocation fails and returns a null pointer. What is the defined way to handle that return value?",
+    "scenarioAnswer": "Test it and do not dereference it",
+    "scenarioWrongs": ["Dereference it to read zero", "Write through it to force allocation", "Free that address twice"],
+    "scenarioWhy": "A null return means no object exists, so dereferencing it is undefined."
+  },
+  {
+    "term": "void pointer",
+    "definition": "A generic object pointer that may hold any object's address but cannot be dereferenced until it is converted.",
+    "wrongs": [
+      "A function pointer, which standard C freely converts to and from a void pointer.",
+      "A pointer that can be dereferenced to produce a void value.",
+      "An integer type used to store character codes."
+    ],
+    "why": "Allocation returns this generic pointer so one function can provide storage for any object type.",
+    "example": "A void pointer receives the address of an int and is converted to an int pointer before the int is read.",
+    "scenario": "One parameter must accept the address of either an int or a struct. Which pointer type can hold both object addresses?",
+    "scenarioAnswer": "A void pointer",
+    "scenarioWrongs": ["An int pointer", "A function pointer", "A plain char object"],
+    "scenarioWhy": "A void pointer is the generic object pointer and is converted back before it is used."
+  },
+  {
+    "term": "C string",
+    "definition": "A sequence of characters stored in an array and ended by a null character.",
+    "wrongs": [
+      "A structure that stores a separate length and may contain a zero byte before the end.",
+      "A type that is distinct from an array of char.",
+      "An array of ints whose first element stores the length."
+    ],
+    "why": "String functions find the end by scanning for the terminating null character.",
+    "example": "The letters c, a, and t followed by a zero byte form a string whose length is 3.",
+    "scenario": "A char array holds the codes for c, a, and t, followed by a zero byte. What does that array contain?",
+    "scenarioAnswer": "A string",
+    "scenarioWrongs": ["A length-prefixed string", "Three ints", "A pointer object"],
+    "scenarioWhy": "A character sequence terminated by a null character is a C string."
+  },
+  {
+    "term": "Null terminator",
+    "definition": "The zero character that marks the end of a C string so library functions know where to stop.",
+    "wrongs": [
+      "A leading byte that stores the number of characters in the string.",
+      "A pointer with a null value used in place of the character array.",
+      "The newline character that ends a line of input."
+    ],
+    "why": "The terminator is a character whose value is zero, and the reported string length does not include it.",
+    "example": "The length function returns 3 for a three-letter word even though the array also stores a fourth zero byte.",
+    "scenario": "A length call returns 3 for a char array that occupies 4 bytes and ends in a zero byte. What is that extra byte?",
+    "scenarioAnswer": "The null terminator",
+    "scenarioWrongs": ["A length prefix", "A newline", "A second pointer"],
+    "scenarioWhy": "The extra zero character ends the string and is excluded from the length."
+  },
+  {
+    "term": "strcmp",
+    "definition": "A library function that compares two strings and returns zero when the strings are equal.",
+    "wrongs": [
+      "A function that returns 1 when the strings are equal and 0 when they differ.",
+      "A function that copies the second string over the first.",
+      "A function that appends one string to another."
+    ],
+    "why": "The result is negative, zero, or positive according to the lexicographic order of the unsigned character values.",
+    "example": "Comparing the text cat with cat returns 0, while comparing cat with dog returns a negative value.",
+    "scenario": "A program calls the standard string compare on two inputs to see whether the text matches. Which return value means they are equal?",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "The length of either string", "A positive value only"],
+    "scenarioWhy": "The compare function returns zero when the characters match through the terminating null."
+  },
+  {
+    "term": "struct",
+    "definition": "A type that groups named members, which may have different types, into one object.",
+    "wrongs": [
+      "A type that stores only one of its members at a time, all at the same address.",
+      "A sequence whose elements must all have the same type.",
+      "A function that returns several values through its name."
+    ],
+    "why": "The members are placed in declaration order, with padding inserted so each member meets its alignment.",
+    "example": "A point type contains both a float x and a float y in every point object.",
+    "scenario": "One object must hold an int identifier and a float score at the same time. Which kind of type groups them?",
+    "scenarioAnswer": "A struct",
+    "scenarioWrongs": ["A union", "An array of one type", "A single int"],
+    "scenarioWhy": "A struct can contain members of different types simultaneously."
+  },
+  {
+    "term": "Arrow operator",
+    "definition": "The operator that selects a struct or union member through a pointer to that struct or union.",
+    "wrongs": [
+      "The dot operator applied directly to a struct object rather than to a pointer.",
+      "The operator that dereferences a pointer to a lone int.",
+      "The operator that selects an array element by an index."
+    ],
+    "why": "Using it on a pointer is defined as dereferencing that pointer and then selecting the member.",
+    "example": "If p points at a point structure, the arrow selects the x member of that point.",
+    "scenario": "Pointer p addresses a struct, and the code must read member id through p. Which operator writes that access directly?",
+    "scenarioAnswer": "The arrow operator",
+    "scenarioWrongs": ["The dot operator applied to p", "The subscript operator", "sizeof"],
+    "scenarioWhy": "The arrow operator selects a member of the aggregate that a pointer addresses."
+  },
+  {
+    "term": "typedef",
+    "definition": "A declaration that gives an existing type another name without creating a distinct type.",
+    "wrongs": [
+      "A macro that substitutes text before the compiler checks types.",
+      "A definition that always creates a new struct type.",
+      "A specifier that gives a variable static storage duration."
+    ],
+    "why": "The alias and the original name are compatible, so they name the same type.",
+    "example": "An alias named byte for unsigned char still is unsigned char when values of the two names are mixed.",
+    "scenario": "A header makes byte_t another name for unsigned char, and the two names are the same type. Which feature did that?",
+    "scenarioAnswer": "typedef",
+    "scenarioWrongs": ["A macro", "A new struct", "The static keyword"],
+    "scenarioWhy": "typedef introduces an alias, so the new name and the original type are identical."
+  },
+  {
+    "term": "malloc",
+    "definition": "A function that allocates an uninitialized heap block of a requested byte size, or returns null on failure.",
+    "wrongs": [
+      "A function that allocates a block and sets every byte to zero.",
+      "A function that releases a block previously obtained from the heap.",
+      "A function that changes the size of an existing heap block."
+    ],
+    "why": "The caller chooses the size in bytes and must write the block before reading it, because the bytes are indeterminate.",
+    "example": "Requesting space for ten ints returns a block large enough for them, and those ints are not yet initialized.",
+    "scenario": "A program needs 40 uninitialized bytes from the heap and must accept a null result on failure. Which function requests that block?",
+    "scenarioAnswer": "malloc",
+    "scenarioWrongs": ["calloc", "free", "realloc"],
+    "scenarioWhy": "malloc allocates a raw block and does not initialize its contents."
+  },
+  {
+    "term": "free",
+    "definition": "A function that releases a heap block from malloc, calloc, or realloc, and that does nothing if passed null.",
+    "wrongs": [
+      "A function that allocates a new uninitialized block.",
+      "A function that also sets the caller's pointer variable to null.",
+      "A function that may release the same address twice with defined behavior."
+    ],
+    "why": "The block returns to the heap, but the pointer variable in the caller is left holding its old address.",
+    "example": "After releasing p, the program assigns null to p so a later mistake is easier to notice.",
+    "scenario": "A heap block is no longer needed, and passing a null address to the release function must be safe. Which function is that?",
+    "scenarioAnswer": "free",
+    "scenarioWrongs": ["malloc", "realloc", "fclose"],
+    "scenarioWhy": "free deallocates a heap block, and free of a null pointer is defined to do nothing."
+  },
+  {
+    "term": "calloc",
+    "definition": "A function that allocates an array of objects on the heap and sets every byte of that storage to zero.",
+    "wrongs": [
+      "A function that allocates uninitialized bytes.",
+      "A function that releases memory and clears the pointer variable.",
+      "A function that reserves an array with automatic storage."
+    ],
+    "why": "The zero fill gives integer objects the value zero before the caller stores anything else.",
+    "example": "Requesting four ints with this function returns four ints whose values are already 0.",
+    "scenario": "A program needs four heap ints that are already zero, without assigning zero itself. Which function allocates them?",
+    "scenarioAnswer": "calloc",
+    "scenarioWrongs": ["malloc", "alloca", "realloc"],
+    "scenarioWhy": "calloc allocates the requested objects and zero-fills their storage."
+  },
+  {
+    "term": "realloc",
+    "definition": "A function that changes the size of a heap block, possibly moving it, and keeps the old block if it returns null.",
+    "wrongs": [
+      "A function that always grows a block in place and never returns a different address.",
+      "A function that releases the old block even when the size change fails.",
+      "A function that changes the size of an automatic array."
+    ],
+    "why": "A null return reports failure, and only a non-null return means the caller should start using the possibly new address.",
+    "example": "Resizing a block to 80 bytes returns a new address, which the program stores back into its pointer.",
+    "scenario": "A resize of the block addressed by p returns null. What is true of the original block?",
+    "scenarioAnswer": "It is still allocated and p still addresses it",
+    "scenarioWrongs": ["It has already been released", "It was moved and p is invalid", "It was cleared and doubled in size"],
+    "scenarioWhy": "A null return means the resize failed and the previous block was not freed."
+  },
+  {
+    "term": "Memory leak",
+    "definition": "Heap storage that remains allocated but is no longer reachable, so the program cannot release it.",
+    "wrongs": [
+      "A pointer that still holds the address of storage after that storage was released.",
+      "Automatic storage that disappears when its function returns.",
+      "A null result from a failed allocation."
+    ],
+    "why": "Without a remaining pointer to the block, there is no address the program can pass to the release function.",
+    "example": "A function allocates a buffer, then overwrites the only pointer with null and returns without releasing the buffer.",
+    "scenario": "The only pointer to a heap block is overwritten with null, and the block is never released. What problem was created?",
+    "scenarioAnswer": "A memory leak",
+    "scenarioWrongs": ["A dangling pointer", "A double release", "A stack overflow"],
+    "scenarioWhy": "The block stays allocated, but the program no longer has an address it can release."
+  },
+  {
+    "term": "Dangling pointer",
+    "definition": "A pointer that still contains the address of storage whose lifetime has already ended.",
+    "wrongs": [
+      "A null pointer, which does not address an object.",
+      "The only pointer to a heap block that is still allocated.",
+      "A pointer just returned by a successful allocation."
+    ],
+    "why": "The address no longer refers to an object the program owns, so using the pointer is undefined.",
+    "example": "After a heap block is released, the pointer still holds the old address, and reading through it is invalid.",
+    "scenario": "A block has been released, the pointer was not cleared, and the code reads through that pointer. What kind of pointer is it?",
+    "scenarioAnswer": "A dangling pointer",
+    "scenarioWrongs": ["A null pointer", "A pointer that still owns the block", "A function pointer"],
+    "scenarioWhy": "The pointer still holds an address of storage that has already been released."
+  },
+  {
+    "term": "fopen",
+    "definition": "A function that opens a file in a chosen mode and returns a stream pointer, or null if the open fails.",
+    "wrongs": [
+      "A function that flushes and closes an open stream.",
+      "A function that writes formatted text to a stream that is already open.",
+      "A function that allocates a heap block unrelated to any file."
+    ],
+    "why": "The mode selects reading, writing, or appending, and failure is reported by a null return.",
+    "example": "Opening a readings file in read mode returns a stream used by later formatted reads.",
+    "scenario": "A program must open data.txt for reading and receive either a stream or null. Which function does that?",
+    "scenarioAnswer": "fopen",
+    "scenarioWrongs": ["fclose", "fprintf", "malloc"],
+    "scenarioWhy": "fopen creates a stream for a file and returns null when the file cannot be opened."
+  },
+  {
+    "term": "fclose",
+    "definition": "A function that flushes a stream, closes it, and returns zero when the close succeeds.",
+    "wrongs": [
+      "A function that opens a file and returns a new stream.",
+      "A function that releases a heap block.",
+      "A function that writes formatted text and leaves the stream open."
+    ],
+    "why": "Closing pushes buffered output to the file and then releases the stream's resources.",
+    "example": "After several formatted writes, closing the log stream flushes the last buffered text and returns zero.",
+    "scenario": "Writing to a log is finished, and the buffer must be flushed while the stream is released. Which function does both?",
+    "scenarioAnswer": "fclose",
+    "scenarioWrongs": ["fopen", "free", "A flush that leaves the stream open"],
+    "scenarioWhy": "fclose flushes buffered data and then closes the stream."
+  },
+  {
+    "term": "fprintf",
+    "definition": "A function that writes formatted output to a chosen stream using a format string and further arguments.",
+    "wrongs": [
+      "A function that writes formatted output only to the standard output stream.",
+      "A function that reads formatted input from a stream.",
+      "A function that opens a file and returns a stream pointer."
+    ],
+    "why": "The stream argument selects the destination, so the same formatting can target a file rather than the screen.",
+    "example": "A call passes a log stream and a format string so an error code is written into that file.",
+    "scenario": "Formatted text must be written to an already open file stream rather than necessarily to the screen. Which function does that?",
+    "scenarioAnswer": "fprintf",
+    "scenarioWrongs": ["printf", "fscanf", "fopen"],
+    "scenarioWhy": "fprintf takes a stream and writes formatted output to it."
+  },
+  {
+    "term": "Preprocessor",
+    "definition": "The translation phase that handles directives such as include and define before C statements are parsed.",
+    "wrongs": [
+      "The optimizer that removes unused code after types have been checked.",
+      "The linker that combines object files into a program.",
+      "The loader that places an executable into memory."
+    ],
+    "why": "Directives are processed as tokens early in translation, so they are not ordinary statements that run later.",
+    "example": "A definition of a buffer size replaces later uses of that name before the compiler type-checks the source.",
+    "scenario": "A header is inserted and a macro name is replaced before the compiler checks types. Which phase did that work?",
+    "scenarioAnswer": "The preprocessor",
+    "scenarioWrongs": ["The optimizer", "The linker", "The loader"],
+    "scenarioWhy": "Include and define are handled before the source is parsed and type-checked."
+  },
+  {
+    "term": "Object-like macro",
+    "definition": "A define that replaces a name with fixed tokens and does not take arguments.",
+    "wrongs": [
+      "A define whose name is followed by parameters and that substitutes those arguments.",
+      "A type alias checked by the compiler as a typedef.",
+      "An inline function with a typed parameter list."
+    ],
+    "why": "After the directive, each use of the name is replaced by the given tokens, and there is no parameter list.",
+    "example": "Defining LIMIT as 10 makes a later expression LIMIT plus 1 become 10 plus 1 before compilation.",
+    "scenario": "A define gives LIMIT the replacement 10, and LIMIT has no parameter list. What was defined?",
+    "scenarioAnswer": "An object-like macro",
+    "scenarioWrongs": ["A function-like macro", "A typedef", "An inline function"],
+    "scenarioWhy": "A define with no parameters is an object-like macro expanded by token replacement."
+  },
+  {
+    "term": "Include guard",
+    "definition": "A macro pattern that causes the body of a header to be processed only once in one translation unit.",
+    "wrongs": [
+      "A runtime lock that stops two tasks from reading one header.",
+      "A compiler switch that disables every include.",
+      "A linker option that pulls in a library only once."
+    ],
+    "why": "The first inclusion defines the guard macro, and a later inclusion skips the body because that macro is already defined.",
+    "example": "A header tests whether its guard macro is defined, defines it, and skips the struct on a second inclusion.",
+    "scenario": "A header included twice does not redefine its struct, because a macro was defined on the first inclusion. What pattern skipped the second body?",
+    "scenarioAnswer": "An include guard",
+    "scenarioWrongs": ["A runtime lock", "A once-only library link", "Turning off preprocessing"],
+    "scenarioWhy": "The guard macro makes the second inclusion skip the contents of the header."
+  },
+  {
+    "term": "Undefined behaviour",
+    "definition": "A program construct for which the C standard places no requirements on the implementation.",
+    "wrongs": [
+      "Behaviour the standard fully specifies, such as unsigned wraparound.",
+      "A diagnostic that every compiler is required to print at compile time.",
+      "Behaviour an implementation must choose and document."
+    ],
+    "why": "After such a construct occurs, later execution has no portable meaning that a program may rely on.",
+    "example": "Adding 1 to the maximum signed int is undefined behaviour.",
+    "scenario": "A program adds 1 to the maximum value of a signed int. How does the C standard classify that overflow?",
+    "scenarioAnswer": "Undefined behaviour",
+    "scenarioWrongs": ["Defined wraparound", "Implementation-defined behaviour", "A required compile-time diagnostic"],
+    "scenarioWhy": "Signed overflow is undefined, whereas unsigned overflow is defined to wrap."
+  },
+  {
+    "term": "static local variable",
+    "definition": "A local variable with static storage duration that is initialized only once and keeps its value between calls.",
+    "wrongs": [
+      "An automatic local that is created again on every entry to the function.",
+      "A file-scope variable that other translation units can name with extern.",
+      "A variable the compiler is required to place in a hardware register."
+    ],
+    "why": "The object lives for the whole program, while its name is visible only inside the block where it is declared.",
+    "example": "A function's static counter starts at 0 and rises by 1 on each call instead of restarting.",
+    "scenario": "A function has a static int count initialized to 0, and each call adds 1. What value does the third call see before adding 1?",
+    "scenarioAnswer": "2",
+    "scenarioWrongs": ["0", "1", "3"],
+    "scenarioWhy": "The variable is initialized once, so the third entry sees the two increments performed by the earlier calls."
+  }
+]

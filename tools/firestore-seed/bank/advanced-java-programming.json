@@ -1,0 +1,752 @@
+[
+  {
+    "term": "JVM",
+    "definition": "Software that loads Java bytecode and executes it on a particular operating system and CPU.",
+    "wrongs": [
+      "A compiler that turns Java source into a native executable for one operating system.",
+      "A source editor that checks syntax before a file is saved.",
+      "A library package that stores lists, sets, and maps."
+    ],
+    "why": "Java compiles to bytecode, and the JVM on each host is what actually runs that bytecode.",
+    "example": "A class file built on a laptop starts correctly on a Linux server that has a compatible runtime.",
+    "scenario": "A team ships one JAR to Windows servers and Linux laptops. Which component lets that same bytecode run on both?",
+    "scenarioAnswer": "The JVM",
+    "scenarioWrongs": ["The Java compiler", "The garbage collector", "The package declaration"],
+    "scenarioWhy": "Each machine's JVM executes the same bytecode, so the JAR needs no separate native build per system."
+  },
+  {
+    "term": "Bytecode",
+    "definition": "Platform-neutral instructions, stored in class files, that a Java runtime can execute.",
+    "wrongs": [
+      "Native CPU instructions that run only on the machine where they were compiled.",
+      "The original Java source kept inside a JAR manifest.",
+      "A snapshot of live heap objects taken while a program is paused."
+    ],
+    "why": "javac emits bytecode rather than native machine code so a runtime can execute it on many hosts.",
+    "example": "Compiling Hello.java produces Hello.class, and a runtime reads those instructions when the program starts.",
+    "scenario": "After a build, the output folder contains class files but no operating-system executable. What do those class files hold?",
+    "scenarioAnswer": "Bytecode",
+    "scenarioWrongs": ["Native machine code", "SQL scripts", "HTML markup"],
+    "scenarioWhy": "The compiler writes bytecode into class files, leaving native code generation to the runtime if it happens at all."
+  },
+  {
+    "term": "Class loader",
+    "definition": "The runtime subsystem that finds class files, reads them, and links them before they can be used.",
+    "wrongs": [
+      "A compiler pass that optimizes hot methods into native code.",
+      "A collector that frees objects nobody can still reach.",
+      "A scheduler that chooses which thread runs next."
+    ],
+    "why": "Classes are brought in on demand, and the class loader is the part that locates and defines them.",
+    "example": "The first new Student() causes the application loader to read Student.class from the classpath.",
+    "scenario": "A rarely used feature fails with NoClassDefFoundError only when it is first called. Which runtime part failed to locate that class?",
+    "scenarioAnswer": "The class loader",
+    "scenarioWrongs": ["The just-in-time compiler", "The garbage collector", "The thread scheduler"],
+    "scenarioWhy": "The class is loaded when it is first needed, so a missing class file shows up as a class-loader failure at that moment."
+  },
+  {
+    "term": "Just-in-time compilation",
+    "definition": "Runtime translation of frequently executed bytecode into native machine code.",
+    "wrongs": [
+      "A source compilation that happens only when the file is saved in an editor.",
+      "A check that every generic cast is still present at runtime.",
+      "A cleanup pass that frees unreachable objects."
+    ],
+    "why": "The runtime watches hot methods and compiles them so later calls can skip interpretation.",
+    "example": "A loop that ranks a million scores speeds up after the runtime compiles the comparison method.",
+    "scenario": "A server's first requests are slow, then the same endpoint becomes much faster with no code change. What most likely happened?",
+    "scenarioAnswer": "Hot methods were compiled at runtime",
+    "scenarioWrongs": ["The heap was deleted", "Checked exceptions were disabled", "Packages were merged into one file"],
+    "scenarioWhy": "After methods run often enough, just-in-time compilation turns them into native code for later calls."
+  },
+  {
+    "term": "Garbage collection",
+    "definition": "Automatic reclamation of heap objects that running code can no longer reach.",
+    "wrongs": [
+      "A compiler warning that deletes unused import declarations.",
+      "A manual free call the programmer must make for every object.",
+      "A thread scheduler that stops low-priority tasks."
+    ],
+    "why": "The collector traces references from roots and reclaims objects that nothing can still use.",
+    "example": "After a method drops its only reference to a large byte array, a later collection cycle can reclaim that array.",
+    "scenario": "A service allocates many short-lived request objects. Which mechanism frees them once no thread can reach them?",
+    "scenarioAnswer": "Garbage collection",
+    "scenarioWrongs": ["A finally block by itself", "An explicit free call", "Package unloading"],
+    "scenarioWhy": "Unreachable request objects stay on the heap until the collector decides they can be reclaimed."
+  },
+  {
+    "term": "Heap",
+    "definition": "The runtime memory region where objects and arrays are allocated and shared by threads.",
+    "wrongs": [
+      "The per-thread memory that stores only the currently executing method frames.",
+      "The native area that stores class metadata and method bytecode.",
+      "The disk folder that stores compiled class files."
+    ],
+    "why": "A new expression reserves object storage on the heap, which all threads of the process can share.",
+    "example": "Each new Order() created while handling a web request allocates that Order on the shared object area.",
+    "scenario": "Creating millions of objects throws OutOfMemoryError: Java heap space. Which memory region is exhausted?",
+    "scenarioAnswer": "The heap",
+    "scenarioWrongs": ["That thread's Java stack", "The metaspace of class metadata", "The source-file cache"],
+    "scenarioWhy": "Objects created with new live on the heap, so exhausting that region raises a heap-space error."
+  },
+  {
+    "term": "Java stack",
+    "definition": "Per-thread memory that holds a frame for each method the thread is currently executing.",
+    "wrongs": [
+      "Shared memory where every object created with new is stored.",
+      "Native memory that holds loaded class metadata.",
+      "A disk buffer used only for log files."
+    ],
+    "why": "Each call pushes a frame of local variables and a return address, and the frame is popped when the method returns.",
+    "example": "A recursive factorial method pushes another frame on every call until the base case is reached.",
+    "scenario": "Deep recursion throws StackOverflowError while plenty of heap space remains. Which memory is exhausted?",
+    "scenarioAnswer": "That thread's Java stack",
+    "scenarioWrongs": ["The shared heap", "Metaspace", "The JAR manifest"],
+    "scenarioWhy": "Each recursive call needs a new frame on that thread's stack, independent of free heap space."
+  },
+  {
+    "term": "Metaspace",
+    "definition": "Native memory that stores class metadata such as method information and field layouts.",
+    "wrongs": [
+      "The heap area used only for ordinary object instances.",
+      "A per-thread stack of method frames.",
+      "A cache of JDBC query results."
+    ],
+    "why": "Since Java 8, class metadata has lived in metaspace instead of a fixed permanent generation on the heap.",
+    "example": "Generating a new proxy class for every tenant makes native class-metadata memory grow until it hits its limit.",
+    "scenario": "An app that defines a new class for every tenant eventually fails with Metaspace. What has filled up?",
+    "scenarioAnswer": "Class metadata",
+    "scenarioWrongs": ["Request body bytes", "JDBC result rows", "Thread stacks"],
+    "scenarioWhy": "Each loaded class adds metadata in metaspace, so unbounded class generation can exhaust that area."
+  },
+  {
+    "term": "Package",
+    "definition": "A named namespace that groups related classes and gives them package-private access to one another.",
+    "wrongs": [
+      "A running thread that shares the heap with other threads.",
+      "A compiled archive that must contain exactly one class.",
+      "A generic type parameter erased at runtime."
+    ],
+    "why": "The package organizes types on the classpath and is the boundary for members with no access modifier.",
+    "example": "Invoice and Order both live in com.shop.order and can read each other's package-private fields.",
+    "scenario": "Two classes should share helper methods that outside code must not call, and they should share a namespace. What groups them?",
+    "scenarioAnswer": "A package",
+    "scenarioWrongs": ["A lambda", "A thread pool", "A result set"],
+    "scenarioWhy": "Classes in the same package share a namespace and can use each other's package-private members."
+  },
+  {
+    "term": "Import declaration",
+    "definition": "A source line that lets code refer to a type by its simple name.",
+    "wrongs": [
+      "A statement that copies another class's bytecode into this file.",
+      "A lock that allows only one thread into a method.",
+      "A clause that lists checked exceptions a method may throw."
+    ],
+    "why": "The declaration does not load or copy code; it tells the compiler which full type name a short name means.",
+    "example": "A file that declares import java.util.List can write List instead of java.util.List.",
+    "scenario": "A source file uses ArrayList with no java.util prefix and still compiles. Which declaration makes that short name legal?",
+    "scenarioAnswer": "An import declaration",
+    "scenarioWrongs": ["A synchronized block", "A throws clause", "A native method"],
+    "scenarioWhy": "An import tells the compiler that the simple name ArrayList means java.util.ArrayList."
+  },
+  {
+    "term": "Interface",
+    "definition": "A reference type that declares a contract of methods without holding instance fields.",
+    "wrongs": [
+      "A class that stores instance state and can be constructed with new.",
+      "A primitive such as int that is not an object.",
+      "A package that only groups class files on disk."
+    ],
+    "why": "Implementing classes supply the method bodies, so callers can depend on the contract rather than one class.",
+    "example": "PaymentGateway requires charge, and both StripeGateway and CashGateway provide their own bodies.",
+    "scenario": "Unrelated payment classes must all be passable to a method that expects a charge operation. What should they share?",
+    "scenarioAnswer": "An interface",
+    "scenarioWrongs": ["A private constructor", "A static initializer", "A primitive type"],
+    "scenarioWhy": "An interface lets unrelated classes offer the same methods without sharing one superclass."
+  },
+  {
+    "term": "Abstract class",
+    "definition": "A class that cannot be instantiated and may mix concrete methods with unimplemented ones.",
+    "wrongs": [
+      "A final class that can be constructed and has no subclasses.",
+      "An interface that is forbidden from containing any method body.",
+      "A primitive wrapper that only boxes a single value."
+    ],
+    "why": "Subclasses complete the unimplemented methods, while shared fields and code can live in the abstract superclass.",
+    "example": "Shape stores a color and a concrete move method, while Circle and Square each implement area.",
+    "scenario": "Shapes share a color field and a move method, but Shape itself must not be constructed and each shape computes area differently. What should Shape be?",
+    "scenarioAnswer": "An abstract class",
+    "scenarioWrongs": ["A final class", "An enum constant", "A primitive type"],
+    "scenarioWhy": "An abstract class can hold shared state and code while leaving area for concrete subclasses."
+  },
+  {
+    "term": "Inheritance",
+    "definition": "A mechanism that lets a subclass acquire fields and methods from a superclass.",
+    "wrongs": [
+      "A way to pass a block of code as a method argument.",
+      "A compiler feature that erases generic type arguments.",
+      "A lock that guards a shared field."
+    ],
+    "why": "The extends clause reuses the superclass implementation and lets the subclass add or replace behavior.",
+    "example": "SavingsAccount extends Account, reuses deposit, and adds its own interest-rate field.",
+    "scenario": "A new account type should reuse deposit and withdraw instead of copying those methods. Which feature provides that reuse?",
+    "scenarioAnswer": "Inheritance",
+    "scenarioWrongs": ["Serialization", "Autoboxing", "Varargs"],
+    "scenarioWhy": "A subclass inherits the superclass methods, so deposit and withdraw do not need to be copied."
+  },
+  {
+    "term": "Method overriding",
+    "definition": "A subclass method with the same signature that replaces the superclass method for subclass objects.",
+    "wrongs": [
+      "Two methods in one class that share a name but take different parameters.",
+      "A generic method whose type arguments disappear at runtime.",
+      "A static method that hides another static method in a superclass."
+    ],
+    "why": "At a call through a superclass reference, the runtime uses the override belonging to the actual object.",
+    "example": "Animal declares speak, and a Dog object reached through an Animal variable prints bark from Dog's method.",
+    "scenario": "A variable of type Animal refers to a Dog, and speak prints bark. Which feature selected Dog's method?",
+    "scenarioAnswer": "Method overriding",
+    "scenarioWrongs": ["Method overloading", "Operator overloading", "Constant folding"],
+    "scenarioWhy": "The call uses the Dog object's overriding method, not the version declared on the Animal variable."
+  },
+  {
+    "term": "Method overloading",
+    "definition": "Several methods in one class that share a name but have different parameter lists.",
+    "wrongs": [
+      "A subclass method that replaces a superclass method with the same parameters.",
+      "A method that throws a checked exception to its caller.",
+      "A lambda that implements one abstract method."
+    ],
+    "why": "The compiler picks the overload from the argument types at the call site.",
+    "example": "Printer defines print for a String and print for an int, and the compiler chooses from the argument.",
+    "scenario": "A utility class has two methods named max, one taking int values and one taking double values. What is that pair?",
+    "scenarioAnswer": "Overloaded methods",
+    "scenarioWrongs": ["Overridden methods", "Abstract methods", "Native methods"],
+    "scenarioWhy": "The methods share a name and differ in parameter types, so they are overloads resolved at compile time."
+  },
+  {
+    "term": "Polymorphism",
+    "definition": "The ability to use different object types through one supertype and still run type-specific behavior.",
+    "wrongs": [
+      "Hiding fields so callers must use methods.",
+      "Storing classes in a named namespace.",
+      "Reclaiming unreachable objects automatically."
+    ],
+    "why": "A supertype reference may point at any subtype, and overridden methods run the subtype's version.",
+    "example": "A list of shape references holds circles and squares, and a loop calls area on each reference.",
+    "scenario": "A checkout method accepts any discount rule, and holiday and student rules compute different amounts. Which idea is in use?",
+    "scenarioAnswer": "Polymorphism",
+    "scenarioWrongs": ["Package-private access", "Integer caching", "String interning"],
+    "scenarioWhy": "One discount-rule type stands for several implementations, and each object applies its own formula."
+  },
+  {
+    "term": "Encapsulation",
+    "definition": "Hiding an object's data and allowing changes only through its methods.",
+    "wrongs": [
+      "Letting a subclass replace a public method at runtime.",
+      "Parameterizing a class with a type argument.",
+      "Running two methods at the same time on different threads."
+    ],
+    "why": "Private fields plus public methods keep the object's invariants inside the class.",
+    "example": "A bank account keeps its balance private and changes it only through deposit and withdraw.",
+    "scenario": "Callers were setting a balance field negative by writing it directly. Which practice stops that direct write?",
+    "scenarioAnswer": "Encapsulation",
+    "scenarioWrongs": ["Multiple inheritance", "Bytecode verification", "Static import"],
+    "scenarioWhy": "Keeping the field private forces every change to go through methods that can reject a negative balance."
+  },
+  {
+    "term": "Generics",
+    "definition": "A way to parameterize classes and methods so the compiler checks the element types.",
+    "wrongs": [
+      "A runtime feature that keeps every type argument available to instanceof.",
+      "A keyword that locks a method for one thread.",
+      "A stream operation that filters elements."
+    ],
+    "why": "A type such as List of String is rejected at compile time if the code adds the wrong kind of element.",
+    "example": "A List of String names fails to compile when the code tries to add the integer 42.",
+    "scenario": "A box type should accept only Invoice objects, and inserting a String should fail at compile time. Which feature does that?",
+    "scenarioAnswer": "Generics",
+    "scenarioWrongs": ["Reflection", "Serialization", "Varargs"],
+    "scenarioWhy": "A generic box of Invoice lets the compiler reject a String before the program runs."
+  },
+  {
+    "term": "Type erasure",
+    "definition": "The compiler's removal of generic type arguments so they are not kept as separate runtime types.",
+    "wrongs": [
+      "A collector pass that deletes unreachable generic objects.",
+      "A class-loader step that refuses raw types.",
+      "A syntax rule that forbids wildcards in source code."
+    ],
+    "why": "The runtime sees a raw type, and the compiler inserts casts that enforce the generic constraints.",
+    "example": "At runtime a List of String and a List of Integer are both just List, so a type test for List of String is illegal.",
+    "scenario": "A method cannot use instanceof to test whether a List is specifically a List of String. Which compilation rule explains that?",
+    "scenarioAnswer": "Type erasure",
+    "scenarioWrongs": ["Class loading", "String interning", "Definite assignment"],
+    "scenarioWhy": "Generic arguments are erased, so the runtime type of the list does not include String."
+  },
+  {
+    "term": "Bounded type parameter",
+    "definition": "A generic parameter restricted to a given type or one of its subtypes.",
+    "wrongs": [
+      "A wildcard that accepts only supertypes of a class.",
+      "A raw type with all generic checks turned off.",
+      "An array whose length is fixed at compile time."
+    ],
+    "why": "The bound lets the method call operations of the upper bound while still accepting any subtype.",
+    "example": "A method declared with T extends Number can call doubleValue on every element of a List of T.",
+    "scenario": "A method must accept a List of Integer or a List of Double and call doubleValue on the elements. How should the type parameter be bounded?",
+    "scenarioAnswer": "T extends Number",
+    "scenarioWrongs": ["T super Number", "T implements Number", "T equals Number"],
+    "scenarioWhy": "An extends Number bound allows Integer and Double and permits calls to Number methods."
+  },
+  {
+    "term": "ArrayList",
+    "definition": "A resizable list that stores its elements in a contiguous array.",
+    "wrongs": [
+      "A list of nodes in which each element points to the next element.",
+      "A set that rejects duplicates by hashing them.",
+      "A map that keeps keys in sorted tree order."
+    ],
+    "why": "Index access jumps directly into the array, and the list copies into a larger array when it is full.",
+    "example": "A shopping cart stores items so the code can jump straight to item number i.",
+    "scenario": "A leaderboard needs fast access by position and almost always adds items at the end. Which List implementation fits best?",
+    "scenarioAnswer": "ArrayList",
+    "scenarioWrongs": ["LinkedList", "TreeSet", "PriorityQueue"],
+    "scenarioWhy": "An array-backed list offers constant-time index access and cheap appends until a resize is needed."
+  },
+  {
+    "term": "LinkedList",
+    "definition": "A list that stores elements in nodes, each linked to its neighbors.",
+    "wrongs": [
+      "A list that stores elements in one resizable array.",
+      "A hash table of unique keys.",
+      "A last-in first-out stack of method frames."
+    ],
+    "why": "Inserting or removing at a known node changes a few links instead of shifting an array of elements.",
+    "example": "A playlist removes the current song by relinking the neighboring songs instead of shifting every later song.",
+    "scenario": "A queue often inserts and deletes at the ends and almost never looks up an element by index. Which List is a natural fit?",
+    "scenarioAnswer": "LinkedList",
+    "scenarioWrongs": ["ArrayList", "HashMap", "TreeMap"],
+    "scenarioWhy": "Link updates at the ends avoid shifting a contiguous array when the index is rarely needed."
+  },
+  {
+    "term": "HashMap",
+    "definition": "A map from keys to values that places entries in buckets chosen by the key's hash code.",
+    "wrongs": [
+      "A map that always keeps its keys in sorted order.",
+      "A list that allows duplicate elements and integer indexes.",
+      "A set that stores only true or false."
+    ],
+    "why": "When hash codes spread keys across buckets, get and put take constant time on average.",
+    "example": "A cache maps each user id to a profile so a lookup does not scan every profile.",
+    "scenario": "Session data must be retrieved by a unique token in expected constant time. Which collection fits?",
+    "scenarioAnswer": "HashMap",
+    "scenarioWrongs": ["ArrayList", "TreeSet", "ArrayDeque"],
+    "scenarioWhy": "Hashing the token selects a bucket, so the session can be found without scanning every entry."
+  },
+  {
+    "term": "HashSet",
+    "definition": "A set that rejects duplicate elements by using hash codes and equality.",
+    "wrongs": [
+      "A list that keeps every inserted element, including duplicates.",
+      "A map from sorted keys to values.",
+      "A queue that removes the oldest element first."
+    ],
+    "why": "Membership tests use hashing, and equals decides whether two objects count as the same element.",
+    "example": "Adding an email address a second time leaves the set of used addresses unchanged.",
+    "scenario": "A signup form must remember emails already used and reject a duplicate quickly. Which collection fits?",
+    "scenarioAnswer": "HashSet",
+    "scenarioWrongs": ["ArrayList", "LinkedList", "ArrayDeque"],
+    "scenarioWhy": "A hash set treats equal emails as one element and tests membership without scanning a list."
+  },
+  {
+    "term": "TreeMap",
+    "definition": "A map that keeps its keys in sorted order inside a red-black tree.",
+    "wrongs": [
+      "A map that places keys in hash buckets with no key order.",
+      "A set of array indexes with no keys.",
+      "A list that sorts only when sort is called."
+    ],
+    "why": "Keys follow Comparable or a Comparator, so iterating the map yields that order.",
+    "example": "Mapping student names to scores in this structure prints the names in alphabetical order.",
+    "scenario": "A leaderboard must stay sorted by its score key and still map each key to a player name. Which map fits?",
+    "scenarioAnswer": "TreeMap",
+    "scenarioWrongs": ["HashMap", "IdentityHashMap", "WeakHashMap"],
+    "scenarioWhy": "A tree map keeps keys ordered, so iteration follows the score order without a separate sort."
+  },
+  {
+    "term": "Iterator",
+    "definition": "An object that visits the elements of a collection one at a time.",
+    "wrongs": [
+      "A compiler that erases generic type arguments.",
+      "A lock shared by every thread in a pool.",
+      "A cursor over rows returned by a database driver."
+    ],
+    "why": "The iterator hides whether the collection is an array, a linked structure, or a tree, and it can remove the current element safely.",
+    "example": "A loop walks a task collection and removes a task during the visit when that task is already done.",
+    "scenario": "Code must visit every element and delete some during the visit without knowing whether the collection is an array or a tree. What should it use?",
+    "scenarioAnswer": "An Iterator",
+    "scenarioWrongs": ["A class loader", "A volatile field", "A native method"],
+    "scenarioWhy": "An iterator provides uniform traversal and a remove operation that stays consistent with the collection."
+  },
+  {
+    "term": "Comparable",
+    "definition": "An interface whose compareTo method defines a class's natural order.",
+    "wrongs": [
+      "A separate object that orders two values without changing their class.",
+      "A marker interface used only to allow byte-stream output.",
+      "A functional interface whose single method is run."
+    ],
+    "why": "Sort methods and tree collections use compareTo when the caller does not supply another ordering.",
+    "example": "Student implements a natural order by id, so a tree set of students is ordered by that id.",
+    "scenario": "Student objects should sort by student id inside a tree set, with no extra ordering object. Which interface should Student implement?",
+    "scenarioAnswer": "Comparable",
+    "scenarioWrongs": ["Serializable", "Cloneable", "Runnable"],
+    "scenarioWhy": "Comparable puts the natural order inside the class, which a tree set uses automatically."
+  },
+  {
+    "term": "Comparator",
+    "definition": "An object that compares two values using a rule kept outside those values' class.",
+    "wrongs": [
+      "The natural-order method declared inside the class itself.",
+      "A hash function that chooses a bucket for a key.",
+      "A stream collector that builds a list."
+    ],
+    "why": "An external comparator can order one class in several ways without changing its compareTo method.",
+    "example": "Products already order themselves by name, while a separate object orders the same products by price.",
+    "scenario": "Products already sort by name, but one screen must sort those same objects by price. What should that screen pass to the sort?",
+    "scenarioAnswer": "A Comparator",
+    "scenarioWrongs": ["A ClassLoader", "A ThreadGroup", "An Annotation"],
+    "scenarioWhy": "A comparator supplies a price ordering without replacing the class's natural name order."
+  },
+  {
+    "term": "Exception",
+    "definition": "An object that reports an abnormal condition and can transfer control to a handler.",
+    "wrongs": [
+      "A compile-time warning that never affects control flow.",
+      "A second return value stored beside the normal result.",
+      "A thread that runs only after the program ends."
+    ],
+    "why": "Throwing the object skips the rest of the normal path and looks for a matching catch.",
+    "example": "Parsing the text abc as an integer raises NumberFormatException, and a catch turns it into an error message.",
+    "scenario": "A parser hits bad input and must jump to a handler instead of returning a normal value. What should it throw?",
+    "scenarioAnswer": "An exception",
+    "scenarioWrongs": ["A package name", "A generic bound", "A stack frame"],
+    "scenarioWhy": "Throwing an exception transfers control to a matching handler instead of continuing the normal return path."
+  },
+  {
+    "term": "Checked exception",
+    "definition": "An exception that the compiler requires a method to catch or list in its declaration.",
+    "wrongs": [
+      "A RuntimeException that callers may ignore without a compiler error.",
+      "An Error that signals a serious failure of the runtime itself.",
+      "A warning suppressed with an annotation."
+    ],
+    "why": "Exceptions other than RuntimeException and Error are checked, so they must be handled or declared.",
+    "example": "Constructing a FileReader can throw FileNotFoundException, so the caller catches it or adds a throws clause.",
+    "scenario": "The compiler rejects a method that calls a file API and neither catches nor declares the failure. What kind of exception is that?",
+    "scenarioAnswer": "A checked exception",
+    "scenarioWrongs": ["An unchecked exception", "An error that need not be declared", "A suppressed warning"],
+    "scenarioWhy": "Checked exceptions must be caught or declared, so ignoring a file failure is a compile-time error."
+  },
+  {
+    "term": "Unchecked exception",
+    "definition": "A RuntimeException that callers are not forced to catch or declare.",
+    "wrongs": [
+      "An exception that must appear in a throws clause or a catch.",
+      "A checked I/O failure from the file APIs.",
+      "An error used only for syntax mistakes."
+    ],
+    "why": "Unchecked exceptions usually report programming bugs such as a bad index or a null reference.",
+    "example": "Calling get with an index past the end of a list throws IndexOutOfBoundsException with no throws clause required.",
+    "scenario": "A method may throw ArithmeticException when a computed divisor is zero. What must that method do about the exception?",
+    "scenarioAnswer": "Nothing special, because it is unchecked",
+    "scenarioWrongs": ["Catch it or add a throws clause", "Declare it as a generic bound", "Mark the method native"],
+    "scenarioWhy": "ArithmeticException is a RuntimeException, so the compiler does not require a catch or a throws clause."
+  },
+  {
+    "term": "Finally block",
+    "definition": "A block that runs after try and catch whether the try completed or threw.",
+    "wrongs": [
+      "A block that runs only when an exception was caught.",
+      "A clause on the method header that lists exceptions.",
+      "A resource declaration that closes files by itself."
+    ],
+    "why": "Cleanup placed there runs on both the normal path and the exceptional path.",
+    "example": "A method closes a scanner in this block so the scanner closes even when parsing throws.",
+    "scenario": "A lock must be released both when the work succeeds and when it throws. Where should the unlock call go?",
+    "scenarioAnswer": "In a finally block",
+    "scenarioWrongs": ["Only in the catch block", "Before the try block", "On the method signature"],
+    "scenarioWhy": "Finally runs after success and after an exception, so the lock is released on both paths."
+  },
+  {
+    "term": "Try-with-resources",
+    "definition": "A try statement that automatically closes AutoCloseable resources declared in its parentheses.",
+    "wrongs": [
+      "A finally block the programmer must write to call close.",
+      "A catch that handles only unchecked exceptions.",
+      "A synchronized block that locks a file object."
+    ],
+    "why": "Resources declared in the try header are closed when the block ends, including when an exception is thrown.",
+    "example": "A buffered reader opened in the try header closes when the block finishes, even if readLine throws.",
+    "scenario": "A file reader must close even if reading throws, and the team does not want a handwritten close call. Which statement does that?",
+    "scenarioAnswer": "Try-with-resources",
+    "scenarioWrongs": ["A synchronized method", "A static import", "A generic method"],
+    "scenarioWhy": "Declaring the reader in the try header closes it automatically when the block exits."
+  },
+  {
+    "term": "Throws clause",
+    "definition": "The part of a method header that lists checked exceptions the method may pass to its caller.",
+    "wrongs": [
+      "A catch block that handles an exception inside the method.",
+      "A finally block that always closes a file.",
+      "A generic bound on a type parameter."
+    ],
+    "why": "Declaring the exception forces callers to catch it or declare it themselves.",
+    "example": "A load method header lists IOException so callers know load may fail while reading.",
+    "scenario": "A method does not catch IOException and wants its caller to handle that failure. What must the method header include?",
+    "scenarioAnswer": "A throws clause",
+    "scenarioWrongs": ["A generic bound", "A synchronized modifier", "A default method body"],
+    "scenarioWhy": "A throws clause passes the checked IOException to the caller instead of handling it inside the method."
+  },
+  {
+    "term": "Lambda expression",
+    "definition": "A compact expression that supplies the body of a functional interface without a named class.",
+    "wrongs": [
+      "A named class that implements several unrelated methods.",
+      "A package declaration at the top of a file.",
+      "A generic wildcard in a parameter type."
+    ],
+    "why": "The compiler turns the expression into an instance of the target interface's single abstract method.",
+    "example": "A sort call compares names with (a, b) -> a.length() - b.length() instead of a named comparison class.",
+    "scenario": "A button needs one piece of click behavior, and the team wants to avoid declaring a named class. What should they write?",
+    "scenarioAnswer": "A lambda expression",
+    "scenarioWrongs": ["A package declaration", "A native method", "A static initializer"],
+    "scenarioWhy": "A lambda implements the listener's single method inline, so no named class is required."
+  },
+  {
+    "term": "Functional interface",
+    "definition": "An interface with exactly one abstract method, so a lambda can implement it.",
+    "wrongs": [
+      "An interface with several abstract methods and no default methods.",
+      "A class that cannot be subclassed.",
+      "An annotation that is retained only in source code."
+    ],
+    "why": "The single abstract method gives the lambda exactly one signature to implement.",
+    "example": "Predicate declares only the abstract method test, so a lambda can act as a Predicate.",
+    "scenario": "An interface is meant to be implemented by lambdas and declares only one abstract method. What kind of interface is it?",
+    "scenarioAnswer": "A functional interface",
+    "scenarioWrongs": ["A marker annotation", "A sealed class", "A record"],
+    "scenarioWhy": "One abstract method is what lets the compiler match a lambda to that interface."
+  },
+  {
+    "term": "Method reference",
+    "definition": "A shorthand that refers to an existing method where a lambda would otherwise be written.",
+    "wrongs": [
+      "A throws clause that names a checked exception.",
+      "A wildcard import of every type in a package.",
+      "A cast from a superclass to a subclass."
+    ],
+    "why": "The referenced method must match the single abstract method of the target functional interface.",
+    "example": "names.forEach(System.out::println) passes the existing println method instead of a lambda body.",
+    "scenario": "A stream's forEach should call the existing println method without writing lambda parameters. Which syntax does that?",
+    "scenarioAnswer": "A method reference",
+    "scenarioWrongs": ["A wildcard import", "A throws clause", "An anonymous package"],
+    "scenarioWhy": "A method reference points at println, and its signature matches the consumer forEach expects."
+  },
+  {
+    "term": "Stream",
+    "definition": "A pipeline that processes a sequence of elements through intermediate and terminal operations.",
+    "wrongs": [
+      "A resizable array that is always modified in place.",
+      "A thread pool that runs one task per element immediately.",
+      "A database cursor returned by a query."
+    ],
+    "why": "The pipeline describes work but does not run it until a terminal operation asks for a result.",
+    "example": "Orders are filtered to the open ones, mapped to totals, and collected, leaving the original list unchanged.",
+    "scenario": "A list of orders should be filtered and mapped without changing the original list in place. Which API fits?",
+    "scenarioAnswer": "The Stream API",
+    "scenarioWrongs": ["A synchronized block", "A class loader", "Reflection"],
+    "scenarioWhy": "A stream builds a new result from the list instead of rewriting the list's elements."
+  },
+  {
+    "term": "Intermediate operation",
+    "definition": "A lazy stream step, such as filter or map, that returns another stream.",
+    "wrongs": [
+      "A stream step that produces a final value and ends the pipeline.",
+      "A terminal collector that builds a concrete list.",
+      "A source that creates the stream from a collection."
+    ],
+    "why": "These steps are recorded and run only when a later terminal operation pulls values through the pipeline.",
+    "example": "Logging inside map prints nothing until a later collect or forEach actually runs the pipeline.",
+    "scenario": "A pipeline calls filter and map but never a terminating call, and logging inside map never appears. Why did the work not run?",
+    "scenarioAnswer": "Those steps are lazy",
+    "scenarioWrongs": ["Filter deletes the source list", "Map runs only on a second thread", "The logger ignores stream calls"],
+    "scenarioWhy": "Filter and map are intermediate, so they do no work until a terminal operation pulls elements."
+  },
+  {
+    "term": "Terminal operation",
+    "definition": "A stream step that consumes the pipeline and produces a result or a side effect.",
+    "wrongs": [
+      "A lazy step such as filter that returns another stream.",
+      "A source method such as stream() on a list.",
+      "A collector implementation that is never invoked."
+    ],
+    "why": "Operations such as collect, reduce, and forEach start evaluation, and the stream cannot be reused afterward.",
+    "example": "Calling collect to build a list forces the earlier filter and map steps to run.",
+    "scenario": "A pipeline of filter and map should actually run and return a list. What kind of call must finish the pipeline?",
+    "scenarioAnswer": "A terminal operation",
+    "scenarioWrongs": ["Another filter call", "A package import", "A class declaration"],
+    "scenarioWhy": "Only a terminal operation such as collect pulls values through the pipeline and yields the list."
+  },
+  {
+    "term": "Optional",
+    "definition": "A container that either holds one value or is empty, used instead of returning null.",
+    "wrongs": [
+      "A list that may contain several matching values.",
+      "A checked exception thrown when a lookup fails.",
+      "A nullable primitive such as int."
+    ],
+    "why": "Callers handle presence with methods such as orElse or ifPresent, so a missing value is explicit.",
+    "example": "A user lookup returns an empty container when no row matches, and the caller uses orElseThrow.",
+    "scenario": "A lookup may find no user, and callers should handle absence without testing a null return. What should the method return?",
+    "scenarioAnswer": "An Optional",
+    "scenarioWrongs": ["A raw null", "void", "A new thread"],
+    "scenarioWhy": "Optional makes the missing user explicit, so the caller uses orElse or a similar method instead of a null test."
+  },
+  {
+    "term": "Thread",
+    "definition": "An independent path of execution that can run alongside other paths in the same process.",
+    "wrongs": [
+      "A separate operating-system process with its own private heap.",
+      "A lock that allows only one method to run.",
+      "A pool that reuses workers but is not itself a single path of execution."
+    ],
+    "why": "Each thread has its own stack and program counter while sharing the process heap.",
+    "example": "A server handles a slow report on a worker so the thread that accepts new connections can keep running.",
+    "scenario": "A download should continue while the user-interface path keeps painting the window. What should run the download?",
+    "scenarioAnswer": "Another thread",
+    "scenarioWrongs": ["A second heap", "A new package", "A generic wildcard"],
+    "scenarioWhy": "A second thread can run the download while the interface thread continues to paint."
+  },
+  {
+    "term": "Runnable",
+    "definition": "A functional interface whose run method is the code a thread or executor should execute.",
+    "wrongs": [
+      "An interface used to write an object as bytes.",
+      "An interface that defines a natural sort order.",
+      "An interface for objects that must be closed."
+    ],
+    "why": "Thread and executor APIs accept it and call run on the chosen worker.",
+    "example": "new Thread(() -> saveReport()).start() runs saveReport as the body of run.",
+    "scenario": "Work should be handed to a Thread without subclassing Thread. Which type should that work implement?",
+    "scenarioAnswer": "Runnable",
+    "scenarioWrongs": ["Serializable", "Comparable", "AutoCloseable"],
+    "scenarioWhy": "Thread accepts a Runnable and calls its run method, so Thread itself need not be subclassed."
+  },
+  {
+    "term": "synchronized keyword",
+    "definition": "A modifier that lets only one thread at a time execute a method or block on a given lock.",
+    "wrongs": [
+      "A field modifier that only makes writes visible and does not exclude other threads.",
+      "A modifier that skips serialization of a field.",
+      "A modifier that allows a method to be implemented in native code."
+    ],
+    "why": "The lock is acquired on entry and released on exit, including when the block throws.",
+    "example": "Two threads calling a locked increment method cannot lose updates to a shared counter.",
+    "scenario": "Two threads update a shared balance and sometimes lose an increment. Which keyword can make the update method mutually exclusive?",
+    "scenarioAnswer": "synchronized",
+    "scenarioWrongs": ["volatile", "transient", "native"],
+    "scenarioWhy": "synchronized acquires the method's lock so only one thread runs the balance update at a time."
+  },
+  {
+    "term": "volatile variable",
+    "definition": "A field whose writes are made visible to other threads and are not freely reordered.",
+    "wrongs": [
+      "A field that only one thread may update because the field itself is a lock.",
+      "A field excluded from serialization.",
+      "A local variable stored in a method frame."
+    ],
+    "why": "A write to the field happens-before a later read of that field, but a compound action such as increment is still not atomic.",
+    "example": "A worker loop notices a shutdown flag after another thread sets that flag, without taking a lock.",
+    "scenario": "A worker loops on a boolean that another thread sets to true, but the worker never notices the write. Which modifier should the field have?",
+    "scenarioAnswer": "volatile",
+    "scenarioWrongs": ["transient", "static", "final"],
+    "scenarioWhy": "volatile makes the write to the flag visible to the worker thread that keeps reading it."
+  },
+  {
+    "term": "Thread pool",
+    "definition": "A group of reusable worker threads that execute submitted tasks.",
+    "wrongs": [
+      "A new operating-system process created for every task.",
+      "A single thread that must finish before the next task object can be constructed.",
+      "A synchronized class with no worker threads."
+    ],
+    "why": "Reusing workers avoids the cost of creating a thread for every short task.",
+    "example": "A fixed pool of eight workers runs incoming web jobs instead of allocating a new thread per request.",
+    "scenario": "A server runs thousands of short tasks per minute and should not construct a new Thread for each one. What should execute the tasks?",
+    "scenarioAnswer": "A thread pool",
+    "scenarioWrongs": ["A new JVM per task", "A synchronized class", "A static import"],
+    "scenarioWhy": "Workers in a pool stay alive and take the next submitted task, avoiding a thread creation per task."
+  },
+  {
+    "term": "JDBC",
+    "definition": "The standard Java API for connecting to relational databases and executing SQL.",
+    "wrongs": [
+      "A library for building graphical windows and buttons.",
+      "A protocol for calling methods on objects in another process.",
+      "An API for looking up names in a directory service."
+    ],
+    "why": "Drivers implement the same interfaces, so application code can talk to different databases through one API.",
+    "example": "A program uses DriverManager and Connection from java.sql to query a PostgreSQL database.",
+    "scenario": "Java code must send SQL to a relational database without tying every call site to one vendor's classes. Which API is the usual choice?",
+    "scenarioAnswer": "JDBC",
+    "scenarioWrongs": ["JNI", "JNDI", "RMI"],
+    "scenarioWhy": "JDBC defines the connection and statement interfaces, and a vendor driver supplies the implementation."
+  },
+  {
+    "term": "PreparedStatement",
+    "definition": "A precompiled SQL statement whose data values are bound separately from the SQL text.",
+    "wrongs": [
+      "A statement built by concatenating user input into the SQL string.",
+      "A cursor that only walks rows after a query has run.",
+      "A pooled connection with no SQL of its own."
+    ],
+    "why": "Placeholders keep values out of the SQL text, which blocks injection and lets the database reuse a plan.",
+    "example": "A query uses a question-mark placeholder for a user id, then setInt binds the id before execution.",
+    "scenario": "User input must filter a query and must not be pasted into the SQL string. Which JDBC type should run that query?",
+    "scenarioAnswer": "PreparedStatement",
+    "scenarioWrongs": ["Statement built by concatenation", "ResultSetMetaData", "DatabaseMetaData"],
+    "scenarioWhy": "Binding the input to a placeholder sends it as data, not as part of the SQL text."
+  },
+  {
+    "term": "ResultSet",
+    "definition": "An object that represents the rows returned by a JDBC query and lets the code read them.",
+    "wrongs": [
+      "A connection to the database server.",
+      "A precompiled statement with unbound placeholders.",
+      "A metadata object that describes tables but not this query's rows."
+    ],
+    "why": "next moves the cursor, and getter methods read column values from the current row.",
+    "example": "After executeQuery, a loop calls next and getString on the email column for each user row.",
+    "scenario": "A query has already run, and the code must walk each returned row to read column values. Which object does it advance?",
+    "scenarioAnswer": "A ResultSet",
+    "scenarioWrongs": ["A Savepoint", "A ClassLoader", "A ThreadGroup"],
+    "scenarioWhy": "The result set is the cursor over the query rows, advanced with next and read with column getters."
+  },
+  {
+    "term": "Serialization",
+    "definition": "Converting an object's field values into a byte stream that can later rebuild the object.",
+    "wrongs": [
+      "Writing SQL rows through a database driver.",
+      "Compiling a class into bytecode.",
+      "Ordering objects with compareTo."
+    ],
+    "why": "A class implements Serializable so an object output stream can write its non-transient fields.",
+    "example": "A game writes a Player with an object output stream and later reads that stream back into a Player.",
+    "scenario": "A game must save a Player object's fields to a file and rebuild that object later with JDK object streams. Which mechanism fits?",
+    "scenarioAnswer": "Java object serialization",
+    "scenarioWrongs": ["JDBC batching", "Generic type erasure", "Method overloading"],
+    "scenarioWhy": "Object streams write a Serializable object's fields and can read those bytes back into an object."
+  }
+]

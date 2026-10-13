@@ -1,0 +1,752 @@
+[
+  {
+    "term": "an AND gate",
+    "definition": "A logic gate whose output is 1 only when every input is 1.",
+    "wrongs": [
+      "A gate whose output is 1 when at least one input is 1.",
+      "A gate whose output is the opposite of its single input.",
+      "A gate whose output is 1 only when its two inputs differ."
+    ],
+    "why": "The AND operation is 1 only for the input combination in which all inputs are 1.",
+    "example": "A lab safe opens only when the key switch and the PIN switch are both closed.",
+    "scenario": "A two-input gate receives 1 and 0. Its output is 1 only if both inputs are 1. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Z", "X"],
+    "scenarioWhy": "Because one input is 0, an AND of 1 and 0 is 0."
+  },
+  {
+    "term": "an OR gate",
+    "definition": "A logic gate whose output is 1 when at least one input is 1.",
+    "wrongs": [
+      "A gate whose output is 1 only when every input is 1.",
+      "A gate whose output is 0 when any input is 1.",
+      "A gate whose output copies the complement of one input."
+    ],
+    "why": "OR is 0 only when every input is 0, so any 1 forces the output to 1.",
+    "example": "A hallway lamp lights if either the north switch or the south switch is closed.",
+    "scenario": "A two-input gate outputs 1 when either input is 1. Both inputs are 0. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Hi-Z", "2"],
+    "scenarioWhy": "OR is 1 only when at least one input is 1, so two zeros produce 0."
+  },
+  {
+    "term": "a NOT gate",
+    "definition": "A one-input gate whose output is the complement of its input.",
+    "wrongs": [
+      "A gate that outputs 1 only when both inputs are 1.",
+      "A gate that outputs 1 when the inputs differ.",
+      "A gate that stores one bit on a clock edge."
+    ],
+    "why": "Negation swaps 0 and 1, which is the inverter function.",
+    "example": "An alarm lamp is dark while a sensor wire is high, and it lights when that wire goes low.",
+    "scenario": "An inverter receives a 1 on its only input. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Hi-Z", "2"],
+    "scenarioWhy": "An inverter complements its input, so an input of 1 produces 0."
+  },
+  {
+    "term": "a NAND gate",
+    "definition": "A gate that performs AND and then complements the result, so the output is 0 only when every input is 1.",
+    "wrongs": [
+      "A gate that outputs 1 only when every input is 1.",
+      "A gate that outputs 1 only when every input is 0.",
+      "A gate that outputs 1 only when the inputs differ."
+    ],
+    "why": "NAND is the complement of AND, so the all-ones input is the only case with output 0.",
+    "example": "A warning LED stays lit unless two enable switches are both on, in which case the LED goes dark.",
+    "scenario": "A two-input NAND gate receives 1 and 1. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Hi-Z", "2"],
+    "scenarioWhy": "NAND of 1 and 1 is the complement of 1, which is 0."
+  },
+  {
+    "term": "a NOR gate",
+    "definition": "A gate that performs OR and then complements the result, so the output is 1 only when every input is 0.",
+    "wrongs": [
+      "A gate that outputs 1 when at least one input is 1.",
+      "A gate that outputs 0 only when every input is 1.",
+      "A gate that outputs 1 when the inputs are equal."
+    ],
+    "why": "NOR is the complement of OR, so only the all-zero input produces a 1.",
+    "example": "A green ready lamp lights only when both fault sensors are inactive.",
+    "scenario": "A two-input NOR gate receives 0 and 0. State the output.",
+    "scenarioAnswer": "1",
+    "scenarioWrongs": ["0", "Hi-Z", "2"],
+    "scenarioWhy": "NOR is 1 only when every input is 0."
+  },
+  {
+    "term": "an XOR gate",
+    "definition": "A two-input gate whose output is 1 only when the inputs differ.",
+    "wrongs": [
+      "A two-input gate whose output is 1 only when the inputs are the same.",
+      "A gate whose output is 1 only when both inputs are 1.",
+      "A gate whose output is 1 only when both inputs are 0."
+    ],
+    "why": "Exclusive OR excludes the case where both inputs are 1, so it is true only for differing inputs.",
+    "example": "A comparator lamp lights when two sensor bits disagree and stays dark when they match.",
+    "scenario": "A two-input XOR gate receives 1 and 1. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Hi-Z", "2"],
+    "scenarioWhy": "XOR is 1 only when the inputs differ, and 1 with 1 is not a difference."
+  },
+  {
+    "term": "an XNOR gate",
+    "definition": "A two-input gate whose output is 1 only when the inputs are the same.",
+    "wrongs": [
+      "A two-input gate whose output is 1 only when the inputs differ.",
+      "A gate whose output is 1 when at least one input is 1.",
+      "A one-input gate that complements its input."
+    ],
+    "why": "XNOR is the complement of XOR, so matching inputs produce 1.",
+    "example": "An equality lamp lights only when two one-bit flags have the same value.",
+    "scenario": "A two-input XNOR gate receives 1 and 0. State the output.",
+    "scenarioAnswer": "0",
+    "scenarioWrongs": ["1", "Hi-Z", "2"],
+    "scenarioWhy": "XNOR is 1 only when both inputs match, and 1 and 0 do not match."
+  },
+  {
+    "term": "a universal gate",
+    "definition": "A gate type, such as NAND or NOR, from which any Boolean function can be built.",
+    "wrongs": [
+      "A gate type that can build only AND functions.",
+      "A gate type that can build only XOR functions.",
+      "A memory element that stores one bit."
+    ],
+    "why": "NAND alone, and NOR alone, can implement NOT, AND, and OR, and therefore any Boolean function.",
+    "example": "A lab stocked only with NAND chips still builds an inverter, an AND, and a full adder.",
+    "scenario": "A lab has only NAND chips. Can every Boolean function still be built?",
+    "scenarioAnswer": "Yes",
+    "scenarioWrongs": ["No", "Only OR functions", "Only XOR functions"],
+    "scenarioWhy": "NAND is universal, so every Boolean function can be built from NAND chips alone."
+  },
+  {
+    "term": "a truth table",
+    "definition": "A table that lists every input combination of a logic function and the output for each combination.",
+    "wrongs": [
+      "A grid that groups adjacent 1s to simplify an expression.",
+      "A plot of signals against time.",
+      "A binary code in which neighbors differ by one bit."
+    ],
+    "why": "Two inputs have four rows, and each row states the output for that combination.",
+    "example": "A sheet lists 00, 01, 10, and 11, and beside 11 it records an output of 1 for a two-input AND.",
+    "scenario": "A designer lists all four input pairs of a two-input function and writes the output beside each pair. Name that listing.",
+    "scenarioAnswer": "A complete input-output listing",
+    "scenarioWrongs": ["A simplification grid", "A plot of signals versus time", "A code whose neighbors differ by one bit"],
+    "scenarioWhy": "Listing every input combination with its output is a truth table."
+  },
+  {
+    "term": "Boolean algebra",
+    "definition": "The algebra of the values 0 and 1 using AND, OR, and NOT, together with laws for simplifying expressions.",
+    "wrongs": [
+      "The algebra of real numbers using addition and multiplication only.",
+      "A table of voltages versus time for an analog filter.",
+      "A method that solves circuits with mesh currents."
+    ],
+    "why": "Switching functions obey identities such as idempotent, complement, and distributive laws on 0 and 1.",
+    "example": "A designer replaces A OR (A AND B) with A by applying an absorption identity before drawing the gates.",
+    "scenario": "A designer simplifies A + A·B to A using switching identities on 0 and 1. Name that algebra.",
+    "scenarioAnswer": "The algebra of 0 and 1 with AND, OR, and NOT",
+    "scenarioWrongs": ["Ordinary algebra of real numbers", "A voltage-versus-time plot", "Mesh-current circuit analysis"],
+    "scenarioWhy": "Identities that simplify expressions in AND, OR, and NOT belong to Boolean algebra."
+  },
+  {
+    "term": "De Morgan's law",
+    "definition": "The pair of identities that a complemented AND equals the OR of complements, and a complemented OR equals the AND of complements.",
+    "wrongs": [
+      "The claim that AND and OR are the same operation.",
+      "The rule that a K-map group must contain six cells.",
+      "The rule that a flip-flop samples data only while the clock is low for the whole pulse."
+    ],
+    "why": "Breaking a bubble on an AND or OR gate swaps the operation and complements the inputs.",
+    "example": "A designer replaces a bubbled AND, with inputs already complemented, by a plain OR of those complemented inputs.",
+    "scenario": "A circuit needs the complement of A AND B. Which expression is equal to it?",
+    "scenarioAnswer": "NOT A OR NOT B",
+    "scenarioWrongs": ["NOT A AND NOT B", "A OR B", "A AND B"],
+    "scenarioWhy": "De Morgan's law says the complement of a product is the sum of the complements."
+  },
+  {
+    "term": "a sum of products",
+    "definition": "A Boolean form written as an OR of AND terms.",
+    "wrongs": [
+      "A Boolean form written as an AND of OR terms.",
+      "A sequential circuit that stores state in flip-flops.",
+      "A counter whose stages share one clock."
+    ],
+    "why": "Each product term is an AND, and the function ORs those terms together.",
+    "example": "The expression A·B + A·C is drawn as two AND gates feeding one OR gate.",
+    "scenario": "An expression is written as A·B + C·D. Which form is that?",
+    "scenarioAnswer": "OR of AND terms",
+    "scenarioWrongs": ["AND of OR terms", "A stored-state circuit", "A counter with one shared clock"],
+    "scenarioWhy": "A·B and C·D are products, and the plus sign ORs them, so the form is a sum of products."
+  },
+  {
+    "term": "a product of sums",
+    "definition": "A Boolean form written as an AND of OR terms.",
+    "wrongs": [
+      "A Boolean form written as an OR of AND terms.",
+      "A code in which successive values differ by one bit.",
+      "A gate output that can disconnect into high impedance."
+    ],
+    "why": "Each sum term is an OR, and the function ANDs those terms together.",
+    "example": "The expression (A + B)·(C + D) is drawn as two OR gates feeding one AND gate.",
+    "scenario": "An expression is written as (A + B)·(C + D). Which form is that?",
+    "scenarioAnswer": "AND of OR terms",
+    "scenarioWrongs": ["OR of AND terms", "A one-bit-change code", "A high-impedance output"],
+    "scenarioWhy": "(A + B) and (C + D) are sums, and they are multiplied, so the form is a product of sums."
+  },
+  {
+    "term": "a Karnaugh map",
+    "definition": "A grid that simplifies a Boolean function by grouping adjacent cells of 1s or don't-cares in powers of two.",
+    "wrongs": [
+      "A listing of signals plotted against time.",
+      "A bistable circuit that stores one bit.",
+      "A programmable array used only as a memory chip."
+    ],
+    "why": "Neighboring cells differ by one variable, so a power-of-two group eliminates the changing variables.",
+    "example": "On a 4-variable grid, a designer circles a block of four adjacent 1s and drops two literals from that term.",
+    "scenario": "Adjacent cells of a simplification grid differ by how many input bits?",
+    "scenarioAnswer": "1",
+    "scenarioWrongs": ["2", "3", "0"],
+    "scenarioWhy": "Karnaugh-map neighbors are placed so they differ by exactly one bit."
+  },
+  {
+    "term": "a don't-care condition",
+    "definition": "An input combination whose output may be treated as either 0 or 1 because it never occurs or does not matter.",
+    "wrongs": [
+      "An input combination that must always produce 0.",
+      "An input combination that must always produce 1.",
+      "A timing pulse that clocks every flip-flop."
+    ],
+    "why": "Unused combinations can be assigned whichever value makes larger simplification groups.",
+    "example": "A BCD function never receives the codes 1010 through 1111, so those cells may be circled or ignored.",
+    "scenario": "Codes 1010 through 1111 never occur in a BCD function. How may their outputs be treated during simplification?",
+    "scenarioAnswer": "As either 0 or 1",
+    "scenarioWrongs": ["Only as 0", "Only as 1", "As high impedance"],
+    "scenarioWhy": "Combinations that never occur are don't-cares, so either output value is allowed."
+  },
+  {
+    "term": "a combinational circuit",
+    "definition": "A logic circuit whose outputs depend only on the present inputs and not on stored state.",
+    "wrongs": [
+      "A circuit whose outputs depend on stored state as well as the inputs.",
+      "A counter built from clocked flip-flops.",
+      "A register that shifts bits on each clock."
+    ],
+    "why": "With no memory elements, the same inputs always produce the same outputs.",
+    "example": "A decoder built only from gates drives one of eight lamps, and the lamps depend only on the three input bits right now.",
+    "scenario": "A gate network has no feedback and no stored bits, so the same inputs always give the same outputs. Which class of circuit is it?",
+    "scenarioAnswer": "Output depends only on present inputs",
+    "scenarioWrongs": ["Output depends on stored state", "A clocked counter", "A shifting register"],
+    "scenarioWhy": "No memory means the outputs are a function of the present inputs alone."
+  },
+  {
+    "term": "a sequential circuit",
+    "definition": "A logic circuit whose outputs depend on the present inputs and on state stored in memory elements.",
+    "wrongs": [
+      "A circuit whose outputs depend only on the present inputs.",
+      "A gate network with no feedback and no storage.",
+      "A truth table with no clock."
+    ],
+    "why": "Flip-flops or latches remember prior inputs, so the output can differ for the same present input.",
+    "example": "A turnstile controller stays locked or unlocked according to coins already inserted, not only the button pressed now.",
+    "scenario": "A controller gives different outputs for the same button press because it remembers earlier coins. Which class of circuit is it?",
+    "scenarioAnswer": "Output depends on stored state",
+    "scenarioWrongs": ["Output depends only on present inputs", "A memoryless gate network", "A table with no clock"],
+    "scenarioWhy": "Remembering earlier inputs means the circuit is sequential."
+  },
+  {
+    "term": "a half adder",
+    "definition": "A combinational circuit that adds two bits and produces a sum and a carry, with no carry input.",
+    "wrongs": [
+      "A circuit that adds two bits plus a carry input.",
+      "A circuit that selects one of many data inputs.",
+      "A circuit that stores an eight-bit word."
+    ],
+    "why": "The sum is the XOR of the two bits, and the carry is their AND.",
+    "example": "Adding the bits 1 and 1 in a two-input adder block yields sum 0 and carry 1.",
+    "scenario": "A block adds the bits 1 and 1 and has no carry input. State the sum and carry as sum,carry.",
+    "scenarioAnswer": "0,1",
+    "scenarioWrongs": ["1,0", "1,1", "0,0"],
+    "scenarioWhy": "1 plus 1 is 0 with a carry of 1, which is what a half adder produces."
+  },
+  {
+    "term": "a full adder",
+    "definition": "A combinational circuit that adds two bits and a carry-in, and produces a sum and a carry-out.",
+    "wrongs": [
+      "A circuit that adds two bits and has no carry input.",
+      "A circuit that only compares two numbers.",
+      "A circuit that routes one input to many outputs."
+    ],
+    "why": "The sum is the XOR of the three inputs, and the carry-out is the majority function of those inputs.",
+    "example": "Adding 1, 1, and a carry-in of 1 in a three-input adder yields sum 1 and carry-out 1.",
+    "scenario": "A block adds bits 1 and 1 together with a carry-in of 1. State the sum and carry-out as sum,carry.",
+    "scenarioAnswer": "1,1",
+    "scenarioWrongs": ["0,1", "1,0", "0,0"],
+    "scenarioWhy": "1 + 1 + 1 equals 3, which is sum 1 and carry-out 1."
+  },
+  {
+    "term": "a multiplexer",
+    "definition": "A combinational circuit that forwards one of several data inputs to a single output, chosen by select lines.",
+    "wrongs": [
+      "A circuit that routes one data input to one of several outputs.",
+      "A circuit that turns a binary code into one active line.",
+      "A circuit that turns one active line into a binary code."
+    ],
+    "why": "The select inputs choose which data input is connected to the output.",
+    "example": "A four-input data selector uses two select switches to pass exactly one of four sensor signals onward.",
+    "scenario": "A data selector has four data inputs. How many select lines does it need?",
+    "scenarioAnswer": "2",
+    "scenarioWrongs": ["1", "4", "8"],
+    "scenarioWhy": "Four inputs require two select bits because 2 to the power 2 is 4."
+  },
+  {
+    "term": "a demultiplexer",
+    "definition": "A combinational circuit that routes one data input to one of several outputs, chosen by select lines.",
+    "wrongs": [
+      "A circuit that forwards one of several data inputs to a single output.",
+      "A circuit that adds three bits.",
+      "A circuit that stores a bit on a clock edge."
+    ],
+    "why": "The select inputs choose which output receives the single data input.",
+    "example": "One serial data wire is steered to exactly one of eight lamps by three address switches.",
+    "scenario": "One data wire must be steered to exactly one of eight outputs. How many select lines are required?",
+    "scenarioAnswer": "3",
+    "scenarioWrongs": ["8", "1", "4"],
+    "scenarioWhy": "Eight outputs require three select bits because 2 to the power 3 is 8."
+  },
+  {
+    "term": "an encoder",
+    "definition": "A combinational circuit that converts one active input line into the binary number of that line.",
+    "wrongs": [
+      "A circuit that converts a binary code into one active output line.",
+      "A circuit that adds a carry-in to two data bits.",
+      "A circuit that compares two unsigned numbers."
+    ],
+    "why": "If input line k is the active line, the encoder outputs the binary representation of k.",
+    "example": "When only input line 5 of an 8-line encoder is active, the outputs show the binary value 101.",
+    "scenario": "Only input line 5 is active on an 8-to-3 encoder. State the 3-bit output.",
+    "scenarioAnswer": "101",
+    "scenarioWrongs": ["011", "110", "001"],
+    "scenarioWhy": "Decimal 5 is binary 101, so the encoder outputs 101."
+  },
+  {
+    "term": "a decoder",
+    "definition": "A combinational circuit that converts a binary code into one active output line.",
+    "wrongs": [
+      "A circuit that converts one active input line into a binary code.",
+      "A circuit that selects one of several data inputs.",
+      "A shift register that moves bits each clock."
+    ],
+    "why": "An n-bit code can activate one of up to 2 to the power n output lines.",
+    "example": "The code 011 on a 3-to-8 decoder makes output line 3 active and leaves the other seven inactive.",
+    "scenario": "A 3-to-8 decoder receives the code 011. Which output line becomes active, numbering lines from 0?",
+    "scenarioAnswer": "3",
+    "scenarioWrongs": ["1", "6", "7"],
+    "scenarioWhy": "Binary 011 is decimal 3, so output line 3 is the active line."
+  },
+  {
+    "term": "a magnitude comparator",
+    "definition": "A combinational circuit that compares two binary numbers and reports which is larger or that they are equal.",
+    "wrongs": [
+      "A circuit that adds two bits and a carry-in.",
+      "A circuit that stores one bit and toggles when T is 1.",
+      "A circuit that generates an even parity bit only."
+    ],
+    "why": "The outputs indicate the three relations greater-than, equal, and less-than.",
+    "example": "Comparing 1010 with 1001 raises the greater-than output and leaves equal and less-than inactive.",
+    "scenario": "A comparator receives A = 1010 and B = 1001. Which relation output is active?",
+    "scenarioAnswer": "A greater than B",
+    "scenarioWrongs": ["A equal to B", "A less than B", "A plus B"],
+    "scenarioWhy": "Binary 1010 is decimal 10 and 1001 is decimal 9, so A is greater."
+  },
+  {
+    "term": "an SR latch",
+    "definition": "A bistable circuit that stores one bit and is set or reset by two inputs, with both inputs active disallowed.",
+    "wrongs": [
+      "An edge-triggered element that copies D to Q on the clock edge.",
+      "A gate network with no storage.",
+      "A counter that cycles through ten states."
+    ],
+    "why": "Cross-coupled NOR or NAND gates hold a bit until a set or reset input changes it.",
+    "example": "Pressing Set makes a NOR latch output stay 1 after the button is released, until Reset is pressed.",
+    "scenario": "A NOR latch has S = 1 and R = 0. What happens to Q?",
+    "scenarioAnswer": "Q is set to 1",
+    "scenarioWrongs": ["Q is reset to 0", "Q toggles repeatedly", "The latch output disconnects"],
+    "scenarioWhy": "For a NOR SR latch, S = 1 and R = 0 sets Q to 1."
+  },
+  {
+    "term": "a D flip-flop",
+    "definition": "An edge-triggered element that copies its D input to Q on the active clock edge.",
+    "wrongs": [
+      "A level-sensitive latch that is set or reset by two inputs.",
+      "An element that toggles when both J and K are 1.",
+      "A gate that outputs the AND of its inputs."
+    ],
+    "why": "The data input is sampled at the clock edge and then held until the next active edge.",
+    "example": "On the rising clock edge, a register bit changes from 0 to 1 because its D pin was 1 just before that edge.",
+    "scenario": "Just before the active clock edge, D is 1 and Q is 0. Immediately after that edge, what is Q?",
+    "scenarioAnswer": "1",
+    "scenarioWrongs": ["0", "Hi-Z", "Toggling"],
+    "scenarioWhy": "A D flip-flop copies D to Q on the active clock edge."
+  },
+  {
+    "term": "a JK flip-flop",
+    "definition": "A bistable element that can set, reset, hold, or toggle, and that toggles when J and K are both active.",
+    "wrongs": [
+      "An element that only copies D to Q and cannot toggle.",
+      "A memoryless gate with no clock.",
+      "A decoder with eight outputs."
+    ],
+    "why": "J = 1 and K = 0 sets the flip-flop, J = 0 and K = 1 resets it, and J = K = 1 toggles it.",
+    "example": "With J and K both held at 1, the stored bit flips on every active clock edge.",
+    "scenario": "J and K are both 1 at an active clock edge. What does the flip-flop do?",
+    "scenarioAnswer": "It toggles Q",
+    "scenarioWrongs": ["It holds Q", "It clears Q and stays cleared", "It disconnects Q"],
+    "scenarioWhy": "J = K = 1 is the toggle condition of a JK flip-flop."
+  },
+  {
+    "term": "a T flip-flop",
+    "definition": "A clocked bistable element that toggles its stored bit when T is active and holds it when T is inactive.",
+    "wrongs": [
+      "An element that copies a data input and never toggles on its own.",
+      "A latch with separate set and reset inputs.",
+      "A combinational adder with no clock."
+    ],
+    "why": "T stands for toggle: an active T changes Q on the clock event, and an inactive T leaves Q unchanged.",
+    "example": "A divide-by-two stage uses a toggle flip-flop with T tied to 1, so Q flips on every clock.",
+    "scenario": "T is tied to 1. How does Q change on the next active clock edge?",
+    "scenarioAnswer": "Q flips",
+    "scenarioWrongs": ["Q stays the same", "Q is forced to 0 only", "Q becomes high impedance"],
+    "scenarioWhy": "With T held active, a T flip-flop toggles on each active clock edge."
+  },
+  {
+    "term": "edge triggering",
+    "definition": "Sampling of a flip-flop input only during a clock transition, not during the whole time the clock is active.",
+    "wrongs": [
+      "Sampling that continues for the entire time the clock level is high.",
+      "A delay measured from an input change to a valid output.",
+      "A requirement that data stay stable after the clock edge."
+    ],
+    "why": "A rising-edge or falling-edge device ignores the data input except at that transition.",
+    "example": "Data may chatter while the clock is high, but a rising-edge flip-flop changes only at the upward crossing.",
+    "scenario": "A flip-flop ignores D while the clock is high and samples D only on the rising crossing. Name that sampling style.",
+    "scenarioAnswer": "Sampling on a clock transition",
+    "scenarioWrongs": ["Sampling during the whole high level", "A delay until the output is valid", "Stability required after the edge"],
+    "scenarioWhy": "Sampling only at the rising crossing is edge triggering."
+  },
+  {
+    "term": "setup time",
+    "definition": "The minimum time that data must be stable before the active clock edge for reliable capture.",
+    "wrongs": [
+      "The minimum time that data must remain stable after the active clock edge.",
+      "The delay from a gate input change until the output is valid.",
+      "The high time of a periodic clock waveform."
+    ],
+    "why": "The internal sampling nodes of a flip-flop need the data to be valid before the clock arrives.",
+    "example": "A datasheet requires D to be steady for 5 ns before the rising clock, or the captured bit may be wrong.",
+    "scenario": "A datasheet says D must be stable for 5 ns before the rising clock. Name that 5 ns requirement.",
+    "scenarioAnswer": "Stability before the clock edge",
+    "scenarioWrongs": ["Stability after the clock edge", "Delay until the output is valid", "The clock's high duration"],
+    "scenarioWhy": "Time that data must be stable before the active edge is setup time."
+  },
+  {
+    "term": "hold time",
+    "definition": "The minimum time that data must remain stable after the active clock edge for reliable capture.",
+    "wrongs": [
+      "The minimum time that data must be stable before the active clock edge.",
+      "The number of gate inputs one output can drive.",
+      "The number of states in a counter cycle."
+    ],
+    "why": "After the clock edge, the flip-flop still needs a short interval before D is allowed to change.",
+    "example": "A datasheet requires D to stay unchanged for 2 ns after the rising edge, even if the next value is already available.",
+    "scenario": "A datasheet says D must remain stable for 2 ns after the rising clock. Name that 2 ns requirement.",
+    "scenarioAnswer": "Stability after the clock edge",
+    "scenarioWrongs": ["Stability before the clock edge", "How many inputs one output can drive", "How many states a counter has"],
+    "scenarioWhy": "Time that data must stay stable after the active edge is hold time."
+  },
+  {
+    "term": "propagation delay",
+    "definition": "The time from an input change until the corresponding output becomes valid.",
+    "wrongs": [
+      "The time data must be stable before a clock edge.",
+      "The time data must remain stable after a clock edge.",
+      "The period of the system clock."
+    ],
+    "why": "Gates and flip-flops cannot respond instantly, so the output lags the input by a specified delay.",
+    "example": "A gate input switches at time zero, and the output crosses its valid level 8 ns later.",
+    "scenario": "A gate input changes, and the output becomes valid 8 ns later. What is that 8 ns interval called?",
+    "scenarioAnswer": "Input-to-output lag",
+    "scenarioWrongs": ["Data stability before the clock", "Data stability after the clock", "The clock period"],
+    "scenarioWhy": "The lag from an input change to a valid output is propagation delay."
+  },
+  {
+    "term": "a register",
+    "definition": "A group of flip-flops that stores a multi-bit value and shares a common clock.",
+    "wrongs": [
+      "A single gate that computes AND.",
+      "A memoryless decoder.",
+      "A truth table written on paper."
+    ],
+    "why": "Each flip-flop holds one bit, so n flip-flops hold an n-bit word.",
+    "example": "Eight rising-edge flip-flops share one clock and together hold the value loaded from eight data pins.",
+    "scenario": "Eight flip-flops share one clock and together hold one loaded word. Name that structure.",
+    "scenarioAnswer": "A multi-bit storage group",
+    "scenarioWrongs": ["A single AND gate", "A memoryless decoder", "A paper listing of inputs"],
+    "scenarioWhy": "Clocked flip-flops that store a word form a register."
+  },
+  {
+    "term": "a shift register",
+    "definition": "A register that moves its stored bits one position to the left or the right on each clock.",
+    "wrongs": [
+      "A register that only loads all bits in parallel and never moves them.",
+      "A combinational circuit that adds two bits.",
+      "A gate with a high-impedance output state."
+    ],
+    "why": "Each clock moves every bit into the neighboring flip-flop, which builds serial-to-parallel conversion.",
+    "example": "A four-bit serial input 1101 enters one pin, and after four clocks the four flip-flops hold 1101.",
+    "scenario": "Bits enter one pin, and each clock moves every stored bit one position toward the next flip-flop. Name that register.",
+    "scenarioAnswer": "A register that moves bits each clock",
+    "scenarioWrongs": ["A register that never moves bits", "A two-bit adder", "A high-impedance gate"],
+    "scenarioWhy": "Moving stored bits one position per clock is the behavior of a shift register."
+  },
+  {
+    "term": "a ripple counter",
+    "definition": "An asynchronous counter in which each flip-flop is clocked by the output of the previous stage.",
+    "wrongs": [
+      "A counter in which every flip-flop receives the same clock.",
+      "A register that does not count.",
+      "A combinational comparator."
+    ],
+    "why": "The clock ripples from stage to stage, so the outputs do not all change at the same instant.",
+    "example": "In a 3-bit up counter, the first flip-flop's output clocks the second, and the second clocks the third.",
+    "scenario": "In a counter, flip-flop 1 is clocked by the output of flip-flop 0 rather than by the system clock. Which counter style is that?",
+    "scenarioAnswer": "Clock ripples from stage to stage",
+    "scenarioWrongs": ["Every stage shares one clock", "A register that does not count", "A memoryless comparator"],
+    "scenarioWhy": "Clocking each stage from the previous output is a ripple counter."
+  },
+  {
+    "term": "a synchronous counter",
+    "definition": "A counter in which every flip-flop receives the same clock, so state bits change together.",
+    "wrongs": [
+      "A counter whose clock ripples from one stage to the next.",
+      "A latch with no clock at all.",
+      "A gate delay called a hazard."
+    ],
+    "why": "A common clock removes the accumulated ripple delay between stages.",
+    "example": "All three flip-flops of a binary up counter share one clock pin, and combinational logic forms the next state.",
+    "scenario": "All flip-flops of a counter share one clock pin, and logic computes the next state. Which counter style is that?",
+    "scenarioAnswer": "All stages share one clock",
+    "scenarioWrongs": ["The clock ripples between stages", "A latch with no clock", "A momentary false pulse"],
+    "scenarioWhy": "A shared clock for every stage makes the counter synchronous."
+  },
+  {
+    "term": "a modulo counter",
+    "definition": "A counter that returns to its starting state after a fixed number of distinct states.",
+    "wrongs": [
+      "A register that only shifts and never returns to a count.",
+      "A decoder with a fixed number of outputs but no state.",
+      "A gate whose delay is fixed."
+    ],
+    "why": "A modulo-n counter has n states, so a decade counter has modulus 10.",
+    "example": "A decade counter visits ten states, 0 through 9, and then returns to 0.",
+    "scenario": "A counter visits the states 0 through 9 and then returns to 0. State its modulus.",
+    "scenarioAnswer": "10",
+    "scenarioWrongs": ["8", "16", "9"],
+    "scenarioWhy": "Ten distinct states mean the modulus is 10."
+  },
+  {
+    "term": "TTL",
+    "definition": "A bipolar-transistor logic family, typified by the 74xx series, that uses a multi-emitter transistor input.",
+    "wrongs": [
+      "A logic family built from complementary n-channel and p-channel MOSFETs.",
+      "A current-steering family known for very small voltage swings.",
+      "A historical family that used only resistors and diodes at the input."
+    ],
+    "why": "Classic transistor-transistor logic uses bipolar transistors and a multi-emitter input stage.",
+    "example": "A 7400 package contains four bipolar NAND gates and is powered near 5 V.",
+    "scenario": "A 7400 chip uses bipolar transistors and a multi-emitter input for its NAND gates. Name that logic family.",
+    "scenarioAnswer": "Bipolar 74-series logic",
+    "scenarioWrongs": ["Complementary MOSFET logic", "Current-steering logic with tiny swings", "Resistor-diode input logic"],
+    "scenarioWhy": "The 74xx bipolar family with a multi-emitter input is TTL."
+  },
+  {
+    "term": "CMOS",
+    "definition": "A logic family that uses complementary n-channel and p-channel MOSFETs and draws almost no static current.",
+    "wrongs": [
+      "A bipolar family typified by the 7400 NAND gate.",
+      "A diode-only logic family with no transistors.",
+      "A vacuum-tube logic family."
+    ],
+    "why": "In a static CMOS gate, one of the complementary networks is off, so almost no current flows from supply to ground.",
+    "example": "A battery-powered door lock uses complementary MOSFET gates so the idle circuit draws almost no current.",
+    "scenario": "A gate uses paired n-channel and p-channel MOSFETs and draws almost no current while idle. Name that family.",
+    "scenarioAnswer": "Complementary MOSFET logic",
+    "scenarioWrongs": ["Bipolar 74-series logic", "Diode-only logic", "Vacuum-tube logic"],
+    "scenarioWhy": "Complementary n-channel and p-channel MOSFETs with almost no static current identify CMOS."
+  },
+  {
+    "term": "fan-out",
+    "definition": "The largest number of similar gate inputs that one output can drive while meeting its voltage specifications.",
+    "wrongs": [
+      "The noise voltage a gate can tolerate.",
+      "The delay from input to output.",
+      "The number of states in a counter."
+    ],
+    "why": "Each added input draws current or capacitance, and too many inputs pull the output out of its valid voltage range.",
+    "example": "A datasheet allows one output to drive ten inputs of the same family, and an eleventh input would violate the voltage levels.",
+    "scenario": "One output may drive at most ten inputs of the same family before voltage levels fail. Which limit is ten?",
+    "scenarioAnswer": "How many inputs one output can drive",
+    "scenarioWrongs": ["How much noise voltage is allowed", "The input-to-output delay", "How many counter states exist"],
+    "scenarioWhy": "The maximum number of similar inputs one output can drive is the fan-out."
+  },
+  {
+    "term": "noise margin",
+    "definition": "The largest noise voltage that can be added to a valid logic level and still be interpreted correctly.",
+    "wrongs": [
+      "The number of inputs one gate output can drive.",
+      "The clock frequency of a counter.",
+      "The number of cells in a K-map group."
+    ],
+    "why": "The gap between a guaranteed output level and the required input threshold is the noise margin.",
+    "example": "A gate's lowest valid high output is 4.4 V and the next gate accepts a high above 3.5 V, leaving 0.9 V of margin.",
+    "scenario": "The lowest valid high output is 4.4 V, and the next input treats a high as valid above 3.5 V. How much high-side noise margin, in volts, is there?",
+    "scenarioAnswer": "0.9",
+    "scenarioWrongs": ["4.4", "3.5", "7.9"],
+    "scenarioWhy": "Noise margin is the difference 4.4 V minus 3.5 V, which is 0.9 V."
+  },
+  {
+    "term": "a clock signal",
+    "definition": "A periodic waveform that tells sequential elements when to sample their inputs.",
+    "wrongs": [
+      "A one-time power-on reset pulse.",
+      "A data bit stored in a register.",
+      "A don't-care entry in a truth table."
+    ],
+    "why": "Edge-triggered flip-flops change state in step with the active edge of this waveform.",
+    "example": "A square wave at 10 MHz is wired to every flip-flop clock pin on a counter board.",
+    "scenario": "A 10 MHz square wave is wired to every flip-flop clock pin so they sample together. Name that waveform's role.",
+    "scenarioAnswer": "It times when state is sampled",
+    "scenarioWrongs": ["It is a one-time reset", "It is a stored data bit", "It is an unused truth-table entry"],
+    "scenarioWhy": "A periodic waveform that tells flip-flops when to sample is the clock."
+  },
+  {
+    "term": "a static hazard",
+    "definition": "A momentary false pulse on an output that should have stayed constant when a single input changes.",
+    "wrongs": [
+      "A repeated toggle of a level-sensitive JK while its clock stays high.",
+      "A missing power connection.",
+      "A correct change from 0 to 1 that is meant to happen."
+    ],
+    "why": "Unequal gate delays can briefly break a covering term before another term turns on.",
+    "example": "An output that should stay 1 glitches to 0 for a few nanoseconds when one input changes and two paths have different delays.",
+    "scenario": "An output should stay 1, but unequal delays make it glitch to 0 for a few nanoseconds when one input changes. Name that fault.",
+    "scenarioAnswer": "A momentary false pulse",
+    "scenarioWrongs": ["Repeated toggling while the clock is high", "A missing power connection", "An intended change from 0 to 1"],
+    "scenarioWhy": "A brief incorrect pulse while the static output should be constant is a static hazard."
+  },
+  {
+    "term": "a race-around condition",
+    "definition": "Repeated toggling of a level-sensitive JK flip-flop while the clock stays active and both J and K are 1.",
+    "wrongs": [
+      "A single brief glitch caused by unequal combinational delays.",
+      "A setup-time violation on an edge-triggered D flip-flop.",
+      "A don't-care used to enlarge a K-map group."
+    ],
+    "why": "While the clock level remains enabling, the toggled output feeds back and toggles again if the pulse is longer than the delay.",
+    "example": "A level-sensitive JK with J = K = 1 flips several times during one long clock-high pulse.",
+    "scenario": "A level-sensitive JK has J = K = 1, and the clock stays high much longer than the flip-flop delay. What can Q do during that pulse?",
+    "scenarioAnswer": "Toggle more than once",
+    "scenarioWrongs": ["Stay high impedance", "Ignore J and K", "Become a don't-care in a map"],
+    "scenarioWhy": "A long enabling clock with J = K = 1 lets a level-sensitive JK toggle repeatedly, which is race-around."
+  },
+  {
+    "term": "Gray code",
+    "definition": "A binary code in which two successive values differ in exactly one bit.",
+    "wrongs": [
+      "A code in which successive values may change many bits, such as ordinary binary.",
+      "A 7-bit code for English letters.",
+      "A parity scheme that adds one extra bit."
+    ],
+    "why": "Changing only one bit between counts avoids false intermediate codes on mechanical or asynchronous sensors.",
+    "example": "A rotary encoder moves from 01 to 11, changing only the higher bit, as the shaft turns to the next angle.",
+    "scenario": "In 2-bit reflected Gray code, which code immediately follows 01?",
+    "scenarioAnswer": "11",
+    "scenarioWrongs": ["10", "00", "01"],
+    "scenarioWhy": "The 2-bit Gray sequence is 00, 01, 11, 10, so 01 is followed by 11."
+  },
+  {
+    "term": "a parity bit",
+    "definition": "An extra bit added so the total number of 1s in a group is even, or odd, in order to detect errors.",
+    "wrongs": [
+      "A bit that corrects every possible multi-bit error by itself.",
+      "A clock bit that synchronizes flip-flops.",
+      "A sign bit in a two's-complement integer."
+    ],
+    "why": "A single flipped bit changes the parity, so the receiver can detect that one-bit error.",
+    "example": "The data 1011 has three 1s, so an even-parity extra bit of 1 makes the total number of 1s even.",
+    "scenario": "Data bits are 1011, which contain three 1s. State the even-parity extra bit.",
+    "scenarioAnswer": "1",
+    "scenarioWrongs": ["0", "2", "Hi-Z"],
+    "scenarioWhy": "Even parity needs an even number of 1s, so three data 1s require an extra 1."
+  },
+  {
+    "term": "a programmable logic array",
+    "definition": "A device with a programmable AND array and a programmable OR array used to realize sum-of-products functions.",
+    "wrongs": [
+      "A device with a programmable AND array and a fixed OR array.",
+      "A read-only memory whose address lines fully decode every minterm.",
+      "A field-programmable gate array made only of lookup tables and routing."
+    ],
+    "why": "Both the product terms and the sums that use them can be programmed in a PLA.",
+    "example": "A designer programs which inputs enter each AND term and which of those terms enter each OR output.",
+    "scenario": "A chip lets the designer program both which AND terms exist and which of those terms feed each OR output. Name that device style.",
+    "scenarioAnswer": "Programmable AND and programmable OR",
+    "scenarioWrongs": ["Programmable AND and fixed OR", "A fully decoded read-only memory", "Lookup tables with programmable routing"],
+    "scenarioWhy": "Programmable product terms and programmable sums describe a PLA."
+  },
+  {
+    "term": "a timing diagram",
+    "definition": "A plot of digital signals against time that shows their order, duration, and delays.",
+    "wrongs": [
+      "A truth table that has no time axis.",
+      "A Karnaugh map used for simplification.",
+      "A pin diagram of a chip package."
+    ],
+    "why": "Designers read setup, hold, and propagation relationships from waveforms drawn versus time.",
+    "example": "A lab sheet draws the clock, D, and Q, showing Q changing 3 ns after the rising clock edge.",
+    "scenario": "A sheet draws clock, D, and Q as waveforms and shows Q changing a few nanoseconds after the rising edge. Name that drawing.",
+    "scenarioAnswer": "Signals plotted against time",
+    "scenarioWrongs": ["A table of input combinations", "A simplification grid", "A package pin drawing"],
+    "scenarioWhy": "Waveforms of clock, D, and Q versus time form a timing diagram."
+  },
+  {
+    "term": "a tri-state output",
+    "definition": "An output that can drive 0, drive 1, or disconnect into a high-impedance state.",
+    "wrongs": [
+      "An output that can drive only 0 or 1 and cannot disconnect.",
+      "An output that drives only analog voltages.",
+      "An output that stores four bits."
+    ],
+    "why": "The high-impedance state lets several devices share a bus without fighting.",
+    "example": "Two memory chips share a data bus, and only the selected chip drives the lines while the other disconnects.",
+    "scenario": "Two chips share a data bus, and the unselected chip must release the wires. Which output state lets it release them?",
+    "scenarioAnswer": "High impedance",
+    "scenarioWrongs": ["Forced 0", "Forced 1", "A stored nibble"],
+    "scenarioWhy": "High impedance disconnects the driver so another chip can use the bus."
+  },
+  {
+    "term": "a Boolean variable",
+    "definition": "A variable that can take only the two logic values 0 and 1.",
+    "wrongs": [
+      "A variable that can take any real number.",
+      "A variable that stores a 32-bit floating-point value.",
+      "A variable that must be a character from an alphabet."
+    ],
+    "why": "Switching algebra assigns each variable one of two values, matching a digital signal.",
+    "example": "In the expression A + B, the letter A stands for a signal that is either low or high.",
+    "scenario": "In a switching expression, signal A may be low or high and no other value. What kind of variable is A?",
+    "scenarioAnswer": "A two-valued logic variable",
+    "scenarioWrongs": ["A real-valued variable", "A floating-point variable", "A character variable"],
+    "scenarioWhy": "A signal restricted to low or high is a Boolean variable."
+  }
+]

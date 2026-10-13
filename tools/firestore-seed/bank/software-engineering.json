@@ -1,0 +1,752 @@
+[
+  {
+    "term": "SDLC",
+    "definition": "A phased process for planning, building, testing, deploying, and maintaining a software system.",
+    "wrongs": [
+      "A coding standard that limits line length and comment style.",
+      "A single test that proves every requirement before design starts.",
+      "A meeting cadence used only to estimate the next day's tasks."
+    ],
+    "why": "The life cycle names the stages a software product passes through from an idea to ongoing upkeep.",
+    "example": "A library catalog is specified, designed, coded, tested, launched for fall term, and then patched.",
+    "scenario": "A campus app moves from a signed specification into design, coding, a test lab, and launch. Which overall process are these stages part of?",
+    "scenarioAnswer": "The software development life cycle",
+    "scenarioWrongs": ["A single unit test", "A daily standup", "A compiler pass"],
+    "scenarioWhy": "Those ordered stages are the software development life cycle, not one test or meeting."
+  },
+  {
+    "term": "Requirements Engineering",
+    "definition": "The work of eliciting, analyzing, specifying, and controlling what stakeholders need a system to do.",
+    "wrongs": [
+      "Rewriting modules after release so they run on a new operating system.",
+      "Drawing only the physical servers a system will be installed on.",
+      "Measuring defects found per thousand lines after the final test."
+    ],
+    "why": "Requirements engineering produces and manages an agreed statement of stakeholder needs before and during construction.",
+    "example": "Analysts interview registrars, write the enrollment needs, and track a new grading rule.",
+    "scenario": "Clinic stakeholders disagree about portal behavior and nothing is written down. Which discipline should the team apply first?",
+    "scenarioAnswer": "Requirements engineering",
+    "scenarioWrongs": ["Performance tuning", "Release packaging", "Code refactoring"],
+    "scenarioWhy": "Unclear, unrecorded needs are resolved by eliciting and specifying requirements."
+  },
+  {
+    "term": "Functional Requirement",
+    "definition": "A statement of a specific behavior or service the system must perform for its users.",
+    "wrongs": [
+      "A constraint on speed, security, or uptime that does not name a user task.",
+      "A developer's estimate of hours left in the current iteration.",
+      "A diagram that shows classes but not what the system must do."
+    ],
+    "why": "A functional requirement states a function the system must carry out, such as recording or calculating something.",
+    "example": "The shop system must let a clerk apply a percentage discount at checkout.",
+    "scenario": "The statement says a nurse can record a patient's temperature in the chart. Which kind of requirement is that?",
+    "scenarioAnswer": "Functional requirement",
+    "scenarioWrongs": ["Performance constraint", "Licensing constraint", "Staffing constraint"],
+    "scenarioWhy": "Recording a temperature is a behavior the system must provide, so it is functional."
+  },
+  {
+    "term": "Non-functional Requirement",
+    "definition": "A quality constraint, such as performance, security, reliability, or usability, rather than a user task.",
+    "wrongs": [
+      "A description of a concrete action the system must carry out, such as checkout.",
+      "A user account that is allowed to approve a release.",
+      "A source file that configures the build pipeline."
+    ],
+    "why": "Non-functional requirements constrain how well the system performs its functions, not which functions exist.",
+    "example": "The shop system must stay available 99.9 percent of scheduled opening hours.",
+    "scenario": "The catalog must answer a search in under one second for 500 concurrent users. Which kind of requirement is that?",
+    "scenarioAnswer": "Non-functional requirement",
+    "scenarioWrongs": ["Functional requirement", "User story title", "Merge commit"],
+    "scenarioWhy": "A response-time limit is a performance quality, not a named user function."
+  },
+  {
+    "term": "Use Case",
+    "definition": "A description of how an actor reaches a goal with the system, including the main flow and alternatives.",
+    "wrongs": [
+      "A set of inputs and an expected output used to verify one function.",
+      "A class operation that stores data without describing a user goal.",
+      "A time-boxed iteration that delivers a product increment."
+    ],
+    "why": "A use case organizes a goal around an actor's main success path and the alternate paths that can occur.",
+    "example": "Actor Customer completes Place Order, with an alternate flow when the card is declined.",
+    "scenario": "The analyst writes the main steps and the card-declined alternative for Place Order. Which artifact is that?",
+    "scenarioAnswer": "A use case",
+    "scenarioWrongs": ["A class diagram", "A sprint backlog", "A test harness"],
+    "scenarioWhy": "A goal, an actor, a main flow, and alternatives are the parts of a use case."
+  },
+  {
+    "term": "User Story",
+    "definition": "A short requirement from a user's perspective naming who wants a capability and why it matters.",
+    "wrongs": [
+      "A legally frozen specification that forbids any change after sign-off.",
+      "A sequence of messages drawn between objects for one runtime scenario.",
+      "A count of branches a test suite has executed."
+    ],
+    "why": "The usual story form names the role, the desired capability, and the benefit that makes it valuable.",
+    "example": "As a commuter I want to see the next bus so that I can decide whether to wait.",
+    "scenario": "A card reads: As a student I want to reset my password so I can reach my courses. Which requirement form is this?",
+    "scenarioAnswer": "User story",
+    "scenarioWrongs": ["Test case", "Class diagram", "Sprint goal"],
+    "scenarioWhy": "The role-capability-benefit wording is the standard form of a user story."
+  },
+  {
+    "term": "UML",
+    "definition": "A standard visual language for modeling the structure and behavior of a software system.",
+    "wrongs": [
+      "A compiled language used to implement embedded device drivers.",
+      "A repository format that stores only binary build artifacts.",
+      "A test level that runs the finished system at the customer's site."
+    ],
+    "why": "UML defines standard diagram types so different teams can read the same structural and behavioral models.",
+    "example": "A course handout uses standard class and sequence diagrams so two colleges can read one design.",
+    "scenario": "An architect must show structure and behavior in a notation other schools will recognize. Which notation fits?",
+    "scenarioAnswer": "UML",
+    "scenarioWrongs": ["SQL", "Pseudocode", "XML"],
+    "scenarioWhy": "UML is the standard modeling notation for software structure and behavior."
+  },
+  {
+    "term": "Class Diagram",
+    "definition": "A UML structure view of classes, their attributes and operations, and relationships among them.",
+    "wrongs": [
+      "A time-ordered view of messages sent between objects for one scenario.",
+      "A picture of actors and the goals they trigger.",
+      "A map of which servers host each deployed component."
+    ],
+    "why": "Class diagrams model static structure: types, members, and links such as association and inheritance.",
+    "example": "The diagram shows Student, Course, a grade attribute, and an enrollment association.",
+    "scenario": "The designer must show Order, Customer, their fields, and a one-to-many association. Which diagram fits?",
+    "scenarioAnswer": "Class diagram",
+    "scenarioWrongs": ["Sequence diagram", "Use case diagram", "State machine diagram"],
+    "scenarioWhy": "Classes, attributes, and associations are shown on a class diagram."
+  },
+  {
+    "term": "Sequence Diagram",
+    "definition": "A UML behavior view that shows messages among objects in time order for one scenario.",
+    "wrongs": [
+      "A static view of classes, fields, and inheritance only.",
+      "A chart of project tasks and their calendar dates.",
+      "A table that lists requirements and their source stakeholders."
+    ],
+    "why": "Lifelines run down the page and messages are ordered from top to bottom, so time is explicit.",
+    "example": "The drawing shows the browser calling the API, then the API calling the payment gateway.",
+    "scenario": "Reviewers want the order of calls among the cart, payment service, and bank during checkout. Which diagram fits?",
+    "scenarioAnswer": "Sequence diagram",
+    "scenarioWrongs": ["Class diagram", "Deployment diagram", "Use case diagram"],
+    "scenarioWhy": "A sequence diagram is the UML view that orders messages among participants."
+  },
+  {
+    "term": "Use Case Diagram",
+    "definition": "A UML diagram of actors outside a system and the goals those actors pursue with it.",
+    "wrongs": [
+      "A diagram of database tables and the foreign keys that join them.",
+      "A chart that shows state changes inside one object.",
+      "A drawing of network cables between physical machines."
+    ],
+    "why": "Use case diagrams summarize scope by connecting external actors to the use cases inside the system boundary.",
+    "example": "The picture shows a Librarian stick figure connected to Lend Book and Return Book.",
+    "scenario": "The sponsor wants a picture of the registrar and the goals Register and Drop Course. Which diagram fits?",
+    "scenarioAnswer": "Use case diagram",
+    "scenarioWrongs": ["State machine diagram", "Object diagram", "Timing diagram"],
+    "scenarioWhy": "Actors and their goals are the content of a use case diagram."
+  },
+  {
+    "term": "State Machine Diagram",
+    "definition": "A UML diagram of an object's states and the events that cause transitions between those states.",
+    "wrongs": [
+      "A diagram that lists actors and the goals they trigger.",
+      "A view that shows only package dependencies at compile time.",
+      "A timeline of staff assignments across project phases."
+    ],
+    "why": "The diagram names states and labels each transition with the event that causes the object to change state.",
+    "example": "A traffic-light object moves from Green to Yellow to Red when a timer event fires.",
+    "scenario": "An order can be New, Paid, or Cancelled, and Pay moves New to Paid. Which diagram shows that?",
+    "scenarioAnswer": "State machine diagram",
+    "scenarioWrongs": ["Use case diagram", "Component diagram", "Communication diagram"],
+    "scenarioWhy": "States and event-triggered transitions are modeled by a state machine diagram."
+  },
+  {
+    "term": "Waterfall Model",
+    "definition": "A linear life-cycle model in which each phase is finished and baselined before the next phase begins.",
+    "wrongs": [
+      "An iterative model that ships a working increment every few weeks.",
+      "A risk-driven cycle that repeats prototyping until major risks drop.",
+      "A board method that limits work in progress and has no phase gates."
+    ],
+    "why": "Waterfall proceeds in one direction, so a later phase starts only after the previous phase is complete.",
+    "example": "The city contract finishes the full requirements book before the vendor may start design.",
+    "scenario": "The contract says design cannot start until every requirement is signed, and testing waits until coding ends. Which model is this?",
+    "scenarioAnswer": "Waterfall",
+    "scenarioWrongs": ["Scrum", "Kanban", "Spiral"],
+    "scenarioWhy": "Strict phase gates with no overlap are the defining rule of the waterfall model."
+  },
+  {
+    "term": "Agile",
+    "definition": "An iterative approach that delivers working software in short cycles and expects requirements to change.",
+    "wrongs": [
+      "A contract style that freezes the full specification before any code is written.",
+      "A hardware procurement process for buying servers in one batch.",
+      "A testing technique that inspects every source line exactly once."
+    ],
+    "why": "Agile values working software and response to change over following a frozen plan in one long pass.",
+    "example": "A lab team demos a working attendance feature every second Friday and reshuffles the next goals.",
+    "scenario": "The team ships a usable slice every two weeks and revises the backlog when clinic rules change. Which approach is this?",
+    "scenarioAnswer": "Agile",
+    "scenarioWrongs": ["Waterfall", "Big-bang delivery", "Code-and-fix with no feedback"],
+    "scenarioWhy": "Short deliveries plus welcomed change are the core of an agile approach."
+  },
+  {
+    "term": "Scrum",
+    "definition": "An agile framework that organizes delivery into sprints with defined roles, events, and artifacts.",
+    "wrongs": [
+      "A linear sequence of phases that cannot return to an earlier phase.",
+      "A modeling language for drawing classes and sequences.",
+      "A document standard for writing IEEE requirements specifications."
+    ],
+    "why": "Scrum fixes the accountabilities, events, and artifacts used to plan and inspect each sprint.",
+    "example": "The product owner orders the backlog, and the team inspects a done increment at the sprint review.",
+    "scenario": "The team has a product owner, a scrum master, and a two-week sprint ending in a review. Which framework is this?",
+    "scenarioAnswer": "Scrum",
+    "scenarioWrongs": ["Waterfall", "V-model", "Spiral"],
+    "scenarioWhy": "The product owner, scrum master, sprint, and review are Scrum's framework elements."
+  },
+  {
+    "term": "Sprint",
+    "definition": "A Scrum iteration of one month or less that turns chosen backlog items into a releasable increment.",
+    "wrongs": [
+      "The full multi-year contract from project start through retirement.",
+      "A permanent branch that is never merged back to the main line.",
+      "A customer sign-off meeting held only once at the end of the project."
+    ],
+    "why": "Each sprint is a fixed timebox that produces an increment the team could release.",
+    "example": "From March 1 to March 14 the team finishes password reset and could ship that increment.",
+    "scenario": "The team takes 14 days to turn selected backlog items into an increment it could release. Which timebox is that?",
+    "scenarioAnswer": "Sprint",
+    "scenarioWrongs": ["Release train", "Phase gate", "Baseline"],
+    "scenarioWhy": "A fixed Scrum iteration that yields a releasable increment is a sprint."
+  },
+  {
+    "term": "Kanban",
+    "definition": "A flow method that visualizes work and limits how many items may be in progress at once.",
+    "wrongs": [
+      "A time-boxed iteration with a fixed sprint goal and a sprint review.",
+      "A risk model that adds a prototype at the end of every spiral loop.",
+      "A test phase that executes only after all coding is complete."
+    ],
+    "why": "Kanban manages flow by making the work visible and capping work in progress on the board.",
+    "example": "The support board stops pulling new tickets into Build while three tickets already sit there.",
+    "scenario": "The board allows only three items in the Test column, and work is pulled when a slot opens. Which method is this?",
+    "scenarioAnswer": "Kanban",
+    "scenarioWrongs": ["Scrum", "Waterfall", "Spiral"],
+    "scenarioWhy": "A visible board plus a work-in-progress limit is Kanban flow control."
+  },
+  {
+    "term": "Extreme Programming",
+    "definition": "An agile method that emphasizes pair programming, test-first development, and very frequent releases.",
+    "wrongs": [
+      "A sequential model that completes all design before any programming.",
+      "A modeling language for drawing classes and sequences.",
+      "A life-cycle model shaped like a V of matched test phases."
+    ],
+    "why": "Extreme Programming pushes engineering practices such as pair programming and test-first coding to a continuous rhythm.",
+    "example": "Alex and Priya share one keyboard, write the test first, and integrate before lunch.",
+    "scenario": "Two developers write a failing test, code together at one machine, and integrate several times a day. Which method is this?",
+    "scenarioAnswer": "Extreme Programming",
+    "scenarioWrongs": ["Waterfall", "V-model", "Formal inspection only"],
+    "scenarioWhy": "Pair programming, test-first coding, and frequent integration are Extreme Programming practices."
+  },
+  {
+    "term": "Incremental Model",
+    "definition": "A life-cycle model that builds and delivers the system as a series of partial, usable releases.",
+    "wrongs": [
+      "A model that waits to deliver anything until every feature is finished.",
+      "A model whose every loop is driven by a formal risk analysis.",
+      "A model that pairs each design step with a matching test level on a V."
+    ],
+    "why": "Each increment adds a usable subset of function instead of holding all function for one final delivery.",
+    "example": "Release 1 is course search, release 2 adds waitlists, and both stay in use.",
+    "scenario": "The library system first releases search, later releases holds, and later releases fines, each usable alone. Which model is this?",
+    "scenarioAnswer": "Incremental model",
+    "scenarioWrongs": ["Waterfall", "Big-bang model", "Throwaway-only prototyping"],
+    "scenarioWhy": "Delivering usable partial systems in succession is the incremental model."
+  },
+  {
+    "term": "Spiral Model",
+    "definition": "A risk-driven life-cycle model that repeats planning, risk analysis, engineering, and evaluation.",
+    "wrongs": [
+      "A strictly one-pass sequence with no return to earlier work.",
+      "A board that only limits work in progress and ignores risk.",
+      "A test strategy that executes white-box tests before any requirements exist."
+    ],
+    "why": "Each spiral loop is planned around the biggest remaining risks, which may call for a prototype or other mitigation.",
+    "example": "Loop 2 focuses on payment-fraud risk and ends with a throwaway security prototype.",
+    "scenario": "Each loop starts by listing risks, and the team prototypes only the highest risk. Which model is this?",
+    "scenarioAnswer": "Spiral model",
+    "scenarioWrongs": ["Waterfall", "Kanban", "V-model"],
+    "scenarioWhy": "Explicit risk analysis at the start of every loop identifies the spiral model."
+  },
+  {
+    "term": "V-Model",
+    "definition": "A life-cycle model that pairs each development phase with a corresponding test phase.",
+    "wrongs": [
+      "A model whose loops are sized by identified project risks.",
+      "A flow board with columns and work-in-progress limits.",
+      "A method that delivers a usable slice before the requirements are written."
+    ],
+    "why": "The V pairs early specifications with later tests, such as requirements with acceptance testing and design with integration testing.",
+    "example": "When the team writes the high-level design, they also plan the integration tests that will check it.",
+    "scenario": "Acceptance tests are planned when user needs are specified, and unit tests are planned with detailed design. Which model is this?",
+    "scenarioAnswer": "V-model",
+    "scenarioWrongs": ["Kanban", "Spiral", "Code-and-fix"],
+    "scenarioWhy": "Matching each development phase to a test phase is the structure of the V-model."
+  },
+  {
+    "term": "Unit Testing",
+    "definition": "Testing the smallest pieces of a program, such as functions or classes, apart from the rest of the system.",
+    "wrongs": [
+      "Testing the finished product with the customer to decide acceptance.",
+      "Retesting the whole release only after it is already in production.",
+      "Reviewing a design document without executing any code."
+    ],
+    "why": "A unit test isolates one small piece so a failure points at that piece rather than at the whole system.",
+    "example": "calculateTax(100, 0.05) is executed alone and expected to return 5.",
+    "scenario": "A developer checks calculateFine with inputs 3 and 7 and no database connected. Which test level is this?",
+    "scenarioAnswer": "Unit testing",
+    "scenarioWrongs": ["System testing", "Acceptance testing", "Beta testing"],
+    "scenarioWhy": "One function exercised in isolation is a unit test."
+  },
+  {
+    "term": "Integration Testing",
+    "definition": "Testing whether separately built modules work correctly when they are connected.",
+    "wrongs": [
+      "Testing one function in isolation with all collaborators replaced.",
+      "Checking spelling in the user manual before release.",
+      "Measuring only the server's power use under load."
+    ],
+    "why": "Integration tests target the interfaces between modules that passed their own unit tests.",
+    "example": "The order service and the inventory service are tested together when a book is sold.",
+    "scenario": "Search works alone and the database works alone, but the team now checks search through the real driver. Which test level is this?",
+    "scenarioAnswer": "Integration testing",
+    "scenarioWrongs": ["Unit testing", "Acceptance testing", "Installation testing"],
+    "scenarioWhy": "Combining modules that already work separately is integration testing."
+  },
+  {
+    "term": "System Testing",
+    "definition": "Testing the complete integrated system against its specified requirements.",
+    "wrongs": [
+      "Testing a single class with mocked dependencies.",
+      "A code review that never runs the software.",
+      "Checking only that two modules compile in the same project."
+    ],
+    "why": "System testing evaluates the whole product in a production-like setting against the requirements specification.",
+    "example": "Testers run the entire banking app, from login through transfer, against the requirements.",
+    "scenario": "Testers run the full bookstore application against the written requirements on a production-like server. Which test level is this?",
+    "scenarioAnswer": "System testing",
+    "scenarioWrongs": ["Unit testing", "Code review", "Pair programming"],
+    "scenarioWhy": "Exercising the complete system against its specification is system testing."
+  },
+  {
+    "term": "Acceptance Testing",
+    "definition": "Testing that determines whether the system meets the customer's needs and can be accepted.",
+    "wrongs": [
+      "Testing private methods by reading branch coverage reports.",
+      "A developer check that a function returns quickly on a laptop.",
+      "Comparing two design diagrams for matching class names."
+    ],
+    "why": "Acceptance testing is the customer's decision point, based on agreed scenarios rather than internal structure.",
+    "example": "Branch managers execute the agreed teller scenarios and sign the acceptance form.",
+    "scenario": "Librarians run the agreed scenarios on the new catalog and decide whether to take the system. Which test level is this?",
+    "scenarioAnswer": "Acceptance testing",
+    "scenarioWrongs": ["Unit testing", "Integration testing", "Static analysis"],
+    "scenarioWhy": "The customer's go or no-go decision against agreed scenarios is acceptance testing."
+  },
+  {
+    "term": "Regression Testing",
+    "definition": "Retesting existing behavior after a change to confirm that working features still work.",
+    "wrongs": [
+      "The first test of a brand-new feature that never existed before.",
+      "A review of requirements text before any code is written.",
+      "Deleting old tests so the suite runs only the newest case."
+    ],
+    "why": "A change can break unchanged behavior, so regression tests rerun the old checks after the change.",
+    "example": "After the interest-rate fix, the old savings-account tests are run again.",
+    "scenario": "After a discount fix, the team reruns the old checkout tests to see whether unchanged rules still pass. Which testing is this?",
+    "scenarioAnswer": "Regression testing",
+    "scenarioWrongs": ["Acceptance testing", "Load testing", "Installation testing"],
+    "scenarioWhy": "Rerunning existing tests after a change to guard old behavior is regression testing."
+  },
+  {
+    "term": "Black-box Testing",
+    "definition": "Testing from specified inputs and outputs without looking at the internal code.",
+    "wrongs": [
+      "Testing that requires the source, branches, and internal paths.",
+      "A static review that never supplies inputs to the running system.",
+      "Measuring how many developers edited a file."
+    ],
+    "why": "Black-box tests are derived from the specification, so the tester does not need the implementation.",
+    "example": "The tester tries valid and invalid ages from the spec and never opens the function.",
+    "scenario": "The tester follows the login specification and never opens the source file. Which testing approach is this?",
+    "scenarioAnswer": "Black-box testing",
+    "scenarioWrongs": ["White-box testing", "Branch testing", "Path testing"],
+    "scenarioWhy": "Using only the specification, with no view of the code, is black-box testing."
+  },
+  {
+    "term": "White-box Testing",
+    "definition": "Testing designed from the internal structure, branches, and logic of the code.",
+    "wrongs": [
+      "Testing that uses only the requirements and ignores the implementation.",
+      "A customer demo that checks satisfaction, not code paths.",
+      "Counting story points completed in a sprint."
+    ],
+    "why": "White-box tests are chosen to exercise internal paths such as both sides of a branch.",
+    "example": "The tester forces the true and false sides of the overdraft condition in the source.",
+    "scenario": "The tester picks inputs that force both branches of an if statement inside the source. Which testing approach is this?",
+    "scenarioAnswer": "White-box testing",
+    "scenarioWrongs": ["Black-box testing", "Acceptance testing", "Beta testing"],
+    "scenarioWhy": "Choosing inputs from the internal branches is white-box testing."
+  },
+  {
+    "term": "Test Case",
+    "definition": "A specified set of preconditions, inputs, steps, and expected results for one behavior.",
+    "wrongs": [
+      "The production defect report written after users find a failure.",
+      "The schedule of who runs tests on which day.",
+      "A library binary that is linked into the program under test."
+    ],
+    "why": "A test case is executable only when the setup, the action, and the expected result are all stated.",
+    "example": "Precondition: balance 40. Action: withdraw 100. Expected: refusal and balance still 40.",
+    "scenario": "The note says: precondition logged out, input a bad password, expect an error message. Which artifact is this?",
+    "scenarioAnswer": "A test case",
+    "scenarioWrongs": ["A user story", "A class diagram", "A release branch"],
+    "scenarioWhy": "Preconditions, inputs, and an expected result define a test case."
+  },
+  {
+    "term": "Version Control",
+    "definition": "A system that records file history so people can compare changes, branch, and restore earlier versions.",
+    "wrongs": [
+      "A compiler option that removes unused functions from a binary.",
+      "A meeting where the team accepts the product increment.",
+      "A diagram that shows states of one business object."
+    ],
+    "why": "Version control stores successive revisions so any earlier state of the files can be inspected or restored.",
+    "example": "A developer compares today's main.c with the revision from last April to find the bad edit.",
+    "scenario": "The team needs every past revision of main.c so yesterday's bug can be compared with last month. Which system provides that history?",
+    "scenarioAnswer": "Version control",
+    "scenarioWrongs": ["A compiler", "A test runner", "A word processor"],
+    "scenarioWhy": "Recorded revisions that can be compared and restored come from version control."
+  },
+  {
+    "term": "Code Branch",
+    "definition": "An independent line of development in a repository that can later be merged with another line.",
+    "wrongs": [
+      "The unique number a compiler assigns to each machine instruction.",
+      "A test input that is outside the allowed range.",
+      "The final approved build that customers are running."
+    ],
+    "why": "A branch lets one line of commits diverge from another until the team merges them.",
+    "example": "The receipts feature lives on receipts-feature until it is merged on Friday.",
+    "scenario": "A developer implements refunds on a separate line of commits that is not yet in main. Which version-control concept is that line?",
+    "scenarioAnswer": "A branch",
+    "scenarioWrongs": ["A release tag", "A binary build", "A test oracle"],
+    "scenarioWhy": "A diverging line of commits that can later merge is a branch."
+  },
+  {
+    "term": "Merge Conflict",
+    "definition": "A version-control clash in which overlapping edits cannot be combined without a person choosing the result.",
+    "wrongs": [
+      "A failed unit test caused by a null input.",
+      "Two requirements that describe the same user goal in different words.",
+      "A sprint that ends before all selected stories are done."
+    ],
+    "why": "When two commits change the same lines, the tool stops because it cannot know which text should remain.",
+    "example": "Git stops because both commits changed the same three lines of Price.java.",
+    "scenario": "Two people edited the same lines of Cart.java and the tool cannot combine the commits. Which problem must they resolve?",
+    "scenarioAnswer": "A merge conflict",
+    "scenarioWrongs": ["A syntax error in a library", "A failed acceptance test", "A missing license"],
+    "scenarioWhy": "Overlapping edits that cannot be combined automatically are a merge conflict."
+  },
+  {
+    "term": "Continuous Integration",
+    "definition": "The practice of merging changes into a shared mainline often, then building and testing automatically.",
+    "wrongs": [
+      "Waiting until the end of the project to combine every developer's work once.",
+      "Manually copying source files onto a server with no automated test.",
+      "Freezing requirements so no further merges are allowed."
+    ],
+    "why": "Frequent integration plus an automated build and test finds merge and test failures soon after they are introduced.",
+    "example": "A push to main triggers the server to compile the repo and run 800 unit tests.",
+    "scenario": "Every push to the shared mainline starts a build and the unit tests on a server. Which practice is this?",
+    "scenarioAnswer": "Continuous integration",
+    "scenarioWrongs": ["Big-bang integration", "Manual copying", "A code freeze"],
+    "scenarioWhy": "Merging often and automatically building and testing is continuous integration."
+  },
+  {
+    "term": "Software Requirements Specification",
+    "definition": "A document that records the agreed functional and non-functional requirements the system must meet.",
+    "wrongs": [
+      "The source-code repository that holds the implementation.",
+      "A test log that lists only the cases that failed yesterday.",
+      "A budget spreadsheet of salaries for the development team."
+    ],
+    "why": "The specification is the agreed baseline of what the system must do and how well it must do it.",
+    "example": "The signed specification says the kiosk shall print a receipt and respond within two seconds.",
+    "scenario": "The binder lists every function and quality the registrar system must meet, and both sides signed it. Which document is this?",
+    "scenarioAnswer": "A software requirements specification",
+    "scenarioWrongs": ["A test report", "A user manual", "A sprint burndown"],
+    "scenarioWhy": "A signed list of required functions and qualities is a software requirements specification."
+  },
+  {
+    "term": "Requirements Traceability",
+    "definition": "The ability to follow a requirement to the design, code, and tests that satisfy it, and back to its origin.",
+    "wrongs": [
+      "The speed at which a team finishes story points in one sprint.",
+      "A backup copy of the database taken every night.",
+      "The practice of writing code before any requirement is recorded."
+    ],
+    "why": "Trace links show that each requirement is implemented and tested, and show where a requirement came from.",
+    "example": "Requirement PAY-4 links to design paragraph 3.2, class Payment, and test T-19.",
+    "scenario": "An auditor follows requirement R12 from the specification to the design section, the class, and the covering test. Which ability is that?",
+    "scenarioAnswer": "Requirements traceability",
+    "scenarioWrongs": ["Cyclomatic complexity", "Velocity tracking", "Story mapping"],
+    "scenarioWhy": "Following a requirement through design, code, and tests is requirements traceability."
+  },
+  {
+    "term": "Design Pattern",
+    "definition": "A named, reusable description of a proven solution to a recurring software design problem.",
+    "wrongs": [
+      "A one-time hack that works only for a single bug in one program.",
+      "A programming language keyword that declares a loop.",
+      "A customer signature on the acceptance test report."
+    ],
+    "why": "A pattern names a problem, a solution structure, and the consequences so teams can reuse a known design.",
+    "example": "Instead of an ad-hoc global logger, the team applies a published pattern with a known structure.",
+    "scenario": "The team reuses a known design for notifying every view when the model changes, instead of a one-off. What are they reusing?",
+    "scenarioAnswer": "A design pattern",
+    "scenarioWrongs": ["A test oracle", "A compiler warning", "A project charter"],
+    "scenarioWhy": "A named, proven solution to a recurring design problem is a design pattern."
+  },
+  {
+    "term": "Singleton Pattern",
+    "definition": "A creational pattern that ensures a class has only one instance and a single global access point.",
+    "wrongs": [
+      "A pattern in which an object notifies many dependents when its state changes.",
+      "A pattern that lets subclasses choose which concrete class to instantiate.",
+      "A split of an application into model, view, and controller parts."
+    ],
+    "why": "The singleton hides construction and returns the same instance on every request.",
+    "example": "Every module asks AppLogger.getInstance() and receives the same logger object.",
+    "scenario": "The application must have exactly one configuration object, reached from anywhere in the process. Which pattern fits?",
+    "scenarioAnswer": "Singleton",
+    "scenarioWrongs": ["Observer", "Factory Method", "Strategy"],
+    "scenarioWhy": "One shared instance with a global access point is the singleton pattern."
+  },
+  {
+    "term": "Observer Pattern",
+    "definition": "A behavioral pattern in which a subject automatically notifies registered dependents when it changes.",
+    "wrongs": [
+      "A pattern that allows only one instance of a class in the process.",
+      "A pattern that adapts one interface so another class can call it.",
+      "A pattern that builds a complex object step by step."
+    ],
+    "why": "Dependents register with the subject, so the subject can update them without hard-coding each dependent.",
+    "example": "The scoreboard, the phone app, and the ticker all refresh when MatchScore changes.",
+    "scenario": "When the stock price changes, every open dashboard must update without the price object naming each screen. Which pattern fits?",
+    "scenarioAnswer": "Observer",
+    "scenarioWrongs": ["Singleton", "Adapter", "Facade"],
+    "scenarioWhy": "Automatic notification of registered dependents is the observer pattern."
+  },
+  {
+    "term": "Factory Method",
+    "definition": "A creational pattern that lets subclasses decide which concrete class to instantiate.",
+    "wrongs": [
+      "A pattern that guarantees one shared instance for the whole program.",
+      "A pattern that forwards a call through a chain until one handler accepts it.",
+      "A pattern that saves and restores an object's state without exposing internals."
+    ],
+    "why": "The creator defines the creation step, and each subclass overrides it to return its own product class.",
+    "example": "ButtonFactory.create() returns a WinButton or a MacButton depending on the subclass.",
+    "scenario": "The desktop subclass creates a window dialog and the mobile subclass creates a touch dialog through the same creation method. Which pattern fits?",
+    "scenarioAnswer": "Factory Method",
+    "scenarioWrongs": ["Singleton", "Observer", "Decorator"],
+    "scenarioWhy": "Letting each subclass choose the concrete product is the factory method."
+  },
+  {
+    "term": "MVC",
+    "definition": "An architectural pattern that separates application data, the user interface, and input handling.",
+    "wrongs": [
+      "A network stack with seven layers from physical media up to applications.",
+      "A database rule that every table must have a foreign key.",
+      "A test method that checks only private functions."
+    ],
+    "why": "The model holds state, the view presents it, and the controller interprets user input.",
+    "example": "The grades model holds numbers, the page renders them, and the controller handles the Save click.",
+    "scenario": "Invoice data stays in one part, the screen layout in another, and button actions in a third. Which pattern is this?",
+    "scenarioAnswer": "MVC",
+    "scenarioWrongs": ["Singleton", "Facade", "Adapter"],
+    "scenarioWhy": "Separating data, presentation, and input handling is the model-view-controller split."
+  },
+  {
+    "term": "Coupling",
+    "definition": "The degree to which one module depends on the details or changes of another module.",
+    "wrongs": [
+      "The degree to which elements inside one module all serve a single purpose.",
+      "The number of users who can log in at the same time.",
+      "The time a team spends in code review each week."
+    ],
+    "why": "Coupling measures interdependence between modules; a change in one can force a change in the other when coupling is high.",
+    "example": "ReportPrinter fails to compile when Invoice changes a private field that the printer reads.",
+    "scenario": "Module A will not compile unless it reads private fields inside module B. Which property between the modules is high?",
+    "scenarioAnswer": "Coupling",
+    "scenarioWrongs": ["Cohesion", "Inheritance depth", "Comment density"],
+    "scenarioWhy": "Dependence on another module's private details is high coupling."
+  },
+  {
+    "term": "Cohesion",
+    "definition": "The degree to which responsibilities inside one module belong together and serve one purpose.",
+    "wrongs": [
+      "The degree to which one module depends on the internals of another.",
+      "The count of defects found after release.",
+      "The number of branches in the version-control history."
+    ],
+    "why": "A highly cohesive module has elements that all contribute to one responsibility.",
+    "example": "InvoiceFormatter only formats invoice lines and totals, with no login or shipping code inside.",
+    "scenario": "A module named Report contains only methods that format one sales report. Which property inside that module is high?",
+    "scenarioAnswer": "Cohesion",
+    "scenarioWrongs": ["Coupling", "Duplication", "Fan-out"],
+    "scenarioWhy": "Elements that all serve one purpose make the module highly cohesive."
+  },
+  {
+    "term": "Software Maintenance",
+    "definition": "Work done after delivery to correct faults, adapt to change, or improve the system.",
+    "wrongs": [
+      "The first workshop that gathers requirements before any design.",
+      "Writing the initial architecture before coding starts.",
+      "Estimating the budget only for the first release."
+    ],
+    "why": "Maintenance begins once the system is in use and includes corrective, adaptive, and perfective changes.",
+    "example": "After launch, the city app is updated because the recycling calendar rules changed.",
+    "scenario": "Three months after go-live, engineers change the payroll system so it handles a new tax form. Which life-cycle activity is this?",
+    "scenarioAnswer": "Software maintenance",
+    "scenarioWrongs": ["Initial requirements elicitation", "First-release coding", "Project chartering"],
+    "scenarioWhy": "Changing a delivered system to meet a new condition is software maintenance."
+  },
+  {
+    "term": "Refactoring",
+    "definition": "Changing internal structure to make code easier to understand or modify without changing its behavior.",
+    "wrongs": [
+      "Adding a new user-visible feature while altering results the user sees.",
+      "Rewriting the system in another language and changing its outputs.",
+      "Deleting tests so a failing build becomes green."
+    ],
+    "why": "Refactoring preserves observable behavior, which existing tests can confirm, while improving structure.",
+    "example": "A long checkout method is split into three methods and the receipt output stays identical.",
+    "scenario": "The developer splits a 400-line method into smaller methods and every existing test still passes with the same outputs. Which activity is this?",
+    "scenarioAnswer": "Refactoring",
+    "scenarioWrongs": ["Adding a feature", "Acceptance testing", "Rewriting the requirements"],
+    "scenarioWhy": "A structure change that keeps external behavior the same is refactoring."
+  },
+  {
+    "term": "Technical Debt",
+    "definition": "The extra future cost created when a team takes a design or code shortcut instead of a cleaner solution.",
+    "wrongs": [
+      "The money a customer still owes on a software license.",
+      "The count of servers needed to host the application.",
+      "The interest rate used in a project cost-benefit spreadsheet."
+    ],
+    "why": "The shortcut saves time now but adds rework later, which is the debt that must be repaid.",
+    "example": "Hard-coded tax rates shipped for a demo, and every new region now needs awkward special cases.",
+    "scenario": "The team skipped input checks to hit a demo, and every later feature costs extra time to work around that shortcut. What has the team incurred?",
+    "scenarioAnswer": "Technical debt",
+    "scenarioWrongs": ["A schedule reserve", "A test oracle", "A configuration baseline"],
+    "scenarioWhy": "Extra future rework caused by a shortcut is technical debt."
+  },
+  {
+    "term": "Code Review",
+    "definition": "An examination of a proposed source change by other developers before it is merged.",
+    "wrongs": [
+      "An automated load test that measures response time only.",
+      "The customer's final decision to accept the whole system.",
+      "A backup of the repository stored off site."
+    ],
+    "why": "Reviewers read the change to find defects and design problems while the change is still unmerged.",
+    "example": "Sam comments on an unhandled empty cart in the pull request before it merges.",
+    "scenario": "Before the refund change joins main, two teammates read the diff and comment on a missing null check. Which practice is this?",
+    "scenarioAnswer": "Code review",
+    "scenarioWrongs": ["Load testing", "Release deployment", "Backlog grooming"],
+    "scenarioWhy": "Developers examining a proposed change before merge are doing a code review."
+  },
+  {
+    "term": "Software Quality",
+    "definition": "The degree to which a system meets stated requirements and satisfies stakeholder needs in use.",
+    "wrongs": [
+      "The number of lines of code written during a sprint.",
+      "The salary band of the most senior programmer.",
+      "The brand of compiler used to build the product."
+    ],
+    "why": "Quality is judged by conformance to requirements and by fitness for the stakeholders' actual use.",
+    "example": "The clinic rates the portal by correctness against the spec and by how easily nurses finish a visit.",
+    "scenario": "Evaluators ask how completely the grading system meets the specification and how well faculty can use it. What are they judging?",
+    "scenarioAnswer": "Software quality",
+    "scenarioWrongs": ["Team velocity", "Office capacity", "Compiler version"],
+    "scenarioWhy": "Meeting the specification and satisfying users in use is software quality."
+  },
+  {
+    "term": "Verification",
+    "definition": "Checking that a phase's work product conforms to the specification for that phase.",
+    "wrongs": [
+      "Checking that the finished system fulfills the real needs of its users.",
+      "Publishing the software to an app store.",
+      "Assigning story points to items on the backlog."
+    ],
+    "why": "Verification asks whether the product of a phase was built to that phase's specification.",
+    "example": "The inspection checks that the module design satisfies the design description in section 4.",
+    "scenario": "Reviewers compare the design document with the design specification and do not yet ask whether students like the product. Which check is this?",
+    "scenarioAnswer": "Verification",
+    "scenarioWrongs": ["Validation", "Deployment", "Marketing"],
+    "scenarioWhy": "Comparing a work product with its phase specification is verification."
+  },
+  {
+    "term": "Validation",
+    "definition": "Checking that the finished system fulfills the users' actual needs in their environment.",
+    "wrongs": [
+      "Checking that a design document matches the design specification, regardless of user needs.",
+      "Counting how many unit tests exist, without running the product for users.",
+      "Archiving old requirements that were rejected."
+    ],
+    "why": "Validation asks whether the right product was built for the users, not only whether a phase met its spec.",
+    "example": "Pilots use the new departure screen on a live gate to see if it fits their real workflow.",
+    "scenario": "Students try the finished registration system during advising week to see if it supports how they actually enroll. Which check is this?",
+    "scenarioAnswer": "Validation",
+    "scenarioWrongs": ["Verification", "Compilation", "Branch coverage"],
+    "scenarioWhy": "Trying the finished system against real user needs is validation."
+  },
+  {
+    "term": "Prototyping",
+    "definition": "Building an early, partial version so people can explore requirements or design choices.",
+    "wrongs": [
+      "The final hardened release that is maintained for years.",
+      "A formal proof that every requirement has a passing test.",
+      "Locking the repository so no further commits are allowed."
+    ],
+    "why": "A prototype is built to learn from users or to test a design, and it may later be discarded or evolved.",
+    "example": "A clickable seat map with fake data is shown to riders before any booking code is written.",
+    "scenario": "The team builds a clickable screen with fake data so nurses can react before the real database exists. Which practice is this?",
+    "scenarioAnswer": "Prototyping",
+    "scenarioWrongs": ["Regression testing", "Configuration audit", "Code freeze"],
+    "scenarioWhy": "An early partial version used to learn about needs or design is a prototype."
+  },
+  {
+    "term": "Configuration Management",
+    "definition": "Identifying software items and controlling their versions, changes, and relationships over time.",
+    "wrongs": [
+      "Choosing the office layout for the development team.",
+      "A one-time compile that keeps no record of which sources produced the binary.",
+      "Writing user stories without recording which version they belong to."
+    ],
+    "why": "Configuration management makes each build identifiable and reproducible from controlled versions of its items.",
+    "example": "Build 4.2 is recorded as commit a1b2c3 plus library set L7 so it can be rebuilt later.",
+    "scenario": "The release engineer records exactly which source revision, libraries, and build script produced build 4.2. Which discipline is this?",
+    "scenarioAnswer": "Configuration management",
+    "scenarioWrongs": ["Usability testing", "Pair programming", "Story mapping"],
+    "scenarioWhy": "Identifying and controlling the exact items that make a build is configuration management."
+  }
+]
