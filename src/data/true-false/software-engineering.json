@@ -1,0 +1,785 @@
+{
+  "subjectId": "software-engineering",
+  "levels": {
+    "1": [
+      {
+        "statement": "A SDLC is a phased process for planning, building, testing, deploying, and maintaining a software system.",
+        "answer": true,
+        "explanation": "The life cycle names the stages a software product passes through from an idea to ongoing upkeep."
+      },
+      {
+        "statement": "A Requirements Engineering is drawing only the physical servers a system will be installed on.",
+        "answer": false,
+        "explanation": "Requirements engineering produces and manages an agreed statement of stakeholder needs before and during construction."
+      },
+      {
+        "statement": "A Functional Requirement is a statement of a specific behavior or service the system must perform for its users.",
+        "answer": true,
+        "explanation": "A functional requirement states a function the system must carry out, such as recording or calculating something."
+      },
+      {
+        "statement": "A Non-functional Requirement is functional requirement.",
+        "answer": false,
+        "explanation": "Non-functional requirements constrain how well the system performs its functions, not which functions exist."
+      },
+      {
+        "statement": "An Use Case is a description of how an actor reaches a goal with the system, including the main flow and alternatives.",
+        "answer": true,
+        "explanation": "A use case organizes a goal around an actor's main success path and the alternate paths that can occur."
+      },
+      {
+        "statement": "An User Story is sprint goal.",
+        "answer": false,
+        "explanation": "The usual story form names the role, the desired capability, and the benefit that makes it valuable."
+      },
+      {
+        "statement": "An UML is a standard visual language for modeling the structure and behavior of a software system.",
+        "answer": true,
+        "explanation": "UML defines standard diagram types so different teams can read the same structural and behavioral models."
+      },
+      {
+        "statement": "A Class Diagram is a picture of actors and the goals they trigger.",
+        "answer": false,
+        "explanation": "Class diagrams model static structure: types, members, and links such as association and inheritance."
+      },
+      {
+        "statement": "A Sequence Diagram is a UML behavior view that shows messages among objects in time order for one scenario.",
+        "answer": true,
+        "explanation": "Lifelines run down the page and messages are ordered from top to bottom, so time is explicit."
+      },
+      {
+        "statement": "An Use Case Diagram is state machine diagram.",
+        "answer": false,
+        "explanation": "Use case diagrams summarize scope by connecting external actors to the use cases inside the system boundary."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A State Machine Diagram is a UML diagram of an object's states and the events that cause transitions between those states.",
+        "answer": true,
+        "explanation": "The diagram names states and labels each transition with the event that causes the object to change state."
+      },
+      {
+        "statement": "A Waterfall Model is spiral.",
+        "answer": false,
+        "explanation": "Waterfall proceeds in one direction, so a later phase starts only after the previous phase is complete."
+      },
+      {
+        "statement": "An Agile is an iterative approach that delivers working software in short cycles and expects requirements to change.",
+        "answer": true,
+        "explanation": "Agile values working software and response to change over following a frozen plan in one long pass."
+      },
+      {
+        "statement": "A Scrum is a modeling language for drawing classes and sequences.",
+        "answer": false,
+        "explanation": "Scrum fixes the accountabilities, events, and artifacts used to plan and inspect each sprint."
+      },
+      {
+        "statement": "A Sprint is a Scrum iteration of one month or less that turns chosen backlog items into a releasable increment.",
+        "answer": true,
+        "explanation": "Each sprint is a fixed timebox that produces an increment the team could release."
+      },
+      {
+        "statement": "A Kanban is scrum.",
+        "answer": false,
+        "explanation": "Kanban manages flow by making the work visible and capping work in progress on the board."
+      },
+      {
+        "statement": "An Extreme Programming is an agile method that emphasizes pair programming, test-first development, and very frequent releases.",
+        "answer": true,
+        "explanation": "Extreme Programming pushes engineering practices such as pair programming and test-first coding to a continuous rhythm."
+      },
+      {
+        "statement": "An Incremental Model is throwaway-only prototyping.",
+        "answer": false,
+        "explanation": "Each increment adds a usable subset of function instead of holding all function for one final delivery."
+      },
+      {
+        "statement": "A Spiral Model is a risk-driven life-cycle model that repeats planning, risk analysis, engineering, and evaluation.",
+        "answer": true,
+        "explanation": "Each spiral loop is planned around the biggest remaining risks, which may call for a prototype or other mitigation."
+      },
+      {
+        "statement": "A V-Model is a flow board with columns and work-in-progress limits.",
+        "answer": false,
+        "explanation": "The V pairs early specifications with later tests, such as requirements with acceptance testing and design with integration testing."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Unit Testing is testing the smallest pieces of a program, such as functions or classes, apart from the rest of the system.",
+        "answer": true,
+        "explanation": "A unit test isolates one small piece so a failure points at that piece rather than at the whole system."
+      },
+      {
+        "statement": "An Integration Testing is unit testing.",
+        "answer": false,
+        "explanation": "Integration tests target the interfaces between modules that passed their own unit tests."
+      },
+      {
+        "statement": "A System Testing is testing the complete integrated system against its specified requirements.",
+        "answer": true,
+        "explanation": "System testing evaluates the whole product in a production-like setting against the requirements specification."
+      },
+      {
+        "statement": "An Acceptance Testing is static analysis.",
+        "answer": false,
+        "explanation": "Acceptance testing is the customer's decision point, based on agreed scenarios rather than internal structure."
+      },
+      {
+        "statement": "A Regression Testing is retesting existing behavior after a change to confirm that working features still work.",
+        "answer": true,
+        "explanation": "A change can break unchanged behavior, so regression tests rerun the old checks after the change."
+      },
+      {
+        "statement": "A Black-box Testing is a static review that never supplies inputs to the running system.",
+        "answer": false,
+        "explanation": "Black-box tests are derived from the specification, so the tester does not need the implementation."
+      },
+      {
+        "statement": "A White-box Testing is testing designed from the internal structure, branches, and logic of the code.",
+        "answer": true,
+        "explanation": "White-box tests are chosen to exercise internal paths such as both sides of a branch."
+      },
+      {
+        "statement": "A Test Case is a user story.",
+        "answer": false,
+        "explanation": "A test case is executable only when the setup, the action, and the expected result are all stated."
+      },
+      {
+        "statement": "A Version Control is a system that records file history so people can compare changes, branch, and restore earlier versions.",
+        "answer": true,
+        "explanation": "Version control stores successive revisions so any earlier state of the files can be inspected or restored."
+      },
+      {
+        "statement": "A Code Branch is a test oracle.",
+        "answer": false,
+        "explanation": "A branch lets one line of commits diverge from another until the team merges them."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Merge Conflict is a version-control clash in which overlapping edits cannot be combined without a person choosing the result.",
+        "answer": true,
+        "explanation": "When two commits change the same lines, the tool stops because it cannot know which text should remain."
+      },
+      {
+        "statement": "A Continuous Integration is manually copying source files onto a server with no automated test.",
+        "answer": false,
+        "explanation": "Frequent integration plus an automated build and test finds merge and test failures soon after they are introduced."
+      },
+      {
+        "statement": "A Software Requirements Specification is a document that records the agreed functional and non-functional requirements the system must meet.",
+        "answer": true,
+        "explanation": "The specification is the agreed baseline of what the system must do and how well it must do it."
+      },
+      {
+        "statement": "A Requirements Traceability is cyclomatic complexity.",
+        "answer": false,
+        "explanation": "Trace links show that each requirement is implemented and tested, and show where a requirement came from."
+      },
+      {
+        "statement": "A Design Pattern is a named, reusable description of a proven solution to a recurring software design problem.",
+        "answer": true,
+        "explanation": "A pattern names a problem, a solution structure, and the consequences so teams can reuse a known design."
+      },
+      {
+        "statement": "A Singleton Pattern is strategy.",
+        "answer": false,
+        "explanation": "The singleton hides construction and returns the same instance on every request."
+      },
+      {
+        "statement": "An Observer Pattern is a behavioral pattern in which a subject automatically notifies registered dependents when it changes.",
+        "answer": true,
+        "explanation": "Dependents register with the subject, so the subject can update them without hard-coding each dependent."
+      },
+      {
+        "statement": "A Factory Method is a pattern that forwards a call through a chain until one handler accepts it.",
+        "answer": false,
+        "explanation": "The creator defines the creation step, and each subclass overrides it to return its own product class."
+      },
+      {
+        "statement": "A MVC is an architectural pattern that separates application data, the user interface, and input handling.",
+        "answer": true,
+        "explanation": "The model holds state, the view presents it, and the controller interprets user input."
+      },
+      {
+        "statement": "A Coupling is cohesion.",
+        "answer": false,
+        "explanation": "Coupling measures interdependence between modules; a change in one can force a change in the other when coupling is high."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Cohesion is the degree to which responsibilities inside one module belong together and serve one purpose.",
+        "answer": true,
+        "explanation": "A highly cohesive module has elements that all contribute to one responsibility."
+      },
+      {
+        "statement": "A Software Maintenance is project chartering.",
+        "answer": false,
+        "explanation": "Maintenance begins once the system is in use and includes corrective, adaptive, and perfective changes."
+      },
+      {
+        "statement": "A Refactoring is changing internal structure to make code easier to understand or modify without changing its behavior.",
+        "answer": true,
+        "explanation": "Refactoring preserves observable behavior, which existing tests can confirm, while improving structure."
+      },
+      {
+        "statement": "A Technical Debt is the count of servers needed to host the application.",
+        "answer": false,
+        "explanation": "The shortcut saves time now but adds rework later, which is the debt that must be repaid."
+      },
+      {
+        "statement": "A Code Review is an examination of a proposed source change by other developers before it is merged.",
+        "answer": true,
+        "explanation": "Reviewers read the change to find defects and design problems while the change is still unmerged."
+      },
+      {
+        "statement": "A Software Quality is team velocity.",
+        "answer": false,
+        "explanation": "Quality is judged by conformance to requirements and by fitness for the stakeholders' actual use."
+      },
+      {
+        "statement": "A Verification is checking that a phase's work product conforms to the specification for that phase.",
+        "answer": true,
+        "explanation": "Verification asks whether the product of a phase was built to that phase's specification."
+      },
+      {
+        "statement": "A Validation is branch coverage.",
+        "answer": false,
+        "explanation": "Validation asks whether the right product was built for the users, not only whether a phase met its spec."
+      },
+      {
+        "statement": "A Prototyping is building an early, partial version so people can explore requirements or design choices.",
+        "answer": true,
+        "explanation": "A prototype is built to learn from users or to test a design, and it may later be discarded or evolved."
+      },
+      {
+        "statement": "A Configuration Management is a one-time compile that keeps no record of which sources produced the binary.",
+        "answer": false,
+        "explanation": "Configuration management makes each build identifiable and reproducible from controlled versions of its items."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a single test that proves every requirement before design starts is called SDLC.",
+        "answer": false,
+        "explanation": "The life cycle names the stages a software product passes through from an idea to ongoing upkeep."
+      },
+      {
+        "statement": "Analysts interview registrars, write the enrollment needs, and track a new grading rule.",
+        "answer": true,
+        "explanation": "Requirements engineering produces and manages an agreed statement of stakeholder needs before and during construction."
+      },
+      {
+        "statement": "In standard textbooks, performance constraint is called Functional Requirement.",
+        "answer": false,
+        "explanation": "A functional requirement states a function the system must carry out, such as recording or calculating something."
+      },
+      {
+        "statement": "The shop system must stay available 99.9 percent of scheduled opening hours.",
+        "answer": true,
+        "explanation": "Non-functional requirements constrain how well the system performs its functions, not which functions exist."
+      },
+      {
+        "statement": "In standard textbooks, a test harness is called Use Case.",
+        "answer": false,
+        "explanation": "A use case organizes a goal around an actor's main success path and the alternate paths that can occur."
+      },
+      {
+        "statement": "As a commuter I want to see the next bus so that I can decide whether to wait.",
+        "answer": true,
+        "explanation": "The usual story form names the role, the desired capability, and the benefit that makes it valuable."
+      },
+      {
+        "statement": "In standard textbooks, a repository format that stores only binary build artifacts is called UML.",
+        "answer": false,
+        "explanation": "UML defines standard diagram types so different teams can read the same structural and behavioral models."
+      },
+      {
+        "statement": "The diagram shows Student, Course, a grade attribute, and an enrollment association.",
+        "answer": true,
+        "explanation": "Class diagrams model static structure: types, members, and links such as association and inheritance."
+      },
+      {
+        "statement": "In standard textbooks, class diagram is called Sequence Diagram.",
+        "answer": false,
+        "explanation": "Lifelines run down the page and messages are ordered from top to bottom, so time is explicit."
+      },
+      {
+        "statement": "The picture shows a Librarian stick figure connected to Lend Book and Return Book.",
+        "answer": true,
+        "explanation": "Use case diagrams summarize scope by connecting external actors to the use cases inside the system boundary."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, communication diagram is called State Machine Diagram.",
+        "answer": false,
+        "explanation": "The diagram names states and labels each transition with the event that causes the object to change state."
+      },
+      {
+        "statement": "The city contract finishes the full requirements book before the vendor may start design.",
+        "answer": true,
+        "explanation": "Waterfall proceeds in one direction, so a later phase starts only after the previous phase is complete."
+      },
+      {
+        "statement": "In standard textbooks, a hardware procurement process for buying servers in one batch is called Agile.",
+        "answer": false,
+        "explanation": "Agile values working software and response to change over following a frozen plan in one long pass."
+      },
+      {
+        "statement": "The product owner orders the backlog, and the team inspects a done increment at the sprint review.",
+        "answer": true,
+        "explanation": "Scrum fixes the accountabilities, events, and artifacts used to plan and inspect each sprint."
+      },
+      {
+        "statement": "In standard textbooks, release train is called Sprint.",
+        "answer": false,
+        "explanation": "Each sprint is a fixed timebox that produces an increment the team could release."
+      },
+      {
+        "statement": "The support board stops pulling new tickets into Build while three tickets already sit there.",
+        "answer": true,
+        "explanation": "Kanban manages flow by making the work visible and capping work in progress on the board."
+      },
+      {
+        "statement": "In standard textbooks, formal inspection only is called Extreme Programming.",
+        "answer": false,
+        "explanation": "Extreme Programming pushes engineering practices such as pair programming and test-first coding to a continuous rhythm."
+      },
+      {
+        "statement": "Release 1 is course search, release 2 adds waitlists, and both stay in use.",
+        "answer": true,
+        "explanation": "Each increment adds a usable subset of function instead of holding all function for one final delivery."
+      },
+      {
+        "statement": "In standard textbooks, a board that only limits work in progress and ignores risk is called Spiral Model.",
+        "answer": false,
+        "explanation": "Each spiral loop is planned around the biggest remaining risks, which may call for a prototype or other mitigation."
+      },
+      {
+        "statement": "When the team writes the high-level design, they also plan the integration tests that will check it.",
+        "answer": true,
+        "explanation": "The V pairs early specifications with later tests, such as requirements with acceptance testing and design with integration testing."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, system testing is called Unit Testing.",
+        "answer": false,
+        "explanation": "A unit test isolates one small piece so a failure points at that piece rather than at the whole system."
+      },
+      {
+        "statement": "The order service and the inventory service are tested together when a book is sold.",
+        "answer": true,
+        "explanation": "Integration tests target the interfaces between modules that passed their own unit tests."
+      },
+      {
+        "statement": "In standard textbooks, pair programming is called System Testing.",
+        "answer": false,
+        "explanation": "System testing evaluates the whole product in a production-like setting against the requirements specification."
+      },
+      {
+        "statement": "Branch managers execute the agreed teller scenarios and sign the acceptance form.",
+        "answer": true,
+        "explanation": "Acceptance testing is the customer's decision point, based on agreed scenarios rather than internal structure."
+      },
+      {
+        "statement": "In standard textbooks, a review of requirements text before any code is written is called Regression Testing.",
+        "answer": false,
+        "explanation": "A change can break unchanged behavior, so regression tests rerun the old checks after the change."
+      },
+      {
+        "statement": "The tester tries valid and invalid ages from the spec and never opens the function.",
+        "answer": true,
+        "explanation": "Black-box tests are derived from the specification, so the tester does not need the implementation."
+      },
+      {
+        "statement": "In standard textbooks, black-box testing is called White-box Testing.",
+        "answer": false,
+        "explanation": "White-box tests are chosen to exercise internal paths such as both sides of a branch."
+      },
+      {
+        "statement": "Precondition: balance 40. Action: withdraw 100. Expected: refusal and balance still 40.",
+        "answer": true,
+        "explanation": "A test case is executable only when the setup, the action, and the expected result are all stated."
+      },
+      {
+        "statement": "In standard textbooks, a word processor is called Version Control.",
+        "answer": false,
+        "explanation": "Version control stores successive revisions so any earlier state of the files can be inspected or restored."
+      },
+      {
+        "statement": "The receipts feature lives on receipts-feature until it is merged on Friday.",
+        "answer": true,
+        "explanation": "A branch lets one line of commits diverge from another until the team merges them."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, two requirements that describe the same user goal in different words is called Merge Conflict.",
+        "answer": false,
+        "explanation": "When two commits change the same lines, the tool stops because it cannot know which text should remain."
+      },
+      {
+        "statement": "A push to main triggers the server to compile the repo and run 800 unit tests.",
+        "answer": true,
+        "explanation": "Frequent integration plus an automated build and test finds merge and test failures soon after they are introduced."
+      },
+      {
+        "statement": "In standard textbooks, a test report is called Software Requirements Specification.",
+        "answer": false,
+        "explanation": "The specification is the agreed baseline of what the system must do and how well it must do it."
+      },
+      {
+        "statement": "Requirement PAY-4 links to design paragraph 3.2, class Payment, and test T-19.",
+        "answer": true,
+        "explanation": "Trace links show that each requirement is implemented and tested, and show where a requirement came from."
+      },
+      {
+        "statement": "In standard textbooks, a project charter is called Design Pattern.",
+        "answer": false,
+        "explanation": "A pattern names a problem, a solution structure, and the consequences so teams can reuse a known design."
+      },
+      {
+        "statement": "Every module asks AppLogger.getInstance() and receives the same logger object.",
+        "answer": true,
+        "explanation": "The singleton hides construction and returns the same instance on every request."
+      },
+      {
+        "statement": "In standard textbooks, a pattern that adapts one interface so another class can call it is called Observer Pattern.",
+        "answer": false,
+        "explanation": "Dependents register with the subject, so the subject can update them without hard-coding each dependent."
+      },
+      {
+        "statement": "ButtonFactory.create() returns a WinButton or a MacButton depending on the subclass.",
+        "answer": true,
+        "explanation": "The creator defines the creation step, and each subclass overrides it to return its own product class."
+      },
+      {
+        "statement": "In standard textbooks, singleton is called MVC.",
+        "answer": false,
+        "explanation": "The model holds state, the view presents it, and the controller interprets user input."
+      },
+      {
+        "statement": "ReportPrinter fails to compile when Invoice changes a private field that the printer reads.",
+        "answer": true,
+        "explanation": "Coupling measures interdependence between modules; a change in one can force a change in the other when coupling is high."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, fan-out is called Cohesion.",
+        "answer": false,
+        "explanation": "A highly cohesive module has elements that all contribute to one responsibility."
+      },
+      {
+        "statement": "After launch, the city app is updated because the recycling calendar rules changed.",
+        "answer": true,
+        "explanation": "Maintenance begins once the system is in use and includes corrective, adaptive, and perfective changes."
+      },
+      {
+        "statement": "In standard textbooks, rewriting the system in another language and changing its outputs is called Refactoring.",
+        "answer": false,
+        "explanation": "Refactoring preserves observable behavior, which existing tests can confirm, while improving structure."
+      },
+      {
+        "statement": "Hard-coded tax rates shipped for a demo, and every new region now needs awkward special cases.",
+        "answer": true,
+        "explanation": "The shortcut saves time now but adds rework later, which is the debt that must be repaid."
+      },
+      {
+        "statement": "In standard textbooks, load testing is called Code Review.",
+        "answer": false,
+        "explanation": "Reviewers read the change to find defects and design problems while the change is still unmerged."
+      },
+      {
+        "statement": "The clinic rates the portal by correctness against the spec and by how easily nurses finish a visit.",
+        "answer": true,
+        "explanation": "Quality is judged by conformance to requirements and by fitness for the stakeholders' actual use."
+      },
+      {
+        "statement": "In standard textbooks, marketing is called Verification.",
+        "answer": false,
+        "explanation": "Verification asks whether the product of a phase was built to that phase's specification."
+      },
+      {
+        "statement": "Pilots use the new departure screen on a live gate to see if it fits their real workflow.",
+        "answer": true,
+        "explanation": "Validation asks whether the right product was built for the users, not only whether a phase met its spec."
+      },
+      {
+        "statement": "In standard textbooks, a formal proof that every requirement has a passing test is called Prototyping.",
+        "answer": false,
+        "explanation": "A prototype is built to learn from users or to test a design, and it may later be discarded or evolved."
+      },
+      {
+        "statement": "Build 4.2 is recorded as commit a1b2c3 plus library set L7 so it can be rebuilt later.",
+        "answer": true,
+        "explanation": "Configuration management makes each build identifiable and reproducible from controlled versions of its items."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a campus app moves from a signed specification into design, coding, a test lab, and launch. Which overall process are these stages part of, the correct result is a single unit test.",
+        "answer": false,
+        "explanation": "Those ordered stages are the software development life cycle, not one test or meeting."
+      },
+      {
+        "statement": "When clinic stakeholders disagree about portal behavior and nothing is written down. Which discipline should the team apply first, the correct result is release packaging.",
+        "answer": false,
+        "explanation": "Unclear, unrecorded needs are resolved by eliciting and specifying requirements."
+      },
+      {
+        "statement": "When the statement says a nurse can record a patient's temperature in the chart. The kind of requirement is that, the correct result is functional requirement.",
+        "answer": true,
+        "explanation": "Recording a temperature is a behavior the system must provide, so it is functional."
+      },
+      {
+        "statement": "When the catalog must answer a search in under one second for 500 concurrent users. The kind of requirement is that, the correct result is non-functional requirement.",
+        "answer": true,
+        "explanation": "A response-time limit is a performance quality, not a named user function."
+      },
+      {
+        "statement": "When the analyst writes the main steps and the card-declined alternative for Place Order. Which artifact is that, the correct result is a sprint backlog.",
+        "answer": false,
+        "explanation": "A goal, an actor, a main flow, and alternatives are the parts of a use case."
+      },
+      {
+        "statement": "When a card reads: As a student I want to reset my password so I can reach my courses. Which requirement form is this, the correct result is sprint goal.",
+        "answer": false,
+        "explanation": "The role-capability-benefit wording is the standard form of a user story."
+      },
+      {
+        "statement": "When an architect must show structure and behavior in a notation other schools will recognize. The notation fits, the correct result is uML.",
+        "answer": true,
+        "explanation": "UML is the standard modeling notation for software structure and behavior."
+      },
+      {
+        "statement": "When the designer must show Order, Customer, their fields, and a one-to-many association. The diagram fits, the correct result is class diagram.",
+        "answer": true,
+        "explanation": "Classes, attributes, and associations are shown on a class diagram."
+      },
+      {
+        "statement": "When reviewers want the order of calls among the cart, payment service, and bank during checkout. Which diagram fits, the correct result is use case diagram.",
+        "answer": false,
+        "explanation": "A sequence diagram is the UML view that orders messages among participants."
+      },
+      {
+        "statement": "When the sponsor wants a picture of the registrar and the goals Register and Drop Course. The diagram fits, the correct result is use case diagram.",
+        "answer": true,
+        "explanation": "Actors and their goals are the content of a use case diagram."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When an order can be New, Paid, or Cancelled, and Pay moves New to Paid. Which diagram shows that, the correct result is component diagram.",
+        "answer": false,
+        "explanation": "States and event-triggered transitions are modeled by a state machine diagram."
+      },
+      {
+        "statement": "When the contract says design cannot start until every requirement is signed, and testing waits until coding ends. Which model is this, the correct result is spiral.",
+        "answer": false,
+        "explanation": "Strict phase gates with no overlap are the defining rule of the waterfall model."
+      },
+      {
+        "statement": "When the team ships a usable slice every two weeks and revises the backlog when clinic rules change. The approach is this, the correct result is agile.",
+        "answer": true,
+        "explanation": "Short deliveries plus welcomed change are the core of an agile approach."
+      },
+      {
+        "statement": "When the team has a product owner, a scrum master, and a two-week sprint ending in a review. The framework is this, the correct result is scrum.",
+        "answer": true,
+        "explanation": "The product owner, scrum master, sprint, and review are Scrum's framework elements."
+      },
+      {
+        "statement": "When the team takes 14 days to turn selected backlog items into an increment it could release. Which timebox is that, the correct result is baseline.",
+        "answer": false,
+        "explanation": "A fixed Scrum iteration that yields a releasable increment is a sprint."
+      },
+      {
+        "statement": "When the board allows only three items in the Test column, and work is pulled when a slot opens. Which method is this, the correct result is scrum.",
+        "answer": false,
+        "explanation": "A visible board plus a work-in-progress limit is Kanban flow control."
+      },
+      {
+        "statement": "When two developers write a failing test, code together at one machine, and integrate several times a day. The method is this, the correct result is extreme Programming.",
+        "answer": true,
+        "explanation": "Pair programming, test-first coding, and frequent integration are Extreme Programming practices."
+      },
+      {
+        "statement": "When the library system first releases search, later releases holds, and later releases fines, each usable alone. The model is this, the correct result is incremental model.",
+        "answer": true,
+        "explanation": "Delivering usable partial systems in succession is the incremental model."
+      },
+      {
+        "statement": "When each loop starts by listing risks, and the team prototypes only the highest risk. Which model is this, the correct result is waterfall.",
+        "answer": false,
+        "explanation": "Explicit risk analysis at the start of every loop identifies the spiral model."
+      },
+      {
+        "statement": "When acceptance tests are planned when user needs are specified, and unit tests are planned with detailed design. The model is this, the correct result is v-model.",
+        "answer": true,
+        "explanation": "Matching each development phase to a test phase is the structure of the V-model."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a developer checks calculateFine with inputs 3 and 7 and no database connected. Which test level is this, the correct result is beta testing.",
+        "answer": false,
+        "explanation": "One function exercised in isolation is a unit test."
+      },
+      {
+        "statement": "When search works alone and the database works alone, but the team now checks search through the real driver. Which test level is this, the correct result is unit testing.",
+        "answer": false,
+        "explanation": "Combining modules that already work separately is integration testing."
+      },
+      {
+        "statement": "When testers run the full bookstore application against the written requirements on a production-like server. The test level is this, the correct result is system testing.",
+        "answer": true,
+        "explanation": "Exercising the complete system against its specification is system testing."
+      },
+      {
+        "statement": "When librarians run the agreed scenarios on the new catalog and decide whether to take the system. The test level is this, the correct result is acceptance testing.",
+        "answer": true,
+        "explanation": "The customer's go or no-go decision against agreed scenarios is acceptance testing."
+      },
+      {
+        "statement": "When after a discount fix, the team reruns the old checkout tests to see whether unchanged rules still pass. Which testing is this, the correct result is acceptance testing.",
+        "answer": false,
+        "explanation": "Rerunning existing tests after a change to guard old behavior is regression testing."
+      },
+      {
+        "statement": "When the tester follows the login specification and never opens the source file. Which testing approach is this, the correct result is branch testing.",
+        "answer": false,
+        "explanation": "Using only the specification, with no view of the code, is black-box testing."
+      },
+      {
+        "statement": "When the tester picks inputs that force both branches of an if statement inside the source. The testing approach is this, the correct result is white-box testing.",
+        "answer": true,
+        "explanation": "Choosing inputs from the internal branches is white-box testing."
+      },
+      {
+        "statement": "When the note says: precondition logged out, input a bad password, expect an error message. The artifact is this, the correct result is a test case.",
+        "answer": true,
+        "explanation": "Preconditions, inputs, and an expected result define a test case."
+      },
+      {
+        "statement": "When the team needs every past revision of main.c so yesterday's bug can be compared with last month. Which system provides that history, the correct result is a test runner.",
+        "answer": false,
+        "explanation": "Recorded revisions that can be compared and restored come from version control."
+      },
+      {
+        "statement": "When a developer implements refunds on a separate line of commits that is not yet in main. The version-control concept is that line, the correct result is a branch.",
+        "answer": true,
+        "explanation": "A diverging line of commits that can later merge is a branch."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When two people edited the same lines of Cart.java and the tool cannot combine the commits. Which problem must they resolve, the correct result is a syntax error in a library.",
+        "answer": false,
+        "explanation": "Overlapping edits that cannot be combined automatically are a merge conflict."
+      },
+      {
+        "statement": "When every push to the shared mainline starts a build and the unit tests on a server. Which practice is this, the correct result is manual copying.",
+        "answer": false,
+        "explanation": "Merging often and automatically building and testing is continuous integration."
+      },
+      {
+        "statement": "When the binder lists every function and quality the registrar system must meet, and both sides signed it. The document is this, the correct result is a software requirements specification.",
+        "answer": true,
+        "explanation": "A signed list of required functions and qualities is a software requirements specification."
+      },
+      {
+        "statement": "When an auditor follows requirement R12 from the specification to the design section, the class, and the covering test. The ability is that, the correct result is requirements traceability.",
+        "answer": true,
+        "explanation": "Following a requirement through design, code, and tests is requirements traceability."
+      },
+      {
+        "statement": "When the team reuses a known design for notifying every view when the model changes, instead of a one-off. What are they reusing, the correct result is a compiler warning.",
+        "answer": false,
+        "explanation": "A named, proven solution to a recurring design problem is a design pattern."
+      },
+      {
+        "statement": "When the application must have exactly one configuration object, reached from anywhere in the process. Which pattern fits, the correct result is strategy.",
+        "answer": false,
+        "explanation": "One shared instance with a global access point is the singleton pattern."
+      },
+      {
+        "statement": "When when the stock price changes, every open dashboard must update without the price object naming each screen. The pattern fits, the correct result is observer.",
+        "answer": true,
+        "explanation": "Automatic notification of registered dependents is the observer pattern."
+      },
+      {
+        "statement": "When the desktop subclass creates a window dialog and the mobile subclass creates a touch dialog through the same creation method. The pattern fits, the correct result is factory Method.",
+        "answer": true,
+        "explanation": "Letting each subclass choose the concrete product is the factory method."
+      },
+      {
+        "statement": "When invoice data stays in one part, the screen layout in another, and button actions in a third. Which pattern is this, the correct result is adapter.",
+        "answer": false,
+        "explanation": "Separating data, presentation, and input handling is the model-view-controller split."
+      },
+      {
+        "statement": "When module A will not compile unless it reads private fields inside module B. The property between the modules is high, the correct result is coupling.",
+        "answer": true,
+        "explanation": "Dependence on another module's private details is high coupling."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a module named Report contains only methods that format one sales report. Which property inside that module is high, the correct result is duplication.",
+        "answer": false,
+        "explanation": "Elements that all serve one purpose make the module highly cohesive."
+      },
+      {
+        "statement": "When three months after go-live, engineers change the payroll system so it handles a new tax form. Which life-cycle activity is this, the correct result is project chartering.",
+        "answer": false,
+        "explanation": "Changing a delivered system to meet a new condition is software maintenance."
+      },
+      {
+        "statement": "When the developer splits a 400-line method into smaller methods and every existing test still passes with the same outputs. The activity is this, the correct result is refactoring.",
+        "answer": true,
+        "explanation": "A structure change that keeps external behavior the same is refactoring."
+      },
+      {
+        "statement": "When the team skipped input checks to hit a demo, and every later feature costs extra time to work around that shortcut. What has the team incurred, the correct result is technical debt.",
+        "answer": true,
+        "explanation": "Extra future rework caused by a shortcut is technical debt."
+      },
+      {
+        "statement": "When before the refund change joins main, two teammates read the diff and comment on a missing null check. Which practice is this, the correct result is backlog grooming.",
+        "answer": false,
+        "explanation": "Developers examining a proposed change before merge are doing a code review."
+      },
+      {
+        "statement": "When evaluators ask how completely the grading system meets the specification and how well faculty can use it. What are they judging, the correct result is team velocity.",
+        "answer": false,
+        "explanation": "Meeting the specification and satisfying users in use is software quality."
+      },
+      {
+        "statement": "When reviewers compare the design document with the design specification and do not yet ask whether students like the product. The check is this, the correct result is verification.",
+        "answer": true,
+        "explanation": "Comparing a work product with its phase specification is verification."
+      },
+      {
+        "statement": "When students try the finished registration system during advising week to see if it supports how they actually enroll. The check is this, the correct result is validation.",
+        "answer": true,
+        "explanation": "Trying the finished system against real user needs is validation."
+      },
+      {
+        "statement": "When the team builds a clickable screen with fake data so nurses can react before the real database exists. Which practice is this, the correct result is regression testing.",
+        "answer": false,
+        "explanation": "An early partial version used to learn about needs or design is a prototype."
+      },
+      {
+        "statement": "When the release engineer records exactly The source revision, libraries, and build script produced build 4.2. Which discipline is this, the correct result is configuration management.",
+        "answer": true,
+        "explanation": "Identifying and controlling the exact items that make a build is configuration management."
+      }
+    ]
+  }
+}

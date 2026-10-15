@@ -1,0 +1,785 @@
+{
+  "subjectId": "signals-systems",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Continuous-time signal is a signal defined for every value of a real time variable, usually written x(t).",
+        "answer": true,
+        "explanation": "Time is a continuous variable, so the signal has a value at every real instant, not only at integers."
+      },
+      {
+        "statement": "A Discrete-time signal is a periodic impulse train used only as a sampler.",
+        "answer": false,
+        "explanation": "The index n takes integer values, so there is no requirement to define the signal between those indexes."
+      },
+      {
+        "statement": "A Sampling is recording a continuous-time signal at evenly spaced instants to form a discrete-time sequence.",
+        "answer": true,
+        "explanation": "Each sample is the continuous waveform at time n times the sampling period, which produces x[n]."
+      },
+      {
+        "statement": "A Nyquist rate is 5 kHz.",
+        "answer": false,
+        "explanation": "Sampling theory sets the threshold rate at two times the highest frequency present."
+      },
+      {
+        "statement": "A Nyquist frequency is half the sampling frequency, which is the highest frequency that sampling rate can represent.",
+        "answer": true,
+        "explanation": "Frequencies above half the sampling rate fold, so that half-rate is the representation limit."
+      },
+      {
+        "statement": "An Aliasing is a more stable pole.",
+        "answer": false,
+        "explanation": "When sampling is too slow, repeated spectra overlap and high frequencies masquerade as low ones."
+      },
+      {
+        "statement": "A Sampling theorem is a bandlimited signal can be reconstructed exactly if it is sampled faster than twice its highest frequency.",
+        "answer": true,
+        "explanation": "Above that rate the spectral copies do not overlap, so a low-pass interpolator can isolate the original."
+      },
+      {
+        "statement": "A LTI system is a system that adds a fixed offset so doubling the input does not double the output.",
+        "answer": false,
+        "explanation": "Signal and Systems treats an LTI system as linear and time-invariant, so its output is the input convolved with one impulse response."
+      },
+      {
+        "statement": "A Linearity is the property that a scaled sum of inputs produces the same scaled sum of outputs.",
+        "answer": true,
+        "explanation": "Both additivity and homogeneity are required, which together are the superposition rule."
+      },
+      {
+        "statement": "A Time invariance is linearity.",
+        "answer": false,
+        "explanation": "The system rule does not depend on the absolute clock time at which the input is applied."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Convolution is combining an input with an impulse response by flip, slide, and sum, which gives the output of an LTI system.",
+        "answer": true,
+        "explanation": "For a discrete LTI system the output sample is the sum over k of x[k] times h[n-k]."
+      },
+      {
+        "statement": "An Impulse response is the stopband.",
+        "answer": false,
+        "explanation": "An LTI system is completely described by this response, because every input is a combination of impulses."
+      },
+      {
+        "statement": "A Frequency response is the complex gain an LTI system applies at each frequency, equal to the Fourier transform of its impulse response.",
+        "answer": true,
+        "explanation": "Complex exponentials are eigenfunctions of LTI systems, and the eigenvalue at each frequency is this response."
+      },
+      {
+        "statement": "A Fourier series is a sum of x[n] times powers of z.",
+        "answer": false,
+        "explanation": "A periodic signal repeats, so its spectrum sits on discrete harmonic frequencies of the fundamental."
+      },
+      {
+        "statement": "A Fourier transform is an integral that expresses an aperiodic continuous-time signal as complex exponentials over all frequencies.",
+        "answer": true,
+        "explanation": "The continuous-time Fourier transform integrates x(t) against complex exponentials to obtain a frequency function X(jw)."
+      },
+      {
+        "statement": "A Discrete-time Fourier transform is the continuous-time Fourier transform.",
+        "answer": false,
+        "explanation": "The transform sums x[n] exp(-j w n), and the result repeats every 2 pi because n is an integer."
+      },
+      {
+        "statement": "A Laplace transform is an integral of x(t) times an exponential decay in the complex variable s, used to solve continuous LTI systems.",
+        "answer": true,
+        "explanation": "The factor exp(-s t) lets the transform converge for unstable or growing signals inside a region of convergence and exposes poles."
+      },
+      {
+        "statement": "A Z-transform is a moving average.",
+        "answer": false,
+        "explanation": "Powers of z replace the continuous exponential, and the region of convergence decides which sequence the transform represents."
+      },
+      {
+        "statement": "A Region of convergence is the set of complex s or z values for which a Laplace or z-transform sum or integral converges.",
+        "answer": true,
+        "explanation": "Without the region, a rational transform can correspond to more than one time signal."
+      },
+      {
+        "statement": "A Transfer function is the sampling period measured in seconds.",
+        "answer": false,
+        "explanation": "With zero initial conditions, Y(s) equals H(s) times X(s), so H(s) is that ratio, and likewise for H(z)."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Pole is a denominator root of a transfer function, where the response magnitude is unbounded.",
+        "answer": true,
+        "explanation": "The denominator vanishes at a pole and the numerator does not, so the transfer function goes to infinity there."
+      },
+      {
+        "statement": "A Zero is a pole.",
+        "answer": false,
+        "explanation": "The numerator is zero while the denominator is not, so the transfer function itself is zero at that point."
+      },
+      {
+        "statement": "A Low-pass filter is a filter that passes frequencies below a cutoff and attenuates frequencies above that cutoff.",
+        "answer": true,
+        "explanation": "Its passband sits next to zero frequency and its stopband occupies the high frequencies."
+      },
+      {
+        "statement": "A High-pass filter is a unit-step system.",
+        "answer": false,
+        "explanation": "The stopband includes zero frequency and the passband lies above the cutoff."
+      },
+      {
+        "statement": "A Band-pass filter is a filter that passes frequencies between a lower and an upper cutoff and attenuates the rest.",
+        "answer": true,
+        "explanation": "Two cutoffs bound a single passband that does not include zero frequency or the extreme highs."
+      },
+      {
+        "statement": "A Causality is the property that the system may use future input samples.",
+        "answer": false,
+        "explanation": "For an LTI system this is equivalent to the impulse response being zero before time zero."
+      },
+      {
+        "statement": "A BIBO stability is the property that every bounded input produces a bounded output.",
+        "answer": true,
+        "explanation": "An LTI system is BIBO stable exactly when its impulse response is absolutely integrable or absolutely summable."
+      },
+      {
+        "statement": "An Unit impulse is the unit step.",
+        "answer": false,
+        "explanation": "That single 1 at the origin is the discrete unit sample used to probe an LTI system."
+      },
+      {
+        "statement": "An Unit step is a signal that is 0 before time zero and 1 at time zero and afterward.",
+        "answer": true,
+        "explanation": "The step turns on at the origin and stays on, which is the discrete or continuous unit step."
+      },
+      {
+        "statement": "An Even signal is infinite energy.",
+        "answer": false,
+        "explanation": "Symmetry about the origin means the waveform on the left is a mirror of the waveform on the right."
+      }
+    ],
+    "4": [
+      {
+        "statement": "An Odd signal is a signal that flips sign under time reversal, so its value at -t is the negative of its value at t.",
+        "answer": true,
+        "explanation": "The left side is an upside-down copy of the right side, which forces the value at time zero to be 0 for an ordinary function."
+      },
+      {
+        "statement": "A Periodic signal is a signal whose squared magnitude sums to a finite energy.",
+        "answer": false,
+        "explanation": "There exists T greater than 0 such that shifting the signal by T leaves it unchanged."
+      },
+      {
+        "statement": "An Energy signal is a signal whose total energy, the sum or integral of its squared magnitude, is finite.",
+        "answer": true,
+        "explanation": "Finite energy usually means the signal dies out, so its average power over infinite time is zero."
+      },
+      {
+        "statement": "A Power signal is an energy signal.",
+        "answer": false,
+        "explanation": "Persistent signals such as everlasting sinusoids spread infinite energy over infinite time but keep a finite average power."
+      },
+      {
+        "statement": "A Zero-order hold is a reconstruction that keeps each sample value constant until the next sample instant.",
+        "answer": true,
+        "explanation": "Between sampling instants the output is a flat step equal to the most recent sample."
+      },
+      {
+        "statement": "A Phase response is the pole list.",
+        "answer": false,
+        "explanation": "The frequency response is complex, and its argument is the phase shift applied to a complex exponential."
+      },
+      {
+        "statement": "A Group delay is the negative slope of the phase response with respect to frequency, giving the delay of a narrowband envelope.",
+        "answer": true,
+        "explanation": "A narrowband packet is delayed by the negative derivative of phase, not merely by the phase divided by frequency."
+      },
+      {
+        "statement": "An Eigenfunction property is the fact that convolution in time becomes convolution in frequency.",
+        "answer": false,
+        "explanation": "Exponentials pass through LTI systems as the same exponential multiplied by H at that frequency."
+      },
+      {
+        "statement": "A Differential equation model is an equation linking a continuous output and its derivatives to the input and the input derivatives.",
+        "answer": true,
+        "explanation": "Linear constant-coefficient differential equations are the continuous-time models whose transfer functions are rational in s."
+      },
+      {
+        "statement": "A Difference equation is a differential equation.",
+        "answer": false,
+        "explanation": "Constant-coefficient difference equations are the discrete-time models with rational transfer functions in z."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An Impulse-train sampling is multiplying a continuous signal by a periodic train of impulses to mark weighted sample values.",
+        "answer": true,
+        "explanation": "Each impulse picks out the signal value at one sampling instant, which is the ideal model of uniform sampling."
+      },
+      {
+        "statement": "A Sinc interpolation is amplitude quantization.",
+        "answer": false,
+        "explanation": "When the sampling theorem holds, the sinc sum equals the original bandlimited continuous signal."
+      },
+      {
+        "statement": "A Cutoff frequency is the frequency at the edge of a filter passband, often where the power gain has fallen to half.",
+        "answer": true,
+        "explanation": "The cutoff marks the boundary between the frequencies the filter is intended to pass and those it starts to reject."
+      },
+      {
+        "statement": "A Passband is the set of poles in the right half-plane.",
+        "answer": false,
+        "explanation": "Inside the passband the magnitude response stays close to the desired gain."
+      },
+      {
+        "statement": "A Stopband is the band of frequencies a filter is intended to attenuate strongly.",
+        "answer": true,
+        "explanation": "Inside the stopband the magnitude response is kept below a required attenuation."
+      },
+      {
+        "statement": "A Convolution theorem is a claim that convolution stays convolution in frequency.",
+        "answer": false,
+        "explanation": "Filtering an input is convolution with h in time and multiplication by H in frequency."
+      },
+      {
+        "statement": "A Memoryless system is a system whose output at a time depends only on the input at that same time.",
+        "answer": true,
+        "explanation": "No stored energy or past sample is required, so a resistor obeying Ohm's law is memoryless while a capacitor is not."
+      },
+      {
+        "statement": "An Absolute summability is it must be sampled too slowly.",
+        "answer": false,
+        "explanation": "For a discrete-time LTI system, a finite sum of absolute impulse-response values is necessary and sufficient for BIBO stability."
+      },
+      {
+        "statement": "A Right-sided signal is a signal that is identically zero before some finite start time.",
+        "answer": true,
+        "explanation": "Its nonzero part lies at and to the right of a start time on the time axis."
+      },
+      {
+        "statement": "An Unilateral Laplace transform is a sum of a discrete sequence against powers of z.",
+        "answer": false,
+        "explanation": "Starting the integral at the time origin lets initial conditions enter when derivatives are transformed."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a count of how many pixels share one gray level is called Continuous-time signal.",
+        "answer": false,
+        "explanation": "Time is a continuous variable, so the signal has a value at every real instant, not only at integers."
+      },
+      {
+        "statement": "Daily closing temperatures form a sequence x[n] with one sample per day.",
+        "answer": true,
+        "explanation": "The index n takes integer values, so there is no requirement to define the signal between those indexes."
+      },
+      {
+        "statement": "In standard textbooks, a linearity check is called Sampling.",
+        "answer": false,
+        "explanation": "Each sample is the continuous waveform at time n times the sampling period, which produces x[n]."
+      },
+      {
+        "statement": "A voice limited to 4 kHz has a Nyquist rate of 8 kHz.",
+        "answer": true,
+        "explanation": "Sampling theory sets the threshold rate at two times the highest frequency present."
+      },
+      {
+        "statement": "In standard textbooks, 2 kHz is called Nyquist frequency.",
+        "answer": false,
+        "explanation": "Frequencies above half the sampling rate fold, so that half-rate is the representation limit."
+      },
+      {
+        "statement": "A 9 kHz tone sampled at 10 kHz shows up in the samples as a 1 kHz tone.",
+        "answer": true,
+        "explanation": "When sampling is too slow, repeated spectra overlap and high frequencies masquerade as low ones."
+      },
+      {
+        "statement": "In standard textbooks, sampling slower than the highest frequency always improves reconstruction is called Sampling theorem.",
+        "answer": false,
+        "explanation": "Above that rate the spectral copies do not overlap, so a low-pass interpolator can isolate the original."
+      },
+      {
+        "statement": "An RC low-pass filter obeys superposition and responds the same way whenever the same pulse arrives.",
+        "answer": true,
+        "explanation": "Signal and Systems treats an LTI system as linear and time-invariant, so its output is the input convolved with one impulse response."
+      },
+      {
+        "statement": "In standard textbooks, time invariance alone is called Linearity.",
+        "answer": false,
+        "explanation": "Both additivity and homogeneity are required, which together are the superposition rule."
+      },
+      {
+        "statement": "A fixed echo unit delays any clap by 50 milliseconds, whether the clap is at noon or later.",
+        "answer": true,
+        "explanation": "The system rule does not depend on the absolute clock time at which the input is applied."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, zeroing negative time is called Convolution.",
+        "answer": false,
+        "explanation": "For a discrete LTI system the output sample is the sum over k of x[k] times h[n-k]."
+      },
+      {
+        "statement": "A single click sent into a reverb pedal produces the decaying tail that is stored as h[n].",
+        "answer": true,
+        "explanation": "An LTI system is completely described by this response, because every input is a combination of impulses."
+      },
+      {
+        "statement": "In standard textbooks, the region of the s-plane where a Laplace integral converges is called Frequency response.",
+        "answer": false,
+        "explanation": "Complex exponentials are eigenfunctions of LTI systems, and the eigenvalue at each frequency is this response."
+      },
+      {
+        "statement": "A clarinet note is written as a fundamental plus weaker harmonics at integer multiples of that pitch.",
+        "answer": true,
+        "explanation": "A periodic signal repeats, so its spectrum sits on discrete harmonic frequencies of the fundamental."
+      },
+      {
+        "statement": "In standard textbooks, a Fourier series is called Fourier transform.",
+        "answer": false,
+        "explanation": "The continuous-time Fourier transform integrates x(t) against complex exponentials to obtain a frequency function X(jw)."
+      },
+      {
+        "statement": "A five-sample discrete pulse has a DTFT that is a smooth function of frequency and repeats every 2 pi.",
+        "answer": true,
+        "explanation": "The transform sums x[n] exp(-j w n), and the result repeats every 2 pi because n is an integer."
+      },
+      {
+        "statement": "In standard textbooks, convolution is called Laplace transform.",
+        "answer": false,
+        "explanation": "The factor exp(-s t) lets the transform converge for unstable or growing signals inside a region of convergence and exposes poles."
+      },
+      {
+        "statement": "A geometric sequence a to the n, for n at least 0, has a z-transform that is a simple rational function.",
+        "answer": true,
+        "explanation": "Powers of z replace the continuous exponential, and the region of convergence decides which sequence the transform represents."
+      },
+      {
+        "statement": "In standard textbooks, the set of time instants where a signal is nonzero is called Region of convergence.",
+        "answer": false,
+        "explanation": "Without the region, a rational transform can correspond to more than one time signal."
+      },
+      {
+        "statement": "A resting RC filter has H(s) equal to 1 over (1 plus R C s).",
+        "answer": true,
+        "explanation": "With zero initial conditions, Y(s) equals H(s) times X(s), so H(s) is that ratio, and likewise for H(z)."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, a zero is called Pole.",
+        "answer": false,
+        "explanation": "The denominator vanishes at a pole and the numerator does not, so the transfer function goes to infinity there."
+      },
+      {
+        "statement": "H(z) = 1 minus z inverse has a zero at z = 1, so it rejects a constant input.",
+        "answer": true,
+        "explanation": "The numerator is zero while the denominator is not, so the transfer function itself is zero at that point."
+      },
+      {
+        "statement": "In standard textbooks, an all-pass filter is called Low-pass filter.",
+        "answer": false,
+        "explanation": "Its passband sits next to zero frequency and its stopband occupies the high frequencies."
+      },
+      {
+        "statement": "An audio high-pass removes a 50 Hz hum while leaving a 2 kHz flute note intact.",
+        "answer": true,
+        "explanation": "The stopband includes zero frequency and the passband lies above the cutoff."
+      },
+      {
+        "statement": "In standard textbooks, a filter that passes everything above one cutoff is called Band-pass filter.",
+        "answer": false,
+        "explanation": "Two cutoffs bound a single passband that does not include zero frequency or the extreme highs."
+      },
+      {
+        "statement": "A real-time speaker can react to a clap only after the clap, never before it happens.",
+        "answer": true,
+        "explanation": "For an LTI system this is equivalent to the impulse response being zero before time zero."
+      },
+      {
+        "statement": "In standard textbooks, causality is called BIBO stability.",
+        "answer": false,
+        "explanation": "An LTI system is BIBO stable exactly when its impulse response is absolutely integrable or absolutely summable."
+      },
+      {
+        "statement": "A test sequence contains a 1 at n = 0 and zeros at all other stored indexes.",
+        "answer": true,
+        "explanation": "That single 1 at the origin is the discrete unit sample used to probe an LTI system."
+      },
+      {
+        "statement": "In standard textbooks, a periodic signal is called Unit step.",
+        "answer": false,
+        "explanation": "The step turns on at the origin and stays on, which is the discrete or continuous unit step."
+      },
+      {
+        "statement": "A cosine wave has the same voltage at time -t as at time t.",
+        "answer": true,
+        "explanation": "Symmetry about the origin means the waveform on the left is a mirror of the waveform on the right."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a signal that repeats every T seconds is called Odd signal.",
+        "answer": false,
+        "explanation": "The left side is an upside-down copy of the right side, which forces the value at time zero to be 0 for an ordinary function."
+      },
+      {
+        "statement": "A clock square wave looks identical after every 1 millisecond shift.",
+        "answer": true,
+        "explanation": "There exists T greater than 0 such that shifting the signal by T leaves it unchanged."
+      },
+      {
+        "statement": "In standard textbooks, a power signal is called Energy signal.",
+        "answer": false,
+        "explanation": "Finite energy usually means the signal dies out, so its average power over infinite time is zero."
+      },
+      {
+        "statement": "A sine wave that has always been on and never ends has finite average power and infinite energy.",
+        "answer": true,
+        "explanation": "Persistent signals such as everlasting sinusoids spread infinite energy over infinite time but keep a finite average power."
+      },
+      {
+        "statement": "In standard textbooks, a future-sample polynomial is called Zero-order hold.",
+        "answer": false,
+        "explanation": "Between sampling instants the output is a flat step equal to the most recent sample."
+      },
+      {
+        "statement": "At 1 kHz a filter leaves the tone amplitude unchanged but delays the peaks by a quarter cycle.",
+        "answer": true,
+        "explanation": "The frequency response is complex, and its argument is the phase shift applied to a complex exponential."
+      },
+      {
+        "statement": "In standard textbooks, the cutoff where power gain has fallen by half is called Group delay.",
+        "answer": false,
+        "explanation": "A narrowband packet is delayed by the negative derivative of phase, not merely by the phase divided by frequency."
+      },
+      {
+        "statement": "A complex tone exp(j w t) enters a filter and leaves as H(jw) times the same tone.",
+        "answer": true,
+        "explanation": "Exponentials pass through LTI systems as the same exponential multiplied by H at that frequency."
+      },
+      {
+        "statement": "In standard textbooks, a difference equation is called Differential equation model.",
+        "answer": false,
+        "explanation": "Linear constant-coefficient differential equations are the continuous-time models whose transfer functions are rational in s."
+      },
+      {
+        "statement": "A smoother sets y[n] equal to 0.5 y[n-1] plus 0.5 x[n].",
+        "answer": true,
+        "explanation": "Constant-coefficient difference equations are the discrete-time models with rational transfer functions in z."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, low-pass convolution is called Impulse-train sampling.",
+        "answer": false,
+        "explanation": "Each impulse picks out the signal value at one sampling instant, which is the ideal model of uniform sampling."
+      },
+      {
+        "statement": "Samples of a bandlimited tone are each replaced by a sinc and added to redraw the smooth tone.",
+        "answer": true,
+        "explanation": "When the sampling theorem holds, the sinc sum equals the original bandlimited continuous signal."
+      },
+      {
+        "statement": "In standard textbooks, the fundamental period of the input is called Cutoff frequency.",
+        "answer": false,
+        "explanation": "The cutoff marks the boundary between the frequencies the filter is intended to pass and those it starts to reject."
+      },
+      {
+        "statement": "A speech low-pass treats 0 to 3.4 kHz as the band that should come through clearly.",
+        "answer": true,
+        "explanation": "Inside the passband the magnitude response stays close to the desired gain."
+      },
+      {
+        "statement": "In standard textbooks, the passband is called Stopband.",
+        "answer": false,
+        "explanation": "Inside the stopband the magnitude response is kept below a required attenuation."
+      },
+      {
+        "statement": "Multiplying a speech spectrum by a low-pass H is equivalent to convolving the speech with h(t).",
+        "answer": true,
+        "explanation": "Filtering an input is convolution with h in time and multiplication by H in frequency."
+      },
+      {
+        "statement": "In standard textbooks, a long convolution is called Memoryless system.",
+        "answer": false,
+        "explanation": "No stored energy or past sample is required, so a resistor obeying Ohm's law is memoryless while a capacitor is not."
+      },
+      {
+        "statement": "A sequence equal to one-half raised to n, for every n at least 0, has absolute values that sum to 2.",
+        "answer": true,
+        "explanation": "For a discrete-time LTI system, a finite sum of absolute impulse-response values is necessary and sufficient for BIBO stability."
+      },
+      {
+        "statement": "In standard textbooks, a signal that is nonzero for both large positive and large negative time is called Right-sided signal.",
+        "answer": false,
+        "explanation": "Its nonzero part lies at and to the right of a start time on the time axis."
+      },
+      {
+        "statement": "A capacitor voltage already at 2 volts at t = 0 is handled with the one-sided Laplace transform.",
+        "answer": true,
+        "explanation": "Starting the integral at the time origin lets initial conditions enter when derivatives are transformed."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When an oscilloscope trace has a voltage at every real instant, not only at integer ticks. Which signal class is displayed, the correct result is a discrete-time sequence.",
+        "answer": false,
+        "explanation": "A value at every real time is a continuous-time signal."
+      },
+      {
+        "statement": "When a processor stores one temperature per integer hour and has no values between hours. Which signal class is stored, the correct result is an impulse train.",
+        "answer": false,
+        "explanation": "A sequence indexed by integers is a discrete-time signal."
+      },
+      {
+        "statement": "When an engineer measures a sensor voltage every 1 millisecond and stores only those readings. The operation is that, the correct result is sampling.",
+        "answer": true,
+        "explanation": "Taking evenly spaced readings of a continuous waveform is sampling."
+      },
+      {
+        "statement": "When a signal contains nothing above 5 kHz. The sampling rate is exactly the Nyquist rate for it, the correct result is 10 kHz.",
+        "answer": true,
+        "explanation": "Twice the highest frequency, 2 times 5 kHz, is the Nyquist rate."
+      },
+      {
+        "statement": "When a converter samples at 8 kHz. Which frequency is its Nyquist frequency, the correct result is 16 kHz.",
+        "answer": false,
+        "explanation": "Half of the 8 kHz sampling rate is 4 kHz."
+      },
+      {
+        "statement": "When a 9 kHz whistle sampled at 10 kHz is heard as 1 kHz. Which effect occurred, the correct result is a more stable pole.",
+        "answer": false,
+        "explanation": "A high tone folding into a lower tone because sampling was too slow is aliasing."
+      },
+      {
+        "statement": "When a signal is bandlimited to 3 kHz and sampled at 8 kHz. Does the sampling theorem allow exact reconstruction, the correct result is yes, because 8 kHz exceeds 6 kHz.",
+        "answer": true,
+        "explanation": "The sampling rate is higher than twice the highest frequency, so the theorem says reconstruction is possible."
+      },
+      {
+        "statement": "When a filter obeys superposition, and delaying its input only delays its output by the same amount. The model applies, the correct result is an LTI system.",
+        "answer": true,
+        "explanation": "Linearity plus time invariance is exactly the LTI model used in Signal and Systems."
+      },
+      {
+        "statement": "When doubling an audio input doubles the output, and the response to a sum is the sum of responses. Which property holds, the correct result is instability.",
+        "answer": false,
+        "explanation": "Scaling and adding inputs scales and adds outputs, which is linearity."
+      },
+      {
+        "statement": "When a processor behaves the same at every hour: delaying the input by 4 samples delays the output by 4 samples. The property is that, the correct result is time invariance.",
+        "answer": true,
+        "explanation": "A pure delay of the output when the input is delayed is time invariance."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When students compute each output sample as the sum over k of x[k] times h[n-k]. Which operation is that, the correct result is nyquist sampling.",
+        "answer": false,
+        "explanation": "That sum is the convolution of the input with the impulse response."
+      },
+      {
+        "statement": "When a lab applies a unit sample at n = 0 and records the output sequence. What has been measured, the correct result is the stopband.",
+        "answer": false,
+        "explanation": "The output caused by a unit impulse is the impulse response."
+      },
+      {
+        "statement": "When a lab sweeps a sine wave and records the output amplitude and phase at each frequency. The function is being measured, the correct result is the frequency response.",
+        "answer": true,
+        "explanation": "Gain and phase versus frequency form the frequency response."
+      },
+      {
+        "statement": "When a square wave repeats every 2 milliseconds and is expanded into a fundamental and its harmonics. The representation is that, the correct result is a Fourier series.",
+        "answer": true,
+        "explanation": "Harmonics of a periodic waveform are its Fourier series."
+      },
+      {
+        "statement": "When a non-repeating pulse is analyzed by integrating it against complex exponentials over all time. Which transform is that, the correct result is a sampling-rate count.",
+        "answer": false,
+        "explanation": "The integral frequency analysis of an aperiodic continuous signal is the Fourier transform."
+      },
+      {
+        "statement": "When students sum x[n] exp(-j w n) over n and obtain a spectrum that repeats every 2 pi. Which transform did they compute, the correct result is the continuous-time Fourier transform.",
+        "answer": false,
+        "explanation": "That sum, periodic in frequency with period 2 pi, is the discrete-time Fourier transform."
+      },
+      {
+        "statement": "When a continuous circuit equation is solved by transforming x(t) into a function of complex s. The transform is used, the correct result is the Laplace transform.",
+        "answer": true,
+        "explanation": "Continuous-time signals transformed in the complex variable s use the Laplace transform."
+      },
+      {
+        "statement": "When a discrete recurrence is solved by summing x[n] z to the -n. The transform is that, the correct result is the z-transform.",
+        "answer": true,
+        "explanation": "The power series in z of a discrete sequence is the z-transform."
+      },
+      {
+        "statement": "When two different sequences share the same rational z-transform expression. What extra information separates them, the correct result is the passband.",
+        "answer": false,
+        "explanation": "The region of convergence selects which time signal a rational transform represents."
+      },
+      {
+        "statement": "When with zero initial conditions, the Laplace transform of the output divided by that of the input is formed. In this case that ratio called, the correct result is the transfer function.",
+        "answer": true,
+        "explanation": "The output-over-input transform of a resting LTI system is its transfer function."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When h(s) blows up at s = -3 and the denominator is zero there. What is s = -3 called, the correct result is a step discontinuity.",
+        "answer": false,
+        "explanation": "A denominator root where the transfer function is unbounded is a pole."
+      },
+      {
+        "statement": "When a filter's transfer function is exactly zero at z = -1, canceling a Nyquist-rate oscillation. What is z = -1 called, the correct result is a pole.",
+        "answer": false,
+        "explanation": "A numerator root that forces the transfer function to zero is a zero."
+      },
+      {
+        "statement": "When a designer wants to keep speech under 4 kHz and weaken everything above it. The filter type is required, the correct result is a low-pass filter.",
+        "answer": true,
+        "explanation": "Passing the low band and attenuating the high band is low-pass behavior."
+      },
+      {
+        "statement": "When a recording must lose a low rumble but keep bright cymbal frequencies. The filter type fits, the correct result is a high-pass filter.",
+        "answer": true,
+        "explanation": "Attenuating lows and passing highs is high-pass behavior."
+      },
+      {
+        "statement": "When a receiver must keep 300 Hz to 3 kHz and reject both lower and higher frequencies. Which filter type is that, the correct result is a low-pass filter.",
+        "answer": false,
+        "explanation": "A single middle passband bounded by two cutoffs is band-pass."
+      },
+      {
+        "statement": "When an LTI impulse response h[n] is zero for every negative n. Which property does that guarantee, the correct result is use of future samples.",
+        "answer": false,
+        "explanation": "An impulse response that is zero for negative time means the system is causal."
+      },
+      {
+        "statement": "When every input that stays within a finite amplitude produces an output that also stays finite. The property is that, the correct result is bIBO stability.",
+        "answer": true,
+        "explanation": "Bounded inputs yielding bounded outputs is the definition of BIBO stability."
+      },
+      {
+        "statement": "When a test vector is 1 at n = 0 and 0 at every other n. The standard signal is it, the correct result is the unit impulse.",
+        "answer": true,
+        "explanation": "A lone 1 at index 0 is the discrete unit impulse."
+      },
+      {
+        "statement": "When a sequence is 0 for negative n and 1 for n = 0, 1, 2, and so on. Which standard signal is it, the correct result is an odd signal.",
+        "answer": false,
+        "explanation": "Turning on at time zero and staying at 1 is the unit step."
+      },
+      {
+        "statement": "When a waveform satisfies x(-t) = x(t) for every t. The symmetry does it have, the correct result is even symmetry.",
+        "answer": true,
+        "explanation": "Equality with its time reverse is even symmetry."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a waveform satisfies x(-t) = -x(t) for every t. Which symmetry does it have, the correct result is even symmetry.",
+        "answer": false,
+        "explanation": "A sign flip under time reversal is odd symmetry."
+      },
+      {
+        "statement": "When shifting a waveform by 4 milliseconds leaves it identical, and 4 milliseconds is the smallest such shift. Which property is this, the correct result is finite energy.",
+        "answer": false,
+        "explanation": "Exact repetition after a fixed interval means the signal is periodic."
+      },
+      {
+        "statement": "When a pulse is nonzero for only 20 milliseconds and its squared area is finite. The energy-power class is it, the correct result is an energy signal.",
+        "answer": true,
+        "explanation": "Finite total squared magnitude means the pulse is an energy signal."
+      },
+      {
+        "statement": "When an everlasting cosine has a finite average of its squared value and infinite total energy. The class is it, the correct result is a power signal.",
+        "answer": true,
+        "explanation": "Finite nonzero average power with infinite energy is a power signal."
+      },
+      {
+        "statement": "When between samples a converter output stays flat at the last sample value. Which reconstructor is that, the correct result is sampling alone.",
+        "answer": false,
+        "explanation": "Holding the latest sample constant until the next one is a zero-order hold."
+      },
+      {
+        "statement": "When a tone's amplitude is unchanged, but its peaks are shifted by a quarter cycle. Which part of the frequency response captures that shift, the correct result is the pole list.",
+        "answer": false,
+        "explanation": "Phase shift versus frequency is the phase response."
+      },
+      {
+        "statement": "When engineers estimate the delay of a narrowband pulse envelope from the slope of phase versus frequency. The quantity is that, the correct result is group delay.",
+        "answer": true,
+        "explanation": "Envelope delay from the negative phase slope is group delay."
+      },
+      {
+        "statement": "When a complex exponential enters an LTI filter and exits as the same exponential times a complex constant. The property explains that, the correct result is the eigenfunction property.",
+        "answer": true,
+        "explanation": "Complex exponentials are eigenfunctions of LTI systems, scaled by the frequency response."
+      },
+      {
+        "statement": "When a circuit is described by R C dy/dt plus y equals the source voltage. Which model form is that, the correct result is a memoryless map.",
+        "answer": false,
+        "explanation": "A relation involving a continuous derivative of the output is a differential equation model."
+      },
+      {
+        "statement": "When a program computes each y[n] from y[n-1] and x[n] with fixed coefficients. The equation type is that, the correct result is a difference equation.",
+        "answer": true,
+        "explanation": "Relating discrete samples with fixed delays is a difference equation."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a textbook models sampling by multiplying x(t) by a periodic train of impulses. Which model is that, the correct result is adding a step.",
+        "answer": false,
+        "explanation": "Multiplication by a periodic impulse train is the impulse-train sampling model."
+      },
+      {
+        "statement": "When reconstruction sums shifted sinc pulses weighted by the samples of a properly sampled tone. Which method is that, the correct result is amplitude quantization.",
+        "answer": false,
+        "explanation": "The ideal bandlimited reconstructor is a sum of sinc pulses."
+      },
+      {
+        "statement": "When a low-pass specification names 2 kHz as the edge where power gain is about half. The specification number is that, the correct result is the cutoff frequency.",
+        "answer": true,
+        "explanation": "The half-power edge of the passband is a cutoff frequency."
+      },
+      {
+        "statement": "When a spec says frequencies from 0 to 1 kHz must be transmitted with almost no loss. In this case that frequency interval called, the correct result is the passband.",
+        "answer": true,
+        "explanation": "The interval meant to pass with little loss is the passband."
+      },
+      {
+        "statement": "When a low-pass spec demands strong attenuation above 8 kHz. What is that high-frequency interval called, the correct result is the impulse support.",
+        "answer": false,
+        "explanation": "The interval that must be strongly attenuated is the stopband."
+      },
+      {
+        "statement": "When an engineer multiplies a spectrum by H(jw) instead of convolving the waveform with h(t). Which theorem justifies that shortcut, the correct result is a claim that convolution stays convolution in frequency.",
+        "answer": false,
+        "explanation": "Time-domain convolution corresponds to multiplication of Fourier transforms."
+      },
+      {
+        "statement": "When an output sample y[n] equals 3 times x[n] and uses no other sample. The system class is that, the correct result is memoryless.",
+        "answer": true,
+        "explanation": "Dependence on only the current input means the system is memoryless."
+      },
+      {
+        "statement": "When the absolute values of h[n] sum to a finite number. In this case that imply for the discrete LTI system, the correct result is it is BIBO stable.",
+        "answer": true,
+        "explanation": "Absolute summability of h[n] is the BIBO stability test for discrete LTI systems."
+      },
+      {
+        "statement": "When a Laplace transform is known to come from a signal that is zero before t = 0. Which support class is that signal, the correct result is left-sided.",
+        "answer": false,
+        "explanation": "Being zero before a finite start time makes the signal right-sided."
+      },
+      {
+        "statement": "When a circuit problem includes a nonzero capacitor voltage at t = 0 and ignores negative time. The Laplace form fits, the correct result is the unilateral Laplace transform.",
+        "answer": true,
+        "explanation": "The integral from zero forward is the unilateral Laplace transform used with initial conditions."
+      }
+    ]
+  }
+}

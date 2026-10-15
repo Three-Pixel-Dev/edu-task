@@ -9,8 +9,9 @@ import { colors, spacing } from '@/theme';
 /** Compact standalone header used by quiz play and result boards. */
 export function WebQuizBar() {
   const pathname = usePathname();
-  const params = useLocalSearchParams<{ level?: string }>();
+  const params = useLocalSearchParams<{ level?: string; type?: string }>();
   const result = pathname.includes('/quiz/result');
+  const isQuiz = params.type === 'trueFalse';
 
   return (
     <View style={styles.root}>
@@ -19,16 +20,16 @@ export function WebQuizBar() {
         <AppText variant="bodyStrong">EduTask</AppText>
         <View style={styles.divider} />
         <AppText variant="label" color="textSecondary">
-          {result ? 'Quiz result' : `Level ${params.level ?? ''} quiz`}
+          {result ? 'Result' : `${isQuiz ? 'Quiz' : 'Multiple choice'} · Level ${params.level ?? ''}`}
         </AppText>
       </View>
       <Pressable
         accessibilityRole="button"
-        onPress={() => (result ? router.dismissTo(routes.quizTab) : router.back())}
+        onPress={() => (result ? router.dismissTo(routes.home) : router.back())}
         style={styles.action}
       >
         <Icon name={result ? 'arrow-left' : 'x'} size={17} color="textBody" />
-        <AppText variant="label">{result ? 'Back to Quiz' : 'Exit quiz'}</AppText>
+        <AppText variant="label">{result ? 'Back to Home' : isQuiz ? 'Exit quiz' : 'Exit set'}</AppText>
       </Pressable>
     </View>
   );

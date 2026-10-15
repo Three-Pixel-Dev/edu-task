@@ -21,6 +21,7 @@ export default function TabsLayout() {
         tabBarActiveTintColor: colors.primaryDark,
         tabBarInactiveTintColor: colors.textSecondary,
         tabBarLabelStyle: styles.label,
+        tabBarAllowFontScaling: false,
         tabBarStyle: [styles.bar, { height: layout.tabBarHeight + insets.bottom, paddingBottom: Math.max(insets.bottom, 8) }],
         tabBarItemStyle: styles.item,
         sceneStyle: { backgroundColor: colors.background },
@@ -32,7 +33,11 @@ export default function TabsLayout() {
       />
       <Tabs.Screen
         name="quiz"
-        options={{ title: 'Quiz', tabBarIcon: ({ focused }) => <TabIcon name="help-circle" focused={focused} /> }}
+        options={{ title: 'Multiple choice', tabBarIcon: ({ focused }) => <TabIcon name="list" focused={focused} /> }}
+      />
+      <Tabs.Screen
+        name="true-false"
+        options={{ title: 'Quiz', tabBarIcon: ({ focused }) => <TabIcon name="toggle-right" focused={focused} /> }}
       />
       <Tabs.Screen
         name="tasks"
@@ -49,7 +54,7 @@ export default function TabsLayout() {
 const styles = StyleSheet.create({
   bar: { backgroundColor: colors.card, borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth, paddingTop: 6 },
   item: { paddingTop: 2 },
-  label: { fontFamily: fonts.semibold, fontSize: 11, marginTop: 2 },
-  pill: { width: 56, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
+  label: { fontFamily: fonts.semibold, fontSize: 10.5, marginTop: 2 },
+  pill: { width: 52, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
   pillActive: { backgroundColor: colors.primarySurfaceStrong },
 });

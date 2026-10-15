@@ -1,3 +1,8 @@
+import type { QuizType } from '@/types';
+
+/** Only True / False needs the param; Multiple choice keeps the original URLs. */
+const typeParam = (type: QuizType = 'multipleChoice') => (type === 'trueFalse' ? { type } : {});
+
 /**
  * Typed route builders. Screens navigate through these helpers so path and
  * param names live in one place.
@@ -7,18 +12,25 @@ export const routes = {
   register: '/register',
   home: '/',
   quizTab: '/quiz',
+  /** Quiz (True / False) tab. */
+  trueFalseTab: '/true-false',
+  quizTypeTab: (type: QuizType = 'multipleChoice') => (type === 'trueFalse' ? '/true-false' : '/quiz'),
   tasksTab: '/tasks',
   profileTab: '/profile',
 
-  quizFields: '/quiz/fields',
-  quizSubjects: (fieldId: string) => ({ pathname: '/quiz/subjects', params: { fieldId } }) as const,
-  quizLevels: (subjectId: string) => ({ pathname: '/quiz/levels', params: { subjectId } }) as const,
-  quizQuestions: (subjectId: string, level: number, restart = false) =>
+  quizFields: (type: QuizType = 'multipleChoice') => ({ pathname: '/quiz/fields', params: typeParam(type) }) as const,
+  quizSubjects: (fieldId: string, type: QuizType = 'multipleChoice') =>
+    ({ pathname: '/quiz/subjects', params: { fieldId, ...typeParam(type) } }) as const,
+  quizLevels: (subjectId: string, type: QuizType = 'multipleChoice') =>
+    ({ pathname: '/quiz/levels', params: { subjectId, ...typeParam(type) } }) as const,
+  quizQuestions: (subjectId: string, level: number, restart = false, type: QuizType = 'multipleChoice') =>
     ({
       pathname: '/quiz/questions',
-      params: { subjectId, level: String(level), ...(restart ? { restart: '1' } : {}) },
+      params: { subjectId, level: String(level), ...(restart ? { restart: '1' } : {}), ...typeParam(type) },
     }) as const,
   quizHistory: '/quiz/history',
+  /** History opened on one type's filter. */
+  quizHistoryFor: (type: QuizType) => ({ pathname: '/quiz/history', params: { filter: type } }) as const,
   quizResult: (resultId: string, timeUp = false) =>
     ({ pathname: '/quiz/result', params: { resultId, ...(timeUp ? { timeUp: '1' } : {}) } }) as const,
 

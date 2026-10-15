@@ -1,0 +1,785 @@
+{
+  "subjectId": "operating-system",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Process is a program in execution, with its own address space, resources, and at least one thread of control.",
+        "answer": true,
+        "explanation": "The operating system tracks each process separately so one running program does not freely overwrite another."
+      },
+      {
+        "statement": "A Thread is a kernel record that stores a process id and saved registers.",
+        "answer": false,
+        "explanation": "Threads of one process share code and the heap, while each keeps its own stack and registers."
+      },
+      {
+        "statement": "A Process control block is the kernel record of a process's id, state, saved registers, and resource information.",
+        "answer": true,
+        "explanation": "The kernel saves and restores this record when it pauses one process and resumes another."
+      },
+      {
+        "statement": "A Context switch is a page fault.",
+        "answer": false,
+        "explanation": "The CPU is shared, so the outgoing registers are stored and the incoming ones are loaded."
+      },
+      {
+        "statement": "A System call is a controlled entry into the kernel that lets a program request a privileged service.",
+        "answer": true,
+        "explanation": "User code cannot operate hardware directly, so it traps into the kernel to ask for the service."
+      },
+      {
+        "statement": "A Kernel mode is virtual 8086 mode.",
+        "answer": false,
+        "explanation": "The kernel runs at this level so it can manage hardware that user programs must not touch."
+      },
+      {
+        "statement": "An User mode is the restricted processor level for ordinary programs, where privileged instructions are forbidden.",
+        "answer": true,
+        "explanation": "An attempt to execute a privileged instruction from this level traps instead of changing protected state."
+      },
+      {
+        "statement": "A CPU scheduling is the detection of a cycle of processes waiting for locks.",
+        "answer": false,
+        "explanation": "A policy balances response time, fairness, and throughput when more ready work exists than processors."
+      },
+      {
+        "statement": "A First-come first-served is a scheduling policy that runs ready processes in the order they became ready.",
+        "answer": true,
+        "explanation": "The ready queue is first-in first-out, so an early long job delays every shorter job behind it."
+      },
+      {
+        "statement": "A Round robin is first-come first-served.",
+        "answer": false,
+        "explanation": "When the slice expires, the process moves to the tail of the ready queue and another process runs."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Shortest job first is a policy that runs next the ready process whose next CPU burst is the smallest.",
+        "answer": true,
+        "explanation": "Choosing the shortest burst first minimizes average waiting time when the burst lengths are known."
+      },
+      {
+        "statement": "A Priority scheduling is shortest job first.",
+        "answer": false,
+        "explanation": "A better priority can outrank or preempt other work, and a poor priority can wait a long time if it never improves."
+      },
+      {
+        "statement": "A Preemption is taking the CPU away from a running process before that process blocks or exits.",
+        "answer": true,
+        "explanation": "A timer interrupt or the arrival of higher-priority work can force a switch so one job cannot hold the CPU indefinitely."
+      },
+      {
+        "statement": "A Deadlock is a bug whose result depends on the interleaving of concurrent updates.",
+        "answer": false,
+        "explanation": "Under the usual conditions, a cycle of waiting means none of the processes can make progress."
+      },
+      {
+        "statement": "A Mutual exclusion is the requirement that only one process at a time may use a particular non-shareable resource.",
+        "answer": true,
+        "explanation": "Some resources, such as a printer or a critical section, cannot be used correctly by two processes at once."
+      },
+      {
+        "statement": "A Hold and wait is mutual exclusion.",
+        "answer": false,
+        "explanation": "Keeping resources during a further wait lets waiting chains form."
+      },
+      {
+        "statement": "A No preemption is a deadlock condition in which a resource is released only voluntarily by the process holding it.",
+        "answer": true,
+        "explanation": "If the operating system cannot take the resource back, a waiting process cannot force the holder to give it up."
+      },
+      {
+        "statement": "A Circular wait is no preemption.",
+        "answer": false,
+        "explanation": "Together with the other Coffman conditions, this cycle means the processes are deadlocked."
+      },
+      {
+        "statement": "A Banker's algorithm is a deadlock-avoidance test that grants a request only when some order can still finish every process.",
+        "answer": true,
+        "explanation": "Each process declares a maximum need, and the test looks for a safe sequence using those maxima."
+      },
+      {
+        "statement": "A Semaphore is a busy loop that tests a flag without ever blocking.",
+        "answer": false,
+        "explanation": "Wait may block when the integer cannot be decreased under the semaphore's rule, and signal wakes a waiting thread."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Mutex is a lock that only one thread may hold, used to protect a critical section.",
+        "answer": true,
+        "explanation": "Only the thread that acquired the lock may release it, which gives mutual exclusion for the shared data."
+      },
+      {
+        "statement": "A Critical section is a system call.",
+        "answer": false,
+        "explanation": "One thread at a time should execute it so the shared update stays consistent."
+      },
+      {
+        "statement": "A Race condition is a bug in which the result depends on the unpredictable interleaving of concurrent operations.",
+        "answer": true,
+        "explanation": "Without synchronization, interleaved reads and writes can lose updates."
+      },
+      {
+        "statement": "A Monitor is a barrier.",
+        "answer": false,
+        "explanation": "At most one thread runs inside it at a time, and condition variables let threads wait for a state change."
+      },
+      {
+        "statement": "A Paging is a memory scheme that divides logical and physical memory into fixed-size pages and frames.",
+        "answer": true,
+        "explanation": "Any page can occupy any frame, which avoids the external fragmentation of variable-sized partitions."
+      },
+      {
+        "statement": "A Page table is a file's metadata record of disk blocks.",
+        "answer": false,
+        "explanation": "The memory-management unit consults it, or a cache of it, on each address translation."
+      },
+      {
+        "statement": "A Page fault is a trap raised when a process references a virtual page that is not currently in physical memory.",
+        "answer": true,
+        "explanation": "The operating system can load the missing page, update the mapping, and restart the instruction."
+      },
+      {
+        "statement": "A Segmentation is paging.",
+        "answer": false,
+        "explanation": "Each segment has its own base and limit, matching the logical parts of a program."
+      },
+      {
+        "statement": "A Virtual memory is a technique that gives a process a logical address space which need not all reside in physical memory.",
+        "answer": true,
+        "explanation": "Pages or segments are loaded as needed, so a program can be larger than the machine's RAM."
+      },
+      {
+        "statement": "A TLB is the inode cache.",
+        "answer": false,
+        "explanation": "A hit avoids walking the full page table in memory for that virtual page."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Thrashing is a state in which the system spends most of its time paging instead of executing useful instructions.",
+        "answer": true,
+        "explanation": "Too many active processes compete for too few frames, so each runs only long enough to fault again."
+      },
+      {
+        "statement": "A Demand paging is a policy that writes a whole process image out to disk.",
+        "answer": false,
+        "explanation": "Pages that are never touched occupy no frame, which is the usual way virtual memory is implemented."
+      },
+      {
+        "statement": "A FIFO page replacement is a policy that evicts the resident page which has been in memory the longest.",
+        "answer": true,
+        "explanation": "Pages are ordered by arrival, and the oldest arrival is replaced even if it was used recently."
+      },
+      {
+        "statement": "A LRU is fIFO.",
+        "answer": false,
+        "explanation": "It approximates the idea that a page unused for a long time is less likely to be needed soon."
+      },
+      {
+        "statement": "A Working set is the set of pages a process has referenced during a recent window of time.",
+        "answer": true,
+        "explanation": "Giving each process enough frames for this set makes thrashing less likely."
+      },
+      {
+        "statement": "A File system is the deadlock detector.",
+        "answer": false,
+        "explanation": "It maps file names and byte offsets to disk blocks and maintains directories and metadata."
+      },
+      {
+        "statement": "An Inode is a metadata record that stores a file's attributes and the locations of its data blocks.",
+        "answer": true,
+        "explanation": "The file name lives in a directory, while this record describes the owner, size, and block locations."
+      },
+      {
+        "statement": "A Directory is an integer handle returned by a successful open.",
+        "answer": false,
+        "explanation": "Path lookup walks these objects from a starting point until the final name is resolved."
+      },
+      {
+        "statement": "A File descriptor is a small integer a process uses to refer to an open file in its private descriptor table.",
+        "answer": true,
+        "explanation": "After open succeeds, later reads and writes use this integer rather than the path name."
+      },
+      {
+        "statement": "An Internal fragmentation is external fragmentation.",
+        "answer": false,
+        "explanation": "Fixed-size allocation rounds the request up, and the unused tail cannot be given to another request."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An External fragmentation is free space broken into holes that are too small to satisfy a request even though their total is enough.",
+        "answer": true,
+        "explanation": "Variable-sized allocations can leave many free gaps, none of which fits the next request."
+      },
+      {
+        "statement": "A Swapping is caching.",
+        "answer": false,
+        "explanation": "Writing the whole image out frees all of that process's frames, and the image is read back when it runs again."
+      },
+      {
+        "statement": "A Process state is the execution status of a process, such as new, ready, running, waiting, or terminated.",
+        "answer": true,
+        "explanation": "The scheduler and the wait queues move a process among these statuses as it runs and blocks."
+      },
+      {
+        "statement": "A Ready queue is the set of jobs that have been submitted but not yet admitted to memory.",
+        "answer": false,
+        "explanation": "The scheduler selects the next process to run from this set."
+      },
+      {
+        "statement": "An Interrupt is an asynchronous signal from a device or the timer that makes the CPU run a handler.",
+        "answer": true,
+        "explanation": "Devices and the timer can get the kernel's attention without the CPU polling them continuously."
+      },
+      {
+        "statement": "A Starvation is deadlock.",
+        "answer": false,
+        "explanation": "Strict priority or shortest-job rules can keep a disadvantaged process from ever being chosen."
+      },
+      {
+        "statement": "An Aging is gradually raising the priority of a process that has been waiting for a long time.",
+        "answer": true,
+        "explanation": "The rising priority eventually makes the long-waiting process competitive, which prevents starvation."
+      },
+      {
+        "statement": "A Spooling is thrashing.",
+        "answer": false,
+        "explanation": "Jobs are written to a spool, and a daemon sends them to the device in order."
+      },
+      {
+        "statement": "A fork is a system call that creates a child process by duplicating the calling process.",
+        "answer": true,
+        "explanation": "The child receives a copy of the parent's address space and continues from the return of this call."
+      },
+      {
+        "statement": "A Zombie process is a background process that has detached from its controlling terminal.",
+        "answer": false,
+        "explanation": "Its process record remains until the parent collects the exit status."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a request that traps into the kernel to perform a privileged service is called Process.",
+        "answer": false,
+        "explanation": "The operating system tracks each process separately so one running program does not freely overwrite another."
+      },
+      {
+        "statement": "One browser uses one execution path to draw the page and another to download a file, in the same memory.",
+        "answer": true,
+        "explanation": "Threads of one process share code and the heap, while each keeps its own stack and registers."
+      },
+      {
+        "statement": "In standard textbooks, in the page cache is called Process control block.",
+        "answer": false,
+        "explanation": "The kernel saves and restores this record when it pauses one process and resumes another."
+      },
+      {
+        "statement": "When a time slice ends, the kernel saves the editor's registers and loads the browser's.",
+        "answer": true,
+        "explanation": "The CPU is shared, so the outgoing registers are stored and the incoming ones are loaded."
+      },
+      {
+        "statement": "In standard textbooks, a context switch is called System call.",
+        "answer": false,
+        "explanation": "User code cannot operate hardware directly, so it traps into the kernel to ask for the service."
+      },
+      {
+        "statement": "While handling a timer interrupt, the CPU may update the process table because it is fully privileged.",
+        "answer": true,
+        "explanation": "The kernel runs at this level so it can manage hardware that user programs must not touch."
+      },
+      {
+        "statement": "In standard textbooks, a mode used only while the bootloader is running is called User mode.",
+        "answer": false,
+        "explanation": "An attempt to execute a privileged instruction from this level traps instead of changing protected state."
+      },
+      {
+        "statement": "After the running program blocks for disk, the kernel picks another ready program to run.",
+        "answer": true,
+        "explanation": "A policy balances response time, fairness, and throughput when more ready work exists than processors."
+      },
+      {
+        "statement": "In standard textbooks, round robin is called First-come first-served.",
+        "answer": false,
+        "explanation": "The ready queue is first-in first-out, so an early long job delays every shorter job behind it."
+      },
+      {
+        "statement": "With a 10 millisecond slice, an editor runs briefly, then a browser runs briefly, and so on.",
+        "answer": true,
+        "explanation": "When the slice expires, the process moves to the tail of the ready queue and another process runs."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, lottery scheduling is called Shortest job first.",
+        "answer": false,
+        "explanation": "Choosing the shortest burst first minimizes average waiting time when the burst lengths are known."
+      },
+      {
+        "statement": "An audio task ranked ahead of a backup task runs first whenever both are ready.",
+        "answer": true,
+        "explanation": "A better priority can outrank or preempt other work, and a poor priority can wait a long time if it never improves."
+      },
+      {
+        "statement": "In standard textbooks, a permanent wait in which processes hold one another's resources is called Preemption.",
+        "answer": false,
+        "explanation": "A timer interrupt or the arrival of higher-priority work can force a switch so one job cannot hold the CPU indefinitely."
+      },
+      {
+        "statement": "One process holds the scanner and waits for the printer, while another holds the printer and waits for the scanner.",
+        "answer": true,
+        "explanation": "Under the usual conditions, a cycle of waiting means none of the processes can make progress."
+      },
+      {
+        "statement": "In standard textbooks, hold and wait is called Mutual exclusion.",
+        "answer": false,
+        "explanation": "Some resources, such as a printer or a critical section, cannot be used correctly by two processes at once."
+      },
+      {
+        "statement": "A job continues to hold the scanner while it blocks requesting the printer.",
+        "answer": true,
+        "explanation": "Keeping resources during a further wait lets waiting chains form."
+      },
+      {
+        "statement": "In standard textbooks, circular wait is called No preemption.",
+        "answer": false,
+        "explanation": "If the operating system cannot take the resource back, a waiting process cannot force the holder to give it up."
+      },
+      {
+        "statement": "A waits for B's printer, B waits for C's disk, and C waits for A's scanner.",
+        "answer": true,
+        "explanation": "Together with the other Coffman conditions, this cycle means the processes are deadlocked."
+      },
+      {
+        "statement": "In standard textbooks, a page-replacement policy that evicts the least recently used page is called Banker's algorithm.",
+        "answer": false,
+        "explanation": "Each process declares a maximum need, and the test looks for a safe sequence using those maxima."
+      },
+      {
+        "statement": "An integer initialized to 3 allows at most three processes into a pool of shared buffers.",
+        "answer": true,
+        "explanation": "Wait may block when the integer cannot be decreased under the semaphore's rule, and signal wakes a waiting thread."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, a counting semaphore is called Mutex.",
+        "answer": false,
+        "explanation": "Only the thread that acquired the lock may release it, which gives mutual exclusion for the shared data."
+      },
+      {
+        "statement": "The statements that read a balance, add a deposit, and store the result must not interleave with another thread.",
+        "answer": true,
+        "explanation": "One thread at a time should execute it so the shared update stays consistent."
+      },
+      {
+        "statement": "In standard textbooks, a page fault is called Race condition.",
+        "answer": false,
+        "explanation": "Without synchronization, interleaved reads and writes can lose updates."
+      },
+      {
+        "statement": "Buffer put and take operations exclude each other and wait when the buffer is full or empty.",
+        "answer": true,
+        "explanation": "At most one thread runs inside it at a time, and condition variables let threads wait for a state change."
+      },
+      {
+        "statement": "In standard textbooks, a scheme that gives each process one contiguous block of physical memory is called Paging.",
+        "answer": false,
+        "explanation": "Any page can occupy any frame, which avoids the external fragmentation of variable-sized partitions."
+      },
+      {
+        "statement": "The entry for virtual page 5 says frame 20, so addresses in that page translate into frame 20.",
+        "answer": true,
+        "explanation": "The memory-management unit consults it, or a cache of it, on each address translation."
+      },
+      {
+        "statement": "In standard textbooks, a system call is called Page fault.",
+        "answer": false,
+        "explanation": "The operating system can load the missing page, update the mapping, and restart the instruction."
+      },
+      {
+        "statement": "The code region and the stack region of one process have different base addresses and different lengths.",
+        "answer": true,
+        "explanation": "Each segment has its own base and limit, matching the logical parts of a program."
+      },
+      {
+        "statement": "In standard textbooks, direct memory access is called Virtual memory.",
+        "answer": false,
+        "explanation": "Pages or segments are loaded as needed, so a program can be larger than the machine's RAM."
+      },
+      {
+        "statement": "After the first access to page 5, later accesses use a cached translation and skip the in-memory table walk.",
+        "answer": true,
+        "explanation": "A hit avoids walking the full page table in memory for that virtual page."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, starvation of one low-priority job while others run normally is called Thrashing.",
+        "answer": false,
+        "explanation": "Too many active processes compete for too few frames, so each runs only long enough to fault again."
+      },
+      {
+        "statement": "A photo editor does not bring in a filter's page until the user actually applies that filter.",
+        "answer": true,
+        "explanation": "Pages that are never touched occupy no frame, which is the usual way virtual memory is implemented."
+      },
+      {
+        "statement": "In standard textbooks, lRU is called FIFO page replacement.",
+        "answer": false,
+        "explanation": "Pages are ordered by arrival, and the oldest arrival is replaced even if it was used recently."
+      },
+      {
+        "statement": "If page 2 was touched more recently than page 7, the next replacement removes page 7.",
+        "answer": true,
+        "explanation": "It approximates the idea that a page unused for a long time is less likely to be needed soon."
+      },
+      {
+        "statement": "In standard textbooks, the ready queue is called Working set.",
+        "answer": false,
+        "explanation": "Giving each process enough frames for this set makes thrashing less likely."
+      },
+      {
+        "statement": "Saving a notes file allocates disk blocks and records them under that file name.",
+        "answer": true,
+        "explanation": "It maps file names and byte offsets to disk blocks and maintains directories and metadata."
+      },
+      {
+        "statement": "In standard textbooks, a small integer a process uses after opening a file is called Inode.",
+        "answer": false,
+        "explanation": "The file name lives in a directory, while this record describes the owner, size, and block locations."
+      },
+      {
+        "statement": "The folder /home/ada maps the name notes.txt to the metadata of that file.",
+        "answer": true,
+        "explanation": "Path lookup walks these objects from a starting point until the final name is resolved."
+      },
+      {
+        "statement": "In standard textbooks, an inode number is called File descriptor.",
+        "answer": false,
+        "explanation": "After open succeeds, later reads and writes use this integer rather than the path name."
+      },
+      {
+        "statement": "A 5 KB file stored in 4 KB blocks occupies two blocks and leaves 3 KB unused in the second block.",
+        "answer": true,
+        "explanation": "Fixed-size allocation rounds the request up, and the unused tail cannot be given to another request."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, deadlock is called External fragmentation.",
+        "answer": false,
+        "explanation": "Variable-sized allocations can leave many free gaps, none of which fits the next request."
+      },
+      {
+        "statement": "A suspended background program is written entirely to disk so a foreground program can use its frames.",
+        "answer": true,
+        "explanation": "Writing the whole image out frees all of that process's frames, and the image is read back when it runs again."
+      },
+      {
+        "statement": "In standard textbooks, the name of the scheduling policy currently configured is called Process state.",
+        "answer": false,
+        "explanation": "The scheduler and the wait queues move a process among these statuses as it runs and blocks."
+      },
+      {
+        "statement": "After a disk read finishes, an editor moves from a device wait list onto the list of processes that need only the CPU.",
+        "answer": true,
+        "explanation": "The scheduler selects the next process to run from this set."
+      },
+      {
+        "statement": "In standard textbooks, a system call is called Interrupt.",
+        "answer": false,
+        "explanation": "Devices and the timer can get the kernel's attention without the CPU polling them continuously."
+      },
+      {
+        "statement": "A low-priority backup stays ready for hours because new interactive tasks always outrank it.",
+        "answer": true,
+        "explanation": "Strict priority or shortest-job rules can keep a disadvantaged process from ever being chosen."
+      },
+      {
+        "statement": "In standard textbooks, swapping is called Aging.",
+        "answer": false,
+        "explanation": "The rising priority eventually makes the long-waiting process competitive, which prevents starvation."
+      },
+      {
+        "statement": "Three programs write print jobs to disk and return at once, while the printer works through that queue.",
+        "answer": true,
+        "explanation": "Jobs are written to a spool, and a daemon sends them to the device in order."
+      },
+      {
+        "statement": "In standard textbooks, a call that waits until a child process has terminated is called fork.",
+        "answer": false,
+        "explanation": "The child receives a copy of the parent's address space and continues from the return of this call."
+      },
+      {
+        "statement": "A child finishes, and until the shell collects the status the child entry remains with that status stored.",
+        "answer": true,
+        "explanation": "Its process record remains until the parent collects the exit status."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a user opens a browser and an editor, and each has a separate address space. What is each running program, the correct result is a thread.",
+        "answer": false,
+        "explanation": "Each running program with its own address space is a process."
+      },
+      {
+        "statement": "When two downloads should share one browser's memory but run on separate stacks. What should be created inside that process, the correct result is new file systems.",
+        "answer": false,
+        "explanation": "Threads share the process address space and keep separate stacks for the two downloads."
+      },
+      {
+        "statement": "When the kernel must remember a paused editor's registers, state, and process id. Where is that information stored, the correct result is in its process control block.",
+        "answer": true,
+        "explanation": "The process control block is the kernel record of a process's saved state and identity."
+      },
+      {
+        "statement": "When a time slice ends and the CPU must stop the editor and resume the browser. In this case that changeover called, the correct result is a context switch.",
+        "answer": true,
+        "explanation": "Saving one process's CPU state and restoring another's is a context switch."
+      },
+      {
+        "statement": "When a user program needs the kernel to read a file because it cannot touch the disk controller itself. What request does it make, the correct result is a hardware interrupt.",
+        "answer": false,
+        "explanation": "A system call is the program's controlled request for the kernel's read service."
+      },
+      {
+        "statement": "When code that updates the process table and masks interrupts must run with full hardware privileges. Which processor mode is required, the correct result is virtual 8086 mode.",
+        "answer": false,
+        "explanation": "Updating the process table and masking interrupts are privileged operations of kernel mode."
+      },
+      {
+        "statement": "When a calculator must be prevented from executing a halt instruction reserved for the kernel. The mode should it run in, the correct result is user mode.",
+        "answer": true,
+        "explanation": "User mode forbids the halt instruction, so the calculator cannot execute it."
+      },
+      {
+        "statement": "When several programs are ready and only one CPU is free. The kernel activity assigns that CPU, the correct result is cPU scheduling.",
+        "answer": true,
+        "explanation": "Choosing the next ready program for the CPU is scheduling."
+      },
+      {
+        "statement": "When the ready queue must run jobs strictly in arrival order, even when a long job delays everyone behind it. Which policy is that, the correct result is priority scheduling.",
+        "answer": false,
+        "explanation": "Running in arrival order, with no time slice, is first-come first-served."
+      },
+      {
+        "statement": "When interactive programs should take turns, each running about 10 milliseconds before going to the tail of the ready queue. The policy is that, the correct result is round robin.",
+        "answer": true,
+        "explanation": "A fixed time slice and rotation through the ready queue is round robin."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When the scheduler knows each job's next CPU burst and always picks the smallest one to cut average waiting time. Which policy is that, the correct result is first-come first-served.",
+        "answer": false,
+        "explanation": "Always selecting the smallest known CPU burst is shortest job first."
+      },
+      {
+        "statement": "When an audio task must run before a backup task whenever both are ready, based on a numeric rank. Which policy is that, the correct result is shortest job first.",
+        "answer": false,
+        "explanation": "Choosing the better numeric rank is priority scheduling."
+      },
+      {
+        "statement": "When a timer interrupt stops a long compile so the CPU can run a newly ready interactive program. In this case that forced stop called, the correct result is preemption.",
+        "answer": true,
+        "explanation": "The timer forces the compile off the CPU, which is preemption."
+      },
+      {
+        "statement": "When process A holds the scanner and waits for the printer, while B holds the printer and waits for the scanner. In this case that state, the correct result is deadlock.",
+        "answer": true,
+        "explanation": "Each process waits for a resource the other holds, so both are deadlocked."
+      },
+      {
+        "statement": "When two processes must not write the printer device at the same moment. Which deadlock condition is that requirement, the correct result is no preemption.",
+        "answer": false,
+        "explanation": "Allowing only one process to use the printer is mutual exclusion."
+      },
+      {
+        "statement": "When a job keeps the scanner allocated while it blocks requesting the printer. Which deadlock condition is that, the correct result is mutual exclusion.",
+        "answer": false,
+        "explanation": "Holding the scanner while waiting for the printer is hold and wait."
+      },
+      {
+        "statement": "When the kernel is not allowed to take the printer away from the process that currently holds it. The deadlock condition is that, the correct result is no preemption.",
+        "answer": true,
+        "explanation": "A resource that can be released only by its holder satisfies the no-preemption condition."
+      },
+      {
+        "statement": "When a waits for a resource of B, B waits for a resource of C, and C waits for a resource of A. The condition is that cycle, the correct result is circular wait.",
+        "answer": true,
+        "explanation": "A closed chain of waits is the circular-wait condition."
+      },
+      {
+        "statement": "When before granting another tape, the system checks whether some order can still let every process finish. Which algorithm is that, the correct result is round robin.",
+        "answer": false,
+        "explanation": "Granting a request only when a safe finishing order remains is the banker's algorithm."
+      },
+      {
+        "statement": "When at most three processes may use a pool of buffers, tracked by an integer with atomic wait and signal. The tool is that, the correct result is a semaphore.",
+        "answer": true,
+        "explanation": "A counting semaphore initialized to 3 limits the buffer pool to three processes."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a shared counter's update must be owned by only one thread, and only that owner may release the lock. What kind of lock is that, the correct result is a barrier.",
+        "answer": false,
+        "explanation": "A mutex has a single owner, which is what the counter update requires."
+      },
+      {
+        "statement": "When the statements that read a balance, add a deposit, and store it must not interleave with another thread. What is that region of code, the correct result is a system call.",
+        "answer": false,
+        "explanation": "Those shared balance updates form a critical section that must run exclusively."
+      },
+      {
+        "statement": "When two threads each read balance 100 and both write 110, so one deposit disappears. What bug is that, the correct result is a race condition.",
+        "answer": true,
+        "explanation": "The lost deposit depends on the interleaving of the unsynchronized updates, which is a race."
+      },
+      {
+        "statement": "When shared buffer operations should automatically exclude one another, with waits for full and empty. The construct groups that data and those operations, the correct result is a monitor.",
+        "answer": true,
+        "explanation": "A monitor packages the buffer with mutually exclusive operations and condition waits."
+      },
+      {
+        "statement": "When logical memory is split into fixed 4 KB blocks that may sit in any physical frame. Which scheme is that, the correct result is segmentation.",
+        "answer": false,
+        "explanation": "Fixed-size blocks placed in any frame are pages."
+      },
+      {
+        "statement": "When the memory-management unit must find which frame holds virtual page 5 of a process. Which structure stores that mapping, the correct result is the ready queue.",
+        "answer": false,
+        "explanation": "The page table entry for page 5 holds the frame number."
+      },
+      {
+        "statement": "When a process touches a virtual page whose present bit is clear, so the kernel must load it. In this case that trap, the correct result is a page fault.",
+        "answer": true,
+        "explanation": "A reference to a not-present page raises a page fault so the page can be loaded."
+      },
+      {
+        "statement": "When code, heap, and stack should be separate variable-sized regions, each with its own base and limit. The scheme is that, the correct result is segmentation.",
+        "answer": true,
+        "explanation": "Variable-sized logical regions with separate bases and limits are segments."
+      },
+      {
+        "statement": "When a program's address space is larger than physical RAM, yet it runs because only active pages stay resident. What technique allows that, the correct result is spooling.",
+        "answer": false,
+        "explanation": "Virtual memory lets the logical address space exceed the frames currently available."
+      },
+      {
+        "statement": "When repeated accesses to the same virtual page should avoid walking the page table in RAM every time. The cache holds those recent translations, the correct result is the TLB.",
+        "answer": true,
+        "explanation": "The TLB caches recent page-table entries so translation can skip a full table walk."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When the disk stays busy and processes make almost no progress because each runs only long enough to fault. What is that condition, the correct result is deadlock.",
+        "answer": false,
+        "explanation": "Continuous paging with almost no useful execution is thrashing."
+      },
+      {
+        "statement": "When a large editor should not load a filter's page until the user applies that filter. Which loading policy is that, the correct result is swapping.",
+        "answer": false,
+        "explanation": "Loading the filter page at the first reference is demand paging."
+      },
+      {
+        "statement": "When when a frame is needed, the system evicts the page that was loaded earliest, even if it was used a moment ago. The policy is that, the correct result is fIFO.",
+        "answer": true,
+        "explanation": "Evicting the earliest-loaded page, regardless of recent use, is FIFO replacement."
+      },
+      {
+        "statement": "When a frame is needed, and the system evicts the resident page that has gone unused for the longest time. The policy is that, the correct result is lRU.",
+        "answer": true,
+        "explanation": "Evicting the page with the oldest last use is least-recently-used replacement."
+      },
+      {
+        "statement": "When over the last 100 milliseconds a process used only three pages, and the system tries to keep those pages resident. What is that set of pages, the correct result is the TLB.",
+        "answer": false,
+        "explanation": "The pages referenced in the recent window are the process's working set."
+      },
+      {
+        "statement": "When a user saves notes.txt and later opens it by name, and the system finds the disk blocks for that name. Which component does that, the correct result is the deadlock detector.",
+        "answer": false,
+        "explanation": "Naming a file and locating its disk blocks is the file system's job."
+      },
+      {
+        "statement": "When on a Unix-style system, a file's owner, size, and block addresses are stored apart from its name. In this case that metadata record, the correct result is an inode.",
+        "answer": true,
+        "explanation": "The inode holds the owner, size, and block pointers, while the name is stored separately."
+      },
+      {
+        "statement": "When the path /home/ada/notes.txt is resolved by looking up each name in the folder that contains it. In this case each of those folders, the correct result is a directory.",
+        "answer": true,
+        "explanation": "Each folder in the path is a directory that maps a name to the next file-system object."
+      },
+      {
+        "statement": "When after a successful open, a process reads a file using the integer 3 instead of the path. What is that integer, the correct result is a process id.",
+        "answer": false,
+        "explanation": "The integer returned by open is the process's file descriptor for that open file."
+      },
+      {
+        "statement": "When a 5 KB file occupies two 4 KB blocks and leaves 3 KB unused inside the last block. In this case that waste called, the correct result is internal fragmentation.",
+        "answer": true,
+        "explanation": "The unused tail inside the allocated block is internal fragmentation."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When thirty kilobytes are free, but they are split into 10 KB holes, so a 25 KB request fails. What problem is that, the correct result is thrashing.",
+        "answer": false,
+        "explanation": "Enough free space exists in total, but no single hole is large enough, which is external fragmentation."
+      },
+      {
+        "statement": "When the system writes a whole suspended process out to disk and later reads that entire image back. What is that movement, the correct result is caching.",
+        "answer": false,
+        "explanation": "Moving the entire process image out and back is swapping."
+      },
+      {
+        "statement": "When a process that was running requests a read and must pause until data arrives. The state should it enter, the correct result is waiting.",
+        "answer": true,
+        "explanation": "A process blocked for data is in the waiting state, not ready or running."
+      },
+      {
+        "statement": "When a process is in memory, is not blocked on a device, and is waiting only for a CPU. The queue should contain it, the correct result is the ready queue.",
+        "answer": true,
+        "explanation": "A process waiting only for the CPU belongs on the ready queue."
+      },
+      {
+        "statement": "When a disk controller signals that a read has finished, and the CPU immediately runs a handler. What is that signal, the correct result is a context switch.",
+        "answer": false,
+        "explanation": "The device's completion signal that invokes a handler is an interrupt."
+      },
+      {
+        "statement": "When a low-priority backup remains ready for hours because new interactive tasks are always chosen instead. What is that unfair wait, the correct result is deadlock.",
+        "answer": false,
+        "explanation": "The backup is ready but is never selected, which is starvation."
+      },
+      {
+        "statement": "When a scheduler raises a waiting backup's priority a little every minute so the backup will eventually run. In this case that technique, the correct result is aging.",
+        "answer": true,
+        "explanation": "Increasing priority with waiting time is aging."
+      },
+      {
+        "statement": "When three editors submit print jobs and return immediately while a daemon feeds the printer from disk. In this case that buffering called, the correct result is spooling.",
+        "answer": true,
+        "explanation": "Queueing print output on disk so the editors need not wait for the printer is spooling."
+      },
+      {
+        "statement": "When a shell must create a child that starts as a duplicate of itself before running a typed command. Which system call creates that child, the correct result is exec.",
+        "answer": false,
+        "explanation": "fork creates the duplicate child process; exec would replace a process image afterward."
+      },
+      {
+        "statement": "When a child has exited, but its process entry remains until the parent collects the exit status. In this case that child called, the correct result is a zombie.",
+        "answer": true,
+        "explanation": "A terminated child that still holds an unreaped exit status is a zombie."
+      }
+    ]
+  }
+}

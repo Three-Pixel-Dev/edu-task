@@ -8,3 +8,4 @@ export type { OptionState } from './QuizOption';
 export { QuizTimer } from './QuizTimer';
 export { ScoreRing } from './ScoreRing';
 export { SubjectCard } from './SubjectCard';
+export { QuizTypeBadge } from './QuizTypeBadge';

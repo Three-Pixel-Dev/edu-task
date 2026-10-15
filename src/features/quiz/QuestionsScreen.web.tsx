@@ -18,8 +18,9 @@ import {
   SegmentedProgress,
   type OptionState,
 } from '@/components';
+import { QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useQuizSession, type PrimaryAction } from '@/hooks';
+import { useQuizSession, useQuizType, type PrimaryAction } from '@/hooks';
 import { spacing } from '@/theme';
 import { pluralise } from '@/utils/format';
 
@@ -28,14 +29,16 @@ const primaryLabel: Record<PrimaryAction, string> = {
   choose: 'Choose an answer',
   check: 'Check answer',
   next: 'Next',
-  submit: 'Submit quiz',
+  submit: 'Submit answers',
 };
 
 /** Desktop quiz play: centered question panel inside the web shell. */
 export function QuestionsScreen() {
   const params = useLocalSearchParams<{ subjectId: string; level: string; restart?: string }>();
   const level = Number(params.level ?? 1);
-  const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1');
+  const type = useQuizType();
+  const isQuiz = type === 'trueFalse';
+  const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1', type);
   const scrollRef = useRef<ScrollView>(null);
   const { question, subject, actions, screen } = quiz;
 
@@ -44,7 +47,7 @@ export function QuestionsScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quiz.resultId]);
 
-  const leave = useCallback(() => (router.canGoBack() ? router.back() : router.replace(routes.quizTab)), []);
+  const leave = useCallback(() => (router.canGoBack() ? router.back() : router.replace(routes.quizTypeTab(type))), [type]);
 
   const onPrimary = () => {
     switch (quiz.primaryAction) {
@@ -93,7 +96,7 @@ export function QuestionsScreen() {
           <EmptyState
             icon="inbox"
             title="Not enough questions are available for this level yet."
-            message={`${screen.subject.name} · Level ${level} has ${pluralise(screen.available, 'question')}. A quiz needs ${screen.required}, so it can’t start yet.`}
+            message={`${screen.subject.name} · Level ${level} has ${pluralise(screen.available, 'question')}. A set needs ${screen.required}, so it can’t start yet.`}
             actionLabel="Choose another level"
             actionIcon="arrow-left"
             onAction={leave}
@@ -119,7 +122,7 @@ export function QuestionsScreen() {
       <View style={styles.panel}>
         <View style={styles.subjectHeading}>
           <AppText style={styles.subjectName}>{subject.name}</AppText>
-          <AppText variant="code" color="textSecondary">{subject.code}</AppText>
+          <AppText variant="code" color="textSecondary">{`${QUIZ_TYPES[type].label} · ${subject.code} · Level ${level}`}</AppText>
         </View>
 
         <View style={styles.progress}>
@@ -139,7 +142,7 @@ export function QuestionsScreen() {
         </View>
 
         <Card style={styles.questionCard}>
-          <Badge label="Multiple choice · choose one answer" tone="primary" />
+          <Badge label={QUIZ_TYPES[type].answerHint} tone={isQuiz ? 'accent' : 'primary'} icon={QUIZ_TYPES[type].icon} />
           <AppText variant="heading" style={styles.prompt}>
             {question.question}
           </AppText>
@@ -148,6 +151,7 @@ export function QuestionsScreen() {
               <QuizOption
                 key={option}
                 letter={LETTERS[i] ?? String(i + 1)}
+                icon={isQuiz ? (option === 'True' ? 'check' : 'x') : undefined}
                 text={option}
                 state={optionState(option)}
                 locked={quiz.isChecked || quiz.submitting}

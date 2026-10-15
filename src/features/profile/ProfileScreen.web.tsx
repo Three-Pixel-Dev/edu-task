@@ -27,6 +27,8 @@ export function ProfileScreen() {
   const { profile, status: profileStatus, error: profileError, displayName, email } = useProfile();
   const quiz = useQuizHistory();
   const quizStats = useQuizStats();
+  const mcStats = useQuizStats('multipleChoice');
+  const tfStats = useQuizStats('trueFalse');
   const tasks = useTasks();
   const { counts } = useTaskSections();
   const [loggingOut, setLoggingOut] = useState(false);
@@ -102,14 +104,15 @@ export function ProfileScreen() {
 
         <View style={styles.right}>
           <Card style={styles.sectionCard}>
-            <SectionHeader title="Quiz statistics" />
+            <SectionHeader title="Practice statistics" />
             {quiz.status === 'error' ? (
               <ErrorState title="Couldn’t load quiz statistics" message={quiz.error ?? undefined} onRetry={quiz.retry} />
             ) : (
               <StatGroup>
-                <StatTile label="Quiz attempts" value={quizLoading ? '–' : quizStats.attempts} />
+                <StatTile label="Multiple choice" value={quizLoading ? '–' : mcStats.attempts} />
+            <StatTile label="Quiz" value={quizLoading ? '–' : tfStats.attempts} valueColor="accent" />
                 <StatTile label="Average score" value={quizLoading ? '–' : `${quizStats.average}%`} valueColor="primaryDark" />
-                <StatTile label="Levels done" value={quizLoading ? '–' : quizStats.levelsCompleted} />
+                
               </StatGroup>
             )}
           </Card>

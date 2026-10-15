@@ -1,0 +1,785 @@
+{
+  "subjectId": "computer-organization-design",
+  "levels": {
+    "1": [
+      {
+        "statement": "an instruction set architecture is the programmer-visible contract of instructions, registers, data types, and addressing, separate from the circuit that implements it.",
+        "answer": true,
+        "explanation": "Compilers and assembly programmers depend on the visible instructions and registers, not on the internal wiring."
+      },
+      {
+        "statement": "a datapath is the page table that translates virtual addresses.",
+        "answer": false,
+        "explanation": "Operands move through registers, muxes, and the ALU, which together form the path data follows."
+      },
+      {
+        "statement": "a control unit is the processor block that decodes an instruction and generates the signals that steer the datapath.",
+        "answer": true,
+        "explanation": "The opcode must be turned into select, write-enable, and ALU-operation signals."
+      },
+      {
+        "statement": "an arithmetic logic unit is the instruction-fetch memory.",
+        "answer": false,
+        "explanation": "Arithmetic and logic instructions are implemented by this combinational unit inside the datapath."
+      },
+      {
+        "statement": "a program counter is the register that holds the address of the next instruction to be fetched.",
+        "answer": true,
+        "explanation": "Instruction fetch uses this address, and it is then updated to the following instruction or to a branch target."
+      },
+      {
+        "statement": "an instruction register is a cache-tag register.",
+        "answer": false,
+        "explanation": "The fetched bit pattern must be saved while the control unit examines the opcode and operand fields."
+      },
+      {
+        "statement": "a register file is a small, fast, multiported array of registers inside the processor that instructions read and write.",
+        "answer": true,
+        "explanation": "Most arithmetic instructions take operands from this array and write the result back into it in the same cycle structure."
+      },
+      {
+        "statement": "a general-purpose register is a register that holds only condition flags.",
+        "answer": false,
+        "explanation": "Unlike the program counter, these registers are named by arithmetic and load instructions as operand locations."
+      },
+      {
+        "statement": "an instruction cycle is the repeated sequence of fetching an instruction, decoding it, executing it, and writing the result.",
+        "answer": true,
+        "explanation": "Every instruction, however implemented, is still obtained, interpreted, performed, and retired."
+      },
+      {
+        "statement": "an opcode is an embedded constant.",
+        "answer": false,
+        "explanation": "The control unit reads this field to decide which operation and which control signals to use."
+      }
+    ],
+    "2": [
+      {
+        "statement": "an operand is a value, or the location of a value, that an instruction reads or writes.",
+        "answer": true,
+        "explanation": "An instruction specifies both what to do and which data to do it to."
+      },
+      {
+        "statement": "An immediate addressing is the address is the program counter plus an offset.",
+        "answer": false,
+        "explanation": "No extra memory read is required for the operand because the constant travels inside the instruction."
+      },
+      {
+        "statement": "A register addressing is an addressing mode in which the operand is already in a register named by the instruction.",
+        "answer": true,
+        "explanation": "The register field selects an entry in the register file, and that entry is the operand."
+      },
+      {
+        "statement": "A direct addressing is a mode in which the operand value is a constant in the instruction.",
+        "answer": false,
+        "explanation": "The address field is used as the effective address with no further addition or pointer follow."
+      },
+      {
+        "statement": "An indirect addressing is an addressing mode in which the instruction gives a location whose contents are the address of the operand.",
+        "answer": true,
+        "explanation": "The processor must follow a pointer: the first location supplies the address used for the actual data access."
+      },
+      {
+        "statement": "An indexed addressing is a constant address only.",
+        "answer": false,
+        "explanation": "The register can walk through an array while the displacement selects the array's base or a field."
+      },
+      {
+        "statement": "A PC-relative addressing is an addressing mode in which the target address is the program counter plus a signed offset from the instruction.",
+        "answer": true,
+        "explanation": "Branches and position-independent code can refer to nearby instructions without an absolute address."
+      },
+      {
+        "statement": "A RISC is one very long instruction word.",
+        "answer": false,
+        "explanation": "Simple fixed encodings and a load-store model make pipelining and compiler scheduling easier."
+      },
+      {
+        "statement": "A CISC is an instruction-set style of complex, often variable-length instructions that may operate directly on memory operands.",
+        "answer": true,
+        "explanation": "A single complex instruction can encode an operation that a load-store machine would split into several instructions."
+      },
+      {
+        "statement": "a fixed-length instruction is a Huffman encoding of opcodes.",
+        "answer": false,
+        "explanation": "The next instruction address is a constant stride away, which simplifies fetch and decode."
+      }
+    ],
+    "3": [
+      {
+        "statement": "an instruction pipeline is an organization that overlaps the stages of several instructions, such as fetch, decode, execute, memory, and write-back.",
+        "answer": true,
+        "explanation": "Different instructions occupy different stages at the same time, increasing throughput."
+      },
+      {
+        "statement": "a structural hazard is a result is not written yet.",
+        "answer": false,
+        "explanation": "If there is only one memory port, instruction fetch and a data access cannot both use it in the same cycle."
+      },
+      {
+        "statement": "a data hazard is a pipeline dependence in which an instruction needs a value that an earlier instruction has not yet written.",
+        "answer": true,
+        "explanation": "The classic read-after-write dependence makes a later instruction read a register too early."
+      },
+      {
+        "statement": "a control hazard is a dirty line awaits write-back.",
+        "answer": false,
+        "explanation": "The fetch stage does not know which instruction follows until the branch decision and target are known."
+      },
+      {
+        "statement": "A forwarding is bypassing a result from a later pipeline stage directly to an earlier stage that needs it, without waiting for the register write.",
+        "answer": true,
+        "explanation": "The ALU result exists in a pipeline register before write-back, so a later instruction can use that copy."
+      },
+      {
+        "statement": "a pipeline stall is a guess about a branch direction.",
+        "answer": false,
+        "explanation": "When bypassing cannot supply the needed value in time, the pipeline must wait."
+      },
+      {
+        "statement": "A branch prediction is a technique that guesses whether a branch will be taken, and often its target, so fetch can continue.",
+        "answer": true,
+        "explanation": "A correct guess keeps the pipeline full, and a wrong guess requires fetched instructions to be discarded."
+      },
+      {
+        "statement": "the memory hierarchy is five overlapped instruction stages.",
+        "answer": false,
+        "explanation": "Faster technologies are too costly for large capacity, so recently used data is kept in the smaller faster levels."
+      },
+      {
+        "statement": "A cache memory is a small, fast memory that holds copies of recently used blocks from a larger, slower memory.",
+        "answer": true,
+        "explanation": "Because of locality, many accesses hit this copy and avoid the full delay of main memory."
+      },
+      {
+        "statement": "a cache hit is a line is marked dirty.",
+        "answer": false,
+        "explanation": "The tag comparison succeeds, so the requested word is already in a cache line."
+      }
+    ],
+    "4": [
+      {
+        "statement": "a cache miss is the outcome in which the addressed block is not in the cache and must be fetched from the next memory level.",
+        "answer": true,
+        "explanation": "The tag comparison fails, so the cache allocates a line and fills it from the lower level."
+      },
+      {
+        "statement": "A temporal locality is the requirement that writes become visible in program order.",
+        "answer": false,
+        "explanation": "Loops and reused variables make a recent item a good choice to keep in cache or in a register."
+      },
+      {
+        "statement": "A spatial locality is the tendency of a program to use items at addresses near one that it has just used.",
+        "answer": true,
+        "explanation": "Sequential code and array scans make nearby addresses likely, which is why caches move whole blocks."
+      },
+      {
+        "statement": "a direct-mapped cache is any line in a multi-line set.",
+        "answer": false,
+        "explanation": "The index picks a single candidate line, and only that line's tag is compared."
+      },
+      {
+        "statement": "a set-associative cache is a cache in which each block maps to a set and may be placed in any way of that set.",
+        "answer": true,
+        "explanation": "The index selects a set, and the tags of the ways in that set are compared in parallel."
+      },
+      {
+        "statement": "a write-through policy is discard stores.",
+        "answer": false,
+        "explanation": "The lower level stays up to date, at the cost of more write traffic, often buffered by a write buffer."
+      },
+      {
+        "statement": "a write-back policy is a cache write policy that updates only the cache on a store and writes the line to lower memory when it is evicted if dirty.",
+        "answer": true,
+        "explanation": "A dirty bit records that the line differs from lower memory, so only modified lines are written back on replacement."
+      },
+      {
+        "statement": "A virtual memory is renaming of architectural registers to hide false dependences.",
+        "answer": false,
+        "explanation": "Translation and paging let processes use large private address spaces and stay isolated from each other."
+      },
+      {
+        "statement": "a page table is a structure that maps virtual page numbers to physical frame numbers and stores bits such as valid and dirty.",
+        "answer": true,
+        "explanation": "The operating system maintains this map, and a translation walks it when a recent translation is not cached."
+      },
+      {
+        "statement": "a translation lookaside buffer is the full page table in memory.",
+        "answer": false,
+        "explanation": "Address translation is frequent, so recent page mappings are kept in a fast associative store."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A hardwired control is a control implementation that produces signals with fixed logic and state machines rather than a control memory.",
+        "answer": true,
+        "explanation": "The next-state and output logic is built from gates and flip-flops designed for that instruction set."
+      },
+      {
+        "statement": "A microprogrammed control is a device controller on the bus.",
+        "answer": false,
+        "explanation": "Each microinstruction is a control word, and changing the firmware can change complex instruction behavior."
+      },
+      {
+        "statement": "a single-cycle datapath is an implementation in which every instruction starts and finishes in one long clock cycle.",
+        "answer": true,
+        "explanation": "The clock period must fit the slowest instruction, because every instruction is allowed the same one cycle."
+      },
+      {
+        "statement": "a multi-cycle datapath is an implementation that only overlaps five instructions in a pipeline.",
+        "answer": false,
+        "explanation": "Functional units can be reused across cycles, and a simple instruction need not last as long as a load."
+      },
+      {
+        "statement": "an interrupt is an asynchronous signal from a device that makes the processor suspend the current program and run a handler.",
+        "answer": true,
+        "explanation": "The device requests service when it is ready, so the processor need not poll continuously."
+      },
+      {
+        "statement": "A direct memory access is the CPU loads or stores every word.",
+        "answer": false,
+        "explanation": "The processor gives the controller a start address and a count, and the controller then manages the bus transfers."
+      },
+      {
+        "statement": "An endianness is the convention that decides which end of a multi-byte value is stored at the lowest address.",
+        "answer": true,
+        "explanation": "Little-endian machines store the least significant byte at the lowest address, and big-endian machines store the most significant byte there."
+      },
+      {
+        "statement": "a load-use hazard is a page-table walk.",
+        "answer": false,
+        "explanation": "In a classic five-stage pipeline, load data becomes available at the end of the memory stage, one cycle too late for the next instruction's ALU input."
+      },
+      {
+        "statement": "A Harvard architecture is an organization with separate memories and buses for instructions and for data, so both can be accessed at once.",
+        "answer": true,
+        "explanation": "Separate instruction and data ports remove the structural conflict between fetch and a data access."
+      },
+      {
+        "statement": "a system bus is a single interrupt wire with no address or data lines.",
+        "answer": false,
+        "explanation": "A transaction places an address on the address lines, transfers bits on the data lines, and uses control lines for read or write."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the physical pinout of the processor package is called an instruction set architecture.",
+        "answer": false,
+        "explanation": "Compilers and assembly programmers depend on the visible instructions and registers, not on the internal wiring."
+      },
+      {
+        "statement": "During an add, two register values pass through multiplexers into the ALU, and the sum returns to the register file.",
+        "answer": true,
+        "explanation": "Operands move through registers, muxes, and the ALU, which together form the path data follows."
+      },
+      {
+        "statement": "In standard textbooks, the bit-adding block is called a control unit.",
+        "answer": false,
+        "explanation": "The opcode must be turned into select, write-enable, and ALU-operation signals."
+      },
+      {
+        "statement": "An ADD instruction sends two register operands into a unit that outputs their sum and a zero flag.",
+        "answer": true,
+        "explanation": "Arithmetic and logic instructions are implemented by this combinational unit inside the datapath."
+      },
+      {
+        "statement": "In standard textbooks, the memory data register is called a program counter.",
+        "answer": false,
+        "explanation": "Instruction fetch uses this address, and it is then updated to the following instruction or to a branch target."
+      },
+      {
+        "statement": "A load word arrives from instruction memory and is latched so its opcode and register fields can be read.",
+        "answer": true,
+        "explanation": "The fetched bit pattern must be saved while the control unit examines the opcode and operand fields."
+      },
+      {
+        "statement": "In standard textbooks, a cache of page-table translations is called a register file.",
+        "answer": false,
+        "explanation": "Most arithmetic instructions take operands from this array and write the result back into it in the same cycle structure."
+      },
+      {
+        "statement": "A compiler keeps a loop index in one named register and a running total in another.",
+        "answer": true,
+        "explanation": "Unlike the program counter, these registers are named by arithmetic and load instructions as operand locations."
+      },
+      {
+        "statement": "In standard textbooks, a wait bubble is called an instruction cycle.",
+        "answer": false,
+        "explanation": "Every instruction, however implemented, is still obtained, interpreted, performed, and retired."
+      },
+      {
+        "statement": "In an instruction word, a group of bits selects addition rather than subtraction or a load.",
+        "answer": true,
+        "explanation": "The control unit reads this field to decide which operation and which control signals to use."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a source comment is called an operand.",
+        "answer": false,
+        "explanation": "An instruction specifies both what to do and which data to do it to."
+      },
+      {
+        "statement": "An add-immediate instruction contains the constant 12 in its bit fields and adds that constant to a register.",
+        "answer": true,
+        "explanation": "No extra memory read is required for the operand because the constant travels inside the instruction."
+      },
+      {
+        "statement": "In standard textbooks, a mode in which the instruction contains a memory address is called register addressing.",
+        "answer": false,
+        "explanation": "The register field selects an entry in the register file, and that entry is the operand."
+      },
+      {
+        "statement": "A load instruction includes the address 4096, and the operand is read from memory location 4096.",
+        "answer": true,
+        "explanation": "The address field is used as the effective address with no further addition or pointer follow."
+      },
+      {
+        "statement": "In standard textbooks, use the instruction field as the operand address is called indirect addressing.",
+        "answer": false,
+        "explanation": "The processor must follow a pointer: the first location supplies the address used for the actual data access."
+      },
+      {
+        "statement": "A load adds the contents of an index register to a constant base to reach the next array element.",
+        "answer": true,
+        "explanation": "The register can walk through an array while the displacement selects the array's base or a field."
+      },
+      {
+        "statement": "In standard textbooks, an immediate constant operand is called PC-relative addressing.",
+        "answer": false,
+        "explanation": "Branches and position-independent code can refer to nearby instructions without an absolute address."
+      },
+      {
+        "statement": "Adding two memory variables requires a load, a register add, and a store, each a short fixed-length instruction.",
+        "answer": true,
+        "explanation": "Simple fixed encodings and a load-store model make pipelining and compiler scheduling easier."
+      },
+      {
+        "statement": "In standard textbooks, a style whose only operations are single-cycle register adds is called CISC.",
+        "answer": false,
+        "explanation": "A single complex instruction can encode an operation that a load-store machine would split into several instructions."
+      },
+      {
+        "statement": "Every instruction is 32 bits, so after a fetch at address 1000 the next sequential address is 1004.",
+        "answer": true,
+        "explanation": "The next instruction address is a constant stride away, which simplifies fetch and decode."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, one instruction finished before the next starts is called an instruction pipeline.",
+        "answer": false,
+        "explanation": "Different instructions occupy different stages at the same time, increasing throughput."
+      },
+      {
+        "statement": "In a pipeline with one memory, a data load in the memory stage collides with an instruction fetch in the same cycle.",
+        "answer": true,
+        "explanation": "If there is only one memory port, instruction fetch and a data access cannot both use it in the same cycle."
+      },
+      {
+        "statement": "In standard textbooks, a page translation failed is called a data hazard.",
+        "answer": false,
+        "explanation": "The classic read-after-write dependence makes a later instruction read a register too early."
+      },
+      {
+        "statement": "A conditional branch is in the decode stage, so the fetch stage is not yet sure which instruction to load next.",
+        "answer": true,
+        "explanation": "The fetch stage does not know which instruction follows until the branch decision and target are known."
+      },
+      {
+        "statement": "In standard textbooks, guessing whether a branch will be taken is called forwarding.",
+        "answer": false,
+        "explanation": "The ALU result exists in a pipeline register before write-back, so a later instruction can use that copy."
+      },
+      {
+        "statement": "A load is followed immediately by an instruction that uses the loaded register, so one bubble is inserted.",
+        "answer": true,
+        "explanation": "When bypassing cannot supply the needed value in time, the pipeline must wait."
+      },
+      {
+        "statement": "In standard textbooks, bypassing an ALU result is called branch prediction.",
+        "answer": false,
+        "explanation": "A correct guess keeps the pipeline full, and a wrong guess requires fetched instructions to be discarded."
+      },
+      {
+        "statement": "A value moves from disk to DRAM, then into a cache line, and finally into a register when the CPU uses it.",
+        "answer": true,
+        "explanation": "Faster technologies are too costly for large capacity, so recently used data is kept in the smaller faster levels."
+      },
+      {
+        "statement": "In standard textbooks, a microinstruction ROM is called cache memory.",
+        "answer": false,
+        "explanation": "Because of locality, many accesses hit this copy and avoid the full delay of main memory."
+      },
+      {
+        "statement": "The second iteration of a loop reads an address whose block is already in the cache, and no DRAM access occurs.",
+        "answer": true,
+        "explanation": "The tag comparison succeeds, so the requested word is already in a cache line."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a correct branch prediction is called a cache miss.",
+        "answer": false,
+        "explanation": "The tag comparison fails, so the cache allocates a line and fills it from the lower level."
+      },
+      {
+        "statement": "A loop counter is read and written on every iteration, so the same variable is needed again immediately.",
+        "answer": true,
+        "explanation": "Loops and reused variables make a recent item a good choice to keep in cache or in a register."
+      },
+      {
+        "statement": "In standard textbooks, reuse of the same item is called spatial locality.",
+        "answer": false,
+        "explanation": "Sequential code and array scans make nearby addresses likely, which is why caches move whole blocks."
+      },
+      {
+        "statement": "Two blocks that share the same index cannot both stay in the cache, because each index has only one line.",
+        "answer": true,
+        "explanation": "The index picks a single candidate line, and only that line's tag is compared."
+      },
+      {
+        "statement": "In standard textbooks, a cache without tags is called a set-associative cache.",
+        "answer": false,
+        "explanation": "The index selects a set, and the tags of the ways in that set are compared in parallel."
+      },
+      {
+        "statement": "Every store of a loop index updates the cache line and also sends the new word toward main memory.",
+        "answer": true,
+        "explanation": "The lower level stays up to date, at the cost of more write traffic, often buffered by a write buffer."
+      },
+      {
+        "statement": "In standard textbooks, a policy that never marks a line dirty is called a write-back policy.",
+        "answer": false,
+        "explanation": "A dirty bit records that the line differs from lower memory, so only modified lines are written back on replacement."
+      },
+      {
+        "statement": "Two programs both use address 0x4000, but those virtual addresses are translated to different physical frames.",
+        "answer": true,
+        "explanation": "Translation and paging let processes use large private address spaces and stay isolated from each other."
+      },
+      {
+        "statement": "In standard textbooks, a cache of recent translations is called a page table.",
+        "answer": false,
+        "explanation": "The operating system maintains this map, and a translation walks it when a recent translation is not cached."
+      },
+      {
+        "statement": "A load reuses a page translated moments ago, and the frame number comes from a small on-chip translation cache.",
+        "answer": true,
+        "explanation": "Address translation is frequent, so recent page mappings are kept in a fast associative store."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, an interrupt controller is called hardwired control.",
+        "answer": false,
+        "explanation": "The next-state and output logic is built from gates and flip-flops designed for that instruction set."
+      },
+      {
+        "statement": "A complex string instruction starts a routine in a control ROM, and each microinstruction asserts a set of datapath signals.",
+        "answer": true,
+        "explanation": "Each microinstruction is a control word, and changing the firmware can change complex instruction behavior."
+      },
+      {
+        "statement": "In standard textbooks, an implementation that overlaps many instructions in a pipeline is called a single-cycle datapath.",
+        "answer": false,
+        "explanation": "The clock period must fit the slowest instruction, because every instruction is allowed the same one cycle."
+      },
+      {
+        "statement": "A store takes four shorter cycles, while a branch takes three, and the same ALU is reused in different cycles.",
+        "answer": true,
+        "explanation": "Functional units can be reused across cycles, and a simple instruction need not last as long as a load."
+      },
+      {
+        "statement": "In standard textbooks, a loop that polls a status bit is called an interrupt.",
+        "answer": false,
+        "explanation": "The device requests service when it is ready, so the processor need not poll continuously."
+      },
+      {
+        "statement": "A disk controller writes a 4 KB block into memory while the CPU continues executing unrelated instructions.",
+        "answer": true,
+        "explanation": "The processor gives the controller a start address and a count, and the controller then manages the bus transfers."
+      },
+      {
+        "statement": "In standard textbooks, a parity byte is called endianness.",
+        "answer": false,
+        "explanation": "Little-endian machines store the least significant byte at the lowest address, and big-endian machines store the most significant byte there."
+      },
+      {
+        "statement": "A load into register 1 is followed immediately by an add that reads register 1, and one bubble is required even with forwarding.",
+        "answer": true,
+        "explanation": "In a classic five-stage pipeline, load data becomes available at the end of the memory stage, one cycle too late for the next instruction's ALU input."
+      },
+      {
+        "statement": "In standard textbooks, a cluster of many complete computers is called Harvard architecture.",
+        "answer": false,
+        "explanation": "Separate instruction and data ports remove the structural conflict between fetch and a data access."
+      },
+      {
+        "statement": "A load drives a memory address on the address lines, asserts read, and receives the word on the data lines.",
+        "answer": true,
+        "explanation": "A transaction places an address on the address lines, transfers bits on the data lines, and uses control lines for read or write."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a compiler needs the registers, instruction formats, and addressing rules, but not the gate-level adder. Which description is that contract, the correct result is the gate-level adder design.",
+        "answer": false,
+        "explanation": "Registers, formats, and addressing visible to software form the instruction set architecture."
+      },
+      {
+        "statement": "When register values pass through multiplexers into the ALU, and the result is written back. Which CPU part moves and operates on those values, the correct result is a virtual-address table.",
+        "answer": false,
+        "explanation": "Hardware that carries operands through the ALU and registers is the datapath."
+      },
+      {
+        "statement": "When an instruction must open the correct multiplexers and tell the ALU The operation to perform. Which block creates those signals, the correct result is the instruction decoder and signal generator.",
+        "answer": true,
+        "explanation": "Generating the signals that steer the datapath is the job of the control unit."
+      },
+      {
+        "statement": "When an ADD must produce the sum of two register values. The unit performs that operation, the correct result is the arithmetic and logic unit.",
+        "answer": true,
+        "explanation": "Adding two operands is done by the arithmetic and logic unit."
+      },
+      {
+        "statement": "When after an instruction is fetched, which register normally supplies the address of the following instruction, the correct result is the condition-flag register.",
+        "answer": false,
+        "explanation": "The address of the next instruction is kept in the program counter."
+      },
+      {
+        "statement": "When the bit pattern just fetched from instruction memory is held while its opcode is examined. Which register holds that pattern, the correct result is a cache-tag register.",
+        "answer": false,
+        "explanation": "The instruction currently being decoded is held in the instruction register."
+      },
+      {
+        "statement": "An ADD reads two named registers and writes a third through separate ports in a small array inside the CPU. Name that array. The correct outcome is the processor's multiported register array.",
+        "answer": true,
+        "explanation": "A small multiported array of programmer-visible registers is the register file."
+      },
+      {
+        "statement": "When a compiler stores a loop index in a named register that ADD and LOAD may use freely. The class of register is that, the correct result is a programmer operand register.",
+        "answer": true,
+        "explanation": "A register the program uses for ordinary operands is a general-purpose register."
+      },
+      {
+        "statement": "When a simple CPU repeats fetch, decode, execute, and write-back for every instruction in a loop. Name that sequence, the correct result is a device acknowledge.",
+        "answer": false,
+        "explanation": "Repeating fetch, decode, execute, and write-back is the instruction cycle."
+      },
+      {
+        "statement": "One field in an instruction word selects addition rather than a load. Name that field. The correct outcome is the operation field.",
+        "answer": true,
+        "explanation": "The field that selects the operation is the opcode."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When an ADD uses the contents of register 1 as a value to be added. What role does register 1 play, the correct result is the pipeline clock.",
+        "answer": false,
+        "explanation": "A value the instruction reads or writes is an operand."
+      },
+      {
+        "statement": "When the constant 12 is encoded inside an add instruction and is not fetched from a data address. Name that addressing mode, the correct result is the address is the program counter plus an offset.",
+        "answer": false,
+        "explanation": "A constant encoded in the instruction is immediate addressing."
+      },
+      {
+        "statement": "Both source values of an ADD already sit in named registers, and no data memory is read. Name that addressing mode. The correct outcome is the operand is in a named register.",
+        "answer": true,
+        "explanation": "Taking the operand from a register named by the instruction is register addressing."
+      },
+      {
+        "statement": "A load instruction contains the address 4096, and the operand is taken from that memory location itself. Name that mode. The correct outcome is the instruction holds the operand address.",
+        "answer": true,
+        "explanation": "When the instruction field is the operand's memory address, the mode is direct addressing."
+      },
+      {
+        "statement": "When an instruction names cell 1000, that cell contains 2500, and the operand is read from 2500. Name that mode, the correct result is add an offset to the program counter.",
+        "answer": false,
+        "explanation": "Using a memory word as a pointer to the operand is indirect addressing."
+      },
+      {
+        "statement": "When a load forms the address by adding an index register to a constant displacement. Name that mode, the correct result is a constant address only.",
+        "answer": false,
+        "explanation": "Adding a register to a displacement to form the address is indexed addressing."
+      },
+      {
+        "statement": "A branch adds a signed offset to the program counter to form its target. Name that addressing mode. The correct outcome is program counter plus offset.",
+        "answer": true,
+        "explanation": "Forming the target as the program counter plus a signed offset is PC-relative addressing."
+      },
+      {
+        "statement": "When a processor uses fixed-length instructions, and only loads and stores touch memory. The instruction-set style is that, the correct result is simple load-store instructions.",
+        "answer": true,
+        "explanation": "Simple fixed-length load-store instructions characterize RISC."
+      },
+      {
+        "statement": "When one variable-length instruction both reads a memory operand and performs arithmetic on it. Which instruction-set style is that, the correct result is simple load-store instructions.",
+        "answer": false,
+        "explanation": "Complex variable-length instructions that use memory operands characterize CISC."
+      },
+      {
+        "statement": "Every instruction is 32 bits wide, so a sequential fetch always advances the address by 4 bytes. Name that length choice. The correct outcome is every instruction has the same width.",
+        "answer": true,
+        "explanation": "A constant 32-bit size means the instruction length is fixed."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When five instructions occupy fetch, decode, execute, memory, and write-back at the same time. Name that organization, the correct result is a device moving a disk block.",
+        "answer": false,
+        "explanation": "Overlapping the stages of several instructions is pipelining."
+      },
+      {
+        "statement": "When a data access and an instruction fetch both need the single memory port in the same cycle. Name that conflict, the correct result is a result is not written yet.",
+        "answer": false,
+        "explanation": "Needing the same hardware resource in one cycle is a structural hazard."
+      },
+      {
+        "statement": "The next instruction reads a register that an earlier ADD has not yet written back. Name that dependence. The correct outcome is a needed result is not ready.",
+        "answer": true,
+        "explanation": "Needing a value that an earlier instruction has not written is a data hazard."
+      },
+      {
+        "statement": "Fetch cannot choose the next instruction until a conditional branch decides taken or not taken. Name that delay. The correct outcome is the next address depends on a branch.",
+        "answer": true,
+        "explanation": "Uncertainty about the next instruction address after a branch is a control hazard."
+      },
+      {
+        "statement": "When an ALU result is sent straight to the next instruction's ALU input before the register file is written. Name that bypass, the correct result is freeze until the register write.",
+        "answer": false,
+        "explanation": "Sending a result to a dependent instruction before write-back is forwarding."
+      },
+      {
+        "statement": "When the pipeline inserts a bubble so a value can be produced before the next instruction uses it. Name that delay, the correct result is a guessed branch direction.",
+        "answer": false,
+        "explanation": "Inserting a bubble and freezing progress until the hazard clears is a stall."
+      },
+      {
+        "statement": "The processor guesses that a loop branch will be taken and keeps fetching the loop body. Name that technique. The correct outcome is guessing the branch outcome.",
+        "answer": true,
+        "explanation": "Guessing a branch outcome so fetch can continue is branch prediction."
+      },
+      {
+        "statement": "Registers, cache, main memory, and disk are ordered from fastest and smallest to slower and larger. Name that arrangement. The correct outcome is faster smaller stores above slower larger ones.",
+        "answer": true,
+        "explanation": "Ordering stores by speed and size is the memory hierarchy."
+      },
+      {
+        "statement": "When a 32 KB store beside the CPU keeps copies of recent main-memory blocks from a loop. Name that store, the correct result is the programmer-visible register array.",
+        "answer": false,
+        "explanation": "A small fast copy of recent main-memory blocks is a cache."
+      },
+      {
+        "statement": "The CPU finds the needed block already in the cache and does not access DRAM. Name that outcome. The correct outcome is the block is already present.",
+        "answer": true,
+        "explanation": "Finding the block already in the cache is a hit."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When the needed block is absent from the cache, so a line is filled from DRAM. Name that outcome, the correct result is the block is already present.",
+        "answer": false,
+        "explanation": "Failing to find the block in the cache is a miss."
+      },
+      {
+        "statement": "When a loop counter is read again a few instructions after it was last used. Which locality is that, the correct result is writes visible in program order.",
+        "answer": false,
+        "explanation": "Using the same item again soon is temporal locality."
+      },
+      {
+        "statement": "When after reading address 1000, the program soon reads address 1004. The locality is that, the correct result is use of a nearby address.",
+        "answer": true,
+        "explanation": "Using an address near a recent access is spatial locality."
+      },
+      {
+        "statement": "Each memory block is allowed in only one cache line, chosen by the index bits. Name that mapping. The correct outcome is exactly one candidate line.",
+        "answer": true,
+        "explanation": "Mapping each block to exactly one line is direct mapping."
+      },
+      {
+        "statement": "When a block may occupy any of four lines that share one index. Name that mapping, the correct result is any line in the entire cache.",
+        "answer": false,
+        "explanation": "Allowing a block to occupy any way of one set is set-associative mapping."
+      },
+      {
+        "statement": "When every store updates the cache line and main memory at the same time. Name that write policy, the correct result is discard stores.",
+        "answer": false,
+        "explanation": "Writing both the cache and the next level on every store is write-through."
+      },
+      {
+        "statement": "A store updates only the cache line and marks it dirty, and memory is updated when the line is replaced. Name that policy. The correct outcome is update memory when a dirty line is evicted.",
+        "answer": true,
+        "explanation": "Delaying the memory update until a dirty line is evicted is write-back."
+      },
+      {
+        "statement": "Two processes both use address 0x4000, yet those addresses map to different physical frames. Name that memory system. The correct outcome is private addresses translated to physical memory.",
+        "answer": true,
+        "explanation": "Translating each process's addresses to physical frames is virtual memory."
+      },
+      {
+        "statement": "When virtual page 12 is recorded as residing in physical frame 90. Which structure stores that mapping, the correct result is the register file.",
+        "answer": false,
+        "explanation": "The structure that maps virtual pages to physical frames is the page table."
+      },
+      {
+        "statement": "A recent page mapping is found in a small on-chip cache, so no full page-table walk occurs. Name that cache. The correct outcome is a cache of recent translations.",
+        "answer": true,
+        "explanation": "A small cache of recent page translations is a translation lookaside buffer."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When control signals come from a fixed state machine of gates, not from a control ROM. Name that control style, the correct result is a result-bypass network.",
+        "answer": false,
+        "explanation": "Generating control signals with fixed logic is hardwired control."
+      },
+      {
+        "statement": "When a machine instruction starts a sequence of control words stored in a control ROM. Name that control style, the correct result is a device controller on the bus.",
+        "answer": false,
+        "explanation": "Stepping through microinstructions in a control memory is microprogrammed control."
+      },
+      {
+        "statement": "Every instruction, including a slow load, finishes in one clock cycle whose period fits that slowest instruction. Name that implementation. The correct outcome is one long cycle per instruction.",
+        "answer": true,
+        "explanation": "Completing every instruction in one clock cycle is a single-cycle datapath."
+      },
+      {
+        "statement": "A store uses four short clock cycles and a branch uses three, reusing one ALU in different cycles. Name that implementation. The correct outcome is several shorter cycles per instruction.",
+        "answer": true,
+        "explanation": "Splitting instructions into several shorter cycles is a multi-cycle datapath."
+      },
+      {
+        "statement": "When a disk controller asserts a line that makes the CPU save its place and run a handler. Name that event, the correct result is a trap from an illegal opcode.",
+        "answer": false,
+        "explanation": "An external device signal that invokes a handler is an interrupt."
+      },
+      {
+        "statement": "When a disk controller writes a 4 KB block into memory while the CPU runs other instructions. Name that transfer method, the correct result is the CPU loads or stores every word.",
+        "answer": false,
+        "explanation": "A controller transferring a block without the CPU moving each word is direct memory access."
+      },
+      {
+        "statement": "When on a little-endian machine, The byte of a multi-byte integer is stored at the lowest address, the correct result is the least significant byte.",
+        "answer": true,
+        "explanation": "Little-endian order places the least significant byte at the lowest address."
+      },
+      {
+        "statement": "When a load into a register is immediately followed by an add that reads that register. In a classic five-stage pipeline with forwarding, In this case still required, the correct result is one stall.",
+        "answer": true,
+        "explanation": "Forwarding cannot hide a load whose result is needed by the very next instruction, so one stall remains."
+      },
+      {
+        "statement": "When instruction fetch uses one memory bus while a data load uses a different memory bus in the same cycle. Name that organization, the correct result is one shared memory and bus.",
+        "answer": false,
+        "explanation": "Separate memories and buses for instructions and data form a Harvard organization."
+      },
+      {
+        "statement": "Address lines, data lines, and read/write controls link the CPU, memory, and devices. Name that shared pathway. The correct outcome is shared address, data, and control lines.",
+        "answer": true,
+        "explanation": "The shared address, data, and control pathway among CPU, memory, and devices is the system bus."
+      }
+    ]
+  }
+}

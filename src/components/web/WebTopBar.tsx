@@ -1,4 +1,4 @@
-import { router, usePathname } from 'expo-router';
+import { router, useGlobalSearchParams, usePathname } from 'expo-router';
 import { useContext, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/ui/Avatar';
@@ -9,14 +9,16 @@ import { AuthContext } from '@/providers/AuthProvider';
 import { colors, spacing } from '@/theme';
 import { desktop } from '@/theme/desktop';
 
-function titleFor(pathname: string): string {
-  if (pathname.includes('/quiz/questions')) return 'Quiz';
-  if (pathname.includes('/quiz/result')) return 'Quiz result';
-  if (pathname.includes('/quiz/history')) return 'Quiz history';
-  if (pathname.includes('/quiz/levels')) return 'Choose level';
-  if (pathname.includes('/quiz/subjects')) return 'Subjects';
-  if (pathname.includes('/quiz/fields')) return 'Choose a field';
-  if (pathname.includes('/quiz')) return 'Quiz';
+function titleFor(pathname: string, type?: string): string {
+  const label = type === 'trueFalse' ? 'Quiz' : 'Multiple choice';
+  if (pathname.includes('/true-false')) return 'Quiz';
+  if (pathname.includes('/quiz/questions')) return label;
+  if (pathname.includes('/quiz/result')) return 'Result';
+  if (pathname.includes('/quiz/history')) return 'Attempt history';
+  if (pathname.includes('/quiz/levels')) return `${label} · Choose level`;
+  if (pathname.includes('/quiz/subjects')) return `${label} · Subjects`;
+  if (pathname.includes('/quiz/fields')) return `${label} · Choose a field`;
+  if (pathname.includes('/quiz')) return 'Multiple choice';
   if (pathname.includes('/tasks/create')) return 'Add task';
   if (pathname.includes('/tasks/edit')) return 'Edit task';
   if (pathname.includes('/tasks/')) return 'Task details';
@@ -28,11 +30,12 @@ function titleFor(pathname: string): string {
 
 export function WebTopBar({ title }: { title?: string }) {
   const pathname = usePathname();
+  const { type } = useGlobalSearchParams<{ type?: string }>();
   const auth = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const displayName = auth?.profile?.displayName ?? auth?.user?.displayName ?? '';
   const email = auth?.profile?.email ?? auth?.user?.email ?? '';
-  const heading = title ?? titleFor(pathname);
+  const heading = title ?? titleFor(pathname, type);
   const firstName = displayName.trim().split(/\s+/)[0] || 'Student';
 
   return (

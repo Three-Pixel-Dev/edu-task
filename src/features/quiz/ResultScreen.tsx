@@ -11,6 +11,7 @@ import {
   Icon,
   InlineAlert,
   LoadingState,
+  QuizTypeBadge,
   ScoreRing,
   Screen,
   ScreenHeader,
@@ -18,6 +19,7 @@ import {
   StatGroup,
   StatTile,
 } from '@/components';
+import { QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
 import { useAsync, useProfile, useQuizHistory, useUid } from '@/hooks';
 import { getQuizResult } from '@/services/quizResults';
@@ -35,8 +37,7 @@ export function ResultScreen() {
   // Opened from a link or before the listener has caught up → read it directly.
   const fetched = useAsync(() => (fromListener ? Promise.resolve(fromListener) : getQuizResult(uid, resultId)), [resultId, Boolean(fromListener)]);
   const result = fromListener ?? fetched.data;
-
-  const backToQuiz = () => router.dismissTo(routes.quizTab);
+  const backToQuiz = () => router.dismissTo(routes.quizTypeTab(result?.quizType));
 
   if (!result) {
     return (
@@ -69,15 +70,15 @@ function ResultView({ result, timeUp, onBack }: { result: QuizResult; timeUp: bo
             leftIcon="rotate-ccw"
             fullWidth={false}
             style={styles.flex}
-            onPress={() => router.replace(routes.quizQuestions(result.subjectId, result.level, true))}
+            onPress={() => router.replace(routes.quizQuestions(result.subjectId, result.level, true, result.quizType))}
           />
-          <Button title="Back to Quiz" fullWidth={false} style={styles.flex} onPress={onBack} />
+          <Button title="Done" accessibilityLabel={`Back to ${QUIZ_TYPES[result.quizType].label}`} fullWidth={false} style={styles.flex} onPress={onBack} />
         </View>
       }
     >
       <View style={styles.hero}>
         <AppText variant="title" align="center" accessibilityRole="header">
-          Quiz completed 🎉
+          {`${QUIZ_TYPES[result.quizType].label} completed 🎉`}
         </AppText>
         <ScoreRing score={result.correctAnswers} total={result.totalQuestions} />
         <View style={styles.message}>
@@ -104,7 +105,10 @@ function ResultView({ result, timeUp, onBack }: { result: QuizResult; timeUp: bo
             <AppText variant="bodyStrong">{result.subjectName}</AppText>
             {result.subjectCode ? <CodeChip code={result.subjectCode} /> : null}
           </View>
-          <Badge label={`Level ${result.level}`} tone="primary" />
+          <View style={styles.badges}>
+            <QuizTypeBadge type={result.quizType} withIcon={false} />
+            <Badge label={`Level ${result.level}`} tone="primary" />
+          </View>
         </View>
         <View style={styles.detailsRow}>
           <Detail icon="percent" label="Score" value={`${result.score} / ${result.totalQuestions} · ${result.percentage}%`} />
@@ -149,7 +153,7 @@ function ResultView({ result, timeUp, onBack }: { result: QuizResult; timeUp: bo
         </View>
       ) : null}
 
-      <Pressable accessibilityRole="button" onPress={() => router.dismissTo(routes.quizLevels(result.subjectId))} style={styles.levelsLink}>
+      <Pressable accessibilityRole="button" onPress={() => router.dismissTo(routes.quizLevels(result.subjectId, result.quizType))} style={styles.levelsLink}>
         <AppText variant="label" color="primaryDark">
           Choose another level
         </AppText>
@@ -175,6 +179,7 @@ function Detail({ icon, label, value }: { icon: 'clock' | 'calendar' | 'percent'
 const styles = StyleSheet.create({
   flex: { flex: 1, gap: spacing.xs },
   footer: { flexDirection: 'row', gap: spacing.md },
+  badges: { alignItems: 'flex-end', gap: spacing.xs },
   hero: { alignItems: 'center', gap: spacing.lg, paddingTop: spacing.sm },
   message: { gap: spacing.xs, maxWidth: 340 },
   details: { gap: spacing.lg },

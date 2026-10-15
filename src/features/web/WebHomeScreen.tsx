@@ -11,6 +11,7 @@ import {
   Screen,
   Skeleton,
 } from '@/components';
+import { QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
 import {
   useActiveSession,
@@ -40,6 +41,8 @@ export function WebHomeScreen() {
   const { displayName } = useProfile();
   const quiz = useQuizHistory();
   const quizStats = useQuizStats();
+  const mcStats = useQuizStats('multipleChoice');
+  const tfStats = useQuizStats('trueFalse');
   const active = useActiveSession();
   const recentSubjects = useRecentSubjects(3);
   const tasks = useTasks();
@@ -64,7 +67,7 @@ export function WebHomeScreen() {
         ) : active ? (
           <Card tone="brand" style={styles.continueCard}>
             <View style={styles.continueTop}>
-              <AppText variant="overline" color="onPrimaryMuted">Continue quiz</AppText>
+              <AppText variant="overline" color="onPrimaryMuted">{`Continue · ${QUIZ_TYPES[active.quizType].label}`}</AppText>
               <View style={styles.levelPill}>
                 <AppText variant="captionStrong" color="onPrimary">{`Level ${active.level}`}</AppText>
               </View>
@@ -85,19 +88,19 @@ export function WebHomeScreen() {
                 <ProgressBar value={(active.currentIndex + 1) / 10} height={8} color={colors.onPrimary} trackColor={colors.onPrimaryTrack} />
               </View>
               <Button
-                title="Continue quiz"
+                title="Continue"
                 variant="inverse"
                 rightIcon="arrow-right"
                 fullWidth={false}
-                onPress={() => router.push(routes.quizQuestions(active.subjectId, active.level))}
+                onPress={() => router.push(routes.quizQuestions(active.subjectId, active.level, false, active.quizType))}
               />
             </View>
           </Card>
         ) : (
           <Card tone="brand" style={styles.continueCard}>
             <AppText variant="overline" color="onPrimaryMuted">Start learning</AppText>
-            <AppText style={styles.continueTitle} color="onPrimary">Pick a field and take a 10-question quiz.</AppText>
-            <Button title="Browse subjects" variant="inverse" rightIcon="arrow-right" fullWidth={false} onPress={() => router.push(routes.quizFields)} />
+            <AppText style={styles.continueTitle} color="onPrimary">Pick a subject and practise with 10 questions.</AppText>
+            <Button title="Browse subjects" variant="inverse" rightIcon="arrow-right" fullWidth={false} onPress={() => router.push(routes.quizFields())} />
           </Card>
         )}
 
@@ -107,7 +110,9 @@ export function WebHomeScreen() {
             <SummaryTile label="Tasks due today" value={counts.dueToday} dot={colors.warning} onPress={() => router.navigate(routes.tasksTab)} />
             <SummaryTile label="Upcoming tasks" value={counts.upcoming} dot={colors.primary} onPress={() => router.navigate(routes.tasksTab)} />
             <SummaryTile label="Completed tasks" value={counts.completed} dot={colors.success} onPress={() => router.navigate(routes.tasksTab)} />
-            <SummaryTile label="Quiz attempts" value={quizStats.attempts} dot={colors.accent} onPress={() => router.navigate(routes.quizTab)} />
+            <SummaryTile label="Multiple choice attempts" value={mcStats.attempts} dot={colors.primary} onPress={() => router.navigate(routes.quizTab)} />
+            <SummaryTile label="Quiz attempts" value={tfStats.attempts} dot={colors.accent} onPress={() => router.navigate(routes.trueFalseTab)} />
+            <SummaryTile label="Average score %" value={quizStats.average} dot={colors.success} onPress={() => router.push(routes.quizHistory)} />
           </View>
         </View>
       </View>
@@ -116,7 +121,7 @@ export function WebHomeScreen() {
         <Card padded={false} style={styles.listPanel}>
           <View style={styles.panelHeader}>
             <AppText style={styles.sectionHeading}>Recent subjects</AppText>
-            <Pressable onPress={() => router.push(routes.quizFields)} style={styles.panelLink}>
+            <Pressable onPress={() => router.push(routes.quizFields())} style={styles.panelLink}>
               <AppText variant="label" color="primaryDark">Browse subjects</AppText>
             </Pressable>
           </View>
@@ -125,16 +130,16 @@ export function WebHomeScreen() {
           ) : recentSubjects.length ? (
             recentSubjects.map((subject) => (
               <Card
-                key={subject.subjectId}
+                key={`${subject.quizType}:${subject.subjectId}`}
                 padded={false}
-                onPress={() => router.push(routes.quizLevels(subject.subjectId))}
+                onPress={() => router.push(routes.quizLevels(subject.subjectId, subject.quizType))}
                 style={[styles.subjectRow, styles.rowBorder]}
               >
                 <View style={styles.rowText}>
                   <AppText variant="bodyStrong" numberOfLines={1}>{subject.subjectName}</AppText>
                   <View style={styles.subjectMeta}>
                     <CodeChip code={subject.subjectCode} />
-                    <AppText variant="caption" color="textSecondary">{`Level ${subject.level} of 15`}</AppText>
+                    <AppText variant="caption" color="textSecondary">{`${QUIZ_TYPES[subject.quizType].label} · Level ${subject.level} of 15`}</AppText>
                   </View>
                 </View>
                 <View style={styles.subjectProgress}><ProgressBar value={subject.progress} height={6} /></View>
@@ -227,7 +232,7 @@ const styles = StyleSheet.create({
   summary: { flex: 1, minWidth: 0, gap: spacing.md },
   sectionHeading: { fontFamily: fonts.semibold, fontSize: 18, lineHeight: 24 },
   summaryGrid: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md },
-  summaryTile: { width: '47%', flexGrow: 1, minWidth: 150, borderWidth: 1, borderColor: colors.border, borderRadius: radius.xl, backgroundColor: colors.card, padding: spacing.lg, gap: 10 },
+  summaryTile: { width: '30%', flexGrow: 1, minWidth: 150, borderWidth: 1, borderColor: colors.border, borderRadius: radius.xl, backgroundColor: colors.card, padding: spacing.lg, gap: 10 },
   pressed: { opacity: 0.75 },
   summaryLabel: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   summaryDot: { width: 8, height: 8, borderRadius: 4 },

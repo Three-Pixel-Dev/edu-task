@@ -1,0 +1,785 @@
+{
+  "subjectId": "wireless-mobile-communication",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Path loss is reduction in received radio power as the transmitter and receiver move farther apart.",
+        "answer": true,
+        "explanation": "Radiated energy spreads and is absorbed, so less power arrives as range increases."
+      },
+      {
+        "statement": "A Free-space path loss is loss inserted by a channel code before modulation.",
+        "answer": false,
+        "explanation": "In free space the same energy is spread over a larger sphere as range grows."
+      },
+      {
+        "statement": "A Multipath propagation is travel of one transmitted signal along several reflected, diffracted, or scattered paths.",
+        "answer": true,
+        "explanation": "Buildings and the ground create copies that arrive at different times."
+      },
+      {
+        "statement": "A Fading is dNS caching.",
+        "answer": false,
+        "explanation": "Multipath copies add and cancel, and obstacles change, so amplitude is not steady."
+      },
+      {
+        "statement": "A Rayleigh fading is small-scale fading when many scattered paths arrive and no line-of-sight path dominates.",
+        "answer": true,
+        "explanation": "With no dominant path the quadrature components are roughly Gaussian, so the envelope is Rayleigh."
+      },
+      {
+        "statement": "A Rician fading is frequency reuse.",
+        "answer": false,
+        "explanation": "The steady direct component changes the envelope from Rayleigh to Rician."
+      },
+      {
+        "statement": "A Shadowing is slow change in local-mean received power caused by large obstacles blocking the path.",
+        "answer": true,
+        "explanation": "Hills and buildings attenuate the whole signal for many metres, unlike fast multipath ripple."
+      },
+      {
+        "statement": "A Doppler shift is a phase code applied by the modulator on purpose.",
+        "answer": false,
+        "explanation": "Motion changes how fast wave crests arrive, so the received frequency moves."
+      },
+      {
+        "statement": "A Coherence time is the time interval over which the channel impulse response stays approximately constant.",
+        "answer": true,
+        "explanation": "Motion changes multipath phases at a rate set by Doppler spread, which fixes this interval."
+      },
+      {
+        "statement": "A Coherence bandwidth is coherence time.",
+        "answer": false,
+        "explanation": "Large delay spread makes frequencies fade differently, so this range becomes narrower."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Delay spread is the time span between the earliest and latest significant copies of a multipath signal.",
+        "answer": true,
+        "explanation": "Different path lengths make copies of the same symbol arrive spread out in time."
+      },
+      {
+        "statement": "A Flat fading is adjacent-channel fading.",
+        "answer": false,
+        "explanation": "This occurs when the signal bandwidth is much smaller than the coherence bandwidth."
+      },
+      {
+        "statement": "A Frequency-selective fading is fading in which different frequencies inside the signal bandwidth experience different gains.",
+        "answer": true,
+        "explanation": "A large delay spread makes the frequency response vary and can cause inter-symbol interference."
+      },
+      {
+        "statement": "A Fast fading is a shadow that changes only when the user turns a corner.",
+        "answer": false,
+        "explanation": "The coherence time is then shorter than the symbol duration."
+      },
+      {
+        "statement": "A Slow fading is fading that stays nearly constant over many successive symbols.",
+        "answer": true,
+        "explanation": "The coherence time is then much longer than the symbol duration, so one estimate covers a burst."
+      },
+      {
+        "statement": "A Cell is location area.",
+        "answer": false,
+        "explanation": "Users in that area are served by that site, which is the basic unit of a cellular plan."
+      },
+      {
+        "statement": "A Frequency reuse is assigning the same carrier frequencies again in cells that are far enough apart.",
+        "answer": true,
+        "explanation": "Distance lowers co-channel interference, so a limited band can serve many cells."
+      },
+      {
+        "statement": "A Cluster size is 12.",
+        "answer": false,
+        "explanation": "A larger cluster separates co-channel cells more, trading capacity per cell for less interference."
+      },
+      {
+        "statement": "A Co-channel interference is interference from other transmitters that operate on the same carrier frequency.",
+        "answer": true,
+        "explanation": "Reuse places the same channel in other cells, and those signals enter the victim receiver."
+      },
+      {
+        "statement": "An Adjacent-channel interference is a fade caused only by two multipath copies cancelling.",
+        "answer": false,
+        "explanation": "Imperfect filters and transmitter masks let nearby frequencies spill into the wanted channel."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Handover is transfer of an ongoing mobile connection from one base station to another.",
+        "answer": true,
+        "explanation": "As the user moves, the radio link must follow the cell with the better signal."
+      },
+      {
+        "statement": "A Hard handover is soft handover.",
+        "answer": false,
+        "explanation": "The mobile cannot hold both channels at once, so there is a short break-before-make gap."
+      },
+      {
+        "statement": "A Soft handover is a cell change during which the mobile keeps radio links to more than one base station.",
+        "answer": true,
+        "explanation": "CDMA can combine the same signal from several sites before one link is dropped."
+      },
+      {
+        "statement": "A Handover hysteresis is speech-coding rate.",
+        "answer": false,
+        "explanation": "The margin stops switching when two cell signals are nearly equal and fluctuating."
+      },
+      {
+        "statement": "A Ping-pong handover is rapid repeated handovers of the same connection back and forth between two cells.",
+        "answer": true,
+        "explanation": "Signal fluctuation around a tight threshold reverses the handover decision again and again."
+      },
+      {
+        "statement": "A Location update is a network broadcast searching for one idle phone.",
+        "answer": false,
+        "explanation": "The network stores that area so it later knows where to page the mobile."
+      },
+      {
+        "statement": "A Paging is a network broadcast that asks one specific idle mobile to respond to an incoming session.",
+        "answer": true,
+        "explanation": "The network often knows only the location area, so it calls the mobile across that area."
+      },
+      {
+        "statement": "A GSM is lTE.",
+        "answer": false,
+        "explanation": "GSM carries digital voice in eight time slots on each 200 kHz GMSK carrier."
+      },
+      {
+        "statement": "A TDMA is sharing one carrier by giving each user a distinct repeating time slot.",
+        "answer": true,
+        "explanation": "Users transmit in turn, so they are separated in time on the same frequency."
+      },
+      {
+        "statement": "A FDMA is aLOHA.",
+        "answer": false,
+        "explanation": "Filters and guard bands keep users apart because they occupy different frequencies together."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A CDMA is sharing time and frequency while separating users with unique spreading codes.",
+        "answer": true,
+        "explanation": "A receiver despreads its own code and treats other users as interference."
+      },
+      {
+        "statement": "An OFDMA is separating users only with spreading codes.",
+        "answer": false,
+        "explanation": "Orthogonal subcarriers can be packed tightly and grouped to follow each user's channel."
+      },
+      {
+        "statement": "A LTE is a fourth-generation cellular system using OFDMA downlink, SC-FDMA uplink, and an all-IP core.",
+        "answer": true,
+        "explanation": "LTE schedules packet data on a shared OFDMA carrier and does not use circuit-switched radio bearers."
+      },
+      {
+        "statement": "A 5G NR is gSM.",
+        "answer": false,
+        "explanation": "NR numerology lets one design serve wide millimetre-wave carriers and short low-latency slots."
+      },
+      {
+        "statement": "A Small cell is a low-power base station that covers a short range, such as a street, room, or venue.",
+        "answer": true,
+        "explanation": "Short range lets spectrum be reused densely and fills gaps a macro site covers poorly."
+      },
+      {
+        "statement": "A MIMO is time duplexing alone.",
+        "answer": false,
+        "explanation": "Scattering makes the spatial paths different enough for the receiver to separate the streams."
+      },
+      {
+        "statement": "A Beamforming is weighting an antenna array so more radiated energy is aimed toward a chosen user.",
+        "answer": true,
+        "explanation": "Phase weights make the waves add toward the user and partly cancel elsewhere."
+      },
+      {
+        "statement": "A Massive MIMO is two antennas used only to pick the stronger branch.",
+        "answer": false,
+        "explanation": "Dozens or hundreds of antennas form tight beams and separate users in space."
+      },
+      {
+        "statement": "A Wi-Fi is the IEEE 802.11 family of wireless local-area networks, usually operated in unlicensed bands.",
+        "answer": true,
+        "explanation": "802.11 defines wireless LAN frames, contention access, and bands such as 2.4 and 5 GHz."
+      },
+      {
+        "statement": "A CSMA/CA is cSMA/CD.",
+        "answer": false,
+        "explanation": "A wireless sender cannot reliably hear a collision while it transmits, so it tries to avoid one."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Hidden node is a station that cannot hear another sender even though both can collide at the same receiver.",
+        "answer": true,
+        "explanation": "Distance or an obstacle hides one sender, so carrier sense does not prevent a collision."
+      },
+      {
+        "statement": "A Bluetooth is a geostationary satellite link.",
+        "answer": false,
+        "explanation": "Classic Bluetooth hops among 79 one-megahertz channels to live with other 2.4 GHz users."
+      },
+      {
+        "statement": "A Frequency hopping is changing the carrier many times per second using a sequence known to both ends.",
+        "answer": true,
+        "explanation": "A narrow interferer then damages only some hops, and the link can recover the others."
+      },
+      {
+        "statement": "A QPSK is a square grid that uses several amplitudes as well as phases.",
+        "answer": false,
+        "explanation": "Four phases carry two bits per symbol and can keep a constant envelope."
+      },
+      {
+        "statement": "A QAM is a modulation that encodes bits in both the amplitude and the phase of the carrier.",
+        "answer": true,
+        "explanation": "A rectangular constellation packs several bits into one symbol when the link is strong enough."
+      },
+      {
+        "statement": "A Link adaptation is fixed modulation.",
+        "answer": false,
+        "explanation": "A strong channel can use a denser constellation, while a weak channel needs a tougher mode."
+      },
+      {
+        "statement": "A Spatial diversity is carrying the same information on separated antennas so one fade is unlikely to hit every copy.",
+        "answer": true,
+        "explanation": "Antennas spaced by a fraction of a wavelength see partly independent multipath."
+      },
+      {
+        "statement": "A Sectorisation is single-channel hopping.",
+        "answer": false,
+        "explanation": "Each sector sees a smaller angle of interference and can carry its own channels."
+      },
+      {
+        "statement": "A Mobility management is network functions that track where a mobile is and keep its session as it moves between cells.",
+        "answer": true,
+        "explanation": "It includes idle-area tracking and active handover so reachability and sessions survive motion."
+      },
+      {
+        "statement": "A SINR is the delay between the first and last multipath echoes.",
+        "answer": false,
+        "explanation": "Both interference and noise corrupt symbols, so schedulers and decoders use this ratio."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the time an idle phone waits before it answers a page is called Path loss.",
+        "answer": false,
+        "explanation": "Radiated energy spreads and is absorbed, so less power arrives as range increases."
+      },
+      {
+        "statement": "A clear satellite downlink loses power with both distance and carrier frequency.",
+        "answer": true,
+        "explanation": "In free space the same energy is spread over a larger sphere as range grows."
+      },
+      {
+        "statement": "In standard textbooks, thermal noise is called Multipath propagation.",
+        "answer": false,
+        "explanation": "Buildings and the ground create copies that arrive at different times."
+      },
+      {
+        "statement": "Walking a few metres indoors makes phone signal bars rise and fall although the tower is unchanged.",
+        "answer": true,
+        "explanation": "Multipath copies add and cancel, and obstacles change, so amplitude is not steady."
+      },
+      {
+        "statement": "In standard textbooks, uniform from zero to one is called Rayleigh fading.",
+        "answer": false,
+        "explanation": "With no dominant path the quadrature components are roughly Gaussian, so the envelope is Rayleigh."
+      },
+      {
+        "statement": "A drone that can see a rooftop radio, while still catching wall echoes, experiences Rician fading.",
+        "answer": true,
+        "explanation": "The steady direct component changes the envelope from Rayleigh to Rician."
+      },
+      {
+        "statement": "In standard textbooks, a Doppler shift of the carrier frequency is called Shadowing.",
+        "answer": false,
+        "explanation": "Hills and buildings attenuate the whole signal for many metres, unlike fast multipath ripple."
+      },
+      {
+        "statement": "A handset in a car approaching a tower hears a slightly higher carrier than the one transmitted.",
+        "answer": true,
+        "explanation": "Motion changes how fast wave crests arrive, so the received frequency moves."
+      },
+      {
+        "statement": "In standard textbooks, delay spread is called Coherence time.",
+        "answer": false,
+        "explanation": "Motion changes multipath phases at a rate set by Doppler spread, which fixes this interval."
+      },
+      {
+        "statement": "A channel with tiny delay spread stays correlated across a whole 200 kHz GSM carrier.",
+        "answer": true,
+        "explanation": "Large delay spread makes frequencies fade differently, so this range becomes narrower."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, timing advance is called Delay spread.",
+        "answer": false,
+        "explanation": "Different path lengths make copies of the same symbol arrive spread out in time."
+      },
+      {
+        "statement": "A narrowband paging tone fades up and down as a whole, with no notch inside its spectrum.",
+        "answer": true,
+        "explanation": "This occurs when the signal bandwidth is much smaller than the coherence bandwidth."
+      },
+      {
+        "statement": "In standard textbooks, slow shadowing that is identical at every frequency is called Frequency-selective fading.",
+        "answer": false,
+        "explanation": "A large delay spread makes the frequency response vary and can cause inter-symbol interference."
+      },
+      {
+        "statement": "A very long satellite symbol changes gain before it ends because the terminal is moving quickly.",
+        "answer": true,
+        "explanation": "The coherence time is then shorter than the symbol duration."
+      },
+      {
+        "statement": "In standard textbooks, fast fading is called Slow fading.",
+        "answer": false,
+        "explanation": "The coherence time is then much longer than the symbol duration, so one estimate covers a burst."
+      },
+      {
+        "statement": "A suburban tower planned for about a 2 kilometre radius forms one cell on the operator map.",
+        "answer": true,
+        "explanation": "Users in that area are served by that site, which is the basic unit of a cellular plan."
+      },
+      {
+        "statement": "In standard textbooks, cipher-key refresh is called Frequency reuse.",
+        "answer": false,
+        "explanation": "Distance lowers co-channel interference, so a limited band can serve many cells."
+      },
+      {
+        "statement": "A seven-cell cluster means each channel appears once in every group of seven cells.",
+        "answer": true,
+        "explanation": "A larger cluster separates co-channel cells more, trading capacity per cell for less interference."
+      },
+      {
+        "statement": "In standard textbooks, noise generated inside the receiver's own electronics is called Co-channel interference.",
+        "answer": false,
+        "explanation": "Reuse places the same channel in other cells, and those signals enter the victim receiver."
+      },
+      {
+        "statement": "A strong signal 200 kHz above a GSM carrier raises the floor in the wanted receiver.",
+        "answer": true,
+        "explanation": "Imperfect filters and transmitter masks let nearby frequencies spill into the wanted channel."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, initial attach is called Handover.",
+        "answer": false,
+        "explanation": "As the user moves, the radio link must follow the cell with the better signal."
+      },
+      {
+        "statement": "A GSM phone leaves its old traffic channel and only then uses the new cell's channel.",
+        "answer": true,
+        "explanation": "The mobile cannot hold both channels at once, so there is a short break-before-make gap."
+      },
+      {
+        "statement": "In standard textbooks, location update is called Soft handover.",
+        "answer": false,
+        "explanation": "CDMA can combine the same signal from several sites before one link is dropped."
+      },
+      {
+        "statement": "A neighbour must be at least 3 dB stronger than the serving cell before the call moves.",
+        "answer": true,
+        "explanation": "The margin stops switching when two cell signals are nearly equal and fluctuating."
+      },
+      {
+        "statement": "In standard textbooks, combining two downlinks without releasing either is called Ping-pong handover.",
+        "answer": false,
+        "explanation": "Signal fluctuation around a tight threshold reverses the handover decision again and again."
+      },
+      {
+        "statement": "After a bus crosses a location-area border, the idle phone updates the network and returns to idle.",
+        "answer": true,
+        "explanation": "The network stores that area so it later knows where to page the mobile."
+      },
+      {
+        "statement": "In standard textbooks, handover is called Paging.",
+        "answer": false,
+        "explanation": "The network often knows only the location area, so it calls the mobile across that area."
+      },
+      {
+        "statement": "A classic GSM voice call occupies one of eight slots on a 200 kHz carrier near 900 MHz.",
+        "answer": true,
+        "explanation": "GSM carries digital voice in eight time slots on each 200 kHz GMSK carrier."
+      },
+      {
+        "statement": "In standard textbooks, cSMA/CA is called TDMA.",
+        "answer": false,
+        "explanation": "Users transmit in turn, so they are separated in time on the same frequency."
+      },
+      {
+        "statement": "An older trunked radio gives each active call its own 12.5 kHz channel at the same time.",
+        "answer": true,
+        "explanation": "Filters and guard bands keep users apart because they occupy different frequencies together."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, separating users only by time slot is called CDMA.",
+        "answer": false,
+        "explanation": "A receiver despreads its own code and treats other users as interference."
+      },
+      {
+        "statement": "An LTE downlink gives one phone 12 subcarriers and another phone a different group in the same symbol.",
+        "answer": true,
+        "explanation": "Orthogonal subcarriers can be packed tightly and grouped to follow each user's channel."
+      },
+      {
+        "statement": "In standard textbooks, gSM is called LTE.",
+        "answer": false,
+        "explanation": "LTE schedules packet data on a shared OFDMA carrier and does not use circuit-switched radio bearers."
+      },
+      {
+        "statement": "A stadium radio uses 120 kHz subcarrier spacing and a large array near 28 GHz.",
+        "answer": true,
+        "explanation": "NR numerology lets one design serve wide millimetre-wave carriers and short low-latency slots."
+      },
+      {
+        "statement": "In standard textbooks, satellite gateway is called Small cell.",
+        "answer": false,
+        "explanation": "Short range lets spectrum be reused densely and fills gaps a macro site covers poorly."
+      },
+      {
+        "statement": "A Wi-Fi access point with three antennas sends two spatial streams to a two-antenna laptop.",
+        "answer": true,
+        "explanation": "Scattering makes the spatial paths different enough for the receiver to separate the streams."
+      },
+      {
+        "statement": "In standard textbooks, splitting users by orthogonal codes is called Beamforming.",
+        "answer": false,
+        "explanation": "Phase weights make the waves add toward the user and partly cancel elsewhere."
+      },
+      {
+        "statement": "A campus tower with 64 antennas serves eight phones on the same resource blocks.",
+        "answer": true,
+        "explanation": "Dozens or hundreds of antennas form tight beams and separate users in space."
+      },
+      {
+        "statement": "In standard textbooks, lTE is called Wi-Fi.",
+        "answer": false,
+        "explanation": "802.11 defines wireless LAN frames, contention access, and bands such as 2.4 and 5 GHz."
+      },
+      {
+        "statement": "Two laptops both find the medium idle, then each waits a different random backoff.",
+        "answer": true,
+        "explanation": "A wireless sender cannot reliably hear a collision while it transmits, so it tries to avoid one."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, capture effect is called Hidden node.",
+        "answer": false,
+        "explanation": "Distance or an obstacle hides one sender, so carrier sense does not prevent a collision."
+      },
+      {
+        "statement": "A headset stays linked to a phone across a room on a shared Bluetooth hop sequence.",
+        "answer": true,
+        "explanation": "Classic Bluetooth hops among 79 one-megahertz channels to live with other 2.4 GHz users."
+      },
+      {
+        "statement": "In standard textbooks, keeping one fixed channel for the whole session is called Frequency hopping.",
+        "answer": false,
+        "explanation": "A narrow interferer then damages only some hops, and the link can recover the others."
+      },
+      {
+        "statement": "Successive symbols use the phases 45, 135, 225, and 315 degrees for bit pairs.",
+        "answer": true,
+        "explanation": "Four phases carry two bits per symbol and can keep a constant envelope."
+      },
+      {
+        "statement": "In standard textbooks, bFSK is called QAM.",
+        "answer": false,
+        "explanation": "A rectangular constellation packs several bits into one symbol when the link is strong enough."
+      },
+      {
+        "statement": "As a user walks toward the tower, the scheduler moves the LTE MCS from QPSK toward 64-QAM.",
+        "answer": true,
+        "explanation": "A strong channel can use a denser constellation, while a weak channel needs a tougher mode."
+      },
+      {
+        "statement": "In standard textbooks, sectorisation is called Spatial diversity.",
+        "answer": false,
+        "explanation": "Antennas spaced by a fraction of a wavelength see partly independent multipath."
+      },
+      {
+        "statement": "A tower uses three 120-degree panels, each with its own channel set.",
+        "answer": true,
+        "explanation": "Each sector sees a smaller angle of interference and can carry its own channels."
+      },
+      {
+        "statement": "In standard textbooks, manufacturing the handset antenna is called Mobility management.",
+        "answer": false,
+        "explanation": "It includes idle-area tracking and active handover so reachability and sessions survive motion."
+      },
+      {
+        "statement": "A cell-edge phone whose signal is 10 dB above interference plus noise has a SINR of 10 dB.",
+        "answer": true,
+        "explanation": "Both interference and noise corrupt symbols, so schedulers and decoders use this ratio."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When doubling the range from a tower drops received power by several decibels even on a clear path. Which effect explains that drop, the correct result is ciphering overhead.",
+        "answer": false,
+        "explanation": "Received power falls with distance because the wave spreads, which is path loss."
+      },
+      {
+        "statement": "When a rooftop microwave budget, with a clear line of sight, includes a loss that grows with frequency and distance. Which loss is that, the correct result is adjacent-channel leakage.",
+        "answer": false,
+        "explanation": "With no obstacles, distance and frequency loss is free-space path loss."
+      },
+      {
+        "statement": "When a receiver recording shows three delayed copies of one transmitted pulse. The propagation effect produced those copies, the correct result is multipath propagation.",
+        "answer": true,
+        "explanation": "Distinct delayed copies mean the signal took more than one path."
+      },
+      {
+        "statement": "When a seated laptop holds a steady Wi-Fi rate, but pacing the same room makes the rate swing. The channel effect is the walking user seeing, the correct result is fading.",
+        "answer": true,
+        "explanation": "Small movements change how multipath copies combine, which is fading."
+      },
+      {
+        "statement": "When a campus model assumes no line of sight and many similar scatterers around the handset. Which envelope distribution fits, the correct result is constant amplitude.",
+        "answer": false,
+        "explanation": "Many scattered paths and no dominant path give a Rayleigh envelope."
+      },
+      {
+        "statement": "When a rural link has one strong direct path plus a few ground reflections. Which fading model fits that mix, the correct result is frequency reuse.",
+        "answer": false,
+        "explanation": "A dominant path plus weaker scatterers is the Rician case."
+      },
+      {
+        "statement": "When over hundreds of metres the local mean wobbles as vans and buildings block a street-level user. The large-scale effect is that, the correct result is shadowing.",
+        "answer": true,
+        "explanation": "Obstacle blockage of the local mean is shadowing, often modelled as log-normal."
+      },
+      {
+        "statement": "When a high-speed train receiver sees the downlink carrier move by several hundred hertz. The motion effect is that, the correct result is doppler shift.",
+        "answer": true,
+        "explanation": "Relative speed changes the received frequency, which is Doppler shift."
+      },
+      {
+        "statement": "When a designer needs how long one channel estimate remains usable for a moving user. Which quantity is that interval, the correct result is beacon interval.",
+        "answer": false,
+        "explanation": "The time the channel stays steady is the coherence time."
+      },
+      {
+        "statement": "When engineers compare the signal bandwidth with the band where the gain stays similar. The channel measure is that band, the correct result is coherence bandwidth.",
+        "answer": true,
+        "explanation": "Correlation of fading across frequency is the coherence bandwidth."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When sounding shows the first echo at 0.2 microseconds and the last strong echo at 4 microseconds. Which quantity is about 3.8 microseconds, the correct result is hop dwell.",
+        "answer": false,
+        "explanation": "The span from the first to the last significant echo is the delay spread."
+      },
+      {
+        "statement": "When a 25 kHz signal has a coherence bandwidth of several hundred kilohertz. Which fading type should the link assume, the correct result is adjacent-channel fading.",
+        "answer": false,
+        "explanation": "A signal narrower than the coherence bandwidth sees flat fading."
+      },
+      {
+        "statement": "When a wideband waveform sees a notch that removes only part of its spectrum. The fading type is that, the correct result is frequency-selective fading.",
+        "answer": true,
+        "explanation": "A notch across only part of the band is frequency-selective fading."
+      },
+      {
+        "statement": "When the coherence time is shorter than the symbol period, so one symbol sees a changing gain. The fading speed is that, the correct result is fast fading.",
+        "answer": true,
+        "explanation": "A channel that varies inside a symbol is fast fading."
+      },
+      {
+        "statement": "When estimates taken once per subframe stay valid for dozens of symbols at pedestrian speed. Which fading speed is that, the correct result is impulsive noise.",
+        "answer": false,
+        "explanation": "A gain that holds over many symbols is slow fading."
+      },
+      {
+        "statement": "When planners draw a hexagon around one tower to show the area that tower is meant to serve. Which planning unit is the hexagon, the correct result is location area.",
+        "answer": false,
+        "explanation": "The area served by one base-station site is a cell."
+      },
+      {
+        "statement": "When an operator has only 60 voice channels but hundreds of cells. The planning method lets distant cells share those channels, the correct result is frequency reuse.",
+        "answer": true,
+        "explanation": "Sharing carriers among distant cells is frequency reuse."
+      },
+      {
+        "statement": "When hexagonal planning uses shift parameters i=2 and j=1. How many cells are in one cluster, the correct result is 7.",
+        "answer": true,
+        "explanation": "Cluster size is i squared plus i times j plus j squared, which equals 7."
+      },
+      {
+        "statement": "When two distant cells both use 935.2 MHz, and each phone hears the other cell. Which interference is that, the correct result is adjacent-channel interference.",
+        "answer": false,
+        "explanation": "The same carrier used in another cell produces co-channel interference."
+      },
+      {
+        "statement": "When a handset tuned to carrier f is disturbed by a nearby tower on the next 200 kHz carrier. The interference is that, the correct result is adjacent-channel interference.",
+        "answer": true,
+        "explanation": "Leakage from the next carrier is adjacent-channel interference."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When during a live call the serving signal falls and a neighbour becomes stronger, so the network moves the radio link. Which procedure is that, the correct result is location update.",
+        "answer": false,
+        "explanation": "Moving an active connection between cells is a handover."
+      },
+      {
+        "statement": "When a GSM call drops the old traffic channel and only afterwards uses the new cell. Which handover style is that, the correct result is soft handover.",
+        "answer": false,
+        "explanation": "Releasing the old link before the new one is hard handover."
+      },
+      {
+        "statement": "When a CDMA phone stays in the active set of two base stations and combines both downlinks. The handover style is that, the correct result is soft handover.",
+        "answer": true,
+        "explanation": "Holding links to two base stations at once is soft handover."
+      },
+      {
+        "statement": "When two cells differ by only 1 dB and the required margin is 3 dB, so the call stays. The parameter is blocking the move, the correct result is handover hysteresis.",
+        "answer": true,
+        "explanation": "The extra margin that must be cleared is handover hysteresis."
+      },
+      {
+        "statement": "When a stationary user on a boundary is switched between two cells every few seconds. Which handover fault is that, the correct result is stable soft handover.",
+        "answer": false,
+        "explanation": "Oscillating between two cells is ping-pong handover."
+      },
+      {
+        "statement": "When an idle phone enters a new location area and must tell the network before the next incoming call. Which message does it send, the correct result is paging response.",
+        "answer": false,
+        "explanation": "Idle mobiles report a new location area with a location update."
+      },
+      {
+        "statement": "When an idle subscriber is called, and base stations in the stored area broadcast a request for that handset. The procedure is the broadcast, the correct result is paging.",
+        "answer": true,
+        "explanation": "Searching an area for an idle mobile is paging."
+      },
+      {
+        "statement": "When a legacy network puts eight users in successive slots on one 200 kHz GMSK carrier. The cellular standard is that, the correct result is gSM.",
+        "answer": true,
+        "explanation": "Eight-slot TDMA and GMSK on 200 kHz carriers identify GSM."
+      },
+      {
+        "statement": "When four users share one frequency, each sending only in its own repeating slot. Which multiple-access method is that, the correct result is cDMA.",
+        "answer": false,
+        "explanation": "Separation by time slots on one carrier is TDMA."
+      },
+      {
+        "statement": "When three calls run at once on 825, 825.03, and 825.06 MHz with no time sharing. The access method is that, the correct result is fDMA.",
+        "answer": true,
+        "explanation": "Distinct frequencies used at the same time are FDMA."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When several users occupy the same 5 MHz block at the same time and are separated only by codes. Which access method is that, the correct result is fDMA.",
+        "answer": false,
+        "explanation": "Code separation on a shared carrier is CDMA."
+      },
+      {
+        "statement": "When a scheduler gives user A subcarriers 0-11 and user B subcarriers 24-35 in the same symbol. Which access method is that, the correct result is cDMA.",
+        "answer": false,
+        "explanation": "Assigning groups of orthogonal subcarriers is OFDMA."
+      },
+      {
+        "statement": "When a 4G air interface uses OFDMA toward the phone, SC-FDMA from the phone, and an all-IP core. The system is that, the correct result is lTE.",
+        "answer": true,
+        "explanation": "OFDMA downlink, SC-FDMA uplink, and an all-IP core identify LTE."
+      },
+      {
+        "statement": "When a new air interface can select 15, 30, or 120 kHz subcarrier spacing and large antenna arrays. The standard is that, the correct result is 5G NR.",
+        "answer": true,
+        "explanation": "Scalable subcarrier spacing is a defining feature of 5G NR."
+      },
+      {
+        "statement": "When an operator adds a low-power node for one railway platform and keeps the macro tower. Which site type is the new node, the correct result is core router.",
+        "answer": false,
+        "explanation": "A low-power, short-range base station is a small cell."
+      },
+      {
+        "statement": "When a link uses four transmit and four receive antennas to carry four independent streams on one carrier. Which technique is that, the correct result is time duplexing alone.",
+        "answer": false,
+        "explanation": "Multiple independent spatial streams are MIMO."
+      },
+      {
+        "statement": "When an array applies phase shifts so the downlink adds up at one handset and is weaker elsewhere. The technique is that, the correct result is beamforming.",
+        "answer": true,
+        "explanation": "Steering array energy toward one user is beamforming."
+      },
+      {
+        "statement": "When a site uses 64 antennas to beamform many phones at once on the same subcarriers. The architecture is that, the correct result is massive MIMO.",
+        "answer": true,
+        "explanation": "A very large array serving many co-channel users is massive MIMO."
+      },
+      {
+        "statement": "When students connect laptops to an IEEE 802.11 access point in the unlicensed 5 GHz band. Which technology is that, the correct result is 5G NR.",
+        "answer": false,
+        "explanation": "An IEEE 802.11 wireless LAN is Wi-Fi."
+      },
+      {
+        "statement": "When a station senses the medium and, if it is idle, still waits a random number of slots before a data frame. The method is that, the correct result is cSMA/CA.",
+        "answer": true,
+        "explanation": "Listen-before-talk with random backoff is CSMA/CA."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When station A cannot hear station B, yet their frames collide at the access point between them. Which problem is that, the correct result is near-far effect.",
+        "answer": false,
+        "explanation": "Mutually hidden senders colliding at the receiver are a hidden node."
+      },
+      {
+        "statement": "When a headset and a phone keep a short-range 2.4 GHz link that hops across dozens of channels. Which technology fits, the correct result is a geostationary satellite link.",
+        "answer": false,
+        "explanation": "A short-range frequency-hopping personal link is Bluetooth."
+      },
+      {
+        "statement": "When a link changes carrier 1600 times per second using a sequence the receiver already knows. The method is that, the correct result is frequency hopping.",
+        "answer": true,
+        "explanation": "A shared rapid sequence of carriers is frequency hopping."
+      },
+      {
+        "statement": "When a constellation has four points on a circle, each representing a different two-bit pair. The modulation is that, the correct result is qPSK.",
+        "answer": true,
+        "explanation": "Four equally spaced phases and two bits per symbol identify QPSK."
+      },
+      {
+        "statement": "When a constellation is a square grid of several amplitudes and phases, with six bits on each symbol. Which family is that, the correct result is bPSK.",
+        "answer": false,
+        "explanation": "A grid that uses both amplitude and phase is QAM."
+      },
+      {
+        "statement": "When the scheduler selects a higher-order constellation only after the reported channel quality improves. Which technique is that, the correct result is fixed modulation.",
+        "answer": false,
+        "explanation": "Matching modulation and code rate to channel quality is link adaptation."
+      },
+      {
+        "statement": "When two receive antennas carry the same stream, and the receiver keeps the stronger branch. The technique is that, the correct result is spatial diversity.",
+        "answer": true,
+        "explanation": "Separated antennas protecting one stream provide spatial diversity."
+      },
+      {
+        "statement": "When one site is split into three 120-degree panels, and each panel has its own channels. The technique is that, the correct result is sectorisation.",
+        "answer": true,
+        "explanation": "Directional panels that split a site are sectorisation."
+      },
+      {
+        "statement": "When packets must still arrive after a user changes cells and later enters a new tracking area. Which function set handles that, the correct result is billing mediation.",
+        "answer": false,
+        "explanation": "Tracking location and maintaining sessions during motion is mobility management."
+      },
+      {
+        "statement": "When a scheduler compares wanted power with interference plus noise before choosing a modulation. The metric is it using, the correct result is sINR.",
+        "answer": true,
+        "explanation": "Wanted power over interference plus noise is SINR."
+      }
+    ]
+  }
+}

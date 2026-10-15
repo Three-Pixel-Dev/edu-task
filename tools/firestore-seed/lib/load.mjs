@@ -8,12 +8,18 @@ import { parseCsv } from './csv.mjs';
  *   questions/*.json  — { subjectId, levels: { "1": [ {question, options, correctAnswer, explanation, isActive?} ] } }
  *   questions/*.csv   — subjectId,level,question,option1..option6,correctAnswer,explanation[,isActive]
  *
+ *   true-false/*.json — Quiz (True / False) statements → `trueFalseQuestions` collection:
+ *                       { subjectId, levels: { "1": [ {statement, answer: true|false, explanation, isActive?} ] } }
+ *
  * Question document ids are deterministic: `${subjectId}__l${level}__q${nn}`
- * (nn = position within that subject + level), so re-running the seed
- * updates questions in place instead of duplicating them.
+ * (Quiz: `${subjectId}__tf__l${level}__q${nn}`; nn = position within that
+ * subject + level), so re-running the seed updates questions in place
+ * instead of duplicating them.
  */
 
 export const questionId = (subjectId, level, order) => `${subjectId}__l${level}__q${String(order).padStart(2, '0')}`;
+export const trueFalseQuestionId = (subjectId, level, order) => `${subjectId}__tf__l${level}__q${String(order).padStart(2, '0')}`;
+export const TRUE_FALSE_OPTIONS = ['True', 'False'];
 
 async function readJson(file) {
   try {
@@ -89,5 +95,49 @@ export async function loadSeedData(dataDir) {
     });
   }
 
-  return { subjectFields, subjects, questions };
+  const trueFalseQuestions = await loadTrueFalse(path.join(dataDir, 'true-false'));
+  return { subjectFields, subjects, questions, trueFalseQuestions };
+}
+
+/** Quiz (True / False) statements. The folder is optional while the bank is being written. */
+async function loadTrueFalse(dir) {
+  let files;
+  try {
+    files = (await readdir(dir)).filter((f) => f.endsWith('.json') && !f.startsWith('_')).sort();
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+  const groups = new Map();
+  for (const file of files) {
+    const doc = await readJson(path.join(dir, file));
+    for (const [levelKey, list] of Object.entries(doc.levels ?? {})) {
+      if (!Array.isArray(list)) throw new Error(`true-false/${file}: level ${levelKey} must be an array`);
+      const key = `${doc.subjectId}|${levelKey}`;
+      if (!groups.has(key)) groups.set(key, []);
+      list.forEach((q, i) => groups.get(key).push({ ...q, subjectId: doc.subjectId, level: Number(levelKey), source: `true-false/${file} L${levelKey} #${i + 1}` }));
+    }
+  }
+  const out = [];
+  for (const list of groups.values()) {
+    list.forEach((q, i) => {
+      const order = i + 1;
+      out.push({
+        id: trueFalseQuestionId(q.subjectId, q.level, order),
+        source: q.source,
+        answer: q.answer,
+        data: {
+          subjectId: q.subjectId,
+          level: q.level,
+          question: typeof q.statement === 'string' ? q.statement.trim() : q.statement,
+          options: [...TRUE_FALSE_OPTIONS],
+          correctAnswer: q.answer === true ? 'True' : q.answer === false ? 'False' : '',
+          explanation: typeof q.explanation === 'string' ? q.explanation.trim() : '',
+          order,
+          isActive: q.isActive !== false,
+        },
+      });
+    });
+  }
+  return out;
 }

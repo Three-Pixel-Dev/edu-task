@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, View } from 'react-native';
+import { QUIZ_TYPES } from '@/constants/app';
 import { colors, spacing } from '@/theme';
 import type { QuizResult } from '@/types';
 import { formatRelativeDay } from '@/utils/date';
@@ -19,10 +20,12 @@ export function scoreTone(percentage: number): BadgeTone {
 /** One quiz attempt: subject, code, level, date, score and percentage. */
 export function AttemptRow({ result, onPress, divider }: AttemptRowProps) {
   const when = formatRelativeDay(result.completedAt);
+  const typeLabel = QUIZ_TYPES[result.quizType].label;
+  const isQuiz = result.quizType === 'trueFalse';
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${result.subjectName}, level ${result.level}, scored ${result.score} out of ${result.totalQuestions}, ${result.percentage} percent, ${when}`}
+      accessibilityLabel={`${typeLabel}, ${result.subjectName}, level ${result.level}, scored ${result.score} out of ${result.totalQuestions}, ${result.percentage} percent, ${when}`}
       onPress={onPress}
       style={({ pressed }) => [styles.row, divider && styles.divider, pressed && styles.pressed]}
     >
@@ -30,8 +33,11 @@ export function AttemptRow({ result, onPress, divider }: AttemptRowProps) {
         <AppText variant="bodyStrong" numberOfLines={1}>
           {result.subjectName}
         </AppText>
-        <AppText variant="caption" color="textSecondary">
-          {`${result.subjectCode ? `${result.subjectCode} · ` : ''}Level ${result.level} · ${when}`}
+        <AppText variant="caption" color="textSecondary" numberOfLines={1}>
+          <AppText variant="captionStrong" color={isQuiz ? 'accent' : 'primaryDark'}>
+            {typeLabel}
+          </AppText>
+          {` · ${result.subjectCode ? `${result.subjectCode} · ` : ''}Level ${result.level} · ${when}`}
         </AppText>
       </View>
       <View style={styles.score}>

@@ -1,0 +1,785 @@
+{
+  "subjectId": "project-management",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Project Scope is the work that must be done, and the results that must be delivered, for the project to be complete.",
+        "answer": true,
+        "explanation": "Scope is the agreed boundary of work and deliverables that defines completion."
+      },
+      {
+        "statement": "A Scope Statement is a list of every employee's hobbies.",
+        "answer": false,
+        "explanation": "A scope statement writes down deliverables, boundaries, and exclusions so the agreement can be checked later."
+      },
+      {
+        "statement": "A Scope Creep is uncontrolled growth of work or deliverables without a corresponding approved change to time, cost, or resources.",
+        "answer": true,
+        "explanation": "Scope creep is uncontrolled addition of work, unlike a change that is approved with matching time or cost."
+      },
+      {
+        "statement": "A Work Breakdown Structure is a calendar with dates only.",
+        "answer": false,
+        "explanation": "A work breakdown structure decomposes scope into smaller components so work can be estimated and assigned."
+      },
+      {
+        "statement": "A Work Package is the lowest-level component in the work breakdown structure that can be estimated, assigned, and tracked.",
+        "answer": true,
+        "explanation": "A work package is a leaf of the breakdown that is small enough to estimate, assign, and control."
+      },
+      {
+        "statement": "A Deliverable is a developer's years of experience.",
+        "answer": false,
+        "explanation": "A deliverable is an output others can verify, not effort, meetings, or experience by themselves."
+      },
+      {
+        "statement": "An Acceptance Criteria is the conditions a deliverable must meet before the customer or sponsor agrees to accept it.",
+        "answer": true,
+        "explanation": "Acceptance criteria are the agreed conditions that define when a deliverable is fit to accept."
+      },
+      {
+        "statement": "An Activity is the name of the sponsoring department.",
+        "answer": false,
+        "explanation": "An activity is work with duration on the schedule, unlike a milestone, which is a zero-duration marker."
+      },
+      {
+        "statement": "A Milestone is a zero-duration marker on the schedule that represents a significant event, such as an approval or a handover.",
+        "answer": true,
+        "explanation": "A milestone marks an event and has no duration of its own, unlike an activity."
+      },
+      {
+        "statement": "A Gantt Chart is a work breakdown with no dates.",
+        "answer": false,
+        "explanation": "A Gantt chart displays schedule information as bars on a calendar, which a scope hierarchy does not."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Network Diagram is a graph of activities and their logical dependencies, used to find the paths through the schedule.",
+        "answer": true,
+        "explanation": "A network diagram shows logical dependencies among activities so paths, including the critical path, can be analysed."
+      },
+      {
+        "statement": "A Dependency is a preference for a window seat.",
+        "answer": false,
+        "explanation": "A dependency is a logical constraint between activities, not a coincidence of dates or a personal preference."
+      },
+      {
+        "statement": "A Schedule Lead is an overlap that allows a successor activity to start before its predecessor has finished.",
+        "answer": true,
+        "explanation": "Lead is an overlap that accelerates a successor, whereas lag is a delay between activities."
+      },
+      {
+        "statement": "A Schedule Lag is free time that an activity can slip without affecting the project finish.",
+        "answer": false,
+        "explanation": "Lag is a deliberate delay on a dependency, not spare float and not an accelerating overlap."
+      },
+      {
+        "statement": "A Critical Path is the longest path of dependent activities through the schedule, whose delay delays the project finish.",
+        "answer": true,
+        "explanation": "The critical path is the longest dependent chain, so it determines the earliest finish and has no spare time."
+      },
+      {
+        "statement": "A Total Float is money left in the budget.",
+        "answer": false,
+        "explanation": "Total float is slack relative to the project finish date, and critical activities have none."
+      },
+      {
+        "statement": "A Schedule Baseline is the approved version of the schedule against which actual progress and changes are compared.",
+        "answer": true,
+        "explanation": "The schedule baseline is the approved plan used as the reference for measuring delay and approving date changes."
+      },
+      {
+        "statement": "A Project Risk is the project title.",
+        "answer": false,
+        "explanation": "A risk is uncertain and may help or harm objectives, whereas an issue is a problem that has already occurred."
+      },
+      {
+        "statement": "A Risk Register is a living log of identified risks, their ratings, owners, and planned responses.",
+        "answer": true,
+        "explanation": "The risk register is where identified risks, ratings, owners, and responses are recorded and updated."
+      },
+      {
+        "statement": "A Probability and Impact is the first name and surname of the sponsor.",
+        "answer": false,
+        "explanation": "Risk rating combines likelihood and severity so the team can prioritise responses."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Risk Mitigation is a response that reduces the probability or the impact of a threat.",
+        "answer": true,
+        "explanation": "Mitigation lowers likelihood or impact but does not necessarily eliminate the activity or transfer the loss."
+      },
+      {
+        "statement": "A Risk Avoidance is keeping the login but adding monitoring.",
+        "answer": false,
+        "explanation": "Avoidance eliminates exposure by changing the plan, rather than merely reducing or transferring the risk."
+      },
+      {
+        "statement": "A Risk Transfer is a response that shifts the financial impact of a threat to a third party, such as through insurance or a contract clause.",
+        "answer": true,
+        "explanation": "Transfer moves the financial consequence to another party; it does not remove the event or automatically reduce its chance."
+      },
+      {
+        "statement": "A Residual Risk is an outage that happened yesterday.",
+        "answer": false,
+        "explanation": "Residual risk is what is left of a threat once the chosen responses are in place."
+      },
+      {
+        "statement": "An Issue is a problem or decision that has already arisen and now needs action, rather than an uncertainty about the future.",
+        "answer": true,
+        "explanation": "An issue is current and requires action, whereas a risk is still uncertain."
+      },
+      {
+        "statement": "A Project Stakeholder is a person with neither influence nor any effect from the result.",
+        "answer": false,
+        "explanation": "Project stakeholders include anyone who influences the work or who is affected by it, not only paid team members."
+      },
+      {
+        "statement": "A Stakeholder Register is a document that records stakeholders, their interests, influence, and the approach for engaging them.",
+        "answer": true,
+        "explanation": "The stakeholder register captures who matters, what they care about, and how the project will engage them."
+      },
+      {
+        "statement": "A Communication Plan is the activity duration list.",
+        "answer": false,
+        "explanation": "A communication plan sets the audience, content, format, frequency, and sender for project information."
+      },
+      {
+        "statement": "A RACI Matrix is a grid that assigns, for each task or decision, who is responsible, accountable, consulted, and informed.",
+        "answer": true,
+        "explanation": "RACI clarifies the four participation roles so each task has a clear doer and a single accountable owner."
+      },
+      {
+        "statement": "A Status Report is the closure lessons, which do not exist yet.",
+        "answer": false,
+        "explanation": "A status report is a recurring comparison of actual progress with the plan, including problems that need attention."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Kickoff Meeting is the meeting that starts coordinated execution by aligning the team and stakeholders on goals, roles, and near-term work.",
+        "answer": true,
+        "explanation": "Kickoff aligns people on purpose, roles, and the first work as execution begins."
+      },
+      {
+        "statement": "An Analogous Estimating is an estimate produced from a statistical rate times a measured quantity.",
+        "answer": false,
+        "explanation": "Analogous estimating uses a similar historical project as the base and then adjusts it."
+      },
+      {
+        "statement": "A Parametric Estimating is an estimate produced by applying a statistical rate, such as hours per screen, to a measured quantity of work.",
+        "answer": true,
+        "explanation": "Parametric estimating multiplies a known rate by a quantity, rather than copying one whole past project."
+      },
+      {
+        "statement": "A Three-Point Estimating is copying a single past duration.",
+        "answer": false,
+        "explanation": "Three-point estimating recognises uncertainty by combining optimistic, most likely, and pessimistic values."
+      },
+      {
+        "statement": "A Bottom-Up Estimating is an estimate built by estimating the lowest work packages in detail and summing them to higher levels.",
+        "answer": true,
+        "explanation": "Bottom-up estimating starts at detailed packages and adds them up, which takes effort but is more specific."
+      },
+      {
+        "statement": "An Effort is the number of slides in the review.",
+        "answer": false,
+        "explanation": "Effort measures labour content, while duration measures elapsed calendar time."
+      },
+      {
+        "statement": "A Duration is the amount of calendar time between the start and finish of an activity, given the resources assigned.",
+        "answer": true,
+        "explanation": "Duration is elapsed calendar time, which depends on how effort is staffed."
+      },
+      {
+        "statement": "A Contingency Reserve is money already spent on completed work.",
+        "answer": false,
+        "explanation": "Contingency reserve covers known risks and sits in the baseline; it is not management reserve for unidentified uncertainty."
+      },
+      {
+        "statement": "A Quality Planning is deciding the quality standards for the project and how the team will meet them.",
+        "answer": true,
+        "explanation": "Quality planning sets the standards and the approach before execution and inspection."
+      },
+      {
+        "statement": "A Quality Assurance is inspecting the product for defects.",
+        "answer": false,
+        "explanation": "Quality assurance evaluates the process, whereas quality control inspects the product."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Quality Control is inspecting deliverables against standards to find defects and confirm whether acceptance conditions are met.",
+        "answer": true,
+        "explanation": "Quality control examines the deliverable itself and compares it with the standard or acceptance conditions."
+      },
+      {
+        "statement": "A Change Request is the original scope with no modification.",
+        "answer": false,
+        "explanation": "A change request makes a proposed baseline change visible so impact can be assessed and a decision recorded."
+      },
+      {
+        "statement": "A Baseline is an approved version of a plan, such as scope, schedule, or cost, used as the reference for measuring performance.",
+        "answer": true,
+        "explanation": "A baseline is the approved reference; performance is measured by comparing actual results with it."
+      },
+      {
+        "statement": "A Project Charter is a test log of defects found in the last build.",
+        "answer": false,
+        "explanation": "The charter authorises the project at a high level; it is not the detailed schedule or a test record."
+      },
+      {
+        "statement": "A Project Sponsor is the person who provides authority and resources for the project and is accountable for its business outcome.",
+        "answer": true,
+        "explanation": "The sponsor champions the project, supplies resources, and answers for the business result."
+      },
+      {
+        "statement": "A Triple Constraint is office rules on dress and parking.",
+        "answer": false,
+        "explanation": "The triple constraint describes the trade-off among scope, time, and cost on a project."
+      },
+      {
+        "statement": "A Lessons Learned is recorded knowledge from what went well and what did not, captured so later work can reuse it.",
+        "answer": true,
+        "explanation": "Lessons learned turn project experience into knowledge the next piece of work can use."
+      },
+      {
+        "statement": "An Assumptions Log is in a furniture catalogue.",
+        "answer": false,
+        "explanation": "Assumptions are planning premises treated as true, and the log makes them visible so they can be validated."
+      },
+      {
+        "statement": "A Crashing is shortening the schedule by adding resources to critical activities, usually at extra cost.",
+        "answer": true,
+        "explanation": "Crashing trades cost for time by adding resources on the critical path."
+      },
+      {
+        "statement": "A Fast Tracking is inserting a delay between two activities.",
+        "answer": false,
+        "explanation": "Fast tracking overlaps sequential work to save calendar time and typically raises the chance of rework."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, only the project manager's personal tasks, excluding deliverables is called Project Scope.",
+        "answer": false,
+        "explanation": "Scope is the agreed boundary of work and deliverables that defines completion."
+      },
+      {
+        "statement": "The statement says the portal will show grades and explicitly excludes online payment.",
+        "answer": true,
+        "explanation": "A scope statement writes down deliverables, boundaries, and exclusions so the agreement can be checked later."
+      },
+      {
+        "statement": "In standard textbooks, an approved change with added budget is called Scope Creep.",
+        "answer": false,
+        "explanation": "Scope creep is uncontrolled addition of work, unlike a change that is approved with matching time or cost."
+      },
+      {
+        "statement": "The campus-app scope is broken into registration, timetable view, notifications, and project management.",
+        "answer": true,
+        "explanation": "A work breakdown structure decomposes scope into smaller components so work can be estimated and assigned."
+      },
+      {
+        "statement": "In standard textbooks, a stakeholder job title is called Work Package.",
+        "answer": false,
+        "explanation": "A work package is a leaf of the breakdown that is small enough to estimate, assign, and control."
+      },
+      {
+        "statement": "The tested login module handed to the sponsor is a deliverable; the hours spent writing it are not.",
+        "answer": true,
+        "explanation": "A deliverable is an output others can verify, not effort, meetings, or experience by themselves."
+      },
+      {
+        "statement": "In standard textbooks, the date the work happened to finish is called Acceptance Criteria.",
+        "answer": false,
+        "explanation": "Acceptance criteria are the agreed conditions that define when a deliverable is fit to accept."
+      },
+      {
+        "statement": "Write the user guide is scheduled for five days and assigned to the technical author.",
+        "answer": true,
+        "explanation": "An activity is work with duration on the schedule, unlike a milestone, which is a zero-duration marker."
+      },
+      {
+        "statement": "In standard textbooks, a five-day writing activity is called Milestone.",
+        "answer": false,
+        "explanation": "A milestone marks an event and has no duration of its own, unlike an activity."
+      },
+      {
+        "statement": "The chart shows testing as a two-week bar starting only after the build bar ends.",
+        "answer": true,
+        "explanation": "A Gantt chart displays schedule information as bars on a calendar, which a scope hierarchy does not."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a pie chart of costs is called Network Diagram.",
+        "answer": false,
+        "explanation": "A network diagram shows logical dependencies among activities so paths, including the critical path, can be analysed."
+      },
+      {
+        "statement": "User testing depends on the test environment being ready, so testing is linked as a successor.",
+        "answer": true,
+        "explanation": "A dependency is a logical constraint between activities, not a coincidence of dates or a personal preference."
+      },
+      {
+        "statement": "In standard textbooks, the person who manages the schedule is called Schedule Lead.",
+        "answer": false,
+        "explanation": "Lead is an overlap that accelerates a successor, whereas lag is a delay between activities."
+      },
+      {
+        "statement": "Paint must dry for two days after plastering, so a two-day lag is placed before decorating starts.",
+        "answer": true,
+        "explanation": "Lag is a deliberate delay on a dependency, not spare float and not an accelerating overlap."
+      },
+      {
+        "statement": "In standard textbooks, a set of tasks that can all slip freely is called Critical Path.",
+        "answer": false,
+        "explanation": "The critical path is the longest dependent chain, so it determines the earliest finish and has no spare time."
+      },
+      {
+        "statement": "Documentation can slip three days and the go-live date still holds, so its total float is three days.",
+        "answer": true,
+        "explanation": "Total float is slack relative to the project finish date, and critical activities have none."
+      },
+      {
+        "statement": "In standard textbooks, the team photograph is called Schedule Baseline.",
+        "answer": false,
+        "explanation": "The schedule baseline is the approved plan used as the reference for measuring delay and approving date changes."
+      },
+      {
+        "statement": "A key supplier might miss the component date, which would delay build if it happens.",
+        "answer": true,
+        "explanation": "A risk is uncertain and may help or harm objectives, whereas an issue is a problem that has already occurred."
+      },
+      {
+        "statement": "In standard textbooks, the approved budget spreadsheet is called Risk Register.",
+        "answer": false,
+        "explanation": "The risk register is where identified risks, ratings, owners, and responses are recorded and updated."
+      },
+      {
+        "statement": "A data-loss threat is rated likely and severe, so it is prioritised above a rare and mild documentation delay.",
+        "answer": true,
+        "explanation": "Risk rating combines likelihood and severity so the team can prioritise responses."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, dropping the component so the threat disappears is called Risk Mitigation.",
+        "answer": false,
+        "explanation": "Mitigation lowers likelihood or impact but does not necessarily eliminate the activity or transfer the loss."
+      },
+      {
+        "statement": "The team drops a risky third-party login and uses the university account so that threat no longer exists.",
+        "answer": true,
+        "explanation": "Avoidance eliminates exposure by changing the plan, rather than merely reducing or transferring the risk."
+      },
+      {
+        "statement": "In standard textbooks, ignoring the uptime threat is called Risk Transfer.",
+        "answer": false,
+        "explanation": "Transfer moves the financial consequence to another party; it does not remove the event or automatically reduce its chance."
+      },
+      {
+        "statement": "After a backup supplier is added, a small chance of delay remains because both suppliers share one port.",
+        "answer": true,
+        "explanation": "Residual risk is what is left of a threat once the chosen responses are in place."
+      },
+      {
+        "statement": "In standard textbooks, a milestone that was completed successfully is called Issue.",
+        "answer": false,
+        "explanation": "An issue is current and requires action, whereas a risk is still uncertain."
+      },
+      {
+        "statement": "Students who will use a campus app are stakeholders even though they are not on the project team.",
+        "answer": true,
+        "explanation": "Project stakeholders include anyone who influences the work or who is affected by it, not only paid team members."
+      },
+      {
+        "statement": "In standard textbooks, the Gantt chart is called Stakeholder Register.",
+        "answer": false,
+        "explanation": "The stakeholder register captures who matters, what they care about, and how the project will engage them."
+      },
+      {
+        "statement": "The plan says students get a monthly plain-language update by email, written by the project manager.",
+        "answer": true,
+        "explanation": "A communication plan sets the audience, content, format, frequency, and sender for project information."
+      },
+      {
+        "statement": "In standard textbooks, a labour-hour budget is called RACI Matrix.",
+        "answer": false,
+        "explanation": "RACI clarifies the four participation roles so each task has a clear doer and a single accountable owner."
+      },
+      {
+        "statement": "Friday's report shows testing is three days behind baseline and asks the sponsor to decide on overtime.",
+        "answer": true,
+        "explanation": "A status report is a recurring comparison of actual progress with the plan, including problems that need attention."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a private lunch with no discussion of goals or roles is called Kickoff Meeting.",
+        "answer": false,
+        "explanation": "Kickoff aligns people on purpose, roles, and the first work as execution begins."
+      },
+      {
+        "statement": "Last year's similar app took 12 weeks, and this one adds a week because it has one extra integration.",
+        "answer": true,
+        "explanation": "Analogous estimating uses a similar historical project as the base and then adjusts it."
+      },
+      {
+        "statement": "In standard textbooks, copying one past project and adjusting it is called Parametric Estimating.",
+        "answer": false,
+        "explanation": "Parametric estimating multiplies a known rate by a quantity, rather than copying one whole past project."
+      },
+      {
+        "statement": "Coding is judged at 4, 6, and 14 days, and the expected duration uses those three figures.",
+        "answer": true,
+        "explanation": "Three-point estimating recognises uncertainty by combining optimistic, most likely, and pessimistic values."
+      },
+      {
+        "statement": "In standard textbooks, adopting a target date with no estimate is called Bottom-Up Estimating.",
+        "answer": false,
+        "explanation": "Bottom-up estimating starts at detailed packages and adds them up, which takes effort but is more specific."
+      },
+      {
+        "statement": "A review needs 16 person-hours, which two people can finish in one calendar day.",
+        "answer": true,
+        "explanation": "Effort measures labour content, while duration measures elapsed calendar time."
+      },
+      {
+        "statement": "In standard textbooks, the project budget in money is called Duration.",
+        "answer": false,
+        "explanation": "Duration is elapsed calendar time, which depends on how effort is staffed."
+      },
+      {
+        "statement": "The schedule includes three contingency days because a known permit risk may delay installation.",
+        "answer": true,
+        "explanation": "Contingency reserve covers known risks and sits in the baseline; it is not management reserve for unidentified uncertainty."
+      },
+      {
+        "statement": "In standard textbooks, counting defects in a finished build is called Quality Planning.",
+        "answer": false,
+        "explanation": "Quality planning sets the standards and the approach before execution and inspection."
+      },
+      {
+        "statement": "An auditor checks that code reviews required by the quality plan actually took place this sprint.",
+        "answer": true,
+        "explanation": "Quality assurance evaluates the process, whereas quality control inspects the product."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, ignoring the failures to protect the date is called Quality Control.",
+        "answer": false,
+        "explanation": "Quality control examines the deliverable itself and compares it with the standard or acceptance conditions."
+      },
+      {
+        "statement": "The sponsor submits a request to add fee payments, and the team estimates two extra weeks before any approval.",
+        "answer": true,
+        "explanation": "A change request makes a proposed baseline change visible so impact can be assessed and a decision recorded."
+      },
+      {
+        "statement": "In standard textbooks, the actual results after the work is finished is called Baseline.",
+        "answer": false,
+        "explanation": "A baseline is the approved reference; performance is measured by comparing actual results with it."
+      },
+      {
+        "statement": "The dean signs a charter naming the student portal, the project manager, the budget cap, and the June goal.",
+        "answer": true,
+        "explanation": "The charter authorises the project at a high level; it is not the detailed schedule or a test record."
+      },
+      {
+        "statement": "In standard textbooks, a contractor who only installs equipment is called Project Sponsor.",
+        "answer": false,
+        "explanation": "The sponsor champions the project, supplies resources, and answers for the business result."
+      },
+      {
+        "statement": "Adding fee payments without moving the date forces either more budget or a cut somewhere else in scope.",
+        "answer": true,
+        "explanation": "The triple constraint describes the trade-off among scope, time, and cost on a project."
+      },
+      {
+        "statement": "In standard textbooks, a deleted mailbox is called Lessons Learned.",
+        "answer": false,
+        "explanation": "Lessons learned turn project experience into knowledge the next piece of work can use."
+      },
+      {
+        "statement": "The plan assumes the test lab is free in May, and that assumption is logged and later confirmed with the lab owner.",
+        "answer": true,
+        "explanation": "Assumptions are planning premises treated as true, and the log makes them visible so they can be validated."
+      },
+      {
+        "statement": "In standard textbooks, lengthening the schedule to reduce cost is called Crashing.",
+        "answer": false,
+        "explanation": "Crashing trades cost for time by adding resources on the critical path."
+      },
+      {
+        "statement": "Testing starts before coding is fully finished, saving a week but risking retests when late changes arrive.",
+        "answer": true,
+        "explanation": "Fast tracking overlaps sequential work to save calendar time and typically raises the chance of rework."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When stakeholders argue about whether fee payments belong in a timetable app. Which statement should settle the argument, the correct result is the loudest new idea in the latest meeting.",
+        "answer": false,
+        "explanation": "Project scope is the agreed work and deliverables, so it decides whether fee payments are included."
+      },
+      {
+        "statement": "When a sponsor later asks for online payment. The team needs the written inclusions and exclusions. Which document is that, the correct result is a list of hobbies.",
+        "answer": false,
+        "explanation": "The scope statement records deliverables and explicit exclusions such as online payment."
+      },
+      {
+        "statement": "When extra report screens are added every week with no approval and no extra time. The problem is that, the correct result is scope creep.",
+        "answer": true,
+        "explanation": "Uncontrolled extra work without approved time or cost is scope creep."
+      },
+      {
+        "statement": "When the team needs the scope split into smaller pieces before estimating. The artefact should they build, the correct result is a work breakdown structure.",
+        "answer": true,
+        "explanation": "A work breakdown structure is the hierarchy that decomposes scope into manageable components."
+      },
+      {
+        "statement": "When one developer will own a 40-hour piece of the timetable export, tracked to completion. Which label fits that piece, the correct result is a milestone with no work content.",
+        "answer": false,
+        "explanation": "A work package is the lowest breakdown item that can be estimated, assigned, and tracked."
+      },
+      {
+        "statement": "When the sponsor asks what they will be able to inspect at the next review. Which item is a deliverable, the correct result is a developer's years of experience.",
+        "answer": false,
+        "explanation": "A deliverable is a verifiable product such as the tested login module, not meetings or experience."
+      },
+      {
+        "statement": "When the sponsor will accept search only if results return within two seconds on the agreed tests. The term names those conditions, the correct result is acceptance criteria.",
+        "answer": true,
+        "explanation": "Acceptance criteria are the agreed conditions, such as the two-second test, that govern acceptance."
+      },
+      {
+        "statement": "When write the user guide takes five days and is placed on the schedule. The schedule element is it, the correct result is an activity.",
+        "answer": true,
+        "explanation": "Scheduled work that consumes time, such as five days of writing, is an activity."
+      },
+      {
+        "statement": "When the schedule must mark the day the sponsor approves the design, without giving that marker a duration. Which element is used, the correct result is an hourly pay rate.",
+        "answer": false,
+        "explanation": "A milestone is a zero-duration marker for a significant event such as design approval."
+      },
+      {
+        "statement": "When the sponsor wants to see activity bars on a calendar, including The work starts after build. Which chart fits, the correct result is a Gantt chart.",
+        "answer": true,
+        "explanation": "A Gantt chart shows activities as bars on a timescale, including when one follows another."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When the team must see that training waits on both the software and the handbook. Which diagram shows that logic, the correct result is an organisation chart.",
+        "answer": false,
+        "explanation": "A network diagram shows logical dependencies, such as training waiting on two predecessors."
+      },
+      {
+        "statement": "When user testing cannot start until the test environment is ready. Which relationship should the schedule record, the correct result is a preference for a window seat.",
+        "answer": false,
+        "explanation": "A logical link that stops testing until the environment is ready is a dependency."
+      },
+      {
+        "statement": "When the guide may start five days before coding finishes. The schedule feature records that overlap, the correct result is a schedule lead.",
+        "answer": true,
+        "explanation": "An overlap that lets the successor start early is a lead, not a waiting lag."
+      },
+      {
+        "statement": "When decorating must wait two days after plastering so the surface can dry. The feature records that wait, the correct result is a schedule lag.",
+        "answer": true,
+        "explanation": "A required wait between predecessor and successor is lag."
+      },
+      {
+        "statement": "When design, build, and test form the longest chain and set the finish date. Which label applies to that chain, the correct result is whichever task was mentioned first.",
+        "answer": false,
+        "explanation": "The longest dependent chain, which sets the project finish, is the critical path."
+      },
+      {
+        "statement": "When documentation can slip three days without moving go-live. Which measure is three days, the correct result is money left in the budget.",
+        "answer": false,
+        "explanation": "Total float is how long an activity can slip without delaying the project finish."
+      },
+      {
+        "statement": "When reports must show delay against the dates the sponsor approved at kickoff. The version of the schedule is the reference, the correct result is the schedule baseline.",
+        "answer": true,
+        "explanation": "The schedule baseline is the approved schedule used to compare actual progress."
+      },
+      {
+        "statement": "When a supplier might miss a component date, but it has not happened yet. The label fits, the correct result is a project risk.",
+        "answer": true,
+        "explanation": "An uncertain event that could affect objectives is a risk until it actually occurs."
+      },
+      {
+        "statement": "When the team must record a late-supplier threat, its rating, its owner, and the backup-vendor response. Which log is used, the correct result is a diary of past problems only.",
+        "answer": false,
+        "explanation": "The risk register logs identified risks together with ratings, owners, and responses."
+      },
+      {
+        "statement": "When two threats must be prioritised. One is likely and severe; the other is rare and mild. The pair of ratings supports that ranking, the correct result is probability and impact.",
+        "answer": true,
+        "explanation": "Probability and impact rate how likely a risk is and how severe it would be, which drives priority."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When the team keeps the component but adds a second supplier to make delay less likely. Which response is that, the correct result is accepting the threat with no action.",
+        "answer": false,
+        "explanation": "Reducing the likelihood of delay while continuing the work is mitigation."
+      },
+      {
+        "statement": "When to eliminate a risky third-party login, the team removes that approach from the plan. Which response is that, the correct result is keeping the login but adding monitoring.",
+        "answer": false,
+        "explanation": "Changing the plan so the risky activity is not done is risk avoidance."
+      },
+      {
+        "statement": "When the vendor must pay damages if uptime is missed, while the service stays in the plan. The response is that, the correct result is risk transfer.",
+        "answer": true,
+        "explanation": "Shifting the financial impact to the vendor by contract is risk transfer."
+      },
+      {
+        "statement": "When a backup supplier is in place, yet a small chance of delay remains. The label fits that remaining chance, the correct result is residual risk.",
+        "answer": true,
+        "explanation": "Risk left after the planned response is applied is residual risk."
+      },
+      {
+        "statement": "When the test server failed this morning and work is blocked. Which item should the team log, the correct result is a risk that might happen next month.",
+        "answer": false,
+        "explanation": "A problem that has already happened and needs action is an issue, not a future risk."
+      },
+      {
+        "statement": "When students will use the campus app but are not paid team members. How should the project treat them, the correct result is as members of the paid project team.",
+        "answer": false,
+        "explanation": "People affected by the result are project stakeholders even when they are not on the payroll."
+      },
+      {
+        "statement": "When the team needs each stakeholder's influence, interest, and engagement approach in one place. The document is that, the correct result is the stakeholder register.",
+        "answer": true,
+        "explanation": "The stakeholder register records stakeholders together with interest, influence, and engagement."
+      },
+      {
+        "statement": "When students should get a monthly plain-language email from the project manager. The document records that agreement, the correct result is the communication plan.",
+        "answer": true,
+        "explanation": "The communication plan specifies audience, content, form, frequency, and sender."
+      },
+      {
+        "statement": "When a privacy review needs one doer, one accountable owner, a legal consultee, and a team to notify. Which grid records that, the correct result is a scored risk list.",
+        "answer": false,
+        "explanation": "A RACI matrix assigns responsible, accountable, consulted, and informed roles for a task."
+      },
+      {
+        "statement": "When testing is three days behind the approved dates and a decision on overtime is needed. The update should the sponsor receive, the correct result is a status report comparing progress with the plan.",
+        "answer": true,
+        "explanation": "A status report compares progress with the plan and raises the decision the sponsor must make."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When execution is about to start and the team must align on the date, roles, and first goal. Which meeting is that, the correct result is the closure meeting.",
+        "answer": false,
+        "explanation": "The kickoff meeting aligns team and stakeholders as coordinated execution starts."
+      },
+      {
+        "statement": "When last year's similar app took 12 weeks, and this one has one extra integration worth about a week. Which estimating approach is being used, the correct result is multiplying a rate by a measured quantity.",
+        "answer": false,
+        "explanation": "Using a similar past duration and adjusting for a known difference is analogous estimating."
+      },
+      {
+        "statement": "When history shows 6 hours per report, and there are 10 reports. The method produces the 60-hour estimate, the correct result is parametric estimating.",
+        "answer": true,
+        "explanation": "Applying a rate of hours per report to a count of reports is parametric estimating."
+      },
+      {
+        "statement": "When the team has optimistic, most likely, and pessimistic durations for coding and wants one expected value. The technique fits, the correct result is three-point estimating.",
+        "answer": true,
+        "explanation": "Combining optimistic, most likely, and pessimistic figures into an expected value is three-point estimating."
+      },
+      {
+        "statement": "When eight work packages are estimated separately and then added to get the phase total. Which method is that, the correct result is applying one rate to a single quantity.",
+        "answer": false,
+        "explanation": "Summing detailed estimates of the lowest work packages is bottom-up estimating."
+      },
+      {
+        "statement": "When a review needs 16 person-hours. Two people are available. Which figure is the 16 person-hours, the correct result is the number of slides in the review.",
+        "answer": false,
+        "explanation": "Person-hours of labour are effort, whereas the one calendar day is duration."
+      },
+      {
+        "statement": "When sixteen person-hours are staffed with two people and finish in one working day. The figure is that one day, the correct result is duration.",
+        "answer": true,
+        "explanation": "Duration is the calendar time from start to finish once staffing is taken into account."
+      },
+      {
+        "statement": "When a known permit risk may delay installation, so the baseline includes three extra days for that risk. The reserve is that, the correct result is contingency reserve.",
+        "answer": true,
+        "explanation": "Time held in the baseline for an identified risk is contingency reserve."
+      },
+      {
+        "statement": "When before build, the team agrees that every release must pass an accessibility checklist. Which process is that agreement part of, the correct result is choosing paint for the office.",
+        "answer": false,
+        "explanation": "Deciding the standards and how they will be met, before the work, is quality planning."
+      },
+      {
+        "statement": "When an auditor checks that required code reviews happened, rather than retesting the product. The activity is that, the correct result is quality assurance.",
+        "answer": true,
+        "explanation": "Checking that quality processes were followed is quality assurance, not an inspection of the product."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When testers run the checklist on the release and log failures in the product. Which activity is that, the correct result is choosing next year's standards.",
+        "answer": false,
+        "explanation": "Inspecting the deliverable against the checklist is quality control."
+      },
+      {
+        "statement": "When the sponsor wants fee payments added after the baseline was approved. Which item should be raised before the work starts, the correct result is the original scope with no modification.",
+        "answer": false,
+        "explanation": "A formal change request lets the team assess a proposed change to the approved baseline before acting."
+      },
+      {
+        "statement": "When cost reports must show variance from the spend figure the sponsor approved. The figure is that reference, the correct result is the cost baseline.",
+        "answer": true,
+        "explanation": "The baseline is the approved reference against which actual performance is compared."
+      },
+      {
+        "statement": "When the team needs written authority to start, including the manager, purpose, and budget cap. The document provides that, the correct result is the project charter.",
+        "answer": true,
+        "explanation": "The project charter is the sponsor's authorisation, naming purpose, manager, and high-level constraints."
+      },
+      {
+        "statement": "When someone must approve scope changes and answer for shorter enrolment queues. Which role is that, the correct result is the scheduling tool.",
+        "answer": false,
+        "explanation": "The project sponsor provides authority and resources and is accountable for the business outcome."
+      },
+      {
+        "statement": "When the sponsor adds features but will not move the date or the budget. Which concept explains why that combination is unrealistic, the correct result is office rules on dress and parking.",
+        "answer": false,
+        "explanation": "The triple constraint means extra scope usually requires more time or cost, so all three cannot stay fixed."
+      },
+      {
+        "statement": "When late hardware orders caused delay, and the next project should avoid that. The record should carry that knowledge forward, the correct result is lessons learned.",
+        "answer": true,
+        "explanation": "Lessons learned capture what happened and how later work should change, such as ordering hardware earlier."
+      },
+      {
+        "statement": "When the schedule assumes the test lab is free in May, but nobody has confirmed it. Where should that premise be recorded and checked, the correct result is in the assumptions log.",
+        "answer": true,
+        "explanation": "A planning premise treated as true, and still needing confirmation, belongs in the assumptions log."
+      },
+      {
+        "statement": "When the critical build must finish a week sooner, and the sponsor will pay for another developer. Which technique is that, the correct result is overlapping tasks without extra people.",
+        "answer": false,
+        "explanation": "Adding paid resources to shorten critical work is crashing."
+      },
+      {
+        "statement": "When testing will start before coding finishes to save a week, accepting more rework risk. The technique is that, the correct result is fast tracking.",
+        "answer": true,
+        "explanation": "Overlapping work that was sequential, in order to shorten the schedule, is fast tracking."
+      }
+    ]
+  }
+}

@@ -33,7 +33,13 @@ export const COLLECTIONS = {
   users: 'users',
   subjectFields: 'subjectFields',
   subjects: 'subjects',
+  /** Multiple choice (A–D) questions. */
   questions: 'questions',
+  /**
+   * Legacy Quiz (True / False) collection — no longer seeded or read by the app.
+   * Content ships in src/data/true-false/; kept here only for cleanup scripts.
+   */
+  trueFalseQuestions: 'trueFalseQuestions',
   quizResults: 'quizResults',
   tasks: 'tasks',
   /** Subcollection under users/{uid} */

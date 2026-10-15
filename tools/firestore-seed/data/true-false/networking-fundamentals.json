@@ -1,0 +1,785 @@
+{
+  "subjectId": "networking-fundamentals",
+  "levels": {
+    "1": [
+      {
+        "statement": "An OSI Model is a seven-layer reference model, from physical up through application, used to describe network functions.",
+        "answer": true,
+        "explanation": "The model orders physical, data link, network, transport, session, presentation, and application responsibilities."
+      },
+      {
+        "statement": "A Physical Layer is the layer that delivers data between processes using port numbers.",
+        "answer": false,
+        "explanation": "This layer is concerned with bits on the wire or fiber, not with frames, IP addresses, or ports."
+      },
+      {
+        "statement": "A Data Link Layer is the OSI layer that organizes bits into frames and delivers them across one link using MAC addresses.",
+        "answer": true,
+        "explanation": "Node-to-node delivery on a single link, using frames and MAC addresses, is the data link job."
+      },
+      {
+        "statement": "A Network Layer is data link layer.",
+        "answer": false,
+        "explanation": "Logical addressing and routing from one network to another are network-layer functions."
+      },
+      {
+        "statement": "A Transport Layer is the OSI layer that delivers data between processes on different hosts, using port numbers.",
+        "answer": true,
+        "explanation": "Port numbers let the transport layer distinguish processes even when they share one IP address."
+      },
+      {
+        "statement": "A Session Layer is data link layer.",
+        "answer": false,
+        "explanation": "Dialog control, including checkpoints that let a conversation resume, is the session layer's role in the OSI model."
+      },
+      {
+        "statement": "A Presentation Layer is the OSI layer concerned with data format, encryption, and compression for the application.",
+        "answer": true,
+        "explanation": "The OSI presentation layer makes data understandable across systems by handling syntax, encryption, and compression."
+      },
+      {
+        "statement": "An Application Layer is the layer that forwards IP packets between networks.",
+        "answer": false,
+        "explanation": "Protocols such as HTTP, SMTP, and FTP are application-layer services used by programs."
+      },
+      {
+        "statement": "A TCP/IP Model is the Internet architecture whose layers are application, transport, internet, and network access.",
+        "answer": true,
+        "explanation": "The Internet stack groups OSI's top three layers into one application layer and uses IP at the internet layer."
+      },
+      {
+        "statement": "An Encapsulation is fragmentation.",
+        "answer": false,
+        "explanation": "Each lower layer wraps the upper layer's unit with the control information that layer needs."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A PDU is the block of data defined at a given layer, such as a segment, packet, frame, or bit.",
+        "answer": true,
+        "explanation": "Each layer has its own protocol data unit: bits, frames, packets, and segments are layer-specific names."
+      },
+      {
+        "statement": "An Ethernet is token Ring.",
+        "answer": false,
+        "explanation": "Ethernet defines the frame format and the rules for carrying those frames on copper, fiber, or a switched LAN."
+      },
+      {
+        "statement": "A MAC Address is a 48-bit layer-2 address that identifies a network interface on a local link.",
+        "answer": true,
+        "explanation": "The MAC address is burned into or assigned to the interface and is used in Ethernet frame headers."
+      },
+      {
+        "statement": "A Frame is a single binary digit on the wire.",
+        "answer": false,
+        "explanation": "On Ethernet, the frame adds MAC addresses, a type or length, and a frame check sequence around the packet."
+      },
+      {
+        "statement": "A Switch is a device that forwards frames between ports using a table of MAC addresses.",
+        "answer": true,
+        "explanation": "The switch learns which MAC address is reached through which port and forwards unicast frames only there."
+      },
+      {
+        "statement": "A Hub is a switch.",
+        "answer": false,
+        "explanation": "A hub has no MAC table, so every attached interface shares one collision domain."
+      },
+      {
+        "statement": "A Collision Domain is a set of interfaces on which simultaneous transmissions can collide and corrupt one another.",
+        "answer": true,
+        "explanation": "Collisions occur only where a shared medium allows overlapping transmissions, such as a hub segment."
+      },
+      {
+        "statement": "A CSMA/CD is polling.",
+        "answer": false,
+        "explanation": "Carrier sense avoids a busy medium, and collision detection lets the sender stop quickly and schedule a retry."
+      },
+      {
+        "statement": "An IPv4 Address is a 32-bit logical address, usually written as four decimal octets, that identifies a network interface.",
+        "answer": true,
+        "explanation": "IPv4 addresses are 32 bits long and are written in dotted decimal for the network layer."
+      },
+      {
+        "statement": "A Subnet Mask is a 48-bit value that names a LAN interface.",
+        "answer": false,
+        "explanation": "The mask tells the host which bits identify the subnet and which bits identify the host inside it."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A CIDR is a classless notation that writes a network as an address plus a prefix length, such as /24.",
+        "answer": true,
+        "explanation": "Classless Inter-Domain Routing allows any prefix length, so address blocks need not follow the old class boundaries."
+      },
+      {
+        "statement": "A Subnetting is /25.",
+        "answer": false,
+        "explanation": "Borrowed host bits become extra network bits, creating several smaller prefixes from one larger prefix."
+      },
+      {
+        "statement": "A Default Gateway is the router address a host uses to reach destinations that are not on its own subnet.",
+        "answer": true,
+        "explanation": "If the destination is outside the host's subnet, the host forwards the packet to its default gateway."
+      },
+      {
+        "statement": "A Private IPv4 Address is 192.167.0.1.",
+        "answer": false,
+        "explanation": "RFC 1918 reserves those three ranges for internal use, and Internet routers do not forward them publicly."
+      },
+      {
+        "statement": "An ARP is the protocol that resolves an IPv4 address to a MAC address on the local link.",
+        "answer": true,
+        "explanation": "A host broadcasts an ARP request containing the target IPv4 address and learns the matching MAC address."
+      },
+      {
+        "statement": "A DNS is the protocol that automatically leases IP configuration to a host.",
+        "answer": false,
+        "explanation": "Resolvers query the DNS hierarchy to turn a name such as a website into an address the network can use."
+      },
+      {
+        "statement": "A DHCP is the protocol that automatically leases an IP address, subnet mask, gateway, and DNS server to a host.",
+        "answer": true,
+        "explanation": "DHCP removes manual address entry by leasing configuration for a limited time through its discover-offer exchange."
+      },
+      {
+        "statement": "A TCP is uDP.",
+        "answer": false,
+        "explanation": "TCP sets up a connection and uses sequence numbers, acknowledgements, and retransmission to deliver bytes in order."
+      },
+      {
+        "statement": "An UDP is a connectionless transport protocol that sends datagrams without setup, retransmission, or ordering.",
+        "answer": true,
+        "explanation": "UDP adds port numbers and a checksum but does not establish a session or recover lost datagrams."
+      },
+      {
+        "statement": "A Three-way Handshake is rST only.",
+        "answer": false,
+        "explanation": "Both sides confirm the initial sequence numbers by exchanging SYN, SYN-ACK, and ACK before data."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Port Number is a 16-bit number that identifies an application process at the transport layer.",
+        "answer": true,
+        "explanation": "TCP and UDP use the port number so multiple applications can share one IP address."
+      },
+      {
+        "statement": "A Socket is a set of interfaces that share one collision domain.",
+        "answer": false,
+        "explanation": "A TCP connection is identified by the pair of sockets, one at each end."
+      },
+      {
+        "statement": "A Router is a device that forwards packets between networks by consulting a routing table of IP prefixes.",
+        "answer": true,
+        "explanation": "Routers operate at the network layer and separate broadcast domains by forwarding on IP prefixes."
+      },
+      {
+        "statement": "A Routing Table is the MAC address table.",
+        "answer": false,
+        "explanation": "The longest matching prefix in the routing table selects the next hop and the outgoing interface."
+      },
+      {
+        "statement": "A Static Route is a route entered by an administrator that remains until someone changes or removes it.",
+        "answer": true,
+        "explanation": "A static route does not depend on routing updates; an administrator configures the prefix and next hop."
+      },
+      {
+        "statement": "A Default Route is a host route that is absent.",
+        "answer": false,
+        "explanation": "The default prefix matches every destination, but a longer prefix is preferred when one exists."
+      },
+      {
+        "statement": "An ICMP is an IP companion protocol that carries error reports and diagnostic queries such as echo request and reply.",
+        "answer": true,
+        "explanation": "Routers and hosts use ICMP for messages such as destination unreachable, time exceeded, and echo used by ping."
+      },
+      {
+        "statement": "A HTTP is a protocol used to transfer files with a separate control connection on port 21.",
+        "answer": false,
+        "explanation": "HTTP is a request-response protocol; a common request method is GET, and plain HTTP uses port 80."
+      },
+      {
+        "statement": "A HTTPS is hTTP protected by TLS, typically using TCP port 443, so the exchange is authenticated and encrypted.",
+        "answer": true,
+        "explanation": "TLS provides encryption and server authentication around HTTP, and the usual port is 443."
+      },
+      {
+        "statement": "An URL is a MAC address.",
+        "answer": false,
+        "explanation": "A URL such as a web address combines the access method, the host name, and the resource path."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Packet is the network-layer unit formed by an IP header plus the payload it carries.",
+        "answer": true,
+        "explanation": "At the network layer the protocol data unit is the packet, which IP forwards toward the destination address."
+      },
+      {
+        "statement": "A Broadcast is anycast.",
+        "answer": false,
+        "explanation": "A broadcast address, such as the limited broadcast, is accepted by every host on that local domain."
+      },
+      {
+        "statement": "An Unicast is a transmission addressed to one specific destination.",
+        "answer": true,
+        "explanation": "The destination address names a single interface, so other hosts do not accept the packet as theirs."
+      },
+      {
+        "statement": "A TTL is a field that stores the maximum frame size of the next link.",
+        "answer": false,
+        "explanation": "Decrementing TTL and dropping a packet at zero stops packets from circulating forever in a routing loop."
+      },
+      {
+        "statement": "A MTU is the largest packet size a link can carry; classic Ethernet's MTU is 1500 bytes.",
+        "answer": true,
+        "explanation": "A packet larger than the MTU must be fragmented, if allowed, or dropped if fragmentation is forbidden."
+      },
+      {
+        "statement": "A Bandwidth is throughput.",
+        "answer": false,
+        "explanation": "Bandwidth is the link's capacity, while throughput is how much of that capacity a transfer uses."
+      },
+      {
+        "statement": "A Latency is the delay a packet experiences from the source to the destination.",
+        "answer": true,
+        "explanation": "Latency includes contributions such as transmission, propagation, processing, and queuing delay."
+      },
+      {
+        "statement": "A Network Interface is a domain name.",
+        "answer": false,
+        "explanation": "The interface is the host's attachment point, such as an Ethernet NIC with a MAC address and usually an IP address."
+      },
+      {
+        "statement": "A Full Duplex is a link mode in which both ends may transmit at the same time without colliding.",
+        "answer": true,
+        "explanation": "A switched point-to-point Ethernet link gives each direction its own path, so simultaneous transmission does not collide."
+      },
+      {
+        "statement": "A Well-Known Port is a 48-bit address assigned to a server NIC.",
+        "answer": false,
+        "explanation": "The well-known range is assigned to standard servers so clients know which port to contact."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a life-cycle model that finishes each software phase before the next begins is called OSI Model.",
+        "answer": false,
+        "explanation": "The model orders physical, data link, network, transport, session, presentation, and application responsibilities."
+      },
+      {
+        "statement": "A technician replaces a damaged fiber and measures the light level, with no MAC address involved.",
+        "answer": true,
+        "explanation": "This layer is concerned with bits on the wire or fiber, not with frames, IP addresses, or ports."
+      },
+      {
+        "statement": "In standard textbooks, network layer is called Data Link Layer.",
+        "answer": false,
+        "explanation": "Node-to-node delivery on a single link, using frames and MAC addresses, is the data link job."
+      },
+      {
+        "statement": "A router chooses the next hop for a packet by looking up the destination IP prefix.",
+        "answer": true,
+        "explanation": "Logical addressing and routing from one network to another are network-layer functions."
+      },
+      {
+        "statement": "In standard textbooks, physical layer is called Transport Layer.",
+        "answer": false,
+        "explanation": "Port numbers let the transport layer distinguish processes even when they share one IP address."
+      },
+      {
+        "statement": "An application opens a dialog, sets a checkpoint, and later resumes that dialog after a pause.",
+        "answer": true,
+        "explanation": "Dialog control, including checkpoints that let a conversation resume, is the session layer's role in the OSI model."
+      },
+      {
+        "statement": "In standard textbooks, the layer that routes packets across IP networks is called Presentation Layer.",
+        "answer": false,
+        "explanation": "The OSI presentation layer makes data understandable across systems by handling syntax, encryption, and compression."
+      },
+      {
+        "statement": "A mail client speaks SMTP to submit a message to a mail server.",
+        "answer": true,
+        "explanation": "Protocols such as HTTP, SMTP, and FTP are application-layer services used by programs."
+      },
+      {
+        "statement": "In standard textbooks, the OSI model is called TCP/IP Model.",
+        "answer": false,
+        "explanation": "The Internet stack groups OSI's top three layers into one application layer and uses IP at the internet layer."
+      },
+      {
+        "statement": "A TCP segment receives an IP header on the way down and then an Ethernet header and FCS.",
+        "answer": true,
+        "explanation": "Each lower layer wraps the upper layer's unit with the control information that layer needs."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, socket is called PDU.",
+        "answer": false,
+        "explanation": "Each layer has its own protocol data unit: bits, frames, packets, and segments are layer-specific names."
+      },
+      {
+        "statement": "The lab LAN uses IEEE 802.3 frames and 48-bit interface addresses on copper and fiber.",
+        "answer": true,
+        "explanation": "Ethernet defines the frame format and the rules for carrying those frames on copper, fiber, or a switched LAN."
+      },
+      {
+        "statement": "In standard textbooks, a 16-bit number that identifies an application process is called MAC Address.",
+        "answer": false,
+        "explanation": "The MAC address is burned into or assigned to the interface and is used in Ethernet frame headers."
+      },
+      {
+        "statement": "A NIC wraps an IP packet with destination and source MAC addresses, a type field, and an FCS.",
+        "answer": true,
+        "explanation": "On Ethernet, the frame adds MAC addresses, a type or length, and a frame check sequence around the packet."
+      },
+      {
+        "statement": "In standard textbooks, a hub is called Switch.",
+        "answer": false,
+        "explanation": "The switch learns which MAC address is reached through which port and forwards unicast frames only there."
+      },
+      {
+        "statement": "Whenever any PC transmits into a four-port hub, the bits appear on the other three ports.",
+        "answer": true,
+        "explanation": "A hub has no MAC table, so every attached interface shares one collision domain."
+      },
+      {
+        "statement": "In standard textbooks, 0 is called Collision Domain.",
+        "answer": false,
+        "explanation": "Collisions occur only where a shared medium allows overlapping transmissions, such as a hub segment."
+      },
+      {
+        "statement": "On a hub segment two stations transmit together, detect the overlap, send a jam, and back off.",
+        "answer": true,
+        "explanation": "Carrier sense avoids a busy medium, and collision detection lets the sender stop quickly and schedule a retry."
+      },
+      {
+        "statement": "In standard textbooks, a 48-bit address burned into a network interface card is called IPv4 Address.",
+        "answer": false,
+        "explanation": "IPv4 addresses are 32 bits long and are written in dotted decimal for the network layer."
+      },
+      {
+        "statement": "The mask 255.255.255.0 means the first 24 bits are the network and the last 8 bits are the host.",
+        "answer": true,
+        "explanation": "The mask tells the host which bits identify the subnet and which bits identify the host inside it."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, classful addressing is called CIDR.",
+        "answer": false,
+        "explanation": "Classless Inter-Domain Routing allows any prefix length, so address blocks need not follow the old class boundaries."
+      },
+      {
+        "statement": "The network 192.168.1.0/24 is split into four /26 subnets for four departments.",
+        "answer": true,
+        "explanation": "Borrowed host bits become extra network bits, creating several smaller prefixes from one larger prefix."
+      },
+      {
+        "statement": "In standard textbooks, nTP server is called Default Gateway.",
+        "answer": false,
+        "explanation": "If the destination is outside the host's subnet, the host forwards the packet to its default gateway."
+      },
+      {
+        "statement": "An office printer uses 192.168.10.4, which stays inside the organization.",
+        "answer": true,
+        "explanation": "RFC 1918 reserves those three ranges for internal use, and Internet routers do not forward them publicly."
+      },
+      {
+        "statement": "In standard textbooks, the protocol that leases an IP address, mask, and gateway to a host is called ARP.",
+        "answer": false,
+        "explanation": "A host broadcasts an ARP request containing the target IPv4 address and learns the matching MAC address."
+      },
+      {
+        "statement": "A browser asks DNS for www.example.edu and receives the server's IPv4 address before connecting.",
+        "answer": true,
+        "explanation": "Resolvers query the DNS hierarchy to turn a name such as a website into an address the network can use."
+      },
+      {
+        "statement": "In standard textbooks, dNS is called DHCP.",
+        "answer": false,
+        "explanation": "DHCP removes manual address entry by leasing configuration for a limited time through its discover-offer exchange."
+      },
+      {
+        "statement": "A file transfer uses TCP so every byte arrives in order and lost segments are retransmitted.",
+        "answer": true,
+        "explanation": "TCP sets up a connection and uses sequence numbers, acknowledgements, and retransmission to deliver bytes in order."
+      },
+      {
+        "statement": "In standard textbooks, sMTP is called UDP.",
+        "answer": false,
+        "explanation": "UDP adds port numbers and a checksum but does not establish a session or recover lost datagrams."
+      },
+      {
+        "statement": "A browser sends SYN to port 443, the server returns SYN-ACK, and the browser completes the setup with ACK.",
+        "answer": true,
+        "explanation": "Both sides confirm the initial sequence numbers by exchanging SYN, SYN-ACK, and ACK before data."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a 32-bit logical address that identifies an IP interface is called Port Number.",
+        "answer": false,
+        "explanation": "TCP and UDP use the port number so multiple applications can share one IP address."
+      },
+      {
+        "statement": "A connection runs from 198.51.100.4 port 51515 to 198.51.100.10 port 443.",
+        "answer": true,
+        "explanation": "A TCP connection is identified by the pair of sockets, one at each end."
+      },
+      {
+        "statement": "In standard textbooks, a switch is called Router.",
+        "answer": false,
+        "explanation": "Routers operate at the network layer and separate broadcast domains by forwarding on IP prefixes."
+      },
+      {
+        "statement": "A router finds 203.0.113.0/24, notes the next hop, and sends the packet out GigabitEthernet0/1.",
+        "answer": true,
+        "explanation": "The longest matching prefix in the routing table selects the next hop and the outgoing interface."
+      },
+      {
+        "statement": "In standard textbooks, a BGP route is called Static Route.",
+        "answer": false,
+        "explanation": "A static route does not depend on routing updates; an administrator configures the prefix and next hop."
+      },
+      {
+        "statement": "A small router sends every unknown Internet destination to 0.0.0.0/0 via its ISP next hop.",
+        "answer": true,
+        "explanation": "The default prefix matches every destination, but a longer prefix is preferred when one exists."
+      },
+      {
+        "statement": "In standard textbooks, a transport protocol that sends datagrams without retransmission is called ICMP.",
+        "answer": false,
+        "explanation": "Routers and hosts use ICMP for messages such as destination unreachable, time exceeded, and echo used by ping."
+      },
+      {
+        "statement": "A browser sends GET for a page and receives HTML, with no TLS, on port 80.",
+        "answer": true,
+        "explanation": "HTTP is a request-response protocol; a common request method is GET, and plain HTTP uses port 80."
+      },
+      {
+        "statement": "In standard textbooks, hTTP is called HTTPS.",
+        "answer": false,
+        "explanation": "TLS provides encryption and server authentication around HTTP, and the usual port is 443."
+      },
+      {
+        "statement": "The string https://lab.edu/grades names the scheme, the host, and the path of a page.",
+        "answer": true,
+        "explanation": "A URL such as a web address combines the access method, the host name, and the resource path."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a session is called Packet.",
+        "answer": false,
+        "explanation": "At the network layer the protocol data unit is the packet, which IP forwards toward the destination address."
+      },
+      {
+        "statement": "A DHCP discover is sent to 255.255.255.255 so every host on the local subnet can hear it.",
+        "answer": true,
+        "explanation": "A broadcast address, such as the limited broadcast, is accepted by every host on that local domain."
+      },
+      {
+        "statement": "In standard textbooks, a transmission addressed to a group of subscribers is called Unicast.",
+        "answer": false,
+        "explanation": "The destination address names a single interface, so other hosts do not accept the packet as theirs."
+      },
+      {
+        "statement": "A packet arrives with TTL 1 at a router that would need to forward it, so the router discards it.",
+        "answer": true,
+        "explanation": "Decrementing TTL and dropping a packet at zero stops packets from circulating forever in a routing loop."
+      },
+      {
+        "statement": "In standard textbooks, expand the Ethernet MTU by itself is called MTU.",
+        "answer": false,
+        "explanation": "A packet larger than the MTU must be fragmented, if allowed, or dropped if fragmentation is forbidden."
+      },
+      {
+        "statement": "A link can carry at most 1 Gbit/s, while a transfer currently achieves only 200 Mbit/s.",
+        "answer": true,
+        "explanation": "Bandwidth is the link's capacity, while throughput is how much of that capacity a transfer uses."
+      },
+      {
+        "statement": "In standard textbooks, mTU is called Latency.",
+        "answer": false,
+        "explanation": "Latency includes contributions such as transmission, propagation, processing, and queuing delay."
+      },
+      {
+        "statement": "A PC's Ethernet port has MAC 00-1A-2B-3C-4D-5E and an IP address on the lab LAN.",
+        "answer": true,
+        "explanation": "The interface is the host's attachment point, such as an Ethernet NIC with a MAC address and usually an IP address."
+      },
+      {
+        "statement": "In standard textbooks, a mode in which data flows in only one direction is called Full Duplex.",
+        "answer": false,
+        "explanation": "A switched point-to-point Ethernet link gives each direction its own path, so simultaneous transmission does not collide."
+      },
+      {
+        "statement": "HTTPS servers listen on port 443, which is inside the well-known range.",
+        "answer": true,
+        "explanation": "The well-known range is assigned to standard servers so clients know which port to contact."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When students map cables, frames, IP, TCP, and HTTP onto seven ordered layers. Which reference model are they using, the correct result is the TCP/IP model.",
+        "answer": false,
+        "explanation": "Seven ordered layers from the medium up to the application are the OSI model."
+      },
+      {
+        "statement": "When a technician replaces a damaged fiber and checks the optical level, and no addresses are involved. Which OSI layer is being serviced, the correct result is transport layer.",
+        "answer": false,
+        "explanation": "Signals and the medium, without addresses, belong to the physical layer."
+      },
+      {
+        "statement": "When a switch uses the destination MAC address to choose an output port. The OSI layer makes that decision, the correct result is data link layer.",
+        "answer": true,
+        "explanation": "Forwarding by MAC address on one link is a data link function."
+      },
+      {
+        "statement": "When a router chooses the next hop from the destination IP address. The OSI layer is that choice, the correct result is network layer.",
+        "answer": true,
+        "explanation": "Choosing a next hop from a logical address is the network layer."
+      },
+      {
+        "statement": "When bytes must reach the process on port 443 rather than the process on port 22 on the same host. Which OSI layer uses that distinction, the correct result is data link layer.",
+        "answer": false,
+        "explanation": "Selecting a process by port number is a transport-layer function."
+      },
+      {
+        "statement": "When an application opens a dialog, places a checkpoint, and later resumes after a pause. Which OSI layer describes that control, the correct result is data link layer.",
+        "answer": false,
+        "explanation": "Opening, checkpointing, and resuming a dialog is session-layer control."
+      },
+      {
+        "statement": "When two systems translate character encoding and decompress the payload before the application reads it. The OSI layer is that job, the correct result is presentation layer.",
+        "answer": true,
+        "explanation": "Format translation and compression for the application are presentation-layer jobs in OSI."
+      },
+      {
+        "statement": "When a mail client speaks SMTP to submit a message. The OSI layer contains SMTP, the correct result is application layer.",
+        "answer": true,
+        "explanation": "SMTP is an application service, so it sits in the application layer."
+      },
+      {
+        "statement": "When hTTP is placed in the same layer that also absorbs OSI session and presentation duties. Which model is being used, the correct result is the waterfall model.",
+        "answer": false,
+        "explanation": "Folding application, presentation, and session work into one layer matches the TCP/IP model."
+      },
+      {
+        "statement": "When as a message moves down the stack, TCP adds a header and then IP adds another header. The process is adding those headers, the correct result is encapsulation.",
+        "answer": true,
+        "explanation": "Wrapping data with the headers of lower layers is encapsulation."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When students must name the general term for a layer's unit, of which segment, packet, and frame are examples. Which term covers all of them, the correct result is bandwidth.",
+        "answer": false,
+        "explanation": "Segment, packet, and frame are each a protocol data unit at a different layer."
+      },
+      {
+        "statement": "When the lab LAN uses IEEE 802.3 frames and 48-bit interface addresses. Which LAN family is this, the correct result is token Ring.",
+        "answer": false,
+        "explanation": "IEEE 802.3 frames with 48-bit MAC addresses are Ethernet."
+      },
+      {
+        "statement": "When a vendor burns the 48-bit value 3C-22-FB-00-11-22 into a NIC. The kind of address is it, the correct result is a MAC address.",
+        "answer": true,
+        "explanation": "A 48-bit interface address used on the local link is a MAC address."
+      },
+      {
+        "statement": "When the NIC wraps an IP packet with MAC addresses, a type, and a frame check sequence. The unit did it build, the correct result is a frame.",
+        "answer": true,
+        "explanation": "A packet wrapped with link-layer header and trailer is a frame."
+      },
+      {
+        "statement": "When a device forwards a frame only out the port where the destination MAC was learned. Which device is this, the correct result is a media converter.",
+        "answer": false,
+        "explanation": "Selective forwarding from a MAC address table is what a switch does."
+      },
+      {
+        "statement": "When every port hears the bits whenever any port transmits, and there is one collision domain. Which device is this, the correct result is a switch.",
+        "answer": false,
+        "explanation": "Repeating every signal to every other port is the behavior of a hub."
+      },
+      {
+        "statement": "When four PCs are connected only through one hub. How many collision domains are there, the correct result is 1.",
+        "answer": true,
+        "explanation": "A hub repeats every transmission to every port, so all four PCs share one collision domain."
+      },
+      {
+        "statement": "When on a half-duplex Ethernet segment two stations transmit together, jam, and back off. The method is this, the correct result is cSMA/CD.",
+        "answer": true,
+        "explanation": "Listening, detecting a collision, jamming, and backing off is CSMA/CD."
+      },
+      {
+        "statement": "When an address is written 172.16.5.9 and is 32 bits long. Which address family is it, the correct result is iPv6.",
+        "answer": false,
+        "explanation": "A 32-bit dotted-decimal address is an IPv4 address."
+      },
+      {
+        "statement": "When the dotted mask is equivalent to the prefix length /24, the correct result is 255.255.255.0.",
+        "answer": true,
+        "explanation": "Twenty-four leading 1 bits form the mask 255.255.255.0."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a provider assigns 203.0.113.0/25 rather than a whole former class C network. Which addressing practice is this, the correct result is dHCP.",
+        "answer": false,
+        "explanation": "A prefix length that is not tied to class A, B, or C sizes is CIDR."
+      },
+      {
+        "statement": "When a /24 must be split into four equal subnets. Which new prefix length results, the correct result is /25.",
+        "answer": false,
+        "explanation": "Four equal subnets require two borrowed bits, which changes /24 into /26."
+      },
+      {
+        "statement": "When host 10.0.0.8/24 must reach 10.1.0.5, The is off its subnet, via 10.0.0.1. Which role does 10.0.0.1 play, the correct result is default gateway.",
+        "answer": true,
+        "explanation": "The router address used for off-subnet destinations is the default gateway."
+      },
+      {
+        "statement": "When the address is reserved for internal use and is not routed on the public Internet, the correct result is 192.168.10.4.",
+        "answer": true,
+        "explanation": "192.168.10.4 lies in 192.168.0.0/16, which is an RFC 1918 private range."
+      },
+      {
+        "statement": "When a host knows the gateway's IPv4 address but not its MAC address. Which protocol should it use on the LAN, the correct result is dNS.",
+        "answer": false,
+        "explanation": "Resolving a known IPv4 address to a MAC address on the link is ARP."
+      },
+      {
+        "statement": "When the browser has www.example.edu but not the server's IP address. Which system resolves the name, the correct result is dHCP.",
+        "answer": false,
+        "explanation": "Mapping a domain name to an IP address is the job of DNS."
+      },
+      {
+        "statement": "When a laptop joins the wireless LAN with no manual address configured. The protocol leases it an address, the correct result is dHCP.",
+        "answer": true,
+        "explanation": "Automatic leasing of an IP configuration is DHCP."
+      },
+      {
+        "statement": "When a file transfer must arrive complete and in order, and lost data must be retransmitted. The transport protocol fits, the correct result is tCP.",
+        "answer": true,
+        "explanation": "Reliable ordered delivery with retransmission is what TCP provides."
+      },
+      {
+        "statement": "When a live voice call prefers low delay and can tolerate a lost packet. Which transport protocol fits, the correct result is hTTP.",
+        "answer": false,
+        "explanation": "Low-overhead datagrams without retransmission fit a loss-tolerant voice call, which is UDP."
+      },
+      {
+        "statement": "When the client has sent SYN and the server replies to open a TCP connection. The flags should that reply carry, the correct result is sYN and ACK.",
+        "answer": true,
+        "explanation": "The server's step in the three-way handshake is a segment with SYN and ACK."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When two web servers run on one host and must be distinguished by the transport layer. Which identifier separates them, the correct result is a MAC address.",
+        "answer": false,
+        "explanation": "Transport-layer port numbers distinguish processes on the same host."
+      },
+      {
+        "statement": "When one end of a connection is 198.51.100.4 port 51515 and the other is 198.51.100.10 port 443. What is each IP-plus-port pair, the correct result is a collision domain.",
+        "answer": false,
+        "explanation": "An IP address combined with a port number identifies a socket."
+      },
+      {
+        "statement": "When a packet for another subnet is forwarded using the destination IP prefix, not a MAC table. The device does that, the correct result is a router.",
+        "answer": true,
+        "explanation": "Forwarding between networks by IP prefix is the job of a router."
+      },
+      {
+        "statement": "When a device looks up 203.0.113.0/24, finds a next hop, and sends the packet out a chosen interface. The structure did it consult, the correct result is the routing table.",
+        "answer": true,
+        "explanation": "Prefixes and next hops used to forward packets are stored in the routing table."
+      },
+      {
+        "statement": "When an administrator configures 198.51.100.0/24 via 192.0.2.1 and no routing protocol advertises it. Which route is this, the correct result is a RIP route.",
+        "answer": false,
+        "explanation": "A route configured by hand and not learned from a protocol is a static route."
+      },
+      {
+        "statement": "When the table has no entry for 198.51.100.8 except 0.0.0.0/0 via 192.0.2.1. Which route forwards the packet, the correct result is a host route that is absent.",
+        "answer": false,
+        "explanation": "When 0.0.0.0/0 is the only match, the default route forwards the packet."
+      },
+      {
+        "statement": "When a router cannot deliver a packet and returns a destination-unreachable message. The protocol carries that message, the correct result is iCMP.",
+        "answer": true,
+        "explanation": "Destination-unreachable reports are ICMP messages."
+      },
+      {
+        "statement": "When a browser requests a page with GET and receives HTML, with no TLS, on port 80. The protocol is this, the correct result is hTTP.",
+        "answer": true,
+        "explanation": "Unencrypted web transfer on port 80 is HTTP."
+      },
+      {
+        "statement": "When the browser shows a lock and the session uses TLS on port 443 to fetch a page. Which protocol is this, the correct result is dNS.",
+        "answer": false,
+        "explanation": "HTTP inside TLS on port 443 is HTTPS."
+      },
+      {
+        "statement": "When the string https://lab.edu/grades names the scheme, the host, and the path of a page. In this case that string, the correct result is a URL.",
+        "answer": true,
+        "explanation": "Scheme, host, and path together form a URL."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When iP adds a header with source and destination addresses around a TCP segment. Which network-layer unit results, the correct result is a bit.",
+        "answer": false,
+        "explanation": "An IP header plus its payload is a packet."
+      },
+      {
+        "statement": "When a DHCP discover is sent so every host on the local subnet receives it. Which addressing mode is that, the correct result is anycast.",
+        "answer": false,
+        "explanation": "Delivery to every host in the local domain is a broadcast."
+      },
+      {
+        "statement": "When a server sends a web response only to 198.51.100.20. The addressing mode is this, the correct result is unicast.",
+        "answer": true,
+        "explanation": "Delivery to one specific destination is unicast."
+      },
+      {
+        "statement": "When a packet arrives at a router with TTL 1 and the router is not the destination. In this case the router do, the correct result is drop it and send ICMP Time Exceeded.",
+        "answer": true,
+        "explanation": "Forwarding would reduce TTL to zero, so the router drops the packet and reports time exceeded."
+      },
+      {
+        "statement": "When an IPv4 packet of 2000 bytes must cross classic Ethernet, and the Don't Fragment bit is clear. What can the router do, the correct result is ignore the size and send one 2000-byte frame.",
+        "answer": false,
+        "explanation": "With Don't Fragment clear, an IPv4 router may fragment a packet that exceeds the 1500-byte Ethernet MTU."
+      },
+      {
+        "statement": "When a link can carry at most 1 Gbit/s, but a transfer currently achieves 200 Mbit/s. Which figure is the 1 Gbit/s, the correct result is throughput.",
+        "answer": false,
+        "explanation": "The maximum rate of the link is its bandwidth; 200 Mbit/s is the achieved throughput."
+      },
+      {
+        "statement": "When a packet leaves a camera and arrives 40 ms later, mostly from distance and queuing. The measure is the 40 ms, the correct result is latency.",
+        "answer": true,
+        "explanation": "End-to-end delay is latency."
+      },
+      {
+        "statement": "When a PC Ethernet port has a MAC address and an IP address on the lab LAN. In this case that port called, the correct result is a network interface.",
+        "answer": true,
+        "explanation": "The host's attachment point with a link-layer address is a network interface."
+      },
+      {
+        "statement": "When a switched PC link lets the PC and the switch transmit at the same time with no collisions. Which mode is the link using, the correct result is half duplex.",
+        "answer": false,
+        "explanation": "Simultaneous transmission in both directions without collisions is full duplex."
+      },
+      {
+        "statement": "When the port number is reserved for HTTPS, the correct result is 443.",
+        "answer": true,
+        "explanation": "HTTPS is assigned the well-known port 443; port 80 is HTTP."
+      }
+    ]
+  }
+}

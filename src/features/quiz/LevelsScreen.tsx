@@ -1,10 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { AppText, Button, CodeChip, ErrorState, LevelCard, LoadingState, Screen, ScreenHeader } from '@/components';
-import { QUIZ } from '@/constants/app';
+import { AppText, Button, CodeChip, ErrorState, LevelCard, LoadingState, QuizTypeBadge, Screen, ScreenHeader } from '@/components';
+import { QUIZ, QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useLevelProgress, useQuizHistory, useResponsive, useSubject } from '@/hooks';
+import { useLevelProgress, useQuizHistory, useQuizType, useResponsive, useSubject } from '@/hooks';
 import { colors, spacing } from '@/theme';
 import type { LevelProgress } from '@/types';
 import { padLevel } from '@/utils/quiz';
@@ -18,9 +18,10 @@ function defaultLevel(levels: LevelProgress[]) {
 
 export function LevelsScreen() {
   const { subjectId = '' } = useLocalSearchParams<{ subjectId: string }>();
+  const type = useQuizType();
   const subject = useSubject(subjectId);
   const history = useQuizHistory();
-  const levels = useLevelProgress(subjectId);
+  const levels = useLevelProgress(subjectId, type);
   const { levelColumns } = useResponsive();
   const [gridWidth, setGridWidth] = useState(0);
   const [userPick, setPicked] = useState<number | null>(null);
@@ -33,7 +34,7 @@ export function LevelsScreen() {
   const start = () => {
     if (!subject.data || !selected) return;
     // Resume an in-progress level; otherwise start a fresh attempt.
-    router.push(routes.quizQuestions(subject.data.id, selected.level, selected.status !== 'current'));
+    router.push(routes.quizQuestions(subject.data.id, selected.level, selected.status !== 'current', type));
   };
 
   const cta = !selected
@@ -50,7 +51,7 @@ export function LevelsScreen() {
         subject.data ? (
           <>
             <AppText variant="caption" color="textSecondary" align="center">
-              {`${QUIZ.questionsPerQuiz} questions · Multiple choice · ${QUIZ.durationSeconds / 60} min`}
+              {`${QUIZ.questionsPerQuiz} questions · ${QUIZ_TYPES[type].format} · ${QUIZ.durationSeconds / 60} min`}
             </AppText>
             <Button title={cta} rightIcon="arrow-right" onPress={start} disabled={!selected} />
           </>
@@ -68,6 +69,7 @@ export function LevelsScreen() {
         <>
           <ScreenHeader back backLabel="Back to subjects" />
           <View style={styles.subject}>
+            <QuizTypeBadge type={type} />
             <AppText variant="bodyStrong">{subject.data.name}</AppText>
             <CodeChip code={subject.data.code} />
           </View>
@@ -122,7 +124,7 @@ function LegendItem({ label, swatch }: { label: string; swatch: object }) {
 }
 
 const styles = StyleSheet.create({
-  subject: { gap: spacing.xs },
+  subject: { gap: spacing.xs, alignItems: 'flex-start' },
   titleBlock: { gap: spacing.xs },
   legend: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.lg },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs + 2 },

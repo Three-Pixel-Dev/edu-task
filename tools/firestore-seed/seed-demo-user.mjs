@@ -6,7 +6,8 @@
  *
  * Writes:
  *   - Auth user + users/{uid} profile
- *   - ~18 quizResults (recent attempts table)
+ *   - 18 Multiple choice quizResults (quizType "multipleChoice")
+ *   - 8 Quiz (True / False) quizResults (quizType "trueFalse")
  *   - one unfinished quizSession (Continue quiz · DBMS L4 · Q4/10)
  *   - tasks (2 due today, overdue, upcoming, 12 completed)
  *
@@ -18,11 +19,13 @@
  * Credentials: GOOGLE_APPLICATION_CREDENTIALS → service-account JSON
  * (same key as the content seed), e.g. D:\edutask-admin.json
  */
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
+const TRUE_FALSE_DIR = path.join(here, 'data', 'true-false');
+
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);
 const option = (name) => {
@@ -51,7 +54,7 @@ const SUBJECTS = {
   circuit: { id: 'engineering-circuit-analysis', code: 'CEIT-3020', name: 'Engineering Circuit Analysis' },
 };
 
-/** [subjectKey, level, correctAnswers, daysAgo] — newest first in the UI. */
+/** Multiple choice: [subjectKey, level, correctAnswers, daysAgo] — newest first in the UI. */
 const ATTEMPTS = [
   ['dbms', 4, 8, 7],
   ['dbms', 3, 9, 9],
@@ -73,6 +76,22 @@ const ATTEMPTS = [
   ['se', 1, 8, 36],
 ];
 
+/**
+ * Quiz (True / False) attempts: [subjectKey, level, correctAnswers, daysAgo].
+ * The levels used here have real statements in data/true-false/ (run the
+ * content seed first); otherwise placeholder statements are used.
+ */
+const TRUE_FALSE_ATTEMPTS = [
+  ['dbms', 3, 9, 1],
+  ['os', 1, 8, 2],
+  ['dbms', 2, 7, 3],
+  ['net', 1, 10, 4],
+  ['dsa', 1, 6, 5],
+  ['sec', 1, 8, 6],
+  ['dbms', 1, 9, 8],
+  ['se', 1, 7, 12],
+];
+
 function daysFromNow(days, hours = 23, minutes = 59) {
   const d = new Date();
   d.setDate(d.getDate() + days);
@@ -89,18 +108,25 @@ function shuffle(list) {
   return copy;
 }
 
-function pickQuestions(pool, count = 10) {
+function pickQuestions(pool, count = 10, trueFalse = false) {
   if (pool.length >= count) return shuffle(pool).slice(0, count);
   // Fallback placeholders if a level isn't fully seeded yet.
   return Array.from({ length: count }, (_, i) => {
     const existing = pool[i % Math.max(pool.length, 1)];
     if (existing) return existing;
-    return {
-      id: `demo-q-placeholder-${i + 1}`,
-      question: `Demo question ${i + 1}`,
-      options: ['A', 'B', 'C', 'D'],
-      correctAnswer: 'A',
-    };
+    return trueFalse
+      ? {
+          id: `demo-tf-placeholder-${i + 1}`,
+          question: `Demo statement ${i + 1}.`,
+          options: ['True', 'False'],
+          correctAnswer: i % 2 === 0 ? 'True' : 'False',
+        }
+      : {
+          id: `demo-q-placeholder-${i + 1}`,
+          question: `Demo question ${i + 1}`,
+          options: ['A', 'B', 'C', 'D'],
+          correctAnswer: 'A',
+        };
   });
 }
 
@@ -142,8 +168,8 @@ async function ensureAuthUser(auth) {
   }
 }
 
-async function loadQuestionsBySubjectLevel(db) {
-  const snap = await db.collection('questions').where('isActive', '==', true).get();
+async function loadQuestionsBySubjectLevel(db, collectionName = 'questions') {
+  const snap = await db.collection(collectionName).where('isActive', '==', true).get();
   const map = new Map();
   for (const doc of snap.docs) {
     const data = doc.data();
@@ -156,6 +182,35 @@ async function loadQuestionsBySubjectLevel(db) {
       correctAnswer: data.correctAnswer,
     });
     map.set(key, list);
+  }
+  return map;
+}
+
+/** Quiz (True / False) pools from local data/true-false/*.json (not Firestore). */
+async function loadTrueFalseBySubjectLevel() {
+  const map = new Map();
+  let files;
+  try {
+    files = (await readdir(TRUE_FALSE_DIR)).filter((f) => f.endsWith('.json') && !f.startsWith('_'));
+  } catch {
+    return map;
+  }
+  for (const file of files) {
+    const raw = JSON.parse(await readFile(path.join(TRUE_FALSE_DIR, file), 'utf8'));
+    const subjectId = raw.subjectId ?? file.replace(/\.json$/, '');
+    for (const [levelKey, list] of Object.entries(raw.levels ?? {})) {
+      const level = Number(levelKey);
+      const key = `${subjectId}::${level}`;
+      const pool = (Array.isArray(list) ? list : [])
+        .filter((item) => item && item.isActive !== false)
+        .map((item, i) => ({
+          id: `${subjectId}__tf__l${level}__q${String(i + 1).padStart(2, '0')}`,
+          question: String(item.statement ?? '').trim(),
+          options: ['True', 'False'],
+          correctAnswer: item.answer ? 'True' : 'False',
+        }));
+      map.set(key, pool);
+    }
   }
   return map;
 }
@@ -300,7 +355,8 @@ async function main() {
   await clearPreviousDemoData(db, uid);
 
   const questionMap = await loadQuestionsBySubjectLevel(db);
-  console.log(`Loaded question pools for ${questionMap.size} subject/level pairs`);
+  const trueFalseMap = await loadTrueFalseBySubjectLevel();
+  console.log(`Loaded question pools for ${questionMap.size} multiple choice and ${trueFalseMap.size} quiz (local true/false) subject/level pairs`);
 
   // Quiz results
   const resultBatch = db.batch();
@@ -313,6 +369,7 @@ async function main() {
     const ref = db.collection('quizResults').doc(`demo_result_${String(index + 1).padStart(2, '0')}`);
     resultBatch.set(ref, {
       userId: uid,
+      quizType: 'multipleChoice',
       subjectId: subject.id,
       subjectName: subject.name,
       subjectCode: subject.code,
@@ -327,8 +384,31 @@ async function main() {
       completedAt,
     });
   });
+  TRUE_FALSE_ATTEMPTS.forEach(([key, level, correct, daysAgo], index) => {
+    const subject = SUBJECTS[key];
+    const pool = trueFalseMap.get(`${subject.id}::${level}`) ?? [];
+    const questions = pickQuestions(pool, 10, true);
+    const answers = buildAnswers(questions, correct);
+    const completedAt = Timestamp.fromDate(daysFromNow(-daysAgo, 11 + (level % 7), (level * 17 + index * 7) % 60));
+    resultBatch.set(db.collection('quizResults').doc(`demo_tf_result_${String(index + 1).padStart(2, '0')}`), {
+      userId: uid,
+      quizType: 'trueFalse',
+      subjectId: subject.id,
+      subjectName: subject.name,
+      subjectCode: subject.code,
+      level,
+      totalQuestions: 10,
+      correctAnswers: correct,
+      incorrectAnswers: 10 - correct,
+      score: correct,
+      percentage: correct * 10,
+      durationSeconds: 140 + ((level * 31 + daysAgo * 19) % 120),
+      answers,
+      completedAt,
+    });
+  });
   await resultBatch.commit();
-  console.log(`Wrote ${ATTEMPTS.length} quizResults`);
+  console.log(`Wrote ${ATTEMPTS.length} multiple choice + ${TRUE_FALSE_ATTEMPTS.length} quiz (true/false) quizResults`);
 
   // Continue-quiz session: DBMS level 4, paused on question 4 (index 3)
   const sessionSubject = SUBJECTS.dbms;
@@ -341,7 +421,9 @@ async function main() {
     sessionAnswers[q.id] = i === 2 ? wrong : q.correctAnswer;
     checked.push(q.id);
   });
-  await db.collection('users').doc(uid).collection('quizSessions').doc('demo_session_dbms_l4').set({
+  // Same id format the app uses (sessionIdFor): {subjectId}__L{level}
+  await db.collection('users').doc(uid).collection('quizSessions').doc(`${sessionSubject.id}__L4`).set({
+    quizType: 'multipleChoice',
     subjectId: sessionSubject.id,
     subjectName: sessionSubject.name,
     subjectCode: sessionSubject.code,
@@ -384,7 +466,7 @@ async function main() {
   console.log(`  Password: ${DEMO.password}`);
   console.log(`  Name:     ${DEMO.displayName}`);
   console.log(`  UID:      ${uid}`);
-  console.log('\nLog in on web or mobile to see Home / Quiz / Tasks populated like the mock.');
+  console.log('\nLog in on web or mobile to see Home, Multiple choice, Quiz and Tasks populated like the mocks.');
 }
 
 main().catch((error) => {

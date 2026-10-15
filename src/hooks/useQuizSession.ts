@@ -4,7 +4,7 @@ import { messageOf } from '@/services/errors';
 import { newResultId, saveQuizResult } from '@/services/quizResults';
 import { getQuestionsByIds, saveQuizSession, sessionIdFor, startQuiz } from '@/services/quizzes';
 import { getSubject } from '@/services/subjects';
-import type { Question, QuizSession, Subject } from '@/types';
+import type { Question, QuizSession, QuizType, Subject } from '@/types';
 import { nowIso } from '@/utils/format';
 import { gradeAnswers, summarise } from '@/utils/quiz';
 import { useUid } from './useAuth';
@@ -33,10 +33,10 @@ interface Loaded {
  * autosave progress → grade → save the result once → hand back the result id.
  * The screen only renders what this hook returns.
  */
-export function useQuizSession(subjectId: string, level: number, restart: boolean) {
+export function useQuizSession(subjectId: string, level: number, restart: boolean, quizType: QuizType = 'multipleChoice') {
   const uid = useUid();
   const { sessions, status: historyStatus } = useQuizHistory();
-  const sessionId = sessionIdFor(subjectId, level);
+  const sessionId = sessionIdFor(subjectId, level, quizType);
 
   const [screen, setScreen] = useState<QuizScreenState>({ kind: 'loading' });
   const [loaded, setLoaded] = useState<Loaded | null>(null);
@@ -57,7 +57,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
       const saved: QuizSession | undefined = restart ? undefined : sessions.find((s) => s.id === sessionId);
 
       if (saved) {
-        const questions = await getQuestionsByIds(saved.questionIds);
+        const questions = await getQuestionsByIds(saved.questionIds, quizType);
         if (questions && saved.resultId) {
           setLoaded({ subject, questions, resultId: saved.resultId, startedAt: saved.startedAt, initialRemaining: saved.remainingSeconds });
           setAnswers(saved.answers);
@@ -69,7 +69,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
         // Questions changed since the session was saved — start a fresh quiz instead.
       }
 
-      const start = await startQuiz(subjectId, level);
+      const start = await startQuiz(subjectId, level, quizType);
       if (start.kind === 'notEnough') {
         setScreen({ kind: 'notEnough', subject, available: start.available, required: start.required });
         return;
@@ -90,7 +90,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
     // State is only set after the first await inside `load`.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (historyReady) void load();
-  }, [historyReady, subjectId, level, restart, attempt]);
+  }, [historyReady, subjectId, level, restart, attempt, quizType]);
 
   const retryLoad = useCallback(() => {
     setScreen({ kind: 'loading' });
@@ -119,6 +119,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
     if (!loaded || resultId || submitLock.current) return;
     void saveQuizSession(uid, {
       id: sessionId,
+      quizType,
       subjectId,
       subjectName: loaded.subject.name,
       subjectCode: loaded.subject.code,
@@ -131,7 +132,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
       resultId: loaded.resultId,
       startedAt: loaded.startedAt,
     });
-  }, [loaded, answers, checked, index, uid, sessionId, subjectId, level, resultId, saveTick]);
+  }, [loaded, answers, checked, index, uid, sessionId, subjectId, level, resultId, saveTick, quizType]);
 
   const submit = useCallback(async () => {
     if (!loaded || submitLock.current || resultId) return;
@@ -145,6 +146,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
         uid,
         {
           id: loaded.resultId,
+          quizType,
           subjectId,
           subjectName: loaded.subject.name,
           subjectCode: loaded.subject.code,
@@ -164,7 +166,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
       submitAttempts.current += 1;
       setSubmitting(false);
     }
-  }, [loaded, resultId, answers, uid, subjectId, level, sessionId]);
+  }, [loaded, resultId, answers, uid, subjectId, level, sessionId, quizType]);
 
   // Time's up → submit automatically (unanswered questions count as incorrect).
   const onTimeUp = useEffectEvent(() => {
@@ -195,6 +197,7 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
   const previous = useCallback(() => setIndex((i) => Math.max(i - 1, 0)), []);
 
   return {
+    quizType,
     screen,
     retryLoad,
     subject: loaded?.subject,

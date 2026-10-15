@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { AppText, EmptyState, ErrorState, Icon, IconButton, LoadingState, Screen, ScreenHeader, SubjectCard, toIconName } from '@/components';
 import { QUIZ } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useQuizHistory, useSubjects } from '@/hooks';
+import { useQuizHistory, useQuizType, useSubjects } from '@/hooks';
 import { colors, fonts, radius, spacing, touch } from '@/theme';
 import type { Subject } from '@/types';
 import { levelProgressFor } from '@/utils/quiz';
@@ -12,6 +12,7 @@ import { levelProgressFor } from '@/utils/quiz';
 /** Desktop subjects: search + multi-column cards. */
 export function SubjectsScreen() {
   const { fieldId = '' } = useLocalSearchParams<{ fieldId: string }>();
+  const type = useQuizType();
   const { results, sessions } = useQuizHistory();
   const [query, setQuery] = useState('');
   const data = useSubjects(fieldId);
@@ -22,7 +23,7 @@ export function SubjectsScreen() {
   }, [data.data, query]);
 
   const statusFor = (subject: Subject) => {
-    const levels = levelProgressFor(subject.id, results, sessions);
+    const levels = levelProgressFor(subject.id, results, sessions, type);
     const current = levels.find((l) => l.status === 'current');
     const completed = levels.filter((l) => l.status === 'completed').length;
     const label = current ? `Level ${current.level} in progress` : completed ? `${completed} of ${QUIZ.levelCount} levels done` : 'Not started';
@@ -37,7 +38,7 @@ export function SubjectsScreen() {
         back
         backLabel="Back to fields"
         title={field?.name ?? 'Subjects'}
-        subtitle="Choose a subject to start a quiz."
+        subtitle={type === 'trueFalse' ? 'Choose a subject to start a quiz.' : 'Choose a subject to start a multiple choice set.'}
         leading={
           field ? (
             <View style={styles.fieldIcon}>
@@ -83,7 +84,7 @@ export function SubjectsScreen() {
                 const status = statusFor(subject);
                 return (
                   <View key={subject.id} style={styles.cell}>
-                    <SubjectCard subject={subject} status={status.label} progress={status.progress} onPress={() => router.push(routes.quizLevels(subject.id))} />
+                    <SubjectCard subject={subject} status={status.label} progress={status.progress} onPress={() => router.push(routes.quizLevels(subject.id, type))} />
                   </View>
                 );
               })}

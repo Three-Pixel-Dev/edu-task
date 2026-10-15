@@ -32,6 +32,8 @@ export function ProfileScreen() {
   const { profile, status: profileStatus, error: profileError, displayName, email } = useProfile();
   const quiz = useQuizHistory();
   const quizStats = useQuizStats();
+  const mcStats = useQuizStats('multipleChoice');
+  const tfStats = useQuizStats('trueFalse');
   const tasks = useTasks();
   const { counts } = useTaskSections();
   const [loggingOut, setLoggingOut] = useState(false);
@@ -105,23 +107,24 @@ export function ProfileScreen() {
       </View>
 
       <View style={styles.section}>
-        <SectionHeader title="Quiz statistics" />
+        <SectionHeader title="Practice statistics" />
         {quiz.status === 'error' ? (
           <Card>
             <ErrorState title="Couldn’t load quiz statistics" message={quiz.error ?? undefined} onRetry={quiz.retry} />
           </Card>
         ) : (
           <StatGroup>
-            <StatTile label="Quiz attempts" value={quizLoading ? '–' : quizStats.attempts} />
+            <StatTile label="Multiple choice" value={quizLoading ? '–' : mcStats.attempts} />
+            <StatTile label="Quiz" value={quizLoading ? '–' : tfStats.attempts} valueColor="accent" />
             <StatTile label="Average score" value={quizLoading ? '–' : `${quizStats.average}%`} valueColor="primaryDark" />
-            <StatTile label="Levels done" value={quizLoading ? '–' : quizStats.levelsCompleted} />
+            
           </StatGroup>
         )}
       </View>
 
       <View style={styles.section}>
         <SectionHeader
-          title="Quiz history"
+          title="Attempt history"
           actionLabel={quiz.results.length > HISTORY_PREVIEW ? 'See all' : undefined}
           onAction={() => router.push(routes.quizHistory)}
         />
@@ -130,7 +133,7 @@ export function ProfileScreen() {
         ) : quiz.status === 'error' ? null : quiz.results.length === 0 ? (
           <Card tone="muted">
             <AppText variant="body" color="textSecondary">
-              No quiz attempts yet.
+              No attempts yet.
             </AppText>
           </Card>
         ) : (

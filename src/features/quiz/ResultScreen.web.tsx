@@ -1,7 +1,8 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { AppText, Badge, Button, Card, CodeChip, ErrorState, LoadingState, ScoreRing, Screen } from '@/components';
+import { AppText, Badge, Button, Card, CodeChip, ErrorState, Icon, LoadingState, QuizTypeBadge, ScoreRing, Screen } from '@/components';
+import { QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
 import { useAsync, useProfile, useQuizHistory, useUid } from '@/hooks';
 import { getQuizResult } from '@/services/quizResults';
@@ -17,7 +18,7 @@ export function ResultScreen() {
   const fromListener = useMemo(() => results.find((result) => result.id === resultId), [results, resultId]);
   const fetched = useAsync(() => (fromListener ? Promise.resolve(fromListener) : getQuizResult(uid, resultId)), [resultId, Boolean(fromListener)]);
   const result = fromListener ?? fetched.data;
-  const close = () => router.dismissTo(routes.quizTab);
+  const close = () => router.dismissTo(routes.quizTypeTab(result?.quizType));
 
   if (!result) {
     return <Screen>{fetched.status === 'error' ? <ErrorState title="Couldn’t load this result" message={fetched.error ?? undefined} onRetry={fetched.reload} /> : <LoadingState rows={3} label="Loading result" />}</Screen>;
@@ -28,12 +29,13 @@ export function ResultScreen() {
 
 function ResultView({ result, timeUp, onClose }: { result: QuizResult; timeUp: boolean; onClose: () => void }) {
   const { displayName } = useProfile();
+  const [showReview, setShowReview] = useState(false);
   const message = scoreMessage(result.percentage, firstNameOf(displayName || 'there'));
 
   return (
     <Screen gap={spacing.xl}>
       <Card style={styles.scoreCard}>
-        <AppText style={styles.title} align="center">Quiz completed 🎉</AppText>
+        <AppText style={styles.title} align="center">{`${QUIZ_TYPES[result.quizType].label} completed 🎉`}</AppText>
         <ScoreRing score={result.correctAnswers} total={result.totalQuestions} />
         <AppText variant="body" color="textBody" align="center" style={styles.message}>
           {timeUp ? 'Time’s up — unanswered questions were marked incorrect. ' : ''}{message.body}
@@ -52,11 +54,19 @@ function ResultView({ result, timeUp, onClose }: { result: QuizResult; timeUp: b
             <AppText variant="subheading">{result.subjectName}</AppText>
             <View style={styles.subjectMeta}><CodeChip code={result.subjectCode} /><AppText color="textSecondary">{`· Level ${result.level}`}</AppText></View>
           </View>
-          <Badge label="Level completed" tone="success" />
+          <View style={styles.badges}>
+            <QuizTypeBadge type={result.quizType} />
+            <Badge label="Level completed" tone="success" />
+          </View>
         </View>
         {result.answers.length ? (
-          <View>
-            <AppText variant="caption" color="textSecondary" style={styles.reviewLabel}>Question review</AppText>
+          <View style={styles.reviewBlock}>
+            <View style={styles.reviewHeader}>
+              <AppText variant="caption" color="textSecondary">Question review</AppText>
+              <Pressable accessibilityRole="button" onPress={() => setShowReview((v) => !v)} hitSlop={8} style={styles.reviewToggle}>
+                <AppText variant="label" color="primaryDark">{showReview ? 'Hide answers' : 'Show answers'}</AppText>
+              </Pressable>
+            </View>
             <View style={styles.marks}>
               {result.answers.map((answer, index) => (
                 <View key={answer.questionId || index} accessibilityLabel={`Question ${index + 1}: ${answer.isCorrect ? 'correct' : 'incorrect'}`} style={[styles.mark, answer.isCorrect ? styles.markCorrect : styles.markWrong]}>
@@ -64,15 +74,31 @@ function ResultView({ result, timeUp, onClose }: { result: QuizResult; timeUp: b
                 </View>
               ))}
             </View>
+            {showReview ? (
+              <View style={styles.reviewList}>
+                {result.answers.map((answer, index) => (
+                  <View key={answer.questionId || index} style={[styles.reviewRow, index > 0 && styles.reviewDivider]}>
+                    <Icon name={answer.isCorrect ? 'check-circle' : 'x-circle'} size={18} color={answer.isCorrect ? 'success' : 'error'} />
+                    <View style={styles.reviewBody}>
+                      <AppText variant="label">{`${index + 1}. ${answer.question}`}</AppText>
+                      <AppText variant="caption" color={answer.isCorrect ? 'successText' : 'errorText'}>
+                        {`Your answer: ${answer.selectedAnswer || 'No answer'}`}
+                      </AppText>
+                      {!answer.isCorrect ? <AppText variant="caption" color="textBody">{`Correct answer: ${answer.correctAnswer}`}</AppText> : null}
+                    </View>
+                  </View>
+                ))}
+              </View>
+            ) : null}
           </View>
         ) : null}
       </Card>
 
       <View style={styles.actions}>
-        <Button title="Try again" variant="secondary" leftIcon="rotate-ccw" fullWidth={false} style={styles.action} onPress={() => router.replace(routes.quizQuestions(result.subjectId, result.level, true))} />
-        <Button title="Back to Quiz" fullWidth={false} style={styles.action} onPress={onClose} />
+        <Button title="Try again" variant="secondary" leftIcon="rotate-ccw" fullWidth={false} style={styles.action} onPress={() => router.replace(routes.quizQuestions(result.subjectId, result.level, true, result.quizType))} />
+        <Button title={`Back to ${QUIZ_TYPES[result.quizType].label}`} fullWidth={false} style={styles.action} onPress={onClose} />
       </View>
-      <Pressable onPress={() => router.dismissTo(routes.quizLevels(result.subjectId))} style={styles.levelLink}>
+      <Pressable onPress={() => router.dismissTo(routes.quizLevels(result.subjectId, result.quizType))} style={styles.levelLink}>
         <AppText variant="label" color="primaryDark">Choose another level</AppText>
       </Pressable>
     </Screen>
@@ -104,12 +130,19 @@ const styles = StyleSheet.create({
   detailsCard: { paddingVertical: spacing.xl, paddingHorizontal: 22, gap: spacing.lg },
   detailsTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: spacing.md },
   subject: { flex: 1, gap: 3 },
+  badges: { flexDirection: 'row', gap: spacing.sm },
   subjectMeta: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
-  reviewLabel: { marginBottom: spacing.sm },
+  reviewBlock: { gap: spacing.md },
+  reviewHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: spacing.md },
+  reviewToggle: { minHeight: 36, justifyContent: 'center' },
   marks: { flexDirection: 'row', gap: 6 },
   mark: { flex: 1, height: 34, borderRadius: radius.sm, alignItems: 'center', justifyContent: 'center' },
   markCorrect: { backgroundColor: colors.successSurfaceStrong },
   markWrong: { backgroundColor: colors.errorSurfaceStrong },
+  reviewList: { borderWidth: 1, borderColor: colors.border, borderRadius: radius.lg, overflow: 'hidden', backgroundColor: colors.card },
+  reviewRow: { flexDirection: 'row', gap: spacing.md, padding: spacing.lg },
+  reviewDivider: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border },
+  reviewBody: { flex: 1, gap: spacing.xs },
   actions: { flexDirection: 'row', justifyContent: 'center', gap: spacing.md },
   action: { flex: 1, maxWidth: 240 },
   levelLink: { alignSelf: 'center', minHeight: 36, justifyContent: 'center' },

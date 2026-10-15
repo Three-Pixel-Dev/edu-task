@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { QUIZ } from '@/constants/app';
+import { QUIZ, QUIZ_TYPES } from '@/constants/app';
 import { colors, spacing } from '@/theme';
 import type { QuizSession } from '@/types';
 import { AppText, Badge, Button, Card, CodeChip, Icon, ProgressBar } from '../ui';
@@ -16,17 +16,18 @@ export function ContinueQuizCard({ session, onContinue, variant = 'brand' }: Con
   const questionNumber = session.currentIndex + 1;
   const total = session.questionIds.length || QUIZ.questionsPerQuiz;
   const progress = questionNumber / total;
+  const typeLabel = QUIZ_TYPES[session.quizType].label;
 
   return (
     <Card tone={brand ? 'brand' : 'primary'} style={styles.card}>
       <View style={styles.top}>
         {brand ? null : (
           <View style={styles.icon}>
-            <Icon name="book-open" size={20} color="primary" />
+            <Icon name={QUIZ_TYPES[session.quizType].icon} size={20} color="primary" />
           </View>
         )}
         <AppText variant="overline" color={brand ? 'onPrimaryMuted' : 'primaryDark'} style={styles.flex}>
-          Continue quiz
+          {`Continue · ${typeLabel}`}
         </AppText>
         <Badge label={`Level ${session.level}`} tone={brand ? 'onBrand' : 'primary'} />
       </View>
@@ -62,7 +63,7 @@ export function ContinueQuizCard({ session, onContinue, variant = 'brand' }: Con
         variant={brand ? 'inverse' : 'primary'}
         size="md"
         onPress={onContinue}
-        accessibilityLabel={`Continue ${session.subjectName}, level ${session.level}, question ${questionNumber}`}
+        accessibilityLabel={`Continue ${typeLabel}, ${session.subjectName}, level ${session.level}, question ${questionNumber}`}
       />
     </Card>
   );

@@ -1,0 +1,785 @@
+{
+  "subjectId": "computer-forensics",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Chain of custody is a documented history of who collected, held, transferred, and stored an item of evidence.",
+        "answer": true,
+        "explanation": "Courts and reviewers use that history to judge whether the evidence stayed accounted for."
+      },
+      {
+        "statement": "A Forensic image is a photograph of the outside of a computer case.",
+        "answer": false,
+        "explanation": "The image lets examiners work from a verified copy while the source media is protected."
+      },
+      {
+        "statement": "A Write blocker is hardware or software that lets an examiner read source media while blocking write commands to it.",
+        "answer": true,
+        "explanation": "Blocking writes protects the original evidence from changes made by the examination computer."
+      },
+      {
+        "statement": "A File carving is reading only the current folder listing.",
+        "answer": false,
+        "explanation": "Carving uses internal file patterns, so it can find files whose file-system metadata is gone."
+      },
+      {
+        "statement": "A Timestamp is a recorded date and time tied to an event or to a file action such as creation or modification.",
+        "answer": true,
+        "explanation": "Timestamps are the file system's or log's recorded times, which a timeline can place in order."
+      },
+      {
+        "statement": "A Volatile memory is a printed inventory sheet.",
+        "answer": false,
+        "explanation": "Volatile contents exist only while the system has power, so they are collected before shutdown when they matter."
+      },
+      {
+        "statement": "An Event log is a system record of notable activity such as logons, service errors, or process starts.",
+        "answer": true,
+        "explanation": "Event logs store time-stamped activity that can be correlated with other artifacts."
+      },
+      {
+        "statement": "A Forensic report is an unsigned sticky note that only says the case is finished.",
+        "answer": false,
+        "explanation": "The report is how findings, limits, and the process used are communicated to other reviewers."
+      },
+      {
+        "statement": "An Admissibility is the legal fitness of evidence or expert testimony to be considered by a court.",
+        "answer": true,
+        "explanation": "Admissibility depends on rules about relevance, reliability, and lawful collection, not on tool speed."
+      },
+      {
+        "statement": "An Order of volatility is the archival backup tapes.",
+        "answer": false,
+        "explanation": "Evidence such as RAM can vanish quickly, while data on a powered-down disk remains longer."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Hash verification is comparing a newly computed cryptographic hash with an earlier hash to show a copy still matches.",
+        "answer": true,
+        "explanation": "If the hashes match, the copied bits are the same as the bits hashed at acquisition."
+      },
+      {
+        "statement": "A Working copy is the evidence-room sign-in sheet.",
+        "answer": false,
+        "explanation": "Analysis belongs on the duplicate so routine examination does not alter the source."
+      },
+      {
+        "statement": "An Original media is the source device or storage received as evidence, as distinct from copies made from it.",
+        "answer": true,
+        "explanation": "The original is the source item whose condition and custody must be preserved."
+      },
+      {
+        "statement": "An Unallocated space is the paper margin on a printed forensic report.",
+        "answer": false,
+        "explanation": "Deleting a file often removes its directory entry while leaving bytes in clusters that are no longer allocated."
+      },
+      {
+        "statement": "A File slack is leftover bytes in a file's last allocated unit that are not part of that file's current contents.",
+        "answer": true,
+        "explanation": "Storage is allocated in units larger than the file's last partial unit, so older bytes can remain in the leftover part."
+      },
+      {
+        "statement": "A File header signature is only the three-letter extension.",
+        "answer": false,
+        "explanation": "Many file types begin with a known byte pattern that identifies them even if the name is wrong or missing."
+      },
+      {
+        "statement": "A Metadata is data about an item, such as its size, owner, or timestamps, as distinct from its visible content.",
+        "answer": true,
+        "explanation": "Metadata describes the item and its history, while content is what the item directly displays or plays."
+      },
+      {
+        "statement": "A Timeline analysis is counting the pages in the warrant.",
+        "answer": false,
+        "explanation": "A timeline shows sequence, which helps relate logs, file times, and other artifacts."
+      },
+      {
+        "statement": "A Live acquisition is collecting evidence from a system that is still powered on, including memory and running state.",
+        "answer": true,
+        "explanation": "A powered-on system still holds volatile state that a later shutdown would lose."
+      },
+      {
+        "statement": "A Dead acquisition is recording the screen of an active video call.",
+        "answer": false,
+        "explanation": "With the system off, the storage is not being changed by a running operating system during the copy."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Evidence seal is a tamper-evident closure on evidence packaging so later opening can be detected.",
+        "answer": true,
+        "explanation": "A broken or replaced seal shows that the package may have been opened after it was closed."
+      },
+      {
+        "statement": "A Forensic soundness is maximum editing speed.",
+        "answer": false,
+        "explanation": "A sound process avoids changing the original and leaves enough documentation for another expert to review."
+      },
+      {
+        "statement": "A Validated tool is a forensic tool whose output has been tested against known inputs and expected results.",
+        "answer": true,
+        "explanation": "Validation shows that, for the tested tasks, the tool produces results that match known ground truth."
+      },
+      {
+        "statement": "A Repeatability is editing the original until the hash matches.",
+        "answer": false,
+        "explanation": "If the data and the documented method stay the same, another examiner should be able to reproduce the result."
+      },
+      {
+        "statement": "A Known-file filter is a comparison of file hashes with a library of known-good or known-bad files so examiners can prioritize the rest.",
+        "answer": true,
+        "explanation": "Matching a known hash lets examiners set aside standard files or highlight files already identified as notable."
+      },
+      {
+        "statement": "A Memory dump is a paper printout of a chain-of-custody form.",
+        "answer": false,
+        "explanation": "The dump preserves RAM contents that would otherwise disappear when the machine powers off."
+      },
+      {
+        "statement": "A Read-only mount is attaching a file system so it can be viewed without writing changes back to that file system.",
+        "answer": true,
+        "explanation": "A read-only mount is one control, often used with a write blocker, to avoid changing the examined copy."
+      },
+      {
+        "statement": "A Bit-stream copy is a copy of visible files only.",
+        "answer": false,
+        "explanation": "Copying every sector preserves remnants that a normal file-by-file copy would skip."
+      },
+      {
+        "statement": "A Logical acquisition is a copy of data visible through the file system, which does not include unallocated space.",
+        "answer": true,
+        "explanation": "Logical acquisition follows the file system, so deleted remnants outside active files are left behind."
+      },
+      {
+        "statement": "A Sterile destination media is used as the examiner's personal backup.",
+        "answer": false,
+        "explanation": "Wiping and verifying the destination prevents leftover bytes from being mistaken for evidence."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Clock skew is the difference between a device clock and a trusted reference time.",
+        "answer": true,
+        "explanation": "If the device clock is fast or slow, its timestamps must be interpreted against a known reference."
+      },
+      {
+        "statement": "A Locard's exchange principle is the idea that only paper documents can be evidence.",
+        "answer": false,
+        "explanation": "Digital actions such as connecting a device or opening a file often leave artifacts elsewhere on the system."
+      },
+      {
+        "statement": "A Legal hold is an instruction to preserve information that may be relevant because a legal matter is expected or underway.",
+        "answer": true,
+        "explanation": "A legal hold suspends ordinary deletion so potentially relevant information remains available."
+      },
+      {
+        "statement": "A Spoliation is forensic imaging.",
+        "answer": false,
+        "explanation": "Once a duty to preserve exists, destroying or materially changing that evidence is spoliation."
+      },
+      {
+        "statement": "A First responder is the person who first secures a digital scene and begins preservation before a full laboratory examination.",
+        "answer": true,
+        "explanation": "Early scene control reduces the chance that evidence will be lost, altered, or undocumented."
+      },
+      {
+        "statement": "A Tamper-evident packaging is a sleeve that reseals without a mark.",
+        "answer": false,
+        "explanation": "Visible damage to the packaging warns custodians that the contents may have been accessed."
+      },
+      {
+        "statement": "A Contemporaneous notes is notes written at the time of an action, recording what was done, when, and by whom.",
+        "answer": true,
+        "explanation": "Notes made at the time are more reliable than a reconstruction written long afterward."
+      },
+      {
+        "statement": "A Scope of authority is the font limit in the report template.",
+        "answer": false,
+        "explanation": "Authority such as a warrant or consent defines the boundaries of a lawful examination."
+      },
+      {
+        "statement": "A Remote logging is sending event records to another host so a later local change does not erase the only copy.",
+        "answer": true,
+        "explanation": "A copy on another host can survive clearing or failure of the local log."
+      },
+      {
+        "statement": "A Syslog is a camera file system.",
+        "answer": false,
+        "explanation": "Syslog gives devices a common way to forward event messages to a collector."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An EXIF data is metadata stored inside a photo file, which can include camera details and the capture time.",
+        "answer": true,
+        "explanation": "EXIF is embedded metadata about the photo, not the picture pixels themselves."
+      },
+      {
+        "statement": "A Master file table is in the printed user manual.",
+        "answer": false,
+        "explanation": "NTFS keeps file records in the master file table, so those records describe names, times, and locations."
+      },
+      {
+        "statement": "A Journaling is a file-system feature that records pending changes so the system can recover after an interruption.",
+        "answer": true,
+        "explanation": "The journal describes recent intended changes and can contain artifacts useful to a timeline."
+      },
+      {
+        "statement": "A Browser history artifact is a firewall rule that blocks one domain for the whole campus.",
+        "answer": false,
+        "explanation": "The artifact is local stored history, which can remain after the browser window is closed."
+      },
+      {
+        "statement": "An Evidence intake is the formal check-in of an item, recording its description, condition, identifiers, and receiving custodian.",
+        "answer": true,
+        "explanation": "Intake starts the laboratory record of what arrived, in what condition, and who received it."
+      },
+      {
+        "statement": "An Isolated analysis environment is on the production student portal.",
+        "answer": false,
+        "explanation": "Isolation reduces the risk of spreading malware or altering systems that are still in operation."
+      },
+      {
+        "statement": "A Daubert standard is a US federal test of whether expert evidence rests on methods that are tested, reviewed, and reliable.",
+        "answer": true,
+        "explanation": "Daubert focuses on the reliability of the method, including testing, peer review, and known error concerns."
+      },
+      {
+        "statement": "A Forensic readiness is stopping all record retention.",
+        "answer": false,
+        "explanation": "Readiness includes logging, time synchronization, and retention choices made before an incident."
+      },
+      {
+        "statement": "A Cross-contamination is the unwanted mixing of data from one case, device, or action with a different item of evidence.",
+        "answer": true,
+        "explanation": "Mixing remnants from another case can make later findings unreliable and hard to explain."
+      },
+      {
+        "statement": "A Dual hashing is using one short checksum that is not meant to detect intentional changes.",
+        "answer": false,
+        "explanation": "Agreement of two independent hashes, such as MD5 and SHA-256, strengthens the integrity check of the copy."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a software license that lets an examiner copy any disk without notes is called Chain of custody.",
+        "answer": false,
+        "explanation": "Courts and reviewers use that history to judge whether the evidence stayed accounted for."
+      },
+      {
+        "statement": "The lab copies a seized drive to an image file, checks its hash, and stores the original drive in a locker.",
+        "answer": true,
+        "explanation": "The image lets examiners work from a verified copy while the source media is protected."
+      },
+      {
+        "statement": "In standard textbooks, a disk duplicator set to overwrite the source is called Write blocker.",
+        "answer": false,
+        "explanation": "Blocking writes protects the original evidence from changes made by the examination computer."
+      },
+      {
+        "statement": "After a directory entry is missing, the lab recovers a photo by finding its header pattern in unallocated space.",
+        "answer": true,
+        "explanation": "Carving uses internal file patterns, so it can find files whose file-system metadata is gone."
+      },
+      {
+        "statement": "In standard textbooks, the examiner's job title is called Timestamp.",
+        "answer": false,
+        "explanation": "Timestamps are the file system's or log's recorded times, which a timeline can place in order."
+      },
+      {
+        "statement": "A running server holds active network connections in RAM that will vanish if the server loses power.",
+        "answer": true,
+        "explanation": "Volatile contents exist only while the system has power, so they are collected before shutdown when they matter."
+      },
+      {
+        "statement": "In standard textbooks, a hash computed over an entire disk image is called Event log.",
+        "answer": false,
+        "explanation": "Event logs store time-stamped activity that can be correlated with other artifacts."
+      },
+      {
+        "statement": "The lab report lists the image hash, the tools and versions used, three findings, and one limitation about a bad sector.",
+        "answer": true,
+        "explanation": "The report is how findings, limits, and the process used are communicated to other reviewers."
+      },
+      {
+        "statement": "In standard textbooks, image compression ratio is called Admissibility.",
+        "answer": false,
+        "explanation": "Admissibility depends on rules about relevance, reliability, and lawful collection, not on tool speed."
+      },
+      {
+        "statement": "At a live server, responders capture memory before they image the hard disk and long before they box the backup tapes.",
+        "answer": true,
+        "explanation": "Evidence such as RAM can vanish quickly, while data on a powered-down disk remains longer."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, the warrant covered every building is called Hash verification.",
+        "answer": false,
+        "explanation": "If the hashes match, the copied bits are the same as the bits hashed at acquisition."
+      },
+      {
+        "statement": "Examiners search a restored copy of the image on a lab drive and leave the seized disk in sealed storage.",
+        "answer": true,
+        "explanation": "Analysis belongs on the duplicate so routine examination does not alter the source."
+      },
+      {
+        "statement": "In standard textbooks, a blank drive bought to hold an image is called Original media.",
+        "answer": false,
+        "explanation": "The original is the source item whose condition and custody must be preserved."
+      },
+      {
+        "statement": "A picture no longer appears in any folder, but its bytes are still found in unallocated clusters on the image.",
+        "answer": true,
+        "explanation": "Deleting a file often removes its directory entry while leaving bytes in clusters that are no longer allocated."
+      },
+      {
+        "statement": "In standard textbooks, the master boot record is called File slack.",
+        "answer": false,
+        "explanation": "Storage is allocated in units larger than the file's last partial unit, so older bytes can remain in the leftover part."
+      },
+      {
+        "statement": "A file named notes.txt begins with the JPEG start-of-image bytes, so examiners treat it as a picture, not plain text.",
+        "answer": true,
+        "explanation": "Many file types begin with a known byte pattern that identifies them even if the name is wrong or missing."
+      },
+      {
+        "statement": "In standard textbooks, the examiner's conclusion is called Metadata.",
+        "answer": false,
+        "explanation": "Metadata describes the item and its history, while content is what the item directly displays or plays."
+      },
+      {
+        "statement": "The lab orders a USB connection record, a document's modified time, and a logoff event from the same afternoon.",
+        "answer": true,
+        "explanation": "A timeline shows sequence, which helps relate logs, file times, and other artifacts."
+      },
+      {
+        "statement": "In standard textbooks, photographing a sealed bag days after the device left the scene is called Live acquisition.",
+        "answer": false,
+        "explanation": "A powered-on system still holds volatile state that a later shutdown would lose."
+      },
+      {
+        "statement": "The lab removes a powered-off laptop disk, connects it through a write blocker, and images it.",
+        "answer": true,
+        "explanation": "With the system off, the storage is not being changed by a running operating system during the copy."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, the disk's file-system journal is called Evidence seal.",
+        "answer": false,
+        "explanation": "A broken or replaced seal shows that the package may have been opened after it was closed."
+      },
+      {
+        "statement": "The lab uses a tested write blocker, records hashes, and notes every step so another examiner can review the process.",
+        "answer": true,
+        "explanation": "A sound process avoids changing the original and leaves enough documentation for another expert to review."
+      },
+      {
+        "statement": "In standard textbooks, a game used to stress the CPU is called Validated tool.",
+        "answer": false,
+        "explanation": "Validation shows that, for the tested tasks, the tool produces results that match known ground truth."
+      },
+      {
+        "statement": "A second examiner repeats the documented hash check on the same image and gets the same digest.",
+        "answer": true,
+        "explanation": "If the data and the documented method stay the same, another examiner should be able to reproduce the result."
+      },
+      {
+        "statement": "In standard textbooks, a filter that hides every file larger than one kilobyte is called Known-file filter.",
+        "answer": false,
+        "explanation": "Matching a known hash lets examiners set aside standard files or highlight files already identified as notable."
+      },
+      {
+        "statement": "Responders save a server's RAM to an external drive and later review the processes that were in memory.",
+        "answer": true,
+        "explanation": "The dump preserves RAM contents that would otherwise disappear when the machine powers off."
+      },
+      {
+        "statement": "In standard textbooks, read-write with journaling enabled on the evidence is called Read-only mount.",
+        "answer": false,
+        "explanation": "A read-only mount is one control, often used with a write blocker, to avoid changing the examined copy."
+      },
+      {
+        "statement": "The imaging program copies every sector of a laptop disk, including clusters not assigned to any current file.",
+        "answer": true,
+        "explanation": "Copying every sector preserves remnants that a normal file-by-file copy would skip."
+      },
+      {
+        "statement": "In standard textbooks, a photograph of the device is called Logical acquisition.",
+        "answer": false,
+        "explanation": "Logical acquisition follows the file system, so deleted remnants outside active files are left behind."
+      },
+      {
+        "statement": "Before imaging, the lab wipes the target drive and confirms the wipe so case data will be the only content written.",
+        "answer": true,
+        "explanation": "Wiping and verifying the destination prevents leftover bytes from being mistaken for evidence."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the physical distance between two evidence lockers is called Clock skew.",
+        "answer": false,
+        "explanation": "If the device clock is fast or slow, its timestamps must be interpreted against a known reference."
+      },
+      {
+        "statement": "Connecting a removable drive leaves records on the computer even after the drive itself is unplugged.",
+        "answer": true,
+        "explanation": "Digital actions such as connecting a device or opening a file often leave artifacts elsewhere on the system."
+      },
+      {
+        "statement": "In standard textbooks, an order to delete the mailboxes is called Legal hold.",
+        "answer": false,
+        "explanation": "A legal hold suspends ordinary deletion so potentially relevant information remains available."
+      },
+      {
+        "statement": "Staff wipe a relevant server after a preservation notice, and the court later treats that wiping as spoliation.",
+        "answer": true,
+        "explanation": "Once a duty to preserve exists, destroying or materially changing that evidence is spoliation."
+      },
+      {
+        "statement": "In standard textbooks, a juror is called First responder.",
+        "answer": false,
+        "explanation": "Early scene control reduces the chance that evidence will be lost, altered, or undocumented."
+      },
+      {
+        "statement": "A numbered evidence bag shows a broken seal strip, so intake staff document that the packaging was opened.",
+        "answer": true,
+        "explanation": "Visible damage to the packaging warns custodians that the contents may have been accessed."
+      },
+      {
+        "statement": "In standard textbooks, a vendor manual that was never marked for the case is called Contemporaneous notes.",
+        "answer": false,
+        "explanation": "Notes made at the time are more reliable than a reconstruction written long afterward."
+      },
+      {
+        "statement": "A warrant covers one office desktop, so the examiner does not image personal phones that the warrant does not include.",
+        "answer": true,
+        "explanation": "Authority such as a warrant or consent defines the boundaries of a lawful examination."
+      },
+      {
+        "statement": "In standard textbooks, storing the only copy in the firewall's memory is called Remote logging.",
+        "answer": false,
+        "explanation": "A copy on another host can survive clearing or failure of the local log."
+      },
+      {
+        "statement": "A network switch forwards authentication events to a campus syslog server that retains them after the switch reboots.",
+        "answer": true,
+        "explanation": "Syslog gives devices a common way to forward event messages to a collector."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, the image hash of the whole disk is called EXIF data.",
+        "answer": false,
+        "explanation": "EXIF is embedded metadata about the photo, not the picture pixels themselves."
+      },
+      {
+        "statement": "On an NTFS image, examiners read a document's record in the master file table to see its timestamps and cluster run.",
+        "answer": true,
+        "explanation": "NTFS keeps file records in the master file table, so those records describe names, times, and locations."
+      },
+      {
+        "statement": "In standard textbooks, a court reporter's transcript of testimony is called Journaling.",
+        "answer": false,
+        "explanation": "The journal describes recent intended changes and can contain artifacts useful to a timeline."
+      },
+      {
+        "statement": "The lab reads a browser database on the image and finds a record of a library page visited at 16:40.",
+        "answer": true,
+        "explanation": "The artifact is local stored history, which can remain after the browser window is closed."
+      },
+      {
+        "statement": "In standard textbooks, the expert's trial testimony is called Evidence intake.",
+        "answer": false,
+        "explanation": "Intake starts the laboratory record of what arrived, in what condition, and who received it."
+      },
+      {
+        "statement": "Malware from a seized image is opened only on a lab bench network that has no route to campus services.",
+        "answer": true,
+        "explanation": "Isolation reduces the risk of spreading malware or altering systems that are still in operation."
+      },
+      {
+        "statement": "In standard textbooks, the image-hash procedure alone is called Daubert standard.",
+        "answer": false,
+        "explanation": "Daubert focuses on the reliability of the method, including testing, peer review, and known error concerns."
+      },
+      {
+        "statement": "A department enables centralized logs and synchronized clocks months before any investigation is needed.",
+        "answer": true,
+        "explanation": "Readiness includes logging, time synchronization, and retention choices made before an incident."
+      },
+      {
+        "statement": "In standard textbooks, the use of a new seal for each evidence bag is called Cross-contamination.",
+        "answer": false,
+        "explanation": "Mixing remnants from another case can make later findings unreliable and hard to explain."
+      },
+      {
+        "statement": "The acquisition log records both an MD5 and a SHA-256 digest of the same drive image, and both match at verification.",
+        "answer": true,
+        "explanation": "Agreement of two independent hashes, such as MD5 and SHA-256, strengthens the integrity check of the copy."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a seized phone changes hands three times before analysis. Which record shows who held it at each step, the correct result is the phone's battery percentage.",
+        "answer": false,
+        "explanation": "The chain of custody is the ongoing record of each person who had the phone."
+      },
+      {
+        "statement": "When examiners need a complete copy of a drive for analysis while the seized drive stays sealed. What should they create, the correct result is a printed directory listing.",
+        "answer": false,
+        "explanation": "A forensic image is the working copy of the media, verified and kept separate from the original."
+      },
+      {
+        "statement": "When a seized disk must be read on a lab computer without that computer altering the disk. What device should sit between them, the correct result is a write blocker.",
+        "answer": true,
+        "explanation": "A write blocker permits reading the evidence disk and stops the lab computer from writing to it."
+      },
+      {
+        "statement": "When directory entries for deleted pictures are gone, but the picture bytes may remain on the disk. The method looks for those bytes by file structure, the correct result is file carving.",
+        "answer": true,
+        "explanation": "File carving searches raw data for known file patterns when the directory no longer points to the files."
+      },
+      {
+        "statement": "When investigators want the recorded modification time of a report file, not a hash of its text. Which value do they read, the correct result is the disk's serial number.",
+        "answer": false,
+        "explanation": "A timestamp is the stored date and time associated with the file action."
+      },
+      {
+        "statement": "When a running workstation will be unplugged. Which evidence is most likely to disappear when the power goes off, the correct result is a printed inventory sheet.",
+        "answer": false,
+        "explanation": "RAM is volatile memory, so its contents are lost when power is removed."
+      },
+      {
+        "statement": "When an examiner needs the recorded logon times for an account on a server. The artifact is the usual source, the correct result is the event log.",
+        "answer": true,
+        "explanation": "Event logs are the system's own record of activities such as account logons."
+      },
+      {
+        "statement": "When counsel asks for the methods, hashes, findings, and limits of an examination in one document. In this case the examiner provide, the correct result is the forensic report.",
+        "answer": true,
+        "explanation": "A forensic report brings together the methods, evidence identifiers, findings, and limitations."
+      },
+      {
+        "statement": "When a judge must decide whether a drive image and the examiner's testimony may be considered at trial. What quality is being decided, the correct result is label font size.",
+        "answer": false,
+        "explanation": "Admissibility is the court's decision about whether that evidence may be considered."
+      },
+      {
+        "statement": "When a server is still running, and both RAM and the hard disk matter. The source should be collected first, the correct result is the RAM.",
+        "answer": true,
+        "explanation": "Order of volatility puts the short-lived RAM contents ahead of data that will still be on disk."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When an image was hashed at acquisition, and the lab hashes it again before trial. What does a match support, the correct result is the clock was set to universal time.",
+        "answer": false,
+        "explanation": "Matching hashes show the image bits are the same as when the acquisition hash was made."
+      },
+      {
+        "statement": "When keyword searches should not be run on the sealed original disk. What should the examiner search instead, the correct result is the evidence-room sign-in sheet.",
+        "answer": false,
+        "explanation": "The working copy is the duplicate reserved for analysis while the original stays protected."
+      },
+      {
+        "statement": "When a bag labeled as evidence contains the drive taken from the scene, not the lab's later copy. In this case that drive, the correct result is the original media.",
+        "answer": true,
+        "explanation": "Original media is the source item collected as evidence, before laboratory copies are made."
+      },
+      {
+        "statement": "When a user deleted a document and emptied the trash, yet remnants may remain outside any active file. Where do examiners look, the correct result is unallocated space.",
+        "answer": true,
+        "explanation": "Unallocated space can retain data from files that are no longer assigned a directory entry."
+      },
+      {
+        "statement": "When a short file does not fill its last cluster, and older bytes remain in the unused tail. What is that unused tail called, the correct result is the file name extension.",
+        "answer": false,
+        "explanation": "File slack is the unused remainder of the last allocated unit of a file."
+      },
+      {
+        "statement": "When a file's name ends in .txt, but examiners want the type indicated by its first bytes. What do they inspect, the correct result is only the three-letter extension.",
+        "answer": false,
+        "explanation": "The header signature is the leading byte pattern that identifies the file type."
+      },
+      {
+        "statement": "When examiners already have the words inside a letter and now want its author field and last-saved time. In this case those fields, the correct result is metadata.",
+        "answer": true,
+        "explanation": "Author and last-saved time describe the file, so they are metadata rather than the letter's wording."
+      },
+      {
+        "statement": "When an examiner wants to see whether a file change happened before or after a logon on the same computer. The method helps, the correct result is timeline analysis.",
+        "answer": true,
+        "explanation": "Timeline analysis puts the file time and the logon into one chronological sequence."
+      },
+      {
+        "statement": "When encrypted containers are open only while a server stays on, and memory may hold useful state. Which collection approach fits, the correct result is pulling the power plug first.",
+        "answer": false,
+        "explanation": "Live acquisition collects evidence while the system is still running and that state still exists."
+      },
+      {
+        "statement": "When a desktop is already off, and the team needs a stable copy of its drive rather than RAM. The acquisition fits, the correct result is dead acquisition.",
+        "answer": true,
+        "explanation": "Dead acquisition images stable storage from a system that is not running."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a drive arrives with its bag closure cut and replaced by an unnumbered strip. What was supposed to show that change, the correct result is the report font.",
+        "answer": false,
+        "explanation": "An evidence seal is meant to make opening the package detectable."
+      },
+      {
+        "statement": "When a procedure never alters the original disk and records enough detail for another expert to review it. Which quality does it have, the correct result is maximum editing speed.",
+        "answer": false,
+        "explanation": "Forensic soundness means the original is preserved and the method can be reviewed."
+      },
+      {
+        "statement": "When a lab wants evidence that its imaging program copies a test disk correctly before using it in cases. In this case that program be, the correct result is a validated tool.",
+        "answer": true,
+        "explanation": "A validated tool has been tested on known data and produced the expected results."
+      },
+      {
+        "statement": "When another qualified examiner follows the written steps on the same image and gets the same hash. The property is that, the correct result is repeatability.",
+        "answer": true,
+        "explanation": "Repeatability means the documented process produces the same result when it is followed again."
+      },
+      {
+        "statement": "When most files on a system disk are ordinary operating-system files. How can hashes help the examiner focus on the others, the correct result is delete every file whose name is short.",
+        "answer": false,
+        "explanation": "A known-file filter uses hashes to separate familiar library files from the files that still need review."
+      },
+      {
+        "statement": "When analysts need to study the processes that were in RAM after the server has been shut down. What must already have been saved, the correct result is a copy of the paper warranty.",
+        "answer": false,
+        "explanation": "A memory dump is the saved copy of RAM that can be examined after the live state is gone."
+      },
+      {
+        "statement": "When an examiner must browse an image without the operating system writing timestamps back to it. How should it be mounted, the correct result is read-only.",
+        "answer": true,
+        "explanation": "A read-only mount lets the examiner view the file system without writing changes to it."
+      },
+      {
+        "statement": "When deleted-file remnants in unallocated space must be included in the copy. The copy type does that, the correct result is a bit-stream copy.",
+        "answer": true,
+        "explanation": "A bit-stream copy takes every sector, so unallocated space is included."
+      },
+      {
+        "statement": "When a copy includes current messages and photos but misses deleted data outside the file system. Which acquisition is that, the correct result is a RAM dump.",
+        "answer": false,
+        "explanation": "Logical acquisition copies file-system-visible data and omits unallocated remnants."
+      },
+      {
+        "statement": "When a destination drive previously held another case. In this case it be before a new image is written, the correct result is sterile destination media.",
+        "answer": true,
+        "explanation": "Sterile destination media has been wiped and checked so previous data cannot mix with the new image."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a laptop clock is 20 minutes behind a trusted source. What is that 20-minute difference called, the correct result is a hash mismatch.",
+        "answer": false,
+        "explanation": "Clock skew is the offset between the laptop clock and the trusted reference time."
+      },
+      {
+        "statement": "When a removable drive was connected and then removed. Which principle explains why the computer may still hold traces of that connection, the correct result is the rule that only paper is evidence.",
+        "answer": false,
+        "explanation": "Locard's exchange principle says the interaction can leave detectable traces on the computer."
+      },
+      {
+        "statement": "When a lawsuit is anticipated, and routine deletion would remove relevant mail. What instruction should management issue first, the correct result is a legal hold.",
+        "answer": true,
+        "explanation": "A legal hold directs staff to preserve information that may be relevant to the matter."
+      },
+      {
+        "statement": "When relevant logs are wiped after a preservation duty has begun. In this case that destruction called, the correct result is spoliation.",
+        "answer": true,
+        "explanation": "Spoliation is the improper destruction or material alteration of evidence that should have been kept."
+      },
+      {
+        "statement": "When someone must secure a live computer and start preservation before the full lab exam begins. Which role is that, the correct result is the software vendor.",
+        "answer": false,
+        "explanation": "The first responder is responsible for the initial securing and preservation of the scene."
+      },
+      {
+        "statement": "When storage materials should make it obvious if someone opens a bag after it leaves the scene. What kind of packaging is required, the correct result is a sleeve that reseals without a mark.",
+        "answer": false,
+        "explanation": "Tamper-evident packaging is designed to show a visible sign if it is opened."
+      },
+      {
+        "statement": "When months later, nobody remembers the imaging start time. The record should already contain it because it was written during the work, the correct result is contemporaneous notes.",
+        "answer": true,
+        "explanation": "Contemporaneous notes are made while the action happens, so the start time would be recorded then."
+      },
+      {
+        "statement": "When a warrant names one desktop and not the employees' phones. What sets that limit on the examination, the correct result is the scope of authority.",
+        "answer": true,
+        "explanation": "The scope of authority is the legal boundary on what may be searched."
+      },
+      {
+        "statement": "When investigators need firewall events from last week, but the firewall's local buffer was cleared yesterday. Which practice would have kept a copy, the correct result is deleting the log server each night.",
+        "answer": false,
+        "explanation": "Remote logging places a copy on another host that can survive clearing of the local buffer."
+      },
+      {
+        "statement": "When a switch can only keep a short local event buffer. The standard service can forward those events to a logging server, the correct result is syslog.",
+        "answer": true,
+        "explanation": "Syslog is the standard service used to send device events to a logging host."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When examiners have a seized photo and need the capture time stored inside the file, not a hash of the disk. What do they read, the correct result is the evidence-room temperature log.",
+        "answer": false,
+        "explanation": "EXIF data is the embedded metadata that can store the photo's capture time."
+      },
+      {
+        "statement": "When on an NTFS volume, where is the per-file record of a document's attributes and cluster locations stored, the correct result is in the printed user manual.",
+        "answer": false,
+        "explanation": "The master file table is the NTFS structure that holds each file's record."
+      },
+      {
+        "statement": "When a volume records intended file-system changes so it can recover after a crash. In this case that feature called, the correct result is journaling.",
+        "answer": true,
+        "explanation": "Journaling is the file system's own log of pending changes used for recovery."
+      },
+      {
+        "statement": "When a browser window is closed, but the account's visited pages may still be stored locally. In this case that stored record, the correct result is a browser history artifact.",
+        "answer": true,
+        "explanation": "A browser history artifact is the local stored record of pages the account visited."
+      },
+      {
+        "statement": "When a sealed laptop arrives at the lab. Which step records its serial number, condition, and the person who received it, the correct result is buying a new computer.",
+        "answer": false,
+        "explanation": "Evidence intake is the formal check-in that records the item, its condition, and its receiver."
+      },
+      {
+        "statement": "When a seized image may contain harmful software and must be reviewed without touching campus services. Where should that review happen, the correct result is on the production student portal.",
+        "answer": false,
+        "explanation": "An isolated analysis environment has no path to the live operational systems."
+      },
+      {
+        "statement": "When a US federal court asks whether an examiner's method is tested, reviewed, and reliable enough for expert testimony. The standard is that, the correct result is the Daubert standard.",
+        "answer": true,
+        "explanation": "The Daubert standard is the federal reliability test applied to expert methods and testimony."
+      },
+      {
+        "statement": "When a department wants useful logs and reliable clocks already in place before any incident. What preparation is that, the correct result is forensic readiness.",
+        "answer": true,
+        "explanation": "Forensic readiness is advance preparation so evidence can be preserved when an incident happens."
+      },
+      {
+        "statement": "When files from an older case appear on the drive used for a new image because the drive was not wiped. What problem occurred, the correct result is proper use of sterile media.",
+        "answer": false,
+        "explanation": "Cross-contamination is the mixing of leftover data from one case into another item of evidence."
+      },
+      {
+        "statement": "When the lab wants two independent digests of one image, such as MD5 and SHA-256, recorded together. What practice is that, the correct result is dual hashing.",
+        "answer": true,
+        "explanation": "Dual hashing computes two different cryptographic hashes over the same evidence."
+      }
+    ]
+  }
+}

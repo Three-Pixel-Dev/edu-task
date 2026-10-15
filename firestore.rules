@@ -5,9 +5,10 @@ rules_version = '2';
 // • Students can only read and write their own profile, tasks, quiz results
 //   and unfinished quiz sessions. The UID always comes from Firebase Auth
 //   (request.auth.uid) — a userId sent by the client is never trusted.
-// • Quiz content (subjectFields, subjects, questions) is read-only for
-//   students. Only accounts with the custom claim `admin: true` may write it
+// • Quiz content (subjectFields, subjects, questions) is read-only for students.
+//   Only accounts with the custom claim `admin: true` may write it
 //   (the seed tool uses the Admin SDK, which bypasses rules entirely).
+//   Legacy trueFalseQuestions rules remain for cleanup; the app loads T/F from local JSON.
 // • Nothing is ever open with `if true`.
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -19,6 +20,9 @@ service cloud.firestore {
     function incoming() { return request.resource.data; }
     function text(v, min, max) { return v is string && v.trim().size() >= min && v.size() <= max; }
     function intIn(v, min, max) { return v is int && v >= min && v <= max; }
+    // "Multiple choice" (A–D) or "Quiz" (True / False). Older documents have no
+    // quizType and count as multipleChoice, so the field stays optional.
+    function validQuizType(d) { return !('quizType' in d) || d.quizType in ['multipleChoice', 'trueFalse']; }
 
     // ── users/{uid} ─────────────────────────────────────────────────────
     match /users/{userId} {
@@ -51,8 +55,9 @@ service cloud.firestore {
     }
 
     function validSession(d) {
-      return d.keys().hasOnly(['subjectId', 'subjectName', 'subjectCode', 'level', 'questionIds', 'answers', 'checked',
+      return d.keys().hasOnly(['quizType', 'subjectId', 'subjectName', 'subjectCode', 'level', 'questionIds', 'answers', 'checked',
                                'currentIndex', 'remainingSeconds', 'resultId', 'startedAt', 'updatedAt'])
+        && validQuizType(d)
         && text(d.subjectId, 1, 100)
         && d.subjectName is string && d.subjectCode is string
         && intIn(d.level, 1, 15)
@@ -80,8 +85,9 @@ service cloud.firestore {
     function validResult(d) {
       return d.keys().hasAll(['userId', 'subjectId', 'subjectName', 'subjectCode', 'level', 'totalQuestions', 'correctAnswers',
                               'incorrectAnswers', 'score', 'percentage', 'durationSeconds', 'answers', 'completedAt'])
-        && d.keys().hasOnly(['userId', 'subjectId', 'subjectName', 'subjectCode', 'level', 'totalQuestions', 'correctAnswers',
+        && d.keys().hasOnly(['userId', 'quizType', 'subjectId', 'subjectName', 'subjectCode', 'level', 'totalQuestions', 'correctAnswers',
                              'incorrectAnswers', 'score', 'percentage', 'durationSeconds', 'answers', 'completedAt'])
+        && validQuizType(d)
         && d.userId == request.auth.uid
         && text(d.subjectId, 1, 100)
         && exists(/databases/$(database)/documents/subjects/$(d.subjectId))
@@ -140,7 +146,11 @@ service cloud.firestore {
       allow read: if signedIn();
       allow write: if isAdmin();
     }
-    match /questions/{questionId} {
+    match /questions/{questionId} {            // Multiple choice (A–D)
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+    match /trueFalseQuestions/{questionId} {   // Quiz (True / False)
       allow read: if signedIn();
       allow write: if isAdmin();
     }

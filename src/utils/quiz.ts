@@ -1,5 +1,5 @@
 import { QUIZ } from '@/constants/app';
-import type { LevelProgress, Question, QuizAnswer, QuizResult, QuizSession } from '@/types';
+import type { LevelProgress, Question, QuizAnswer, QuizResult, QuizSession, QuizType } from '@/types';
 
 /** Returns why a question can't be used, or null if it's valid. */
 export function validateQuestion(q: Pick<Question, 'question' | 'options' | 'correctAnswer' | 'level'>): string | null {
@@ -75,12 +75,17 @@ export function summarise(answers: readonly QuizAnswer[]) {
  *  - completed: the student has at least one result for the level
  *  - available: everything else
  */
-export function levelProgressFor(subjectId: string, results: readonly QuizResult[], sessions: readonly QuizSession[]): LevelProgress[] {
+export function levelProgressFor(
+  subjectId: string,
+  results: readonly QuizResult[],
+  sessions: readonly QuizSession[],
+  quizType: QuizType = 'multipleChoice',
+): LevelProgress[] {
   const best = new Map<number, number>();
   for (const r of results) {
-    if (r.subjectId === subjectId) best.set(r.level, Math.max(best.get(r.level) ?? 0, r.score));
+    if (r.subjectId === subjectId && r.quizType === quizType) best.set(r.level, Math.max(best.get(r.level) ?? 0, r.score));
   }
-  const active = new Map(sessions.filter((s) => s.subjectId === subjectId).map((s) => [s.level, s]));
+  const active = new Map(sessions.filter((s) => s.subjectId === subjectId && s.quizType === quizType).map((s) => [s.level, s]));
   return Array.from({ length: QUIZ.levelCount }, (_, i) => {
     const level = i + 1;
     const session = active.get(level);
@@ -103,3 +108,6 @@ export function scoreMessage(percentage: number, firstName: string) {
   if (percentage >= 50) return { title: 'Nice effort', body: 'Review the questions you missed, then try again.' };
   return { title: 'Keep practising', body: 'Every attempt helps. Review the answers and try once more.' };
 }
+
+/** Only results / sessions of one quiz type. */
+export const ofType = <T extends { quizType: QuizType }>(items: readonly T[], quizType: QuizType) => items.filter((item) => item.quizType === quizType);

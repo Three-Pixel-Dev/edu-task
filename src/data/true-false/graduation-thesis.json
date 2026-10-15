@@ -1,0 +1,785 @@
+{
+  "subjectId": "graduation-thesis",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Thesis is a substantial written report of an individual research or design project, submitted for an undergraduate award and examined by academic staff.",
+        "answer": true,
+        "explanation": "An undergraduate thesis is a substantial individual report that is submitted and examined for the award."
+      },
+      {
+        "statement": "A Research Proposal is a reference list with no plan.",
+        "answer": false,
+        "explanation": "A proposal is an advance plan of question, reason, method, and limits, written so the study can be approved."
+      },
+      {
+        "statement": "A Thesis Structure is the ordered set of chapters and front and back matter that the department requires for the thesis.",
+        "answer": true,
+        "explanation": "Thesis structure is the required order of parts so examiners can find the argument, method, and evidence."
+      },
+      {
+        "statement": "An Abstract is the full literature chapter.",
+        "answer": false,
+        "explanation": "An abstract stands alone and briefly covers question, method, findings, and conclusion."
+      },
+      {
+        "statement": "A Keywords is a small set of terms placed with the abstract that describe the topic and help others find the thesis.",
+        "answer": true,
+        "explanation": "Keywords are selected search terms that describe the thesis for catalogues and databases."
+      },
+      {
+        "statement": "An Introduction Chapter is the raw-transcript appendix.",
+        "answer": false,
+        "explanation": "The introduction orients the reader with context, problem, aim, and a map of the thesis."
+      },
+      {
+        "statement": "A Problem Statement is a precise account of the issue the thesis addresses and why that issue matters.",
+        "answer": true,
+        "explanation": "A problem statement defines the issue and its importance, which a bare topic label does not."
+      },
+      {
+        "statement": "An Aim and Objectives is the hypothesis test result, which is a finding rather than an intention.",
+        "answer": false,
+        "explanation": "The aim is the overall purpose, and objectives are the specific outcomes used to achieve it."
+      },
+      {
+        "statement": "A Literature Review Chapter is the chapter that critically synthesises prior work and shows the gap the thesis will address.",
+        "answer": true,
+        "explanation": "The literature review chapter builds an argument from prior work and justifies the gap."
+      },
+      {
+        "statement": "A Synthesis is keep one isolated paragraph per paper.",
+        "answer": false,
+        "explanation": "Synthesis connects sources to support a claim about what the literature, taken together, shows."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Citation is an acknowledgement, in the required style, of the source of an idea, quotation, figure, or result used in the thesis.",
+        "answer": true,
+        "explanation": "A citation identifies the source of borrowed material in the form the required style demands."
+      },
+      {
+        "statement": "A Reference List is another thesis's references pasted in.",
+        "answer": false,
+        "explanation": "The reference list gives full details for every work actually cited, in the required format."
+      },
+      {
+        "statement": "An In-Text Citation is a brief pointer in the body of the thesis, such as an author and year, that links a claim to the reference list.",
+        "answer": true,
+        "explanation": "An in-text citation is the short marker beside the claim that points to a full reference."
+      },
+      {
+        "statement": "A Paraphrase is the source's exact words inside quotation marks and cited.",
+        "answer": false,
+        "explanation": "Paraphrase uses your own wording and structure and still credits the source of the idea."
+      },
+      {
+        "statement": "A Quotation is the exact words of a source, clearly marked as a quote and cited, used when the original wording itself matters.",
+        "answer": true,
+        "explanation": "A quotation reproduces exact wording, marks it as such, and cites the source."
+      },
+      {
+        "statement": "A Plagiarism is it is a proper quotation because you meant well.",
+        "answer": false,
+        "explanation": "Plagiarism is uncredited use of someone else's work, and it does not require an intention to cheat."
+      },
+      {
+        "statement": "A Self-Plagiarism is reusing your own earlier assessed work as if it were new, without disclosure and the permission your department requires.",
+        "answer": true,
+        "explanation": "Self-plagiarism is undisclosed reuse of your own previous assessed work, which departments treat as misconduct."
+      },
+      {
+        "statement": "An Academic Integrity is submit a thesis someone else wrote.",
+        "answer": false,
+        "explanation": "Academic integrity requires honest credit, truthful evidence, and work that is genuinely the student's to submit."
+      },
+      {
+        "statement": "A Methodology Chapter is the chapter that explains and justifies how evidence was collected and analysed so a reader can judge the study.",
+        "answer": true,
+        "explanation": "The methodology chapter justifies the research design and the procedures for collection and analysis."
+      },
+      {
+        "statement": "A Research Design is the brand of laptop used for writing.",
+        "answer": false,
+        "explanation": "Research design is the plan connecting the question to evidence and interpretation."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Data Collection is the procedures used to gather the evidence the thesis later analyses.",
+        "answer": true,
+        "explanation": "Data collection is how the study's own evidence is gathered, before it is analysed."
+      },
+      {
+        "statement": "A Data Analysis is collecting the logs.",
+        "answer": false,
+        "explanation": "Data analysis transforms collected evidence into findings; it is not the collection step itself."
+      },
+      {
+        "statement": "A Results Chapter is the chapter that reports what the analysis found, without yet making the full interpretive argument.",
+        "answer": true,
+        "explanation": "The results chapter presents findings; extended interpretation belongs in the discussion."
+      },
+      {
+        "statement": "A Table and Figure is the table of contents.",
+        "answer": false,
+        "explanation": "Tables and figures are numbered, captioned displays of evidence that the prose must explain."
+      },
+      {
+        "statement": "A Discussion Chapter is the chapter that interprets the results, compares them with the literature, and states what they mean for the question.",
+        "answer": true,
+        "explanation": "The discussion interprets findings against the question and the literature; it does not merely repeat tables."
+      },
+      {
+        "statement": "A Limitation is proof that the study is worthless and should be thrown away.",
+        "answer": false,
+        "explanation": "A limitation is an honest bound on the findings, not a reason to hide weakness or to abandon every claim."
+      },
+      {
+        "statement": "A Conclusion Chapter is the closing chapter that answers the aim, summarises the contribution, and does not introduce new evidence.",
+        "answer": true,
+        "explanation": "The conclusion answers the aim from evidence already presented and does not add new findings."
+      },
+      {
+        "statement": "A Recommendation is roll it out worldwide because you prefer videos.",
+        "answer": false,
+        "explanation": "A recommendation is practical advice justified by the findings already reported."
+      },
+      {
+        "statement": "A Future Work is specific studies or improvements the thesis identifies as worthwhile but does not itself complete.",
+        "answer": true,
+        "explanation": "Future work names concrete follow-on studies that the present thesis leaves open."
+      },
+      {
+        "statement": "An Oral Defence is the initial literature search.",
+        "answer": false,
+        "explanation": "The oral defence is the live examination of the student's understanding of their submitted thesis."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Defence Committee is the examiners appointed to read the thesis and question the student in the oral defence.",
+        "answer": true,
+        "explanation": "The defence committee is the appointed examining panel, not the audience or informal helpers."
+      },
+      {
+        "statement": "A Viva Question is a question about an unrelated module's exam.",
+        "answer": false,
+        "explanation": "A viva question tests the student's command of the thesis, including method and limits."
+      },
+      {
+        "statement": "A Supervisor Feedback is comments from the supervisor on drafts, which the student should address or explicitly justify not following.",
+        "answer": true,
+        "explanation": "Supervisor feedback is guidance on drafts that the student must answer, either by changes or by a stated reason."
+      },
+      {
+        "statement": "A Thesis Timeline is a note that says finish someday.",
+        "answer": false,
+        "explanation": "A thesis timeline sets dated milestones so proposal, ethics, drafting, and submission stay feasible."
+      },
+      {
+        "statement": "An Ethics Approval is formal permission, granted before data collection, that the study's treatment of people or data meets institutional rules.",
+        "answer": true,
+        "explanation": "Ethics approval is institutional permission that must be in place before data are collected from people."
+      },
+      {
+        "statement": "A Similarity Report is the score is the defence mark.",
+        "answer": false,
+        "explanation": "A similarity report flags overlapping text for human checking; the score alone is not a judgement of misconduct."
+      },
+      {
+        "statement": "A Citation Style is the required rules for how in-text citations and the reference list are formatted, such as APA or IEEE.",
+        "answer": true,
+        "explanation": "A citation style is a consistent set of rules for citations and references, chosen as the department requires."
+      },
+      {
+        "statement": "A DOI is a temporary search URL that may stop working.",
+        "answer": false,
+        "explanation": "A DOI is a stable identifier for a published work and is preferred in references when the style asks for it."
+      },
+      {
+        "statement": "A Scholarly Source is a work written for an academic audience and typically reviewed or issued by a recognised scholarly publisher.",
+        "answer": true,
+        "explanation": "A scholarly source is aimed at an academic audience and usually passes some form of editorial or peer review."
+      },
+      {
+        "statement": "A Thematic Review is keep one paragraph per paper in date order.",
+        "answer": false,
+        "explanation": "A thematic review groups sources under themes so agreements and disagreements become visible."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Gap Statement is a short passage that states what the literature does not yet answer and that this thesis will address.",
+        "answer": true,
+        "explanation": "The gap statement identifies the unanswered point that justifies the thesis."
+      },
+      {
+        "statement": "A Contribution is your supervisor's paper presented as yours.",
+        "answer": false,
+        "explanation": "The contribution is the particular new result, design, or understanding this thesis provides."
+      },
+      {
+        "statement": "A Scope of the Thesis is the boundary of what the study includes and excludes, set so the project is completable and the claims match the evidence.",
+        "answer": true,
+        "explanation": "Scope draws a boundary around a completable study and keeps claims inside that boundary."
+      },
+      {
+        "statement": "An Appendix is the abstract.",
+        "answer": false,
+        "explanation": "An appendix holds supplementary material that the main text points to, not core results with no mention."
+      },
+      {
+        "statement": "A Glossary is an alphabetical list of specialist terms and their meanings, included when readers may not share the thesis vocabulary.",
+        "answer": true,
+        "explanation": "A glossary defines specialist terms for the reader and is distinct from the references."
+      },
+      {
+        "statement": "An Acknowledgement is the conclusion, as if thanks were a finding.",
+        "answer": false,
+        "explanation": "Acknowledgements thank helpers and are not part of the academic argument or the evidence."
+      },
+      {
+        "statement": "A Title Page is the front page that states the thesis title, author, award, institution, and submission date in the required format.",
+        "answer": true,
+        "explanation": "The title page identifies the work, the author, and the award in the format the institution specifies."
+      },
+      {
+        "statement": "A Proofreading is collect a fresh dataset.",
+        "answer": false,
+        "explanation": "Proofreading is the last check of presentation and consistency, not a stage for new research."
+      },
+      {
+        "statement": "A Response to Examiners is a written reply, after review or the defence, that states how each required change was made or why a comment was not followed.",
+        "answer": true,
+        "explanation": "A response to examiners accounts for each required change so the revised thesis can be checked."
+      },
+      {
+        "statement": "A Declaration of Originality is the supervisor's signature in place of the student's.",
+        "answer": false,
+        "explanation": "A declaration of originality confirms the student is entitled to submit the work and has acknowledged help and sources."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a group chat log with no argument or evidence is called Thesis.",
+        "answer": false,
+        "explanation": "An undergraduate thesis is a substantial individual report that is submitted and examined for the award."
+      },
+      {
+        "statement": "Before data collection, the student submits a proposal naming the question, the survey method, and the ten-week limit.",
+        "answer": true,
+        "explanation": "A proposal is an advance plan of question, reason, method, and limits, written so the study can be approved."
+      },
+      {
+        "statement": "In standard textbooks, a rule that any order is acceptable is called Thesis Structure.",
+        "answer": false,
+        "explanation": "Thesis structure is the required order of parts so examiners can find the argument, method, and evidence."
+      },
+      {
+        "statement": "The 250-word abstract states the call-rate question, the two-group method, the significant drop, and the conclusion.",
+        "answer": true,
+        "explanation": "An abstract stands alone and briefly covers question, method, findings, and conclusion."
+      },
+      {
+        "statement": "In standard textbooks, uncited references is called Keywords.",
+        "answer": false,
+        "explanation": "Keywords are selected search terms that describe the thesis for catalogues and databases."
+      },
+      {
+        "statement": "Chapter 1 explains rising reset calls, states the aim, and outlines the later chapters.",
+        "answer": true,
+        "explanation": "The introduction orients the reader with context, problem, aim, and a map of the thesis."
+      },
+      {
+        "statement": "In standard textbooks, the list of software used is called Problem Statement.",
+        "answer": false,
+        "explanation": "A problem statement defines the issue and its importance, which a bare topic label does not."
+      },
+      {
+        "statement": "The aim is to evaluate a short video; one objective is to compare reset calls between video and text groups.",
+        "answer": true,
+        "explanation": "The aim is the overall purpose, and objectives are the specific outcomes used to achieve it."
+      },
+      {
+        "statement": "In standard textbooks, more quotations still in date order only is called Literature Review Chapter.",
+        "answer": false,
+        "explanation": "The literature review chapter builds an argument from prior work and justifies the gap."
+      },
+      {
+        "statement": "Three studies are discussed together to show that short guidance helps recall but has not been tested on call volume.",
+        "answer": true,
+        "explanation": "Synthesis connects sources to support a claim about what the literature, taken together, shows."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a note that says source unknown is called Citation.",
+        "answer": false,
+        "explanation": "A citation identifies the source of borrowed material in the form the required style demands."
+      },
+      {
+        "statement": "Every author-year citation in the chapters has a matching formatted entry in the final reference list.",
+        "answer": true,
+        "explanation": "The reference list gives full details for every work actually cited, in the required format."
+      },
+      {
+        "statement": "In standard textbooks, a page number with no link to any source is called In-Text Citation.",
+        "answer": false,
+        "explanation": "An in-text citation is the short marker beside the claim that points to a full reference."
+      },
+      {
+        "statement": "The student rewrites a paper's conclusion about video length in new sentences and cites the paper.",
+        "answer": true,
+        "explanation": "Paraphrase uses your own wording and structure and still credits the source of the idea."
+      },
+      {
+        "statement": "In standard textbooks, the exact words with no marks and no citation is called Quotation.",
+        "answer": false,
+        "explanation": "A quotation reproduces exact wording, marks it as such, and cites the source."
+      },
+      {
+        "statement": "A discussion paragraph copies a blog's sentences and does not cite the blog, so the marker records plagiarism.",
+        "answer": true,
+        "explanation": "Plagiarism is uncredited use of someone else's work, and it does not require an intention to cheat."
+      },
+      {
+        "statement": "In standard textbooks, work that has never been assessed is called Self-Plagiarism.",
+        "answer": false,
+        "explanation": "Self-plagiarism is undisclosed reuse of your own previous assessed work, which departments treat as misconduct."
+      },
+      {
+        "statement": "The student cites every borrowed figure, reports a non-significant result, and confirms the writing is their own.",
+        "answer": true,
+        "explanation": "Academic integrity requires honest credit, truthful evidence, and work that is genuinely the student's to submit."
+      },
+      {
+        "statement": "In standard textbooks, a diary of personal feelings about the supervisor is called Methodology Chapter.",
+        "answer": false,
+        "explanation": "The methodology chapter justifies the research design and the procedures for collection and analysis."
+      },
+      {
+        "statement": "The design is a two-group comparison in one university, using call counts as the outcome.",
+        "answer": true,
+        "explanation": "Research design is the plan connecting the question to evidence and interpretation."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, running the statistical test afterwards is called Data Collection.",
+        "answer": false,
+        "explanation": "Data collection is how the study's own evidence is gathered, before it is analysed."
+      },
+      {
+        "statement": "The student compares the two groups' call counts with the test named in the methodology.",
+        "answer": true,
+        "explanation": "Data analysis transforms collected evidence into findings; it is not the collection step itself."
+      },
+      {
+        "statement": "In standard textbooks, the reference list is called Results Chapter.",
+        "answer": false,
+        "explanation": "The results chapter presents findings; extended interpretation belongs in the discussion."
+      },
+      {
+        "statement": "Table 2 shows mean calls by group, is numbered and captioned, and is discussed in the following paragraph.",
+        "answer": true,
+        "explanation": "Tables and figures are numbered, captioned displays of evidence that the prose must explain."
+      },
+      {
+        "statement": "In standard textbooks, the methodology chapter is called Discussion Chapter.",
+        "answer": false,
+        "explanation": "The discussion interprets findings against the question and the literature; it does not merely repeat tables."
+      },
+      {
+        "statement": "The thesis states that one college and a convenience sample limit generalisation to other universities.",
+        "answer": true,
+        "explanation": "A limitation is an honest bound on the findings, not a reason to hide weakness or to abandon every claim."
+      },
+      {
+        "statement": "In standard textbooks, add new tables that were never in the results is called Conclusion Chapter.",
+        "answer": false,
+        "explanation": "The conclusion answers the aim from evidence already presented and does not add new findings."
+      },
+      {
+        "statement": "Because calls fell in this setting, the thesis recommends a pilot of the short video on one further faculty before a full rollout.",
+        "answer": true,
+        "explanation": "A recommendation is practical advice justified by the findings already reported."
+      },
+      {
+        "statement": "In standard textbooks, your supervisor's unrelated grant is called Future Work.",
+        "answer": false,
+        "explanation": "Future work names concrete follow-on studies that the present thesis leaves open."
+      },
+      {
+        "statement": "The student gives a short presentation and then answers examiners' questions about the sample and the statistics.",
+        "answer": true,
+        "explanation": "The oral defence is the live examination of the student's understanding of their submitted thesis."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the classmates who proofread a draft is called Defence Committee.",
+        "answer": false,
+        "explanation": "The defence committee is the appointed examining panel, not the audience or informal helpers."
+      },
+      {
+        "statement": "An examiner asks why a convenience sample was acceptable and what it prevents the thesis from claiming.",
+        "answer": true,
+        "explanation": "A viva question tests the student's command of the thesis, including method and limits."
+      },
+      {
+        "statement": "In standard textbooks, ignore the comment with no reason is called Supervisor Feedback.",
+        "answer": false,
+        "explanation": "Supervisor feedback is guidance on drafts that the student must answer, either by changes or by a stated reason."
+      },
+      {
+        "statement": "The plan dates the proposal in week 3, ethics in week 5, the methodology draft in week 8, and submission in week 14.",
+        "answer": true,
+        "explanation": "A thesis timeline sets dated milestones so proposal, ethics, drafting, and submission stay feasible."
+      },
+      {
+        "statement": "In standard textbooks, approval of your paragraph style only is called Ethics Approval.",
+        "answer": false,
+        "explanation": "Ethics approval is institutional permission that must be in place before data are collected from people."
+      },
+      {
+        "statement": "A high score comes from properly quoted method text, so the student checks the citations rather than assuming guilt.",
+        "answer": true,
+        "explanation": "A similarity report flags overlapping text for human checking; the score alone is not a judgement of misconduct."
+      },
+      {
+        "statement": "In standard textbooks, the writing font required by the department is called Citation Style.",
+        "answer": false,
+        "explanation": "A citation style is a consistent set of rules for citations and references, chosen as the department requires."
+      },
+      {
+        "statement": "The reference for a journal article ends with the DOI rather than a long search-page link.",
+        "answer": true,
+        "explanation": "A DOI is a stable identifier for a published work and is preferred in references when the style asks for it."
+      },
+      {
+        "statement": "In standard textbooks, a vendor promotion is called Scholarly Source.",
+        "answer": false,
+        "explanation": "A scholarly source is aimed at an academic audience and usually passes some form of editorial or peer review."
+      },
+      {
+        "statement": "One section covers video length, another covers call-volume measures, and papers are discussed inside those themes.",
+        "answer": true,
+        "explanation": "A thematic review groups sources under themes so agreements and disagreements become visible."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, an unfiltered list of every paper is called Gap Statement.",
+        "answer": false,
+        "explanation": "The gap statement identifies the unanswered point that justifies the thesis."
+      },
+      {
+        "statement": "The thesis contributes evidence that a two-minute video was followed by fewer reset calls in one college.",
+        "answer": true,
+        "explanation": "The contribution is the particular new result, design, or understanding this thesis provides."
+      },
+      {
+        "statement": "In standard textbooks, the page margins required by the template is called Scope of the Thesis.",
+        "answer": false,
+        "explanation": "Scope draws a boundary around a completable study and keeps claims inside that boundary."
+      },
+      {
+        "statement": "The survey form is placed in Appendix A, and the methodology chapter tells the reader to consult it.",
+        "answer": true,
+        "explanation": "An appendix holds supplementary material that the main text points to, not core results with no mention."
+      },
+      {
+        "statement": "In standard textbooks, the reference list is called Glossary.",
+        "answer": false,
+        "explanation": "A glossary defines specialist terms for the reader and is distinct from the references."
+      },
+      {
+        "statement": "The student thanks the supervisor and the help-desk team for access to anonymised call counts.",
+        "answer": true,
+        "explanation": "Acknowledgements thank helpers and are not part of the academic argument or the evidence."
+      },
+      {
+        "statement": "In standard textbooks, the first literature page is called Title Page.",
+        "answer": false,
+        "explanation": "The title page identifies the work, the author, and the award in the format the institution specifies."
+      },
+      {
+        "statement": "The student checks that Table 2 is cited, that every citation is in the reference list, and that chapter numbers match the contents.",
+        "answer": true,
+        "explanation": "Proofreading is the last check of presentation and consistency, not a stage for new research."
+      },
+      {
+        "statement": "In standard textbooks, the original proposal from the start of the year is called Response to Examiners.",
+        "answer": false,
+        "explanation": "A response to examiners accounts for each required change so the revised thesis can be checked."
+      },
+      {
+        "statement": "The student signs the department form stating the thesis is their own, aside from cited material and declared assistance.",
+        "answer": true,
+        "explanation": "A declaration of originality confirms the student is entitled to submit the work and has acknowledged help and sources."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When the award requires one examined report of your own project, not a leaflet or a chat log. Which submission meets that requirement, the correct result is a product leaflet.",
+        "answer": false,
+        "explanation": "The thesis is the substantial individual report submitted for examination."
+      },
+      {
+        "statement": "When you have not collected data yet, and the department wants the question, method, and time limit approved. Which document is that, the correct result is a reference list alone.",
+        "answer": false,
+        "explanation": "The research proposal is the advance plan of question, rationale, method, and limits."
+      },
+      {
+        "statement": "When examiners cannot find the method because chapters are in a random order. The requirement have you missed, the correct result is the department's thesis structure.",
+        "answer": true,
+        "explanation": "Thesis structure is the required order of chapters and other matter."
+      },
+      {
+        "statement": "When a reader has two minutes and must judge whether your thesis is relevant without opening the chapters. The part should they read, the correct result is the abstract.",
+        "answer": true,
+        "explanation": "The abstract is a short standalone summary of question, method, findings, and conclusion."
+      },
+      {
+        "statement": "When the library catalogue needs a few terms so others can find a thesis on help-desk calls. Which item supplies them, the correct result is the thesis password.",
+        "answer": false,
+        "explanation": "Keywords are the short topic terms used to find the thesis."
+      },
+      {
+        "statement": "When readers need the context, the problem, the aim, and a map of the chapters before the literature. Which chapter is that, the correct result is the raw-transcript appendix.",
+        "answer": false,
+        "explanation": "The introduction chapter sets context, problem, aim, and the outline of the thesis."
+      },
+      {
+        "statement": "When the draft says only passwords. Examiners ask In this case wrong and why it matters. The passage must you add, the correct result is a problem statement.",
+        "answer": true,
+        "explanation": "A problem statement gives a precise issue and the reason it matters."
+      },
+      {
+        "statement": "When you need an overall purpose and specific outcomes an examiner can check. The pair should the introduction contain, the correct result is an aim and objectives.",
+        "answer": true,
+        "explanation": "Aim and objectives state the purpose and the checkable outcomes of the thesis."
+      },
+      {
+        "statement": "When prior studies are summarised one by one and never compared, so no gap appears. Which revision does the literature review chapter need, the correct result is replacing it with the blank survey form.",
+        "answer": false,
+        "explanation": "The literature review chapter must synthesise prior work and show the gap."
+      },
+      {
+        "statement": "When each paragraph describes one paper and never links them. The change produces synthesis, the correct result is group the papers around a claim they jointly support.",
+        "answer": true,
+        "explanation": "Synthesis combines sources into an argument instead of leaving them as separate summaries."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When you use another author's finding in the introduction. Which addition is a proper citation, the correct result is a bare URL when the style requires author and date.",
+        "answer": false,
+        "explanation": "A citation identifies the source of the finding in the required style."
+      },
+      {
+        "statement": "When an examiner finds an in-text citation with no matching full entry at the end. Which part is incomplete, the correct result is another thesis's references pasted in.",
+        "answer": false,
+        "explanation": "The reference list must contain every cited work, with full details in the required style."
+      },
+      {
+        "statement": "When a claim needs a short pointer in the paragraph, not the full reference typed out each time. The device is that, the correct result is an in-text citation.",
+        "answer": true,
+        "explanation": "An in-text citation is the brief pointer in the paragraph that links a claim to the reference list."
+      },
+      {
+        "statement": "When you want to use a paper's idea without copying its sentences. The approach is an acceptable paraphrase, the correct result is rewrite the idea in your own structure and cite it.",
+        "answer": true,
+        "explanation": "A paraphrase restates the idea in your own words and structure and still cites the source."
+      },
+      {
+        "statement": "When the source's exact definition must appear because its wording matters. Which presentation is a proper quotation, the correct result is a sentence you composed.",
+        "answer": false,
+        "explanation": "A quotation is exact wording, marked and cited, used when the original words matter."
+      },
+      {
+        "statement": "When a paragraph copies a blog and gives no source, though you say you forgot. Which judgement still fits, the correct result is it is a proper quotation because you meant well.",
+        "answer": false,
+        "explanation": "Presenting someone else's words as your own without credit is plagiarism even when it was not deliberate."
+      },
+      {
+        "statement": "When you paste a previously graded essay into the thesis and do not disclose it. The problem is that, the correct result is self-plagiarism.",
+        "answer": true,
+        "explanation": "Undisclosed reuse of your own assessed work is self-plagiarism."
+      },
+      {
+        "statement": "When you could hide a source or invent a result to look stronger. The choice shows academic integrity, the correct result is cite the source and report the real result.",
+        "answer": true,
+        "explanation": "Academic integrity means honest credit, truthful data, and work you are entitled to claim."
+      },
+      {
+        "statement": "When examiners ask how the call data were collected and why that analysis was chosen. Which chapter should answer, the correct result is a results chapter that hides the method.",
+        "answer": false,
+        "explanation": "The methodology chapter explains and justifies collection and analysis."
+      },
+      {
+        "statement": "When you must show how the question leads to two groups and a call-count comparison. The plan is that, the correct result is the research design.",
+        "answer": true,
+        "explanation": "Research design is the overall link from the question to the evidence and how it will be interpreted."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When you export help-desk logs for the study month using a stated procedure. Which activity is that, the correct result is proofreading the chapters.",
+        "answer": false,
+        "explanation": "Gathering the study's evidence by a stated procedure is data collection."
+      },
+      {
+        "statement": "When the logs are already gathered, and you now compare the two groups with the planned test. Which step is that, the correct result is collecting the logs.",
+        "answer": false,
+        "explanation": "Turning collected evidence into findings with a stated procedure is data analysis."
+      },
+      {
+        "statement": "When you need to report means and the test result before arguing what they imply. The chapter should hold those findings, the correct result is the results chapter.",
+        "answer": true,
+        "explanation": "The results chapter reports what was found, leaving the fuller interpretation to the discussion."
+      },
+      {
+        "statement": "When mean calls by group need a numbered, captioned display that the text explains. The element is that, the correct result is a table.",
+        "answer": true,
+        "explanation": "A table is a numbered, captioned display of evidence that the surrounding text explains."
+      },
+      {
+        "statement": "When the means are already reported. You now need to say what they mean and how they compare with earlier studies. Which chapter is that, the correct result is a second copy of the results tables with no comment.",
+        "answer": false,
+        "explanation": "The discussion interprets results, compares them with the literature, and answers the question."
+      },
+      {
+        "statement": "When the sample came from one college and was convenient to reach. Where should that bound on the findings be stated, the correct result is as proof the whole thesis must be discarded.",
+        "answer": false,
+        "explanation": "A limitation openly bounds how far findings can be taken, such as weak generalisation from one college."
+      },
+      {
+        "statement": "When you are closing the thesis and are tempted to add a new table. The rule applies to the conclusion chapter, the correct result is answer the aim without introducing new evidence.",
+        "answer": true,
+        "explanation": "The conclusion answers the aim and summarises the contribution without new evidence."
+      },
+      {
+        "statement": "When the findings show fewer calls in this setting only. The recommendation is grounded in that finding, the correct result is pilot the video on one further faculty before a full rollout.",
+        "answer": true,
+        "explanation": "A recommendation is a practical next step justified by the findings, matched to their limits."
+      },
+      {
+        "statement": "When your sample was one college, and you want to name a study you did not do. Which statement is future work, the correct result is saying only that more research is needed.",
+        "answer": false,
+        "explanation": "Future work specifies a worthwhile study the thesis itself does not complete."
+      },
+      {
+        "statement": "When after submission, examiners will question you in person about the thesis. The event is that, the correct result is the oral defence.",
+        "answer": true,
+        "explanation": "The oral defence is the formal session where you present the thesis and answer examiners."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When you must know who is appointed to read the thesis and question you. Which group is that, the correct result is family in the audience.",
+        "answer": false,
+        "explanation": "The defence committee is the panel of examiners appointed to read and question."
+      },
+      {
+        "statement": "When an examiner asks why your sample limits generalisation. Which kind of question is that, the correct result is a question from an unrelated exam.",
+        "answer": false,
+        "explanation": "A viva question probes the thesis itself, such as a limitation of the method."
+      },
+      {
+        "statement": "When your supervisor writes that the literature gap is unclear. The response handles that feedback properly, the correct result is revise the gap or explain why you did not.",
+        "answer": true,
+        "explanation": "Supervisor feedback on a draft should be addressed or explicitly justified."
+      },
+      {
+        "statement": "When ethics, the methodology draft, and submission have no dates and are starting to collide. The artefact should set those dates, the correct result is a thesis timeline.",
+        "answer": true,
+        "explanation": "A thesis timeline schedules milestones such as ethics, drafts, and submission."
+      },
+      {
+        "statement": "When you want to survey classmates next week, and the committee has not replied. Which condition must you have first, the correct result is a friend's encouragement.",
+        "answer": false,
+        "explanation": "Ethics approval is formal permission required before collection from participants."
+      },
+      {
+        "statement": "When the report score is high because of long cited quotations. Which interpretation is sound, the correct result is the score is the defence mark.",
+        "answer": false,
+        "explanation": "A similarity report prompts checking of overlap and citation; it does not by itself decide misconduct."
+      },
+      {
+        "statement": "When the department requires one referencing format, and your draft mixes two. The requirement are you breaking, the correct result is the required citation style.",
+        "answer": true,
+        "explanation": "Citation style is the single required format for in-text citations and the reference list."
+      },
+      {
+        "statement": "When the style asks for a stable identifier for a journal article, not a search-page link that may die. The identifier fits, the correct result is the DOI.",
+        "answer": true,
+        "explanation": "A DOI persistently identifies the exact digital publication for the reference."
+      },
+      {
+        "statement": "When you need a source an examiner will treat as academic evidence about training videos. Which source fits, the correct result is an unsigned headline.",
+        "answer": false,
+        "explanation": "A reviewed article for an academic audience is a scholarly source."
+      },
+      {
+        "statement": "When your draft is one paragraph per paper in date order. The reorganisation makes it a thematic review, the correct result is group the papers under themes such as video length and outcome measures.",
+        "answer": true,
+        "explanation": "A thematic review organises the literature by themes or debates rather than paper by paper."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When the review never says what is still unknown. Which sentence should you add at its end, the correct result is the findings abstract.",
+        "answer": false,
+        "explanation": "A gap statement says what the literature has not answered and what the thesis will address."
+      },
+      {
+        "statement": "When examiners ask what your thesis adds that the cited papers did not already show. Which answer states a contribution, the correct result is your supervisor's paper presented as yours.",
+        "answer": false,
+        "explanation": "The contribution is the specific addition this thesis makes, matched to its evidence."
+      },
+      {
+        "statement": "When you are tempted to claim the video works for every university, but you studied one college. The boundary should you state, the correct result is the scope covering that college and excluding others.",
+        "answer": true,
+        "explanation": "The scope of the thesis is the boundary of inclusion and exclusion that claims must respect."
+      },
+      {
+        "statement": "When the survey form is too long for the methodology chapter but examiners may need it. Where should it go, the correct result is in an appendix referred to from the chapter.",
+        "answer": true,
+        "explanation": "An appendix holds supplementary material, such as a questionnaire, that the main text cites."
+      },
+      {
+        "statement": "When examiners outside your lab may not know your specialist terms. Which list should define them, the correct result is an author index with no definitions.",
+        "answer": false,
+        "explanation": "A glossary is an alphabetical list of specialist terms and their meanings."
+      },
+      {
+        "statement": "When you want to thank the supervisor and the help-desk team without adding findings. Which section is appropriate, the correct result is the conclusion, as if thanks were a finding.",
+        "answer": false,
+        "explanation": "The acknowledgement thanks contributors and does not carry academic claims."
+      },
+      {
+        "statement": "When the template requires the title, your name, the degree, the university, and the date on the front. The page is that, the correct result is the title page.",
+        "answer": true,
+        "explanation": "The title page carries the identifying details of the thesis in the required format."
+      },
+      {
+        "statement": "When submission is tomorrow and the analysis is finished. The final task is proofreading, the correct result is check spelling, citation matches, and numbering.",
+        "answer": true,
+        "explanation": "Proofreading is the final check of language, citations, numbering, and cross-references."
+      },
+      {
+        "statement": "When examiners require changes and a resubmission. Which document should explain how each comment was handled, the correct result is the same file with the comments ignored.",
+        "answer": false,
+        "explanation": "A response to examiners states how each required change was made or justified."
+      },
+      {
+        "statement": "When the template asks you to confirm the thesis is your own work except for acknowledged help. The statement is that, the correct result is the declaration of originality.",
+        "answer": true,
+        "explanation": "The declaration of originality is the student's signed statement that the thesis is their own acknowledged work."
+      }
+    ]
+  }
+}

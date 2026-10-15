@@ -1,0 +1,785 @@
+{
+  "subjectId": "internship",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Learning Objective is a specific statement of what the intern intends to be able to do by the end of the placement.",
+        "answer": true,
+        "explanation": "A learning objective names a capability the intern should gain, so progress can be judged."
+      },
+      {
+        "statement": "A Learning Agreement is the company's annual financial statement.",
+        "answer": false,
+        "explanation": "A learning agreement is the shared plan of goals, duties, and supervision among intern, host, and university."
+      },
+      {
+        "statement": "A Workplace Supervisor is the staff member at the host organisation who assigns the intern's work and gives day-to-day feedback.",
+        "answer": true,
+        "explanation": "The workplace supervisor is the host employee responsible for assigning work and supervising it."
+      },
+      {
+        "statement": "An Academic Supervisor is the host employee who assigns tickets.",
+        "answer": false,
+        "explanation": "The academic supervisor represents the university's learning and assessment requirements."
+      },
+      {
+        "statement": "A Supervision Meeting is a scheduled conversation in which the intern and supervisor review progress, problems, and the next tasks.",
+        "answer": true,
+        "explanation": "A supervision meeting is planned time to review progress and set the next work."
+      },
+      {
+        "statement": "A Workplace Conduct is the right to ignore start times as if at a party.",
+        "answer": false,
+        "explanation": "Workplace conduct is the standard of behaviour the host expects while the intern is at work."
+      },
+      {
+        "statement": "A Punctuality is arriving and delivering work at the agreed time, and warning the supervisor early if a delay is unavoidable.",
+        "answer": true,
+        "explanation": "Punctuality means meeting agreed times and giving early warning when a delay cannot be avoided."
+      },
+      {
+        "statement": "A Professional Dress is a costume that hides a required safety vest.",
+        "answer": false,
+        "explanation": "Professional dress follows the host's standard and the safety needs of the day's work."
+      },
+      {
+        "statement": "A Workplace Confidentiality is the duty not to share the organisation's or clients' non-public information beyond people authorised to see it.",
+        "answer": true,
+        "explanation": "Interns share the duty to keep non-public organisational and client information within authorised people."
+      },
+      {
+        "statement": "A Client Data Handling is copy it to a personal laptop.",
+        "answer": false,
+        "explanation": "Client data must stay on approved systems and follow the host policy for collection, storage, and transfer."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Reflection is deliberate thinking about what happened, what was learned, and what should be done differently next time.",
+        "answer": true,
+        "explanation": "Reflection connects an experience to learning and to a change in future action."
+      },
+      {
+        "statement": "A Reflective Journal is the audited accounts.",
+        "answer": false,
+        "explanation": "A reflective journal is a continuing private record of experience and learning, not a timesheet or a public post."
+      },
+      {
+        "statement": "A Gibbs Reflective Cycle is a six-stage structure for reflection: description, feelings, evaluation, analysis, conclusion, and action plan.",
+        "answer": true,
+        "explanation": "Gibbs' cycle is a known sequence for structured reflection ending in an action plan."
+      },
+      {
+        "statement": "A Timesheet is a payslip issued by the payroll department.",
+        "answer": false,
+        "explanation": "A timesheet records the hours the intern worked so the host and university can verify attendance and effort."
+      },
+      {
+        "statement": "An Attendance Record is a log of days present, absent, or late, used to confirm that the placement requirement was met.",
+        "answer": true,
+        "explanation": "An attendance record shows presence and absence, which universities often require for a valid placement."
+      },
+      {
+        "statement": "A Feedback is your salary is stated in the contract.",
+        "answer": false,
+        "explanation": "Feedback tells you how the work was judged and what to change; it is more than praise or a contractual number."
+      },
+      {
+        "statement": "A Constructive Feedback is specific comments that describe what worked, what did not, and what change is expected, without personal attack.",
+        "answer": true,
+        "explanation": "Constructive feedback is specific and forward-looking, and it separates the work from a personal attack."
+      },
+      {
+        "statement": "A Feedforward is a timesheet of past hours.",
+        "answer": false,
+        "explanation": "Feedforward points to the next performance so the person can apply the advice immediately."
+      },
+      {
+        "statement": "A Professional Email is a work message with a clear subject, a courteous greeting, a short statement of purpose, and a professional sign-off.",
+        "answer": true,
+        "explanation": "Professional email is identifiable, polite, and purposeful so a busy reader can act on it."
+      },
+      {
+        "statement": "An Email Subject Line is the single word hello on every message you send.",
+        "answer": false,
+        "explanation": "The subject line is a specific heading that helps the recipient sort and retrieve the message."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Carbon Copy is a copy of an email sent to people who should see the message but are not the primary person expected to act.",
+        "answer": true,
+        "explanation": "Carbon copy informs secondary readers, while the To field holds the person expected to act."
+      },
+      {
+        "statement": "A Reply All is reply all with the private answer.",
+        "answer": false,
+        "explanation": "Reply all widens the audience to every listed recipient, so it should be used only when each person needs the response."
+      },
+      {
+        "statement": "A Health and Safety Induction is the briefing at the start of a placement that explains site hazards, emergency routes, and the rules that keep people safe.",
+        "answer": true,
+        "explanation": "Health and safety induction is the opening briefing that tells a new person how to stay safe on that site."
+      },
+      {
+        "statement": "A Hazard is the company's annual profit.",
+        "answer": false,
+        "explanation": "A hazard is the source that could cause harm; risk also considers how likely and severe that harm is."
+      },
+      {
+        "statement": "A Workplace Risk Assessment is a systematic look at hazards, who could be harmed, how serious that harm could be, and what controls are needed.",
+        "answer": true,
+        "explanation": "A risk assessment examines hazards, people, severity, and controls rather than assuming past luck will continue."
+      },
+      {
+        "statement": "A Personal Protective Equipment is ordinary fashion accessories with no safety function.",
+        "answer": false,
+        "explanation": "Personal protective equipment reduces remaining risk to the wearer and does not replace removing the hazard where that is reasonable."
+      },
+      {
+        "statement": "A Near Miss is an unplanned event that could have caused harm but did not, and that should still be reported so controls can improve.",
+        "answer": true,
+        "explanation": "A near miss is an event that nearly caused harm and is reported so the next occurrence can be prevented."
+      },
+      {
+        "statement": "An Emergency Procedure is finish the email first.",
+        "answer": false,
+        "explanation": "An emergency procedure is the pre-agreed response, including alarm, evacuation, and accounting for people."
+      },
+      {
+        "statement": "A Workplace Orientation is the introduction to the site, team, tools, and daily routines that helps a new intern work safely and effectively.",
+        "answer": true,
+        "explanation": "Orientation introduces the newcomer to the actual workplace so they can start work safely."
+      },
+      {
+        "statement": "A Mentor is a stranger from a conference.",
+        "answer": false,
+        "explanation": "A mentor advises informally; the supervisor remains the person who assigns and assesses official work."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Task Log is a running list of tasks undertaken, with dates and outcomes, used as evidence of what the intern actually did.",
+        "answer": true,
+        "explanation": "A task log records completed and current placement work so the intern can evidence what was done."
+      },
+      {
+        "statement": "A Weekly Report is a daily social-media story.",
+        "answer": false,
+        "explanation": "A weekly report keeps the supervisor informed of progress, problems, and the immediate plan."
+      },
+      {
+        "statement": "An Internship Portfolio is a curated set of evidence, such as work samples, reflections, and feedback, showing the learning objectives were met.",
+        "answer": true,
+        "explanation": "A portfolio selects evidence that the intern met the learning objectives, without removing confidential material improperly."
+      },
+      {
+        "statement": "A SMART Objective is learn networking someday.",
+        "answer": false,
+        "explanation": "SMART is a test of whether a goal is specific, measurable, achievable, relevant, and time-bound."
+      },
+      {
+        "statement": "A Skill Gap is the difference between the skills a task or objective requires and the skills the intern can already demonstrate.",
+        "answer": true,
+        "explanation": "A skill gap is the missing capability between current skill and what the work requires."
+      },
+      {
+        "statement": "A Professional Boundary is ask the client to keep the approval secret.",
+        "answer": false,
+        "explanation": "Professional boundaries keep the intern's relationships and decisions inside the authority of the role."
+      },
+      {
+        "statement": "An Asking for Help is seeking guidance early when a task is unclear or beyond current skill, rather than guessing on work that affects others.",
+        "answer": true,
+        "explanation": "Asking for help at the right time prevents harmful guesses while the intern still attempts the work they can do."
+      },
+      {
+        "statement": "A Meeting Etiquette is reading unrelated messages for the whole meeting.",
+        "answer": false,
+        "explanation": "Meeting etiquette helps the group reach and record decisions without excluding people."
+      },
+      {
+        "statement": "An Active Listening is paying full attention, checking that you have understood, and responding to what was actually said.",
+        "answer": true,
+        "explanation": "Active listening checks understanding of the other person's message before you respond."
+      },
+      {
+        "statement": "A Note-Taking is rely on memory alone.",
+        "answer": false,
+        "explanation": "Notes capture decisions and actions so they can be checked and done, while still respecting confidentiality."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Deadline Commitment is an agreement to finish a task by a stated time, accepted only when that time is realistic.",
+        "answer": true,
+        "explanation": "A deadline commitment should be realistic and, once made, should be kept or renegotiated early."
+      },
+      {
+        "statement": "A Scope of Authority is sign a contract for the company.",
+        "answer": false,
+        "explanation": "Scope of authority is the set of actions already delegated to the intern; other actions need approval."
+      },
+      {
+        "statement": "A Workplace Escalation is telling the supervisor about a problem the intern cannot safely or properly resolve alone.",
+        "answer": true,
+        "explanation": "Escalation at work takes an unresolved or unsafe problem to the person who can act."
+      },
+      {
+        "statement": "A Workplace Disagreement is something an intern must always ignore, even when work is blocked.",
+        "answer": false,
+        "explanation": "A workplace disagreement should be addressed early and through the proper person, without public insult."
+      },
+      {
+        "statement": "A Team Norms is the shared expectations a team sets for how members communicate, share work, and treat one another.",
+        "answer": true,
+        "explanation": "Team norms are the expectations the team itself agrees, such as how quickly messages are answered."
+      },
+      {
+        "statement": "A Receiving Feedback is argue before asking what size is needed.",
+        "answer": false,
+        "explanation": "Receiving feedback well means understanding the expected change and then applying it."
+      },
+      {
+        "statement": "A Self-Assessment is the intern's own judgement of progress against the learning objectives, supported by examples from the work.",
+        "answer": true,
+        "explanation": "Self-assessment is the intern's evidence-based judgement of their own progress toward the agreed objectives."
+      },
+      {
+        "statement": "A Final Internship Report is only the first standup note.",
+        "answer": false,
+        "explanation": "The final report pulls duties, evidence, and reflection together against the objectives agreed at the start."
+      },
+      {
+        "statement": "A Handover Note is a brief document that tells the next person the status of unfinished work, where files are, and what still needs attention.",
+        "answer": true,
+        "explanation": "A handover note lets the next person continue unfinished work without guessing where things stand."
+      },
+      {
+        "statement": "A Professional Reference is a promise to hide poor attendance if asked.",
+        "answer": false,
+        "explanation": "A professional reference is the supervisor's truthful account of observed work, not a self-written endorsement."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the employer's profit target for the quarter is called Learning Objective.",
+        "answer": false,
+        "explanation": "A learning objective names a capability the intern should gain, so progress can be judged."
+      },
+      {
+        "statement": "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals.",
+        "answer": true,
+        "explanation": "A learning agreement is the shared plan of goals, duties, and supervision among intern, host, and university."
+      },
+      {
+        "statement": "In standard textbooks, the university tutor who is not on site is called Workplace Supervisor.",
+        "answer": false,
+        "explanation": "The workplace supervisor is the host employee responsible for assigning work and supervising it."
+      },
+      {
+        "statement": "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals.",
+        "answer": true,
+        "explanation": "The academic supervisor represents the university's learning and assessment requirements."
+      },
+      {
+        "statement": "In standard textbooks, a social lunch with no work discussed is called Supervision Meeting.",
+        "answer": false,
+        "explanation": "A supervision meeting is planned time to review progress and set the next work."
+      },
+      {
+        "statement": "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+        "answer": true,
+        "explanation": "Workplace conduct is the standard of behaviour the host expects while the intern is at work."
+      },
+      {
+        "statement": "In standard textbooks, finishing early and leaving without telling anyone about unfinished shared work is called Punctuality.",
+        "answer": false,
+        "explanation": "Punctuality means meeting agreed times and giving early warning when a delay cannot be avoided."
+      },
+      {
+        "statement": "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge.",
+        "answer": true,
+        "explanation": "Professional dress follows the host's standard and the safety needs of the day's work."
+      },
+      {
+        "statement": "In standard textbooks, describe the outage for your portfolio blog is called Workplace Confidentiality.",
+        "answer": false,
+        "explanation": "Interns share the duty to keep non-public organisational and client information within authorised people."
+      },
+      {
+        "statement": "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+        "answer": true,
+        "explanation": "Client data must stay on approved systems and follow the host policy for collection, storage, and transfer."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a decision to forget the call is called Reflection.",
+        "answer": false,
+        "explanation": "Reflection connects an experience to learning and to a change in future action."
+      },
+      {
+        "statement": "Each Friday the intern writes what was tried, what failed, and one change for the following week.",
+        "answer": true,
+        "explanation": "A reflective journal is a continuing private record of experience and learning, not a timesheet or a public post."
+      },
+      {
+        "statement": "In standard textbooks, a statistical test of two group means is called Gibbs Reflective Cycle.",
+        "answer": false,
+        "explanation": "Gibbs' cycle is a known sequence for structured reflection ending in an action plan."
+      },
+      {
+        "statement": "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday.",
+        "answer": true,
+        "explanation": "A timesheet records the hours the intern worked so the host and university can verify attendance and effort."
+      },
+      {
+        "statement": "In standard textbooks, a journal of technical lessons is called Attendance Record.",
+        "answer": false,
+        "explanation": "An attendance record shows presence and absence, which universities often require for a valid placement."
+      },
+      {
+        "statement": "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+        "answer": true,
+        "explanation": "Feedback tells you how the work was judged and what to change; it is more than praise or a contractual number."
+      },
+      {
+        "statement": "In standard textbooks, no comment after the failed draft is called Constructive Feedback.",
+        "answer": false,
+        "explanation": "Constructive feedback is specific and forward-looking, and it separates the work from a personal attack."
+      },
+      {
+        "statement": "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+        "answer": true,
+        "explanation": "Feedforward points to the next performance so the person can apply the advice immediately."
+      },
+      {
+        "statement": "In standard textbooks, a chat line written in all capitals with no context is called Professional Email.",
+        "answer": false,
+        "explanation": "Professional email is identifiable, polite, and purposeful so a busy reader can act on it."
+      },
+      {
+        "statement": "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+        "answer": true,
+        "explanation": "The subject line is a specific heading that helps the recipient sort and retrieve the message."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, as the only To recipient, with the supervisor omitted is called Carbon Copy.",
+        "answer": false,
+        "explanation": "Carbon copy informs secondary readers, while the To field holds the person expected to act."
+      },
+      {
+        "statement": "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+        "answer": true,
+        "explanation": "Reply all widens the audience to every listed recipient, so it should be used only when each person needs the response."
+      },
+      {
+        "statement": "In standard textbooks, a software tutorial with no site safety is called Health and Safety Induction.",
+        "answer": false,
+        "explanation": "Health and safety induction is the opening briefing that tells a new person how to stay safe on that site."
+      },
+      {
+        "statement": "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+        "answer": true,
+        "explanation": "A hazard is the source that could cause harm; risk also considers how likely and severe that harm is."
+      },
+      {
+        "statement": "In standard textbooks, a list of hazards with no thought about controls is called Workplace Risk Assessment.",
+        "answer": false,
+        "explanation": "A risk assessment examines hazards, people, severity, and controls rather than assuming past luck will continue."
+      },
+      {
+        "statement": "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+        "answer": true,
+        "explanation": "Personal protective equipment reduces remaining risk to the wearer and does not replace removing the hazard where that is reasonable."
+      },
+      {
+        "statement": "In standard textbooks, ignore it because there was no injury is called Near Miss.",
+        "answer": false,
+        "explanation": "A near miss is an event that nearly caused harm and is reported so the next occurrence can be prevented."
+      },
+      {
+        "statement": "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+        "answer": true,
+        "explanation": "An emergency procedure is the pre-agreed response, including alarm, evacuation, and accounting for people."
+      },
+      {
+        "statement": "In standard textbooks, a map of another city is called Workplace Orientation.",
+        "answer": false,
+        "explanation": "Orientation introduces the newcomer to the actual workplace so they can start work safely."
+      },
+      {
+        "statement": "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+        "answer": true,
+        "explanation": "A mentor advises informally; the supervisor remains the person who assigns and assesses official work."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the company's five-year strategy is called Task Log.",
+        "answer": false,
+        "explanation": "A task log records completed and current placement work so the intern can evidence what was done."
+      },
+      {
+        "statement": "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday.",
+        "answer": true,
+        "explanation": "A weekly report keeps the supervisor informed of progress, problems, and the immediate plan."
+      },
+      {
+        "statement": "In standard textbooks, only a timesheet is called Internship Portfolio.",
+        "answer": false,
+        "explanation": "A portfolio selects evidence that the intern met the learning objectives, without removing confidential material improperly."
+      },
+      {
+        "statement": "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+        "answer": true,
+        "explanation": "SMART is a test of whether a goal is specific, measurable, achievable, relevant, and time-bound."
+      },
+      {
+        "statement": "In standard textbooks, a missing page in a novel is called Skill Gap.",
+        "answer": false,
+        "explanation": "A skill gap is the missing capability between current skill and what the work requires."
+      },
+      {
+        "statement": "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+        "answer": true,
+        "explanation": "Professional boundaries keep the intern's relationships and decisions inside the authority of the role."
+      },
+      {
+        "statement": "In standard textbooks, handing the entire role to someone else on day one is called Asking for Help.",
+        "answer": false,
+        "explanation": "Asking for help at the right time prevents harmful guesses while the intern still attempts the work they can do."
+      },
+      {
+        "statement": "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving.",
+        "answer": true,
+        "explanation": "Meeting etiquette helps the group reach and record decisions without excluding people."
+      },
+      {
+        "statement": "In standard textbooks, wait only to repeat your own idea is called Active Listening.",
+        "answer": false,
+        "explanation": "Active listening checks understanding of the other person's message before you respond."
+      },
+      {
+        "statement": "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+        "answer": true,
+        "explanation": "Notes capture decisions and actions so they can be checked and done, while still respecting confidentiality."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, slip the date secretly is called Deadline Commitment.",
+        "answer": false,
+        "explanation": "A deadline commitment should be realistic and, once made, should be kept or renegotiated early."
+      },
+      {
+        "statement": "The intern may close low-priority tickets but must ask before rebooting a production server.",
+        "answer": true,
+        "explanation": "Scope of authority is the set of actions already delegated to the intern; other actions need approval."
+      },
+      {
+        "statement": "In standard textbooks, hiding a safety problem to avoid looking inexperienced is called Workplace Escalation.",
+        "answer": false,
+        "explanation": "Escalation at work takes an unresolved or unsafe problem to the person who can act."
+      },
+      {
+        "statement": "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+        "answer": true,
+        "explanation": "A workplace disagreement should be addressed early and through the proper person, without public insult."
+      },
+      {
+        "statement": "In standard textbooks, a private habit nobody else accepted is called Team Norms.",
+        "answer": false,
+        "explanation": "Team norms are the expectations the team itself agrees, such as how quickly messages are answered."
+      },
+      {
+        "statement": "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+        "answer": true,
+        "explanation": "Receiving feedback well means understanding the expected change and then applying it."
+      },
+      {
+        "statement": "In standard textbooks, a classmate's assessment copied over is called Self-Assessment.",
+        "answer": false,
+        "explanation": "Self-assessment is the intern's evidence-based judgement of their own progress toward the agreed objectives."
+      },
+      {
+        "statement": "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective.",
+        "answer": true,
+        "explanation": "The final report pulls duties, evidence, and reflection together against the objectives agreed at the start."
+      },
+      {
+        "statement": "In standard textbooks, a deleted folder and no explanation is called Handover Note.",
+        "answer": false,
+        "explanation": "A handover note lets the next person continue unfinished work without guessing where things stand."
+      },
+      {
+        "statement": "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+        "answer": true,
+        "explanation": "A professional reference is the supervisor's truthful account of observed work, not a self-written endorsement."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When the placement plan says have a good time and names no capability. Which replacement is a learning objective, the correct result is have a good experience.",
+        "answer": false,
+        "explanation": "A learning objective states a specific ability the intern should have by a stated point."
+      },
+      {
+        "statement": "When goals and weekly supervision must be agreed by you, the host, and the university before the placement. Which document records that, the correct result is the company's financial statement.",
+        "answer": false,
+        "explanation": "The learning agreement is the shared written plan of goals, duties, and supervision."
+      },
+      {
+        "statement": "When someone at the host must assign today's ticket and review it later. The role is that, the correct result is the workplace supervisor.",
+        "answer": true,
+        "explanation": "The workplace supervisor assigns host work and reviews it during the placement."
+      },
+      {
+        "statement": "When the mid-placement report must be judged against university learning goals. The person is responsible for that academic check, the correct result is the academic supervisor.",
+        "answer": true,
+        "explanation": "The academic supervisor monitors and assesses the placement against university requirements."
+      },
+      {
+        "statement": "When you need a set time to review blockers and agree next week's tasks with your supervisor. Which event is that, the correct result is the building fire drill.",
+        "answer": false,
+        "explanation": "A supervision meeting is the scheduled review of progress, problems, and upcoming tasks."
+      },
+      {
+        "statement": "When you are late without warning and joke about a client on a call. Which standard have you missed, the correct result is the right to ignore start times as if at a party.",
+        "answer": false,
+        "explanation": "Punctuality and respectful behaviour toward clients are part of workplace conduct."
+      },
+      {
+        "statement": "When a cancelled train will make you late for the standup. The action shows punctuality, the correct result is warn the supervisor before the meeting.",
+        "answer": true,
+        "explanation": "Punctuality includes early warning when an agreed time cannot be met."
+      },
+      {
+        "statement": "When induction says client-site days require smart clothes and a visitor badge, not gym wear. The choice meets professional dress, the correct result is smart clothes and the visitor badge.",
+        "answer": true,
+        "explanation": "Professional dress follows the host's stated standard for that day's duties."
+      },
+      {
+        "statement": "When friends ask for details of a client's outage that is not public. Which response keeps workplace confidentiality, the correct result is share it because interns are exempt.",
+        "answer": false,
+        "explanation": "Workplace confidentiality forbids sharing non-public client information with unauthorised people."
+      },
+      {
+        "statement": "When you want a client export at home tonight. Policy allows only the approved drive. The action is correct client data handling, the correct result is leave the export on the approved drive.",
+        "answer": true,
+        "explanation": "Client data handling means using only the storage and transfer methods the workplace policy allows."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a client call went badly because you never confirmed the goal. Which note shows reflection, the correct result is a note that only blames the client and changes nothing.",
+        "answer": false,
+        "explanation": "Reflection turns the experience into a specific change for next time."
+      },
+      {
+        "statement": "When the tutor wants weekly evidence of what you learned, not only hours worked. Which record fits, the correct result is the audited accounts.",
+        "answer": false,
+        "explanation": "A reflective journal regularly records experiences, lessons, and next steps."
+      },
+      {
+        "statement": "When you must structure a reflection from what happened through to a next action. The sequence matches Gibbs' cycle, the correct result is description, feelings, evaluation, analysis, conclusion, action plan.",
+        "answer": true,
+        "explanation": "Gibbs' reflective cycle moves from description and feelings through evaluation and analysis to a conclusion and action plan."
+      },
+      {
+        "statement": "When the university asks for proof of the hours you worked each day. The record should you submit, the correct result is a timesheet.",
+        "answer": true,
+        "explanation": "A timesheet is the record of hours worked, used to verify attendance and effort."
+      },
+      {
+        "statement": "When the faculty must confirm you were present for the required days, aside from notified absence. Which log is checked, the correct result is the canteen menu.",
+        "answer": false,
+        "explanation": "The attendance record logs days present, absent, or late against the placement requirement."
+      },
+      {
+        "statement": "When you need to know how your diagram was judged and what to change. Which message is feedback, the correct result is your salary is stated in the contract.",
+        "answer": false,
+        "explanation": "Feedback gives information about quality and a specific improvement."
+      },
+      {
+        "statement": "When a draft missed the risk section. The comment is constructive feedback, the correct result is add the risk section in Friday's draft.",
+        "answer": true,
+        "explanation": "Constructive feedback names the gap and the expected change without attacking the person."
+      },
+      {
+        "statement": "When tomorrow's client call has not happened. The supervisor tells you to restate the goal in the first minute. The label fits that advice, the correct result is feedforward.",
+        "answer": true,
+        "explanation": "Advice aimed at the next piece of work is feedforward."
+      },
+      {
+        "statement": "When you must ask your supervisor a question by email. Which message is professional, the correct result is hey plus an unexplained attachment.",
+        "answer": false,
+        "explanation": "A professional email states the topic, is courteous, gives the purpose, and shows who sent it."
+      },
+      {
+        "statement": "When you are requesting leave on 12 May. The subject line helps the supervisor find the message later, the correct result is leave request 12 May.",
+        "answer": true,
+        "explanation": "A subject line should state the specific topic so the message can be prioritised and found."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When the supervisor must act, and the tutor should see the request but is not asked to act. Where should the tutor's address go, the correct result is on a paper photocopy instead of the email.",
+        "answer": false,
+        "explanation": "Carbon copy is for someone who should see the email but is not the primary actor."
+      },
+      {
+        "statement": "When one manager asks you a private question on a twenty-person thread, and the others do not need the answer. Which action fits, the correct result is reply all with the private answer.",
+        "answer": false,
+        "explanation": "Reply all is appropriate only when every recipient needs the response, which they do not here."
+      },
+      {
+        "statement": "When it is day one and you do not know the fire exit or how to report a spill. The briefing should you complete first, the correct result is the health and safety induction.",
+        "answer": true,
+        "explanation": "Health and safety induction covers hazards, emergency routes, and reporting before other work."
+      },
+      {
+        "statement": "When a power cable lies across a busy walkway and could trip someone. The term names the cable in that state, the correct result is a hazard.",
+        "answer": true,
+        "explanation": "A hazard is something that can cause harm, such as a cable that could trip a person."
+      },
+      {
+        "statement": "When interns will enter a lab with chemicals. Which process should identify who could be harmed and which controls are required, the correct result is assuming safety because yesterday was quiet.",
+        "answer": false,
+        "explanation": "A risk assessment examines hazards, who could be harmed, and the controls required."
+      },
+      {
+        "statement": "When a lab still has a splash risk after containers are kept closed. Which extra control is personal protective equipment, the correct result is a fashionable hat with no safety rating.",
+        "answer": false,
+        "explanation": "Goggles are equipment worn to reduce the remaining splash risk."
+      },
+      {
+        "statement": "When a box falls and misses a colleague, so nobody is hurt. The action treats the event correctly, the correct result is report the near miss so the shelf can be fixed.",
+        "answer": true,
+        "explanation": "A near miss should be reported so controls improve before harm occurs."
+      },
+      {
+        "statement": "When the fire alarm sounds. The sequence follows a typical emergency procedure, the correct result is leave by the stairs and go to the assembly point.",
+        "answer": true,
+        "explanation": "The emergency procedure is to evacuate by the safe route and account for people at the assembly point."
+      },
+      {
+        "statement": "When on the first morning you do not know the team, the tool store, or the standup time. Which activity should supply that, the correct result is an exam before you see the site.",
+        "answer": false,
+        "explanation": "Workplace orientation introduces the site, people, tools, and routines."
+      },
+      {
+        "statement": "When you want informal advice on how this team writes tickets, separate from the person who grades you. The person fits, the correct result is a mentor.",
+        "answer": true,
+        "explanation": "A mentor gives informal guidance and is distinct from the supervisor who assigns and assesses."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When the tutor asks for evidence of the tasks you actually completed, with dates. Which record fits, the correct result is a wishlist of tasks never started.",
+        "answer": false,
+        "explanation": "A task log lists work undertaken with dates and outcomes."
+      },
+      {
+        "statement": "When your supervisor wants each Friday's completed work, blockers, and Monday's plan. Which document is that, the correct result is a social-media story.",
+        "answer": false,
+        "explanation": "A weekly report summarises completed work, problems, and the next week's plan."
+      },
+      {
+        "statement": "When the tutor wants proof you met the switch-configuration goal, without raw client data. The set fits, the correct result is a portfolio with a redacted sample, feedback, and a reflection.",
+        "answer": true,
+        "explanation": "An internship portfolio curates evidence of learning, such as samples, feedback, and reflection."
+      },
+      {
+        "statement": "When the placement goal is SMART, the correct result is document ten switches to the team template by 30 June.",
+        "answer": true,
+        "explanation": "The switch goal is specific, measurable, realistic for the role, relevant, and dated."
+      },
+      {
+        "statement": "When the role needs basic SQL and you have never written a query. Which description fits that difference, the correct result is the age difference with the supervisor.",
+        "answer": false,
+        "explanation": "The difference between required SQL skill and current skill is a skill gap."
+      },
+      {
+        "statement": "When a client asks you to approve a discount you were told only a manager may approve. Which response respects the professional boundary, the correct result is ask the client to keep the approval secret.",
+        "answer": false,
+        "explanation": "The boundary of the role excludes approving a discount, so the intern must refer it."
+      },
+      {
+        "statement": "When you are unsure The VLAN a live switch port should use. Which action is the right request for help, the correct result is ask the supervisor before changing the live port.",
+        "answer": true,
+        "explanation": "Asking before changing live equipment avoids a harmful guess on work beyond current certainty."
+      },
+      {
+        "statement": "When you are invited to a client meeting with an agenda. The behaviour matches meeting etiquette, the correct result is read the agenda, take your turn, and confirm your action.",
+        "answer": true,
+        "explanation": "Meeting etiquette means being prepared, sharing the floor, and leaving with clear actions."
+      },
+      {
+        "statement": "When a client describes a fault. Which response shows active listening, the correct result is agree to a fix you did not hear.",
+        "answer": false,
+        "explanation": "Active listening checks that you understood what was said before you act on it."
+      },
+      {
+        "statement": "When the standup assigns you two actions with deadlines. The note-taking practice is sound, the correct result is write the actions, owners, and deadlines, then confirm them.",
+        "answer": true,
+        "explanation": "Useful notes record the decisions and actions so they can be confirmed and followed up."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When you are asked for a report tomorrow morning, but testing cannot finish until noon. Which response is a sound deadline commitment, the correct result is accept the morning and then ignore it.",
+        "answer": false,
+        "explanation": "A deadline should be agreed only when it is realistic, and then honoured."
+      },
+      {
+        "statement": "When you may close low-priority tickets, but a reboot of production was not delegated. Which action stays inside your authority, the correct result is sign a contract for the company.",
+        "answer": false,
+        "explanation": "Scope of authority includes only the actions delegated to the intern, such as closing low-priority tickets."
+      },
+      {
+        "statement": "When a client demands a production change you are not allowed to make. The step is proper workplace escalation, the correct result is tell the supervisor and wait for a decision.",
+        "answer": true,
+        "explanation": "Escalation means taking a problem you cannot properly resolve to the supervisor who can."
+      },
+      {
+        "statement": "When you and another intern disagree about who owns a ticket, and the client chat is not the place to argue. The step fits, the correct result is ask the supervisor to decide ownership calmly.",
+        "answer": true,
+        "explanation": "A disagreement about task ownership should be raised calmly with the person who can resolve it."
+      },
+      {
+        "statement": "When the team has agreed that project-channel questions get a same-day reply. Which idea is that agreement, the correct result is a law the team never discussed.",
+        "answer": false,
+        "explanation": "A shared expectation about how the team communicates is a team norm."
+      },
+      {
+        "statement": "When your supervisor says the diagram labels are too small for the client. Which response receives that feedback well, the correct result is argue before asking what size is needed.",
+        "answer": false,
+        "explanation": "Receiving feedback means clarifying the expected change and applying it."
+      },
+      {
+        "statement": "When you must judge your own progress on the switch goal using placement evidence. The statement is self-assessment, the correct result is four of the ten switches are documented, so the goal is partly met.",
+        "answer": true,
+        "explanation": "Self-assessment uses your own examples to judge progress against the objective."
+      },
+      {
+        "statement": "When the faculty wants one end document covering duties, evidence, and reflection on the agreed goals. The document is that, the correct result is the final internship report.",
+        "answer": true,
+        "explanation": "The final internship report brings together duties, learning evidence, and reflection."
+      },
+      {
+        "statement": "When you are leaving with two tickets still open. Which document lets the next person continue them, the correct result is a goodbye card with no status.",
+        "answer": false,
+        "explanation": "A handover note states unfinished work, where the files are, and what still needs attention."
+      },
+      {
+        "statement": "When a future employer asks your supervisor about your placement. The reference is professional, the correct result is a truthful account of conduct and work the supervisor observed.",
+        "answer": true,
+        "explanation": "A professional reference is the supervisor's truthful statement about observed conduct and performance."
+      }
+    ]
+  }
+}

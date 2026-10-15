@@ -1,4 +1,4 @@
-import { router, usePathname, type Href } from 'expo-router';
+import { router, useGlobalSearchParams, usePathname, type Href } from 'expo-router';
 import { useContext, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/ui/Avatar';
@@ -11,7 +11,11 @@ import { useTaskSections } from '@/hooks';
 import { colors, fonts, spacing } from '@/theme';
 import { desktop } from '@/theme/desktop';
 
-const ITEMS: { label: string; href: Href; icon: IconName; match: (path: string) => boolean }[] = [
+/** Quiz flow screens (/quiz/fields, /quiz/levels …) are shared; `type=trueFalse` marks the Quiz ones. */
+const isTrueFalseFlow = (p: string, type?: string) =>
+  p.includes('/true-false') || (p.includes('/quiz') && !p.includes('/quiz/history') && type === 'trueFalse');
+
+const ITEMS: { label: string; href: Href; icon: IconName; match: (path: string, type?: string) => boolean }[] = [
   {
     label: 'Home',
     href: routes.home,
@@ -19,10 +23,16 @@ const ITEMS: { label: string; href: Href; icon: IconName; match: (path: string) 
     match: (p) => p === '/' || p === '' || p.endsWith('/(tabs)') || p.endsWith('/(tabs)/'),
   },
   {
-    label: 'Quiz',
+    label: 'Multiple choice',
     href: routes.quizTab,
-    icon: 'help-circle',
-    match: (p) => p.includes('/quiz'),
+    icon: 'list',
+    match: (p, type) => p.includes('/quiz') && !p.includes('/quiz/history') && !isTrueFalseFlow(p, type),
+  },
+  {
+    label: 'Quiz',
+    href: routes.trueFalseTab,
+    icon: 'toggle-right',
+    match: (p, type) => isTrueFalseFlow(p, type),
   },
   {
     label: 'Tasks',
@@ -40,6 +50,7 @@ const ITEMS: { label: string; href: Href; icon: IconName; match: (path: string) 
 
 export function WebSidebar() {
   const pathname = usePathname();
+  const { type } = useGlobalSearchParams<{ type?: string }>();
   const auth = useContext(AuthContext);
   const { counts } = useTaskSections();
   const [expanded, setExpanded] = useState(true);
@@ -68,7 +79,7 @@ export function WebSidebar() {
 
       <View style={styles.nav}>
         {ITEMS.map((item) => {
-          const active = item.match(pathname);
+          const active = item.match(pathname, type);
           return (
             <Pressable
               key={String(item.href)}

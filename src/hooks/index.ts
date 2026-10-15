@@ -3,7 +3,7 @@ export { useAsync } from './useAsync';
 export { useSubject, useSubjectCatalog, useSubjectFields, useSubjects } from './useCatalog';
 export { useCountdown } from './useCountdown';
 export { useNetworkStatus } from './useNetworkStatus';
-export { useActiveSession, useLevelProgress, useQuizHistory, useQuizStats, useRecentSubjects } from './useQuizHistory';
+export { statsOf, useActiveSession, useLevelProgress, useQuizHistory, useQuizHistoryFor, useQuizStats, useQuizType, useRecentSubjects } from './useQuizHistory';
 export type { RecentSubject } from './useQuizHistory';
 export { useQuizSession } from './useQuizSession';
 export type { PrimaryAction, QuizScreenState } from './useQuizSession';

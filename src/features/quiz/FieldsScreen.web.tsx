@@ -2,17 +2,19 @@ import { router } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import { EmptyState, ErrorState, FieldCard, LoadingState, Screen, ScreenHeader } from '@/components';
 import { routes } from '@/constants/routes';
-import { useSubjectCatalog, useSubjectFields } from '@/hooks';
+import { QUIZ_TYPES } from '@/constants/app';
+import { useQuizType, useSubjectCatalog, useSubjectFields } from '@/hooks';
 import { spacing } from '@/theme';
 
 /** Desktop fields: responsive multi-column cards. */
 export function FieldsScreen() {
+  const type = useQuizType();
   const fields = useSubjectFields();
   const catalog = useSubjectCatalog();
 
   return (
     <Screen>
-      <ScreenHeader back backLabel="Back to Quiz" title="Choose a field" subtitle="CEIT subjects are grouped into fields." />
+      <ScreenHeader back backLabel={`Back to ${QUIZ_TYPES[type].label}`} title="Choose a field" subtitle={`${QUIZ_TYPES[type].label} · CEIT subjects are grouped into fields.`} />
       {fields.status === 'loading' ? (
         <LoadingState rows={7} label="Loading fields" />
       ) : fields.status === 'error' || !fields.data ? (
@@ -30,7 +32,7 @@ export function FieldsScreen() {
               <FieldCard
                 field={field}
                 subjectCount={catalog.status === 'success' ? (catalog.countByField.get(field.id) ?? 0) : undefined}
-                onPress={() => router.push(routes.quizSubjects(field.id))}
+                onPress={() => router.push(routes.quizSubjects(field.id, type))}
               />
             </View>
           ))}

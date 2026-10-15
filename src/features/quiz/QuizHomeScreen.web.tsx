@@ -12,26 +12,29 @@ import {
   Screen,
   SectionHeader,
 } from '@/components';
-import { QUIZ } from '@/constants/app';
+import { QUIZ, QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useActiveSession, useQuizHistory } from '@/hooks';
+import { useActiveSession, useQuizHistoryFor } from '@/hooks';
 import { colors, spacing } from '@/theme';
+import type { QuizType } from '@/types';
 
 const RECENT_LIMIT = 8;
 
-/** Desktop quiz hub: stats + start panel beside recent activity. */
-export function QuizHomeScreen() {
-  const { results, status, error, retry } = useQuizHistory();
-  const active = useActiveSession();
+/** Desktop hub for one practice type: "Multiple choice" or "Quiz" (True / False). */
+export function QuizHomeScreen({ type = 'multipleChoice' }: { type?: QuizType }) {
+  const isQuiz = type === 'trueFalse';
+  const { results, status, error, retry } = useQuizHistoryFor(type);
+  const active = useActiveSession(type);
   const loading = status === 'loading';
+  const browse = () => router.push(routes.quizFields(type));
 
   return (
     <Screen inTabs>
       <AppText variant="title" accessibilityRole="header">
-        IT Quiz
+        {QUIZ_TYPES[type].title}
       </AppText>
       <AppText variant="body" color="textSecondary">
-        Test and improve your CEIT knowledge.
+        {isQuiz ? 'True or false — quick checks of your CEIT knowledge.' : 'Four options, one answer — test your CEIT knowledge.'}
       </AppText>
 
       {status === 'error' ? (
@@ -41,22 +44,24 @@ export function QuizHomeScreen() {
           <View style={styles.columns}>
             {active ? (
               <View style={styles.continue}>
-                <ContinueQuizCard variant="card" session={active} onContinue={() => router.push(routes.quizQuestions(active.subjectId, active.level))} />
+                <ContinueQuizCard variant="card" session={active} onContinue={() => router.push(routes.quizQuestions(active.subjectId, active.level, false, type))} />
               </View>
             ) : (
               <Card style={styles.continueEmpty}>
                 <View>
                   <AppText variant="overline" color="primaryDark">Ready when you are</AppText>
-                  <AppText variant="heading" style={styles.emptyTitle}>Start your next quiz</AppText>
+                  <AppText variant="heading" style={styles.emptyTitle}>{isQuiz ? 'Start your next quiz' : 'Start your next set'}</AppText>
                   <AppText color="textSecondary">Choose a subject and level to begin.</AppText>
                 </View>
-                <Button title="Start a quiz" rightIcon="arrow-right" onPress={() => router.push(routes.quizFields)} />
+                <Button title={isQuiz ? 'Start a quiz' : 'Start a set'} rightIcon="arrow-right" onPress={browse} />
               </Card>
             )}
             <Card style={styles.start}>
               <SectionHeader title="Browse subjects" />
               <AppText variant="body" color="textSecondary">
-                {`Start a new quiz in three steps. Every quiz has ${QUIZ.questionsPerQuiz} multiple-choice questions.`}
+                {isQuiz
+                  ? `Start a new quiz in three steps. Every quiz has ${QUIZ.questionsPerQuiz} true-or-false statements.`
+                  : `Start a new set in three steps. Every set has ${QUIZ.questionsPerQuiz} multiple-choice questions (A–D).`}
               </AppText>
               <View style={styles.steps}>
                 {['Choose one of 7 fields', 'Pick a subject', `Select a level from 1 to ${QUIZ.levelCount}`].map((label, i) => (
@@ -72,16 +77,16 @@ export function QuizHomeScreen() {
                   </View>
                 ))}
               </View>
-              <Button title="Browse subjects" variant="secondary" leftIcon="book-open" onPress={() => router.push(routes.quizFields)} />
+              <Button title="Browse subjects" variant="secondary" leftIcon="book-open" onPress={browse} />
             </Card>
           </View>
             <Card padded={false} style={styles.recent}>
               <View style={styles.recentHeader}>
               <SectionHeader
-                title="Recent quiz attempts"
+                title={isQuiz ? 'Recent quiz attempts' : 'Recent multiple choice attempts'}
                 meta={results.length ? String(results.length) : undefined}
                 actionLabel={results.length > RECENT_LIMIT ? 'See all' : undefined}
-                onAction={() => router.push(routes.quizHistory)}
+                onAction={() => router.push(routes.quizHistoryFor(type))}
               />
               </View>
               {loading ? (
@@ -90,11 +95,11 @@ export function QuizHomeScreen() {
                 <View style={styles.emptyRecent}>
                   <EmptyState
                     icon="clock"
-                    title="No quiz attempts yet."
-                    message="Finish your first quiz and your scores will show up here."
-                    actionLabel="Start your first quiz"
+                    title={isQuiz ? 'No quiz attempts yet.' : 'No multiple choice attempts yet.'}
+                    message={`Finish your first ${isQuiz ? 'quiz' : 'set'} and your scores will show up here.`}
+                    actionLabel={isQuiz ? 'Start your first quiz' : 'Start your first set'}
                     actionIcon="play"
-                    onAction={() => router.push(routes.quizFields)}
+                    onAction={browse}
                   />
                 </View>
               ) : (

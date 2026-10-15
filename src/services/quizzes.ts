@@ -1,12 +1,18 @@
 import { collection, deleteDoc, doc, documentId, getDocs, onSnapshot, query, serverTimestamp, setDoc, Timestamp, where } from 'firebase/firestore';
-import { QUIZ } from '@/constants/app';
-import type { Question, QuizSession } from '@/types';
+import { QUIZ, QUIZ_TYPES } from '@/constants/app';
+import { getLocalTrueFalseByIds, getLocalTrueFalseQuestions } from '@/data/trueFalseBank';
+import type { Question, QuizSession, QuizType } from '@/types';
 import { selectQuizQuestions, validateQuestion } from '@/utils/quiz';
 import { bool, dataOf, num, str, strArray, toIso } from './converters';
 import { toAppError, withTimeout } from './errors';
 import { COLLECTIONS, getFirebase } from './firebase';
 
 // ── Questions (read-only content) ────────────────────────────────────────
+/** Multiple choice lives in Firestore `questions`. Quiz (True / False) is bundled locally. */
+const questionCollection = (_type: QuizType) => COLLECTIONS.questions;
+
+export const quizTypeOf = (value: unknown): QuizType => (value === 'trueFalse' ? 'trueFalse' : 'multipleChoice');
+
 function toQuestion(id: string, data: Record<string, unknown>): Question {
   return {
     id,
@@ -28,14 +34,26 @@ export interface QuestionPool {
   invalidCount: number;
 }
 
-/** All active questions for one subject level. */
-export async function getQuestions(subjectId: string, level: number): Promise<QuestionPool> {
+/** All active questions for one subject level of one quiz type. */
+export async function getQuestions(subjectId: string, level: number, type: QuizType = 'multipleChoice'): Promise<QuestionPool> {
   try {
+    if (type === 'trueFalse') {
+      const all = getLocalTrueFalseQuestions(subjectId, level);
+      const questions = all.filter((q) => validateQuestion(q) === null).sort((a, b) => a.order - b.order);
+      if (__DEV__ && questions.length < all.length) {
+        all.forEach((q) => {
+          const problem = validateQuestion(q);
+          if (problem) console.warn(`[EduTask] Skipping local true/false ${q.id}: ${problem}`);
+        });
+      }
+      return { questions, invalidCount: all.length - questions.length };
+    }
+
     const { db } = getFirebase();
     const snap = await withTimeout(
       getDocs(
         query(
-          collection(db, COLLECTIONS.questions),
+          collection(db, questionCollection(type)),
           where('subjectId', '==', subjectId),
           where('level', '==', level),
           where('isActive', '==', true),
@@ -66,8 +84,8 @@ export type QuizStart =
  * order. Never starts an incomplete quiz — returns `notEnough` instead.
  * Question documents are only read, never modified.
  */
-export async function startQuiz(subjectId: string, level: number): Promise<QuizStart> {
-  const { questions } = await getQuestions(subjectId, level);
+export async function startQuiz(subjectId: string, level: number, type: QuizType = 'multipleChoice'): Promise<QuizStart> {
+  const { questions } = await getQuestions(subjectId, level, type);
   const picked = selectQuizQuestions(questions, QUIZ.questionsPerQuiz);
   if (!picked) return { kind: 'notEnough', available: questions.length, required: QUIZ.questionsPerQuiz };
   return { kind: 'ready', questions: picked, available: questions.length };
@@ -77,11 +95,17 @@ export async function startQuiz(subjectId: string, level: number): Promise<QuizS
  * Re-loads the exact questions of a saved session, in the saved order.
  * Returns null if any question was removed or deactivated since.
  */
-export async function getQuestionsByIds(ids: string[]): Promise<Question[] | null> {
+export async function getQuestionsByIds(ids: string[], type: QuizType = 'multipleChoice'): Promise<Question[] | null> {
   if (ids.length === 0 || ids.length > 30) return null; // Firestore "in" supports up to 30 values
   try {
+    if (type === 'trueFalse') {
+      const ordered = getLocalTrueFalseByIds(ids);
+      if (!ordered || ordered.some((q) => validateQuestion(q) !== null)) return null;
+      return ordered;
+    }
+
     const { db } = getFirebase();
-    const snap = await withTimeout(getDocs(query(collection(db, COLLECTIONS.questions), where(documentId(), 'in', ids))), 'read');
+    const snap = await withTimeout(getDocs(query(collection(db, questionCollection(type)), where(documentId(), 'in', ids))), 'read');
     const byId = new Map(snap.docs.map((d) => [d.id, toQuestion(d.id, dataOf(d))]));
     const ordered = ids.map((id) => byId.get(id));
     if (ordered.some((q) => !q || !q.isActive || validateQuestion(q) !== null)) return null;
@@ -92,7 +116,9 @@ export async function getQuestionsByIds(ids: string[]): Promise<Question[] | nul
 }
 
 // ── Unfinished quiz sessions: users/{uid}/quizSessions/{subjectId__L{level}} ──
-export const sessionIdFor = (subjectId: string, level: number) => `${subjectId}__L${level}`;
+// Quiz (True / False) sessions use {subjectId__TF__L{level}} so both types can be in progress at once.
+export const sessionIdFor = (subjectId: string, level: number, type: QuizType = 'multipleChoice') =>
+  `${subjectId}__${QUIZ_TYPES[type].sessionPrefix}L${level}`;
 
 const sessionsCol = (uid: string) => collection(getFirebase().db, COLLECTIONS.users, uid, COLLECTIONS.quizSessions);
 
@@ -101,6 +127,7 @@ function toSession(id: string, data: Record<string, unknown>): QuizSession {
   const answers = Object.fromEntries(Object.entries(rawAnswers).filter((e): e is [string, string] => typeof e[1] === 'string'));
   return {
     id,
+    quizType: quizTypeOf(data.quizType),
     subjectId: str(data.subjectId),
     subjectName: str(data.subjectName),
     subjectCode: str(data.subjectCode),

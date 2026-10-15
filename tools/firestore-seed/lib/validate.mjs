@@ -19,7 +19,7 @@ export const REQUIRED_FIELD_NAMES = [
 const ID_RE = /^[a-z0-9][a-z0-9-]{0,99}$/;
 const isText = (v, max = 1000) => typeof v === 'string' && v.trim().length > 0 && v.length <= max;
 
-export function validateSeed({ subjectFields, subjects, questions }, knownIcons) {
+export function validateSeed({ subjectFields, subjects, questions, trueFalseQuestions = [] }, knownIcons) {
   const problems = [];
   const fail = (where, msg) => problems.push(`${where}: ${msg}`);
 
@@ -77,6 +77,35 @@ export function validateSeed({ subjectFields, subjects, questions }, knownIcons)
     if (seenText.has(key)) fail(where, `same question text as ${seenText.get(key)} in this level`);
     seenText.set(key, where);
   });
+
+  // ── Quiz (True / False) statements ──
+  const seenStatement = new Map();
+  const balance = new Map();
+  trueFalseQuestions.forEach(({ id, source, answer, data: q }) => {
+    const where = `${source} (${id})`;
+    if (!subjectIds.has(q.subjectId)) fail(where, `unknown subjectId "${q.subjectId}"`);
+    if (!Number.isInteger(q.level) || q.level < 1 || q.level > LEVEL_COUNT) fail(where, `level must be 1–${LEVEL_COUNT}`);
+    if (!isText(q.question, 400)) fail(where, 'statement is required (max 400 characters)');
+    else if (/\?\s*$/.test(q.question)) fail(where, 'write a statement, not a question (it ends with "?")');
+    if (typeof answer !== 'boolean') fail(where, 'answer must be true or false (JSON boolean, no quotes)');
+    if (!isText(q.explanation, 500)) fail(where, 'explanation is required (max 500 characters)');
+    const key = `${q.subjectId}|${String(q.question).trim().toLowerCase()}`;
+    if (seenStatement.has(key)) fail(where, `same statement as ${seenStatement.get(key)}`);
+    seenStatement.set(key, where);
+    if (q.isActive && typeof answer === 'boolean') {
+      const levelKey = `${q.subjectId}|${q.level}`;
+      const b = balance.get(levelKey) ?? { t: 0, f: 0 };
+      b[answer ? 't' : 'f'] += 1;
+      balance.set(levelKey, b);
+    }
+  });
+  for (const [key, { t, f }] of balance) {
+    const total = t + f;
+    // A level that is mostly "True" (or "False") can be passed by always tapping the same button.
+    if (total >= QUESTIONS_PER_QUIZ && (t < total * 0.3 || f < total * 0.3)) {
+      fail(`true-false ${key.replace('|', ' L')}`, `answers are unbalanced (${t} true / ${f} false) — keep each side at least 30%`);
+    }
+  }
 
   return problems;
 }

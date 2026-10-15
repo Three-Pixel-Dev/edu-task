@@ -1,10 +1,10 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { AppText, Button, Card, CodeChip, ErrorState, Icon, LoadingState, Screen } from '@/components';
-import { QUIZ } from '@/constants/app';
+import { AppText, Button, Card, CodeChip, ErrorState, Icon, LoadingState, QuizTypeBadge, Screen } from '@/components';
+import { QUIZ, QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useLevelProgress, useQuizHistory, useSubject } from '@/hooks';
+import { useLevelProgress, useQuizHistory, useQuizType, useSubject } from '@/hooks';
 import { colors, fonts, radius, spacing } from '@/theme';
 import type { LevelProgress } from '@/types';
 import { padLevel } from '@/utils/quiz';
@@ -15,16 +15,17 @@ function defaultLevel(levels: LevelProgress[]) {
 
 export function LevelsScreen() {
   const { subjectId = '' } = useLocalSearchParams<{ subjectId: string }>();
+  const type = useQuizType();
   const subject = useSubject(subjectId);
   const history = useQuizHistory();
-  const levels = useLevelProgress(subjectId);
+  const levels = useLevelProgress(subjectId, type);
   const [picked, setPicked] = useState<number | null>(null);
   const selectedLevel = picked ?? (levels.length ? defaultLevel(levels) : null);
   const selected = useMemo(() => levels.find((level) => level.level === selectedLevel), [levels, selectedLevel]);
   const completed = levels.filter((level) => level.status === 'completed').length;
 
   const start = () => {
-    if (subject.data && selected) router.push(routes.quizQuestions(subject.data.id, selected.level, selected.status !== 'current'));
+    if (subject.data && selected) router.push(routes.quizQuestions(subject.data.id, selected.level, selected.status !== 'current', type));
   };
 
   if (subject.status === 'loading' || history.status === 'loading') {
@@ -41,6 +42,7 @@ export function LevelsScreen() {
       <View>
         <AppText style={styles.pageTitle}>Choose question level</AppText>
         <View style={styles.subjectLine}>
+          <QuizTypeBadge type={type} />
           <AppText variant="bodyStrong">{subject.data.name}</AppText>
           <CodeChip code={subject.data.code} />
         </View>
@@ -94,7 +96,7 @@ export function LevelsScreen() {
           </View>
           <View>
             <Detail label="Questions" value="10" />
-            <Detail label="Format" value="Multiple choice" />
+            <Detail label="Format" value={QUIZ_TYPES[type].format} />
             <Detail label="Time limit" value="10 min" />
             <Detail label="Best score" value={selected?.bestScore == null ? '—' : `${selected.bestScore}/10`} />
           </View>
