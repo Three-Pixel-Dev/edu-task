@@ -10,6 +10,7 @@ import {
   ContinueQuizCard,
   ErrorState,
   Icon,
+  IconButton,
   ProgressBar,
   Screen,
   SectionHeader,
@@ -23,6 +24,7 @@ import { QUIZ, QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
 import {
   useActiveSession,
+  useNotifications,
   useProfile,
   useQuizHistory,
   useRecentSubjects,
@@ -39,6 +41,7 @@ export function HomeScreen() {
   const { displayName, status: profileStatus } = useProfile();
   const quiz = useQuizHistory();
   const tasks = useTasks();
+  const { unreadCount } = useNotifications();
   const active = useActiveSession();
   const recentSubjects = useRecentSubjects(3);
   const { groups, counts } = useTaskSections();
@@ -63,9 +66,17 @@ export function HomeScreen() {
             Ready to test your knowledge?
           </AppText>
         </View>
-        <Pressable accessibilityRole="button" accessibilityLabel="Open profile" onPress={() => router.navigate(routes.profileTab)} hitSlop={6}>
-          <Avatar name={displayName || '?'} size={44} />
-        </Pressable>
+        <View style={styles.headerActions}>
+          <IconButton
+            icon="bell"
+            accessibilityLabel={unreadCount ? `Notifications, ${unreadCount} unread` : 'Notifications'}
+            badge={unreadCount > 0}
+            onPress={() => router.push(routes.notifications)}
+          />
+          <Pressable accessibilityRole="button" accessibilityLabel="Open profile" onPress={() => router.navigate(routes.profileTab)} hitSlop={6}>
+            <Avatar name={displayName || '?'} size={44} />
+          </Pressable>
+        </View>
       </View>
 
       {quizLoading ? (
@@ -269,6 +280,7 @@ function QuickTile({
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  headerActions: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   section: { gap: spacing.md },
   list: { gap: spacing.sm + 2 },
   startCard: { padding: spacing.lg + 2, gap: spacing.md },

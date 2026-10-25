@@ -1,5 +1,6 @@
 import { useCallback, useContext, useMemo } from 'react';
 import { TasksContext } from '@/providers/TasksProvider';
+import { clearTaskDueReminder, syncTaskDueReminder } from '@/services/notificationTriggers';
 import * as taskService from '@/services/tasks';
 import type { Task, TaskInput, TaskSection } from '@/types';
 import { taskSection, taskUrgency } from '@/utils/date';
@@ -23,10 +24,38 @@ export function useTaskActions() {
   const uid = useUid();
   return {
     newTaskId: taskService.newTaskId,
-    createTask: useCallback((taskId: string, input: TaskInput, isRetry: boolean) => taskService.createTask(uid, taskId, input, isRetry), [uid]),
-    updateTask: useCallback((taskId: string, input: TaskInput) => taskService.updateTask(uid, taskId, input), [uid]),
-    completeTask: useCallback((taskId: string, completed: boolean) => taskService.completeTask(uid, taskId, completed), [uid]),
-    deleteTask: useCallback((taskId: string) => taskService.deleteTask(uid, taskId), [uid]),
+    createTask: useCallback(
+      async (taskId: string, input: TaskInput, isRetry: boolean) => {
+        await taskService.createTask(uid, taskId, input, isRetry);
+        void syncTaskDueReminder({ id: taskId, title: input.title, dueDate: input.dueDate, status: 'pending' }).catch(() => undefined);
+      },
+      [uid],
+    ),
+    updateTask: useCallback(
+      async (taskId: string, input: TaskInput) => {
+        await taskService.updateTask(uid, taskId, input);
+        void syncTaskDueReminder({ id: taskId, title: input.title, dueDate: input.dueDate, status: 'pending' }).catch(() => undefined);
+      },
+      [uid],
+    ),
+    completeTask: useCallback(
+      async (taskId: string, completed: boolean) => {
+        await taskService.completeTask(uid, taskId, completed);
+        if (completed) void clearTaskDueReminder(taskId).catch(() => undefined);
+        else {
+          const task = await taskService.getTask(uid, taskId).catch(() => null);
+          if (task) void syncTaskDueReminder(task).catch(() => undefined);
+        }
+      },
+      [uid],
+    ),
+    deleteTask: useCallback(
+      async (taskId: string) => {
+        await taskService.deleteTask(uid, taskId);
+        void clearTaskDueReminder(taskId).catch(() => undefined);
+      },
+      [uid],
+    ),
   };
 }
 

@@ -2,9 +2,9 @@ rules_version = '2';
 
 // EduTask Firestore security rules.
 //
-// • Students can only read and write their own profile, tasks, quiz results
-//   and unfinished quiz sessions. The UID always comes from Firebase Auth
-//   (request.auth.uid) — a userId sent by the client is never trusted.
+// • Students can only read and write their own profile, tasks, quiz results,
+//   notifications and unfinished quiz sessions. The UID always comes from
+//   Firebase Auth (request.auth.uid) — a userId sent by the client is never trusted.
 // • Quiz content (subjectFields, subjects, questions) is read-only for students.
 //   Only accounts with the custom claim `admin: true` may write it
 //   (the seed tool uses the Admin SDK, which bypasses rules entirely).
@@ -101,6 +101,48 @@ service cloud.firestore {
         && intIn(d.durationSeconds, 0, 3600)
         && d.answers is list && d.answers.size() == d.totalQuestions
         && d.completedAt == request.time;
+    }
+
+    // ── notifications/{notificationId} — inbox ──────────────────────────
+    match /notifications/{notificationId} {
+      allow get: if signedIn() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if signedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if signedIn()
+        && incoming().userId == request.auth.uid
+        && validNotification(incoming())
+        && incoming().read == false
+        && incoming().createdAt == request.time;
+
+      // Students may only flip read → true (or leave it unchanged).
+      allow update: if signedIn()
+        && resource.data.userId == request.auth.uid
+        && incoming().userId == resource.data.userId
+        && incoming().dedupeKey == resource.data.dedupeKey
+        && incoming().type == resource.data.type
+        && incoming().title == resource.data.title
+        && incoming().body == resource.data.body
+        && incoming().createdAt == resource.data.createdAt
+        && incoming().read is bool
+        && validNotification(incoming());
+
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    function validNotification(d) {
+      return d.keys().hasAll(['userId', 'type', 'title', 'body', 'read', 'dedupeKey', 'createdAt'])
+        && d.keys().hasOnly(['userId', 'type', 'title', 'body', 'read', 'dedupeKey', 'createdAt',
+                             'taskId', 'resultId', 'subjectId', 'level', 'quizType'])
+        && d.type in ['taskDue', 'taskOverdue', 'quizCompleted']
+        && text(d.title, 1, 120)
+        && text(d.body, 1, 500)
+        && d.read is bool
+        && text(d.dedupeKey, 1, 200)
+        && (!('taskId' in d) || text(d.taskId, 1, 100))
+        && (!('resultId' in d) || text(d.resultId, 1, 100))
+        && (!('subjectId' in d) || text(d.subjectId, 1, 100))
+        && (!('level' in d) || intIn(d.level, 1, 15))
+        && (!('quizType' in d) || d.quizType in ['multipleChoice', 'trueFalse']);
     }
 
     // ── tasks/{taskId} ──────────────────────────────────────────────────

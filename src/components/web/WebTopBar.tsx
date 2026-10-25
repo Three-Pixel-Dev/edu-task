@@ -6,6 +6,7 @@ import { AppText } from '@/components/ui/AppText';
 import { Icon } from '@/components/ui/Icon';
 import { routes } from '@/constants/routes';
 import { AuthContext } from '@/providers/AuthProvider';
+import { NotificationsContext } from '@/providers/NotificationsProvider';
 import { colors, spacing } from '@/theme';
 import { desktop } from '@/theme/desktop';
 
@@ -24,6 +25,7 @@ function titleFor(pathname: string, type?: string): string {
   if (pathname.includes('/tasks/')) return 'Task details';
   if (pathname.includes('/tasks')) return 'My tasks';
   if (pathname.includes('/profile')) return 'Profile';
+  if (pathname.includes('/notifications')) return 'Notifications';
   if (pathname.includes('/login') || pathname.includes('/register')) return 'Welcome';
   return 'Home';
 }
@@ -32,6 +34,8 @@ export function WebTopBar({ title }: { title?: string }) {
   const pathname = usePathname();
   const { type } = useGlobalSearchParams<{ type?: string }>();
   const auth = useContext(AuthContext);
+  const notifications = useContext(NotificationsContext);
+  const unreadCount = notifications?.unreadCount ?? 0;
   const [open, setOpen] = useState(false);
   const displayName = auth?.profile?.displayName ?? auth?.user?.displayName ?? '';
   const email = auth?.profile?.email ?? auth?.user?.email ?? '';
@@ -44,9 +48,14 @@ export function WebTopBar({ title }: { title?: string }) {
         {heading}
       </AppText>
       <View style={styles.right}>
-        <Pressable accessibilityRole="button" accessibilityLabel="Notifications" style={styles.iconButton}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={unreadCount ? `Notifications, ${unreadCount} unread` : 'Notifications'}
+          onPress={() => router.push(routes.notifications)}
+          style={styles.iconButton}
+        >
           <Icon name="bell" size={19} color="textBody" />
-          <View style={styles.notificationDot} />
+          {unreadCount > 0 ? <View style={styles.notificationDot} /> : null}
         </Pressable>
         <View>
           <Pressable accessibilityRole="button" accessibilityLabel="Account menu" onPress={() => setOpen((value) => !value)} style={styles.accountButton}>

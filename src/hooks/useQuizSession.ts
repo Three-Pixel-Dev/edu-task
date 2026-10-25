@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import { QUIZ } from '@/constants/app';
 import { messageOf } from '@/services/errors';
+import { notifyQuizCompleted } from '@/services/notificationTriggers';
 import { newResultId, saveQuizResult } from '@/services/quizResults';
 import { getQuestionsByIds, saveQuizSession, sessionIdFor, startQuiz } from '@/services/quizzes';
 import { getSubject } from '@/services/subjects';
@@ -159,6 +160,15 @@ export function useQuizSession(subjectId: string, level: number, restart: boolea
         submitAttempts.current > 0,
       );
       setResultId(loaded.resultId); // success: further submits are blocked for good
+      void notifyQuizCompleted(uid, {
+        resultId: loaded.resultId,
+        subjectId,
+        subjectName: loaded.subject.name,
+        subjectCode: loaded.subject.code,
+        level,
+        quizType,
+        percentage: summary.percentage,
+      }).catch(() => undefined);
     } catch (error) {
       submitLock.current = false;
       setSubmitError(messageOf(error, 'We couldn’t submit your quiz. Your answers are kept — try again.'));

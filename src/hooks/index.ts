@@ -8,4 +8,5 @@ export type { RecentSubject } from './useQuizHistory';
 export { useQuizSession } from './useQuizSession';
 export type { PrimaryAction, QuizScreenState } from './useQuizSession';
 export { useResponsive } from './useResponsive';
+export { useNotificationActions, useNotifications } from './useNotifications';
 export { useTask, useTaskActions, useTasks, useTaskSections } from './useTasks';

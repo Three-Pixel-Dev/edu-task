@@ -226,9 +226,17 @@ async function clearPreviousDemoData(db, uid) {
 
   const results = await db.collection('quizResults').where('userId', '==', uid).get();
   const tasks = await db.collection('tasks').where('userId', '==', uid).get();
+  const notifications = await db.collection('notifications').where('userId', '==', uid).get();
   const sessions = await db.collection('users').doc(uid).collection('quizSessions').get();
-  await batchDelete([...results.docs.map((d) => d.ref), ...tasks.docs.map((d) => d.ref), ...sessions.docs.map((d) => d.ref)]);
-  console.log(`Cleared previous demo docs: ${results.size} results, ${tasks.size} tasks, ${sessions.size} sessions`);
+  await batchDelete([
+    ...results.docs.map((d) => d.ref),
+    ...tasks.docs.map((d) => d.ref),
+    ...notifications.docs.map((d) => d.ref),
+    ...sessions.docs.map((d) => d.ref),
+  ]);
+  console.log(
+    `Cleared previous demo docs: ${results.size} results, ${tasks.size} tasks, ${notifications.size} notifications, ${sessions.size} sessions`,
+  );
 }
 
 function taskSeeds() {
@@ -461,12 +469,60 @@ async function main() {
   await taskBatch.commit();
   console.log(`Wrote ${taskSeeds().length} tasks`);
 
+  // Sample inbox items (fixed ids = dedupeKey with ":" → safe; match app convention)
+  const notifBatch = db.batch();
+  const sampleNotifications = [
+    {
+      id: 'taskOverdue:demo_task_03',
+      type: 'taskOverdue',
+      title: 'Task overdue',
+      body: 'OS Lab Report',
+      dedupeKey: 'taskOverdue:demo_task_03',
+      taskId: 'demo_task_03',
+      subjectId: SUBJECTS.os.id,
+      read: false,
+      createdAt: Timestamp.fromDate(daysFromNow(-1, 10, 0)),
+    },
+    {
+      id: 'quizCompleted:demo_result_01',
+      type: 'quizCompleted',
+      title: 'Quiz completed',
+      body: `${SUBJECTS.dbms.name} (${SUBJECTS.dbms.code}) · Level 4 · 80%`,
+      dedupeKey: 'quizCompleted:demo_result_01',
+      resultId: 'demo_result_01',
+      subjectId: SUBJECTS.dbms.id,
+      level: 4,
+      quizType: 'multipleChoice',
+      read: false,
+      createdAt: Timestamp.fromDate(daysFromNow(-7, 14, 20)),
+    },
+    {
+      id: 'quizCompleted:demo_tf_result_01',
+      type: 'quizCompleted',
+      title: 'Quiz completed',
+      body: `${SUBJECTS.dbms.name} (${SUBJECTS.dbms.code}) · Level 3 · 90%`,
+      dedupeKey: 'quizCompleted:demo_tf_result_01',
+      resultId: 'demo_tf_result_01',
+      subjectId: SUBJECTS.dbms.id,
+      level: 3,
+      quizType: 'trueFalse',
+      read: true,
+      createdAt: Timestamp.fromDate(daysFromNow(-1, 11, 5)),
+    },
+  ];
+  for (const n of sampleNotifications) {
+    const { id, ...rest } = n;
+    notifBatch.set(db.collection('notifications').doc(id), { userId: uid, ...rest });
+  }
+  await notifBatch.commit();
+  console.log(`Wrote ${sampleNotifications.length} notifications`);
+
   console.log('\nDemo account ready:');
   console.log(`  Email:    ${DEMO.email}`);
   console.log(`  Password: ${DEMO.password}`);
   console.log(`  Name:     ${DEMO.displayName}`);
   console.log(`  UID:      ${uid}`);
-  console.log('\nLog in on web or mobile to see Home, Multiple choice, Quiz and Tasks populated like the mocks.');
+  console.log('\nLog in on web or mobile to see Home, Multiple choice, Quiz, Tasks and Notifications populated like the mocks.');
 }
 
 main().catch((error) => {

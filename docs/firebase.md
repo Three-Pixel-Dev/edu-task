@@ -76,6 +76,9 @@ quizResults/{resultId}               userId, quizType, subjectId, subjectName, s
                                      completedAt
 tasks/{taskId}                       userId, title, description, subjectId, dueDate, priority,
                                      status, completedAt, createdAt, updatedAt
+notifications/{notificationId}      userId, type (taskDue|taskOverdue|quizCompleted), title, body,
+                                     read, dedupeKey, createdAt, optional deep-link fields
+                                     (taskId, resultId, subjectId, level, quizType)
 ```
 
 Notes on the few additions to the brief's model:
@@ -90,8 +93,9 @@ All timestamps are set with `serverTimestamp()`, and the rules require `== reque
 
 ## Security rules (`firestore.rules`)
 
-- Users can only read and write **their own** `users/{uid}`, `tasks`, `quizResults` and `quizSessions`. The owner is always `request.auth.uid`; a `userId` sent by the client must equal it.
+- Users can only read and write **their own** `users/{uid}`, `tasks`, `quizResults`, `notifications` and `quizSessions`. The owner is always `request.auth.uid`; a `userId` sent by the client must equal it.
 - Tasks: field types, title/description lengths, priority and status values are validated. `userId` and `createdAt` can't change.
+- Notifications: create with `read: false`; updates may flip `read`; deletes allowed. Document ids are derived from `dedupeKey` so retries do not spam the inbox.
 - Quiz results: create-only (no edits or deletes). The rules check that the subject exists, the level is 1–15, there are exactly 10 questions, `incorrect = 10 − correct`, `score = correct` and `percentage = correct × 10`.
 - Results and sessions accept an optional `quizType` that must be `multipleChoice` or `trueFalse`.
 - `subjectFields`, `subjects` and `questions` are **read-only** for students. Writes require the custom claim `admin: true` (`tools/firestore-seed/set-admin.mjs`). The seed tool itself uses the Admin SDK, which bypasses rules. (Legacy `trueFalseQuestions` rules remain for cleanup only; the app no longer reads that collection.)
@@ -105,8 +109,13 @@ All timestamps are set with `serverTimestamp()`, and the rules require `== reque
 | --- | --- | --- |
 | `tasks` | `userId` ↑, `dueDate` ↑ | real-time task list |
 | `quizResults` | `userId` ↑, `completedAt` ↓ | attempt history, both types (filtered on the device) |
+| `notifications` | `userId` ↑, `createdAt` ↓ | notification inbox |
 | `questions` | `subjectId` ↑, `level` ↑, `isActive` ↑ | loading a Multiple choice level |
 | `subjects` | `fieldId` ↑, `isActive` ↑ | subjects in a field |
+
+### Notifications (inbox + local device banners)
+
+The in-app inbox is Firestore `notifications`. Device banners use **Expo local notifications** (`expo-notifications`) for task due reminders and quiz-completed alerts — no Cloud Functions required. Web shows the inbox only (no OS banners in v1). Reliable banners need a development or production build (EAS); Expo Go is best-effort. Deploy rules and indexes after pulling this feature: `firebase deploy --only firestore:rules,firestore:indexes`.
 
 `subjectFields` (ordered by `order`) and the all-subjects query use automatic single-field indexes.
 

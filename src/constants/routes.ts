@@ -1,3 +1,4 @@
+import type { Href } from 'expo-router';
 import type { QuizType } from '@/types';
 
 /** Only True / False needs the param; Multiple choice keeps the original URLs. */
@@ -13,10 +14,12 @@ export const routes = {
   home: '/',
   quizTab: '/quiz',
   /** Quiz (True / False) tab. */
-  trueFalseTab: '/true-false',
-  quizTypeTab: (type: QuizType = 'multipleChoice') => (type === 'trueFalse' ? '/true-false' : '/quiz'),
+  trueFalseTab: '/true-false' as Href,
+  quizTypeTab: (type: QuizType = 'multipleChoice') => (type === 'trueFalse' ? ('/true-false' as Href) : ('/quiz' as Href)),
   tasksTab: '/tasks',
   profileTab: '/profile',
+  /** Inbox — cast until Expo Router regenerates typed routes for this path. */
+  notifications: '/notifications' as Href,
 
   quizFields: (type: QuizType = 'multipleChoice') => ({ pathname: '/quiz/fields', params: typeParam(type) }) as const,
   quizSubjects: (fieldId: string, type: QuizType = 'multipleChoice') =>

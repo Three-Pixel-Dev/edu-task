@@ -7,6 +7,7 @@
  *   (Quiz True/False statements are bundled in the app — see src/data/true-false/)
  *   quizResults/{resultId}              → QuizResult
  *   tasks/{taskId}                      → Task
+ *   notifications/{notificationId}      → AppNotification (inbox)
  *   users/{uid}/quizSessions/{id}       → QuizSession (an unfinished quiz, for "Continue quiz")
  *
  * Firestore Timestamps are converted to ISO-8601 strings when read (see
@@ -158,6 +159,38 @@ export type TaskInput = Pick<Task, 'title' | 'description' | 'subjectId' | 'dueD
 export type TaskUrgency = 'overdue' | 'dueSoon' | 'upcoming' | 'completed';
 
 export type TaskSection = 'today' | 'upcoming' | 'completed';
+
+// ── Notifications (inbox) ────────────────────────────────────────────────
+export type NotificationType = 'taskDue' | 'taskOverdue' | 'quizCompleted';
+
+export interface AppNotification {
+  id: string;
+  userId: string;
+  type: NotificationType;
+  title: string;
+  body: string;
+  read: boolean;
+  /** Stable key to avoid duplicates, e.g. taskOverdue:{taskId} or quizCompleted:{resultId}. */
+  dedupeKey: string;
+  createdAt: ISODateString;
+  taskId?: string;
+  resultId?: string;
+  subjectId?: string;
+  level?: number;
+  quizType?: QuizType;
+}
+
+export type NotificationInput = {
+  type: NotificationType;
+  title: string;
+  body: string;
+  dedupeKey: string;
+  taskId?: string;
+  resultId?: string;
+  subjectId?: string;
+  level?: number;
+  quizType?: QuizType;
+};
 
 // ── Misc ─────────────────────────────────────────────────────────────────
 export type AsyncStatus = 'loading' | 'success' | 'error';

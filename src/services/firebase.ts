@@ -42,6 +42,8 @@ export const COLLECTIONS = {
   trueFalseQuestions: 'trueFalseQuestions',
   quizResults: 'quizResults',
   tasks: 'tasks',
+  /** In-app notification inbox (device banners use expo-notifications locally). */
+  notifications: 'notifications',
   /** Subcollection under users/{uid} */
   quizSessions: 'quizSessions',
 } as const;
