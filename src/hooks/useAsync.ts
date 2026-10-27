@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useEffectEvent, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { messageOf } from '@/services/errors';
 import type { AsyncStatus } from '@/types';
+import { useEffectEvent } from './useEffectEvent';
 
 type Key = string | number | boolean | null | undefined;
 

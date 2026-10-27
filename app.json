@@ -10,7 +10,10 @@
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.edutask.app"
+      "bundleIdentifier": "com.edutask.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.edutask.app",
@@ -27,7 +30,6 @@
     },
     "plugins": [
       "expo-router",
-      "expo-status-bar",
       "expo-font",
       "@react-native-community/datetimepicker",
       [

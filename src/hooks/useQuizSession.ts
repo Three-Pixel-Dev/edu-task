@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { QUIZ } from '@/constants/app';
 import { messageOf } from '@/services/errors';
 import { notifyQuizCompleted } from '@/services/notificationTriggers';
@@ -10,6 +10,7 @@ import { nowIso } from '@/utils/format';
 import { gradeAnswers, summarise } from '@/utils/quiz';
 import { useUid } from './useAuth';
 import { useCountdown } from './useCountdown';
+import { useEffectEvent } from './useEffectEvent';
 import { useQuizHistory } from './useQuizHistory';
 
 export type PrimaryAction = 'choose' | 'check' | 'next' | 'submit';
