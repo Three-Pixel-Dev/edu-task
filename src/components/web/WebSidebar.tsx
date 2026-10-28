@@ -115,7 +115,7 @@ export function WebSidebar() {
           <Avatar name={displayName} size={36} />
           <View style={styles.profileText}>
             <AppText variant="label" numberOfLines={1}>{displayName}</AppText>
-            <AppText variant="caption" color="textSecondary">CEIT · Year 4</AppText>
+            <AppText variant="caption" color="textSecondary">CEIT</AppText>
           </View>
         </Pressable>
       ) : null}

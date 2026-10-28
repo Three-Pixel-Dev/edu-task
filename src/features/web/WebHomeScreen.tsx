@@ -26,7 +26,7 @@ import {
 } from '@/hooks';
 import { colors, fonts, radius, spacing } from '@/theme';
 import type { Task, TaskUrgency } from '@/types';
-import { dueLabel, taskUrgency } from '@/utils/date';
+import { dueLabel, greetingFor, taskUrgency } from '@/utils/date';
 import { firstNameOf } from '@/utils/format';
 
 const urgencyColors: Record<TaskUrgency, { ring: string; bg: string; fg: 'errorText' | 'warningText' | 'textSubtle' | 'successText' }> = {
@@ -57,7 +57,7 @@ export function WebHomeScreen() {
   return (
     <Screen inTabs gap={28}>
       <View>
-        <AppText style={styles.pageTitle}>{`Good morning, ${firstName} 👋`}</AppText>
+        <AppText style={styles.pageTitle}>{`${greetingFor()}, ${firstName} 👋`}</AppText>
         <AppText style={styles.pageSubtitle}>Ready to test your knowledge?</AppText>
       </View>
 

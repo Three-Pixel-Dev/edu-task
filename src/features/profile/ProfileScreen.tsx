@@ -24,11 +24,12 @@ import { useAuth, useProfile, useQuizHistory, useQuizStats, useTasks, useTaskSec
 import { messageOf } from '@/services/errors';
 import { colors, radius, spacing } from '@/theme';
 import { formatLongDate } from '@/utils/date';
+import { ChangePasswordForm } from './ChangePasswordForm';
 
 const HISTORY_PREVIEW = 5;
 
 export function ProfileScreen() {
-  const { logout, resetPassword } = useAuth();
+  const { logout } = useAuth();
   const { profile, status: profileStatus, error: profileError, displayName, email } = useProfile();
   const quiz = useQuizHistory();
   const quizStats = useQuizStats();
@@ -51,23 +52,6 @@ export function ProfileScreen() {
           } catch (e) {
             setLoggingOut(false);
             Alert.alert('Couldn’t log out', messageOf(e));
-          }
-        },
-      },
-    ]);
-  };
-
-  const sendReset = () => {
-    Alert.alert('Change password', `We’ll email a password reset link to ${email}.`, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Send link',
-        onPress: async () => {
-          try {
-            await resetPassword(email);
-            Alert.alert('Check your inbox', `A reset link has been sent to ${email}.`);
-          } catch (e) {
-            Alert.alert('Couldn’t send the link', messageOf(e));
           }
         },
       },
@@ -176,7 +160,7 @@ export function ProfileScreen() {
       <View style={styles.section}>
         <SectionHeader title="Settings" />
         <ListGroup>
-          <ListRow title="Change password" icon="lock" onPress={sendReset} />
+          <ChangePasswordForm />
         </ListGroup>
       </View>
 

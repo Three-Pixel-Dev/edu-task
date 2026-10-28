@@ -1,16 +1,16 @@
 import { Link } from 'expo-router';
 import { useRef, useState } from 'react';
-import { Alert, Pressable, StyleSheet, View, type TextInput } from 'react-native';
+import { StyleSheet, View, type TextInput } from 'react-native';
 import { AppText, Button, InlineAlert, Input } from '@/components';
 import { routes } from '@/constants/routes';
 import { useAuth } from '@/hooks';
 import { messageOf } from '@/services/errors';
 import { spacing } from '@/theme';
-import { hasErrors, isEmail, validateLogin } from '@/utils/validation';
+import { hasErrors, validateLogin } from '@/utils/validation';
 import { AuthLayout } from './AuthLayout';
 
 export function LoginScreen() {
-  const { login, resetPassword } = useAuth();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
@@ -30,19 +30,6 @@ export function LoginScreen() {
     } catch (e) {
       setFormError(messageOf(e));
       setSubmitting(false);
-    }
-  };
-
-  const forgotPassword = async () => {
-    if (!isEmail(email)) {
-      setErrors({ email: 'Enter your email first, then tap “Forgot password?”.' });
-      return;
-    }
-    try {
-      await resetPassword(email);
-      Alert.alert('Check your inbox', `If an account exists for ${email.trim()}, we’ve sent a link to reset your password.`);
-    } catch (e) {
-      Alert.alert('Couldn’t send reset link', messageOf(e));
     }
   };
 
@@ -93,12 +80,6 @@ export function LoginScreen() {
         onSubmitEditing={submit}
       />
 
-      <Pressable accessibilityRole="button" onPress={forgotPassword} hitSlop={8} style={styles.forgot}>
-        <AppText variant="label" color="primaryDark">
-          Forgot password?
-        </AppText>
-      </Pressable>
-
       <Button title="Log in" onPress={submit} loading={submitting} />
 
       <View style={styles.footer}>
@@ -117,7 +98,6 @@ export function LoginScreen() {
 
 const styles = StyleSheet.create({
   heading: { gap: spacing.xs + 2 },
-  forgot: { alignSelf: 'flex-end', marginTop: -spacing.sm, minHeight: 32, justifyContent: 'center' },
   footer: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 'auto', paddingTop: spacing.lg, flexWrap: 'wrap' },
   link: { paddingVertical: spacing.sm },
 });

@@ -73,10 +73,8 @@ export function TaskFormScreen({ mode, initial, onSubmit }: TaskFormScreenProps)
         {saveError ? <InlineAlert message={saveError} /> : null}
         <Input label="Task title" value={form.title} onChangeText={(value) => update('title', value)} error={errors.title} placeholder="e.g. Database Assignment" maxLength={TASKS.titleMaxLength} autoFocus={add} />
         <Input label="Description" optional multiline value={form.description} onChangeText={(value) => update('description', value)} error={errors.description} placeholder="What needs to be done?" maxLength={TASKS.descriptionMaxLength} hint={`${form.description.length}/${TASKS.descriptionMaxLength}`} />
-        <View style={styles.twoColumns}>
-          <View style={styles.field}><SubjectPicker value={form.subjectId} onChange={(id) => update('subjectId', id)} error={errors.subjectId} /></View>
-          <View style={styles.field}><DueDateField value={new Date(form.dueDate)} onChange={(date) => update('dueDate', date.toISOString())} error={errors.dueDate} /></View>
-        </View>
+        <SubjectPicker value={form.subjectId} onChange={(id) => update('subjectId', id)} error={errors.subjectId} />
+        <DueDateField value={new Date(form.dueDate)} onChange={(date) => update('dueDate', date.toISOString())} error={errors.dueDate} />
         <PriorityPicker value={form.priority} onChange={(priority: TaskPriority) => update('priority', priority)} />
         <View style={styles.actions}>
           <Button title="Cancel" variant="secondary" fullWidth={false} onPress={cancel} />
@@ -92,7 +90,5 @@ const styles = StyleSheet.create({
   title: { fontSize: 30, lineHeight: 38, letterSpacing: -0.6 },
   subtitle: { marginTop: 6 },
   form: { padding: 28, gap: spacing.xl },
-  twoColumns: { flexDirection: 'row', gap: spacing.lg },
-  field: { flex: 1, minWidth: 0 },
   actions: { flexDirection: 'row', justifyContent: 'flex-end', gap: spacing.md, paddingTop: spacing.xl, borderTopWidth: 1, borderTopColor: colors.divider },
 });

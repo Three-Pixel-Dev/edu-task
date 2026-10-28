@@ -1,12 +1,13 @@
 import Constants from 'expo-constants';
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import {
   AppText,
   Avatar,
   Button,
   Card,
   ErrorState,
+  InlineAlert,
   ListGroup,
   ListRow,
   ProgressBar,
@@ -20,10 +21,11 @@ import { useAuth, useProfile, useQuizHistory, useQuizStats, useTasks, useTaskSec
 import { messageOf } from '@/services/errors';
 import { colors, spacing } from '@/theme';
 import { formatLongDate } from '@/utils/date';
+import { ChangePasswordForm } from './ChangePasswordForm';
 
 /** Desktop profile: identity + stats in two columns. */
 export function ProfileScreen() {
-  const { logout, resetPassword } = useAuth();
+  const { logout } = useAuth();
   const { profile, status: profileStatus, error: profileError, displayName, email } = useProfile();
   const quiz = useQuizHistory();
   const quizStats = useQuizStats();
@@ -32,41 +34,17 @@ export function ProfileScreen() {
   const tasks = useTasks();
   const { counts } = useTaskSections();
   const [loggingOut, setLoggingOut] = useState(false);
+  const [logoutError, setLogoutError] = useState<string | null>(null);
 
-  const confirmLogout = () => {
-    Alert.alert('Log out of EduTask?', 'You can log back in any time with your email and password.', [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Log out',
-        style: 'destructive',
-        onPress: async () => {
-          setLoggingOut(true);
-          try {
-            await logout();
-          } catch (e) {
-            setLoggingOut(false);
-            Alert.alert('Couldn’t log out', messageOf(e));
-          }
-        },
-      },
-    ]);
-  };
-
-  const sendReset = () => {
-    Alert.alert('Change password', `We’ll email a password reset link to ${email}.`, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Send link',
-        onPress: async () => {
-          try {
-            await resetPassword(email);
-            Alert.alert('Check your inbox', `A reset link has been sent to ${email}.`);
-          } catch (e) {
-            Alert.alert('Couldn’t send the link', messageOf(e));
-          }
-        },
-      },
-    ]);
+  const confirmLogout = async () => {
+    setLoggingOut(true);
+    setLogoutError(null);
+    try {
+      await logout();
+    } catch (e) {
+      setLoggingOut(false);
+      setLogoutError(messageOf(e, 'We couldn’t log you out. Please try again.'));
+    }
   };
 
   const quizLoading = quiz.status === 'loading';
@@ -145,8 +123,9 @@ export function ProfileScreen() {
 
           <Card padded={false} style={styles.settings}>
             <AppText variant="subheading" style={styles.settingsTitle}>Settings</AppText>
-            <ListRow title="Change password" icon="lock" onPress={sendReset} divider />
+            <ChangePasswordForm divider />
             <View style={styles.logout}>
+              {logoutError ? <InlineAlert message={logoutError} /> : null}
               <Button title="Log out" variant="danger" leftIcon="log-out" fullWidth={false} loading={loggingOut} onPress={confirmLogout} />
             </View>
           </Card>
