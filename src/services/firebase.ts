@@ -1,10 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getApp, getApps, initializeApp, type FirebaseApp, type FirebaseOptions } from 'firebase/app';
-// getReactNativePersistence exists in Firebase's React Native build (which Metro
-// resolves), but not in the public typings — see src/types/firebase-auth.d.ts.
-import { getAuth, getReactNativePersistence, initializeAuth, type Auth } from 'firebase/auth';
+import { getAuth, initializeAuth, type Auth } from 'firebase/auth';
 import { getFirestore, initializeFirestore, memoryLocalCache, type Firestore } from 'firebase/firestore';
 import { getStorage, type FirebaseStorage } from 'firebase/storage';
+import { authPersistence } from './authPersistence';
 
 /**
  * Firebase configuration comes from Expo public env variables (see .env.example).
@@ -35,9 +33,17 @@ export const COLLECTIONS = {
   users: 'users',
   subjectFields: 'subjectFields',
   subjects: 'subjects',
+  /** Multiple choice (A–D) questions. */
   questions: 'questions',
+  /**
+   * Legacy Quiz (True / False) collection — no longer seeded or read by the app.
+   * Content ships in src/data/true-false/; kept here only for cleanup scripts.
+   */
+  trueFalseQuestions: 'trueFalseQuestions',
   quizResults: 'quizResults',
   tasks: 'tasks',
+  /** In-app notification inbox (device banners use expo-notifications locally). */
+  notifications: 'notifications',
   /** Subcollection under users/{uid} */
   quizSessions: 'quizSessions',
 } as const;
@@ -74,10 +80,9 @@ export function getFirebase(): FirebaseServices {
         appId: env.EXPO_PUBLIC_FIREBASE_APP_ID,
       } satisfies FirebaseOptions);
 
-  // React Native needs initializeAuth + AsyncStorage persistence so the session
-  // survives app restarts (getAuth alone would keep it in memory only).
+  // Platform-specific persistence (AsyncStorage on native, localStorage on web).
   // initializeAuth may only run once per app, hence getAuth after a Fast Refresh.
-  const auth = alreadyInitialised ? getAuth(app) : initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
+  const auth = alreadyInitialised ? getAuth(app) : initializeAuth(app, { persistence: authPersistence() });
 
   // Firestore's persistent (IndexedDB) cache isn't available in React Native,
   // so we use the in-memory cache: listeners still update instantly for local

@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Array",
+    "definition": "A collection of elements stored in contiguous memory and addressed by index.",
+    "wrongs": [
+      "A chain of nodes in which each element points to the next.",
+      "A set of vertices connected by edges that may form cycles.",
+      "A last-in first-out sequence with push and pop at one end."
+    ],
+    "why": "The address of element i is the base address plus i times the element size.",
+    "example": "Thirty exam scores sit in one block so the twelfth score is reached directly by its index.",
+    "scenario": "A program must read the twelfth daily temperature with a constant-time index into contiguous memory. Which structure fits?",
+    "scenarioAnswer": "An array",
+    "scenarioWrongs": ["A linked list", "A hash table", "A graph"],
+    "scenarioWhy": "An array stores the temperatures contiguously, so index 11 locates the twelfth value directly."
+  },
+  {
+    "term": "Dynamic array",
+    "definition": "An array that allocates a larger block and copies its elements when capacity is exhausted.",
+    "wrongs": [
+      "An array whose length is fixed when it is created.",
+      "A linked chain that never copies elements into a new block.",
+      "A complete binary tree stored for priority removal."
+    ],
+    "why": "Most appends are cheap, and the cost of an occasional copy is spread across many insertions.",
+    "example": "A growable vector doubles from 8 slots to 16 when the ninth item is appended.",
+    "scenario": "A list backed by an array is full, and the next append allocates a bigger block and copies the old items. What is that list?",
+    "scenarioAnswer": "A dynamic array",
+    "scenarioWrongs": ["A fixed-size array", "A singly linked list", "A binary heap"],
+    "scenarioWhy": "Growing by allocating and copying is how a dynamic array increases its capacity."
+  },
+  {
+    "term": "Singly linked list",
+    "definition": "A chain of nodes in which each node stores an element and a link only to the next node.",
+    "wrongs": [
+      "A chain in which each node also stores a link to the previous node.",
+      "A contiguous block addressed by index.",
+      "A tree in which each node has a left and a right child."
+    ],
+    "why": "Nodes need not be adjacent in memory, and insertion at a known node rewrites a few links.",
+    "example": "Each song record stores a title and a link to the following song, with no link backward.",
+    "scenario": "Each song node stores a title and a pointer only to the next song. Which list is that?",
+    "scenarioAnswer": "A singly linked list",
+    "scenarioWrongs": ["A doubly linked list", "An array", "A binary tree"],
+    "scenarioWhy": "A single forward link per node is the shape of a singly linked list."
+  },
+  {
+    "term": "Doubly linked list",
+    "definition": "A chain of nodes in which each node links to both the next node and the previous node.",
+    "wrongs": [
+      "A chain whose nodes point only forward.",
+      "A structure that inserts and deletes at only one end.",
+      "A table that maps keys to slots with a hash function."
+    ],
+    "why": "The backward link lets a known node be removed or lets the chain be walked in reverse without restarting at the head.",
+    "example": "A history entry points to both a newer page and an older page so either neighbor can be reached directly.",
+    "scenario": "A known node must be removed by relinking both of its neighbors, using a pointer to the previous node. Which list supports that?",
+    "scenarioAnswer": "A doubly linked list",
+    "scenarioWrongs": ["A singly linked list", "A stack", "A hash table"],
+    "scenarioWhy": "The previous pointer lets the neighbors be relinked without scanning from the head."
+  },
+  {
+    "term": "Stack",
+    "definition": "A sequence in which items are inserted and removed at the same end, called the top.",
+    "wrongs": [
+      "A sequence that removes the item inserted earliest.",
+      "A tree that removes the smallest key from the root.",
+      "A table that finds a key by hashing it."
+    ],
+    "why": "The last item pushed is the first item popped, which is last-in, first-out order.",
+    "example": "An editor reverses the most recent text change before it reverses any older change.",
+    "scenario": "An undo feature must reverse the most recent edit before older edits. Which structure matches that order?",
+    "scenarioAnswer": "A stack",
+    "scenarioWrongs": ["A queue", "A binary heap", "A hash table"],
+    "scenarioWhy": "Undo pops the latest edit first, which is last-in, first-out behavior."
+  },
+  {
+    "term": "Queue",
+    "definition": "A sequence that inserts items at the rear and removes them from the front.",
+    "wrongs": [
+      "A sequence that removes the most recently inserted item.",
+      "A tree ordered so every left descendant is smaller than the node.",
+      "A set that rejects duplicate elements."
+    ],
+    "why": "The earliest item is removed first, which is first-in, first-out order.",
+    "example": "A printer produces the document that was submitted first while later documents wait behind it.",
+    "scenario": "People who reach a help desk first should be served first. Which structure models that line?",
+    "scenarioAnswer": "A queue",
+    "scenarioWrongs": ["A stack", "A binary search tree", "A hash set"],
+    "scenarioWhy": "Serving the earliest arrival first is first-in, first-out removal from a queue."
+  },
+  {
+    "term": "Circular queue",
+    "definition": "A queue in a fixed array whose front and rear indexes wrap back to the first slot.",
+    "wrongs": [
+      "A queue that only moves forward and never reuses earlier slots.",
+      "A stack stored in an array with one top index.",
+      "A linked tree with no fixed capacity."
+    ],
+    "why": "Wrapping reuses empty slots at the beginning after removals, without sliding the remaining items down.",
+    "example": "An eight-slot keyboard buffer stores the next key at index 0 after index 7 has been used.",
+    "scenario": "A fixed array buffer should reuse freed slots at the front without sliding every remaining element. Which queue layout does that?",
+    "scenarioAnswer": "A circular queue",
+    "scenarioWrongs": ["A linear queue that never wraps", "A stack", "A linked binary tree"],
+    "scenarioWhy": "Front and rear wrap to the start of the array, so freed slots are reused in place."
+  },
+  {
+    "term": "Deque",
+    "definition": "A double-ended queue that allows insertion and removal at both the front and the rear.",
+    "wrongs": [
+      "A sequence that inserts and removes at only one end.",
+      "A heap that removes the best priority from the root.",
+      "A list whose nodes point only to the next node."
+    ],
+    "why": "Either end can act as the insertion or removal point, so it can behave as a stack or as a queue.",
+    "example": "A history buffer adds a new page at the front and drops the oldest page from the rear when it is full.",
+    "scenario": "A scheduler must add urgent jobs at the front of a line and ordinary jobs at the rear. Which structure allows both ends?",
+    "scenarioAnswer": "A deque",
+    "scenarioWrongs": ["A stack", "A binary heap", "A singly linked stack"],
+    "scenarioWhy": "A deque supports insertion at either end, so urgent and ordinary jobs can enter at different ends."
+  },
+  {
+    "term": "Binary tree",
+    "definition": "A tree in which every node has at most two children, usually called left and right.",
+    "wrongs": [
+      "A tree that allows any number of children per node.",
+      "A graph that may contain a cycle.",
+      "A hash table with one slot per bucket."
+    ],
+    "why": "The two-child limit is the shape used by search trees, heaps, and expression trees.",
+    "example": "An expression stores plus at the root, with the left child 2 and the right child 3.",
+    "scenario": "An expression node stores an operator and at most one left operand and one right operand. What kind of tree is that?",
+    "scenarioAnswer": "A binary tree",
+    "scenarioWrongs": ["A general tree", "A directed graph", "A hash table"],
+    "scenarioWhy": "A node with at most two children is a binary-tree node."
+  },
+  {
+    "term": "Binary search tree",
+    "definition": "A binary tree in which every key in the left subtree is smaller and every key in the right subtree is larger.",
+    "wrongs": [
+      "A complete tree in which each parent is only ordered against its children.",
+      "A graph traversal that visits vertices level by level.",
+      "A balanced tree defined only by subtree height, with no key order."
+    ],
+    "why": "Search, insertion, and deletion each follow one path from the root using that order.",
+    "example": "Looking for 42 goes left when the current key is larger than 42 and right when it is smaller.",
+    "scenario": "Keys must be found by going left for a smaller key and right for a larger key, starting at the root. Which tree is organized that way?",
+    "scenarioAnswer": "A binary search tree",
+    "scenarioWrongs": ["A binary heap", "A breadth-first tree", "An unordered linked list"],
+    "scenarioWhy": "Left-smaller and right-larger ordering is the search property of a binary search tree."
+  },
+  {
+    "term": "AVL tree",
+    "definition": "A binary search tree kept balanced so the heights of every node's two subtrees differ by at most one.",
+    "wrongs": [
+      "A binary search tree that may become a straight line after sorted insertions.",
+      "A heap that is complete but is not a search tree.",
+      "A linked list of keys in insertion order."
+    ],
+    "why": "Rotations after insertion or deletion restore the balance factor, so the height stays logarithmic.",
+    "example": "Inserting keys in sorted order still triggers rotations so the search tree does not degenerate into a line.",
+    "scenario": "Insertions arrive already sorted, but the search tree must rotate to keep the two subtree heights within one. Which tree does that?",
+    "scenarioAnswer": "An AVL tree",
+    "scenarioWrongs": ["An unbalanced binary search tree", "A binary heap", "A linked list"],
+    "scenarioWhy": "AVL trees restore a height difference of at most one with rotations after each update."
+  },
+  {
+    "term": "Heap",
+    "definition": "A complete binary tree in which each node is ordered relative to its children, usually stored in an array.",
+    "wrongs": [
+      "A binary tree ordered so the left subtree holds smaller keys and the right holds larger keys.",
+      "A linked list ordered by insertion time.",
+      "A hash table ordered by hash code."
+    ],
+    "why": "The heap order puts an extreme value at the root, and sifting repairs the tree after that value is removed.",
+    "example": "Job priorities sit in a complete tree array with the most urgent priority stored at the first index.",
+    "scenario": "Priorities occupy a complete binary tree in which each parent is ordered against its children and the extreme value is at the root. What is that tree?",
+    "scenarioAnswer": "A heap",
+    "scenarioWrongs": ["A binary search tree", "A singly linked list", "A hash table"],
+    "scenarioWhy": "A complete tree with the parent-child order, and the extreme at the root, is a heap."
+  },
+  {
+    "term": "Min-heap",
+    "definition": "A heap in which every parent is less than or equal to its children, so the smallest key is at the root.",
+    "wrongs": [
+      "A heap whose root holds the largest key.",
+      "A search tree whose in-order walk is sorted.",
+      "A queue that removes items in arrival order."
+    ],
+    "why": "Removing the root takes the minimum, and sifting the last element down restores the parent-child order.",
+    "example": "A shortest-path computation repeatedly removes the unsettled vertex with the smallest tentative distance from the root.",
+    "scenario": "A scheduler must repeatedly remove the job with the smallest remaining time from a complete tree. Which heap fits?",
+    "scenarioAnswer": "A min-heap",
+    "scenarioWrongs": ["A max-heap", "A binary search tree", "A FIFO queue"],
+    "scenarioWhy": "A min-heap keeps the smallest remaining time at the root for the next removal."
+  },
+  {
+    "term": "Priority queue",
+    "definition": "An abstract collection that removes the element with the best priority rather than the oldest element.",
+    "wrongs": [
+      "A line that always removes the element that arrived first.",
+      "A sequence that always removes the element inserted last.",
+      "A set that only tests whether an element is present."
+    ],
+    "why": "A heap is the usual implementation because it finds the extreme priority in logarithmic time.",
+    "example": "An emergency room next admits the most urgent patient, not the patient who arrived earliest.",
+    "scenario": "Patients should be treated by urgency, so the next removal is the most urgent case rather than the earliest arrival. Which abstract structure is that?",
+    "scenarioAnswer": "A priority queue",
+    "scenarioWrongs": ["A FIFO queue", "A stack", "A hash set"],
+    "scenarioWhy": "Removal follows priority rather than arrival time, which is a priority queue."
+  },
+  {
+    "term": "Hash table",
+    "definition": "A structure that maps each key to a slot by computing a hash function on the key.",
+    "wrongs": [
+      "A sorted array searched by repeatedly discarding half of the remaining range.",
+      "A stack of keys with no lookup by value.",
+      "A queue of keys served in arrival order."
+    ],
+    "why": "A good hash function spreads keys so search, insertion, and deletion take constant time on average.",
+    "example": "A compiler finds a variable's type from its name without scanning every declared name.",
+    "scenario": "A compiler must find a variable's type from its name in expected constant time. Which structure fits?",
+    "scenarioAnswer": "A hash table",
+    "scenarioWrongs": ["An unsorted array", "A stack", "A queue"],
+    "scenarioWhy": "Hashing the name selects a slot, giving expected constant-time lookup."
+  },
+  {
+    "term": "Collision",
+    "definition": "The event that two different keys produce the same hash-table slot.",
+    "wrongs": [
+      "A tree rotation that restores balance after an insertion.",
+      "A graph path that returns to its starting vertex.",
+      "An array index that falls outside the allocated block."
+    ],
+    "why": "A hash function has a finite range, so unequal keys can land in one bucket and need a resolution method.",
+    "example": "In a table of 16 slots, the distinct names cat and act both compute bucket 4.",
+    "scenario": "Two different usernames compute the same index in a table of 16 slots. What is that event called?",
+    "scenarioAnswer": "A collision",
+    "scenarioWrongs": ["A rotation", "A cycle", "An overflow of the array bounds"],
+    "scenarioWhy": "Unequal keys that hash to one slot have collided."
+  },
+  {
+    "term": "Separate chaining",
+    "definition": "Collision handling that stores every key hashing to one slot in a linked list at that slot.",
+    "wrongs": [
+      "A probe that stores colliding keys in later slots of the table array itself.",
+      "A second hash function used to choose the next table slot.",
+      "A directory of buckets that splits when a bucket overflows."
+    ],
+    "why": "Only the list at the chosen bucket is scanned, and that list grows as more keys collide there.",
+    "example": "Bucket 4 holds a short linked list containing both cat and act.",
+    "scenario": "Keys that hash to the same index should hang in a linked list from that bucket. Which collision method is that?",
+    "scenarioAnswer": "Separate chaining",
+    "scenarioWrongs": ["Linear probing", "Double hashing", "Quadratic probing"],
+    "scenarioWhy": "A linked list at the bucket is separate chaining."
+  },
+  {
+    "term": "Open addressing",
+    "definition": "Collision handling that stores every key in the table array and probes other slots when a slot is taken.",
+    "wrongs": [
+      "Storage of colliding keys in a linked list outside the slot.",
+      "A binary search tree built inside each bucket.",
+      "A sorted array that ignores hash codes."
+    ],
+    "why": "There is no bucket list; a probe sequence looks through the array for an empty slot.",
+    "example": "When slot 4 is occupied, the next attempt tries slot 5 and then slot 6 until an empty slot appears.",
+    "scenario": "A hash table has no per-bucket lists, and a key that hits a full slot tries later slots in the array. Which collision family is that?",
+    "scenarioAnswer": "Open addressing",
+    "scenarioWrongs": ["Separate chaining", "Extendible hashing", "A binary search tree of keys"],
+    "scenarioWhy": "Probing other array slots for an empty place is open addressing."
+  },
+  {
+    "term": "Graph",
+    "definition": "A set of vertices connected by edges, which may be directed or weighted and may contain cycles.",
+    "wrongs": [
+      "A hierarchical structure in which each node has one parent.",
+      "A last-in first-out sequence.",
+      "A first-in first-out sequence."
+    ],
+    "why": "Edges can express arbitrary connections, including more than one parent and paths that loop.",
+    "example": "Campus buildings are vertices, and the walkways between them are edges labeled with walking times.",
+    "scenario": "Buildings and the walkways between them must be modeled, including routes that loop. Which structure allows those cycles?",
+    "scenarioAnswer": "A graph",
+    "scenarioWrongs": ["A binary tree", "A stack", "A queue"],
+    "scenarioWhy": "A graph can contain cycles, which a tree by definition cannot."
+  },
+  {
+    "term": "Adjacency list",
+    "definition": "A graph representation in which each vertex stores a list of the vertices it is connected to.",
+    "wrongs": [
+      "A two-dimensional array with one entry for every possible pair of vertices.",
+      "A matrix that records which vertices lie on which edges in a different layout.",
+      "A parent array used only for a tree."
+    ],
+    "why": "The space used is proportional to the number of vertices plus the number of edges, which suits a sparse graph.",
+    "example": "Person A stores only the friends B and C, not a flag for every other person in a large network.",
+    "scenario": "A social network is sparse, and each person should store only the people they are linked to. Which representation fits?",
+    "scenarioAnswer": "An adjacency list",
+    "scenarioWrongs": ["An adjacency matrix", "An incidence matrix", "A distance matrix of all pairs"],
+    "scenarioWhy": "Each vertex's list holds only its existing edges, which is an adjacency list."
+  },
+  {
+    "term": "Adjacency matrix",
+    "definition": "A two-dimensional array in which an entry shows whether an edge joins a particular pair of vertices.",
+    "wrongs": [
+      "A list, per vertex, of only the vertices that share an edge.",
+      "A stack of edges in the order they were discovered.",
+      "A parent pointer for each vertex in a traversal."
+    ],
+    "why": "Testing one possible edge takes constant time, while the space grows with the square of the vertex count.",
+    "example": "An entry at row 2 and column 5 equals 1 when a road runs from city 2 to city 5.",
+    "scenario": "A dense road network needs a constant-time test for whether one specific pair of cities has a road. Which representation fits?",
+    "scenarioAnswer": "An adjacency matrix",
+    "scenarioWrongs": ["An adjacency list", "An edge stack", "A parent array"],
+    "scenarioWhy": "One matrix cell answers whether that pair of cities is connected."
+  },
+  {
+    "term": "Breadth-first search",
+    "definition": "A graph traversal that visits vertices in order of increasing distance, in edges, from a start vertex.",
+    "wrongs": [
+      "A traversal that follows one path as far as possible before backtracking.",
+      "A shortest-path algorithm for graphs with nonnegative weights.",
+      "A walk that visits a tree node before either of its children."
+    ],
+    "why": "A queue explores every neighbor at the current distance before vertices that are farther away.",
+    "example": "From a maze entrance, rooms one corridor away are listed before rooms two corridors away.",
+    "scenario": "A maze solver must visit rooms in order of fewest corridors from the entrance, using a queue. Which traversal is that?",
+    "scenarioAnswer": "Breadth-first search",
+    "scenarioWrongs": ["Depth-first search", "Dijkstra's algorithm", "Pre-order traversal"],
+    "scenarioWhy": "A queue visits vertices level by level, which is breadth-first search on an unweighted maze."
+  },
+  {
+    "term": "Depth-first search",
+    "definition": "A graph traversal that follows one path as far as it can before backtracking to try another.",
+    "wrongs": [
+      "A traversal that visits all nearer vertices before farther ones.",
+      "A level-order walk of a tree using a queue.",
+      "An algorithm that settles the closest weighted vertex next."
+    ],
+    "why": "Recursion or an explicit stack finishes one neighbor's entire path before the next neighbor of the same vertex.",
+    "example": "A maze walk continues down one corridor to a dead end, then returns to try the next turn.",
+    "scenario": "A maze solver follows one path to a dead end and then backtracks, using recursion. Which traversal is that?",
+    "scenarioAnswer": "Depth-first search",
+    "scenarioWrongs": ["Breadth-first search", "Level-order traversal", "Dijkstra's algorithm"],
+    "scenarioWhy": "Going as far as possible and then backtracking is depth-first search."
+  },
+  {
+    "term": "Dijkstra's algorithm",
+    "definition": "An algorithm for shortest paths from one source when every edge weight is nonnegative.",
+    "wrongs": [
+      "A traversal that counts unweighted hops with a queue.",
+      "A traversal that backtracks along one path.",
+      "A sort that repeatedly extracts a heap root into an array."
+    ],
+    "why": "It settles the unsettled vertex with the smallest tentative distance and then relaxes that vertex's outgoing edges.",
+    "example": "A navigation tool computes the smallest total driving time from campus to every junction when road times are nonnegative.",
+    "scenario": "Road times are nonnegative, and an app needs the shortest time from campus to every other junction. Which algorithm fits?",
+    "scenarioAnswer": "Dijkstra's algorithm",
+    "scenarioWrongs": ["Breadth-first search", "Depth-first search", "Heap sort"],
+    "scenarioWhy": "Dijkstra's algorithm computes single-source shortest paths when weights are nonnegative."
+  },
+  {
+    "term": "Topological sort",
+    "definition": "An ordering of a directed acyclic graph in which every edge points from an earlier vertex to a later one.",
+    "wrongs": [
+      "A minimum set of edges that connects every vertex with no cycles.",
+      "A path of smallest total weight between two vertices.",
+      "A level-order listing produced by a queue."
+    ],
+    "why": "Such an order exists only when the directed graph has no cycle, and it places prerequisites first.",
+    "example": "A course plan lists the introductory course before the course that requires it.",
+    "scenario": "Courses have prerequisite edges and no cycle. An ordering must place each prerequisite earlier than the course that needs it. What is that ordering?",
+    "scenarioAnswer": "A topological sort",
+    "scenarioWrongs": ["A minimum spanning tree", "A shortest-path tree", "A breadth-first layering"],
+    "scenarioWhy": "An order that respects every prerequisite edge is a topological sort of the course graph."
+  },
+  {
+    "term": "Minimum spanning tree",
+    "definition": "A subset of a connected graph's edges that links every vertex with the smallest total weight and no cycle.",
+    "wrongs": [
+      "A path of least weight from one chosen source to the other vertices.",
+      "An order of vertices that respects directed prerequisite edges.",
+      "A cycle that visits every vertex exactly once."
+    ],
+    "why": "Algorithms such as Kruskal's and Prim's grow an acyclic connection of minimum total cost.",
+    "example": "The cheapest cables that connect every campus building, without a redundant loop, are selected.",
+    "scenario": "A campus must connect every building with cable of minimum total cost and with no redundant loop. What should be computed?",
+    "scenarioAnswer": "A minimum spanning tree",
+    "scenarioWrongs": ["A shortest path from one building", "A topological order", "A Hamiltonian cycle"],
+    "scenarioWhy": "A minimum spanning tree connects all buildings at the least total cable cost without cycles."
+  },
+  {
+    "term": "Big-O notation",
+    "definition": "An asymptotic upper bound on how a function grows, ignoring constant factors and lower-order terms.",
+    "wrongs": [
+      "A tight bound that is both an upper and a lower bound.",
+      "A lower bound that says growth is at least some rate.",
+      "A count of the exact number of machine cycles on one CPU."
+    ],
+    "why": "It classifies algorithms by how their cost grows with input size in the worst case commonly considered.",
+    "example": "A single pass over n exam scores is described as linear even though each score update does a few constant steps.",
+    "scenario": "A lecturer ignores constant factors and says one pass over n items grows linearly. Which notation records that upper bound?",
+    "scenarioAnswer": "Big-O",
+    "scenarioWrongs": ["Big-Theta", "Big-Omega", "A raw cycle count"],
+    "scenarioWhy": "Big-O states an upper bound such as linear growth, dropping constants and lower-order terms."
+  },
+  {
+    "term": "Time complexity",
+    "definition": "How the number of basic steps an algorithm performs grows as the input size grows.",
+    "wrongs": [
+      "How the extra memory an algorithm uses grows with the input size.",
+      "Whether equal elements keep their original relative order.",
+      "The physical cache-line size of one processor."
+    ],
+    "why": "Counting dominant operations compares algorithms without depending on one machine's clock speed.",
+    "example": "Finding a score in a sorted list by halving the range does a logarithmic number of comparisons.",
+    "scenario": "Two sorting programs are compared by how their comparison counts grow with n, not by one laptop's timer. What is being compared?",
+    "scenarioAnswer": "Time complexity",
+    "scenarioWrongs": ["Space complexity", "Stability", "Cache-line size"],
+    "scenarioWhy": "Growth in the number of comparisons is time complexity."
+  },
+  {
+    "term": "Space complexity",
+    "definition": "How the extra memory an algorithm needs grows as the input size grows.",
+    "wrongs": [
+      "How the number of computational steps grows with the input.",
+      "Whether a sort keeps equal items in their original order.",
+      "The ratio of stored keys to hash-table slots."
+    ],
+    "why": "It counts auxiliary storage, such as another array or a recursion stack, often separately from the input itself.",
+    "example": "Combining sorted halves uses a second array as large as the input, so the extra memory grows linearly.",
+    "scenario": "An algorithm allocates a second array as large as its input, and that extra memory grows with n. What is that growth called?",
+    "scenarioAnswer": "Space complexity",
+    "scenarioWrongs": ["Time complexity", "Stability", "Load factor"],
+    "scenarioWhy": "Growth of auxiliary memory with n is space complexity."
+  },
+  {
+    "term": "Bubble sort",
+    "definition": "A sort that repeatedly swaps adjacent elements that are out of order.",
+    "wrongs": [
+      "A sort that merges two already sorted halves.",
+      "A sort that partitions elements around a chosen pivot.",
+      "A sort that builds a heap and repeatedly extracts the root."
+    ],
+    "why": "Each pass moves one more extreme element to its end by swapping it with its neighbors.",
+    "example": "On the list 3, 1, 2, the value 3 swaps with 1 and then with 2 so it reaches the end on the first pass.",
+    "scenario": "A student sorts a list only by swapping neighbors that are out of order, pass after pass. Which sort is that?",
+    "scenarioAnswer": "Bubble sort",
+    "scenarioWrongs": ["Merge sort", "Quick sort", "Heap sort"],
+    "scenarioWhy": "Swapping out-of-order neighbors on each pass is bubble sort."
+  },
+  {
+    "term": "Selection sort",
+    "definition": "A sort that repeatedly selects the smallest remaining element and swaps it into the next position.",
+    "wrongs": [
+      "A sort that inserts each new element into an already sorted prefix.",
+      "A sort that swaps only adjacent out-of-order pairs.",
+      "A sort that partitions around a pivot."
+    ],
+    "why": "After i selections, the first i positions hold the i smallest elements in order.",
+    "example": "On 4, 1, 3, the smallest value 1 is swapped into the first position, then 3 is swapped into the next.",
+    "scenario": "Each pass finds the smallest not-yet-placed element and swaps it into the next fixed position. Which sort is that?",
+    "scenarioAnswer": "Selection sort",
+    "scenarioWrongs": ["Insertion sort", "Bubble sort", "Quick sort"],
+    "scenarioWhy": "Selecting the minimum of the unsorted suffix and placing it next is selection sort."
+  },
+  {
+    "term": "Insertion sort",
+    "definition": "A sort that places each next element into its position within the already sorted prefix.",
+    "wrongs": [
+      "A sort that selects the minimum of the unsorted part on each pass.",
+      "A sort that extracts successive roots from a heap.",
+      "A sort that merges sorted runs from a split array."
+    ],
+    "why": "Larger elements in the sorted prefix shift right until the gap for the new element is found.",
+    "example": "A card player slides a newly drawn 2 into its place among cards that are already in order.",
+    "scenario": "A hand of cards is kept in order by sliding each newly drawn card into place among the cards already held. Which sort matches that?",
+    "scenarioAnswer": "Insertion sort",
+    "scenarioWrongs": ["Selection sort", "Heap sort", "Merge sort"],
+    "scenarioWhy": "Inserting the next item into a sorted prefix is insertion sort."
+  },
+  {
+    "term": "Merge sort",
+    "definition": "A divide-and-conquer sort that splits the array, sorts the halves, and then merges those sorted halves.",
+    "wrongs": [
+      "A sort that partitions around a pivot and recurses on the two sides.",
+      "A sort that slides each item into a sorted prefix.",
+      "A sort that repeatedly swaps adjacent items."
+    ],
+    "why": "Merging two sorted halves takes linear work, and the recurrence solves to linearithmic time.",
+    "example": "The list 4, 1, 3, 2 is split into halves, each half is sorted, and the halves are then combined into order.",
+    "scenario": "An array is split until single elements remain, and sorted halves are then combined back into order. Which sort is that?",
+    "scenarioAnswer": "Merge sort",
+    "scenarioWrongs": ["Quick sort", "Insertion sort", "Selection sort"],
+    "scenarioWhy": "Splitting, sorting the halves, and merging them is merge sort."
+  },
+  {
+    "term": "Quick sort",
+    "definition": "A divide-and-conquer sort that partitions elements around a pivot and recursively sorts each side.",
+    "wrongs": [
+      "A sort that merges two sorted halves after a balanced split.",
+      "A sort that builds a heap and extracts the root repeatedly.",
+      "A sort that bubbles extreme values to the end by adjacent swaps."
+    ],
+    "why": "After partitioning, elements smaller than the pivot are on one side and larger elements are on the other.",
+    "example": "Choosing 3 as the pivot rearranges a list so smaller values sit to its left and larger values sit to its right.",
+    "scenario": "A sort chooses a pivot, places smaller elements to its left and larger ones to its right, then repeats on each side. Which sort is that?",
+    "scenarioAnswer": "Quick sort",
+    "scenarioWrongs": ["Merge sort", "Heap sort", "Bubble sort"],
+    "scenarioWhy": "Partitioning around a pivot and recursing on both sides is quick sort."
+  },
+  {
+    "term": "Heap sort",
+    "definition": "A sort that turns the array into a heap and then repeatedly moves the root into the sorted end.",
+    "wrongs": [
+      "A sort that merges sorted halves.",
+      "A sort that partitions around a pivot.",
+      "A sort that inserts each item into a sorted prefix."
+    ],
+    "why": "Each of the n extractions takes logarithmic time, and only a constant amount of extra memory is required.",
+    "example": "An array is arranged so the largest value is at the root, and that root is then swapped into the last position.",
+    "scenario": "A sort first makes the array a max-heap, then repeatedly moves the root to the end and repairs the heap. Which sort is that?",
+    "scenarioAnswer": "Heap sort",
+    "scenarioWrongs": ["Merge sort", "Quick sort", "Insertion sort"],
+    "scenarioWhy": "Building a heap and extracting the root into the sorted suffix is heap sort."
+  },
+  {
+    "term": "Binary search",
+    "definition": "A search on a sorted array that discards the half of the range that cannot contain the key.",
+    "wrongs": [
+      "A search that checks each element from the start until the key appears.",
+      "A graph walk that uses a stack.",
+      "A lookup that computes a hash slot from the key."
+    ],
+    "why": "Comparing against the middle element halves the remaining range, so the search is logarithmic.",
+    "example": "Looking for 8 in the sorted scores 1, 3, 8, 9 compares with the middle and then looks only to the right.",
+    "scenario": "A sorted score array is searched by comparing with the middle element and ignoring one half each time. Which search is that?",
+    "scenarioAnswer": "Binary search",
+    "scenarioWrongs": ["Linear search", "Depth-first search", "Hashing"],
+    "scenarioWhy": "Halving a sorted range at each comparison is binary search."
+  },
+  {
+    "term": "Linear search",
+    "definition": "A search that inspects elements one by one until the key is found or the collection ends.",
+    "wrongs": [
+      "A search that halves a sorted range at every comparison.",
+      "A search that estimates the key's position from its value.",
+      "A graph traversal that visits vertices by increasing distance."
+    ],
+    "why": "Without sorted order or hashing, every element may have to be examined, so the worst case is proportional to the length.",
+    "example": "Finding the name Mei in an unsorted attendance sheet checks each name from the first row onward.",
+    "scenario": "Names are unsorted, so a lookup checks the first name, then the next, until it finds a match or finishes the sheet. Which search is that?",
+    "scenarioAnswer": "Linear search",
+    "scenarioWrongs": ["Binary search", "Interpolation search", "Breadth-first search"],
+    "scenarioWhy": "Checking elements in order from the start is linear search."
+  },
+  {
+    "term": "Recursion",
+    "definition": "A technique in which a function solves a problem by calling itself on a smaller instance.",
+    "wrongs": [
+      "A single loop that updates one index until a condition fails.",
+      "A table that stores answers to overlapping subproblems.",
+      "A hash computation used for lookup."
+    ],
+    "why": "Each call must move toward a base case that returns an answer without another call.",
+    "example": "Computing 5 factorial calls the same function on 4, continuing down until the call on 0 returns 1.",
+    "scenario": "A function computes n factorial by calling itself on n minus 1 until it reaches 0. What technique is that?",
+    "scenarioAnswer": "Recursion",
+    "scenarioWrongs": ["Iteration", "Dynamic programming", "Hashing"],
+    "scenarioWhy": "The function calls itself on a smaller n until a base case, which is recursion."
+  },
+  {
+    "term": "Divide and conquer",
+    "definition": "A strategy that splits a problem into subproblems, solves them, and combines their answers.",
+    "wrongs": [
+      "A strategy that repeatedly takes the locally best choice and never revises it.",
+      "A strategy that stores answers to overlapping subproblems in a table.",
+      "A strategy that tries every possible subset."
+    ],
+    "why": "The split reduces the input size, and the combine step produces the answer for the original input.",
+    "example": "A sort divides an array into two halves, sorts each half, and then merges the sorted halves.",
+    "scenario": "A problem is split into independent halves, each half is solved, and the two answers are combined. Which strategy is that?",
+    "scenarioAnswer": "Divide and conquer",
+    "scenarioWrongs": ["A greedy algorithm", "Dynamic programming", "Brute force"],
+    "scenarioWhy": "Splitting into subproblems and combining their results is divide and conquer."
+  },
+  {
+    "term": "Dynamic programming",
+    "definition": "A strategy that solves each overlapping subproblem once and reuses the stored answer.",
+    "wrongs": [
+      "A strategy that splits independent subproblems and combines them without reuse.",
+      "A strategy that always commits to the locally best next choice.",
+      "A search that undoes a choice as soon as it fails."
+    ],
+    "why": "A table or memo turns repeated recursive work into a polynomial computation when subproblems overlap.",
+    "example": "A Fibonacci table fills each entry from the two preceding entries so each value is computed once.",
+    "scenario": "A recursive Fibonacci routine recomputes the same smaller values many times, so each result is stored in a table. Which strategy is that?",
+    "scenarioAnswer": "Dynamic programming",
+    "scenarioWrongs": ["Divide and conquer", "A greedy algorithm", "Backtracking"],
+    "scenarioWhy": "Storing and reusing overlapping Fibonacci results is dynamic programming."
+  },
+  {
+    "term": "Greedy algorithm",
+    "definition": "An algorithm that builds a solution by repeatedly taking the locally best option and never revising it.",
+    "wrongs": [
+      "An algorithm that fills a table of overlapping subproblems.",
+      "An algorithm that splits the input and combines independent answers.",
+      "An algorithm that tries every candidate and keeps the best complete one."
+    ],
+    "why": "The choice is final when it is made, and it is correct only for problems with the greedy-choice property.",
+    "example": "Making change repeatedly takes the largest coin that does not exceed the amount still owed.",
+    "scenario": "Coin change repeatedly picks the largest coin that does not exceed the remaining amount and never takes that pick back. Which approach is that?",
+    "scenarioAnswer": "A greedy algorithm",
+    "scenarioWrongs": ["Dynamic programming", "Divide and conquer", "Exhaustive search"],
+    "scenarioWhy": "Irrevocable locally best choices are the greedy approach."
+  },
+  {
+    "term": "Stable sort",
+    "definition": "A sort that preserves the original relative order of elements that compare as equal.",
+    "wrongs": [
+      "A sort that uses only a constant amount of extra memory.",
+      "A sort that runs faster when the input is already nearly ordered.",
+      "A sort that randomly shuffles equal elements."
+    ],
+    "why": "Stability matters when a later key must not scramble an order already established by an earlier key.",
+    "example": "Students already ordered by name keep Ada before Ben after a grade sort when Ada and Ben share a grade and Ada was first.",
+    "scenario": "Students are already ordered by name, and a later sort by grade must keep Ada before Ben when their grades are equal. Which property is required?",
+    "scenarioAnswer": "Stability",
+    "scenarioWrongs": ["In-place rearrangement", "Adaptivity", "Randomization"],
+    "scenarioWhy": "Stability keeps the earlier name order of students whose grades compare equal."
+  },
+  {
+    "term": "In-order traversal",
+    "definition": "A binary-tree walk that visits the left subtree, then the node, then the right subtree.",
+    "wrongs": [
+      "A walk that visits the node before either subtree.",
+      "A walk that visits both subtrees before the node.",
+      "A walk that visits nodes level by level using a queue."
+    ],
+    "why": "On a binary search tree, this order visits the keys from smallest to largest.",
+    "example": "A search tree with root 4, left child 2, and right child 6 yields 2, then 4, then 6.",
+    "scenario": "A search tree should be printed from the smallest key to the largest by visiting left, node, then right. Which traversal is that?",
+    "scenarioAnswer": "In-order traversal",
+    "scenarioWrongs": ["Pre-order traversal", "Post-order traversal", "Level-order traversal"],
+    "scenarioWhy": "Left, node, then right visits binary-search-tree keys in sorted order."
+  },
+  {
+    "term": "Pre-order traversal",
+    "definition": "A binary-tree walk that visits the node, then the left subtree, then the right subtree.",
+    "wrongs": [
+      "A walk that visits the left subtree before the node.",
+      "A walk that visits the node only after both subtrees.",
+      "A walk that visits a tree level by level."
+    ],
+    "why": "The node is processed before its children, matching a prefix listing of an expression tree.",
+    "example": "An expression tree rooted at plus with children 2 and 3 yields plus, then 2, then 3.",
+    "scenario": "An expression tree should list the operator before its operands by visiting the node first. Which traversal is that?",
+    "scenarioAnswer": "Pre-order traversal",
+    "scenarioWrongs": ["In-order traversal", "Post-order traversal", "Level-order traversal"],
+    "scenarioWhy": "Visiting the node before its children lists the operator first."
+  },
+  {
+    "term": "Post-order traversal",
+    "definition": "A binary-tree walk that visits the left subtree, then the right subtree, then the node.",
+    "wrongs": [
+      "A walk that visits the node before its children.",
+      "A walk that visits the node between the two subtrees.",
+      "A walk that uses a queue to visit level by level."
+    ],
+    "why": "Children are processed before their parent, which suits deleting a tree or evaluating an expression.",
+    "example": "An expression tree rooted at plus with children 2 and 3 yields 2, then 3, then plus.",
+    "scenario": "A tree should be freed by releasing both subtrees before releasing the node itself. Which traversal order matches that?",
+    "scenarioAnswer": "Post-order traversal",
+    "scenarioWrongs": ["Pre-order traversal", "In-order traversal", "Level-order traversal"],
+    "scenarioWhy": "Post-order visits both children before the node, so subtrees can be freed first."
+  },
+  {
+    "term": "Load factor",
+    "definition": "The ratio of the number of stored keys to the number of slots in a hash table.",
+    "wrongs": [
+      "The height difference of the two subtrees of a tree node.",
+      "The maximum number of children a tree node may have.",
+      "The depth of the deepest leaf in a heap."
+    ],
+    "why": "A high ratio means more collisions, so tables often resize after the ratio passes a threshold.",
+    "example": "A table with 8 slots and 6 keys has a ratio of 0.75, a common point at which the table grows.",
+    "scenario": "A hash table holds 6 keys in 8 slots and resizes when that ratio passes 0.75. What is the ratio called?",
+    "scenarioAnswer": "The load factor",
+    "scenarioWrongs": ["The balance factor", "The branching factor", "The heap height"],
+    "scenarioWhy": "Keys divided by slots is the load factor that triggers resizing."
+  },
+  {
+    "term": "Amortized analysis",
+    "definition": "An average of operation costs over a sequence, so an occasional expensive step is spread across cheaper ones.",
+    "wrongs": [
+      "A bound on the single most expensive call, considered alone.",
+      "A bound that assumes the luckiest possible input.",
+      "An average that assumes random pivot choices inside one sort."
+    ],
+    "why": "A costly resize can be charged across the many cheap insertions that filled the previous capacity.",
+    "example": "One append copies every item in a doubling array, yet across a long series of appends the average cost per append stays constant.",
+    "scenario": "One append copies n items, but over a long series of appends the average cost per append stays constant. What kind of analysis shows that?",
+    "scenarioAnswer": "Amortized analysis",
+    "scenarioWrongs": ["Worst-case analysis of one call", "Best-case analysis", "Average-case analysis of random pivots"],
+    "scenarioWhy": "Averaging the rare copy across many cheap appends is amortized analysis."
+  },
+  {
+    "term": "Backtracking",
+    "definition": "A search that builds a candidate step by step and abandons it as soon as it cannot succeed.",
+    "wrongs": [
+      "A search that always keeps the locally best choice.",
+      "A table method that reuses overlapping subproblems.",
+      "A hash lookup that jumps directly to a slot."
+    ],
+    "why": "The latest choice is undone and the next alternative is tried, so failed branches are not kept.",
+    "example": "A puzzle solver places a digit, finds the row illegal, removes that digit, and tries the next digit.",
+    "scenario": "A puzzle solver places a digit, discovers the row is illegal, removes that digit, and tries another. Which technique is that?",
+    "scenarioAnswer": "Backtracking",
+    "scenarioWrongs": ["A greedy algorithm", "Dynamic programming", "Hashing"],
+    "scenarioWhy": "Undoing a failing choice and trying the next one is backtracking."
+  },
+  {
+    "term": "Cycle",
+    "definition": "A path in a graph that begins and ends at the same vertex.",
+    "wrongs": [
+      "A path that visits every vertex exactly once and does not return.",
+      "A set of edges that connects every vertex without repeating a vertex.",
+      "An order of vertices that respects every directed edge."
+    ],
+    "why": "A directed cycle means no topological order exists, and a cycle means a connected graph is not a tree.",
+    "example": "Prerequisite links from A to B, B to C, and C back to A loop, so those courses cannot be ordered.",
+    "scenario": "Prerequisites say A before B, B before C, and C before A. Why can no valid course order exist?",
+    "scenarioAnswer": "The graph has a cycle",
+    "scenarioWrongs": ["The graph is disconnected", "The edges are weighted", "The graph is a tree"],
+    "scenarioWhy": "The three prerequisite edges form a cycle, and a cycle cannot be topologically ordered."
+  },
+  {
+    "term": "Shortest path",
+    "definition": "A path between two vertices whose total edge weight is the smallest among all such paths.",
+    "wrongs": [
+      "A set of edges that connects every vertex at minimum total cost.",
+      "An order of vertices that respects directed prerequisites.",
+      "A path that visits every vertex exactly once."
+    ],
+    "why": "Unweighted graphs can use breadth-first search, while nonnegative weights call for Dijkstra's algorithm.",
+    "example": "Among several campus routes from the library to the lab, the route whose times add to 6 minutes is the smallest total.",
+    "scenario": "Several routes connect the library to the lab, and an app must report the route whose travel times add to the smallest total. What is that route?",
+    "scenarioAnswer": "A shortest path",
+    "scenarioWrongs": ["A minimum spanning tree", "A topological order", "A Hamiltonian path"],
+    "scenarioWhy": "The route with the smallest total travel time between those two places is a shortest path."
+  }
+]

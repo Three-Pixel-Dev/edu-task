@@ -1,0 +1,785 @@
+{
+  "subjectId": "digital-communications",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Sampling is measuring the amplitude of a continuous-time signal at discrete instants of time.",
+        "answer": true,
+        "explanation": "Sampling keeps the amplitude at chosen instants and discards the waveform between those instants."
+      },
+      {
+        "statement": "A Sampling Theorem is the rule that a noisy channel's capacity equals bandwidth times the SNR in decibels.",
+        "answer": false,
+        "explanation": "If sampling is at least twice the highest frequency, the original band-limited signal is determined by its samples."
+      },
+      {
+        "statement": "A Nyquist Rate is the minimum sampling frequency for a band-limited signal, equal to twice its highest frequency.",
+        "answer": true,
+        "explanation": "Sampling slower than twice the highest frequency is not sufficient for reconstruction, so that product is the minimum rate."
+      },
+      {
+        "statement": "A Folding Frequency is 8 kHz.",
+        "answer": false,
+        "explanation": "Frequencies above half the sampling rate cannot be represented uniquely and alias about that folding frequency."
+      },
+      {
+        "statement": "An Aliasing is the effect in which frequencies above half the sampling rate appear as lower frequencies in the samples.",
+        "answer": true,
+        "explanation": "Under-sampling folds high frequencies about half the sampling rate, so they masquerade as lower frequencies."
+      },
+      {
+        "statement": "A Quantization is multiplexing.",
+        "answer": false,
+        "explanation": "After sampling, quantization replaces a continuous amplitude with the nearest allowed representation level."
+      },
+      {
+        "statement": "A Quantization Error is the difference between a sample's true amplitude and the discrete level chosen for it.",
+        "answer": true,
+        "explanation": "The level is only an approximation, so the original amplitude and the chosen level differ by the quantization error."
+      },
+      {
+        "statement": "A PCM is a passband method that switches a carrier among four phases.",
+        "answer": false,
+        "explanation": "Pulse code modulation is the chain of sampling, quantization, and binary encoding of the quantized levels."
+      },
+      {
+        "statement": "A Companding is compressing a signal's amplitude range before uniform quantization and expanding it at the receiver.",
+        "answer": true,
+        "explanation": "Compression gives small signals more of the quantizer's resolution, and expansion restores the original range."
+      },
+      {
+        "statement": "A Delta Modulation is 8-bit PCM.",
+        "answer": false,
+        "explanation": "Each sample interval carries a single bit, the sign of the difference from the staircase approximation."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A DPCM is encoding the difference between a sample and a predicted value, using more than a sign bit.",
+        "answer": true,
+        "explanation": "Differential PCM quantizes a prediction error, which is smaller than the sample and can use several bits."
+      },
+      {
+        "statement": "A Modulation is parity checking.",
+        "answer": false,
+        "explanation": "The message changes a chosen parameter of the carrier so the information can occupy a desired frequency band."
+      },
+      {
+        "statement": "An ASK is digital modulation that represents symbols by discrete amplitudes of a carrier at one frequency.",
+        "answer": true,
+        "explanation": "The information is carried in the carrier amplitude, while the carrier frequency stays the same."
+      },
+      {
+        "statement": "A FSK is digital modulation that encodes symbols as points with both amplitude and phase.",
+        "answer": false,
+        "explanation": "Each symbol selects a frequency, so the receiver distinguishes symbols by which tone arrived."
+      },
+      {
+        "statement": "A PSK is digital modulation that represents symbols by discrete phases of a constant-amplitude carrier.",
+        "answer": true,
+        "explanation": "The receiver recovers the symbol from the phase shift, while the carrier amplitude stays constant."
+      },
+      {
+        "statement": "A QPSK is bPSK.",
+        "answer": false,
+        "explanation": "Four phases give four symbols, and four symbols can represent two bits each."
+      },
+      {
+        "statement": "A QAM is modulation that encodes symbols by changing both the amplitude and the phase of a carrier.",
+        "answer": true,
+        "explanation": "Each symbol is a pair of amplitude and phase, plotted as a point in the in-phase and quadrature plane."
+      },
+      {
+        "statement": "A Constellation Diagram is a Smith chart.",
+        "answer": false,
+        "explanation": "The horizontal and vertical axes are the two carrier components, so each legal symbol is one point."
+      },
+      {
+        "statement": "A Carrier is a high-frequency wave whose amplitude, frequency, or phase is varied to carry a message.",
+        "answer": true,
+        "explanation": "The carrier itself is a sinusoid chosen so the modulated signal occupies the channel's passband."
+      },
+      {
+        "statement": "A Baseband Transmission is combining many optical wavelengths on one fiber.",
+        "answer": false,
+        "explanation": "The pulses or the message spectrum stay around zero frequency instead of being moved to a carrier."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Passband Transmission is sending information by modulating it onto a carrier so the spectrum is centered away from zero.",
+        "answer": true,
+        "explanation": "Modulation translates the message spectrum so it is centered on the carrier frequency."
+      },
+      {
+        "statement": "A Symbol Rate is bit rate.",
+        "answer": false,
+        "explanation": "Each symbol is one signaling interval, so the symbol rate is how many of those intervals occur each second."
+      },
+      {
+        "statement": "A Bit Rate is the number of information bits transmitted per second.",
+        "answer": true,
+        "explanation": "Bit rate multiplies the symbol rate by the number of information bits carried in each symbol."
+      },
+      {
+        "statement": "A Noise is a sampling clock.",
+        "answer": false,
+        "explanation": "Noise is not part of the transmitted message; it disturbs the received waveform and can flip decisions."
+      },
+      {
+        "statement": "An AWGN is a channel model that adds noise with a Gaussian amplitude distribution and a flat spectrum.",
+        "answer": true,
+        "explanation": "The noise is additive, its samples are Gaussian, and white means its power spectral density is constant."
+      },
+      {
+        "statement": "A SNR is the number of symbols sent per second.",
+        "answer": false,
+        "explanation": "Comparing signal power with noise power, often as 10 log10 of that ratio in decibels, gives the SNR."
+      },
+      {
+        "statement": "A Bandwidth is the width of the frequency band a signal occupies or a channel passes, measured in hertz.",
+        "answer": true,
+        "explanation": "Bandwidth is an interval of frequency, the highest passed frequency minus the lowest, not a bit rate."
+      },
+      {
+        "statement": "A Shannon Capacity is 3 kbit/s.",
+        "answer": false,
+        "explanation": "Shannon's formula uses bandwidth and the linear signal-to-noise ratio to bound reliable communication."
+      },
+      {
+        "statement": "A Nyquist Bit Rate is the maximum bit rate of a noiseless channel, twice the bandwidth times log2 of the number of signal levels.",
+        "answer": true,
+        "explanation": "With no noise, a channel of bandwidth B can carry 2B symbols per second, and each symbol can hold log2(M) bits."
+      },
+      {
+        "statement": "An Attenuation is 100 dB.",
+        "answer": false,
+        "explanation": "The medium absorbs or spreads energy, so received power is lower than transmitted power."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Bit Error Rate is the fraction of received bits that are decoded incorrectly.",
+        "answer": true,
+        "explanation": "Bit error rate counts wrong bits and divides by the number of bits received in the same interval."
+      },
+      {
+        "statement": "An Error Detection is modulating a carrier's phase to represent the data.",
+        "answer": false,
+        "explanation": "Detection only flags a damaged block; correction or a retransmission request is a further step."
+      },
+      {
+        "statement": "A Parity Bit is an extra bit set so the count of 1s in a block is even or odd, used to notice bit errors.",
+        "answer": true,
+        "explanation": "The sender chooses the extra bit to force the agreed parity, and the receiver checks that the parity still holds."
+      },
+      {
+        "statement": "An Even Parity is 1.",
+        "answer": false,
+        "explanation": "The parity bit is 0 when the data already has an even number of 1s, and 1 when it has an odd number."
+      },
+      {
+        "statement": "A Checksum is a detection value formed by summing data words and appending that sum for the receiver to recompute.",
+        "answer": true,
+        "explanation": "The receiver adds the same words, including the appended sum, and a mismatch indicates a detected error."
+      },
+      {
+        "statement": "A CRC is manchester coding.",
+        "answer": false,
+        "explanation": "Polynomial division by the generator produces a remainder that is appended and recomputed at the receiver."
+      },
+      {
+        "statement": "A Hamming Distance is the number of bit positions in which two equal-length binary words differ.",
+        "answer": true,
+        "explanation": "Comparing the words position by position and counting mismatches gives their Hamming distance."
+      },
+      {
+        "statement": "A Hamming Code is a single parity bit that can notice an odd number of errors but cannot correct one.",
+        "answer": false,
+        "explanation": "Parity checks at chosen positions form a syndrome that identifies which single bit to flip."
+      },
+      {
+        "statement": "A Minimum Distance is the smallest Hamming distance between any two different valid codewords of a code.",
+        "answer": true,
+        "explanation": "Detection and correction limits are set by this smallest separation: it corrects t errors when the distance is at least 2t+1."
+      },
+      {
+        "statement": "A FEC is aRQ.",
+        "answer": false,
+        "explanation": "The redundancy is enough for the receiver to reconstruct the message without a return channel."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An ARQ is an error-control strategy that detects a bad block and asks the sender to transmit it again.",
+        "answer": true,
+        "explanation": "Automatic repeat request depends on detection plus a feedback path that triggers retransmission."
+      },
+      {
+        "statement": "A Multiplexing is attenuation.",
+        "answer": false,
+        "explanation": "Multiplexing divides the link by frequency, time, wavelength, or code so more than one signal can use it."
+      },
+      {
+        "statement": "A FDM is multiplexing that gives each signal its own frequency band at the same time.",
+        "answer": true,
+        "explanation": "The signals occupy the link simultaneously, separated by non-overlapping frequency bands and often guard bands."
+      },
+      {
+        "statement": "A TDM is multiplexing that separates users only by spreading codes.",
+        "answer": false,
+        "explanation": "Only one signal uses the channel in a given slot, and the slots repeat in a fixed frame."
+      },
+      {
+        "statement": "A Statistical TDM is time multiplexing that assigns slots on demand to sources that currently have data to send.",
+        "answer": true,
+        "explanation": "Idle sources do not consume slots, so the link is shared according to actual traffic rather than a fixed roster."
+      },
+      {
+        "statement": "A WDM is tDM.",
+        "answer": false,
+        "explanation": "Each optical carrier has its own wavelength, so many lightwave channels share one fiber."
+      },
+      {
+        "statement": "A CDMA is multiple access in which users share time and frequency but are separated by distinct spreading codes.",
+        "answer": true,
+        "explanation": "Each transmitter multiplies its data by a code, and a receiver that uses the matching code extracts that user."
+      },
+      {
+        "statement": "A Line Coding is companding.",
+        "answer": false,
+        "explanation": "Line coding chooses the pulse shape and the rules, such as NRZ or Manchester, used on a baseband line."
+      },
+      {
+        "statement": "A Manchester Encoding is a line code that places a transition in the middle of every bit period so the receiver can recover the clock.",
+        "answer": true,
+        "explanation": "The guaranteed mid-bit transition removes long constant levels and provides a timing reference."
+      },
+      {
+        "statement": "An Intersymbol Interference is the rounding error between a sample and its quantization level.",
+        "answer": false,
+        "explanation": "Band limiting spreads each pulse, so the receiver can sample a mix of the current symbol and its neighbors."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, shifting a message onto a high-frequency carrier for radio transmission is called Sampling.",
+        "answer": false,
+        "explanation": "Sampling keeps the amplitude at chosen instants and discards the waveform between those instants."
+      },
+      {
+        "statement": "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster.",
+        "answer": true,
+        "explanation": "If sampling is at least twice the highest frequency, the original band-limited signal is determined by its samples."
+      },
+      {
+        "statement": "In standard textbooks, 3.4 kHz is called Nyquist Rate.",
+        "answer": false,
+        "explanation": "Sampling slower than twice the highest frequency is not sufficient for reconstruction, so that product is the minimum rate."
+      },
+      {
+        "statement": "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+        "answer": true,
+        "explanation": "Frequencies above half the sampling rate cannot be represented uniquely and alias about that folding frequency."
+      },
+      {
+        "statement": "In standard textbooks, 14 kHz is called Aliasing.",
+        "answer": false,
+        "explanation": "Under-sampling folds high frequencies about half the sampling rate, so they masquerade as lower frequencies."
+      },
+      {
+        "statement": "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels.",
+        "answer": true,
+        "explanation": "After sampling, quantization replaces a continuous amplitude with the nearest allowed representation level."
+      },
+      {
+        "statement": "In standard textbooks, the number of bits used to number a PCM code word is called Quantization Error.",
+        "answer": false,
+        "explanation": "The level is only an approximation, so the original amplitude and the chosen level differ by the quantization error."
+      },
+      {
+        "statement": "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word.",
+        "answer": true,
+        "explanation": "Pulse code modulation is the chain of sampling, quantization, and binary encoding of the quantized levels."
+      },
+      {
+        "statement": "In standard textbooks, delta modulation is called Companding.",
+        "answer": false,
+        "explanation": "Compression gives small signals more of the quantizer's resolution, and expansion restores the original range."
+      },
+      {
+        "statement": "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+        "answer": true,
+        "explanation": "Each sample interval carries a single bit, the sign of the difference from the staircase approximation."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, tDM is called DPCM.",
+        "answer": false,
+        "explanation": "Differential PCM quantizes a prediction error, which is smaller than the sample and can use several bits."
+      },
+      {
+        "statement": "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna.",
+        "answer": true,
+        "explanation": "The message changes a chosen parameter of the carrier so the information can occupy a desired frequency band."
+      },
+      {
+        "statement": "In standard textbooks, digital modulation that keeps amplitude fixed and changes only the carrier phase is called ASK.",
+        "answer": false,
+        "explanation": "The information is carried in the carrier amplitude, while the carrier frequency stays the same."
+      },
+      {
+        "statement": "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+        "answer": true,
+        "explanation": "Each symbol selects a frequency, so the receiver distinguishes symbols by which tone arrived."
+      },
+      {
+        "statement": "In standard textbooks, aSK is called PSK.",
+        "answer": false,
+        "explanation": "The receiver recovers the symbol from the phase shift, while the carrier amplitude stays constant."
+      },
+      {
+        "statement": "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+        "answer": true,
+        "explanation": "Four phases give four symbols, and four symbols can represent two bits each."
+      },
+      {
+        "statement": "In standard textbooks, aSK is called QAM.",
+        "answer": false,
+        "explanation": "Each symbol is a pair of amplitude and phase, plotted as a point in the in-phase and quadrature plane."
+      },
+      {
+        "statement": "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot.",
+        "answer": true,
+        "explanation": "The horizontal and vertical axes are the two carrier components, so each legal symbol is one point."
+      },
+      {
+        "statement": "In standard textbooks, the extra parity bit appended to a data block is called Carrier.",
+        "answer": false,
+        "explanation": "The carrier itself is a sinusoid chosen so the modulated signal occupies the channel's passband."
+      },
+      {
+        "statement": "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+        "answer": true,
+        "explanation": "The pulses or the message spectrum stay around zero frequency instead of being moved to a carrier."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, baseband transmission is called Passband Transmission.",
+        "answer": false,
+        "explanation": "Modulation translates the message spectrum so it is centered on the carrier frequency."
+      },
+      {
+        "statement": "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds.",
+        "answer": true,
+        "explanation": "Each symbol is one signaling interval, so the symbol rate is how many of those intervals occur each second."
+      },
+      {
+        "statement": "In standard textbooks, 500 bit/s is called Bit Rate.",
+        "answer": false,
+        "explanation": "Bit rate multiplies the symbol rate by the number of information bits carried in each symbol."
+      },
+      {
+        "statement": "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+        "answer": true,
+        "explanation": "Noise is not part of the transmitted message; it disturbs the received waveform and can flip decisions."
+      },
+      {
+        "statement": "In standard textbooks, a code that corrects errors by polynomial division is called AWGN.",
+        "answer": false,
+        "explanation": "The noise is additive, its samples are Gaussian, and white means its power spectral density is constant."
+      },
+      {
+        "statement": "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB.",
+        "answer": true,
+        "explanation": "Comparing signal power with noise power, often as 10 log10 of that ratio in decibels, gives the SNR."
+      },
+      {
+        "statement": "In standard textbooks, 3300 Hz is called Bandwidth.",
+        "answer": false,
+        "explanation": "Bandwidth is an interval of frequency, the highest passed frequency minus the lowest, not a bit rate."
+      },
+      {
+        "statement": "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+        "answer": true,
+        "explanation": "Shannon's formula uses bandwidth and the linear signal-to-noise ratio to bound reliable communication."
+      },
+      {
+        "statement": "In standard textbooks, 2000 bit/s is called Nyquist Bit Rate.",
+        "answer": false,
+        "explanation": "With no noise, a channel of bandwidth B can carry 2B symbols per second, and each symbol can hold log2(M) bits."
+      },
+      {
+        "statement": "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB.",
+        "answer": true,
+        "explanation": "The medium absorbs or spreads energy, so received power is lower than transmitted power."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the ratio of signal power to noise power is called Bit Error Rate.",
+        "answer": false,
+        "explanation": "Bit error rate counts wrong bits and divides by the number of bits received in the same interval."
+      },
+      {
+        "statement": "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+        "answer": true,
+        "explanation": "Detection only flags a damaged block; correction or a retransmission request is a further step."
+      },
+      {
+        "statement": "In standard textbooks, start bit is called Parity Bit.",
+        "answer": false,
+        "explanation": "The sender chooses the extra bit to force the agreed parity, and the receiver checks that the parity still holds."
+      },
+      {
+        "statement": "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0.",
+        "answer": true,
+        "explanation": "The parity bit is 0 when the data already has an even number of 1s, and 1 when it has an odd number."
+      },
+      {
+        "statement": "In standard textbooks, even parity on one byte is called Checksum.",
+        "answer": false,
+        "explanation": "The receiver adds the same words, including the appended sum, and a mismatch indicates a detected error."
+      },
+      {
+        "statement": "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+        "answer": true,
+        "explanation": "Polynomial division by the generator produces a remainder that is appended and recomputed at the receiver."
+      },
+      {
+        "statement": "In standard textbooks, the physical length of the cable between two modems is called Hamming Distance.",
+        "answer": false,
+        "explanation": "Comparing the words position by position and counting mismatches gives their Hamming distance."
+      },
+      {
+        "statement": "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+        "answer": true,
+        "explanation": "Parity checks at chosen positions form a syndrome that identifies which single bit to flip."
+      },
+      {
+        "statement": "In standard textbooks, 2 is called Minimum Distance.",
+        "answer": false,
+        "explanation": "Detection and correction limits are set by this smallest separation: it corrects t errors when the distance is at least 2t+1."
+      },
+      {
+        "statement": "A deep-space probe uses a correcting code because a retransmission would take too long.",
+        "answer": true,
+        "explanation": "The redundancy is enough for the receiver to reconstruct the message without a return channel."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, wDM is called ARQ.",
+        "answer": false,
+        "explanation": "Automatic repeat request depends on detection plus a feedback path that triggers retransmission."
+      },
+      {
+        "statement": "Four phone calls share one trunk instead of four separate copper pairs.",
+        "answer": true,
+        "explanation": "Multiplexing divides the link by frequency, time, wavelength, or code so more than one signal can use it."
+      },
+      {
+        "statement": "In standard textbooks, multiplexing that separates users by orthogonal spreading codes is called FDM.",
+        "answer": false,
+        "explanation": "The signals occupy the link simultaneously, separated by non-overlapping frequency bands and often guard bands."
+      },
+      {
+        "statement": "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+        "answer": true,
+        "explanation": "Only one signal uses the channel in a given slot, and the slots repeat in a fixed frame."
+      },
+      {
+        "statement": "In standard textbooks, synchronous TDM is called Statistical TDM.",
+        "answer": false,
+        "explanation": "Idle sources do not consume slots, so the link is shared according to actual traffic rather than a fixed roster."
+      },
+      {
+        "statement": "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time.",
+        "answer": true,
+        "explanation": "Each optical carrier has its own wavelength, so many lightwave channels share one fiber."
+      },
+      {
+        "statement": "In standard textbooks, wDMA is called CDMA.",
+        "answer": false,
+        "explanation": "Each transmitter multiplies its data by a code, and a receiver that uses the matching code extracts that user."
+      },
+      {
+        "statement": "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable.",
+        "answer": true,
+        "explanation": "Line coding chooses the pulse shape and the rules, such as NRZ or Manchester, used on a baseband line."
+      },
+      {
+        "statement": "In standard textbooks, a bipolar code that uses a pulse only for 1s and sends zero voltage for 0s is called Manchester Encoding.",
+        "answer": false,
+        "explanation": "The guaranteed mid-bit transition removes long constant levels and provides a timing reference."
+      },
+      {
+        "statement": "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one.",
+        "answer": true,
+        "explanation": "Band limiting spreads each pulse, so the receiver can sample a mix of the current symbol and its neighbors."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a thermometer voltage is read every 1 ms and the values between those instants are not kept. Which operation is this, the correct result is quantization.",
+        "answer": false,
+        "explanation": "Reading a continuous signal at discrete instants is sampling."
+      },
+      {
+        "statement": "When the highest frequency in a recording is 5 kHz. Which minimum sampling rate does the sampling theorem require, the correct result is 2.5 kHz.",
+        "answer": false,
+        "explanation": "The theorem requires a sampling rate of at least twice 5 kHz, which is 10 kHz."
+      },
+      {
+        "statement": "When a baseband signal contains no energy above 3.4 kHz. The sampling frequency is its Nyquist rate, the correct result is 6.8 kHz.",
+        "answer": true,
+        "explanation": "The Nyquist rate is twice the highest frequency, so 2 times 3.4 kHz is 6.8 kHz."
+      },
+      {
+        "statement": "When samples are taken at 8000 samples per second. The frequency is the folding frequency, the correct result is 4 kHz.",
+        "answer": true,
+        "explanation": "The folding frequency is half the sampling frequency, and half of 8 kHz is 4 kHz."
+      },
+      {
+        "statement": "When a 6 kHz sine wave is sampled at 8 kHz with no anti-alias filter. Which frequency appears in the sample sequence, the correct result is 8 kHz.",
+        "answer": false,
+        "explanation": "The tone folds about 4 kHz, and the distance from 6 kHz to 8 kHz is 2 kHz."
+      },
+      {
+        "statement": "When every sample of a speech waveform is replaced by the nearest of 256 allowed amplitudes. Which step is that, the correct result is multiplexing.",
+        "answer": false,
+        "explanation": "Choosing one of a finite set of amplitudes for each sample is quantization."
+      },
+      {
+        "statement": "When a sample is 1.37 V and the nearest reconstruction level is 1.25 V. The value is the magnitude of the quantization error, the correct result is 0.12 V.",
+        "answer": true,
+        "explanation": "The error magnitude is the absolute difference, 1.37 minus 1.25, which is 0.12 V."
+      },
+      {
+        "statement": "When a voice line is sampled, each sample is assigned a level, and each level is transmitted as 8 bits. The method is this, the correct result is pCM.",
+        "answer": true,
+        "explanation": "Sampling, quantizing, and binary encoding together are pulse code modulation."
+      },
+      {
+        "statement": "When quiet speech is stretched before a uniform quantizer and compressed back after decoding. Which technique is this, the correct result is fDM.",
+        "answer": false,
+        "explanation": "Compressing before quantization and expanding afterward is companding."
+      },
+      {
+        "statement": "When the transmitter sends one bit per sample interval meaning step up or step down from the staircase. The scheme is this, the correct result is delta modulation.",
+        "answer": true,
+        "explanation": "A single up-or-down bit each interval is delta modulation."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When the encoder transmits a 4-bit code for the gap between a new sample and its prediction. Which scheme is this, the correct result is manchester coding.",
+        "answer": false,
+        "explanation": "A multi-bit encoding of the prediction error is differential PCM, not one-bit delta modulation."
+      },
+      {
+        "statement": "When a 100 kHz sinusoid has its amplitude varied so a microphone waveform can cross a radio channel. Which operation is applied to the sinusoid, the correct result is parity checking.",
+        "answer": false,
+        "explanation": "Changing a carrier parameter in step with a message is modulation."
+      },
+      {
+        "statement": "When bits are sent on one frequency as either full carrier amplitude or zero amplitude. The scheme is this, the correct result is aSK.",
+        "answer": true,
+        "explanation": "Changing only the carrier amplitude to represent bits is amplitude shift keying."
+      },
+      {
+        "statement": "When a modem uses 1200 Hz for 0 and 2200 Hz for 1, with amplitude held constant. The scheme is this, the correct result is fSK.",
+        "answer": true,
+        "explanation": "Switching between discrete carrier frequencies is frequency shift keying."
+      },
+      {
+        "statement": "When amplitude stays fixed, 0 degrees means bit 0, and 180 degrees means bit 1. Which scheme is this, the correct result is pAM.",
+        "answer": false,
+        "explanation": "Encoding bits as discrete carrier phases is phase shift keying."
+      },
+      {
+        "statement": "When a link uses four phases spaced 90 degrees apart, and each transmitted symbol stands for two bits. Which scheme is this, the correct result is bPSK.",
+        "answer": false,
+        "explanation": "Four phases carrying two bits per symbol is quadrature phase shift keying."
+      },
+      {
+        "statement": "When a 16-point scheme changes both amplitude and phase so each symbol carries four bits. The family is this, the correct result is qAM.",
+        "answer": true,
+        "explanation": "Symbols that differ in both amplitude and phase belong to quadrature amplitude modulation."
+      },
+      {
+        "statement": "When received symbols are drawn as dots on the I and Q axes to see The decision region they fall in. Which display is this, the correct result is a constellation diagram.",
+        "answer": true,
+        "explanation": "Symbol points in the I-Q plane form a constellation diagram."
+      },
+      {
+        "statement": "When the data are recovered from a 2.4 GHz wave that served only as the vehicle for the symbols. Which wave is the 2.4 GHz signal, the correct result is the baseband message.",
+        "answer": false,
+        "explanation": "The high-frequency wave that is modulated by the message is the carrier."
+      },
+      {
+        "statement": "When a copper link sends voltage pulses with the spectrum sitting near 0 Hz and no radio-frequency shift. The form of transmission is this, the correct result is baseband transmission.",
+        "answer": true,
+        "explanation": "A spectrum concentrated near zero, with no carrier shift, is baseband transmission."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When wi-Fi shifts the data onto a 5 GHz carrier so the spectrum is centered on that carrier. Which form of transmission is this, the correct result is pCM.",
+        "answer": false,
+        "explanation": "A spectrum centered on a high-frequency carrier is passband transmission."
+      },
+      {
+        "statement": "When a link emits 2000 symbols each second, and each symbol may represent more than one bit. Which quantity is 2000 per second, the correct result is bit rate.",
+        "answer": false,
+        "explanation": "Symbols per second is the symbol rate, even when a symbol holds several bits."
+      },
+      {
+        "statement": "When qPSK sends 1000 symbols per second. The information bit rate results, the correct result is 2000 bit/s.",
+        "answer": true,
+        "explanation": "QPSK carries two bits per symbol, so 1000 symbols per second is 2000 bit/s."
+      },
+      {
+        "statement": "When a random electrical disturbance on the cable flips a receiver's bit decision. The impairment is that disturbance, the correct result is noise.",
+        "answer": true,
+        "explanation": "Unwanted random energy that corrupts decisions is noise."
+      },
+      {
+        "statement": "When the design adds noise that is Gaussian, spectrally flat, and simply summed with the signal. Which model is this, the correct result is a noiseless Nyquist channel.",
+        "answer": false,
+        "explanation": "Additive, white, and Gaussian noise is the AWGN model."
+      },
+      {
+        "statement": "When signal power is 100 times the noise power. Which SNR in decibels is that, the correct result is 2 dB.",
+        "answer": false,
+        "explanation": "Ten times the base-10 log of 100 is 20, so the SNR is 20 dB."
+      },
+      {
+        "statement": "When a channel passes 300 Hz through 3300 Hz and rejects everything else. The bandwidth does it have, the correct result is 3000 Hz.",
+        "answer": true,
+        "explanation": "Bandwidth is the difference of the band edges, 3300 minus 300, which is 3000 Hz."
+      },
+      {
+        "statement": "When bandwidth is 3000 Hz and the SNR power ratio is 1023. The capacity does Shannon's formula give, the correct result is 30 kbit/s.",
+        "answer": true,
+        "explanation": "Capacity is 3000 times log2 of 1024, and log2 of 1024 is 10, so the result is 30 kbit/s."
+      },
+      {
+        "statement": "When a noiseless channel has bandwidth 4000 Hz and 2 signal levels. Which maximum bit rate does the Nyquist formula give, the correct result is 16000 bit/s.",
+        "answer": false,
+        "explanation": "The noiseless rate is 2 times 4000 times log2 of 2, which is 8000 bit/s."
+      },
+      {
+        "statement": "When received power is 1/100 of the transmitted power. The attenuation in decibels is that, the correct result is 20 dB.",
+        "answer": true,
+        "explanation": "Attenuation is 10 log10 of 100, which is 20 dB."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When eight bits are wrong in 4000 received bits. Which bit error rate is that, the correct result is 0.02.",
+        "answer": false,
+        "explanation": "Eight errors divided by 4000 bits is 0.002."
+      },
+      {
+        "statement": "When the receiver can tell a frame is damaged but cannot repair the bits, so it drops the frame. Which capability is it using, the correct result is modulation.",
+        "answer": false,
+        "explanation": "Recognizing a damaged block without fixing the bits is error detection."
+      },
+      {
+        "statement": "When one extra bit is appended so a single flipped bit in the block can be noticed. The added bit is this in the simplest scheme, the correct result is parity bit.",
+        "answer": true,
+        "explanation": "An extra bit that forces even or odd parity is a parity bit."
+      },
+      {
+        "statement": "When data bits are 1011001, The contain four 1s. Which even-parity bit should be appended, the correct result is 0.",
+        "answer": true,
+        "explanation": "Four 1s is already even, so the even-parity bit is 0."
+      },
+      {
+        "statement": "When the sender adds the 16-bit words and appends the sum; the receiver adds them again and compares. Which method is this, the correct result is hamming code.",
+        "answer": false,
+        "explanation": "Detection by summing data words is a checksum, not polynomial division."
+      },
+      {
+        "statement": "When the frame check is the remainder after dividing the data by a generator polynomial. Which code is this, the correct result is manchester coding.",
+        "answer": false,
+        "explanation": "A remainder from generator-polynomial division is a cyclic redundancy check."
+      },
+      {
+        "statement": "When the words 10110 and 10011 differ in two bit positions. The Hamming distance is that, the correct result is 2.",
+        "answer": true,
+        "explanation": "Two differing positions give a Hamming distance of 2."
+      },
+      {
+        "statement": "When a (7,4) code corrects one flipped bit using parity checks at power-of-two positions. The code family is this, the correct result is hamming code.",
+        "answer": true,
+        "explanation": "Overlapping parity bits that correct one error identify a Hamming code."
+      },
+      {
+        "statement": "When a code's closest distinct codewords differ in 3 positions, and no pair is closer. How many errors can the code correct, the correct result is 0.",
+        "answer": false,
+        "explanation": "A minimum distance of 3 satisfies 2t+1 = 3, so the code corrects t = 1 error."
+      },
+      {
+        "statement": "When a satellite link has a huge delay, so the receiver fixes single-bit errors locally and does not ask for a resend. The strategy is this, the correct result is fEC.",
+        "answer": true,
+        "explanation": "Local correction without a retransmission request is forward error correction."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a bad frame is detected and the sender is told to transmit that frame again. Which strategy is this, the correct result is companding.",
+        "answer": false,
+        "explanation": "Asking for the damaged block to be sent again is automatic repeat request."
+      },
+      {
+        "statement": "When four independent calls share one trunk instead of four separate cables. Which general technique allows the sharing, the correct result is attenuation.",
+        "answer": false,
+        "explanation": "Combining independent signals onto one shared link is multiplexing."
+      },
+      {
+        "statement": "When four calls use 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz simultaneously on one pair. The method is this, the correct result is fDM.",
+        "answer": true,
+        "explanation": "Simultaneous signals kept in separate frequency bands use frequency-division multiplexing."
+      },
+      {
+        "statement": "When each call gets the whole cable for a fixed slot in rotation, with a frame every 125 microseconds. The method is this, the correct result is tDM.",
+        "answer": true,
+        "explanation": "Fixed repeating time slots that each get the full bandwidth are time-division multiplexing."
+      },
+      {
+        "statement": "When slots go only to terminals that have bytes waiting, not to silent terminals in a fixed order. Which method is this, the correct result is wDM.",
+        "answer": false,
+        "explanation": "On-demand slots for active sources are statistical time-division multiplexing."
+      },
+      {
+        "statement": "When one fiber carries simultaneous channels at 1550.12 nm and 1550.92 nm. Which multiplexing method is this, the correct result is tDM.",
+        "answer": false,
+        "explanation": "Separate wavelengths on one fiber are wavelength-division multiplexing."
+      },
+      {
+        "statement": "When users transmit together in the same band, and each receiver separates them with a unique code. The method is this, the correct result is cDMA.",
+        "answer": true,
+        "explanation": "Separation by spreading codes, while sharing time and frequency, is CDMA."
+      },
+      {
+        "statement": "When bits are turned into voltage pulses on copper before any radio carrier is applied. The mapping is this, the correct result is line coding.",
+        "answer": true,
+        "explanation": "Mapping bits to a baseband pulse waveform is line coding."
+      },
+      {
+        "statement": "When every bit period contains a mid-bit transition, and the receiver uses it to stay in sync. Which line code is this, the correct result is nRZ-L.",
+        "answer": false,
+        "explanation": "A transition in the middle of every bit period is Manchester encoding."
+      },
+      {
+        "statement": "When at the decision instant the receiver sees leftover voltage from the previous pulse added to the current pulse. The impairment is this, the correct result is intersymbol interference.",
+        "answer": true,
+        "explanation": "Symbol energy spilling into neighboring symbol intervals is intersymbol interference."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1685 @@
+{
+  "subjectId": "digital-communications",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Sampling?",
+        "options": [
+          "Shifting a message onto a high-frequency carrier for radio transmission.",
+          "Mapping each measured amplitude onto the nearest level from a finite set.",
+          "Sharing one link among several signals by frequency or time.",
+          "Measuring the amplitude of a continuous-time signal at discrete instants of time."
+        ],
+        "correctAnswer": "Measuring the amplitude of a continuous-time signal at discrete instants of time.",
+        "explanation": "Sampling keeps the amplitude at chosen instants and discards the waveform between those instants."
+      },
+      {
+        "question": "What is Sampling Theorem?",
+        "options": [
+          "The statement that parity bits can correct every burst of errors.",
+          "The result that a band-limited signal can be reconstructed from samples taken at least twice its highest frequency.",
+          "The rule that a noisy channel's capacity equals bandwidth times the SNR in decibels.",
+          "The claim that any signal can be reconstructed from one sample per minute."
+        ],
+        "correctAnswer": "The result that a band-limited signal can be reconstructed from samples taken at least twice its highest frequency.",
+        "explanation": "If sampling is at least twice the highest frequency, the original band-limited signal is determined by its samples."
+      },
+      {
+        "question": "What is Nyquist Rate?",
+        "options": [
+          "The minimum sampling frequency for a band-limited signal, equal to twice its highest frequency.",
+          "The maximum bit rate of a noisy channel from Shannon's formula.",
+          "Half the sampling frequency, which is the highest frequency the samples can represent.",
+          "The symbol rate multiplied by the carrier frequency."
+        ],
+        "correctAnswer": "The minimum sampling frequency for a band-limited signal, equal to twice its highest frequency.",
+        "explanation": "Sampling slower than twice the highest frequency is not sufficient for reconstruction, so that product is the minimum rate."
+      },
+      {
+        "question": "What is Folding Frequency?",
+        "options": [
+          "The carrier frequency used for passband transmission.",
+          "Half the sampling frequency, above which components fold back into lower frequencies.",
+          "Twice the highest frequency in the original signal, which is the minimum sampling rate.",
+          "The bandwidth of a raised-cosine filter's excess spectrum."
+        ],
+        "correctAnswer": "Half the sampling frequency, above which components fold back into lower frequencies.",
+        "explanation": "Frequencies above half the sampling rate cannot be represented uniquely and alias about that folding frequency."
+      },
+      {
+        "question": "What is Aliasing?",
+        "options": [
+          "The loss of signal power as a wave travels down a cable.",
+          "A remainder left after polynomial division of a frame.",
+          "Overlap of pulse energy into neighboring symbol intervals.",
+          "The effect in which frequencies above half the sampling rate appear as lower frequencies in the samples."
+        ],
+        "correctAnswer": "The effect in which frequencies above half the sampling rate appear as lower frequencies in the samples.",
+        "explanation": "Under-sampling folds high frequencies about half the sampling rate, so they masquerade as lower frequencies."
+      },
+      {
+        "question": "What is Quantization?",
+        "options": [
+          "Assigning each user a separate frequency band.",
+          "Adding a parity bit so the number of 1s is even.",
+          "Measuring a continuous waveform at evenly spaced instants.",
+          "Mapping each sample's amplitude to one of a finite set of discrete levels."
+        ],
+        "correctAnswer": "Mapping each sample's amplitude to one of a finite set of discrete levels.",
+        "explanation": "After sampling, quantization replaces a continuous amplitude with the nearest allowed representation level."
+      },
+      {
+        "question": "What is Quantization Error?",
+        "options": [
+          "The number of bits used to number a PCM code word.",
+          "The difference between a sample's true amplitude and the discrete level chosen for it.",
+          "The delay of a symbol through a band-limited channel.",
+          "The gap in time between two successive sampling instants."
+        ],
+        "correctAnswer": "The difference between a sample's true amplitude and the discrete level chosen for it.",
+        "explanation": "The level is only an approximation, so the original amplitude and the chosen level differ by the quantization error."
+      },
+      {
+        "question": "What is PCM?",
+        "options": [
+          "A passband method that switches a carrier among four phases.",
+          "A check value formed as a polynomial remainder.",
+          "A one-bit scheme that sends only the sign of each step from a staircase approximation.",
+          "A method that samples a signal, quantizes each sample, and encodes the levels as binary code words."
+        ],
+        "correctAnswer": "A method that samples a signal, quantizes each sample, and encodes the levels as binary code words.",
+        "explanation": "Pulse code modulation is the chain of sampling, quantization, and binary encoding of the quantized levels."
+      },
+      {
+        "question": "What is Companding?",
+        "options": [
+          "Dividing the data polynomial by a generator to form a frame check.",
+          "Giving each caller a fixed repeating time slot.",
+          "Compressing a signal's amplitude range before uniform quantization and expanding it at the receiver.",
+          "Sending only one bit that says whether to step the approximation up or down."
+        ],
+        "correctAnswer": "Compressing a signal's amplitude range before uniform quantization and expanding it at the receiver.",
+        "explanation": "Compression gives small signals more of the quantizer's resolution, and expansion restores the original range."
+      },
+      {
+        "question": "What is Delta Modulation?",
+        "options": [
+          "Changing both amplitude and phase so one symbol carries several bits.",
+          "A one-bit scheme that transmits only whether the approximation should step up or down.",
+          "Encoding each sample as a multi-bit code word after uniform quantization.",
+          "Appending a checksum formed by adding 16-bit data words."
+        ],
+        "correctAnswer": "A one-bit scheme that transmits only whether the approximation should step up or down.",
+        "explanation": "Each sample interval carries a single bit, the sign of the difference from the staircase approximation."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is DPCM?",
+        "options": [
+          "Mapping bits to mid-bit voltage transitions for clock recovery.",
+          "Assigning each user the full bandwidth in a fixed time slot.",
+          "Sending only the sign of a one-step staircase change.",
+          "Encoding the difference between a sample and a predicted value, using more than a sign bit."
+        ],
+        "correctAnswer": "Encoding the difference between a sample and a predicted value, using more than a sign bit.",
+        "explanation": "Differential PCM quantizes a prediction error, which is smaller than the sample and can use several bits."
+      },
+      {
+        "question": "What is Modulation?",
+        "options": [
+          "Replacing amplitudes with the nearest finite set of levels.",
+          "Varying a property of a carrier wave, such as amplitude, frequency, or phase, in step with a message.",
+          "Detecting errors by recomputing a parity bit.",
+          "Reading a baseband waveform at discrete time instants."
+        ],
+        "correctAnswer": "Varying a property of a carrier wave, such as amplitude, frequency, or phase, in step with a message.",
+        "explanation": "The message changes a chosen parameter of the carrier so the information can occupy a desired frequency band."
+      },
+      {
+        "question": "What is ASK?",
+        "options": [
+          "A baseband line code that inserts a transition in the middle of every bit.",
+          "Digital modulation that switches a constant-amplitude carrier among discrete frequencies.",
+          "Digital modulation that keeps amplitude fixed and changes only the carrier phase.",
+          "Digital modulation that represents symbols by discrete amplitudes of a carrier at one frequency."
+        ],
+        "correctAnswer": "Digital modulation that represents symbols by discrete amplitudes of a carrier at one frequency.",
+        "explanation": "The information is carried in the carrier amplitude, while the carrier frequency stays the same."
+      },
+      {
+        "question": "What is FSK?",
+        "options": [
+          "A detection code computed as a polynomial remainder.",
+          "Digital modulation that represents symbols by switching a carrier among discrete frequencies.",
+          "Digital modulation that uses one frequency and changes only the carrier amplitude.",
+          "Digital modulation that encodes symbols as points with both amplitude and phase."
+        ],
+        "correctAnswer": "Digital modulation that represents symbols by switching a carrier among discrete frequencies.",
+        "explanation": "Each symbol selects a frequency, so the receiver distinguishes symbols by which tone arrived."
+      },
+      {
+        "question": "What is PSK?",
+        "options": [
+          "Digital modulation that represents bits by turning the carrier amplitude on or off.",
+          "Digital modulation that represents symbols by discrete phases of a constant-amplitude carrier.",
+          "A line code that uses a mid-bit transition and no carrier.",
+          "Digital modulation that assigns a different frequency to each symbol."
+        ],
+        "correctAnswer": "Digital modulation that represents symbols by discrete phases of a constant-amplitude carrier.",
+        "explanation": "The receiver recovers the symbol from the phase shift, while the carrier amplitude stays constant."
+      },
+      {
+        "question": "What is QPSK?",
+        "options": [
+          "Frequency shift keying that uses two tones and carries one bit per tone.",
+          "Phase shift keying that uses four carrier phases so each symbol carries two bits.",
+          "On-off keying that uses the presence or absence of a carrier.",
+          "Binary phase shift keying that uses two phases and carries one bit per symbol."
+        ],
+        "correctAnswer": "Phase shift keying that uses four carrier phases so each symbol carries two bits.",
+        "explanation": "Four phases give four symbols, and four symbols can represent two bits each."
+      },
+      {
+        "question": "What is QAM?",
+        "options": [
+          "Modulation that changes only the carrier frequency and keeps amplitude fixed.",
+          "Modulation that encodes symbols by changing both the amplitude and the phase of a carrier.",
+          "Modulation that changes only the carrier phase and keeps amplitude fixed.",
+          "A baseband code that never uses a carrier."
+        ],
+        "correctAnswer": "Modulation that encodes symbols by changing both the amplitude and the phase of a carrier.",
+        "explanation": "Each symbol is a pair of amplitude and phase, plotted as a point in the in-phase and quadrature plane."
+      },
+      {
+        "question": "What is Constellation Diagram?",
+        "options": [
+          "A time-domain display of many overlaid traces used to judge eye opening.",
+          "A plot of gain versus frequency for a linear filter.",
+          "A plot of each symbol as a point in the in-phase and quadrature plane.",
+          "A chart of reflection coefficient on a radio-frequency transmission line."
+        ],
+        "correctAnswer": "A plot of each symbol as a point in the in-phase and quadrature plane.",
+        "explanation": "The horizontal and vertical axes are the two carrier components, so each legal symbol is one point."
+      },
+      {
+        "question": "What is Carrier?",
+        "options": [
+          "A high-frequency wave whose amplitude, frequency, or phase is varied to carry a message.",
+          "The low-frequency message waveform before any frequency shift.",
+          "The clock recovered from mid-bit transitions.",
+          "The extra parity bit appended to a data block."
+        ],
+        "correctAnswer": "A high-frequency wave whose amplitude, frequency, or phase is varied to carry a message.",
+        "explanation": "The carrier itself is a sinusoid chosen so the modulated signal occupies the channel's passband."
+      },
+      {
+        "question": "What is Baseband Transmission?",
+        "options": [
+          "Correcting errors from redundant bits with no retransmission.",
+          "Sending information on a carrier so the spectrum is centered at a high frequency.",
+          "Sending a signal whose spectrum is concentrated near zero frequency, without a carrier shift.",
+          "Combining many optical wavelengths on one fiber."
+        ],
+        "correctAnswer": "Sending a signal whose spectrum is concentrated near zero frequency, without a carrier shift.",
+        "explanation": "The pulses or the message spectrum stay around zero frequency instead of being moved to a carrier."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Passband Transmission?",
+        "options": [
+          "Sampling a waveform at twice its highest frequency.",
+          "Detecting a frame error with a single parity bit.",
+          "Sending pulses whose spectrum remains concentrated near zero frequency.",
+          "Sending information by modulating it onto a carrier so the spectrum is centered away from zero."
+        ],
+        "correctAnswer": "Sending information by modulating it onto a carrier so the spectrum is centered away from zero.",
+        "explanation": "Modulation translates the message spectrum so it is centered on the carrier frequency."
+      },
+      {
+        "question": "What is Symbol Rate?",
+        "options": [
+          "The number of information bits transmitted per second in every modulation.",
+          "The ratio of signal power to noise power.",
+          "The number of symbols transmitted per second.",
+          "The highest frequency present in the original message."
+        ],
+        "correctAnswer": "The number of symbols transmitted per second.",
+        "explanation": "Each symbol is one signaling interval, so the symbol rate is how many of those intervals occur each second."
+      },
+      {
+        "question": "What is Bit Rate?",
+        "options": [
+          "The width of the channel in hertz.",
+          "The fraction of received bits that are wrong.",
+          "The number of information bits transmitted per second.",
+          "The number of symbols transmitted per second, ignoring bits per symbol."
+        ],
+        "correctAnswer": "The number of information bits transmitted per second.",
+        "explanation": "Bit rate multiplies the symbol rate by the number of information bits carried in each symbol."
+      },
+      {
+        "question": "What is Noise?",
+        "options": [
+          "A planned reduction of bandwidth by an ideal low-pass filter.",
+          "The useful carrier that transports the symbols.",
+          "The intended message waveform before it is modulated.",
+          "Unwanted random energy added to a signal that can cause the receiver to decide incorrectly."
+        ],
+        "correctAnswer": "Unwanted random energy added to a signal that can cause the receiver to decide incorrectly.",
+        "explanation": "Noise is not part of the transmitted message; it disturbs the received waveform and can flip decisions."
+      },
+      {
+        "question": "What is AWGN?",
+        "options": [
+          "A frame format that assigns fixed time slots.",
+          "A channel model that adds noise with a Gaussian amplitude distribution and a flat spectrum.",
+          "A code that corrects errors by polynomial division.",
+          "A noiseless channel whose bit rate is only 2B log2 of the number of levels."
+        ],
+        "correctAnswer": "A channel model that adds noise with a Gaussian amplitude distribution and a flat spectrum.",
+        "explanation": "The noise is additive, its samples are Gaussian, and white means its power spectral density is constant."
+      },
+      {
+        "question": "What is SNR?",
+        "options": [
+          "The difference in hertz between the highest and lowest passed frequencies.",
+          "The ratio of average signal power to average noise power.",
+          "The fraction of bits received in error.",
+          "The number of symbols sent per second."
+        ],
+        "correctAnswer": "The ratio of average signal power to average noise power.",
+        "explanation": "Comparing signal power with noise power, often as 10 log10 of that ratio in decibels, gives the SNR."
+      },
+      {
+        "question": "What is Bandwidth?",
+        "options": [
+          "The width of the frequency band a signal occupies or a channel passes, measured in hertz.",
+          "The time delay from the first bit leaving the sender to its arrival.",
+          "The ratio of signal power to noise power in decibels.",
+          "The number of bits transmitted each second."
+        ],
+        "correctAnswer": "The width of the frequency band a signal occupies or a channel passes, measured in hertz.",
+        "explanation": "Bandwidth is an interval of frequency, the highest passed frequency minus the lowest, not a bit rate."
+      },
+      {
+        "question": "What is Shannon Capacity?",
+        "options": [
+          "The minimum sampling rate of twice the highest message frequency.",
+          "The theoretical maximum error-free bit rate of a noisy channel, bandwidth times log2 of one plus the SNR.",
+          "The noiseless limit of twice the bandwidth times log2 of the number of levels.",
+          "The Hamming distance between two particular codewords."
+        ],
+        "correctAnswer": "The theoretical maximum error-free bit rate of a noisy channel, bandwidth times log2 of one plus the SNR.",
+        "explanation": "Shannon's formula uses bandwidth and the linear signal-to-noise ratio to bound reliable communication."
+      },
+      {
+        "question": "What is Nyquist Bit Rate?",
+        "options": [
+          "The minimum sampling frequency of twice the highest message frequency.",
+          "The maximum bit rate of a noiseless channel, twice the bandwidth times log2 of the number of signal levels.",
+          "The noisy-channel limit given by bandwidth times log2 of one plus the SNR.",
+          "Half the sampling frequency, called the folding frequency."
+        ],
+        "correctAnswer": "The maximum bit rate of a noiseless channel, twice the bandwidth times log2 of the number of signal levels.",
+        "explanation": "With no noise, a channel of bandwidth B can carry 2B symbols per second, and each symbol can hold log2(M) bits."
+      },
+      {
+        "question": "What is Attenuation?",
+        "options": [
+          "The overlap of one symbol's energy into the next symbol interval.",
+          "The addition of Gaussian noise with a flat spectrum.",
+          "The loss of signal power as the signal travels through a medium.",
+          "The folding of high frequencies into lower ones by slow sampling."
+        ],
+        "correctAnswer": "The loss of signal power as the signal travels through a medium.",
+        "explanation": "The medium absorbs or spreads energy, so received power is lower than transmitted power."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Bit Error Rate?",
+        "options": [
+          "The fraction of received bits that are decoded incorrectly.",
+          "The number of information bits sent per second.",
+          "The number of symbols sent per second.",
+          "The ratio of signal power to noise power."
+        ],
+        "correctAnswer": "The fraction of received bits that are decoded incorrectly.",
+        "explanation": "Bit error rate counts wrong bits and divides by the number of bits received in the same interval."
+      },
+      {
+        "question": "What is Error Detection?",
+        "options": [
+          "Sampling faster than the Nyquist rate to avoid aliasing.",
+          "Modulating a carrier's phase to represent the data.",
+          "Repairing corrupted bits at the receiver from redundant checks, with no retransmission.",
+          "Using added redundancy to decide whether a received block contains errors, without necessarily repairing it."
+        ],
+        "correctAnswer": "Using added redundancy to decide whether a received block contains errors, without necessarily repairing it.",
+        "explanation": "Detection only flags a damaged block; correction or a retransmission request is a further step."
+      },
+      {
+        "question": "What is Parity Bit?",
+        "options": [
+          "A sign bit that records whether a quantized sample is positive.",
+          "A start bit that only marks the beginning of an asynchronous character.",
+          "An extra bit set so the count of 1s in a block is even or odd, used to notice bit errors.",
+          "A stuffing bit inserted so a flag pattern does not appear in the data."
+        ],
+        "correctAnswer": "An extra bit set so the count of 1s in a block is even or odd, used to notice bit errors.",
+        "explanation": "The sender chooses the extra bit to force the agreed parity, and the receiver checks that the parity still holds."
+      },
+      {
+        "question": "What is Even Parity?",
+        "options": [
+          "A rule that repeats every data bit twice.",
+          "A rule that always appends 1 regardless of the data.",
+          "A rule that sets the extra bit so the block contains an odd number of 1s.",
+          "A rule that sets the extra bit so the block, including that bit, contains an even number of 1s."
+        ],
+        "correctAnswer": "A rule that sets the extra bit so the block, including that bit, contains an even number of 1s.",
+        "explanation": "The parity bit is 0 when the data already has an even number of 1s, and 1 when it has an odd number."
+      },
+      {
+        "question": "What is Checksum?",
+        "options": [
+          "A set of overlapping parity bits that corrects a single-bit error.",
+          "A remainder from dividing the data by a generator polynomial.",
+          "A mid-bit transition used only for clock recovery.",
+          "A detection value formed by summing data words and appending that sum for the receiver to recompute."
+        ],
+        "correctAnswer": "A detection value formed by summing data words and appending that sum for the receiver to recompute.",
+        "explanation": "The receiver adds the same words, including the appended sum, and a mismatch indicates a detected error."
+      },
+      {
+        "question": "What is CRC?",
+        "options": [
+          "A line code with a transition in the middle of each bit.",
+          "A detection code formed as the remainder of dividing the data polynomial by a generator polynomial.",
+          "A detection value formed by adding the data words in ordinary arithmetic.",
+          "A single extra bit that makes the number of 1s even."
+        ],
+        "correctAnswer": "A detection code formed as the remainder of dividing the data polynomial by a generator polynomial.",
+        "explanation": "Polynomial division by the generator produces a remainder that is appended and recomputed at the receiver."
+      },
+      {
+        "question": "What is Hamming Distance?",
+        "options": [
+          "The physical length of the cable between two modems.",
+          "The number of bit positions in which two equal-length binary words differ.",
+          "The smallest distance between any pair of codewords in a whole code.",
+          "The number of parity bits in a CRC generator."
+        ],
+        "correctAnswer": "The number of bit positions in which two equal-length binary words differ.",
+        "explanation": "Comparing the words position by position and counting mismatches gives their Hamming distance."
+      },
+      {
+        "question": "What is Hamming Code?",
+        "options": [
+          "A binary block code that uses overlapping parity bits to correct any single-bit error.",
+          "A convolutional code whose parity depends on a sliding window of many input bits.",
+          "A detection-only remainder from polynomial division that does not locate a bit error.",
+          "A single parity bit that can notice an odd number of errors but cannot correct one."
+        ],
+        "correctAnswer": "A binary block code that uses overlapping parity bits to correct any single-bit error.",
+        "explanation": "Parity checks at chosen positions form a syndrome that identifies which single bit to flip."
+      },
+      {
+        "question": "What is Minimum Distance?",
+        "options": [
+          "The distance between one received word and one particular codeword.",
+          "The generator polynomial's degree.",
+          "The number of data bits in a codeword before parity is added.",
+          "The smallest Hamming distance between any two different valid codewords of a code."
+        ],
+        "correctAnswer": "The smallest Hamming distance between any two different valid codewords of a code.",
+        "explanation": "Detection and correction limits are set by this smallest separation: it corrects t errors when the distance is at least 2t+1."
+      },
+      {
+        "question": "What is FEC?",
+        "options": [
+          "Correcting errors at the receiver from redundant bits, with no request for a retransmission.",
+          "Detecting a bad block and asking the sender to transmit that block again.",
+          "Dropping every damaged frame and sending no repair and no request.",
+          "Compressing amplitudes before quantization."
+        ],
+        "correctAnswer": "Correcting errors at the receiver from redundant bits, with no request for a retransmission.",
+        "explanation": "The redundancy is enough for the receiver to reconstruct the message without a return channel."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is ARQ?",
+        "options": [
+          "An error-control strategy that detects a bad block and asks the sender to transmit it again.",
+          "Multiplexing the block with other users by wavelength.",
+          "Modulating the block onto a higher-frequency carrier.",
+          "Correcting the bad block locally from redundant bits and sending no request."
+        ],
+        "correctAnswer": "An error-control strategy that detects a bad block and asks the sender to transmit it again.",
+        "explanation": "Automatic repeat request depends on detection plus a feedback path that triggers retransmission."
+      },
+      {
+        "question": "What is Multiplexing?",
+        "options": [
+          "Changing a carrier's amplitude to carry one message.",
+          "Sampling one waveform at twice its highest frequency.",
+          "Combining several independent signals so they share one communication link.",
+          "Correcting one message with a Hamming code."
+        ],
+        "correctAnswer": "Combining several independent signals so they share one communication link.",
+        "explanation": "Multiplexing divides the link by frequency, time, wavelength, or code so more than one signal can use it."
+      },
+      {
+        "question": "What is FDM?",
+        "options": [
+          "Multiplexing that separates users by orthogonal spreading codes.",
+          "Optical multiplexing that assigns each signal a wavelength on a fiber.",
+          "Multiplexing that gives each signal the full bandwidth during its own time slot.",
+          "Multiplexing that gives each signal its own frequency band at the same time."
+        ],
+        "correctAnswer": "Multiplexing that gives each signal its own frequency band at the same time.",
+        "explanation": "The signals occupy the link simultaneously, separated by non-overlapping frequency bands and often guard bands."
+      },
+      {
+        "question": "What is TDM?",
+        "options": [
+          "Multiplexing that gives each signal a permanent frequency band.",
+          "Multiplexing that separates users only by spreading codes.",
+          "Multiplexing that gives each signal the full bandwidth during its own repeating time slot.",
+          "Multiplexing that puts each signal on its own optical wavelength."
+        ],
+        "correctAnswer": "Multiplexing that gives each signal the full bandwidth during its own repeating time slot.",
+        "explanation": "Only one signal uses the channel in a given slot, and the slots repeat in a fixed frame."
+      },
+      {
+        "question": "What is Statistical TDM?",
+        "options": [
+          "Time multiplexing that gives every source a slot in a fixed rotation even when it is silent.",
+          "Frequency multiplexing that reserves a band for each source at all times.",
+          "Wavelength multiplexing on an optical fiber.",
+          "Time multiplexing that assigns slots on demand to sources that currently have data to send."
+        ],
+        "correctAnswer": "Time multiplexing that assigns slots on demand to sources that currently have data to send.",
+        "explanation": "Idle sources do not consume slots, so the link is shared according to actual traffic rather than a fixed roster."
+      },
+      {
+        "question": "What is WDM?",
+        "options": [
+          "Code multiplexing that separates users by spreading sequences.",
+          "Electrical multiplexing that assigns each call a baseband frequency band on copper.",
+          "Time multiplexing that rotates fixed slots among callers.",
+          "Optical multiplexing that sends several signals on one fiber at different wavelengths."
+        ],
+        "correctAnswer": "Optical multiplexing that sends several signals on one fiber at different wavelengths.",
+        "explanation": "Each optical carrier has its own wavelength, so many lightwave channels share one fiber."
+      },
+      {
+        "question": "What is CDMA?",
+        "options": [
+          "Multiple access that gives each user a private repeating time slot.",
+          "Multiple access that gives each user a private frequency band.",
+          "Multiple access that gives each user a private optical wavelength.",
+          "Multiple access in which users share time and frequency but are separated by distinct spreading codes."
+        ],
+        "correctAnswer": "Multiple access in which users share time and frequency but are separated by distinct spreading codes.",
+        "explanation": "Each transmitter multiplies its data by a code, and a receiver that uses the matching code extracts that user."
+      },
+      {
+        "question": "What is Line Coding?",
+        "options": [
+          "Appending a polynomial remainder for error detection.",
+          "Mapping a bit sequence onto a digital baseband waveform of voltage or optical pulses.",
+          "Compressing speech before uniform quantization.",
+          "Shifting bits onto a radio-frequency carrier by changing phase or amplitude."
+        ],
+        "correctAnswer": "Mapping a bit sequence onto a digital baseband waveform of voltage or optical pulses.",
+        "explanation": "Line coding chooses the pulse shape and the rules, such as NRZ or Manchester, used on a baseband line."
+      },
+      {
+        "question": "What is Manchester Encoding?",
+        "options": [
+          "A bipolar code that uses a pulse only for 1s and sends zero voltage for 0s.",
+          "A line code that holds one voltage level for the whole bit and can stay constant for long runs.",
+          "A line code that places a transition in the middle of every bit period so the receiver can recover the clock.",
+          "A passband method that encodes two bits in each carrier phase."
+        ],
+        "correctAnswer": "A line code that places a transition in the middle of every bit period so the receiver can recover the clock.",
+        "explanation": "The guaranteed mid-bit transition removes long constant levels and provides a timing reference."
+      },
+      {
+        "question": "What is Intersymbol Interference?",
+        "options": [
+          "The rounding error between a sample and its quantization level.",
+          "A parity failure caused by two flipped bits.",
+          "Distortion in which energy from one symbol spills into adjacent symbol intervals at the sampling instant.",
+          "Additive noise that is independent of the transmitted symbols."
+        ],
+        "correctAnswer": "Distortion in which energy from one symbol spills into adjacent symbol intervals at the sampling instant.",
+        "explanation": "Band limiting spreads each pulse, so the receiver can sample a mix of the current symbol and its neighbors."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Sampling?",
+        "options": [
+          "A sensor signal band-limited to 3.4 kHz has a Nyquist rate of 6.8 kHz.",
+          "A 4 kHz voice waveform is measured 8000 times each second and stored as a sequence of amplitudes.",
+          "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+          "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster."
+        ],
+        "correctAnswer": "A 4 kHz voice waveform is measured 8000 times each second and stored as a sequence of amplitudes.",
+        "explanation": "Sampling keeps the amplitude at chosen instants and discards the waveform between those instants."
+      },
+      {
+        "question": "Which situation illustrates Sampling Theorem?",
+        "options": [
+          "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster.",
+          "A sensor signal band-limited to 3.4 kHz has a Nyquist rate of 6.8 kHz.",
+          "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+          "A 6 kHz tone sampled at 8 kHz shows up in the samples as a 2 kHz tone."
+        ],
+        "correctAnswer": "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster.",
+        "explanation": "If sampling is at least twice the highest frequency, the original band-limited signal is determined by its samples."
+      },
+      {
+        "question": "Which situation illustrates Nyquist Rate?",
+        "options": [
+          "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+          "A 6 kHz tone sampled at 8 kHz shows up in the samples as a 2 kHz tone.",
+          "A sensor signal band-limited to 3.4 kHz has a Nyquist rate of 6.8 kHz.",
+          "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels."
+        ],
+        "correctAnswer": "A sensor signal band-limited to 3.4 kHz has a Nyquist rate of 6.8 kHz.",
+        "explanation": "Sampling slower than twice the highest frequency is not sufficient for reconstruction, so that product is the minimum rate."
+      },
+      {
+        "question": "Which situation illustrates Folding Frequency?",
+        "options": [
+          "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+          "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels.",
+          "A 6 kHz tone sampled at 8 kHz shows up in the samples as a 2 kHz tone.",
+          "A 1.37 V sample is stored as the 1.25 V level, leaving a 0.12 V error."
+        ],
+        "correctAnswer": "An 8 kHz sampler has a folding frequency of 4 kHz, so a 5 kHz tone will not stay at 5 kHz.",
+        "explanation": "Frequencies above half the sampling rate cannot be represented uniquely and alias about that folding frequency."
+      },
+      {
+        "question": "Which situation illustrates Aliasing?",
+        "options": [
+          "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word.",
+          "A 6 kHz tone sampled at 8 kHz shows up in the samples as a 2 kHz tone.",
+          "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels.",
+          "A 1.37 V sample is stored as the 1.25 V level, leaving a 0.12 V error."
+        ],
+        "correctAnswer": "A 6 kHz tone sampled at 8 kHz shows up in the samples as a 2 kHz tone.",
+        "explanation": "Under-sampling folds high frequencies about half the sampling rate, so they masquerade as lower frequencies."
+      },
+      {
+        "question": "Which situation illustrates Quantization?",
+        "options": [
+          "A 1.37 V sample is stored as the 1.25 V level, leaving a 0.12 V error.",
+          "A mu-law codec boosts quiet speech before an 8-bit uniform quantizer and restores it after decoding.",
+          "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word.",
+          "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels."
+        ],
+        "correctAnswer": "Each temperature sample is forced to the nearest of 256 evenly spaced voltage levels.",
+        "explanation": "After sampling, quantization replaces a continuous amplitude with the nearest allowed representation level."
+      },
+      {
+        "question": "Which situation illustrates Quantization Error?",
+        "options": [
+          "A 1.37 V sample is stored as the 1.25 V level, leaving a 0.12 V error.",
+          "A mu-law codec boosts quiet speech before an 8-bit uniform quantizer and restores it after decoding.",
+          "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+          "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word."
+        ],
+        "correctAnswer": "A 1.37 V sample is stored as the 1.25 V level, leaving a 0.12 V error.",
+        "explanation": "The level is only an approximation, so the original amplitude and the chosen level differ by the quantization error."
+      },
+      {
+        "question": "Which situation illustrates PCM?",
+        "options": [
+          "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+          "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word.",
+          "A mu-law codec boosts quiet speech before an 8-bit uniform quantizer and restores it after decoding.",
+          "A codec predicts the next speech sample and transmits a 4-bit code for the prediction error."
+        ],
+        "correctAnswer": "Telephone voice is sampled 8000 times a second and each sample is sent as an 8-bit code word.",
+        "explanation": "Pulse code modulation is the chain of sampling, quantization, and binary encoding of the quantized levels."
+      },
+      {
+        "question": "Which situation illustrates Companding?",
+        "options": [
+          "A codec predicts the next speech sample and transmits a 4-bit code for the prediction error.",
+          "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna.",
+          "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+          "A mu-law codec boosts quiet speech before an 8-bit uniform quantizer and restores it after decoding."
+        ],
+        "correctAnswer": "A mu-law codec boosts quiet speech before an 8-bit uniform quantizer and restores it after decoding.",
+        "explanation": "Compression gives small signals more of the quantizer's resolution, and expansion restores the original range."
+      },
+      {
+        "question": "Which situation illustrates Delta Modulation?",
+        "options": [
+          "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+          "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna.",
+          "A codec predicts the next speech sample and transmits a 4-bit code for the prediction error.",
+          "A transmitter sends a full-strength 10 MHz tone for 1 and turns that tone off for 0."
+        ],
+        "correctAnswer": "A modem sends a 1 to raise the staircase by one step and a 0 to lower it by one step.",
+        "explanation": "Each sample interval carries a single bit, the sign of the difference from the staircase approximation."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates DPCM?",
+        "options": [
+          "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna.",
+          "A codec predicts the next speech sample and transmits a 4-bit code for the prediction error.",
+          "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+          "A transmitter sends a full-strength 10 MHz tone for 1 and turns that tone off for 0."
+        ],
+        "correctAnswer": "A codec predicts the next speech sample and transmits a 4-bit code for the prediction error.",
+        "explanation": "Differential PCM quantizes a prediction error, which is smaller than the sample and can use several bits."
+      },
+      {
+        "question": "Which situation illustrates Modulation?",
+        "options": [
+          "A transmitter sends a full-strength 10 MHz tone for 1 and turns that tone off for 0.",
+          "A transmitter uses 0 degrees for bit 0 and 180 degrees for bit 1 on a fixed-amplitude carrier.",
+          "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+          "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna."
+        ],
+        "correctAnswer": "A microphone waveform changes the amplitude of a 100 kHz sinusoid before it is sent to an antenna.",
+        "explanation": "The message changes a chosen parameter of the carrier so the information can occupy a desired frequency band."
+      },
+      {
+        "question": "Which situation illustrates ASK?",
+        "options": [
+          "A transmitter sends a full-strength 10 MHz tone for 1 and turns that tone off for 0.",
+          "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+          "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+          "A transmitter uses 0 degrees for bit 0 and 180 degrees for bit 1 on a fixed-amplitude carrier."
+        ],
+        "correctAnswer": "A transmitter sends a full-strength 10 MHz tone for 1 and turns that tone off for 0.",
+        "explanation": "The information is carried in the carrier amplitude, while the carrier frequency stays the same."
+      },
+      {
+        "question": "Which situation illustrates FSK?",
+        "options": [
+          "A transmitter uses 0 degrees for bit 0 and 180 degrees for bit 1 on a fixed-amplitude carrier.",
+          "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+          "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+          "A cable modem uses 16 points, each with its own amplitude and phase, to send 4 bits per symbol."
+        ],
+        "correctAnswer": "A modem sends 1200 Hz for binary 0 and 2200 Hz for binary 1 at constant amplitude.",
+        "explanation": "Each symbol selects a frequency, so the receiver distinguishes symbols by which tone arrived."
+      },
+      {
+        "question": "Which situation illustrates PSK?",
+        "options": [
+          "A cable modem uses 16 points, each with its own amplitude and phase, to send 4 bits per symbol.",
+          "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+          "A transmitter uses 0 degrees for bit 0 and 180 degrees for bit 1 on a fixed-amplitude carrier.",
+          "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot."
+        ],
+        "correctAnswer": "A transmitter uses 0 degrees for bit 0 and 180 degrees for bit 1 on a fixed-amplitude carrier.",
+        "explanation": "The receiver recovers the symbol from the phase shift, while the carrier amplitude stays constant."
+      },
+      {
+        "question": "Which situation illustrates QPSK?",
+        "options": [
+          "A cable modem uses 16 points, each with its own amplitude and phase, to send 4 bits per symbol.",
+          "A Wi-Fi transmission uses a 2.4 GHz wave as the wave that is modulated by the data symbols.",
+          "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+          "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot."
+        ],
+        "correctAnswer": "A satellite link maps 00, 01, 11, and 10 onto four phases spaced 90 degrees apart.",
+        "explanation": "Four phases give four symbols, and four symbols can represent two bits each."
+      },
+      {
+        "question": "Which situation illustrates QAM?",
+        "options": [
+          "A cable modem uses 16 points, each with its own amplitude and phase, to send 4 bits per symbol.",
+          "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+          "A Wi-Fi transmission uses a 2.4 GHz wave as the wave that is modulated by the data symbols.",
+          "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot."
+        ],
+        "correctAnswer": "A cable modem uses 16 points, each with its own amplitude and phase, to send 4 bits per symbol.",
+        "explanation": "Each symbol is a pair of amplitude and phase, plotted as a point in the in-phase and quadrature plane."
+      },
+      {
+        "question": "Which situation illustrates Constellation Diagram?",
+        "options": [
+          "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+          "A handset modulates data onto a 5 GHz carrier, and the transmitted spectrum sits around 5 GHz.",
+          "A Wi-Fi transmission uses a 2.4 GHz wave as the wave that is modulated by the data symbols.",
+          "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot."
+        ],
+        "correctAnswer": "An engineer plots 16-QAM as a 4-by-4 grid of dots and watches noise clouds around each dot.",
+        "explanation": "The horizontal and vertical axes are the two carrier components, so each legal symbol is one point."
+      },
+      {
+        "question": "Which situation illustrates Carrier?",
+        "options": [
+          "A Wi-Fi transmission uses a 2.4 GHz wave as the wave that is modulated by the data symbols.",
+          "A handset modulates data onto a 5 GHz carrier, and the transmitted spectrum sits around 5 GHz.",
+          "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+          "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds."
+        ],
+        "correctAnswer": "A Wi-Fi transmission uses a 2.4 GHz wave as the wave that is modulated by the data symbols.",
+        "explanation": "The carrier itself is a sinusoid chosen so the modulated signal occupies the channel's passband."
+      },
+      {
+        "question": "Which situation illustrates Baseband Transmission?",
+        "options": [
+          "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds.",
+          "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+          "A handset modulates data onto a 5 GHz carrier, and the transmitted spectrum sits around 5 GHz.",
+          "QPSK at 1000 symbols per second delivers 2000 information bits per second."
+        ],
+        "correctAnswer": "An Ethernet pair carries Manchester pulses whose energy is near zero frequency rather than on a radio carrier.",
+        "explanation": "The pulses or the message spectrum stay around zero frequency instead of being moved to a carrier."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Passband Transmission?",
+        "options": [
+          "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds.",
+          "QPSK at 1000 symbols per second delivers 2000 information bits per second.",
+          "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+          "A handset modulates data onto a 5 GHz carrier, and the transmitted spectrum sits around 5 GHz."
+        ],
+        "correctAnswer": "A handset modulates data onto a 5 GHz carrier, and the transmitted spectrum sits around 5 GHz.",
+        "explanation": "Modulation translates the message spectrum so it is centered on the carrier frequency."
+      },
+      {
+        "question": "Which situation illustrates Symbol Rate?",
+        "options": [
+          "A link budget models the receiver as the signal plus Gaussian noise whose spectrum is flat across the band.",
+          "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds.",
+          "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+          "QPSK at 1000 symbols per second delivers 2000 information bits per second."
+        ],
+        "correctAnswer": "A modem emits 2400 distinct symbols each second, regardless of how many bits each symbol holds.",
+        "explanation": "Each symbol is one signaling interval, so the symbol rate is how many of those intervals occur each second."
+      },
+      {
+        "question": "Which situation illustrates Bit Rate?",
+        "options": [
+          "QPSK at 1000 symbols per second delivers 2000 information bits per second.",
+          "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+          "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB.",
+          "A link budget models the receiver as the signal plus Gaussian noise whose spectrum is flat across the band."
+        ],
+        "correctAnswer": "QPSK at 1000 symbols per second delivers 2000 information bits per second.",
+        "explanation": "Bit rate multiplies the symbol rate by the number of information bits carried in each symbol."
+      },
+      {
+        "question": "Which situation illustrates Noise?",
+        "options": [
+          "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+          "A link budget models the receiver as the signal plus Gaussian noise whose spectrum is flat across the band.",
+          "A voice channel that passes 300 Hz through 3300 Hz has a bandwidth of 3000 Hz.",
+          "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB."
+        ],
+        "correctAnswer": "Thermal agitation in a receiver front end adds a random voltage to a weak incoming radio signal.",
+        "explanation": "Noise is not part of the transmitted message; it disturbs the received waveform and can flip decisions."
+      },
+      {
+        "question": "Which situation illustrates AWGN?",
+        "options": [
+          "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB.",
+          "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+          "A link budget models the receiver as the signal plus Gaussian noise whose spectrum is flat across the band.",
+          "A voice channel that passes 300 Hz through 3300 Hz has a bandwidth of 3000 Hz."
+        ],
+        "correctAnswer": "A link budget models the receiver as the signal plus Gaussian noise whose spectrum is flat across the band.",
+        "explanation": "The noise is additive, its samples are Gaussian, and white means its power spectral density is constant."
+      },
+      {
+        "question": "Which situation illustrates SNR?",
+        "options": [
+          "A noiseless 4000 Hz channel with two levels has a Nyquist bit rate of 8000 bit/s.",
+          "A voice channel that passes 300 Hz through 3300 Hz has a bandwidth of 3000 Hz.",
+          "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+          "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB."
+        ],
+        "correctAnswer": "A receiver measures signal power 100 times the noise power and reports an SNR of 20 dB.",
+        "explanation": "Comparing signal power with noise power, often as 10 log10 of that ratio in decibels, gives the SNR."
+      },
+      {
+        "question": "Which situation illustrates Bandwidth?",
+        "options": [
+          "A voice channel that passes 300 Hz through 3300 Hz has a bandwidth of 3000 Hz.",
+          "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB.",
+          "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+          "A noiseless 4000 Hz channel with two levels has a Nyquist bit rate of 8000 bit/s."
+        ],
+        "correctAnswer": "A voice channel that passes 300 Hz through 3300 Hz has a bandwidth of 3000 Hz.",
+        "explanation": "Bandwidth is an interval of frequency, the highest passed frequency minus the lowest, not a bit rate."
+      },
+      {
+        "question": "Which situation illustrates Shannon Capacity?",
+        "options": [
+          "A test finds 8 wrong bits in 4000 received bits, so the bit error rate is 0.002.",
+          "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+          "A noiseless 4000 Hz channel with two levels has a Nyquist bit rate of 8000 bit/s.",
+          "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB."
+        ],
+        "correctAnswer": "A 3 kHz channel with SNR power ratio 1023 has a Shannon capacity of 30 kbit/s.",
+        "explanation": "Shannon's formula uses bandwidth and the linear signal-to-noise ratio to bound reliable communication."
+      },
+      {
+        "question": "Which situation illustrates Nyquist Bit Rate?",
+        "options": [
+          "A noiseless 4000 Hz channel with two levels has a Nyquist bit rate of 8000 bit/s.",
+          "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+          "A test finds 8 wrong bits in 4000 received bits, so the bit error rate is 0.002.",
+          "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB."
+        ],
+        "correctAnswer": "A noiseless 4000 Hz channel with two levels has a Nyquist bit rate of 8000 bit/s.",
+        "explanation": "With no noise, a channel of bandwidth B can carry 2B symbols per second, and each symbol can hold log2(M) bits."
+      },
+      {
+        "question": "Which situation illustrates Attenuation?",
+        "options": [
+          "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+          "A test finds 8 wrong bits in 4000 received bits, so the bit error rate is 0.002.",
+          "A 7-bit character gains one more bit so the whole 8-bit group has even parity before it is sent.",
+          "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB."
+        ],
+        "correctAnswer": "A coaxial run delivers only 1/100 of the transmitted power, a loss of 20 dB.",
+        "explanation": "The medium absorbs or spreads energy, so received power is lower than transmitted power."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Bit Error Rate?",
+        "options": [
+          "A 7-bit character gains one more bit so the whole 8-bit group has even parity before it is sent.",
+          "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0.",
+          "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+          "A test finds 8 wrong bits in 4000 received bits, so the bit error rate is 0.002."
+        ],
+        "correctAnswer": "A test finds 8 wrong bits in 4000 received bits, so the bit error rate is 0.002.",
+        "explanation": "Bit error rate counts wrong bits and divides by the number of bits received in the same interval."
+      },
+      {
+        "question": "Which situation illustrates Error Detection?",
+        "options": [
+          "A sender adds its 16-bit words, appends the sum, and the receiver rejects the packet when its sum differs.",
+          "A 7-bit character gains one more bit so the whole 8-bit group has even parity before it is sent.",
+          "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+          "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0."
+        ],
+        "correctAnswer": "A receiver recomputes a frame check, finds it does not match, and discards the frame.",
+        "explanation": "Detection only flags a damaged block; correction or a retransmission request is a further step."
+      },
+      {
+        "question": "Which situation illustrates Parity Bit?",
+        "options": [
+          "A sender adds its 16-bit words, appends the sum, and the receiver rejects the packet when its sum differs.",
+          "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+          "A 7-bit character gains one more bit so the whole 8-bit group has even parity before it is sent.",
+          "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0."
+        ],
+        "correctAnswer": "A 7-bit character gains one more bit so the whole 8-bit group has even parity before it is sent.",
+        "explanation": "The sender chooses the extra bit to force the agreed parity, and the receiver checks that the parity still holds."
+      },
+      {
+        "question": "Which situation illustrates Even Parity?",
+        "options": [
+          "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0.",
+          "The words 10110 and 10011 differ in the third and fifth positions, so their distance is 2.",
+          "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+          "A sender adds its 16-bit words, appends the sum, and the receiver rejects the packet when its sum differs."
+        ],
+        "correctAnswer": "Data 1011001 already has four 1s, so the even-parity bit appended to it is 0.",
+        "explanation": "The parity bit is 0 when the data already has an even number of 1s, and 1 when it has an odd number."
+      },
+      {
+        "question": "Which situation illustrates Checksum?",
+        "options": [
+          "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+          "A sender adds its 16-bit words, appends the sum, and the receiver rejects the packet when its sum differs.",
+          "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+          "The words 10110 and 10011 differ in the third and fifth positions, so their distance is 2."
+        ],
+        "correctAnswer": "A sender adds its 16-bit words, appends the sum, and the receiver rejects the packet when its sum differs.",
+        "explanation": "The receiver adds the same words, including the appended sum, and a mismatch indicates a detected error."
+      },
+      {
+        "question": "Which situation illustrates CRC?",
+        "options": [
+          "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+          "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+          "If the closest distinct codewords differ in 3 positions, the code's minimum distance is 3.",
+          "The words 10110 and 10011 differ in the third and fifth positions, so their distance is 2."
+        ],
+        "correctAnswer": "A frame check is the remainder after division by the generator x^16 + x^12 + x^5 + 1.",
+        "explanation": "Polynomial division by the generator produces a remainder that is appended and recomputed at the receiver."
+      },
+      {
+        "question": "Which situation illustrates Hamming Distance?",
+        "options": [
+          "A deep-space probe uses a correcting code because a retransmission would take too long.",
+          "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+          "The words 10110 and 10011 differ in the third and fifth positions, so their distance is 2.",
+          "If the closest distinct codewords differ in 3 positions, the code's minimum distance is 3."
+        ],
+        "correctAnswer": "The words 10110 and 10011 differ in the third and fifth positions, so their distance is 2.",
+        "explanation": "Comparing the words position by position and counting mismatches gives their Hamming distance."
+      },
+      {
+        "question": "Which situation illustrates Hamming Code?",
+        "options": [
+          "If the closest distinct codewords differ in 3 positions, the code's minimum distance is 3.",
+          "A data link discards a frame with a bad check and returns a negative acknowledgement so the frame is resent.",
+          "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+          "A deep-space probe uses a correcting code because a retransmission would take too long."
+        ],
+        "correctAnswer": "A (7,4) Hamming code sends 4 data bits and 3 parity bits and repairs one flipped bit.",
+        "explanation": "Parity checks at chosen positions form a syndrome that identifies which single bit to flip."
+      },
+      {
+        "question": "Which situation illustrates Minimum Distance?",
+        "options": [
+          "A deep-space probe uses a correcting code because a retransmission would take too long.",
+          "Four phone calls share one trunk instead of four separate copper pairs.",
+          "If the closest distinct codewords differ in 3 positions, the code's minimum distance is 3.",
+          "A data link discards a frame with a bad check and returns a negative acknowledgement so the frame is resent."
+        ],
+        "correctAnswer": "If the closest distinct codewords differ in 3 positions, the code's minimum distance is 3.",
+        "explanation": "Detection and correction limits are set by this smallest separation: it corrects t errors when the distance is at least 2t+1."
+      },
+      {
+        "question": "Which situation illustrates FEC?",
+        "options": [
+          "A data link discards a frame with a bad check and returns a negative acknowledgement so the frame is resent.",
+          "A deep-space probe uses a correcting code because a retransmission would take too long.",
+          "Four phone calls share one trunk instead of four separate copper pairs.",
+          "Four calls occupy 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz on one copper pair at the same time."
+        ],
+        "correctAnswer": "A deep-space probe uses a correcting code because a retransmission would take too long.",
+        "explanation": "The redundancy is enough for the receiver to reconstruct the message without a return channel."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates ARQ?",
+        "options": [
+          "Four phone calls share one trunk instead of four separate copper pairs.",
+          "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+          "Four calls occupy 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz on one copper pair at the same time.",
+          "A data link discards a frame with a bad check and returns a negative acknowledgement so the frame is resent."
+        ],
+        "correctAnswer": "A data link discards a frame with a bad check and returns a negative acknowledgement so the frame is resent.",
+        "explanation": "Automatic repeat request depends on detection plus a feedback path that triggers retransmission."
+      },
+      {
+        "question": "Which situation illustrates Multiplexing?",
+        "options": [
+          "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+          "A concentrator gives the next outgoing slot to whichever terminal has a byte waiting.",
+          "Four phone calls share one trunk instead of four separate copper pairs.",
+          "Four calls occupy 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz on one copper pair at the same time."
+        ],
+        "correctAnswer": "Four phone calls share one trunk instead of four separate copper pairs.",
+        "explanation": "Multiplexing divides the link by frequency, time, wavelength, or code so more than one signal can use it."
+      },
+      {
+        "question": "Which situation illustrates FDM?",
+        "options": [
+          "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+          "A concentrator gives the next outgoing slot to whichever terminal has a byte waiting.",
+          "Four calls occupy 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz on one copper pair at the same time.",
+          "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time."
+        ],
+        "correctAnswer": "Four calls occupy 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz on one copper pair at the same time.",
+        "explanation": "The signals occupy the link simultaneously, separated by non-overlapping frequency bands and often guard bands."
+      },
+      {
+        "question": "Which situation illustrates TDM?",
+        "options": [
+          "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+          "Two phones transmit together in the same band, and each base-station correlator keeps only its assigned code.",
+          "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time.",
+          "A concentrator gives the next outgoing slot to whichever terminal has a byte waiting."
+        ],
+        "correctAnswer": "Each of 24 phone calls is given the line in turn inside an 8000-frame-per-second PCM frame.",
+        "explanation": "Only one signal uses the channel in a given slot, and the slots repeat in a fixed frame."
+      },
+      {
+        "question": "Which situation illustrates Statistical TDM?",
+        "options": [
+          "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable.",
+          "Two phones transmit together in the same band, and each base-station correlator keeps only its assigned code.",
+          "A concentrator gives the next outgoing slot to whichever terminal has a byte waiting.",
+          "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time."
+        ],
+        "correctAnswer": "A concentrator gives the next outgoing slot to whichever terminal has a byte waiting.",
+        "explanation": "Idle sources do not consume slots, so the link is shared according to actual traffic rather than a fixed roster."
+      },
+      {
+        "question": "Which situation illustrates WDM?",
+        "options": [
+          "Two phones transmit together in the same band, and each base-station correlator keeps only its assigned code.",
+          "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable.",
+          "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time.",
+          "An IEEE 802.3 segment encodes every bit with a mid-bit transition so the NIC can stay synchronized."
+        ],
+        "correctAnswer": "One fiber carries traffic at 1550.12 nm and at 1550.92 nm at the same time.",
+        "explanation": "Each optical carrier has its own wavelength, so many lightwave channels share one fiber."
+      },
+      {
+        "question": "Which situation illustrates CDMA?",
+        "options": [
+          "An IEEE 802.3 segment encodes every bit with a mid-bit transition so the NIC can stay synchronized.",
+          "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable.",
+          "Two phones transmit together in the same band, and each base-station correlator keeps only its assigned code.",
+          "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one."
+        ],
+        "correctAnswer": "Two phones transmit together in the same band, and each base-station correlator keeps only its assigned code.",
+        "explanation": "Each transmitter multiplies its data by a code, and a receiver that uses the matching code extracts that user."
+      },
+      {
+        "question": "Which situation illustrates Line Coding?",
+        "options": [
+          "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one.",
+          "An IEEE 802.3 segment encodes every bit with a mid-bit transition so the NIC can stay synchronized.",
+          "A 4 kHz voice waveform is measured 8000 times each second and stored as a sequence of amplitudes.",
+          "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable."
+        ],
+        "correctAnswer": "A serial link turns the bits 1011 into a sequence of +V and -V pulses before they enter the cable.",
+        "explanation": "Line coding chooses the pulse shape and the rules, such as NRZ or Manchester, used on a baseband line."
+      },
+      {
+        "question": "Which situation illustrates Manchester Encoding?",
+        "options": [
+          "A 4 kHz voice waveform is measured 8000 times each second and stored as a sequence of amplitudes.",
+          "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster.",
+          "An IEEE 802.3 segment encodes every bit with a mid-bit transition so the NIC can stay synchronized.",
+          "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one."
+        ],
+        "correctAnswer": "An IEEE 802.3 segment encodes every bit with a mid-bit transition so the NIC can stay synchronized.",
+        "explanation": "The guaranteed mid-bit transition removes long constant levels and provides a timing reference."
+      },
+      {
+        "question": "Which situation illustrates Intersymbol Interference?",
+        "options": [
+          "A recording whose highest frequency is 5 kHz is kept reconstructable by sampling at 10 kHz or faster.",
+          "A 4 kHz voice waveform is measured 8000 times each second and stored as a sequence of amplitudes.",
+          "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one.",
+          "A sensor signal band-limited to 3.4 kHz has a Nyquist rate of 6.8 kHz."
+        ],
+        "correctAnswer": "After a narrow channel, the sampler reads leftover voltage from the previous pulse added to the current one.",
+        "explanation": "Band limiting spreads each pulse, so the receiver can sample a mix of the current symbol and its neighbors."
+      }
+    ],
+    "11": [
+      {
+        "question": "A thermometer voltage is read every 1 ms and the values between those instants are not kept. Which operation is this?",
+        "options": [
+          "Multiplexing",
+          "Sampling",
+          "Modulation",
+          "Quantization"
+        ],
+        "correctAnswer": "Sampling",
+        "explanation": "Reading a continuous signal at discrete instants is sampling."
+      },
+      {
+        "question": "The highest frequency in a recording is 5 kHz. Which minimum sampling rate does the sampling theorem require?",
+        "options": [
+          "15 kHz",
+          "10 kHz",
+          "2.5 kHz",
+          "5 kHz"
+        ],
+        "correctAnswer": "10 kHz",
+        "explanation": "The theorem requires a sampling rate of at least twice 5 kHz, which is 10 kHz."
+      },
+      {
+        "question": "A baseband signal contains no energy above 3.4 kHz. Which sampling frequency is its Nyquist rate?",
+        "options": [
+          "1.7 kHz",
+          "13.6 kHz",
+          "3.4 kHz",
+          "6.8 kHz"
+        ],
+        "correctAnswer": "6.8 kHz",
+        "explanation": "The Nyquist rate is twice the highest frequency, so 2 times 3.4 kHz is 6.8 kHz."
+      },
+      {
+        "question": "Samples are taken at 8000 samples per second. Which frequency is the folding frequency?",
+        "options": [
+          "2 kHz",
+          "4 kHz",
+          "16 kHz",
+          "8 kHz"
+        ],
+        "correctAnswer": "4 kHz",
+        "explanation": "The folding frequency is half the sampling frequency, and half of 8 kHz is 4 kHz."
+      },
+      {
+        "question": "A 6 kHz sine wave is sampled at 8 kHz with no anti-alias filter. Which frequency appears in the sample sequence?",
+        "options": [
+          "6 kHz",
+          "14 kHz",
+          "8 kHz",
+          "2 kHz"
+        ],
+        "correctAnswer": "2 kHz",
+        "explanation": "The tone folds about 4 kHz, and the distance from 6 kHz to 8 kHz is 2 kHz."
+      },
+      {
+        "question": "Every sample of a speech waveform is replaced by the nearest of 256 allowed amplitudes. Which step is that?",
+        "options": [
+          "Line coding",
+          "Sampling",
+          "Multiplexing",
+          "Quantization"
+        ],
+        "correctAnswer": "Quantization",
+        "explanation": "Choosing one of a finite set of amplitudes for each sample is quantization."
+      },
+      {
+        "question": "A sample is 1.37 V and the nearest reconstruction level is 1.25 V. Which value is the magnitude of the quantization error?",
+        "options": [
+          "0.12 V",
+          "1.25 V",
+          "2.62 V",
+          "1.37 V"
+        ],
+        "correctAnswer": "0.12 V",
+        "explanation": "The error magnitude is the absolute difference, 1.37 minus 1.25, which is 0.12 V."
+      },
+      {
+        "question": "A voice line is sampled, each sample is assigned a level, and each level is transmitted as 8 bits. Which method is this?",
+        "options": [
+          "ASK",
+          "ARQ",
+          "PCM",
+          "FDM"
+        ],
+        "correctAnswer": "PCM",
+        "explanation": "Sampling, quantizing, and binary encoding together are pulse code modulation."
+      },
+      {
+        "question": "Quiet speech is stretched before a uniform quantizer and compressed back after decoding. Which technique is this?",
+        "options": [
+          "FDM",
+          "Delta modulation",
+          "Companding",
+          "CRC"
+        ],
+        "correctAnswer": "Companding",
+        "explanation": "Compressing before quantization and expanding afterward is companding."
+      },
+      {
+        "question": "The transmitter sends one bit per sample interval meaning step up or step down from the staircase. Which scheme is this?",
+        "options": [
+          "Delta modulation",
+          "QPSK",
+          "CRC",
+          "8-bit PCM"
+        ],
+        "correctAnswer": "Delta modulation",
+        "explanation": "A single up-or-down bit each interval is delta modulation."
+      }
+    ],
+    "12": [
+      {
+        "question": "The encoder transmits a 4-bit code for the gap between a new sample and its prediction. Which scheme is this?",
+        "options": [
+          "TDM",
+          "Delta modulation",
+          "DPCM",
+          "Manchester coding"
+        ],
+        "correctAnswer": "DPCM",
+        "explanation": "A multi-bit encoding of the prediction error is differential PCM, not one-bit delta modulation."
+      },
+      {
+        "question": "A 100 kHz sinusoid has its amplitude varied so a microphone waveform can cross a radio channel. Which operation is applied to the sinusoid?",
+        "options": [
+          "Quantization",
+          "Parity checking",
+          "Sampling",
+          "Modulation"
+        ],
+        "correctAnswer": "Modulation",
+        "explanation": "Changing a carrier parameter in step with a message is modulation."
+      },
+      {
+        "question": "Bits are sent on one frequency as either full carrier amplitude or zero amplitude. Which scheme is this?",
+        "options": [
+          "PSK",
+          "QAM",
+          "ASK",
+          "FSK"
+        ],
+        "correctAnswer": "ASK",
+        "explanation": "Changing only the carrier amplitude to represent bits is amplitude shift keying."
+      },
+      {
+        "question": "A modem uses 1200 Hz for 0 and 2200 Hz for 1, with amplitude held constant. Which scheme is this?",
+        "options": [
+          "PSK",
+          "QAM",
+          "FSK",
+          "ASK"
+        ],
+        "correctAnswer": "FSK",
+        "explanation": "Switching between discrete carrier frequencies is frequency shift keying."
+      },
+      {
+        "question": "Amplitude stays fixed, 0 degrees means bit 0, and 180 degrees means bit 1. Which scheme is this?",
+        "options": [
+          "FSK",
+          "ASK",
+          "PAM",
+          "PSK"
+        ],
+        "correctAnswer": "PSK",
+        "explanation": "Encoding bits as discrete carrier phases is phase shift keying."
+      },
+      {
+        "question": "A link uses four phases spaced 90 degrees apart, and each transmitted symbol stands for two bits. Which scheme is this?",
+        "options": [
+          "BPSK",
+          "QPSK",
+          "BFSK",
+          "OOK"
+        ],
+        "correctAnswer": "QPSK",
+        "explanation": "Four phases carrying two bits per symbol is quadrature phase shift keying."
+      },
+      {
+        "question": "A 16-point scheme changes both amplitude and phase so each symbol carries four bits. Which family is this?",
+        "options": [
+          "QAM",
+          "FSK",
+          "ASK",
+          "PSK"
+        ],
+        "correctAnswer": "QAM",
+        "explanation": "Symbols that differ in both amplitude and phase belong to quadrature amplitude modulation."
+      },
+      {
+        "question": "Received symbols are drawn as dots on the I and Q axes to see which decision region they fall in. Which display is this?",
+        "options": [
+          "A Bode plot",
+          "A constellation diagram",
+          "An eye diagram",
+          "A Smith chart"
+        ],
+        "correctAnswer": "A constellation diagram",
+        "explanation": "Symbol points in the I-Q plane form a constellation diagram."
+      },
+      {
+        "question": "The data are recovered from a 2.4 GHz wave that served only as the vehicle for the symbols. Which wave is the 2.4 GHz signal?",
+        "options": [
+          "The carrier",
+          "The baseband message",
+          "The parity bit",
+          "The sampling clock"
+        ],
+        "correctAnswer": "The carrier",
+        "explanation": "The high-frequency wave that is modulated by the message is the carrier."
+      },
+      {
+        "question": "A copper link sends voltage pulses with the spectrum sitting near 0 Hz and no radio-frequency shift. Which form of transmission is this?",
+        "options": [
+          "QAM",
+          "Baseband transmission",
+          "FDM",
+          "Passband transmission"
+        ],
+        "correctAnswer": "Baseband transmission",
+        "explanation": "A spectrum concentrated near zero, with no carrier shift, is baseband transmission."
+      }
+    ],
+    "13": [
+      {
+        "question": "Wi-Fi shifts the data onto a 5 GHz carrier so the spectrum is centered on that carrier. Which form of transmission is this?",
+        "options": [
+          "PCM",
+          "Baseband transmission",
+          "Passband transmission",
+          "Line coding"
+        ],
+        "correctAnswer": "Passband transmission",
+        "explanation": "A spectrum centered on a high-frequency carrier is passband transmission."
+      },
+      {
+        "question": "A link emits 2000 symbols each second, and each symbol may represent more than one bit. Which quantity is 2000 per second?",
+        "options": [
+          "Symbol rate",
+          "Folding frequency",
+          "Checksum length",
+          "Bit rate"
+        ],
+        "correctAnswer": "Symbol rate",
+        "explanation": "Symbols per second is the symbol rate, even when a symbol holds several bits."
+      },
+      {
+        "question": "QPSK sends 1000 symbols per second. Which information bit rate results?",
+        "options": [
+          "4000 bit/s",
+          "2000 bit/s",
+          "1000 bit/s",
+          "500 bit/s"
+        ],
+        "correctAnswer": "2000 bit/s",
+        "explanation": "QPSK carries two bits per symbol, so 1000 symbols per second is 2000 bit/s."
+      },
+      {
+        "question": "A random electrical disturbance on the cable flips a receiver's bit decision. Which impairment is that disturbance?",
+        "options": [
+          "Noise",
+          "A sampling clock",
+          "A guard band",
+          "The carrier"
+        ],
+        "correctAnswer": "Noise",
+        "explanation": "Unwanted random energy that corrupts decisions is noise."
+      },
+      {
+        "question": "The design adds noise that is Gaussian, spectrally flat, and simply summed with the signal. Which model is this?",
+        "options": [
+          "A noiseless Nyquist channel",
+          "A TDM frame",
+          "AWGN",
+          "A CRC generator"
+        ],
+        "correctAnswer": "AWGN",
+        "explanation": "Additive, white, and Gaussian noise is the AWGN model."
+      },
+      {
+        "question": "Signal power is 100 times the noise power. Which SNR in decibels is that?",
+        "options": [
+          "100 dB",
+          "10 dB",
+          "2 dB",
+          "20 dB"
+        ],
+        "correctAnswer": "20 dB",
+        "explanation": "Ten times the base-10 log of 100 is 20, so the SNR is 20 dB."
+      },
+      {
+        "question": "A channel passes 300 Hz through 3300 Hz and rejects everything else. Which bandwidth does it have?",
+        "options": [
+          "3600 Hz",
+          "3000 Hz",
+          "300 Hz",
+          "3300 Hz"
+        ],
+        "correctAnswer": "3000 Hz",
+        "explanation": "Bandwidth is the difference of the band edges, 3300 minus 300, which is 3000 Hz."
+      },
+      {
+        "question": "Bandwidth is 3000 Hz and the SNR power ratio is 1023. Which capacity does Shannon's formula give?",
+        "options": [
+          "30 kbit/s",
+          "3 kbit/s",
+          "10 kbit/s",
+          "3000 kbit/s"
+        ],
+        "correctAnswer": "30 kbit/s",
+        "explanation": "Capacity is 3000 times log2 of 1024, and log2 of 1024 is 10, so the result is 30 kbit/s."
+      },
+      {
+        "question": "A noiseless channel has bandwidth 4000 Hz and 2 signal levels. Which maximum bit rate does the Nyquist formula give?",
+        "options": [
+          "16000 bit/s",
+          "8000 bit/s",
+          "2000 bit/s",
+          "4000 bit/s"
+        ],
+        "correctAnswer": "8000 bit/s",
+        "explanation": "The noiseless rate is 2 times 4000 times log2 of 2, which is 8000 bit/s."
+      },
+      {
+        "question": "Received power is 1/100 of the transmitted power. Which attenuation in decibels is that?",
+        "options": [
+          "20 dB",
+          "10 dB",
+          "2 dB",
+          "100 dB"
+        ],
+        "correctAnswer": "20 dB",
+        "explanation": "Attenuation is 10 log10 of 100, which is 20 dB."
+      }
+    ],
+    "14": [
+      {
+        "question": "Eight bits are wrong in 4000 received bits. Which bit error rate is that?",
+        "options": [
+          "0.2",
+          "0.002",
+          "0.02",
+          "8"
+        ],
+        "correctAnswer": "0.002",
+        "explanation": "Eight errors divided by 4000 bits is 0.002."
+      },
+      {
+        "question": "The receiver can tell a frame is damaged but cannot repair the bits, so it drops the frame. Which capability is it using?",
+        "options": [
+          "Error detection",
+          "Error correction",
+          "Sampling",
+          "Modulation"
+        ],
+        "correctAnswer": "Error detection",
+        "explanation": "Recognizing a damaged block without fixing the bits is error detection."
+      },
+      {
+        "question": "One extra bit is appended so a single flipped bit in the block can be noticed. Which added bit is this in the simplest scheme?",
+        "options": [
+          "Start bit",
+          "Parity bit",
+          "Stuffing bit",
+          "Stop bit"
+        ],
+        "correctAnswer": "Parity bit",
+        "explanation": "An extra bit that forces even or odd parity is a parity bit."
+      },
+      {
+        "question": "Data bits are 1011001, which contain four 1s. Which even-parity bit should be appended?",
+        "options": [
+          "4",
+          "1",
+          "0",
+          "2"
+        ],
+        "correctAnswer": "0",
+        "explanation": "Four 1s is already even, so the even-parity bit is 0."
+      },
+      {
+        "question": "The sender adds the 16-bit words and appends the sum; the receiver adds them again and compares. Which method is this?",
+        "options": [
+          "CRC",
+          "Checksum",
+          "Hamming code",
+          "Even parity on one byte"
+        ],
+        "correctAnswer": "Checksum",
+        "explanation": "Detection by summing data words is a checksum, not polynomial division."
+      },
+      {
+        "question": "The frame check is the remainder after dividing the data by a generator polynomial. Which code is this?",
+        "options": [
+          "Manchester coding",
+          "Even parity",
+          "Checksum",
+          "CRC"
+        ],
+        "correctAnswer": "CRC",
+        "explanation": "A remainder from generator-polynomial division is a cyclic redundancy check."
+      },
+      {
+        "question": "The words 10110 and 10011 differ in two bit positions. Which Hamming distance is that?",
+        "options": [
+          "2",
+          "5",
+          "3",
+          "1"
+        ],
+        "correctAnswer": "2",
+        "explanation": "Two differing positions give a Hamming distance of 2."
+      },
+      {
+        "question": "A (7,4) code corrects one flipped bit using parity checks at power-of-two positions. Which code family is this?",
+        "options": [
+          "Convolutional code",
+          "CRC",
+          "Single parity",
+          "Hamming code"
+        ],
+        "correctAnswer": "Hamming code",
+        "explanation": "Overlapping parity bits that correct one error identify a Hamming code."
+      },
+      {
+        "question": "A code's closest distinct codewords differ in 3 positions, and no pair is closer. How many errors can the code correct?",
+        "options": [
+          "3",
+          "2",
+          "0",
+          "1"
+        ],
+        "correctAnswer": "1",
+        "explanation": "A minimum distance of 3 satisfies 2t+1 = 3, so the code corrects t = 1 error."
+      },
+      {
+        "question": "A satellite link has a huge delay, so the receiver fixes single-bit errors locally and does not ask for a resend. Which strategy is this?",
+        "options": [
+          "Go-back-N",
+          "FEC",
+          "Selective repeat",
+          "ARQ"
+        ],
+        "correctAnswer": "FEC",
+        "explanation": "Local correction without a retransmission request is forward error correction."
+      }
+    ],
+    "15": [
+      {
+        "question": "A bad frame is detected and the sender is told to transmit that frame again. Which strategy is this?",
+        "options": [
+          "FEC",
+          "Companding",
+          "WDM",
+          "ARQ"
+        ],
+        "correctAnswer": "ARQ",
+        "explanation": "Asking for the damaged block to be sent again is automatic repeat request."
+      },
+      {
+        "question": "Four independent calls share one trunk instead of four separate cables. Which general technique allows the sharing?",
+        "options": [
+          "Quantization",
+          "Attenuation",
+          "Multiplexing",
+          "Modulation of one call"
+        ],
+        "correctAnswer": "Multiplexing",
+        "explanation": "Combining independent signals onto one shared link is multiplexing."
+      },
+      {
+        "question": "Four calls use 0-4 kHz, 4-8 kHz, 8-12 kHz, and 12-16 kHz simultaneously on one pair. Which method is this?",
+        "options": [
+          "TDM",
+          "CDMA",
+          "FDM",
+          "Statistical TDM"
+        ],
+        "correctAnswer": "FDM",
+        "explanation": "Simultaneous signals kept in separate frequency bands use frequency-division multiplexing."
+      },
+      {
+        "question": "Each call gets the whole cable for a fixed slot in rotation, with a frame every 125 microseconds. Which method is this?",
+        "options": [
+          "CDMA",
+          "FDM",
+          "TDM",
+          "WDM"
+        ],
+        "correctAnswer": "TDM",
+        "explanation": "Fixed repeating time slots that each get the full bandwidth are time-division multiplexing."
+      },
+      {
+        "question": "Slots go only to terminals that have bytes waiting, not to silent terminals in a fixed order. Which method is this?",
+        "options": [
+          "FDM",
+          "Synchronous TDM",
+          "WDM",
+          "Statistical TDM"
+        ],
+        "correctAnswer": "Statistical TDM",
+        "explanation": "On-demand slots for active sources are statistical time-division multiplexing."
+      },
+      {
+        "question": "One fiber carries simultaneous channels at 1550.12 nm and 1550.92 nm. Which multiplexing method is this?",
+        "options": [
+          "TDM",
+          "CDMA",
+          "WDM",
+          "Manchester coding"
+        ],
+        "correctAnswer": "WDM",
+        "explanation": "Separate wavelengths on one fiber are wavelength-division multiplexing."
+      },
+      {
+        "question": "Users transmit together in the same band, and each receiver separates them with a unique code. Which method is this?",
+        "options": [
+          "FDMA",
+          "TDMA",
+          "CDMA",
+          "WDMA"
+        ],
+        "correctAnswer": "CDMA",
+        "explanation": "Separation by spreading codes, while sharing time and frequency, is CDMA."
+      },
+      {
+        "question": "Bits are turned into voltage pulses on copper before any radio carrier is applied. Which mapping is this?",
+        "options": [
+          "Passband modulation",
+          "CRC",
+          "Line coding",
+          "Companding"
+        ],
+        "correctAnswer": "Line coding",
+        "explanation": "Mapping bits to a baseband pulse waveform is line coding."
+      },
+      {
+        "question": "Every bit period contains a mid-bit transition, and the receiver uses it to stay in sync. Which line code is this?",
+        "options": [
+          "Manchester",
+          "AMI",
+          "NRZ-L",
+          "Bipolar RZ"
+        ],
+        "correctAnswer": "Manchester",
+        "explanation": "A transition in the middle of every bit period is Manchester encoding."
+      },
+      {
+        "question": "At the decision instant the receiver sees leftover voltage from the previous pulse added to the current pulse. Which impairment is this?",
+        "options": [
+          "Intersymbol interference",
+          "Additive white noise",
+          "A parity failure",
+          "Quantization error"
+        ],
+        "correctAnswer": "Intersymbol interference",
+        "explanation": "Symbol energy spilling into neighboring symbol intervals is intersymbol interference."
+      }
+    ]
+  }
+}

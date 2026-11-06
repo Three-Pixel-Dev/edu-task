@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Symmetric encryption",
+    "definition": "Encryption that uses the same secret key both to encrypt data and to decrypt it.",
+    "wrongs": [
+      "Encryption that uses a public key to encrypt and a different private key to decrypt.",
+      "A one-way function that maps data to a fixed-length digest that cannot be reversed.",
+      "A filter that accepts or drops packets according to address and port rules."
+    ],
+    "why": "Both parties share one secret, so that same key undoes the encryption.",
+    "example": "Two office laptops share a secret key and use it to encrypt a spreadsheet before emailing it.",
+    "scenario": "Alice and Bob already share a secret key. Which property lets Bob read a file Alice encrypted with that key?",
+    "scenarioAnswer": "The same shared key decrypts it",
+    "scenarioWrongs": [
+      "A different public key decrypts it",
+      "Any hash of the file decrypts it",
+      "A firewall rule decrypts it"
+    ],
+    "scenarioWhy": "Symmetric encryption decrypts with the same secret key that was used to encrypt."
+  },
+  {
+    "term": "Public-key encryption",
+    "definition": "Encryption that uses a public key to encrypt data and the matching private key to decrypt it.",
+    "wrongs": [
+      "Encryption that uses one shared secret for both encryption and decryption.",
+      "A checksum stored beside a file so accidental bit flips can be noticed.",
+      "A tunnel that hides addresses by sending all traffic through one gateway."
+    ],
+    "why": "Anyone may encrypt with the published key, but only the private-key holder can decrypt.",
+    "example": "A browser encrypts a short secret with a bank site's published key so only the bank can read it.",
+    "scenario": "A website publishes one key and keeps another secret. Which key should visitors use to encrypt data for that site?",
+    "scenarioAnswer": "The site's public key",
+    "scenarioWrongs": [
+      "The site's private key",
+      "A hash of the home page",
+      "The site's firewall rule"
+    ],
+    "scenarioWhy": "Public-key encryption lets anyone encrypt to the owner with the published key."
+  },
+  {
+    "term": "AES",
+    "definition": "A symmetric block cipher that encrypts 128-bit blocks using a 128-, 192-, or 256-bit key.",
+    "wrongs": [
+      "A public-key algorithm whose security depends on factoring a large modulus.",
+      "A hash function that outputs a 256-bit digest of any input.",
+      "A key-agreement method that derives a shared secret from public values."
+    ],
+    "why": "AES is the standard symmetric block cipher used to encrypt bulk data with one shared key.",
+    "example": "A disk-encryption tool uses AES-256 so a laptop drive stays unreadable without the key.",
+    "scenario": "A product must encrypt large files quickly with one shared secret. Which algorithm fits that job?",
+    "scenarioAnswer": "AES",
+    "scenarioWrongs": [
+      "RSA",
+      "SHA-256",
+      "Diffie-Hellman"
+    ],
+    "scenarioWhy": "AES is a symmetric block cipher built for fast bulk encryption with a shared key."
+  },
+  {
+    "term": "RSA",
+    "definition": "A public-key algorithm whose security depends on the difficulty of factoring a large modulus.",
+    "wrongs": [
+      "A symmetric block cipher that encrypts 128-bit blocks with one shared key.",
+      "A hash function used only to detect accidental file corruption.",
+      "A firewall mode that remembers a connection before allowing return traffic."
+    ],
+    "why": "RSA builds a public and private key from two large primes and their product.",
+    "example": "An email program encrypts a short message key with the recipient's RSA public key.",
+    "scenario": "A protocol needs a public-key operation based on the hardness of integer factoring. Which algorithm matches?",
+    "scenarioAnswer": "RSA",
+    "scenarioWrongs": [
+      "AES",
+      "SHA-256",
+      "A message authentication code"
+    ],
+    "scenarioWhy": "RSA is the classic public-key algorithm whose trapdoor is related to factoring."
+  },
+  {
+    "term": "Cryptographic hash function",
+    "definition": "A one-way function that maps data of any length to a fixed-size digest.",
+    "wrongs": [
+      "A reversible cipher that restores the original file when the digest is known.",
+      "A shared-key cipher that encrypts data in fixed-size blocks.",
+      "A signed document that binds a person's name to a public key."
+    ],
+    "why": "The digest has a fixed length, and the input should not be recoverable from it.",
+    "example": "A download page publishes a SHA-256 digest so students can check that an installer was not altered.",
+    "scenario": "A team must detect a changed file without being able to rebuild the file from the check value. What should they store?",
+    "scenarioAnswer": "A cryptographic hash of the file",
+    "scenarioWrongs": [
+      "An AES ciphertext of the file name only",
+      "The file's private key",
+      "A firewall log of the download"
+    ],
+    "scenarioWhy": "A cryptographic hash is a one-way fingerprint of the file contents."
+  },
+  {
+    "term": "Digital signature",
+    "definition": "A value made with a private key so others can verify the signer and the data with the public key.",
+    "wrongs": [
+      "A shared password both parties type before a file transfer starts.",
+      "A symmetric ciphertext that hides a message from everyone but the sender.",
+      "A rule that allows network traffic only from one named subnet."
+    ],
+    "why": "Only the private-key holder can create a signature that the matching public key accepts.",
+    "example": "A software vendor signs a release so customers can confirm the package came from that vendor.",
+    "scenario": "Customers must confirm that a patch came from the vendor and was not edited. What should the vendor attach?",
+    "scenarioAnswer": "A digital signature",
+    "scenarioWrongs": [
+      "A symmetric session key in the clear",
+      "An intrusion-detection alert",
+      "A VPN tunnel address"
+    ],
+    "scenarioWhy": "A digital signature ties the vendor's private key to the exact bytes of the patch."
+  },
+  {
+    "term": "TLS",
+    "definition": "A protocol that authenticates an endpoint and encrypts application data on a network connection.",
+    "wrongs": [
+      "A disk layout that stores each file as blocks linked by a content hash.",
+      "A host filter that drops packets with private source addresses.",
+      "A password store that keeps only unsalted copies of user secrets."
+    ],
+    "why": "After the handshake checks the server, TLS protects the confidentiality and integrity of the session data.",
+    "example": "A browser shows a lock because the campus bank site finished a TLS handshake and uses HTTPS.",
+    "scenario": "A web app must encrypt HTTP and let browsers check the server certificate. Which protocol should it use?",
+    "scenarioAnswer": "TLS",
+    "scenarioWrongs": [
+      "Telnet",
+      "FTP",
+      "ICMP"
+    ],
+    "scenarioWhy": "TLS is the protocol that secures web sessions and authenticates the server certificate."
+  },
+  {
+    "term": "Firewall",
+    "definition": "A control that allows or blocks network traffic according to a stated security policy.",
+    "wrongs": [
+      "A cipher that encrypts every packet with a 128-bit block key.",
+      "A hash stored in a certificate so a browser can rebuild a private key.",
+      "A signature method that proves who sent an email message."
+    ],
+    "why": "A firewall compares traffic with rules and then permits or denies each connection.",
+    "example": "A lab server allows inbound TCP port 443 from campus and drops every other inbound connection.",
+    "scenario": "An admin must permit only HTTPS into a server and reject other inbound ports. Which control does that?",
+    "scenarioAnswer": "A firewall rule",
+    "scenarioWrongs": [
+      "A cryptographic hash",
+      "An RSA private key",
+      "A Diffie-Hellman public value"
+    ],
+    "scenarioWhy": "A firewall rule can allow one service port and deny the remaining inbound traffic."
+  },
+  {
+    "term": "Intrusion detection system",
+    "definition": "A monitor that analyzes traffic or host activity and raises alerts about suspected attacks.",
+    "wrongs": [
+      "A device that encrypts all traffic so packet contents cannot be read.",
+      "A method that agrees a shared secret between strangers with no prior key.",
+      "An authority that issues public-key certificates to named users."
+    ],
+    "why": "An intrusion detection system reports suspicious events and does not by itself block them.",
+    "example": "A campus sensor alerts analysts when many hosts suddenly probe the same closed port.",
+    "scenario": "The team wants warnings about odd scans, while a person still decides whether to block them. What should they deploy?",
+    "scenarioAnswer": "An intrusion detection system",
+    "scenarioWrongs": [
+      "A one-time pad",
+      "A password salt",
+      "A root certificate"
+    ],
+    "scenarioWhy": "A detection system raises alerts for people to review instead of automatically blocking traffic."
+  },
+  {
+    "term": "VPN",
+    "definition": "An encrypted tunnel that carries private traffic across a shared or public network.",
+    "wrongs": [
+      "A hash that replaces a password in a user database.",
+      "A list of allowed hardware addresses on a switch port.",
+      "A signature a browser checks before it runs a downloaded script."
+    ],
+    "why": "The tunnel encrypts packets so outsiders on the shared network cannot read the private traffic.",
+    "example": "A remote employee opens the company VPN and then reaches an internal file server as if on the office LAN.",
+    "scenario": "Staff at home must reach internal servers over the internet without exposing that traffic. What should they use?",
+    "scenarioAnswer": "A VPN",
+    "scenarioWrongs": [
+      "An open FTP server",
+      "A public file hash",
+      "A broadcast packet"
+    ],
+    "scenarioWhy": "A VPN encrypts the path between the remote computer and the internal network."
+  },
+  {
+    "term": "Public key infrastructure",
+    "definition": "The authorities, policies, and certificates used to bind public keys to checked identities.",
+    "wrongs": [
+      "A single shared password given to every host on a local network.",
+      "A cipher mode that encrypts each block independently of the others.",
+      "A log format that records only failed login attempts."
+    ],
+    "why": "Relying parties trust a public key because a certificate authority has vouched for the binding.",
+    "example": "A university authority issues certificates so campus services can trust each server's public key.",
+    "scenario": "An organization must issue and revoke certificates that tie employee names to public keys. What system does that?",
+    "scenarioAnswer": "A public key infrastructure",
+    "scenarioWrongs": [
+      "A symmetric key cache",
+      "A host intrusion log",
+      "A network address translation table"
+    ],
+    "scenarioWhy": "Public key infrastructure is the set of authorities and certificates that bind keys to identities."
+  },
+  {
+    "term": "Diffie-Hellman",
+    "definition": "A key-agreement method that lets two parties derive the same shared secret over a public channel.",
+    "wrongs": [
+      "A block cipher that encrypts data with a 256-bit key in 128-bit blocks.",
+      "A signature method that signs a hash with the sender's private key.",
+      "A filter that drops packets whose source address does not match the port."
+    ],
+    "why": "Each side combines its own private value with the other side's public value to compute the same secret.",
+    "example": "A TLS handshake uses ephemeral Diffie-Hellman so the browser and server agree a fresh session key.",
+    "scenario": "Two hosts have never shared a key and must agree one while an eavesdropper can see their messages. Which method fits?",
+    "scenarioAnswer": "Diffie-Hellman",
+    "scenarioWrongs": [
+      "Publishing the finished secret in the clear",
+      "Hashing both IP addresses",
+      "Reusing a static password as the ciphertext"
+    ],
+    "scenarioWhy": "Diffie-Hellman derives a shared secret from public values without sending that secret."
+  },
+  {
+    "term": "Plaintext",
+    "definition": "The original readable data before encryption, or the readable data restored by decryption.",
+    "wrongs": [
+      "The scrambled output produced by a cipher.",
+      "The public certificate that names a server.",
+      "The rule set a firewall uses to drop packets."
+    ],
+    "why": "Plaintext is the meaningful message that a cipher is meant to hide and later restore.",
+    "example": "The sentence in an email is plaintext until the mail program encrypts it for the recipient.",
+    "scenario": "After Bob decrypts a message with the correct key, what form is the recovered message in?",
+    "scenarioAnswer": "Plaintext",
+    "scenarioWrongs": [
+      "Ciphertext",
+      "A certificate chain",
+      "A connection state table"
+    ],
+    "scenarioWhy": "Decryption restores the original readable plaintext."
+  },
+  {
+    "term": "Ciphertext",
+    "definition": "The scrambled output of encryption, which hides the original message from anyone without the key.",
+    "wrongs": [
+      "The original readable message before any cipher is applied.",
+      "A public key listed in a directory.",
+      "An alert written by an intrusion sensor."
+    ],
+    "why": "Ciphertext should be unreadable unless the proper decryption key is applied.",
+    "example": "A messaging app stores an encrypted chat blob on a server, and only the users' devices hold the keys.",
+    "scenario": "An observer records the bytes leaving a laptop after encryption and before they reach the server. What are those bytes?",
+    "scenarioAnswer": "Ciphertext",
+    "scenarioWrongs": [
+      "Plaintext",
+      "A password salt",
+      "A root certificate"
+    ],
+    "scenarioWhy": "Encryption turns the readable message into ciphertext before it crosses the network."
+  },
+  {
+    "term": "Block cipher",
+    "definition": "A symmetric cipher that encrypts fixed-size groups of bits under a secret key.",
+    "wrongs": [
+      "A cipher that combines data with a keystream one byte at a time.",
+      "A one-way function that outputs a digest instead of ciphertext.",
+      "A protocol that only checks user names and never encrypts data."
+    ],
+    "why": "Block ciphers such as AES work on a fixed block length rather than a continuous stream of bytes.",
+    "example": "AES takes each 128-bit chunk of a database backup and encrypts that chunk under the backup key.",
+    "scenario": "A designer picks a cipher that always processes 128-bit chunks with one secret key. What kind of cipher is that?",
+    "scenarioAnswer": "A block cipher",
+    "scenarioWrongs": [
+      "A stream cipher",
+      "A hash function",
+      "A certificate authority"
+    ],
+    "scenarioWhy": "A block cipher encrypts fixed-size blocks under a symmetric key."
+  },
+  {
+    "term": "Stream cipher",
+    "definition": "A symmetric cipher that combines plaintext with a pseudorandom keystream, often one byte at a time.",
+    "wrongs": [
+      "A cipher that encrypts data only in large fixed blocks such as 128 bits.",
+      "A public-key method that publishes a modulus and an encryption exponent.",
+      "A monitor that alerts when traffic matches a known attack pattern."
+    ],
+    "why": "A keystream is generated from the key and combined with the plaintext to produce ciphertext.",
+    "example": "A radio link encrypts each outgoing byte by combining it with the next byte of a keystream.",
+    "scenario": "A link encrypts a continuous byte stream by combining each byte with a keystream. Which cipher type is that?",
+    "scenarioAnswer": "A stream cipher",
+    "scenarioWrongs": [
+      "A block cipher used only on whole files",
+      "An RSA modulus",
+      "A packet filter"
+    ],
+    "scenarioWhy": "A stream cipher encrypts a running sequence with a keystream rather than fixed blocks."
+  },
+  {
+    "term": "Message authentication code",
+    "definition": "A keyed tag that lets a receiver check that a message is unchanged and came from a holder of the key.",
+    "wrongs": [
+      "An unkeyed digest that anyone can recompute without a secret.",
+      "A public certificate issued by a trusted organization.",
+      "A tunnel header that hides the original network addresses."
+    ],
+    "why": "Only a party that knows the shared key can produce a tag the receiver will accept.",
+    "example": "An API attaches a keyed tag of each request body so the server can reject a modified call.",
+    "scenario": "Two servers share a secret and must notice if a status message changes in transit. What should they append?",
+    "scenarioAnswer": "A message authentication code",
+    "scenarioWrongs": [
+      "An unkeyed checksum anyone can forge",
+      "A new public certificate",
+      "A second copy of the plaintext"
+    ],
+    "scenarioWhy": "A message authentication code uses the shared secret so an outsider cannot forge a valid tag."
+  },
+  {
+    "term": "Salt",
+    "definition": "A unique random value stored with a password hash so identical passwords do not share the same digest.",
+    "wrongs": [
+      "The secret key used to decrypt a symmetric ciphertext.",
+      "A public certificate that identifies a website.",
+      "A timer that closes idle firewall connections."
+    ],
+    "why": "A different salt forces each stored hash to differ even when the passwords are the same.",
+    "example": "Two students choose the same password, but the login table stores different hashes because each row has its own salt.",
+    "scenario": "A login database must keep identical passwords from producing identical stored hashes. What should be mixed in before hashing?",
+    "scenarioAnswer": "A unique salt",
+    "scenarioWrongs": [
+      "The user's public key",
+      "A fixed company slogan",
+      "The server's port number"
+    ],
+    "scenarioWhy": "A unique salt makes each stored password hash different even for matching passwords."
+  },
+  {
+    "term": "Certificate authority",
+    "definition": "An organization that checks identities and issues signed digital certificates for public keys.",
+    "wrongs": [
+      "A symmetric algorithm that encrypts blocks on a disk.",
+      "A sensor that only raises alerts and never issues credentials.",
+      "A local file that stores unsalted password guesses."
+    ],
+    "why": "Others trust the certificate because it was signed by an authority they already accept.",
+    "example": "A browser trusts a university login site because a recognized authority signed that site's certificate.",
+    "scenario": "A company wants ordinary browsers to trust its new website certificate. Who should sign that certificate?",
+    "scenarioAnswer": "A certificate authority",
+    "scenarioWrongs": [
+      "Any anonymous visitor",
+      "The site firewall",
+      "A local hash program"
+    ],
+    "scenarioWhy": "Browsers trust a site certificate when a recognized certificate authority has signed it."
+  },
+  {
+    "term": "Digital certificate",
+    "definition": "A signed document that binds an identity to a public key and states a validity period.",
+    "wrongs": [
+      "A shared secret used by a block cipher to encrypt a disk.",
+      "An alert record produced by a network sensor.",
+      "A random value stored beside a password hash."
+    ],
+    "why": "The issuer's signature lets others rely on the name-to-key binding inside the certificate.",
+    "example": "A server presents a certificate that names its domain and contains the public key browsers should use.",
+    "scenario": "During a handshake the server must show which public key belongs to its domain name. What does it send?",
+    "scenarioAnswer": "A digital certificate",
+    "scenarioWrongs": [
+      "Its private key",
+      "A password salt",
+      "A firewall log"
+    ],
+    "scenarioWhy": "A digital certificate binds the domain name to a public key under an issuer's signature."
+  },
+  {
+    "term": "Perfect forward secrecy",
+    "definition": "A property where later exposure of a long-term key does not reveal the keys of past sessions.",
+    "wrongs": [
+      "A property where one stolen session key decrypts every earlier and later session.",
+      "A hash property that makes two different files share one digest.",
+      "A firewall property that allows all outbound traffic by default."
+    ],
+    "why": "Each session uses an ephemeral secret that is discarded and cannot be derived from the long-term key alone.",
+    "example": "A mail server uses ephemeral Diffie-Hellman so a later theft of its private key does not unlock old sessions.",
+    "scenario": "Designers want a stolen long-term server key to be useless for reading recorded past sessions. Which property is that?",
+    "scenarioAnswer": "Perfect forward secrecy",
+    "scenarioWrongs": [
+      "Reusing one session key forever",
+      "Encrypting every session under a static key only",
+      "Disabling certificate checks"
+    ],
+    "scenarioWhy": "Forward secrecy keeps past session keys independent of the long-term private key."
+  },
+  {
+    "term": "Confidentiality",
+    "definition": "The security goal of keeping information readable only by parties allowed to see it.",
+    "wrongs": [
+      "The goal of showing that data was not changed, even if everyone can read it.",
+      "The goal of keeping a service reachable during heavy demand.",
+      "The goal of proving who created a file without hiding its contents."
+    ],
+    "why": "Confidentiality is about secrecy of content, usually enforced by access control or encryption.",
+    "example": "A clinic encrypts patient notes so only staff with the proper keys can read the diagnoses.",
+    "scenario": "A hospital must stop outsiders from reading stored lab results. Which security goal is that?",
+    "scenarioAnswer": "Confidentiality",
+    "scenarioWrongs": [
+      "Availability alone",
+      "Non-repudiation alone",
+      "Data compression"
+    ],
+    "scenarioWhy": "Keeping unauthorized people from reading the data is confidentiality."
+  },
+  {
+    "term": "Integrity",
+    "definition": "The security goal of detecting or preventing unauthorized changes to data.",
+    "wrongs": [
+      "The goal of hiding data so unauthorized people cannot read it.",
+      "The goal of issuing public-key certificates to employees.",
+      "The goal of carrying traffic through an encrypted remote gateway."
+    ],
+    "why": "Hashes, message authentication codes, and signatures provide evidence about whether data changed.",
+    "example": "A backup job stores a hash beside each archive so staff can tell whether the archive was edited.",
+    "scenario": "Auditors must notice if a grade file changes after the instructor saves it. Which goal are they protecting?",
+    "scenarioAnswer": "Integrity",
+    "scenarioWrongs": [
+      "Address translation",
+      "Key length alone",
+      "Link speed"
+    ],
+    "scenarioWhy": "Noticing an unauthorized change is the integrity goal."
+  },
+  {
+    "term": "Authentication",
+    "definition": "The process of checking that a claimed identity is genuine before trusting it.",
+    "wrongs": [
+      "The process of hiding a file's contents with a cipher.",
+      "The process of placing public servers on a screened subnet.",
+      "The process of compressing logs before they are archived."
+    ],
+    "why": "Authentication examines evidence such as a password, key, or certificate for the claimed identity.",
+    "example": "A student portal asks for a password and a phone code before it treats the session as that student.",
+    "scenario": "A mail server must check that a person really is the account holder before showing the inbox. What process is that?",
+    "scenarioAnswer": "Authentication",
+    "scenarioWrongs": [
+      "Compression",
+      "Fragmentation",
+      "Address translation"
+    ],
+    "scenarioWhy": "Authentication checks the identity claim before the server grants access."
+  },
+  {
+    "term": "Non-repudiation",
+    "definition": "Evidence that a party cannot convincingly deny having signed or sent a particular message.",
+    "wrongs": [
+      "Evidence that a packet always took the shortest network path.",
+      "Evidence that two users memorized the same symmetric password.",
+      "Evidence that a firewall dropped every inbound packet."
+    ],
+    "why": "A digital signature tied to a controlled private key is evidence that the signer approved the message.",
+    "example": "An online approval stores a manager's digital signature so the manager cannot later deny the purchase.",
+    "scenario": "A dispute needs evidence that one specific manager approved a purchase order. Which goal supplies that evidence?",
+    "scenarioAnswer": "Non-repudiation",
+    "scenarioWrongs": [
+      "Packet fragmentation",
+      "Address spoofing",
+      "Port scanning"
+    ],
+    "scenarioWhy": "Non-repudiation gives evidence that the identified manager signed the order."
+  },
+  {
+    "term": "Hybrid cryptosystem",
+    "definition": "A design that protects a symmetric key with public-key cryptography and encrypts the bulk data with that key.",
+    "wrongs": [
+      "A design that hashes a file and treats the digest as the encrypted content.",
+      "A design that uses only packet filters and never encrypts data.",
+      "A design that signs cleartext with a shared password and sends no key."
+    ],
+    "why": "Public-key operations are slower, so they wrap a short key while a symmetric cipher handles the data.",
+    "example": "A mail program encrypts a letter with AES and encrypts that AES key with the recipient's RSA public key.",
+    "scenario": "A large video must be encrypted quickly, yet only the recipient's private key should unlock it. Which design fits?",
+    "scenarioAnswer": "A hybrid cryptosystem",
+    "scenarioWrongs": [
+      "Hashing the video and sending only the digest",
+      "Encrypting every video byte with RSA alone",
+      "Signing the video and sending it unencrypted"
+    ],
+    "scenarioWhy": "The hybrid design uses public-key encryption for a short AES key and AES for the video."
+  },
+  {
+    "term": "Session key",
+    "definition": "A short-lived symmetric key used to protect the data of one communication session.",
+    "wrongs": [
+      "A long-term private key that is published inside a certificate.",
+      "A password salt that stays in a user table for years.",
+      "A firewall rule that is configured never to expire."
+    ],
+    "why": "Limiting a key to one session reduces how much data is exposed if that key later leaks.",
+    "example": "After a handshake, a browser and server encrypt the page traffic with a key they discard when the session ends.",
+    "scenario": "A call should be protected by a key that will not be reused for tomorrow's call. What kind of key is that?",
+    "scenarioAnswer": "A session key",
+    "scenarioWrongs": [
+      "The root authority's private key",
+      "A permanent password hash",
+      "The server's domain name"
+    ],
+    "scenarioWhy": "A session key is created for one conversation and then discarded."
+  },
+  {
+    "term": "Initialization vector",
+    "definition": "A non-secret starting value that lets the same plaintext encrypt differently under the same key.",
+    "wrongs": [
+      "The private key that must stay secret for decryption to remain safe.",
+      "A certificate serial number that identifies a person.",
+      "A hash of the key that is used in place of the key."
+    ],
+    "why": "Modes such as CBC use this value so identical messages do not always produce identical ciphertext.",
+    "example": "A file vault chooses a fresh starting value for each memo so two copies of the same memo encrypt differently.",
+    "scenario": "Two identical messages encrypted with the same key must not produce the same ciphertext. What extra non-secret value is needed?",
+    "scenarioAnswer": "A fresh initialization vector",
+    "scenarioWrongs": [
+      "The same starting block every time",
+      "A hash of the public key only",
+      "A zero block reused for every file"
+    ],
+    "scenarioWhy": "A new initialization vector changes the ciphertext even when the key and plaintext stay the same."
+  },
+  {
+    "term": "Authenticated encryption",
+    "definition": "Encryption that hides the data and also produces a tag that detects tampering with the ciphertext.",
+    "wrongs": [
+      "Encryption that hides data but provides no check against changes to the ciphertext.",
+      "An unkeyed hash with no encryption of the message.",
+      "A certificate field that only stores a subject's name."
+    ],
+    "why": "Constructions such as GCM encrypt the plaintext and create an authentication tag together.",
+    "example": "A tunnel uses AES-GCM so a packet that was edited in transit fails its tag check and is dropped.",
+    "scenario": "A link must hide packet contents and reject packets that are edited on the way. Which construction fits?",
+    "scenarioAnswer": "Authenticated encryption",
+    "scenarioWrongs": [
+      "Encryption with no integrity tag",
+      "An unkeyed checksum with no secret",
+      "A public digest of the plaintext only"
+    ],
+    "scenarioWhy": "Authenticated encryption supplies secrecy and a tag that reveals tampering."
+  },
+  {
+    "term": "SHA-256",
+    "definition": "A cryptographic hash in the SHA-2 family that produces a 256-bit digest of its input.",
+    "wrongs": [
+      "A symmetric cipher that encrypts data with a 256-bit key.",
+      "A public-key signature method that uses a 256-bit modulus as a cipher.",
+      "A tunneling protocol that sends traffic over port 256."
+    ],
+    "why": "SHA-256 maps any input to a 256-bit digest and is widely used for integrity checks.",
+    "example": "A package mirror prints a SHA-256 digest beside each download so students can verify the file.",
+    "scenario": "A release process needs a 256-bit one-way fingerprint of a binary, not encryption. Which function fits?",
+    "scenarioAnswer": "SHA-256",
+    "scenarioWrongs": [
+      "AES-256",
+      "RSA used as a bulk cipher",
+      "Diffie-Hellman"
+    ],
+    "scenarioWhy": "SHA-256 is a hash function, and its output is a 256-bit digest."
+  },
+  {
+    "term": "HMAC",
+    "definition": "A message authentication code constructed from a cryptographic hash and a secret key.",
+    "wrongs": [
+      "An unkeyed hash of a file name.",
+      "An extension field inside a public certificate.",
+      "A firewall action that blocks every hashed packet."
+    ],
+    "why": "The secret key is mixed into the hash computation so an outsider cannot forge the tag.",
+    "example": "A webhook checks a header by recomputing a keyed hash of the body with the shared secret.",
+    "scenario": "An API already has SHA-256 and a shared secret and must authenticate request bodies. Which construction matches?",
+    "scenarioAnswer": "HMAC",
+    "scenarioWrongs": [
+      "A bare SHA-256 with no key",
+      "RSA encryption of the entire body",
+      "A certificate with no tag"
+    ],
+    "scenarioWhy": "HMAC is the standard way to build a keyed tag from a hash function and a secret."
+  },
+  {
+    "term": "Certificate revocation",
+    "definition": "Declaring a certificate untrustworthy before its printed expiration date.",
+    "wrongs": [
+      "Extending a certificate so that it never expires.",
+      "Encrypting a certificate with a block cipher for storage.",
+      "Turning a certificate into a symmetric encryption key."
+    ],
+    "why": "Revocation covers keys that were exposed, lost, or issued by mistake while the dates still look valid.",
+    "example": "After a laptop holding a client certificate is stolen, the campus authority revokes that certificate the same day.",
+    "scenario": "A private key on a lost laptop may be misused, and the certificate dates are still valid. What should the authority do?",
+    "scenarioAnswer": "Revoke the certificate",
+    "scenarioWrongs": [
+      "Extend it for five more years",
+      "Publish the private key",
+      "Convert it into a password"
+    ],
+    "scenarioWhy": "Revocation tells relying parties to stop trusting the certificate before it expires."
+  },
+  {
+    "term": "IPsec",
+    "definition": "A suite that can authenticate and encrypt IP packets between hosts or security gateways.",
+    "wrongs": [
+      "A file-hash format used only to check downloads in a browser.",
+      "A method that stores salted password hashes in a database.",
+      "An application format used to describe web pages."
+    ],
+    "why": "IPsec protects traffic at the IP layer using security associations and protocols such as ESP.",
+    "example": "Two branch routers maintain an IPsec tunnel so traffic between the offices is encrypted on the internet.",
+    "scenario": "Two site routers must encrypt IP packets between their networks, not only web traffic. Which suite fits?",
+    "scenarioAnswer": "IPsec",
+    "scenarioWrongs": [
+      "SMTP",
+      "DHCP",
+      "ARP"
+    ],
+    "scenarioWhy": "IPsec protects IP packets between gateways and therefore covers many applications."
+  },
+  {
+    "term": "Stateful inspection",
+    "definition": "Firewall behavior that remembers connection state and allows return traffic belonging to an existing flow.",
+    "wrongs": [
+      "Firewall behavior that judges every packet alone and never remembers a connection.",
+      "Encryption that chooses a brand-new key for every byte.",
+      "Hashing that keeps only the first packet of a flow."
+    ],
+    "why": "The firewall records the connection and then accepts packets that match that remembered state.",
+    "example": "A firewall allows an outbound web request and then permits the matching replies without a separate inbound allow rule.",
+    "scenario": "Replies to connections a host started should pass, while unexpected inbound connections stay blocked. Which firewall behavior is that?",
+    "scenarioAnswer": "Stateful inspection",
+    "scenarioWrongs": [
+      "Allowing every inbound packet",
+      "Dropping every reply packet",
+      "Replacing the connection with a hash"
+    ],
+    "scenarioWhy": "Stateful inspection remembers legitimate connections and permits their return traffic."
+  },
+  {
+    "term": "Intrusion prevention system",
+    "definition": "An inline control that detects suspected attacks and blocks the matching traffic.",
+    "wrongs": [
+      "A sensor that only notifies an analyst and never drops traffic.",
+      "A cipher that hides payloads but does not look for attacks.",
+      "A certificate that stops a key pair from being created."
+    ],
+    "why": "Unlike a detection-only monitor, this control sits in the traffic path so it can stop the activity.",
+    "example": "An inline campus device drops connections that match a known attack signature before they reach a server.",
+    "scenario": "A device in the traffic path must stop a matching attack at once, not merely record it. What role is it filling?",
+    "scenarioAnswer": "An intrusion prevention system",
+    "scenarioWrongs": [
+      "A passive copy of the traffic",
+      "A certificate authority",
+      "A password hash store"
+    ],
+    "scenarioWhy": "An intrusion prevention system can block traffic it classifies as an attack."
+  },
+  {
+    "term": "Defense in depth",
+    "definition": "A strategy that uses several independent controls so one failure does not fully expose the system.",
+    "wrongs": [
+      "A strategy that relies on one shared password for every layer.",
+      "A strategy that turns off logging once a firewall is installed.",
+      "A strategy that encrypts disks and then removes all access checks."
+    ],
+    "why": "Independent layers, such as network filtering, authentication, and encryption, cover different failures.",
+    "example": "A records system sits behind a firewall, requires a second login factor, and encrypts the database disk.",
+    "scenario": "Architects refuse to trust the firewall alone and also require login checks and encrypted storage. Which strategy is that?",
+    "scenarioAnswer": "Defense in depth",
+    "scenarioWrongs": [
+      "A single shared password",
+      "One control with logging removed",
+      "Encryption with access checks removed"
+    ],
+    "scenarioWhy": "Defense in depth stacks separate controls so bypassing one of them is not enough."
+  },
+  {
+    "term": "Least privilege",
+    "definition": "The principle that each account or process gets only the access its task requires.",
+    "wrongs": [
+      "The principle that every user receives administrator rights for convenience.",
+      "The principle that encryption keys should be published to all staff.",
+      "The principle that firewalls should allow every port by default."
+    ],
+    "why": "Narrow rights limit the damage if that account is misused or taken over.",
+    "example": "A backup account can read the archive share but cannot edit grades or create administrators.",
+    "scenario": "A print service only needs to write to the print queue. Which principle says it should not be an administrator?",
+    "scenarioAnswer": "Least privilege",
+    "scenarioWrongs": [
+      "Give every service full administrator rights",
+      "Publish the service key to all users",
+      "Allow every network port by default"
+    ],
+    "scenarioWhy": "Least privilege limits the print account to the access its job actually needs."
+  },
+  {
+    "term": "DMZ",
+    "definition": "A screened network segment that holds public-facing services apart from the internal network.",
+    "wrongs": [
+      "The private segment where payroll systems sit with no extra boundary.",
+      "A client program that encrypts one laptop's disk.",
+      "A hash algorithm applied to public web pages."
+    ],
+    "why": "Services in that segment can be reached from outside while stricter rules protect internal systems.",
+    "example": "The university web server sits on a screened segment, and the firewall blocks it from opening connections to the student database.",
+    "scenario": "A public website must be reachable from the internet but must not share a segment with payroll systems. Where should it be placed?",
+    "scenarioAnswer": "In a DMZ",
+    "scenarioWrongs": [
+      "On the payroll segment",
+      "On the domain-controller segment",
+      "On the same host as the student database"
+    ],
+    "scenarioWhy": "A DMZ separates public-facing hosts from sensitive internal systems."
+  },
+  {
+    "term": "End-to-end encryption",
+    "definition": "Encryption in which only the communicating endpoints can read the content, not the servers that forward it.",
+    "wrongs": [
+      "Encryption that stops at the first proxy, which can read and then forward the content.",
+      "Hashing of packet headers performed by a router.",
+      "A logging feature that records ports but encrypts nothing."
+    ],
+    "why": "Forwarding servers may see ciphertext, but they do not hold the keys needed to read the message.",
+    "example": "A chat app encrypts messages on each phone so the provider's servers store ciphertext they cannot read.",
+    "scenario": "Users want a chat provider to forward messages without being able to read them. Which protection fits?",
+    "scenarioAnswer": "End-to-end encryption",
+    "scenarioWrongs": [
+      "Encryption that the provider can decrypt",
+      "Storing the chats in plaintext",
+      "Hashing only the recipient's display name"
+    ],
+    "scenarioWhy": "End-to-end encryption leaves the readable message only on the users' endpoints."
+  },
+  {
+    "term": "Key management",
+    "definition": "The processes for creating, distributing, storing, rotating, and retiring cryptographic keys.",
+    "wrongs": [
+      "The process of choosing which firewall ports to open.",
+      "The process of writing user help pages for a website.",
+      "The process of compressing old logs after an incident."
+    ],
+    "why": "Even a strong cipher fails if its keys are generated poorly, leaked, or never changed.",
+    "example": "A clinic rotates database encryption keys each year and keeps the previous key only to read old backups.",
+    "scenario": "A team selected AES but has no process for issuing, storing, or retiring keys. Which discipline is missing?",
+    "scenarioAnswer": "Key management",
+    "scenarioWrongs": [
+      "Font selection",
+      "Cable color coding",
+      "Screen brightness policy"
+    ],
+    "scenarioWhy": "Key management covers the life cycle of the keys the cipher depends on."
+  },
+  {
+    "term": "Elliptic-curve cryptography",
+    "definition": "Public-key cryptography based on the difficulty of the elliptic-curve discrete logarithm problem.",
+    "wrongs": [
+      "A symmetric block cipher that encrypts 128-bit blocks.",
+      "A hash function whose digest is 160 bits long.",
+      "A packet filter that groups traffic by graph shape."
+    ],
+    "why": "Elliptic-curve schemes provide public-key security with shorter keys than RSA at a similar strength.",
+    "example": "A mobile app uses an elliptic-curve key pair so its certificates stay small on the phone.",
+    "scenario": "A small device needs public-key security with shorter keys than a typical RSA modulus. Which approach fits?",
+    "scenarioAnswer": "Elliptic-curve cryptography",
+    "scenarioWrongs": [
+      "A longer repeated password",
+      "SHA-1 used as a cipher",
+      "A short key in ECB mode"
+    ],
+    "scenarioWhy": "Elliptic-curve public-key schemes reach strong security with comparatively short keys."
+  },
+  {
+    "term": "Challenge-response authentication",
+    "definition": "An exchange in which the verifier sends a fresh challenge and checks the prover's computed reply.",
+    "wrongs": [
+      "An exchange in which the user repeats a static password blob with no new challenge.",
+      "A firewall step that only counts how many packets arrived.",
+      "A method that sends the private key itself as the reply."
+    ],
+    "why": "A fresh challenge means an old captured reply will not match the next exchange.",
+    "example": "A door reader sends a random challenge, and a smart card returns a signed reply that the reader checks.",
+    "scenario": "A door reader must make yesterday's captured unlock message useless today. Which authentication pattern helps?",
+    "scenarioAnswer": "A fresh challenge and a checked response",
+    "scenarioWrongs": [
+      "Replaying one fixed password blob",
+      "Sending the private key in the clear",
+      "Skipping any random challenge"
+    ],
+    "scenarioWhy": "A new challenge binds the reply to this attempt, so a replayed old reply fails."
+  },
+  {
+    "term": "Kerberos",
+    "definition": "A network authentication system that uses a trusted ticket service and time-limited tickets.",
+    "wrongs": [
+      "A symmetric cipher used only to encrypt laptop disks.",
+      "A hash function designed for storing passwords.",
+      "A protocol that assigns network addresses to hosts."
+    ],
+    "why": "A user authenticates to the trusted service and then presents tickets to application servers.",
+    "example": "A campus domain uses Kerberos so a student signs in once and then opens file shares with tickets.",
+    "scenario": "A domain needs single sign-on with time-limited tickets from a trusted service. Which system matches?",
+    "scenarioAnswer": "Kerberos",
+    "scenarioWrongs": [
+      "DHCP",
+      "ICMP",
+      "FTP"
+    ],
+    "scenarioWhy": "Kerberos issues time-limited tickets after authentication by a trusted service."
+  },
+  {
+    "term": "Role-based access control",
+    "definition": "An access model that grants permissions to roles and then assigns people to those roles.",
+    "wrongs": [
+      "An access model that gives every person the same administrator rights.",
+      "An encryption mode that grants access by hashing the file name.",
+      "A routing model that assigns rights according to packet size."
+    ],
+    "why": "Rights stay attached to the role, so a job change is handled by changing role membership.",
+    "example": "A registrar gives instructors a grade-editor role and gives advisers a view-only role.",
+    "scenario": "When a clerk becomes a supervisor, access should change by moving the person between job roles. Which model is that?",
+    "scenarioAnswer": "Role-based access control",
+    "scenarioWrongs": [
+      "One shared account for the whole office",
+      "Access chosen only by hardware address",
+      "Rights stored inside the password hash"
+    ],
+    "scenarioWhy": "Role-based access control attaches permissions to roles instead of copying them onto each person."
+  },
+  {
+    "term": "Multi-factor authentication",
+    "definition": "Authentication that requires proof from at least two different categories of evidence.",
+    "wrongs": [
+      "Authentication that asks for the same password on two successive screens.",
+      "Authentication that uses two user names and no secret.",
+      "Authentication that replaces the password with a hash of the user name."
+    ],
+    "why": "The factors come from different categories, such as a secret, a device, or a biometric.",
+    "example": "A payroll site requires both a password and a one-time code from a phone app.",
+    "scenario": "A policy says a password alone is not enough for payroll and a phone code is also required. What control is that?",
+    "scenarioAnswer": "Multi-factor authentication",
+    "scenarioWrongs": [
+      "Typing one password twice",
+      "Using a longer user name",
+      "Removing the second check"
+    ],
+    "scenarioWhy": "A password and a phone code are two different kinds of authentication evidence."
+  },
+  {
+    "term": "Network segmentation",
+    "definition": "Dividing a network into zones so traffic between those zones can be limited.",
+    "wrongs": [
+      "Placing every server on one flat network with no internal boundaries.",
+      "Encrypting a single file without changing the network design.",
+      "Hashing switch settings and storing the digest off site."
+    ],
+    "why": "Separate zones limit how far a problem on one part of the network can spread.",
+    "example": "A college puts lab instruments on a segment that cannot open connections to the finance segment.",
+    "scenario": "A compromised lab machine must still be unable to reach finance servers directly. Which design goal is that?",
+    "scenarioAnswer": "Network segmentation",
+    "scenarioWrongs": [
+      "One flat network for every system",
+      "One administrator password for both zones",
+      "Removing the filters between zones"
+    ],
+    "scenarioWhy": "Segmentation puts the lab and finance systems in zones with controlled paths between them."
+  },
+  {
+    "term": "Availability",
+    "definition": "The security goal that authorized users can reach systems and data when they need them.",
+    "wrongs": [
+      "The goal of keeping message contents secret from unauthorized readers.",
+      "The goal of proving that a sender cannot deny a signature.",
+      "The goal of mapping every file to a short digest."
+    ],
+    "why": "Availability completes the confidentiality-integrity-availability triad by focusing on reliable access.",
+    "example": "A campus directory uses a second server so lookups continue when one server is down for maintenance.",
+    "scenario": "During maintenance, an exam site must stay reachable for students who are allowed to use it. Which goal is that?",
+    "scenarioAnswer": "Availability",
+    "scenarioWrongs": [
+      "Confidentiality",
+      "Non-repudiation",
+      "Compression"
+    ],
+    "scenarioWhy": "Keeping an authorized service usable when it is needed is availability."
+  },
+  {
+    "term": "Nonce",
+    "definition": "A number used once so that a captured authentication or encryption message cannot be reused successfully.",
+    "wrongs": [
+      "A key that is reused for every message during a year.",
+      "A certificate whose validity period never ends.",
+      "A counter that tells a firewall to accept duplicate handshakes."
+    ],
+    "why": "Because the value is fresh, a message captured earlier will not match the current exchange.",
+    "example": "A login server sends a new random number, and the client includes that number in its signed reply.",
+    "scenario": "A login protocol must make a captured reply useless on the next attempt. Which value should change every time?",
+    "scenarioAnswer": "A nonce",
+    "scenarioWrongs": [
+      "A fixed greeting",
+      "The user's display name",
+      "A constant block of zeros"
+    ],
+    "scenarioWhy": "A new nonce ties the reply to the current attempt, so a replay fails."
+  },
+  {
+    "term": "Collision resistance",
+    "definition": "The hash property that it is infeasible to find two different inputs with the same digest.",
+    "wrongs": [
+      "The property that a hash can be inverted to recover its exact input.",
+      "The property that every short file is stored unchanged inside the digest.",
+      "The property that two different ciphers always emit the same ciphertext."
+    ],
+    "why": "Signatures and integrity checks fail if an attacker can swap in a second input with the same digest.",
+    "example": "A contract system relies on collision resistance so a different contract cannot be found with the same digest.",
+    "scenario": "A signature covers the hash of a contract. Which hash property stops someone from swapping in a different contract with that same hash?",
+    "scenarioAnswer": "Collision resistance",
+    "scenarioWrongs": [
+      "Reversibility of the hash",
+      "Reuse of the signing key",
+      "A short certificate lifetime"
+    ],
+    "scenarioWhy": "Collision resistance makes it infeasible to find a second contract that hashes to the signed digest."
+  },
+  {
+    "term": "Code signing",
+    "definition": "Attaching a digital signature to software so users can check its publisher and whether it was altered.",
+    "wrongs": [
+      "Compressing software so that it downloads in less time.",
+      "Publishing source code with an unsigned checksum and no publisher key.",
+      "Encrypting a program so the operating system is unable to start it."
+    ],
+    "why": "The signature covers the software bytes, and the publisher certificate identifies who signed them.",
+    "example": "An operating system warns about an unsigned installer but runs a campus app that carries a trusted signature.",
+    "scenario": "Students should detect a changed lab installer and see which department published it. What should the department attach?",
+    "scenarioAnswer": "A code signature",
+    "scenarioWrongs": [
+      "A zip comment",
+      "A renamed file extension",
+      "An unsigned checksum with no publisher key"
+    ],
+    "scenarioWhy": "Code signing binds the installer bytes to the department's certified signing key."
+  }
+]

@@ -1,0 +1,1685 @@
+{
+  "subjectId": "research-methodology",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Research Question?",
+        "options": [
+          "A broad topic title with no question the study could answer.",
+          "A clear question that the study is designed to answer and that is narrow enough for the chosen methods.",
+          "The list of references at the end of a paper.",
+          "The researcher's personal hope that the result will be interesting."
+        ],
+        "correctAnswer": "A clear question that the study is designed to answer and that is narrow enough for the chosen methods.",
+        "explanation": "A research question states what the study will answer and guides the choice of method and data."
+      },
+      {
+        "question": "What is Research Objective?",
+        "options": [
+          "A specific outcome the study intends to achieve, written so a reader can tell when it has been met.",
+          "The word count of the report.",
+          "The name of the statistics package.",
+          "A slogan such as explore the area, with no checkable outcome."
+        ],
+        "correctAnswer": "A specific outcome the study intends to achieve, written so a reader can tell when it has been met.",
+        "explanation": "An objective is a concrete outcome of the study, specific enough that completion can be judged."
+      },
+      {
+        "question": "What is Literature Review?",
+        "options": [
+          "The raw data tables from the author's own new experiment.",
+          "A critical synthesis of published work that shows what is already known and where the new study fits.",
+          "A bibliography that names sources but never discusses them.",
+          "A list of quotations placed one after another with no comparison or argument."
+        ],
+        "correctAnswer": "A critical synthesis of published work that shows what is already known and where the new study fits.",
+        "explanation": "A literature review argues from existing work; it is more than a sequence of summaries or a bare list of titles."
+      },
+      {
+        "question": "What is Citation?",
+        "options": [
+          "A reference that identifies the source of an idea, quotation, figure, or finding used in the work.",
+          "Changing a few words so the source need not be named.",
+          "A decorative footnote that points to no real source.",
+          "A compliment paid to the supervisor in the acknowledgements."
+        ],
+        "correctAnswer": "A reference that identifies the source of an idea, quotation, figure, or finding used in the work.",
+        "explanation": "A citation tells the reader exactly which source supports a borrowed idea or result."
+      },
+      {
+        "question": "What is Peer-Reviewed Source?",
+        "options": [
+          "An anonymous blog post with no editorial checks.",
+          "An advertisement written by the product's vendor.",
+          "A publication that experts in the field have examined for quality before it was accepted.",
+          "Any page that appears near the top of a general web search."
+        ],
+        "correctAnswer": "A publication that experts in the field have examined for quality before it was accepted.",
+        "explanation": "Peer review means qualified reviewers assessed the work before publication, which is a quality filter, not a guarantee."
+      },
+      {
+        "question": "What is Primary Source?",
+        "options": [
+          "A textbook chapter that only summarises other people's studies.",
+          "A news story that retells a journal article.",
+          "Original research or firsthand evidence, such as a paper in which the authors report a study they conducted.",
+          "A lecture slide that cites a review paper."
+        ],
+        "correctAnswer": "Original research or firsthand evidence, such as a paper in which the authors report a study they conducted.",
+        "explanation": "A primary source presents original evidence, whereas secondary sources interpret or summarise that evidence."
+      },
+      {
+        "question": "What is Secondary Source?",
+        "options": [
+          "A work that summarises, reviews, or interprets primary research rather than reporting a new study by its author.",
+          "A lab notebook from the study itself.",
+          "The patent filed by the people who ran the trial.",
+          "The dataset collected by the original experimenters."
+        ],
+        "correctAnswer": "A work that summarises, reviews, or interprets primary research rather than reporting a new study by its author.",
+        "explanation": "A secondary source comments on or synthesises primary work; it is not the original evidence."
+      },
+      {
+        "question": "What is Research Gap?",
+        "options": [
+          "A topic that many recent studies have already settled with consistent evidence.",
+          "A spelling mistake in one old paper.",
+          "An unanswered or weakly supported question in the literature that a new study can justifiably address.",
+          "The researcher's dislike of a previous author's writing style."
+        ],
+        "correctAnswer": "An unanswered or weakly supported question in the literature that a new study can justifiably address.",
+        "explanation": "A research gap is a genuine opening in what is known, which justifies a new study."
+      },
+      {
+        "question": "What is Theoretical Framework?",
+        "options": [
+          "The spreadsheet layout used to store responses.",
+          "The ethics form's contact details.",
+          "The researcher's informal hunch with no link to established theory.",
+          "A set of established theories used to explain the phenomenon and to guide what the study examines."
+        ],
+        "correctAnswer": "A set of established theories used to explain the phenomenon and to guide what the study examines.",
+        "explanation": "A theoretical framework uses existing theory to explain the phenomenon and shape the study."
+      },
+      {
+        "question": "What is Conceptual Framework?",
+        "options": [
+          "The printer driver used to produce the diagram.",
+          "A named body of established theory adopted without showing the study's own concepts.",
+          "The researcher's description or diagram of the concepts in the study and the expected links among them.",
+          "The consent form signed by participants."
+        ],
+        "correctAnswer": "The researcher's description or diagram of the concepts in the study and the expected links among them.",
+        "explanation": "A conceptual framework shows how this study's concepts are expected to relate, often in a diagram."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Hypothesis?",
+        "options": [
+          "A question that does not predict what will be found.",
+          "A description of the sample size.",
+          "A moral judgement that cannot be tested with data.",
+          "A testable statement that predicts a relationship or difference between variables."
+        ],
+        "correctAnswer": "A testable statement that predicts a relationship or difference between variables.",
+        "explanation": "A hypothesis predicts an observable relationship or difference so that data can support or contradict it."
+      },
+      {
+        "question": "What is Null Hypothesis?",
+        "options": [
+          "A statement, used for statistical testing, that there is no effect or no difference in the population.",
+          "The research question written as a sentence.",
+          "The conclusion the author hopes reviewers will like.",
+          "The prediction that the treatment group will do better than the control group."
+        ],
+        "correctAnswer": "A statement, used for statistical testing, that there is no effect or no difference in the population.",
+        "explanation": "The null hypothesis states no effect or no difference and is the statement the test attempts to reject."
+      },
+      {
+        "question": "What is Alternative Hypothesis?",
+        "options": [
+          "A description of how the sample was recruited.",
+          "A statement that there is an effect or a difference, considered if the evidence leads you to reject the null.",
+          "The statement that there is no effect in the population.",
+          "The list of variables with no predicted effect."
+        ],
+        "correctAnswer": "A statement that there is an effect or a difference, considered if the evidence leads you to reject the null.",
+        "explanation": "The alternative hypothesis states that an effect or difference exists and is adopted only if the null is rejected."
+      },
+      {
+        "question": "What is Independent Variable?",
+        "options": [
+          "The name of the ethics committee.",
+          "The variable that the researcher changes or groups by, in order to examine its relationship with an outcome.",
+          "The outcome that is measured to see whether it changes.",
+          "A factor deliberately held constant so it cannot explain the result."
+        ],
+        "correctAnswer": "The variable that the researcher changes or groups by, in order to examine its relationship with an outcome.",
+        "explanation": "The independent variable is the presumed influence or grouping, not the measured outcome."
+      },
+      {
+        "question": "What is Dependent Variable?",
+        "options": [
+          "The condition the researcher assigns to participants.",
+          "The outcome variable that is measured to see whether it is associated with, or affected by, the independent variable.",
+          "The software brand used to draw a chart.",
+          "A factor held constant throughout the study."
+        ],
+        "correctAnswer": "The outcome variable that is measured to see whether it is associated with, or affected by, the independent variable.",
+        "explanation": "The dependent variable is the measured outcome, not the condition the researcher manipulates."
+      },
+      {
+        "question": "What is Control Variable?",
+        "options": [
+          "A factor that is held constant or accounted for so it does not distort the relationship being studied.",
+          "A factor left free to differ even though it could explain the result.",
+          "The condition that is deliberately varied between groups.",
+          "The outcome the study measures."
+        ],
+        "correctAnswer": "A factor that is held constant or accounted for so it does not distort the relationship being studied.",
+        "explanation": "A control variable is managed so that it cannot offer an alternative explanation of the outcome."
+      },
+      {
+        "question": "What is Operational Definition?",
+        "options": [
+          "A statement of how a concept will be observed or measured in a particular study.",
+          "A dictionary definition that never says how this study will measure the concept.",
+          "The researcher's private feeling about the concept.",
+          "The title of the statistics textbook."
+        ],
+        "correctAnswer": "A statement of how a concept will be observed or measured in a particular study.",
+        "explanation": "An operational definition makes a concept measurable by stating the exact observation this study will use."
+      },
+      {
+        "question": "What is Population?",
+        "options": [
+          "The subset that is actually measured.",
+          "The list used to draw the sample, if that list omits part of the group of interest.",
+          "The full set of people, items, or events about which the study aims to draw a conclusion.",
+          "The number of questions on the questionnaire."
+        ],
+        "correctAnswer": "The full set of people, items, or events about which the study aims to draw a conclusion.",
+        "explanation": "The population is the entire group the conclusions are meant to cover, not only those who were observed."
+      },
+      {
+        "question": "What is Sample?",
+        "options": [
+          "The entire population, including people who were never contacted.",
+          "The subset of the population that is actually observed or measured in the study.",
+          "The sampling method's name, rather than the people selected.",
+          "The hypothesis being tested."
+        ],
+        "correctAnswer": "The subset of the population that is actually observed or measured in the study.",
+        "explanation": "The sample is the part of the population from which data are actually collected."
+      },
+      {
+        "question": "What is Sampling Frame?",
+        "options": [
+          "The theoretical population, including people missing from every available list.",
+          "The questionnaire itself.",
+          "The list or other representation of the population from which the sample is actually drawn.",
+          "The people who end up in the final dataset."
+        ],
+        "correctAnswer": "The list or other representation of the population from which the sample is actually drawn.",
+        "explanation": "The sampling frame is the operational list used for selection and may not perfectly match the population."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is Simple Random Sampling?",
+        "options": [
+          "A probability method in which every member of the frame has an equal chance of being included.",
+          "Choosing people because they volunteered after an advert.",
+          "Taking every person from only one convenient class.",
+          "Picking whoever is easiest to reach in a corridor."
+        ],
+        "correctAnswer": "A probability method in which every member of the frame has an equal chance of being included.",
+        "explanation": "Simple random sampling gives each member of the frame an equal chance of selection."
+      },
+      {
+        "question": "What is Stratified Sampling?",
+        "options": [
+          "A method that divides the population into subgroups and then draws a sample from each subgroup.",
+          "Letting one subgroup stand in for all the others.",
+          "Drawing names from the whole list with no subgroups.",
+          "Choosing the easiest people regardless of subgroup."
+        ],
+        "correctAnswer": "A method that divides the population into subgroups and then draws a sample from each subgroup.",
+        "explanation": "Stratified sampling samples within defined subgroups so those subgroups are represented."
+      },
+      {
+        "question": "What is Convenience Sampling?",
+        "options": [
+          "A method in which every member of the frame has an equal chance.",
+          "A method that samples randomly inside every important subgroup.",
+          "A non-probability method that selects whoever is easiest to reach, which limits how far results can be generalised.",
+          "A census that measures the entire population."
+        ],
+        "correctAnswer": "A non-probability method that selects whoever is easiest to reach, which limits how far results can be generalised.",
+        "explanation": "Convenience sampling trades representativeness for ease, so generalisation is weak."
+      },
+      {
+        "question": "What is Sample Size?",
+        "options": [
+          "The number of observations included in the study, which affects precision and the ability to detect an effect.",
+          "The number of authors on the paper.",
+          "The number of questions on the form, if each person answers once.",
+          "The size of the population the study hopes to talk about."
+        ],
+        "correctAnswer": "The number of observations included in the study, which affects precision and the ability to detect an effect.",
+        "explanation": "Sample size is how many observations are analysed, and larger samples usually give more precise estimates."
+      },
+      {
+        "question": "What is Bias?",
+        "options": [
+          "A systematic error that pushes results away from the true value, rather than random variation around it.",
+          "The use of a random sample from a complete frame.",
+          "A clearly reported limitation that does not shift the estimate.",
+          "Chance differences that average out as more data are collected."
+        ],
+        "correctAnswer": "A systematic error that pushes results away from the true value, rather than random variation around it.",
+        "explanation": "Bias is systematic: it pushes the result in a direction, unlike random error that varies around the truth."
+      },
+      {
+        "question": "What is Internal Validity?",
+        "options": [
+          "The consistency of a questionnaire when it is repeated.",
+          "The extent to which the finding applies to other universities and years.",
+          "The number of references in the literature chapter.",
+          "The extent to which a study supports a causal conclusion in its own setting, rather than a result caused by a confound."
+        ],
+        "correctAnswer": "The extent to which a study supports a causal conclusion in its own setting, rather than a result caused by a confound.",
+        "explanation": "Internal validity concerns whether the study itself can support a cause-and-effect claim."
+      },
+      {
+        "question": "What is External Validity?",
+        "options": [
+          "The extent to which findings can be generalised to other people, settings, or times.",
+          "Whether the null hypothesis was rejected.",
+          "Whether a scale produces the same score on a retest.",
+          "Whether the study's own design rules out confounds."
+        ],
+        "correctAnswer": "The extent to which findings can be generalised to other people, settings, or times.",
+        "explanation": "External validity is about generalisation beyond the people and setting actually studied."
+      },
+      {
+        "question": "What is Construct Validity?",
+        "options": [
+          "Whether two groups were assigned fairly.",
+          "The extent to which a measure actually captures the concept it is intended to represent.",
+          "Whether the sample can be generalised to another country.",
+          "Whether the paper was peer reviewed."
+        ],
+        "correctAnswer": "The extent to which a measure actually captures the concept it is intended to represent.",
+        "explanation": "Construct validity asks if the measurement matches the concept, not if the sample generalises."
+      },
+      {
+        "question": "What is Reliability?",
+        "options": [
+          "The consistency of a measure when it is repeated under the same conditions.",
+          "Proof that one variable causes another.",
+          "Proof that the measure captures the right concept.",
+          "Proof that the result applies to every university."
+        ],
+        "correctAnswer": "The consistency of a measure when it is repeated under the same conditions.",
+        "explanation": "Reliability means consistency of measurement; a measure can be consistent and still measure the wrong concept."
+      },
+      {
+        "question": "What is Quantitative Research?",
+        "options": [
+          "A literature review that includes no new data.",
+          "Research that collects numerical data and uses statistical analysis to test relationships or differences.",
+          "Research that interprets interviews and documents without numerical testing.",
+          "A project diary written only in prose."
+        ],
+        "correctAnswer": "Research that collects numerical data and uses statistical analysis to test relationships or differences.",
+        "explanation": "Quantitative research uses numbers and statistics to examine relationships or group differences."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Qualitative Research?",
+        "options": [
+          "Research that collects non-numerical data, such as interviews or documents, to interpret meanings and experiences.",
+          "A calculation of a mean and a standard deviation alone.",
+          "Research whose main analysis is a statistical test of numerical group differences.",
+          "A census that only counts people."
+        ],
+        "correctAnswer": "Research that collects non-numerical data, such as interviews or documents, to interpret meanings and experiences.",
+        "explanation": "Qualitative research interprets meanings in non-numerical material such as talk or text."
+      },
+      {
+        "question": "What is Descriptive Statistics?",
+        "options": [
+          "The ethical rules for recruiting participants.",
+          "Numerical summaries, such as averages and spreads, that describe the data actually collected.",
+          "The sampling method's name.",
+          "Tests that use a sample to draw a conclusion about a wider population."
+        ],
+        "correctAnswer": "Numerical summaries, such as averages and spreads, that describe the data actually collected.",
+        "explanation": "Descriptive statistics summarise the observed data and do not, by themselves, infer beyond that data."
+      },
+      {
+        "question": "What is Inferential Statistics?",
+        "options": [
+          "Methods that use sample data to draw conclusions about a larger population, including estimates and hypothesis tests.",
+          "Summaries that describe only the observed scores and make no population claim.",
+          "The consent statement read to participants.",
+          "A diagram of the concepts with no data."
+        ],
+        "correctAnswer": "Methods that use sample data to draw conclusions about a larger population, including estimates and hypothesis tests.",
+        "explanation": "Inferential statistics go beyond the sample to estimate or test claims about a population."
+      },
+      {
+        "question": "What is Mean?",
+        "options": [
+          "The most frequently occurring value.",
+          "The arithmetic average of a set of numbers, found by dividing their sum by how many values there are.",
+          "The difference between the largest and smallest values.",
+          "The middle value when the numbers are ordered."
+        ],
+        "correctAnswer": "The arithmetic average of a set of numbers, found by dividing their sum by how many values there are.",
+        "explanation": "The mean is the sum of the values divided by the count of values."
+      },
+      {
+        "question": "What is Standard Deviation?",
+        "options": [
+          "The middle value of the ordered list.",
+          "The arithmetic average of the values.",
+          "A measure of how far values in a data set typically sit from their mean.",
+          "The probability of the data given the null hypothesis."
+        ],
+        "correctAnswer": "A measure of how far values in a data set typically sit from their mean.",
+        "explanation": "Standard deviation summarises typical distance from the mean, so it describes spread rather than centre."
+      },
+      {
+        "question": "What is Confidence Interval?",
+        "options": [
+          "The range from the smallest to the largest raw observation, with no inferential claim.",
+          "The set of all values the researcher would prefer to see.",
+          "A range computed from a sample that, under the method's assumptions, would cover the true population value in a stated percentage of repeated samples.",
+          "The probability that this particular interval already calculated is the only correct one in a personal sense."
+        ],
+        "correctAnswer": "A range computed from a sample that, under the method's assumptions, would cover the true population value in a stated percentage of repeated samples.",
+        "explanation": "A confidence interval is an inferential range for a population value, with a stated confidence level tied to the method."
+      },
+      {
+        "question": "What is p-Value?",
+        "options": [
+          "The probability that the alternative hypothesis is true.",
+          "The probability that the null hypothesis itself is true.",
+          "The probability of data at least as extreme as those observed if the null hypothesis were true.",
+          "The size of the effect in practical units."
+        ],
+        "correctAnswer": "The probability of data at least as extreme as those observed if the null hypothesis were true.",
+        "explanation": "A p-value is computed assuming the null is true; it is not the probability that the null is true."
+      },
+      {
+        "question": "What is Statistical Significance?",
+        "options": [
+          "A finding that must be true of every future sample.",
+          "A result that is automatically large enough to matter in practice.",
+          "Proof that the null hypothesis is false beyond any doubt.",
+          "A result unlikely under the null hypothesis at a pre-set threshold, treated as evidence against that null."
+        ],
+        "correctAnswer": "A result unlikely under the null hypothesis at a pre-set threshold, treated as evidence against that null.",
+        "explanation": "Statistical significance means the result is unlikely given the null and the chosen threshold; it is not practical importance."
+      },
+      {
+        "question": "What is Type I Error?",
+        "options": [
+          "Measuring the spread of a sample.",
+          "Rejecting a null hypothesis that is actually true, also called a false positive.",
+          "Failing to reject a null hypothesis that is actually false.",
+          "Choosing a sample that is too convenient."
+        ],
+        "correctAnswer": "Rejecting a null hypothesis that is actually true, also called a false positive.",
+        "explanation": "A Type I error is a false claim of an effect when the null is true."
+      },
+      {
+        "question": "What is Type II Error?",
+        "options": [
+          "Citing the source of a statistic.",
+          "Failing to reject a null hypothesis that is actually false, also called a false negative.",
+          "Rejecting a null hypothesis that is actually true.",
+          "Reporting a confidence interval correctly."
+        ],
+        "correctAnswer": "Failing to reject a null hypothesis that is actually false, also called a false negative.",
+        "explanation": "A Type II error misses a real effect by failing to reject a false null."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Correlation?",
+        "options": [
+          "Proof that changing one variable will produce a change in the other.",
+          "A difference between the means of two experimentally assigned groups.",
+          "The ethical approval number of a study.",
+          "A statistical association in which two variables vary together, which by itself does not prove that one causes the other."
+        ],
+        "correctAnswer": "A statistical association in which two variables vary together, which by itself does not prove that one causes the other.",
+        "explanation": "Correlation describes association; causation needs a design that can support a causal claim."
+      },
+      {
+        "question": "What is Causation?",
+        "options": [
+          "Two variables that were measured at the same time with no attempt to rule out other explanations.",
+          "A significant p-value from a convenience sample with obvious confounds.",
+          "Any correlation, which is enough on its own to prove cause.",
+          "A relationship in which a change in one variable produces a change in another, supported by design rather than by association alone."
+        ],
+        "correctAnswer": "A relationship in which a change in one variable produces a change in another, supported by design rather than by association alone.",
+        "explanation": "A causal claim needs a design, such as controlled assignment, that can rule out alternative explanations."
+      },
+      {
+        "question": "What is Research Informed Consent?",
+        "options": [
+          "Consent given by the researcher on the participant's behalf.",
+          "Voluntary agreement to take part, given after the person understands the purpose, procedures, risks, and right to withdraw.",
+          "A signature collected with no explanation of the study.",
+          "A requirement to participate because the person is enrolled in a class."
+        ],
+        "correctAnswer": "Voluntary agreement to take part, given after the person understands the purpose, procedures, risks, and right to withdraw.",
+        "explanation": "Research consent is informed and voluntary, and it includes the freedom to withdraw."
+      },
+      {
+        "question": "What is Research Ethics?",
+        "options": [
+          "Principles that protect participants and the integrity of a study, including consent, avoidance of harm, and honesty.",
+          "A rule that interesting results justify hiding risks from participants.",
+          "A ban on telling participants they may withdraw.",
+          "A requirement to fabricate data if the hypothesis looks weak."
+        ],
+        "correctAnswer": "Principles that protect participants and the integrity of a study, including consent, avoidance of harm, and honesty.",
+        "explanation": "Research ethics protect people and require honest conduct; they are not waived for an interesting result."
+      },
+      {
+        "question": "What is Anonymity?",
+        "options": [
+          "A condition in which the researcher cannot link a response to the identity of the person who provided it.",
+          "A promise to store names securely while the researcher still knows who answered.",
+          "Using first names in a published transcript.",
+          "Collecting student IDs on every questionnaire."
+        ],
+        "correctAnswer": "A condition in which the researcher cannot link a response to the identity of the person who provided it.",
+        "explanation": "Anonymity means even the researcher cannot connect responses to identities, which is stronger than confidential storage of names."
+      },
+      {
+        "question": "What is Research Confidentiality?",
+        "options": [
+          "The duty to protect participants' identities and data from unauthorised disclosure, even when the researcher knows who they are.",
+          "A design in which nobody, including the researcher, can ever match a response to a person.",
+          "Storing consent forms and named transcripts on a public website.",
+          "A right to publish names because the findings are useful."
+        ],
+        "correctAnswer": "The duty to protect participants' identities and data from unauthorised disclosure, even when the researcher knows who they are.",
+        "explanation": "Confidentiality protects known identities from disclosure; it is different from anonymity, where identities are not known."
+      },
+      {
+        "question": "What is Fabrication?",
+        "options": [
+          "Reporting a non-significant result honestly.",
+          "Citing a source you actually read.",
+          "Making up data or results and reporting them as if they had been collected.",
+          "Excluding a pre-stated outlier using a rule written before the data were seen."
+        ],
+        "correctAnswer": "Making up data or results and reporting them as if they had been collected.",
+        "explanation": "Fabrication is invention of data or results, which is research misconduct."
+      },
+      {
+        "question": "What is Falsification?",
+        "options": [
+          "Analysing the data with the test named in the proposal.",
+          "Correcting a typo in a transcription and noting the correction.",
+          "Inventing an entire dataset that was never collected.",
+          "Manipulating research materials, equipment, or data so that the reported record misrepresents the study."
+        ],
+        "correctAnswer": "Manipulating research materials, equipment, or data so that the reported record misrepresents the study.",
+        "explanation": "Falsification changes real materials or data so the report no longer represents what happened."
+      },
+      {
+        "question": "What is Research Plagiarism?",
+        "options": [
+          "Paraphrasing an idea and citing the source.",
+          "Using another person's words, ideas, or data without proper credit and presenting that material as your own.",
+          "Quoting a source with quotation marks and a matching citation.",
+          "Reporting data you collected yourself."
+        ],
+        "correctAnswer": "Using another person's words, ideas, or data without proper credit and presenting that material as your own.",
+        "explanation": "Plagiarism presents someone else's work as yours; quotation or paraphrase with credit avoids it."
+      },
+      {
+        "question": "What is Research Report?",
+        "options": [
+          "A press release that gives only a slogan and no method.",
+          "An ethics application written before any results exist.",
+          "A structured account of a study that states the question, method, results, and interpretation so others can evaluate it.",
+          "The raw data file with no explanation."
+        ],
+        "correctAnswer": "A structured account of a study that states the question, method, results, and interpretation so others can evaluate it.",
+        "explanation": "A research report lets others judge the study by presenting question, method, results, and interpretation together."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Research Question?",
+        "options": [
+          "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+          "The study asks whether a two-minute video guide reduces password-reset calls among first-year students.",
+          "One objective is to measure the change in reset calls in the month after the video guide is published.",
+          "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list."
+        ],
+        "correctAnswer": "The study asks whether a two-minute video guide reduces password-reset calls among first-year students.",
+        "explanation": "A research question states what the study will answer and guides the choice of method and data."
+      },
+      {
+        "question": "Which situation illustrates Research Objective?",
+        "options": [
+          "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog.",
+          "One objective is to measure the change in reset calls in the month after the video guide is published.",
+          "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+          "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list."
+        ],
+        "correctAnswer": "One objective is to measure the change in reset calls in the month after the video guide is published.",
+        "explanation": "An objective is a concrete outcome of the study, specific enough that completion can be judged."
+      },
+      {
+        "question": "Which situation illustrates Literature Review?",
+        "options": [
+          "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+          "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list.",
+          "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+          "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog."
+        ],
+        "correctAnswer": "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+        "explanation": "A literature review argues from existing work; it is more than a sequence of summaries or a bare list of titles."
+      },
+      {
+        "question": "Which situation illustrates Citation?",
+        "options": [
+          "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list.",
+          "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog.",
+          "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+          "A review article compares twelve password studies but does not itself run a new experiment."
+        ],
+        "correctAnswer": "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list.",
+        "explanation": "A citation tells the reader exactly which source supports a borrowed idea or result."
+      },
+      {
+        "question": "Which situation illustrates Peer-Reviewed Source?",
+        "options": [
+          "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+          "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog.",
+          "A review article compares twelve password studies but does not itself run a new experiment.",
+          "The student reads the original experiment on video guides rather than only the textbook paragraph about it."
+        ],
+        "correctAnswer": "The student prefers a journal article on training videos that independent reviewers accepted over a vendor's blog.",
+        "explanation": "Peer review means qualified reviewers assessed the work before publication, which is a quality filter, not a guarantee."
+      },
+      {
+        "question": "Which situation illustrates Primary Source?",
+        "options": [
+          "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+          "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+          "The study uses cognitive load theory to explain why a short video might beat a long written policy.",
+          "A review article compares twelve password studies but does not itself run a new experiment."
+        ],
+        "correctAnswer": "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+        "explanation": "A primary source presents original evidence, whereas secondary sources interpret or summarise that evidence."
+      },
+      {
+        "question": "Which situation illustrates Secondary Source?",
+        "options": [
+          "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+          "The study uses cognitive load theory to explain why a short video might beat a long written policy.",
+          "A diagram links video length to understanding and then to the number of reset calls.",
+          "A review article compares twelve password studies but does not itself run a new experiment."
+        ],
+        "correctAnswer": "A review article compares twelve password studies but does not itself run a new experiment.",
+        "explanation": "A secondary source comments on or synthesises primary work; it is not the original evidence."
+      },
+      {
+        "question": "Which situation illustrates Research Gap?",
+        "options": [
+          "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+          "A diagram links video length to understanding and then to the number of reset calls.",
+          "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text.",
+          "The study uses cognitive load theory to explain why a short video might beat a long written policy."
+        ],
+        "correctAnswer": "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+        "explanation": "A research gap is a genuine opening in what is known, which justifies a new study."
+      },
+      {
+        "question": "Which situation illustrates Theoretical Framework?",
+        "options": [
+          "The null states that mean reset calls do not differ between the video group and the text group.",
+          "The study uses cognitive load theory to explain why a short video might beat a long written policy.",
+          "A diagram links video length to understanding and then to the number of reset calls.",
+          "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text."
+        ],
+        "correctAnswer": "The study uses cognitive load theory to explain why a short video might beat a long written policy.",
+        "explanation": "A theoretical framework uses existing theory to explain the phenomenon and shape the study."
+      },
+      {
+        "question": "Which situation illustrates Conceptual Framework?",
+        "options": [
+          "A diagram links video length to understanding and then to the number of reset calls.",
+          "The alternative states that mean reset calls differ between students who saw the video and those who read the text.",
+          "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text.",
+          "The null states that mean reset calls do not differ between the video group and the text group."
+        ],
+        "correctAnswer": "A diagram links video length to understanding and then to the number of reset calls.",
+        "explanation": "A conceptual framework shows how this study's concepts are expected to relate, often in a diagram."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Hypothesis?",
+        "options": [
+          "The null states that mean reset calls do not differ between the video group and the text group.",
+          "The study assigns students to either a short video or a text policy, which is the independent variable.",
+          "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text.",
+          "The alternative states that mean reset calls differ between students who saw the video and those who read the text."
+        ],
+        "correctAnswer": "The hypothesis states that students given the short video will make fewer reset calls than those given the policy text.",
+        "explanation": "A hypothesis predicts an observable relationship or difference so that data can support or contradict it."
+      },
+      {
+        "question": "Which situation illustrates Null Hypothesis?",
+        "options": [
+          "The number of password-reset calls in the following month is the dependent variable.",
+          "The study assigns students to either a short video or a text policy, which is the independent variable.",
+          "The alternative states that mean reset calls differ between students who saw the video and those who read the text.",
+          "The null states that mean reset calls do not differ between the video group and the text group."
+        ],
+        "correctAnswer": "The null states that mean reset calls do not differ between the video group and the text group.",
+        "explanation": "The null hypothesis states no effect or no difference and is the statement the test attempts to reject."
+      },
+      {
+        "question": "Which situation illustrates Alternative Hypothesis?",
+        "options": [
+          "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+          "The study assigns students to either a short video or a text policy, which is the independent variable.",
+          "The alternative states that mean reset calls differ between students who saw the video and those who read the text.",
+          "The number of password-reset calls in the following month is the dependent variable."
+        ],
+        "correctAnswer": "The alternative states that mean reset calls differ between students who saw the video and those who read the text.",
+        "explanation": "The alternative hypothesis states that an effect or difference exists and is adopted only if the null is rejected."
+      },
+      {
+        "question": "Which situation illustrates Independent Variable?",
+        "options": [
+          "The number of password-reset calls in the following month is the dependent variable.",
+          "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+          "The study assigns students to either a short video or a text policy, which is the independent variable.",
+          "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide."
+        ],
+        "correctAnswer": "The study assigns students to either a short video or a text policy, which is the independent variable.",
+        "explanation": "The independent variable is the presumed influence or grouping, not the measured outcome."
+      },
+      {
+        "question": "Which situation illustrates Dependent Variable?",
+        "options": [
+          "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide.",
+          "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+          "The number of password-reset calls in the following month is the dependent variable.",
+          "The population is all first-year undergraduates at the university, not only the 200 who answered the survey."
+        ],
+        "correctAnswer": "The number of password-reset calls in the following month is the dependent variable.",
+        "explanation": "The dependent variable is the measured outcome, not the condition the researcher manipulates."
+      },
+      {
+        "question": "Which situation illustrates Control Variable?",
+        "options": [
+          "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide.",
+          "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+          "Of all first-year students, the 200 who completed the quiz form the sample.",
+          "The population is all first-year undergraduates at the university, not only the 200 who answered the survey."
+        ],
+        "correctAnswer": "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+        "explanation": "A control variable is managed so that it cannot offer an alternative explanation of the outcome."
+      },
+      {
+        "question": "Which situation illustrates Operational Definition?",
+        "options": [
+          "Of all first-year students, the 200 who completed the quiz form the sample.",
+          "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide.",
+          "The frame is the registrar's enrolment list, which omits two late-joining students.",
+          "The population is all first-year undergraduates at the university, not only the 200 who answered the survey."
+        ],
+        "correctAnswer": "Understanding is operationalised as the score on a ten-item quiz taken immediately after the guide.",
+        "explanation": "An operational definition makes a concept measurable by stating the exact observation this study will use."
+      },
+      {
+        "question": "Which situation illustrates Population?",
+        "options": [
+          "A program draws 200 names at random from the full enrolment list, each student having an equal chance.",
+          "The frame is the registrar's enrolment list, which omits two late-joining students.",
+          "The population is all first-year undergraduates at the university, not only the 200 who answered the survey.",
+          "Of all first-year students, the 200 who completed the quiz form the sample."
+        ],
+        "correctAnswer": "The population is all first-year undergraduates at the university, not only the 200 who answered the survey.",
+        "explanation": "The population is the entire group the conclusions are meant to cover, not only those who were observed."
+      },
+      {
+        "question": "Which situation illustrates Sample?",
+        "options": [
+          "The frame is the registrar's enrolment list, which omits two late-joining students.",
+          "Of all first-year students, the 200 who completed the quiz form the sample.",
+          "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+          "A program draws 200 names at random from the full enrolment list, each student having an equal chance."
+        ],
+        "correctAnswer": "Of all first-year students, the 200 who completed the quiz form the sample.",
+        "explanation": "The sample is the part of the population from which data are actually collected."
+      },
+      {
+        "question": "Which situation illustrates Sampling Frame?",
+        "options": [
+          "A program draws 200 names at random from the full enrolment list, each student having an equal chance.",
+          "The frame is the registrar's enrolment list, which omits two late-joining students.",
+          "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+          "The researcher surveys students who happen to be in the library on a Tuesday afternoon."
+        ],
+        "correctAnswer": "The frame is the registrar's enrolment list, which omits two late-joining students.",
+        "explanation": "The sampling frame is the operational list used for selection and may not perfectly match the population."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Simple Random Sampling?",
+        "options": [
+          "A program draws 200 names at random from the full enrolment list, each student having an equal chance.",
+          "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+          "The study analyses quiz scores from 180 students, so the sample size is 180.",
+          "The researcher surveys students who happen to be in the library on a Tuesday afternoon."
+        ],
+        "correctAnswer": "A program draws 200 names at random from the full enrolment list, each student having an equal chance.",
+        "explanation": "Simple random sampling gives each member of the frame an equal chance of selection."
+      },
+      {
+        "question": "Which situation illustrates Stratified Sampling?",
+        "options": [
+          "The researcher surveys students who happen to be in the library on a Tuesday afternoon.",
+          "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+          "Only students who loved the video reply, so the measured satisfaction is higher than the true class value.",
+          "The study analyses quiz scores from 180 students, so the sample size is 180."
+        ],
+        "correctAnswer": "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+        "explanation": "Stratified sampling samples within defined subgroups so those subgroups are represented."
+      },
+      {
+        "question": "Which situation illustrates Convenience Sampling?",
+        "options": [
+          "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+          "The researcher surveys students who happen to be in the library on a Tuesday afternoon.",
+          "Only students who loved the video reply, so the measured satisfaction is higher than the true class value.",
+          "The study analyses quiz scores from 180 students, so the sample size is 180."
+        ],
+        "correctAnswer": "The researcher surveys students who happen to be in the library on a Tuesday afternoon.",
+        "explanation": "Convenience sampling trades representativeness for ease, so generalisation is weak."
+      },
+      {
+        "question": "Which situation illustrates Sample Size?",
+        "options": [
+          "The study analyses quiz scores from 180 students, so the sample size is 180.",
+          "Only students who loved the video reply, so the measured satisfaction is higher than the true class value.",
+          "A result from one small private college may not generalise to a large public university.",
+          "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video."
+        ],
+        "correctAnswer": "The study analyses quiz scores from 180 students, so the sample size is 180.",
+        "explanation": "Sample size is how many observations are analysed, and larger samples usually give more precise estimates."
+      },
+      {
+        "question": "Which situation illustrates Bias?",
+        "options": [
+          "A result from one small private college may not generalise to a large public university.",
+          "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+          "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+          "Only students who loved the video reply, so the measured satisfaction is higher than the true class value."
+        ],
+        "correctAnswer": "Only students who loved the video reply, so the measured satisfaction is higher than the true class value.",
+        "explanation": "Bias is systematic: it pushes the result in a direction, unlike random error that varies around the truth."
+      },
+      {
+        "question": "Which situation illustrates Internal Validity?",
+        "options": [
+          "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+          "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+          "A result from one small private college may not generalise to a large public university.",
+          "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill."
+        ],
+        "correctAnswer": "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+        "explanation": "Internal validity concerns whether the study itself can support a cause-and-effect claim."
+      },
+      {
+        "question": "Which situation illustrates External Validity?",
+        "options": [
+          "A result from one small private college may not generalise to a large public university.",
+          "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+          "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+          "The study compares mean reset-call counts between two groups with a statistical test."
+        ],
+        "correctAnswer": "A result from one small private college may not generalise to a large public university.",
+        "explanation": "External validity is about generalisation beyond the people and setting actually studied."
+      },
+      {
+        "question": "Which situation illustrates Construct Validity?",
+        "options": [
+          "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+          "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+          "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+          "The study compares mean reset-call counts between two groups with a statistical test."
+        ],
+        "correctAnswer": "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+        "explanation": "Construct validity asks if the measurement matches the concept, not if the sample generalises."
+      },
+      {
+        "question": "Which situation illustrates Reliability?",
+        "options": [
+          "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+          "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+          "The study compares mean reset-call counts between two groups with a statistical test.",
+          "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2."
+        ],
+        "correctAnswer": "Students who retake the same quiz under the same conditions receive nearly the same scores.",
+        "explanation": "Reliability means consistency of measurement; a measure can be consistent and still measure the wrong concept."
+      },
+      {
+        "question": "Which situation illustrates Quantitative Research?",
+        "options": [
+          "The study compares mean reset-call counts between two groups with a statistical test.",
+          "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+          "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2.",
+          "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population."
+        ],
+        "correctAnswer": "The study compares mean reset-call counts between two groups with a statistical test.",
+        "explanation": "Quantitative research uses numbers and statistics to examine relationships or group differences."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Qualitative Research?",
+        "options": [
+          "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2.",
+          "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+          "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population.",
+          "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores."
+        ],
+        "correctAnswer": "Students are interviewed about why they ignore password prompts, and themes are coded from the transcripts.",
+        "explanation": "Qualitative research interprets meanings in non-numerical material such as talk or text."
+      },
+      {
+        "question": "Which situation illustrates Descriptive Statistics?",
+        "options": [
+          "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+          "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+          "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population.",
+          "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2."
+        ],
+        "correctAnswer": "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2.",
+        "explanation": "Descriptive statistics summarise the observed data and do not, by themselves, infer beyond that data."
+      },
+      {
+        "question": "Which situation illustrates Inferential Statistics?",
+        "options": [
+          "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+          "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+          "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population.",
+          "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7."
+        ],
+        "correctAnswer": "A test uses the sample of 180 students to judge whether video and text differ in the whole first-year population.",
+        "explanation": "Inferential statistics go beyond the sample to estimate or test claims about a population."
+      },
+      {
+        "question": "Which situation illustrates Mean?",
+        "options": [
+          "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+          "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03.",
+          "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+          "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7."
+        ],
+        "correctAnswer": "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+        "explanation": "The mean is the sum of the values divided by the count of values."
+      },
+      {
+        "question": "Which situation illustrates Standard Deviation?",
+        "options": [
+          "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+          "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7.",
+          "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant.",
+          "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03."
+        ],
+        "correctAnswer": "Two classes both average 70, but the class with scores tightly clustered has the smaller standard deviation.",
+        "explanation": "Standard deviation summarises typical distance from the mean, so it describes spread rather than centre."
+      },
+      {
+        "question": "Which situation illustrates Confidence Interval?",
+        "options": [
+          "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+          "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant.",
+          "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7.",
+          "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03."
+        ],
+        "correctAnswer": "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7.",
+        "explanation": "A confidence interval is an inferential range for a population value, with a stated confidence level tied to the method."
+      },
+      {
+        "question": "Which situation illustrates p-Value?",
+        "options": [
+          "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+          "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+          "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03.",
+          "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant."
+        ],
+        "correctAnswer": "If there were truly no group difference, data this extreme would occur with probability 0.03, so the p-value is 0.03.",
+        "explanation": "A p-value is computed assuming the null is true; it is not the probability that the null is true."
+      },
+      {
+        "question": "Which situation illustrates Statistical Significance?",
+        "options": [
+          "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+          "Hours of video watched and quiz scores rise together, but the study did not assign the hours.",
+          "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+          "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant."
+        ],
+        "correctAnswer": "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant.",
+        "explanation": "Statistical significance means the result is unlikely given the null and the chosen threshold; it is not practical importance."
+      },
+      {
+        "question": "Which situation illustrates Type I Error?",
+        "options": [
+          "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+          "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+          "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+          "Hours of video watched and quiz scores rise together, but the study did not assign the hours."
+        ],
+        "correctAnswer": "The groups do not truly differ, but the test rejects the null and the report claims a difference.",
+        "explanation": "A Type I error is a false claim of an effect when the null is true."
+      },
+      {
+        "question": "Which situation illustrates Type II Error?",
+        "options": [
+          "Hours of video watched and quiz scores rise together, but the study did not assign the hours.",
+          "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+          "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree.",
+          "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared."
+        ],
+        "correctAnswer": "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+        "explanation": "A Type II error misses a real effect by failing to reject a false null."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Correlation?",
+        "options": [
+          "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+          "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+          "Hours of video watched and quiz scores rise together, but the study did not assign the hours.",
+          "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree."
+        ],
+        "correctAnswer": "Hours of video watched and quiz scores rise together, but the study did not assign the hours.",
+        "explanation": "Correlation describes association; causation needs a design that can support a causal claim."
+      },
+      {
+        "question": "Which situation illustrates Causation?",
+        "options": [
+          "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+          "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+          "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them.",
+          "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree."
+        ],
+        "correctAnswer": "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+        "explanation": "A causal claim needs a design, such as controlled assignment, that can rule out alternative explanations."
+      },
+      {
+        "question": "Which situation illustrates Research Informed Consent?",
+        "options": [
+          "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+          "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them.",
+          "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+          "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree."
+        ],
+        "correctAnswer": "Before interviews, students read a sheet on recording, anonymity, and withdrawal, and then sign if they agree.",
+        "explanation": "Research consent is informed and voluntary, and it includes the freedom to withdraw."
+      },
+      {
+        "question": "Which situation illustrates Research Ethics?",
+        "options": [
+          "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+          "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them.",
+          "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+          "A student who lost the questionnaires types plausible scores and presents them as real responses."
+        ],
+        "correctAnswer": "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+        "explanation": "Research ethics protect people and require honest conduct; they are not waived for an interesting result."
+      },
+      {
+        "question": "Which situation illustrates Anonymity?",
+        "options": [
+          "A student who lost the questionnaires types plausible scores and presents them as real responses.",
+          "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+          "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+          "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them."
+        ],
+        "correctAnswer": "Questionnaires are returned with no name or ID, and the researcher has no key that could reconnect them.",
+        "explanation": "Anonymity means even the researcher cannot connect responses to identities, which is stronger than confidential storage of names."
+      },
+      {
+        "question": "Which situation illustrates Research Confidentiality?",
+        "options": [
+          "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+          "A student who lost the questionnaires types plausible scores and presents them as real responses.",
+          "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+          "A method section copies a paper's procedure paragraph and does not cite that paper."
+        ],
+        "correctAnswer": "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+        "explanation": "Confidentiality protects known identities from disclosure; it is different from anonymity, where identities are not known."
+      },
+      {
+        "question": "Which situation illustrates Fabrication?",
+        "options": [
+          "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+          "A method section copies a paper's procedure paragraph and does not cite that paper.",
+          "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+          "A student who lost the questionnaires types plausible scores and presents them as real responses."
+        ],
+        "correctAnswer": "A student who lost the questionnaires types plausible scores and presents them as real responses.",
+        "explanation": "Fabrication is invention of data or results, which is research misconduct."
+      },
+      {
+        "question": "Which situation illustrates Falsification?",
+        "options": [
+          "The study asks whether a two-minute video guide reduces password-reset calls among first-year students.",
+          "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+          "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+          "A method section copies a paper's procedure paragraph and does not cite that paper."
+        ],
+        "correctAnswer": "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+        "explanation": "Falsification changes real materials or data so the report no longer represents what happened."
+      },
+      {
+        "question": "Which situation illustrates Research Plagiarism?",
+        "options": [
+          "One objective is to measure the change in reset calls in the month after the video guide is published.",
+          "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+          "A method section copies a paper's procedure paragraph and does not cite that paper.",
+          "The study asks whether a two-minute video guide reduces password-reset calls among first-year students."
+        ],
+        "correctAnswer": "A method section copies a paper's procedure paragraph and does not cite that paper.",
+        "explanation": "Plagiarism presents someone else's work as yours; quotation or paraphrase with credit avoids it."
+      },
+      {
+        "question": "Which situation illustrates Research Report?",
+        "options": [
+          "The study asks whether a two-minute video guide reduces password-reset calls among first-year students.",
+          "One objective is to measure the change in reset calls in the month after the video guide is published.",
+          "A chapter compares three studies of password videos, notes their conflicting results, and identifies the missing student-call measure.",
+          "The paper states the call-rate question, how groups were assigned, the test result, and what that result means."
+        ],
+        "correctAnswer": "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+        "explanation": "A research report lets others judge the study by presenting question, method, results, and interpretation together."
+      }
+    ],
+    "11": [
+      {
+        "question": "A proposal has only the title student passwords and no question the data could answer. What must be added before the method can be chosen?",
+        "options": [
+          "The reference list from another paper",
+          "A clear research question",
+          "A longer topic title and nothing else",
+          "A statement that the result should be interesting"
+        ],
+        "correctAnswer": "A clear research question",
+        "explanation": "Methods are chosen to answer a research question, so a topic title alone is not enough."
+      },
+      {
+        "question": "The proposal says explore passwords. Reviewers cannot tell when the study would be finished. Which replacement is a research objective?",
+        "options": [
+          "Explore the area of passwords",
+          "Measure the change in reset calls one month after the guide",
+          "Use a well-known statistics package",
+          "Reach a preferred word count"
+        ],
+        "correctAnswer": "Measure the change in reset calls one month after the guide",
+        "explanation": "A research objective states a checkable outcome, such as measuring a defined change."
+      },
+      {
+        "question": "A draft lists twenty quotations in date order and never compares them. Which improvement would make it a literature review?",
+        "options": [
+          "Add more quotations and still not compare them",
+          "Synthesise the sources into an argument about what is known and missing",
+          "Replace the chapter with the new experiment's raw tables",
+          "Leave a list of titles with no discussion"
+        ],
+        "correctAnswer": "Synthesise the sources into an argument about what is known and missing",
+        "explanation": "A literature review critically synthesises sources to show the state of knowledge and the gap."
+      },
+      {
+        "question": "You use another study's finding about reset calls in your introduction. Which addition gives the reader the source?",
+        "options": [
+          "A footnote that names no source",
+          "A thank-you to the supervisor",
+          "A wording tweak so the source can be hidden",
+          "A citation that identifies that study"
+        ],
+        "correctAnswer": "A citation that identifies that study",
+        "explanation": "A citation identifies the source of the finding so the reader can trace it."
+      },
+      {
+        "question": "You need a quality-checked study of training videos rather than a vendor advert. Which source type fits?",
+        "options": [
+          "The first web hit with no review",
+          "The vendor's advertisement",
+          "An anonymous unchecked blog",
+          "A peer-reviewed journal article"
+        ],
+        "correctAnswer": "A peer-reviewed journal article",
+        "explanation": "A peer-reviewed article has been examined by field experts before acceptance."
+      },
+      {
+        "question": "You need the authors' own report of their video-guide experiment, not a retelling. Which source should you read?",
+        "options": [
+          "A news retelling",
+          "A slide that cites a review",
+          "The primary research paper",
+          "A textbook summary of that paper"
+        ],
+        "correctAnswer": "The primary research paper",
+        "explanation": "The paper in which the authors report their own study is the primary source."
+      },
+      {
+        "question": "An article compares twelve studies and runs no new experiment. Which label fits that article?",
+        "options": [
+          "A secondary source",
+          "A lab notebook from one of the trials",
+          "The inventors' patent on a new device",
+          "The original experimenters' dataset"
+        ],
+        "correctAnswer": "A secondary source",
+        "explanation": "A review that interprets other studies, without a new study, is a secondary source."
+      },
+      {
+        "question": "Many papers agree on exam scores after training videos, but none measure help-desk calls. Which opening can justify a new study?",
+        "options": [
+          "Dislike of an author's style",
+          "A spelling mistake in an old paper",
+          "A result that recent studies have already settled",
+          "The unmeasured effect on help-desk calls"
+        ],
+        "correctAnswer": "The unmeasured effect on help-desk calls",
+        "explanation": "A research gap is an unanswered question, here the effect on help-desk calls."
+      },
+      {
+        "question": "You explain the expected benefit of a short video by using cognitive load theory. Which role is that theory playing?",
+        "options": [
+          "The spreadsheet layout",
+          "The ethics form's phone number",
+          "An unsupported personal hunch",
+          "The theoretical framework"
+        ],
+        "correctAnswer": "The theoretical framework",
+        "explanation": "Using an established theory to explain and guide the study makes it the theoretical framework."
+      },
+      {
+        "question": "A diagram shows video length affecting understanding, which then affects reset calls. Which artefact is that diagram?",
+        "options": [
+          "A printer driver",
+          "A consent form",
+          "The conceptual framework",
+          "A theory name with no concepts from this study"
+        ],
+        "correctAnswer": "The conceptual framework",
+        "explanation": "A diagram of this study's concepts and expected links is the conceptual framework."
+      }
+    ],
+    "12": [
+      {
+        "question": "You predict that the video group will log fewer reset calls than the text group. Which kind of statement is that prediction?",
+        "options": [
+          "A hypothesis",
+          "A question with no predicted outcome",
+          "The planned sample size",
+          "A moral claim that data cannot test"
+        ],
+        "correctAnswer": "A hypothesis",
+        "explanation": "A testable prediction of a difference between groups is a hypothesis."
+      },
+      {
+        "question": "The test assumes no difference in mean reset calls between the two groups. Which statement is that?",
+        "options": [
+          "The research question",
+          "The prediction that video is better",
+          "The null hypothesis",
+          "The conclusion the author prefers"
+        ],
+        "correctAnswer": "The null hypothesis",
+        "explanation": "A statement of no difference, used as the basis of the test, is the null hypothesis."
+      },
+      {
+        "question": "You will claim a difference in mean calls only if the test rejects no difference. Which statement expresses that difference?",
+        "options": [
+          "The recruitment method",
+          "A variable list with no predicted effect",
+          "The statement of no effect",
+          "The alternative hypothesis"
+        ],
+        "correctAnswer": "The alternative hypothesis",
+        "explanation": "The statement that a difference exists is the alternative hypothesis."
+      },
+      {
+        "question": "Students are assigned either a video or a text, and reset calls are counted afterwards. Which is the independent variable?",
+        "options": [
+          "The classroom, which is kept the same",
+          "The guide type, video or text",
+          "The number of reset calls",
+          "The name of the ethics committee"
+        ],
+        "correctAnswer": "The guide type, video or text",
+        "explanation": "The factor the researcher assigns, the type of guide, is the independent variable."
+      },
+      {
+        "question": "Guide type is assigned, and the study counts reset calls over the next month. Which is the dependent variable?",
+        "options": [
+          "The chart software",
+          "The number of reset calls",
+          "Whether the student saw video or text",
+          "The week of term, which was held constant"
+        ],
+        "correctAnswer": "The number of reset calls",
+        "explanation": "The measured outcome, reset calls, is the dependent variable."
+      },
+      {
+        "question": "Both groups share the same help-desk and the same week so those factors cannot explain the result. What role do those factors play?",
+        "options": [
+          "Dependent variables",
+          "Factors left free to confound the result",
+          "Control variables",
+          "Independent variables that were varied"
+        ],
+        "correctAnswer": "Control variables",
+        "explanation": "Factors held constant so they cannot explain the outcome are control variables."
+      },
+      {
+        "question": "The study must say exactly how understanding will be measured. Which statement is an operational definition?",
+        "options": [
+          "A dictionary sentence that sets no measure",
+          "The researcher's feeling that students understood",
+          "The score on a ten-item quiz taken right after the guide",
+          "The title of a statistics book"
+        ],
+        "correctAnswer": "The score on a ten-item quiz taken right after the guide",
+        "explanation": "An operational definition states the concrete measurement used in this study."
+      },
+      {
+        "question": "Conclusions are meant to cover every first-year student, but only 200 answer. Which group is the population?",
+        "options": [
+          "All first-year undergraduates at the university",
+          "Only students who happened to be in one cafe",
+          "The questionnaire's question count",
+          "The 200 who answered"
+        ],
+        "correctAnswer": "All first-year undergraduates at the university",
+        "explanation": "The population is the full set the study wants to conclude about, here every first-year student."
+      },
+      {
+        "question": "Data come from 200 first-year students, not from every first-year student. Which group is the sample?",
+        "options": [
+          "The 200 students who were measured",
+          "The name of the sampling method",
+          "The hypothesis",
+          "Every first-year student, including those not contacted"
+        ],
+        "correctAnswer": "The 200 students who were measured",
+        "explanation": "The sample is the subset that was actually observed."
+      },
+      {
+        "question": "Names are drawn from the registrar's enrolment list, which misses late joiners. Which item is the sampling frame?",
+        "options": [
+          "Only the students who already replied",
+          "The ideal population including people on no list",
+          "The questionnaire",
+          "The registrar's enrolment list"
+        ],
+        "correctAnswer": "The registrar's enrolment list",
+        "explanation": "The list from which the sample is drawn is the sampling frame."
+      }
+    ],
+    "13": [
+      {
+        "question": "Each student on the enrolment list must have the same chance of selection. Which method fits?",
+        "options": [
+          "Asking whoever walks past",
+          "Taking only volunteers from an advert",
+          "Simple random sampling",
+          "Using one convenient class in full"
+        ],
+        "correctAnswer": "Simple random sampling",
+        "explanation": "Equal chance of selection for every member of the frame is simple random sampling."
+      },
+      {
+        "question": "Each faculty must be represented, so names are drawn at random inside every faculty. Which method is that?",
+        "options": [
+          "Surveying a single faculty and ignoring the rest",
+          "Picking the easiest students only",
+          "One simple random draw with no faculty split",
+          "Stratified sampling"
+        ],
+        "correctAnswer": "Stratified sampling",
+        "explanation": "Dividing into subgroups and sampling from each one is stratified sampling."
+      },
+      {
+        "question": "You survey only students sitting in the library on Tuesday because they are easy to reach. Which method is that?",
+        "options": [
+          "A census of all students",
+          "Random draws inside every faculty",
+          "Convenience sampling",
+          "Simple random sampling from the full list"
+        ],
+        "correctAnswer": "Convenience sampling",
+        "explanation": "Selecting whoever is easiest to reach is convenience sampling and limits generalisation."
+      },
+      {
+        "question": "Quiz scores from 180 students will be analysed, one score each. Which number is the sample size?",
+        "options": [
+          "The 4,000 students in the population",
+          "The 2 authors of the report",
+          "180",
+          "The 10 questions on the quiz"
+        ],
+        "correctAnswer": "180",
+        "explanation": "Sample size is the number of observations, here the 180 student scores."
+      },
+      {
+        "question": "Only students who loved the video reply, and satisfaction looks higher than it is for the class. Which problem is that?",
+        "options": [
+          "A random sample from a complete list",
+          "Random variation that would shrink with more replies",
+          "A limitation that does not move the estimate",
+          "Bias"
+        ],
+        "correctAnswer": "Bias",
+        "explanation": "A systematic push away from the true value, here from who chooses to reply, is bias."
+      },
+      {
+        "question": "A critic says a holiday week, not the video, caused fewer calls. Which property is being challenged?",
+        "options": [
+          "Internal validity",
+          "The length of the reference list",
+          "Whether the result applies to other universities",
+          "Whether the quiz gives the same score twice"
+        ],
+        "correctAnswer": "Internal validity",
+        "explanation": "A possible confound attacks internal validity, the basis for a causal claim inside the study."
+      },
+      {
+        "question": "The result comes from one small college, and you ask whether it applies to large public universities. Which property is that question about?",
+        "options": [
+          "External validity",
+          "Whether the quiz is stable on retest",
+          "Whether the p-value was below 0.05",
+          "Whether a confound explains the college result"
+        ],
+        "correctAnswer": "External validity",
+        "explanation": "Generalising beyond the studied setting is a question of external validity."
+      },
+      {
+        "question": "The quiz asks about the presenter's clothes, but the concept is password-reset skill. Which property is weak?",
+        "options": [
+          "Fairness of random assignment",
+          "Generalisation to another country",
+          "Construct validity",
+          "Whether reviewers accepted the paper"
+        ],
+        "correctAnswer": "Construct validity",
+        "explanation": "Construct validity is weak when the measure does not capture the intended concept."
+      },
+      {
+        "question": "The same students retake the same quiz under the same conditions and scores barely change. Which property does that support?",
+        "options": [
+          "Proof that the video causes fewer calls",
+          "Proof the result applies worldwide",
+          "Reliability",
+          "Proof the quiz measures the intended concept"
+        ],
+        "correctAnswer": "Reliability",
+        "explanation": "Similar scores on repetition support reliability, which is consistency, not correctness of the concept."
+      },
+      {
+        "question": "You will compare mean call counts between two groups with a statistical test. Which approach is that?",
+        "options": [
+          "A literature review with no new data",
+          "A prose diary of the project",
+          "Interpreting interviews with no numerical test",
+          "Quantitative research"
+        ],
+        "correctAnswer": "Quantitative research",
+        "explanation": "Collecting numerical data and testing a difference statistically is quantitative research."
+      }
+    ],
+    "14": [
+      {
+        "question": "You interview students about why they ignore prompts and code themes from the transcripts. Which approach is that?",
+        "options": [
+          "Computing a mean and standard deviation only",
+          "A census that only counts people",
+          "A statistical test of two mean scores",
+          "Qualitative research"
+        ],
+        "correctAnswer": "Qualitative research",
+        "explanation": "Interpreting interview meanings through themes is qualitative research."
+      },
+      {
+        "question": "You report the mean and spread of the 180 scores you collected, with no claim about all students. Which statistics are those?",
+        "options": [
+          "The name of the sampling method",
+          "The ethics rules",
+          "A test used to infer a population effect",
+          "Descriptive statistics"
+        ],
+        "correctAnswer": "Descriptive statistics",
+        "explanation": "Summaries of the data in hand, such as mean and spread, are descriptive statistics."
+      },
+      {
+        "question": "The sample is used to judge whether video and text differ for all first-year students. Which methods do that?",
+        "options": [
+          "A concept diagram with no data",
+          "The consent statement",
+          "A mean that describes only the sample",
+          "Inferential statistics"
+        ],
+        "correctAnswer": "Inferential statistics",
+        "explanation": "Using sample data to conclude about a larger population is inferential statistics."
+      },
+      {
+        "question": "Three quiz scores are 6, 7, and 8. Which value is their mean?",
+        "options": [
+          "8",
+          "6",
+          "2",
+          "7"
+        ],
+        "correctAnswer": "7",
+        "explanation": "The mean is the sum divided by the count: 21 divided by 3 equals 7."
+      },
+      {
+        "question": "Two classes share a mean of 70, but one class's scores cluster tightly and the other's are widely spread. Which measure shows that difference?",
+        "options": [
+          "The middle name of the teacher",
+          "The p-value of an unrelated test",
+          "The mean, which is the same",
+          "Standard deviation"
+        ],
+        "correctAnswer": "Standard deviation",
+        "explanation": "Standard deviation measures typical distance from the mean, so it distinguishes the tight and wide classes."
+      },
+      {
+        "question": "A sample produces a 95 percent interval of 7.1 to 7.7 for the population mean score. Which result is that interval?",
+        "options": [
+          "A confidence interval",
+          "The range of the raw scores only",
+          "The standard deviation of the sample",
+          "The values the researcher hopes for"
+        ],
+        "correctAnswer": "A confidence interval",
+        "explanation": "A range estimated from the sample for a population value, at a stated confidence level, is a confidence interval."
+      },
+      {
+        "question": "A classmate says the p-value of 0.03 is the probability that the null hypothesis is true. Which correction is right?",
+        "options": [
+          "It is the probability that the null is true",
+          "It is the practical size of the call-rate difference",
+          "It is the probability of data at least this extreme if the null were true",
+          "It is the probability that the alternative is true"
+        ],
+        "correctAnswer": "It is the probability of data at least this extreme if the null were true",
+        "explanation": "The p-value assumes the null is true and states how surprising the data would then be."
+      },
+      {
+        "question": "The threshold was set at 0.05 and the p-value is 0.03. Which claim is justified by that comparison alone?",
+        "options": [
+          "The effect is certainly important in practice",
+          "Every future sample will match this one",
+          "The null is impossible",
+          "The result is statistically significant"
+        ],
+        "correctAnswer": "The result is statistically significant",
+        "explanation": "A p-value below the pre-set threshold supports calling the result statistically significant, not practically important."
+      },
+      {
+        "question": "There is truly no difference, yet the test rejects the null and a difference is claimed. Which error is that?",
+        "options": [
+          "A Type II error",
+          "A Type I error",
+          "A calculation of the standard deviation",
+          "The use of a convenience sample"
+        ],
+        "correctAnswer": "A Type I error",
+        "explanation": "Rejecting a true null is a Type I error, a false positive."
+      },
+      {
+        "question": "The video truly reduces calls, but the test does not reject no difference. Which error is that?",
+        "options": [
+          "A correctly reported confidence interval",
+          "A Type I error",
+          "A proper citation",
+          "A Type II error"
+        ],
+        "correctAnswer": "A Type II error",
+        "explanation": "Failing to reject a false null is a Type II error, a false negative."
+      }
+    ],
+    "15": [
+      {
+        "question": "Video hours and quiz scores rise together, and nothing was assigned by the researcher. Which claim is justified?",
+        "options": [
+          "The study has ethical approval because of the association",
+          "The means of two randomised groups differ",
+          "The two variables are correlated",
+          "Watching more video causes the higher scores"
+        ],
+        "correctAnswer": "The two variables are correlated",
+        "explanation": "Joint variation without a causal design supports correlation, not causation."
+      },
+      {
+        "question": "You want to claim the video produces fewer calls, not merely that the two are associated. Which design feature is required?",
+        "options": [
+          "Measuring both variables once with no controls",
+          "A correlation by itself",
+          "A design that rules out alternative explanations, such as random assignment",
+          "A small p-value from a confounded convenience sample"
+        ],
+        "correctAnswer": "A design that rules out alternative explanations, such as random assignment",
+        "explanation": "Causation requires a design that can support a production claim, not association alone."
+      },
+      {
+        "question": "You want to interview students. Which step secures research informed consent?",
+        "options": [
+          "Sign the form yourself for them",
+          "Collect a signature with no explanation",
+          "Require participation because they are in the class",
+          "Explain purpose, risks, and withdrawal, then accept only voluntary agreement"
+        ],
+        "correctAnswer": "Explain purpose, risks, and withdrawal, then accept only voluntary agreement",
+        "explanation": "Informed consent is a voluntary agreement after the participant understands the study and the right to withdraw."
+      },
+      {
+        "question": "A design would collect live staff passwords and cannot explain a matching benefit. Which demand of research ethics applies?",
+        "options": [
+          "Hide the risk because the result would be interesting",
+          "Forbid participants to withdraw",
+          "Change the design to avoid unjustified harm",
+          "Invent safer-looking data"
+        ],
+        "correctAnswer": "Change the design to avoid unjustified harm",
+        "explanation": "Research ethics require avoidance of unjustified harm, so the dangerous design must change."
+      },
+      {
+        "question": "You must ensure that even you cannot tell who gave which quiz sheet. Which condition are you creating?",
+        "options": [
+          "Confidential storage of a name list you can still match",
+          "Anonymity",
+          "Publishing first names",
+          "Printing student IDs on every sheet"
+        ],
+        "correctAnswer": "Anonymity",
+        "explanation": "Anonymity means responses cannot be linked to identities, including by the researcher."
+      },
+      {
+        "question": "You know who was interviewed and must stop others identifying them in the thesis. Which duty is that?",
+        "options": [
+          "A right to publish the names",
+          "Anonymity, which you no longer have because you know the names",
+          "Research confidentiality",
+          "Uploading named transcripts to a public site"
+        ],
+        "correctAnswer": "Research confidentiality",
+        "explanation": "Protecting identities you do know from unauthorised disclosure is confidentiality."
+      },
+      {
+        "question": "The questionnaires were lost, so a student types plausible scores and treats them as real. Which misconduct is that?",
+        "options": [
+          "Fabrication",
+          "Citing a source that was read",
+          "Reporting a non-significant result",
+          "Applying a pre-stated outlier rule"
+        ],
+        "correctAnswer": "Fabrication",
+        "explanation": "Inventing data and reporting them as collected is fabrication."
+      },
+      {
+        "question": "Real questionnaires that contradict the hypothesis are deleted and the deletion is hidden. Which misconduct is that?",
+        "options": [
+          "Using the statistical test named in the proposal",
+          "Inventing a dataset that never existed",
+          "Falsification",
+          "Noting a transcription typo that was fixed"
+        ],
+        "correctAnswer": "Falsification",
+        "explanation": "Altering the real data record so it misrepresents the study is falsification."
+      },
+      {
+        "question": "A procedure paragraph is copied from a paper and no source is given. Which label fits the draft?",
+        "options": [
+          "A report of data you collected",
+          "A quotation with marks and a citation",
+          "Research plagiarism",
+          "A paraphrase that cites the source"
+        ],
+        "correctAnswer": "Research plagiarism",
+        "explanation": "Copying another's words into the thesis without credit is plagiarism."
+      },
+      {
+        "question": "Readers must be able to judge how the call-rate question was studied and what was found. Which document does that?",
+        "options": [
+          "The ethics form written before the results",
+          "The research report",
+          "A slogan-only press release",
+          "A raw data file with no explanation"
+        ],
+        "correctAnswer": "The research report",
+        "explanation": "A research report presents the question, method, results, and interpretation for evaluation."
+      }
+    ]
+  }
+}

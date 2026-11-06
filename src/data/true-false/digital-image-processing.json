@@ -1,0 +1,785 @@
+{
+  "subjectId": "digital-image-processing",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Pixel is the smallest element of a digital image, located on a grid and holding an intensity or a color.",
+        "answer": true,
+        "explanation": "The image is a grid of these samples, and each one has a position plus a stored value."
+      },
+      {
+        "statement": "A Gray level is the spatial spacing between pixel centers.",
+        "answer": false,
+        "explanation": "Quantized intensity is stored as an integer level, and more bits allow more distinct levels."
+      },
+      {
+        "statement": "A Spatial resolution is how finely a scene is divided into pixels, set by pixel count or by the spacing between pixels.",
+        "answer": true,
+        "explanation": "Finer spacing or more pixels across the scene preserves smaller spatial detail."
+      },
+      {
+        "statement": "An Intensity resolution is spatial resolution.",
+        "answer": false,
+        "explanation": "Each extra bit doubles the number of representable intensities, independent of how many pixels there are."
+      },
+      {
+        "statement": "An Image histogram is a count of how many pixels have each gray level.",
+        "answer": true,
+        "explanation": "Each bin stores the population of one gray level, so the bins together describe the intensity distribution."
+      },
+      {
+        "statement": "A Histogram equalization is histogram matching to a custom shape.",
+        "answer": false,
+        "explanation": "The cumulative distribution is used as the mapping, which flattens the histogram as much as discrete levels allow."
+      },
+      {
+        "statement": "A Spatial filter is an operation that computes each output pixel from a neighborhood of input pixels.",
+        "answer": true,
+        "explanation": "The filter mask visits each location and combines the pixels under the mask to form the output."
+      },
+      {
+        "statement": "A Convolution kernel is the histogram of the unfiltered picture.",
+        "answer": false,
+        "explanation": "Each output is a weighted sum of neighbors, and those weights are the kernel entries."
+      },
+      {
+        "statement": "A Mean filter is a linear spatial filter that replaces each pixel with the average of its neighborhood.",
+        "answer": true,
+        "explanation": "Equal weights average the window, which reduces random fluctuations but also blurs edges."
+      },
+      {
+        "statement": "A Gaussian filter is a mean filter.",
+        "answer": false,
+        "explanation": "The Gaussian weights decay with distance, which smooths noise while blurring edges less harshly than a box average."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Median filter is a nonlinear filter that replaces each pixel with the middle-ranked value in its neighborhood.",
+        "answer": true,
+        "explanation": "The median rejects extreme spikes that would pull an average, which is why it removes salt-and-pepper noise."
+      },
+      {
+        "statement": "A Sobel operator is the Canny detector.",
+        "answer": false,
+        "explanation": "The classic Sobel kernels place a 2 at the center of the differencing row or column and 1s beside it."
+      },
+      {
+        "statement": "A Prewitt operator is a pair of 3 by 3 gradient kernels that use equal weights in the smoothing direction.",
+        "answer": true,
+        "explanation": "Prewitt smoothing coefficients are all 1, unlike Sobel coefficients that emphasize the center."
+      },
+      {
+        "statement": "A Laplacian operator is a box average used to blur an image.",
+        "answer": false,
+        "explanation": "The Laplacian approximates the sum of second derivatives and changes sign across an edge."
+      },
+      {
+        "statement": "An Edge detection is finding pixels where intensity changes sharply, usually to mark object boundaries.",
+        "answer": true,
+        "explanation": "Boundaries produce large gradients or Laplacian zero crossings, which edge detectors are built to locate."
+      },
+      {
+        "statement": "A Canny edge detector is a lone Sobel kernel.",
+        "answer": false,
+        "explanation": "Canny combines Gaussian smoothing, gradient magnitude, non-maximum suppression, and hysteresis thresholding."
+      },
+      {
+        "statement": "A Thresholding is turning a gray image into a binary image by comparing each pixel with an intensity cutoff.",
+        "answer": true,
+        "explanation": "Pixels on one side of the cutoff become foreground and pixels on the other side become background."
+      },
+      {
+        "statement": "An Otsu method is morphological opening.",
+        "answer": false,
+        "explanation": "Otsu searches thresholds and keeps the one with the largest between-class variance of the histogram."
+      },
+      {
+        "statement": "A Segmentation is partitioning an image into regions that correspond to objects or to areas with similar properties.",
+        "answer": true,
+        "explanation": "The goal is a meaningful partition of the pixels, not merely an enhanced version of the same picture."
+      },
+      {
+        "statement": "A Region growing is voting edge points into a line-parameter accumulator.",
+        "answer": false,
+        "explanation": "Growth expands each seed only into neighbors that satisfy the homogeneity criterion."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Lossless compression is encoding an image so the exact original pixel values can be restored from the file.",
+        "answer": true,
+        "explanation": "The mapping is reversible, so decoding reproduces the identical pixel array."
+      },
+      {
+        "statement": "A Lossy compression is lossless compression.",
+        "answer": false,
+        "explanation": "The discarded detail, often high-frequency coefficients, is not recoverable from the compressed file."
+      },
+      {
+        "statement": "A JPEG is a lossy standard that transforms 8 by 8 blocks with the DCT, quantizes coefficients, and entropy-codes them.",
+        "answer": true,
+        "explanation": "Quantization of DCT coefficients is the lossy step, and the remaining symbols are then entropy coded."
+      },
+      {
+        "statement": "A Run-length encoding is a mean filter.",
+        "answer": false,
+        "explanation": "Long constant stretches are cheaper to store as a value and a length than as repeated samples."
+      },
+      {
+        "statement": "A RGB color model is a color representation that stores separate red, green, and blue intensities for each pixel.",
+        "answer": true,
+        "explanation": "Displays mix red, green, and blue light, so this model matches additive color hardware."
+      },
+      {
+        "statement": "A HSV color model is a representation with luma and two chroma differences.",
+        "answer": false,
+        "explanation": "Hue names the color, saturation names its vividness, and value names its brightness, so they can be edited separately."
+      },
+      {
+        "statement": "A YCbCr is a color representation with a luma channel and blue-difference and red-difference chroma channels.",
+        "answer": true,
+        "explanation": "Luma carries brightness detail, while the chroma channels can be stored more coarsely for compression."
+      },
+      {
+        "statement": "A Salt-and-pepper noise is gaussian noise.",
+        "answer": false,
+        "explanation": "The corrupted pixels are spikes at black or white, scattered among otherwise unchanged pixels."
+      },
+      {
+        "statement": "A Gaussian noise is additive noise whose amplitude follows a bell-shaped distribution, often from sensor electronics.",
+        "answer": true,
+        "explanation": "The noise is added to the true intensity and the additions cluster near zero in a Gaussian shape."
+      },
+      {
+        "statement": "An Erosion is a mean filter.",
+        "answer": false,
+        "explanation": "The structuring element must be covered by foreground, so boundaries shrink and small objects can vanish."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Dilation is a morphology step that sets a pixel to foreground when the structuring element touches any foreground pixel.",
+        "answer": true,
+        "explanation": "Any overlap with foreground turns the pixel on, so objects grow and small gaps can close."
+      },
+      {
+        "statement": "A Morphological opening is a single erosion with no dilation afterward.",
+        "answer": false,
+        "explanation": "Erosion deletes objects smaller than the structuring element, and the following dilation restores the surviving shapes roughly to size."
+      },
+      {
+        "statement": "A Morphological closing is a dilation followed by an erosion with the same structuring element, which fills small dark holes.",
+        "answer": true,
+        "explanation": "Dilation fills gaps and holes smaller than the structuring element, and the following erosion shrinks the outline back."
+      },
+      {
+        "statement": "A Connected component is one.",
+        "answer": false,
+        "explanation": "Connectivity joins neighbors, and maximality means the set is not part of a larger connected set."
+      },
+      {
+        "statement": "A Binary image is an image in which every pixel takes one of only two values, such as object or background.",
+        "answer": true,
+        "explanation": "Two labels are enough after a decision such as thresholding, so each pixel is on or off."
+      },
+      {
+        "statement": "A Contrast stretching is a median filter.",
+        "answer": false,
+        "explanation": "The mapping is a straight line from the chosen low and high input levels to the full output range."
+      },
+      {
+        "statement": "A 8-neighborhood is the eight pixels that touch a center pixel along an edge or a corner.",
+        "answer": true,
+        "explanation": "Both edge-adjacent and corner-adjacent pixels are included, which is 8-connectivity."
+      },
+      {
+        "statement": "A Gradient magnitude is the gray level of the pixel itself.",
+        "answer": false,
+        "explanation": "Magnitude combines the horizontal and vertical derivatives, typically as the square root of the sum of their squares."
+      },
+      {
+        "statement": "An Unsharp masking is sharpening made by adding a scaled copy of the original minus a blurred version back onto the original.",
+        "answer": true,
+        "explanation": "The original minus the blur is a high-frequency image, and adding it back boosts edges."
+      },
+      {
+        "statement": "A Non-maximum suppression is gaussian smoothing.",
+        "answer": false,
+        "explanation": "Pixels that are not the strongest along the gradient direction are set to zero, leaving thin ridges."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An Intensity quantization is mapping intensities onto a smaller set of gray levels, which can create false contours if too few levels remain.",
+        "answer": true,
+        "explanation": "Quantization reduces amplitude precision, whereas spatial sampling reduces how finely positions are measured."
+      },
+      {
+        "statement": "A Huffman coding is a median filter.",
+        "answer": false,
+        "explanation": "Frequent symbols get short codes, no code is a prefix of another, and decoding restores the exact symbol sequence."
+      },
+      {
+        "statement": "A Discrete cosine transform is a real cosine-based block transform that packs most image energy into a few low-frequency coefficients.",
+        "answer": true,
+        "explanation": "The DCT uses cosine basis functions, and natural image blocks concentrate energy near the low-frequency coefficients."
+      },
+      {
+        "statement": "A Chroma subsampling is removing the brightness channel and keeping only hue.",
+        "answer": false,
+        "explanation": "Human vision is less sensitive to fine color detail than to fine brightness detail, so chroma can be sampled more coarsely."
+      },
+      {
+        "statement": "A Watershed segmentation is a method that treats the gradient image as a landscape and splits it into flooding catchment basins.",
+        "answer": true,
+        "explanation": "Basins fill from minima and dams are built where floods would meet, forming the segment boundaries."
+      },
+      {
+        "statement": "An Adaptive thresholding is a single global threshold.",
+        "answer": false,
+        "explanation": "The cutoff follows the local background, so a dark corner and a bright corner can both be binarized."
+      },
+      {
+        "statement": "A Speckle noise is multiplicative grain, common in ultrasound and radar, that scales with the underlying intensity.",
+        "answer": true,
+        "explanation": "The observed intensity is the true intensity times a random factor, so brighter areas look more strongly grained."
+      },
+      {
+        "statement": "A Histogram matching is a Hough transform.",
+        "answer": false,
+        "explanation": "The source cumulative histogram is matched to the target cumulative histogram to build the lookup."
+      },
+      {
+        "statement": "A Gamma correction is a power-law intensity map that brightens or darkens midtones without a straight-line stretch.",
+        "answer": true,
+        "explanation": "Raising normalized intensity to a power bends the midtones: a power below 1 brightens them and a power above 1 darkens them."
+      },
+      {
+        "statement": "A Hough transform is a seed-based region grower.",
+        "answer": false,
+        "explanation": "Each edge point votes for the lines that could pass through it, and a peak in rho-theta space is a detected line."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a 3 by 3 array of filter weights is called Pixel.",
+        "answer": false,
+        "explanation": "The image is a grid of these samples, and each one has a position plus a stored value."
+      },
+      {
+        "statement": "A pixel value of 0 is black and a pixel value of 255 is white in an 8-bit scan.",
+        "answer": true,
+        "explanation": "Quantized intensity is stored as an integer level, and more bits allow more distinct levels."
+      },
+      {
+        "statement": "In standard textbooks, intensity resolution is called Spatial resolution.",
+        "answer": false,
+        "explanation": "Finer spacing or more pixels across the scene preserves smaller spatial detail."
+      },
+      {
+        "statement": "Changing a medical display from 8 bits to 12 bits per pixel shows subtler tissue shades.",
+        "answer": true,
+        "explanation": "Each extra bit doubles the number of representable intensities, independent of how many pixels there are."
+      },
+      {
+        "statement": "In standard textbooks, a DCT block is called Image histogram.",
+        "answer": false,
+        "explanation": "Each bin stores the population of one gray level, so the bins together describe the intensity distribution."
+      },
+      {
+        "statement": "A washed-out X-ray is remapped so its gray levels occupy the full 0 to 255 display range.",
+        "answer": true,
+        "explanation": "The cumulative distribution is used as the mapping, which flattens the histogram as much as discrete levels allow."
+      },
+      {
+        "statement": "In standard textbooks, a color-space conversion that changes coordinates of one pixel alone with no neighbors is called Spatial filter.",
+        "answer": false,
+        "explanation": "The filter mask visits each location and combines the pixels under the mask to form the output."
+      },
+      {
+        "statement": "A 3 by 3 box kernel holds the weight 1/9 in every cell for a mean filter.",
+        "answer": true,
+        "explanation": "Each output is a weighted sum of neighbors, and those weights are the kernel entries."
+      },
+      {
+        "statement": "In standard textbooks, a median filter is called Mean filter.",
+        "answer": false,
+        "explanation": "Equal weights average the window, which reduces random fluctuations but also blurs edges."
+      },
+      {
+        "statement": "A sigma of 1.5 pixels blurs camera grain before a Canny detector runs on a road photo.",
+        "answer": true,
+        "explanation": "The Gaussian weights decay with distance, which smooths noise while blurring edges less harshly than a box average."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, global thresholding is called Median filter.",
+        "answer": false,
+        "explanation": "The median rejects extreme spikes that would pull an average, which is why it removes salt-and-pepper noise."
+      },
+      {
+        "statement": "Sobel Gx on a building photo responds strongly to vertical window edges.",
+        "answer": true,
+        "explanation": "The classic Sobel kernels place a 2 at the center of the differencing row or column and 1s beside it."
+      },
+      {
+        "statement": "In standard textbooks, a nonlinear median of the neighborhood is called Prewitt operator.",
+        "answer": false,
+        "explanation": "Prewitt smoothing coefficients are all 1, unlike Sobel coefficients that emphasize the center."
+      },
+      {
+        "statement": "A 4-neighbor Laplacian lights up isolated bright dots in a star-field image more than smooth ramps.",
+        "answer": true,
+        "explanation": "The Laplacian approximates the sum of second derivatives and changes sign across an edge."
+      },
+      {
+        "statement": "In standard textbooks, hole filling is called Edge detection.",
+        "answer": false,
+        "explanation": "Boundaries produce large gradients or Laplacian zero crossings, which edge detectors are built to locate."
+      },
+      {
+        "statement": "A parts inspector smooths a photo, thins gradient ridges, and keeps strong edges that connect to weaker ones.",
+        "answer": true,
+        "explanation": "Canny combines Gaussian smoothing, gradient magnitude, non-maximum suppression, and hysteresis thresholding."
+      },
+      {
+        "statement": "In standard textbooks, run-length encoding is called Thresholding.",
+        "answer": false,
+        "explanation": "Pixels on one side of the cutoff become foreground and pixels on the other side become background."
+      },
+      {
+        "statement": "A barcode photo receives an automatic threshold from its histogram without a person picking the cutoff.",
+        "answer": true,
+        "explanation": "Otsu searches thresholds and keeps the one with the largest between-class variance of the histogram."
+      },
+      {
+        "statement": "In standard textbooks, compressing the file with a DCT and quantization is called Segmentation.",
+        "answer": false,
+        "explanation": "The goal is a meaningful partition of the pixels, not merely an enhanced version of the same picture."
+      },
+      {
+        "statement": "A seed inside a liver on a CT slice recruits adjacent pixels whose intensities stay within 10 levels.",
+        "answer": true,
+        "explanation": "Growth expands each seed only into neighbors that satisfy the homogeneity criterion."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, lossy compression is called Lossless compression.",
+        "answer": false,
+        "explanation": "The mapping is reversible, so decoding reproduces the identical pixel array."
+      },
+      {
+        "statement": "A vacation JPEG is much smaller than the raw capture, and fine fabric texture does not return exactly.",
+        "answer": true,
+        "explanation": "The discarded detail, often high-frequency coefficients, is not recoverable from the compressed file."
+      },
+      {
+        "statement": "In standard textbooks, hSV is called JPEG.",
+        "answer": false,
+        "explanation": "Quantization of DCT coefficients is the lossy step, and the remaining symbols are then entropy coded."
+      },
+      {
+        "statement": "A binary fax line of 200 white pixels is stored as white times 200 instead of 200 separate bits.",
+        "answer": true,
+        "explanation": "Long constant stretches are cheaper to store as a value and a length than as repeated samples."
+      },
+      {
+        "statement": "In standard textbooks, a model that stores luma plus two chroma-difference channels is called RGB color model.",
+        "answer": false,
+        "explanation": "Displays mix red, green, and blue light, so this model matches additive color hardware."
+      },
+      {
+        "statement": "An artist lowers saturation to make a sunset paler without changing the orange hue.",
+        "answer": true,
+        "explanation": "Hue names the color, saturation names its vividness, and value names its brightness, so they can be edited separately."
+      },
+      {
+        "statement": "In standard textbooks, rGB is called YCbCr.",
+        "answer": false,
+        "explanation": "Luma carries brightness detail, while the chroma channels can be stored more coarsely for compression."
+      },
+      {
+        "statement": "A scanned page shows random black and white dots that were not on the paper.",
+        "answer": true,
+        "explanation": "The corrupted pixels are spikes at black or white, scattered among otherwise unchanged pixels."
+      },
+      {
+        "statement": "In standard textbooks, a stuck column is called Gaussian noise.",
+        "answer": false,
+        "explanation": "The noise is added to the true intensity and the additions cluster near zero in a Gaussian shape."
+      },
+      {
+        "statement": "A binary letter thins when a 3 by 3 square must fit entirely on the ink.",
+        "answer": true,
+        "explanation": "The structuring element must be covered by foreground, so boundaries shrink and small objects can vanish."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, an erosion followed by a dilation is called Dilation.",
+        "answer": false,
+        "explanation": "Any overlap with foreground turns the pixel on, so objects grow and small gaps can close."
+      },
+      {
+        "statement": "Tiny bright dust spots vanish from a binary micrograph while large cells remain after opening.",
+        "answer": true,
+        "explanation": "Erosion deletes objects smaller than the structuring element, and the following dilation restores the surviving shapes roughly to size."
+      },
+      {
+        "statement": "In standard textbooks, opening is called Morphological closing.",
+        "answer": false,
+        "explanation": "Dilation fills gaps and holes smaller than the structuring element, and the following erosion shrinks the outline back."
+      },
+      {
+        "statement": "Two separate coins in a binary photo form two connected components if their pixels do not touch.",
+        "answer": true,
+        "explanation": "Connectivity joins neighbors, and maximality means the set is not part of a larger connected set."
+      },
+      {
+        "statement": "In standard textbooks, a floating-point map is called Binary image.",
+        "answer": false,
+        "explanation": "Two labels are enough after a decision such as thresholding, so each pixel is on or off."
+      },
+      {
+        "statement": "Pixel values cramped between 40 and 90 are linearly mapped onto 0 through 255 for a clearer scan.",
+        "answer": true,
+        "explanation": "The mapping is a straight line from the chosen low and high input levels to the full output range."
+      },
+      {
+        "statement": "In standard textbooks, every pixel in the image is called 8-neighborhood.",
+        "answer": false,
+        "explanation": "Both edge-adjacent and corner-adjacent pixels are included, which is 8-connectivity."
+      },
+      {
+        "statement": "Along a black-to-white step, the gradient magnitude peaks on the step and is near zero on flat areas.",
+        "answer": true,
+        "explanation": "Magnitude combines the horizontal and vertical derivatives, typically as the square root of the sum of their squares."
+      },
+      {
+        "statement": "In standard textbooks, blurring only is called Unsharp masking.",
+        "answer": false,
+        "explanation": "The original minus the blur is a high-frequency image, and adding it back boosts edges."
+      },
+      {
+        "statement": "A thick bright band along a roof edge is reduced to a one-pixel-wide ridge before hysteresis.",
+        "answer": true,
+        "explanation": "Pixels that are not the strongest along the gradient direction are set to zero, leaving thin ridges."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, contrast stretching is called Intensity quantization.",
+        "answer": false,
+        "explanation": "Quantization reduces amplitude precision, whereas spatial sampling reduces how finely positions are measured."
+      },
+      {
+        "statement": "In a document image, the most common byte value receives a shorter code than a rare byte value.",
+        "answer": true,
+        "explanation": "Frequent symbols get short codes, no code is a prefix of another, and decoding restores the exact symbol sequence."
+      },
+      {
+        "statement": "In standard textbooks, a spatial 3 by 3 averaging kernel is called Discrete cosine transform.",
+        "answer": false,
+        "explanation": "The DCT uses cosine basis functions, and natural image blocks concentrate energy near the low-frequency coefficients."
+      },
+      {
+        "statement": "A video frame keeps every luma sample but only one chroma sample for each 2 by 2 luma block.",
+        "answer": true,
+        "explanation": "Human vision is less sensitive to fine color detail than to fine brightness detail, so chroma can be sampled more coarsely."
+      },
+      {
+        "statement": "In standard textbooks, region growing is called Watershed segmentation.",
+        "answer": false,
+        "explanation": "Basins fill from minima and dams are built where floods would meet, forming the segment boundaries."
+      },
+      {
+        "statement": "A phone photo of a page has a shadow, and each small window gets its own threshold so all letters appear.",
+        "answer": true,
+        "explanation": "The cutoff follows the local background, so a dark corner and a bright corner can both be binarized."
+      },
+      {
+        "statement": "In standard textbooks, jPEG blocking is called Speckle noise.",
+        "answer": false,
+        "explanation": "The observed intensity is the true intensity times a random factor, so brighter areas look more strongly grained."
+      },
+      {
+        "statement": "A new satellite scene is remapped so its histogram resembles a reference scene from last year.",
+        "answer": true,
+        "explanation": "The source cumulative histogram is matched to the target cumulative histogram to build the lookup."
+      },
+      {
+        "statement": "In standard textbooks, a cumulative-histogram equalization is called Gamma correction.",
+        "answer": false,
+        "explanation": "Raising normalized intensity to a power bends the midtones: a power below 1 brightens them and a power above 1 darkens them."
+      },
+      {
+        "statement": "Lane markings in a road image produce peaks in an accumulator of distance and angle.",
+        "answer": true,
+        "explanation": "Each edge point votes for the lines that could pass through it, and a peak in rho-theta space is a detected line."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a program reads the sample at row 10, column 20 and finds brightness 180. What is that sample called, the correct result is a histogram bin.",
+        "answer": false,
+        "explanation": "One located image sample with a stored value is a pixel."
+      },
+      {
+        "statement": "When an 8-bit scanner stores each pixel as an integer from 0 through 255. What is that integer called, the correct result is the pixel pitch.",
+        "answer": false,
+        "explanation": "The integer brightness code of a pixel is its gray level."
+      },
+      {
+        "statement": "When raising a scan from 72 to 300 pixels per inch reveals smaller print details. The resolution improved, the correct result is spatial resolution.",
+        "answer": true,
+        "explanation": "More pixels per inch means finer spatial sampling, which is spatial resolution."
+      },
+      {
+        "statement": "When a camera upgrade stores 12 bits per pixel instead of 8, with the same pixel count. The resolution changed, the correct result is intensity resolution.",
+        "answer": true,
+        "explanation": "More bits per pixel increase the number of gray levels, which is intensity resolution."
+      },
+      {
+        "statement": "When software counts how many pixels have gray level 0, how many have 1, and so on up to 255. Which plot is that, the correct result is an edge map.",
+        "answer": false,
+        "explanation": "Counts of pixels at each gray level form the image histogram."
+      },
+      {
+        "statement": "When a pale scan is remapped with its cumulative histogram to spread intensities over the full range. Which operation is that, the correct result is histogram matching to a custom shape.",
+        "answer": false,
+        "explanation": "Using the cumulative histogram to spread gray levels is histogram equalization."
+      },
+      {
+        "statement": "When each output pixel is computed from the 3 by 3 block around the matching input pixel. The operation class is that, the correct result is a spatial filter.",
+        "answer": true,
+        "explanation": "Neighborhood-based computation at each pixel is spatial filtering."
+      },
+      {
+        "statement": "When a linear blur stores a 3 by 3 array of weights and slides it over the photo. In this case that array called, the correct result is a convolution kernel.",
+        "answer": true,
+        "explanation": "The sliding array of linear-filter weights is the convolution kernel."
+      },
+      {
+        "statement": "When every pixel is replaced by the equal-weight average of its 3 by 3 neighborhood. Which filter is that, the correct result is a Laplacian filter.",
+        "answer": false,
+        "explanation": "An equal-weight neighborhood average is a mean filter."
+      },
+      {
+        "statement": "When smoothing weights are highest at the center and fall off in a bell curve. The filter uses those weights, the correct result is a Gaussian filter.",
+        "answer": true,
+        "explanation": "Bell-shaped weights that favor the center are a Gaussian filter."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When impulse specks must be removed without the averaging blur of a box filter. Which neighborhood filter fits, the correct result is a Gaussian filter.",
+        "answer": false,
+        "explanation": "Replacing each pixel by the neighborhood median removes impulses without a linear average."
+      },
+      {
+        "statement": "When gradient kernels use a center weight of 2, as in the row -1, 0, 1 above a row -2, 0, 2. Which operator is that, the correct result is the Canny detector.",
+        "answer": false,
+        "explanation": "The extra center weight of 2 identifies the Sobel kernels."
+      },
+      {
+        "statement": "When a gradient kernel uses equal weights of 1 in the averaging direction rather than a center weight of 2. The operator is that, the correct result is the Prewitt operator.",
+        "answer": true,
+        "explanation": "Equal smoothing weights on a 3 by 3 gradient kernel identify Prewitt."
+      },
+      {
+        "statement": "When an isotropic kernel approximates the sum of second derivatives and flares on noisy peaks. The operator is that, the correct result is the Laplacian.",
+        "answer": true,
+        "explanation": "A second-derivative isotropic kernel is the Laplacian."
+      },
+      {
+        "statement": "When a robot must mark pixels where brightness jumps along obstacle outlines. Which task is that, the correct result is an HSV conversion.",
+        "answer": false,
+        "explanation": "Locating sharp intensity changes is edge detection."
+      },
+      {
+        "statement": "When a pipeline smooths, computes gradients, suppresses non-maximum ridge pixels, and applies two thresholds. Which detector is that, the correct result is a lone Sobel kernel.",
+        "answer": false,
+        "explanation": "Those four stages together are the Canny edge detector."
+      },
+      {
+        "statement": "When all pixels brighter than 100 become white and the rest become black. The operation is that, the correct result is thresholding.",
+        "answer": true,
+        "explanation": "Comparing every pixel with one cutoff to make a binary image is thresholding."
+      },
+      {
+        "statement": "When a program picks one threshold that best separates a bimodal histogram by between-class variance. The method is that, the correct result is otsu's method.",
+        "answer": true,
+        "explanation": "Maximizing between-class variance of the histogram is Otsu's method."
+      },
+      {
+        "statement": "When a photo must be divided into sky, road, and vehicle regions. Which task is that, the correct result is building a histogram.",
+        "answer": false,
+        "explanation": "Dividing the picture into meaningful regions is segmentation."
+      },
+      {
+        "statement": "When from one seed inside an organ, neighbors are added while their intensities stay close to the seed. The method is that, the correct result is region growing.",
+        "answer": true,
+        "explanation": "Expanding seeds into similar neighbors is region growing."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a legal scan must reopen with every original gray level unchanged. Which compression class is required, the correct result is dCT quantization.",
+        "answer": false,
+        "explanation": "Exact restoration of every pixel requires lossless compression."
+      },
+      {
+        "statement": "When a photo share site shrinks images by permanently dropping some detail. Which compression class is that, the correct result is lossless compression.",
+        "answer": false,
+        "explanation": "Permanent loss of detail in exchange for a smaller file is lossy compression."
+      },
+      {
+        "statement": "When an image is split into 8 by 8 blocks, transformed by the DCT, quantized, and Huffman coded. The standard is that, the correct result is jPEG.",
+        "answer": true,
+        "explanation": "Block DCT, quantization, and entropy coding are the JPEG pipeline."
+      },
+      {
+        "statement": "When a scanner stores 150 identical black pixels as the pair black and 150. The compression method is that, the correct result is run-length encoding.",
+        "answer": true,
+        "explanation": "Storing a repeated value together with its run length is run-length encoding."
+      },
+      {
+        "statement": "When a monitor pixel is stored as three intensities: red, green, and blue. Which color model is that, the correct result is hSV.",
+        "answer": false,
+        "explanation": "Separate red, green, and blue channels are the RGB model."
+      },
+      {
+        "statement": "When a tool lets a user change vividness without changing the color name or the brightness. Which model exposes those separate controls, the correct result is yCbCr.",
+        "answer": false,
+        "explanation": "Hue, saturation, and value are the three HSV components."
+      },
+      {
+        "statement": "When a compressor stores brightness separately from blue and red color differences. The model is that, the correct result is yCbCr.",
+        "answer": true,
+        "explanation": "Luma plus Cb and Cr chroma differences is YCbCr."
+      },
+      {
+        "statement": "When random pixels are stuck at pure black or pure white while their neighbors look normal. The noise is that, the correct result is salt-and-pepper noise.",
+        "answer": true,
+        "explanation": "Isolated black and white impulses are salt-and-pepper noise."
+      },
+      {
+        "statement": "When sensor grain is added to each pixel with a bell-shaped error distribution. Which noise model fits, the correct result is speckle.",
+        "answer": false,
+        "explanation": "Additive bell-shaped errors are Gaussian noise."
+      },
+      {
+        "statement": "When a binary object shrinks because a pixel stays on only if a 3 by 3 square fits inside the object. The operation is that, the correct result is erosion.",
+        "answer": true,
+        "explanation": "Keeping a pixel only when the structuring element fits is erosion."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When object pixels spread outward wherever a structuring element touches existing foreground. Which operation is that, the correct result is erosion.",
+        "answer": false,
+        "explanation": "Growing foreground by contact with the structuring element is dilation."
+      },
+      {
+        "statement": "When small bright specks must disappear while larger shapes are restored by a dilation after an erosion. Which operation is that, the correct result is erosion alone.",
+        "answer": false,
+        "explanation": "Erosion followed by dilation is morphological opening."
+      },
+      {
+        "statement": "When tiny dark holes inside a white object are filled, using dilation and then erosion. The operation is that, the correct result is closing.",
+        "answer": true,
+        "explanation": "Dilation followed by erosion is morphological closing."
+      },
+      {
+        "statement": "When a binary image has three separate blobs whose pixels touch inside each blob but not across blobs. How many connected components are there, the correct result is three.",
+        "answer": true,
+        "explanation": "Each blob that is internally connected and separated from the others is one connected component."
+      },
+      {
+        "statement": "When after a cutoff, every pixel is stored as either ink or paper. Which image type is that, the correct result is an RGB image.",
+        "answer": false,
+        "explanation": "Two pixel values mean the image is binary."
+      },
+      {
+        "statement": "When intensities lying only between 50 and 100 are mapped with a straight line onto 0 through 255. Which enhancement is that, the correct result is a median filter.",
+        "answer": false,
+        "explanation": "A linear expansion of a narrow gray range is contrast stretching."
+      },
+      {
+        "statement": "When connectivity treats diagonally touching pixels as neighbors, not only pixels that share an edge. The neighborhood is used, the correct result is the 8-neighborhood.",
+        "answer": true,
+        "explanation": "Edge and corner neighbors together are the 8-neighborhood."
+      },
+      {
+        "statement": "When a program combines horizontal and vertical derivatives into one strength value that peaks on edges. The value is that, the correct result is gradient magnitude.",
+        "answer": true,
+        "explanation": "The combined size of the intensity slope is the gradient magnitude."
+      },
+      {
+        "statement": "When an editor adds a scaled high-frequency image, formed as original minus blur, back to the original. Which sharpening method is that, the correct result is histogram equalization.",
+        "answer": false,
+        "explanation": "Adding back a scaled original-minus-blur signal is unsharp masking."
+      },
+      {
+        "statement": "When along the gradient direction, only the strongest pixel in a thick edge band is kept. The Canny stage is that, the correct result is non-maximum suppression.",
+        "answer": true,
+        "explanation": "Keeping gradient maxima along the edge normal thins the edge."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a smooth ramp is stored with only 4 gray levels and shows bands. Which process caused the bands, the correct result is sobel edge detection.",
+        "answer": false,
+        "explanation": "Too few gray levels make smooth ramps break into false contours."
+      },
+      {
+        "statement": "When common pixel symbols receive shorter bit codes, no code is a prefix of another, and decoding is exact. Which coder is that, the correct result is a median filter.",
+        "answer": false,
+        "explanation": "Shorter prefix-free codes for frequent symbols are Huffman coding."
+      },
+      {
+        "statement": "When an 8 by 8 block is expressed with real cosine basis functions and most energy sits in the first coefficients. The transform is that, the correct result is the DCT.",
+        "answer": true,
+        "explanation": "A real cosine block transform with strong energy compaction is the discrete cosine transform."
+      },
+      {
+        "statement": "When brightness is stored at full resolution while color differences are stored on a coarser grid. The technique is that, the correct result is chroma subsampling.",
+        "answer": true,
+        "explanation": "Coarser sampling of color differences than of brightness is chroma subsampling."
+      },
+      {
+        "statement": "When a gradient image is flooded from its minima and dams form where the floods meet. Which segmentation method is that, the correct result is otsu thresholding.",
+        "answer": false,
+        "explanation": "Flooding catchment basins of the gradient is watershed segmentation."
+      },
+      {
+        "statement": "When one side of a page is in shadow, so each neighborhood computes its own cutoff. Which thresholding style is that, the correct result is a single global threshold.",
+        "answer": false,
+        "explanation": "A cutoff that changes with the local neighborhood is adaptive thresholding."
+      },
+      {
+        "statement": "When radar brightness fluctuations grow in proportion to the underlying brightness. The noise model fits, the correct result is speckle.",
+        "answer": true,
+        "explanation": "Multiplicative grain that scales with intensity is speckle."
+      },
+      {
+        "statement": "When a photo must take on the gray-level distribution of a chosen reference image, not necessarily a flat one. The operation is that, the correct result is histogram matching.",
+        "answer": true,
+        "explanation": "Forcing the histogram toward a specified target is histogram matching."
+      },
+      {
+        "statement": "When midtones are brightened by raising normalized intensity to a power less than 1, not by a linear stretch. Which map is that, the correct result is contrast stretching.",
+        "answer": false,
+        "explanation": "A power-law bend of intensity is gamma correction."
+      },
+      {
+        "statement": "When edge pixels vote in a rho-theta accumulator, and peaks are reported as straight lines. The method is that, the correct result is the Hough transform.",
+        "answer": true,
+        "explanation": "Parameter-space voting that finds lines is the Hough transform."
+      }
+    ]
+  }
+}

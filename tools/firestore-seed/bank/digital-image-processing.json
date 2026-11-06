@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Pixel",
+    "definition": "The smallest element of a digital image, located on a grid and holding an intensity or a color.",
+    "wrongs": [
+      "A count of how many pixels share one gray level.",
+      "A 3 by 3 array of filter weights.",
+      "A compressed file header with no picture samples."
+    ],
+    "why": "The image is a grid of these samples, and each one has a position plus a stored value.",
+    "example": "A 640 by 480 photo contains 307200 pixels, each storing an 8-bit brightness.",
+    "scenario": "A program reads the sample at row 10, column 20 and finds brightness 180. What is that sample called?",
+    "scenarioAnswer": "A pixel",
+    "scenarioWrongs": ["A histogram bin", "A kernel weight", "A file header"],
+    "scenarioWhy": "One located image sample with a stored value is a pixel."
+  },
+  {
+    "term": "Gray level",
+    "definition": "The integer brightness of a pixel, such as one of 256 steps in an 8-bit gray image.",
+    "wrongs": [
+      "The number of pixels along the width of the image.",
+      "The spatial spacing between pixel centers.",
+      "The hue angle in a color wheel."
+    ],
+    "why": "Quantized intensity is stored as an integer level, and more bits allow more distinct levels.",
+    "example": "A pixel value of 0 is black and a pixel value of 255 is white in an 8-bit scan.",
+    "scenario": "An 8-bit scanner stores each pixel as an integer from 0 through 255. What is that integer called?",
+    "scenarioAnswer": "A gray level",
+    "scenarioWrongs": ["The image width", "The pixel pitch", "A hue angle"],
+    "scenarioWhy": "The integer brightness code of a pixel is its gray level."
+  },
+  {
+    "term": "Spatial resolution",
+    "definition": "How finely a scene is divided into pixels, set by pixel count or by the spacing between pixels.",
+    "wrongs": [
+      "How many bits are used to store each pixel's brightness.",
+      "The number of bins in a histogram.",
+      "The quality factor of a JPEG file."
+    ],
+    "why": "Finer spacing or more pixels across the scene preserves smaller spatial detail.",
+    "example": "A scan at 300 pixels per inch shows finer text edges than a scan at 72 pixels per inch.",
+    "scenario": "Raising a scan from 72 to 300 pixels per inch reveals smaller print details. Which resolution improved?",
+    "scenarioAnswer": "Spatial resolution",
+    "scenarioWrongs": ["Intensity resolution", "Histogram length", "JPEG quality"],
+    "scenarioWhy": "More pixels per inch means finer spatial sampling, which is spatial resolution."
+  },
+  {
+    "term": "Intensity resolution",
+    "definition": "How many bits are used for each pixel's brightness, which sets the number of gray levels.",
+    "wrongs": [
+      "How many pixels span the width of the scene.",
+      "The size of a convolution kernel in pixels.",
+      "The number of connected components in a binary image."
+    ],
+    "why": "Each extra bit doubles the number of representable intensities, independent of how many pixels there are.",
+    "example": "Changing a medical display from 8 bits to 12 bits per pixel shows subtler tissue shades.",
+    "scenario": "A camera upgrade stores 12 bits per pixel instead of 8, with the same pixel count. Which resolution changed?",
+    "scenarioAnswer": "Intensity resolution",
+    "scenarioWrongs": ["Spatial resolution", "Kernel size", "Component count"],
+    "scenarioWhy": "More bits per pixel increase the number of gray levels, which is intensity resolution."
+  },
+  {
+    "term": "Image histogram",
+    "definition": "A count of how many pixels have each gray level.",
+    "wrongs": [
+      "A map that already equalizes those counts into a flat distribution.",
+      "A list of edge pixels found by a gradient operator.",
+      "A table of DCT coefficients inside one JPEG block."
+    ],
+    "why": "Each bin stores the population of one gray level, so the bins together describe the intensity distribution.",
+    "example": "A night photo has a histogram piled up at the dark end and almost empty at the bright end.",
+    "scenario": "Software counts how many pixels have gray level 0, how many have 1, and so on up to 255. Which plot is that?",
+    "scenarioAnswer": "A histogram",
+    "scenarioWrongs": ["An equalized image", "An edge map", "A DCT block"],
+    "scenarioWhy": "Counts of pixels at each gray level form the image histogram."
+  },
+  {
+    "term": "Histogram equalization",
+    "definition": "Remapping gray levels by the cumulative histogram so intensities spread across the full range.",
+    "wrongs": [
+      "Replacing each pixel by the average of its neighbors.",
+      "Setting every pixel above a cutoff to white and the rest to black.",
+      "Matching the histogram to an arbitrary reference shape that is not uniform."
+    ],
+    "why": "The cumulative distribution is used as the mapping, which flattens the histogram as much as discrete levels allow.",
+    "example": "A washed-out X-ray is remapped so its gray levels occupy the full 0 to 255 display range.",
+    "scenario": "A pale scan is remapped with its cumulative histogram to spread intensities over the full range. Which operation is that?",
+    "scenarioAnswer": "Histogram equalization",
+    "scenarioWrongs": ["A mean filter", "Global thresholding", "Histogram matching to a custom shape"],
+    "scenarioWhy": "Using the cumulative histogram to spread gray levels is histogram equalization."
+  },
+  {
+    "term": "Spatial filter",
+    "definition": "An operation that computes each output pixel from a neighborhood of input pixels.",
+    "wrongs": [
+      "A transform that processes an entire frequency spectrum with no neighborhood window.",
+      "A color-space conversion that changes coordinates of one pixel alone with no neighbors.",
+      "A file-size reduction that only entropy-codes already quantized symbols."
+    ],
+    "why": "The filter mask visits each location and combines the pixels under the mask to form the output.",
+    "example": "A 3 by 3 blur replaces every pixel by a combination of itself and the eight surrounding pixels.",
+    "scenario": "Each output pixel is computed from the 3 by 3 block around the matching input pixel. Which operation class is that?",
+    "scenarioAnswer": "A spatial filter",
+    "scenarioWrongs": ["A full-frame frequency multiply", "A per-pixel color conversion", "Entropy coding"],
+    "scenarioWhy": "Neighborhood-based computation at each pixel is spatial filtering."
+  },
+  {
+    "term": "Convolution kernel",
+    "definition": "The small array of weights that a linear spatial filter slides across an image.",
+    "wrongs": [
+      "The output image after filtering has already finished.",
+      "The histogram of the unfiltered picture.",
+      "The structuring element used only to test whether a shape fits in binary morphology."
+    ],
+    "why": "Each output is a weighted sum of neighbors, and those weights are the kernel entries.",
+    "example": "A 3 by 3 box kernel holds the weight 1/9 in every cell for a mean filter.",
+    "scenario": "A linear blur stores a 3 by 3 array of weights and slides it over the photo. What is that array called?",
+    "scenarioAnswer": "A convolution kernel",
+    "scenarioWrongs": ["The filtered output", "The histogram", "A morphological structuring element"],
+    "scenarioWhy": "The sliding array of linear-filter weights is the convolution kernel."
+  },
+  {
+    "term": "Mean filter",
+    "definition": "A linear spatial filter that replaces each pixel with the average of its neighborhood.",
+    "wrongs": [
+      "A filter that replaces each pixel with the middle-ranked neighbor.",
+      "A filter whose weights follow a Gaussian curve rather than equal weights.",
+      "A filter that computes a second derivative with a Laplacian kernel."
+    ],
+    "why": "Equal weights average the window, which reduces random fluctuations but also blurs edges.",
+    "example": "A 3 by 3 mean filter softens grain in a portrait and also softens eyelash edges.",
+    "scenario": "Every pixel is replaced by the equal-weight average of its 3 by 3 neighborhood. Which filter is that?",
+    "scenarioAnswer": "A mean filter",
+    "scenarioWrongs": ["A median filter", "A Gaussian filter", "A Laplacian filter"],
+    "scenarioWhy": "An equal-weight neighborhood average is a mean filter."
+  },
+  {
+    "term": "Gaussian filter",
+    "definition": "A linear smoothing filter whose weights follow a Gaussian curve, so nearer pixels count more.",
+    "wrongs": [
+      "An equal-weight average of every neighbor in the window.",
+      "A middle-ranked value that ignores the spatial arrangement.",
+      "A pair of Sobel kernels that estimate gradients."
+    ],
+    "why": "The Gaussian weights decay with distance, which smooths noise while blurring edges less harshly than a box average.",
+    "example": "A sigma of 1.5 pixels blurs camera grain before a Canny detector runs on a road photo.",
+    "scenario": "Smoothing weights are highest at the center and fall off in a bell curve. Which filter uses those weights?",
+    "scenarioAnswer": "A Gaussian filter",
+    "scenarioWrongs": ["A mean filter", "A median filter", "A Sobel operator"],
+    "scenarioWhy": "Bell-shaped weights that favor the center are a Gaussian filter."
+  },
+  {
+    "term": "Median filter",
+    "definition": "A nonlinear filter that replaces each pixel with the middle-ranked value in its neighborhood.",
+    "wrongs": [
+      "A linear average of the neighborhood.",
+      "A Gaussian weighted sum.",
+      "A global cutoff that binarizes the whole image."
+    ],
+    "why": "The median rejects extreme spikes that would pull an average, which is why it removes salt-and-pepper noise.",
+    "example": "Isolated white specks on a scanned page disappear after a 3 by 3 median filter, while edges stay sharp.",
+    "scenario": "Impulse specks must be removed without the averaging blur of a box filter. Which neighborhood filter fits?",
+    "scenarioAnswer": "A median filter",
+    "scenarioWrongs": ["A mean filter", "A Gaussian filter", "Global thresholding"],
+    "scenarioWhy": "Replacing each pixel by the neighborhood median removes impulses without a linear average."
+  },
+  {
+    "term": "Sobel operator",
+    "definition": "A pair of 3 by 3 kernels that estimate horizontal and vertical gradients with extra weight on the center row or column.",
+    "wrongs": [
+      "A pair of gradient kernels that use equal weights in the smoothing direction.",
+      "A second-derivative kernel with a large positive center.",
+      "A multi-stage detector that adds non-maximum suppression and hysteresis."
+    ],
+    "why": "The classic Sobel kernels place a 2 at the center of the differencing row or column and 1s beside it.",
+    "example": "Sobel Gx on a building photo responds strongly to vertical window edges.",
+    "scenario": "Gradient kernels use a center weight of 2, as in the row -1, 0, 1 above a row -2, 0, 2. Which operator is that?",
+    "scenarioAnswer": "The Sobel operator",
+    "scenarioWrongs": ["The Prewitt operator", "The Laplacian", "The Canny detector"],
+    "scenarioWhy": "The extra center weight of 2 identifies the Sobel kernels."
+  },
+  {
+    "term": "Prewitt operator",
+    "definition": "A pair of 3 by 3 gradient kernels that use equal weights in the smoothing direction.",
+    "wrongs": [
+      "Gradient kernels that put a weight of 2 on the center sample.",
+      "A nonlinear median of the neighborhood.",
+      "A morphological erosion followed by a dilation."
+    ],
+    "why": "Prewitt smoothing coefficients are all 1, unlike Sobel coefficients that emphasize the center.",
+    "example": "A Prewitt vertical kernel uses -1, 0, 1 on each of its three rows to mark vertical edges.",
+    "scenario": "A gradient kernel uses equal weights of 1 in the averaging direction rather than a center weight of 2. Which operator is that?",
+    "scenarioAnswer": "The Prewitt operator",
+    "scenarioWrongs": ["The Sobel operator", "A median filter", "Morphological opening"],
+    "scenarioWhy": "Equal smoothing weights on a 3 by 3 gradient kernel identify Prewitt."
+  },
+  {
+    "term": "Laplacian operator",
+    "definition": "A second-derivative kernel that responds to intensity peaks and is very sensitive to noise.",
+    "wrongs": [
+      "A first-derivative pair that estimates only the gradient direction.",
+      "A box average used to blur an image.",
+      "A histogram remapping that spreads gray levels."
+    ],
+    "why": "The Laplacian approximates the sum of second derivatives and changes sign across an edge.",
+    "example": "A 4-neighbor Laplacian lights up isolated bright dots in a star-field image more than smooth ramps.",
+    "scenario": "An isotropic kernel approximates the sum of second derivatives and flares on noisy peaks. Which operator is that?",
+    "scenarioAnswer": "The Laplacian",
+    "scenarioWrongs": ["A Sobel gradient", "A mean filter", "Histogram equalization"],
+    "scenarioWhy": "A second-derivative isotropic kernel is the Laplacian."
+  },
+  {
+    "term": "Edge detection",
+    "definition": "Finding pixels where intensity changes sharply, usually to mark object boundaries.",
+    "wrongs": [
+      "Filling holes inside a region after the boundary is already known.",
+      "Compressing a file with Huffman codes.",
+      "Converting RGB triples into hue, saturation, and value."
+    ],
+    "why": "Boundaries produce large gradients or Laplacian zero crossings, which edge detectors are built to locate.",
+    "example": "A lane-keeping camera marks the white painted lines where asphalt brightness jumps.",
+    "scenario": "A robot must mark pixels where brightness jumps along obstacle outlines. Which task is that?",
+    "scenarioAnswer": "Edge detection",
+    "scenarioWrongs": ["Hole filling", "Huffman coding", "An HSV conversion"],
+    "scenarioWhy": "Locating sharp intensity changes is edge detection."
+  },
+  {
+    "term": "Canny edge detector",
+    "definition": "A multi-step detector that smooths, finds gradients, thins ridges, and links edges with two thresholds.",
+    "wrongs": [
+      "A single 3 by 3 Sobel kernel with no thinning or hysteresis.",
+      "A global intensity cutoff that produces a binary mask.",
+      "A watershed flood of a gradient surface."
+    ],
+    "why": "Canny combines Gaussian smoothing, gradient magnitude, non-maximum suppression, and hysteresis thresholding.",
+    "example": "A parts inspector smooths a photo, thins gradient ridges, and keeps strong edges that connect to weaker ones.",
+    "scenario": "A pipeline smooths, computes gradients, suppresses non-maximum ridge pixels, and applies two thresholds. Which detector is that?",
+    "scenarioAnswer": "The Canny detector",
+    "scenarioWrongs": ["A lone Sobel kernel", "Global thresholding", "Watershed segmentation"],
+    "scenarioWhy": "Those four stages together are the Canny edge detector."
+  },
+  {
+    "term": "Thresholding",
+    "definition": "Turning a gray image into a binary image by comparing each pixel with an intensity cutoff.",
+    "wrongs": [
+      "Replacing each pixel by a neighborhood average.",
+      "Spreading gray levels with a cumulative histogram.",
+      "Encoding runs of identical values for compression."
+    ],
+    "why": "Pixels on one side of the cutoff become foreground and pixels on the other side become background.",
+    "example": "A document scan sets every pixel above 128 to white and every darker pixel to black.",
+    "scenario": "All pixels brighter than 100 become white and the rest become black. Which operation is that?",
+    "scenarioAnswer": "Thresholding",
+    "scenarioWrongs": ["Mean filtering", "Histogram equalization", "Run-length encoding"],
+    "scenarioWhy": "Comparing every pixel with one cutoff to make a binary image is thresholding."
+  },
+  {
+    "term": "Otsu method",
+    "definition": "An automatic global cutoff that maximizes the gray-level variance between foreground and background.",
+    "wrongs": [
+      "A cutoff chosen by hand and typed in by the user.",
+      "A separate cutoff computed inside every small neighborhood.",
+      "A morphological opening used to delete small bright spots."
+    ],
+    "why": "Otsu searches thresholds and keeps the one with the largest between-class variance of the histogram.",
+    "example": "A barcode photo receives an automatic threshold from its histogram without a person picking the cutoff.",
+    "scenario": "A program picks one threshold that best separates a bimodal histogram by between-class variance. Which method is that?",
+    "scenarioAnswer": "Otsu's method",
+    "scenarioWrongs": ["A hand-picked threshold", "Adaptive local thresholds", "Morphological opening"],
+    "scenarioWhy": "Maximizing between-class variance of the histogram is Otsu's method."
+  },
+  {
+    "term": "Segmentation",
+    "definition": "Partitioning an image into regions that correspond to objects or to areas with similar properties.",
+    "wrongs": [
+      "Counting gray levels in a histogram without forming regions.",
+      "Compressing the file with a DCT and quantization.",
+      "Adding Gaussian noise for a simulation."
+    ],
+    "why": "The goal is a meaningful partition of the pixels, not merely an enhanced version of the same picture.",
+    "example": "A medical tool separates a tumor region from surrounding tissue in an MRI slice.",
+    "scenario": "A photo must be divided into sky, road, and vehicle regions. Which task is that?",
+    "scenarioAnswer": "Segmentation",
+    "scenarioWrongs": ["Building a histogram", "JPEG compression", "Adding noise"],
+    "scenarioWhy": "Dividing the picture into meaningful regions is segmentation."
+  },
+  {
+    "term": "Region growing",
+    "definition": "Starting from seed pixels and adding neighboring pixels that meet a similarity test.",
+    "wrongs": [
+      "Flooding a gradient surface from its minima as in a watershed.",
+      "Voting edge points into a line-parameter accumulator.",
+      "Eroding and then dilating with one structuring element."
+    ],
+    "why": "Growth expands each seed only into neighbors that satisfy the homogeneity criterion.",
+    "example": "A seed inside a liver on a CT slice recruits adjacent pixels whose intensities stay within 10 levels.",
+    "scenario": "From one seed inside an organ, neighbors are added while their intensities stay close to the seed. Which method is that?",
+    "scenarioAnswer": "Region growing",
+    "scenarioWrongs": ["Watershed segmentation", "A Hough transform", "Morphological opening"],
+    "scenarioWhy": "Expanding seeds into similar neighbors is region growing."
+  },
+  {
+    "term": "Lossless compression",
+    "definition": "Encoding an image so the exact original pixel values can be restored from the file.",
+    "wrongs": [
+      "Encoding that discards information and cannot restore every original pixel.",
+      "Blurring the image with a Gaussian kernel before saving the pixels unchanged in size.",
+      "Quantizing DCT coefficients so high frequencies are permanently dropped."
+    ],
+    "why": "The mapping is reversible, so decoding reproduces the identical pixel array.",
+    "example": "A PNG of a logo opens to the same pixel values that were saved.",
+    "scenario": "A legal scan must reopen with every original gray level unchanged. Which compression class is required?",
+    "scenarioAnswer": "Lossless compression",
+    "scenarioWrongs": ["Lossy compression", "Gaussian blurring", "DCT quantization"],
+    "scenarioWhy": "Exact restoration of every pixel requires lossless compression."
+  },
+  {
+    "term": "Lossy compression",
+    "definition": "Encoding that discards some information so the file is smaller and the original pixels cannot all be restored.",
+    "wrongs": [
+      "A reversible code that restores every pixel exactly.",
+      "A histogram that only describes the image and does not encode it.",
+      "A rotation that keeps every pixel value in a new position."
+    ],
+    "why": "The discarded detail, often high-frequency coefficients, is not recoverable from the compressed file.",
+    "example": "A vacation JPEG is much smaller than the raw capture, and fine fabric texture does not return exactly.",
+    "scenario": "A photo share site shrinks images by permanently dropping some detail. Which compression class is that?",
+    "scenarioAnswer": "Lossy compression",
+    "scenarioWrongs": ["Lossless compression", "Histogram display", "A lossless rotation"],
+    "scenarioWhy": "Permanent loss of detail in exchange for a smaller file is lossy compression."
+  },
+  {
+    "term": "JPEG",
+    "definition": "A lossy standard that transforms 8 by 8 blocks with the DCT, quantizes coefficients, and entropy-codes them.",
+    "wrongs": [
+      "A lossless run-length code used mainly on binary scans.",
+      "A median filter that does not change the file format.",
+      "A color model that stores hue, saturation, and value."
+    ],
+    "why": "Quantization of DCT coefficients is the lossy step, and the remaining symbols are then entropy coded.",
+    "example": "A camera saves an 8 by 8 block transform of a sky photo and the file is labeled JPEG.",
+    "scenario": "An image is split into 8 by 8 blocks, transformed by the DCT, quantized, and Huffman coded. Which standard is that?",
+    "scenarioAnswer": "JPEG",
+    "scenarioWrongs": ["Run-length encoding", "A median filter", "HSV"],
+    "scenarioWhy": "Block DCT, quantization, and entropy coding are the JPEG pipeline."
+  },
+  {
+    "term": "Run-length encoding",
+    "definition": "A lossless scheme that stores a value once together with how many times it repeats in a row.",
+    "wrongs": [
+      "A lossy block DCT used by JPEG.",
+      "A variable-length code based only on symbol probabilities, with no run counts.",
+      "A spatial average of neighboring pixels."
+    ],
+    "why": "Long constant stretches are cheaper to store as a value and a length than as repeated samples.",
+    "example": "A binary fax line of 200 white pixels is stored as white times 200 instead of 200 separate bits.",
+    "scenario": "A scanner stores 150 identical black pixels as the pair black and 150. Which compression method is that?",
+    "scenarioAnswer": "Run-length encoding",
+    "scenarioWrongs": ["JPEG", "Huffman coding alone", "A mean filter"],
+    "scenarioWhy": "Storing a repeated value together with its run length is run-length encoding."
+  },
+  {
+    "term": "RGB color model",
+    "definition": "A color representation that stores separate red, green, and blue intensities for each pixel.",
+    "wrongs": [
+      "A model that stores hue, saturation, and brightness.",
+      "A model that stores luma plus two chroma-difference channels.",
+      "A single gray level with no color channels."
+    ],
+    "why": "Displays mix red, green, and blue light, so this model matches additive color hardware.",
+    "example": "A pure red pixel is stored as full red with green and blue at zero.",
+    "scenario": "A monitor pixel is stored as three intensities: red, green, and blue. Which color model is that?",
+    "scenarioAnswer": "RGB",
+    "scenarioWrongs": ["HSV", "YCbCr", "Gray level"],
+    "scenarioWhy": "Separate red, green, and blue channels are the RGB model."
+  },
+  {
+    "term": "HSV color model",
+    "definition": "A color representation that separates hue, saturation, and brightness.",
+    "wrongs": [
+      "A representation with red, green, and blue channels only.",
+      "A representation with luma and two chroma differences.",
+      "A binary mask with no color at all."
+    ],
+    "why": "Hue names the color, saturation names its vividness, and value names its brightness, so they can be edited separately.",
+    "example": "An artist lowers saturation to make a sunset paler without changing the orange hue.",
+    "scenario": "A tool lets a user change vividness without changing the color name or the brightness. Which model exposes those separate controls?",
+    "scenarioAnswer": "HSV",
+    "scenarioWrongs": ["RGB", "YCbCr", "A binary mask"],
+    "scenarioWhy": "Hue, saturation, and value are the three HSV components."
+  },
+  {
+    "term": "YCbCr",
+    "definition": "A color representation with a luma channel and blue-difference and red-difference chroma channels.",
+    "wrongs": [
+      "A model of red, green, and blue intensities.",
+      "A model of hue, saturation, and value.",
+      "A grayscale histogram with one channel."
+    ],
+    "why": "Luma carries brightness detail, while the chroma channels can be stored more coarsely for compression.",
+    "example": "A video frame keeps full-resolution Y and lower-resolution Cb and Cr before encoding.",
+    "scenario": "A compressor stores brightness separately from blue and red color differences. Which model is that?",
+    "scenarioAnswer": "YCbCr",
+    "scenarioWrongs": ["RGB", "HSV", "A gray histogram"],
+    "scenarioWhy": "Luma plus Cb and Cr chroma differences is YCbCr."
+  },
+  {
+    "term": "Salt-and-pepper noise",
+    "definition": "Impulse noise that randomly sets some pixels to the minimum or maximum gray level.",
+    "wrongs": [
+      "Additive noise whose amplitudes follow a bell-shaped distribution.",
+      "Multiplicative grain typical of radar and ultrasound.",
+      "A smooth shading gradient that is part of the scene."
+    ],
+    "why": "The corrupted pixels are spikes at black or white, scattered among otherwise unchanged pixels.",
+    "example": "A scanned page shows random black and white dots that were not on the paper.",
+    "scenario": "Random pixels are stuck at pure black or pure white while their neighbors look normal. Which noise is that?",
+    "scenarioAnswer": "Salt-and-pepper noise",
+    "scenarioWrongs": ["Gaussian noise", "Speckle", "Scene shading"],
+    "scenarioWhy": "Isolated black and white impulses are salt-and-pepper noise."
+  },
+  {
+    "term": "Gaussian noise",
+    "definition": "Additive noise whose amplitude follows a bell-shaped distribution, often from sensor electronics.",
+    "wrongs": [
+      "Random pixels forced only to black or white.",
+      "Multiplicative speckle that scales with intensity.",
+      "A single dead column stuck at one gray level."
+    ],
+    "why": "The noise is added to the true intensity and the additions cluster near zero in a Gaussian shape.",
+    "example": "A low-light photo shows fine grain on a gray wall, with most errors small and few errors large.",
+    "scenario": "Sensor grain is added to each pixel with a bell-shaped error distribution. Which noise model fits?",
+    "scenarioAnswer": "Gaussian noise",
+    "scenarioWrongs": ["Salt-and-pepper noise", "Speckle", "A stuck column"],
+    "scenarioWhy": "Additive bell-shaped errors are Gaussian noise."
+  },
+  {
+    "term": "Erosion",
+    "definition": "A morphology step that keeps a foreground pixel only when the structuring element fits inside the foreground.",
+    "wrongs": [
+      "A step that paints a pixel foreground whenever the structuring element touches any foreground pixel.",
+      "A dilation followed by an erosion.",
+      "A linear blur with equal weights."
+    ],
+    "why": "The structuring element must be covered by foreground, so boundaries shrink and small objects can vanish.",
+    "example": "A binary letter thins when a 3 by 3 square must fit entirely on the ink.",
+    "scenario": "A binary object shrinks because a pixel stays on only if a 3 by 3 square fits inside the object. Which operation is that?",
+    "scenarioAnswer": "Erosion",
+    "scenarioWrongs": ["Dilation", "Closing", "A mean filter"],
+    "scenarioWhy": "Keeping a pixel only when the structuring element fits is erosion."
+  },
+  {
+    "term": "Dilation",
+    "definition": "A morphology step that sets a pixel to foreground when the structuring element touches any foreground pixel.",
+    "wrongs": [
+      "A step that keeps a pixel only when the structuring element fits entirely inside the object.",
+      "An erosion followed by a dilation.",
+      "A median of gray levels in a window."
+    ],
+    "why": "Any overlap with foreground turns the pixel on, so objects grow and small gaps can close.",
+    "example": "A broken white road line becomes continuous after dilation with a short horizontal element.",
+    "scenario": "Object pixels spread outward wherever a structuring element touches existing foreground. Which operation is that?",
+    "scenarioAnswer": "Dilation",
+    "scenarioWrongs": ["Erosion", "Opening", "A median filter"],
+    "scenarioWhy": "Growing foreground by contact with the structuring element is dilation."
+  },
+  {
+    "term": "Morphological opening",
+    "definition": "An erosion followed by a dilation with the same structuring element, which removes small bright details.",
+    "wrongs": [
+      "A dilation followed by an erosion, which fills small dark holes.",
+      "A single erosion with no dilation afterward.",
+      "Histogram equalization of a gray image."
+    ],
+    "why": "Erosion deletes objects smaller than the structuring element, and the following dilation restores the surviving shapes roughly to size.",
+    "example": "Tiny bright dust spots vanish from a binary micrograph while large cells remain after opening.",
+    "scenario": "Small bright specks must disappear while larger shapes are restored by a dilation after an erosion. Which operation is that?",
+    "scenarioAnswer": "Opening",
+    "scenarioWrongs": ["Closing", "Erosion alone", "Histogram equalization"],
+    "scenarioWhy": "Erosion followed by dilation is morphological opening."
+  },
+  {
+    "term": "Morphological closing",
+    "definition": "A dilation followed by an erosion with the same structuring element, which fills small dark holes.",
+    "wrongs": [
+      "An erosion followed by a dilation, which removes small bright spots.",
+      "A single dilation with no erosion afterward.",
+      "Canny edge detection with hysteresis."
+    ],
+    "why": "Dilation fills gaps and holes smaller than the structuring element, and the following erosion shrinks the outline back.",
+    "example": "Small black pinholes inside a white character disappear after closing with a 3 by 3 element.",
+    "scenario": "Tiny dark holes inside a white object are filled, using dilation and then erosion. Which operation is that?",
+    "scenarioAnswer": "Closing",
+    "scenarioWrongs": ["Opening", "Dilation alone", "Canny detection"],
+    "scenarioWhy": "Dilation followed by erosion is morphological closing."
+  },
+  {
+    "term": "Connected component",
+    "definition": "A maximal set of foreground pixels that are linked to each other through a chain of neighbors.",
+    "wrongs": [
+      "Every foreground pixel in the image, even when objects do not touch.",
+      "A single histogram bin.",
+      "An 8 by 8 JPEG coefficient block."
+    ],
+    "why": "Connectivity joins neighbors, and maximality means the set is not part of a larger connected set.",
+    "example": "Two separate coins in a binary photo form two connected components if their pixels do not touch.",
+    "scenario": "A binary image has three separate blobs whose pixels touch inside each blob but not across blobs. How many connected components are there?",
+    "scenarioAnswer": "Three",
+    "scenarioWrongs": ["One", "Two", "Six"],
+    "scenarioWhy": "Each blob that is internally connected and separated from the others is one connected component."
+  },
+  {
+    "term": "Binary image",
+    "definition": "An image in which every pixel takes one of only two values, such as object or background.",
+    "wrongs": [
+      "An image with 256 gray levels.",
+      "An RGB image with three 8-bit channels.",
+      "A floating-point height map."
+    ],
+    "why": "Two labels are enough after a decision such as thresholding, so each pixel is on or off.",
+    "example": "A thresholded signature scan stores ink as 1 and paper as 0.",
+    "scenario": "After a cutoff, every pixel is stored as either ink or paper. Which image type is that?",
+    "scenarioAnswer": "A binary image",
+    "scenarioWrongs": ["An 8-bit gray image", "An RGB image", "A floating-point map"],
+    "scenarioWhy": "Two pixel values mean the image is binary."
+  },
+  {
+    "term": "Contrast stretching",
+    "definition": "A linear gray-level map that spreads a narrow intensity range over a wider display range.",
+    "wrongs": [
+      "A cumulative-histogram map that aims at a uniform distribution.",
+      "A power-law map that bends midtones nonlinearly.",
+      "A median filter that does not remap the global scale."
+    ],
+    "why": "The mapping is a straight line from the chosen low and high input levels to the full output range.",
+    "example": "Pixel values cramped between 40 and 90 are linearly mapped onto 0 through 255 for a clearer scan.",
+    "scenario": "Intensities lying only between 50 and 100 are mapped with a straight line onto 0 through 255. Which enhancement is that?",
+    "scenarioAnswer": "Contrast stretching",
+    "scenarioWrongs": ["Histogram equalization", "Gamma correction", "A median filter"],
+    "scenarioWhy": "A linear expansion of a narrow gray range is contrast stretching."
+  },
+  {
+    "term": "8-neighborhood",
+    "definition": "The eight pixels that touch a center pixel along an edge or a corner.",
+    "wrongs": [
+      "Only the four pixels that share an edge with the center.",
+      "Every pixel in the image.",
+      "The 64 pixels inside an 8 by 8 JPEG block far from the center."
+    ],
+    "why": "Both edge-adjacent and corner-adjacent pixels are included, which is 8-connectivity.",
+    "example": "A diagonal crack is treated as connected because corner-touching pixels count as neighbors.",
+    "scenario": "Connectivity treats diagonally touching pixels as neighbors, not only pixels that share an edge. Which neighborhood is used?",
+    "scenarioAnswer": "The 8-neighborhood",
+    "scenarioWrongs": ["The 4-neighborhood", "The whole image", "An 8 by 8 block"],
+    "scenarioWhy": "Edge and corner neighbors together are the 8-neighborhood."
+  },
+  {
+    "term": "Gradient magnitude",
+    "definition": "The length of the local intensity gradient, which is large where neighboring pixels change sharply.",
+    "wrongs": [
+      "The direction of the gradient, such as an angle in degrees.",
+      "The gray level of the pixel itself.",
+      "The area of a connected component."
+    ],
+    "why": "Magnitude combines the horizontal and vertical derivatives, typically as the square root of the sum of their squares.",
+    "example": "Along a black-to-white step, the gradient magnitude peaks on the step and is near zero on flat areas.",
+    "scenario": "A program combines horizontal and vertical derivatives into one strength value that peaks on edges. Which value is that?",
+    "scenarioAnswer": "Gradient magnitude",
+    "scenarioWrongs": ["Gradient direction", "The pixel gray level", "Component area"],
+    "scenarioWhy": "The combined size of the intensity slope is the gradient magnitude."
+  },
+  {
+    "term": "Unsharp masking",
+    "definition": "Sharpening made by adding a scaled copy of the original minus a blurred version back onto the original.",
+    "wrongs": [
+      "Replacing the image by a blurred copy only.",
+      "Subtracting the original from a constant to form a negative.",
+      "Equalizing the histogram."
+    ],
+    "why": "The original minus the blur is a high-frequency image, and adding it back boosts edges.",
+    "example": "A portrait adds 0.6 times the difference between the photo and its Gaussian blur, so hair edges look crisper.",
+    "scenario": "An editor adds a scaled high-frequency image, formed as original minus blur, back to the original. Which sharpening method is that?",
+    "scenarioAnswer": "Unsharp masking",
+    "scenarioWrongs": ["Blurring only", "Forming a negative", "Histogram equalization"],
+    "scenarioWhy": "Adding back a scaled original-minus-blur signal is unsharp masking."
+  },
+  {
+    "term": "Non-maximum suppression",
+    "definition": "Thinning a gradient image by keeping only pixels that are local maxima along the gradient direction.",
+    "wrongs": [
+      "Smoothing an image with a Gaussian kernel.",
+      "Applying two hysteresis thresholds after edges are already thin.",
+      "Growing a region from a seed."
+    ],
+    "why": "Pixels that are not the strongest along the gradient direction are set to zero, leaving thin ridges.",
+    "example": "A thick bright band along a roof edge is reduced to a one-pixel-wide ridge before hysteresis.",
+    "scenario": "Along the gradient direction, only the strongest pixel in a thick edge band is kept. Which Canny stage is that?",
+    "scenarioAnswer": "Non-maximum suppression",
+    "scenarioWrongs": ["Gaussian smoothing", "Hysteresis thresholding", "Region growing"],
+    "scenarioWhy": "Keeping gradient maxima along the edge normal thins the edge."
+  },
+  {
+    "term": "Intensity quantization",
+    "definition": "Mapping intensities onto a smaller set of gray levels, which can create false contours if too few levels remain.",
+    "wrongs": [
+      "Sampling the scene onto a coarser pixel grid.",
+      "Detecting edges with a Sobel kernel.",
+      "Stretching contrast with a linear map that keeps the same number of levels."
+    ],
+    "why": "Quantization reduces amplitude precision, whereas spatial sampling reduces how finely positions are measured.",
+    "example": "Displaying a smooth sky with only 8 gray levels produces visible bands that were not in the scene.",
+    "scenario": "A smooth ramp is stored with only 4 gray levels and shows bands. Which process caused the bands?",
+    "scenarioAnswer": "Intensity quantization",
+    "scenarioWrongs": ["Spatial sampling", "Sobel edge detection", "Contrast stretching"],
+    "scenarioWhy": "Too few gray levels make smooth ramps break into false contours."
+  },
+  {
+    "term": "Huffman coding",
+    "definition": "A lossless code that assigns shorter bit strings to more frequent symbols and is prefix-free.",
+    "wrongs": [
+      "A lossy quantization of DCT coefficients.",
+      "A run-length pair that stores a value and a repeat count only.",
+      "A spatial median filter."
+    ],
+    "why": "Frequent symbols get short codes, no code is a prefix of another, and decoding restores the exact symbol sequence.",
+    "example": "In a document image, the most common byte value receives a shorter code than a rare byte value.",
+    "scenario": "Common pixel symbols receive shorter bit codes, no code is a prefix of another, and decoding is exact. Which coder is that?",
+    "scenarioAnswer": "Huffman coding",
+    "scenarioWrongs": ["DCT quantization", "Run-length encoding", "A median filter"],
+    "scenarioWhy": "Shorter prefix-free codes for frequent symbols are Huffman coding."
+  },
+  {
+    "term": "Discrete cosine transform",
+    "definition": "A real cosine-based block transform that packs most image energy into a few low-frequency coefficients.",
+    "wrongs": [
+      "A complex exponential transform identical to the DFT on the same block.",
+      "A spatial 3 by 3 averaging kernel.",
+      "A histogram of gray levels."
+    ],
+    "why": "The DCT uses cosine basis functions, and natural image blocks concentrate energy near the low-frequency coefficients.",
+    "example": "An 8 by 8 sky block becomes a large DC coefficient plus a few small low-frequency cosine terms.",
+    "scenario": "An 8 by 8 block is expressed with real cosine basis functions and most energy sits in the first coefficients. Which transform is that?",
+    "scenarioAnswer": "The DCT",
+    "scenarioWrongs": ["The DFT", "A mean filter", "A histogram"],
+    "scenarioWhy": "A real cosine block transform with strong energy compaction is the discrete cosine transform."
+  },
+  {
+    "term": "Chroma subsampling",
+    "definition": "Storing color-difference channels at a lower spatial resolution than the brightness channel.",
+    "wrongs": [
+      "Reducing the bit depth of the brightness channel only.",
+      "Removing the brightness channel and keeping only hue.",
+      "Applying a median filter to a gray image."
+    ],
+    "why": "Human vision is less sensitive to fine color detail than to fine brightness detail, so chroma can be sampled more coarsely.",
+    "example": "A video frame keeps every luma sample but only one chroma sample for each 2 by 2 luma block.",
+    "scenario": "Brightness is stored at full resolution while color differences are stored on a coarser grid. Which technique is that?",
+    "scenarioAnswer": "Chroma subsampling",
+    "scenarioWrongs": ["Luma bit-depth reduction", "Dropping luma", "A gray median filter"],
+    "scenarioWhy": "Coarser sampling of color differences than of brightness is chroma subsampling."
+  },
+  {
+    "term": "Watershed segmentation",
+    "definition": "A method that treats the gradient image as a landscape and splits it into flooding catchment basins.",
+    "wrongs": [
+      "Growing one region from a user seed by a similarity test.",
+      "Voting points into a rho-theta accumulator to find lines.",
+      "Choosing one global threshold by between-class variance."
+    ],
+    "why": "Basins fill from minima and dams are built where floods would meet, forming the segment boundaries.",
+    "example": "Touching cells in a microscope image separate along ridge lines when a watershed runs on the gradient.",
+    "scenario": "A gradient image is flooded from its minima and dams form where the floods meet. Which segmentation method is that?",
+    "scenarioAnswer": "Watershed segmentation",
+    "scenarioWrongs": ["Region growing", "The Hough transform", "Otsu thresholding"],
+    "scenarioWhy": "Flooding catchment basins of the gradient is watershed segmentation."
+  },
+  {
+    "term": "Adaptive thresholding",
+    "definition": "Choosing a separate intensity cutoff from nearby pixels so uneven lighting does not hide objects.",
+    "wrongs": [
+      "Using one cutoff for every pixel in the image.",
+      "Maximizing global between-class variance with a single threshold.",
+      "Equalizing the histogram of the whole image."
+    ],
+    "why": "The cutoff follows the local background, so a dark corner and a bright corner can both be binarized.",
+    "example": "A phone photo of a page has a shadow, and each small window gets its own threshold so all letters appear.",
+    "scenario": "One side of a page is in shadow, so each neighborhood computes its own cutoff. Which thresholding style is that?",
+    "scenarioAnswer": "Adaptive thresholding",
+    "scenarioWrongs": ["A single global threshold", "Otsu's single threshold", "Histogram equalization"],
+    "scenarioWhy": "A cutoff that changes with the local neighborhood is adaptive thresholding."
+  },
+  {
+    "term": "Speckle noise",
+    "definition": "Multiplicative grain, common in ultrasound and radar, that scales with the underlying intensity.",
+    "wrongs": [
+      "Additive bell-shaped electronic noise.",
+      "Isolated pixels set to black or white.",
+      "A JPEG blocking artifact on 8 by 8 boundaries."
+    ],
+    "why": "The observed intensity is the true intensity times a random factor, so brighter areas look more strongly grained.",
+    "example": "An ultrasound image of tissue shows granular texture whose strength grows in brighter regions.",
+    "scenario": "Radar brightness fluctuations grow in proportion to the underlying brightness. Which noise model fits?",
+    "scenarioAnswer": "Speckle",
+    "scenarioWrongs": ["Gaussian noise", "Salt-and-pepper noise", "JPEG blocking"],
+    "scenarioWhy": "Multiplicative grain that scales with intensity is speckle."
+  },
+  {
+    "term": "Histogram matching",
+    "definition": "Remapping gray levels so an image histogram approximates a chosen target histogram.",
+    "wrongs": [
+      "Remapping specifically toward a uniform histogram.",
+      "Replacing each pixel by its neighborhood median.",
+      "Detecting lines with a parameter-space vote."
+    ],
+    "why": "The source cumulative histogram is matched to the target cumulative histogram to build the lookup.",
+    "example": "A new satellite scene is remapped so its histogram resembles a reference scene from last year.",
+    "scenario": "A photo must take on the gray-level distribution of a chosen reference image, not necessarily a flat one. Which operation is that?",
+    "scenarioAnswer": "Histogram matching",
+    "scenarioWrongs": ["Histogram equalization", "A median filter", "A Hough transform"],
+    "scenarioWhy": "Forcing the histogram toward a specified target is histogram matching."
+  },
+  {
+    "term": "Gamma correction",
+    "definition": "A power-law intensity map that brightens or darkens midtones without a straight-line stretch.",
+    "wrongs": [
+      "A linear map from one intensity interval onto another.",
+      "A cumulative-histogram equalization.",
+      "A spatial Gaussian blur."
+    ],
+    "why": "Raising normalized intensity to a power bends the midtones: a power below 1 brightens them and a power above 1 darkens them.",
+    "example": "A display applies a power below 1 so shadow detail in a photograph becomes easier to see.",
+    "scenario": "Midtones are brightened by raising normalized intensity to a power less than 1, not by a linear stretch. Which map is that?",
+    "scenarioAnswer": "Gamma correction",
+    "scenarioWrongs": ["Contrast stretching", "Histogram equalization", "Gaussian smoothing"],
+    "scenarioWhy": "A power-law bend of intensity is gamma correction."
+  },
+  {
+    "term": "Hough transform",
+    "definition": "A voting method that maps edge points into a parameter space where peaks reveal straight lines.",
+    "wrongs": [
+      "A watershed flood of a gradient image.",
+      "A seed-based region grower.",
+      "A block DCT used for compression."
+    ],
+    "why": "Each edge point votes for the lines that could pass through it, and a peak in rho-theta space is a detected line.",
+    "example": "Lane markings in a road image produce peaks in an accumulator of distance and angle.",
+    "scenario": "Edge pixels vote in a rho-theta accumulator, and peaks are reported as straight lines. Which method is that?",
+    "scenarioAnswer": "The Hough transform",
+    "scenarioWrongs": ["Watershed segmentation", "Region growing", "The DCT"],
+    "scenarioWhy": "Parameter-space voting that finds lines is the Hough transform."
+  }
+]

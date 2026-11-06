@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Microcontroller",
+    "definition": "A single chip that combines a CPU, memory, and peripherals for controlling hardware in a product.",
+    "wrongs": [
+      "A general-purpose CPU that still needs external memory and I/O chips to operate.",
+      "A real-time kernel that schedules tasks with deadlines.",
+      "A converter that turns an analog voltage into a digital code."
+    ],
+    "why": "The core, memory, and common peripherals share one die, so a small board can run control firmware without a separate chipset.",
+    "example": "One chip on a thermostat board reads the sensor, runs the control loop, and drives the relay.",
+    "scenario": "A design needs a CPU, flash, RAM, timers, and GPIO together on one chip. Which part meets that need?",
+    "scenarioAnswer": "A microcontroller",
+    "scenarioWrongs": ["A standalone microprocessor", "A discrete ADC", "An RTOS kernel"],
+    "scenarioWhy": "A microcontroller integrates the processor, memory, and the peripherals a control board uses."
+  },
+  {
+    "term": "GPIO",
+    "definition": "A pin that software can set as an input or an output and then read or drive as a digital level.",
+    "wrongs": [
+      "A pin fixed forever as a UART transmit output that software cannot reassign.",
+      "An analog-only pin that cannot present a logic level.",
+      "A power pin that supplies the core voltage."
+    ],
+    "why": "General-purpose pins are under program control, unlike a pin locked to one peripheral function.",
+    "example": "Firmware configures pin PA5 as an output and writes a high level to light an LED.",
+    "scenario": "Firmware must drive an LED and later read a button as a logic level on ordinary digital pins. Which peripheral is used?",
+    "scenarioAnswer": "GPIO",
+    "scenarioWrongs": ["A watchdog timer", "An ADC channel", "A crystal oscillator"],
+    "scenarioWhy": "The LED and the button are digital signals controlled through general-purpose pins."
+  },
+  {
+    "term": "Pin multiplexing",
+    "definition": "The selection of which on-chip function, such as GPIO or a peripheral, is routed to a shared package pin.",
+    "wrongs": [
+      "The sharing of one CPU among several operating-system tasks.",
+      "The conversion of several analog inputs by scanning one converter.",
+      "The preemption of a low-priority handler by a higher-priority interrupt."
+    ],
+    "why": "A package has fewer pins than internal signals, so each pin is connected to one selected function at a time.",
+    "example": "Pin PA9 is switched from GPIO to the UART transmit signal so the serial peripheral drives it.",
+    "scenario": "PA9 must carry the UART transmit signal instead of acting as a GPIO output. What configuration selects that route?",
+    "scenarioAnswer": "Pin multiplexing",
+    "scenarioWrongs": ["Interrupt nesting", "ADC channel scanning", "Task scheduling"],
+    "scenarioWhy": "The pin multiplexer assigns PA9 to the UART alternate function."
+  },
+  {
+    "term": "Pull-up resistor",
+    "definition": "A resistor that weakly connects a signal to the high supply so an undriven input reads high.",
+    "wrongs": [
+      "A resistor that ties a signal to ground so an undriven input reads low.",
+      "A capacitor that holds an analog sample for a converter.",
+      "A fuse that opens the pin when current is too high."
+    ],
+    "why": "When a switch to ground is open, the resistor defines a valid high level instead of leaving the input floating.",
+    "example": "A button connects the pin to ground when pressed, and an enabled pull-up makes the released button read high.",
+    "scenario": "A floating input starts reading a solid high after a resistor to the positive supply is enabled and the switch is open. What was enabled?",
+    "scenarioAnswer": "A pull-up",
+    "scenarioWrongs": ["A pull-down", "A series fuse", "An open-drain driver alone"],
+    "scenarioWhy": "A resistor to the high supply holds the line high whenever nothing stronger pulls it low."
+  },
+  {
+    "term": "Open-drain output",
+    "definition": "An output that can pull a line low or release it, but cannot itself drive the line high.",
+    "wrongs": [
+      "An output that actively drives both high and low levels.",
+      "An input that responds only to rising edges.",
+      "A pin that produces a continuous analog voltage."
+    ],
+    "why": "The transistor only sinks current, so a pull-up makes the high level and several devices can share the wire.",
+    "example": "An I2C data pin is released by the master, and the pull-up brings the line high between bits.",
+    "scenario": "Two chips share one wire, either chip may pull it low, and neither chip drives it high. Which output style allows that?",
+    "scenarioAnswer": "Open-drain",
+    "scenarioWrongs": ["Push-pull", "Analog output", "Clock push-pull"],
+    "scenarioWhy": "A shared wired-AND line needs outputs that only sink, with a pull-up supplying the high level."
+  },
+  {
+    "term": "Interrupt request",
+    "definition": "A signal that asks the CPU to pause the current code and run the handler for an event.",
+    "wrongs": [
+      "A status flag that is noticed only when the main loop next reads it.",
+      "A reset that restarts execution from the reset vector.",
+      "A block transfer that moves bytes and never notifies the CPU."
+    ],
+    "why": "The event can be serviced promptly without the CPU spinning in a loop on a status bit.",
+    "example": "A UART asserts an interrupt when its receive register contains a newly arrived byte.",
+    "scenario": "A received byte causes the CPU to leave the main loop at once and run a handler. What did the UART assert?",
+    "scenarioAnswer": "An interrupt request",
+    "scenarioWrongs": ["A flag meant only for polling", "A brown-out reset", "Entry into sleep"],
+    "scenarioWhy": "The peripheral asked the CPU to preempt current work instead of waiting to be polled."
+  },
+  {
+    "term": "Interrupt service routine",
+    "definition": "The function that hardware runs in response to an interrupt and that then returns to the interrupted code.",
+    "wrongs": [
+      "The table of addresses that tells the CPU where each handler begins.",
+      "The main loop that checks status flags when no interrupt is pending.",
+      "The startup program that copies a new image into flash."
+    ],
+    "why": "The processor vectors to this function so the event can be handled and the previous context resumed.",
+    "example": "A timer handler clears the overflow flag, adds one to a tick count, and returns.",
+    "scenario": "A timer overflow enters a short function that clears the flag and adds one to a counter, then returns. What is that function?",
+    "scenarioAnswer": "An interrupt service routine",
+    "scenarioWrongs": ["The reset handler", "A polling loop", "The linker script"],
+    "scenarioWhy": "Code entered because of an interrupt, and which then returns, is the service routine."
+  },
+  {
+    "term": "Interrupt vector table",
+    "definition": "A table of handler addresses, indexed by interrupt number, that tells the CPU where to jump.",
+    "wrongs": [
+      "A table that maps virtual pages to physical frames.",
+      "A priority-ordered list of operating-system tasks.",
+      "A buffer of analog samples waiting to be averaged."
+    ],
+    "why": "When an interrupt is accepted, hardware uses the source number to load the matching handler address.",
+    "example": "Slot 18 of the table holds the start address of the UART receive handler.",
+    "scenario": "Interrupt number 15 causes the CPU to load a function address from slot 15 of a table. What is that table?",
+    "scenarioAnswer": "The interrupt vector table",
+    "scenarioWrongs": ["The page table", "The task ready list", "The sample buffer"],
+    "scenarioWhy": "The slot for that interrupt number provides the address of its handler."
+  },
+  {
+    "term": "Nested interrupt",
+    "definition": "A higher-priority interrupt that is accepted while a lower-priority handler is still running.",
+    "wrongs": [
+      "Two interrupts that always run one after another and never preempt a handler.",
+      "A fault that disables every further interrupt until the next reset.",
+      "A main-loop check of two status flags."
+    ],
+    "why": "Priority lets a more urgent source run before a slower handler has finished.",
+    "example": "A low-priority UART handler is interrupted by a higher-priority motor-control timer.",
+    "scenario": "A UART handler is in progress when a higher-priority timer interrupt is accepted and runs immediately. What occurred?",
+    "scenarioAnswer": "Interrupt nesting",
+    "scenarioWrongs": ["Tail chaining without preemption", "A non-maskable reset", "Priority inversion"],
+    "scenarioWhy": "A higher-priority source preempted a handler that had already started."
+  },
+  {
+    "term": "Interrupt latency",
+    "definition": "The delay from assertion of an interrupt until the first instruction of its handler executes.",
+    "wrongs": [
+      "The time spent inside the handler from its first instruction until it returns.",
+      "The period of the timer that requests the interrupt.",
+      "The extra wait inserted by a software debounce count."
+    ],
+    "why": "The CPU must finish or abandon the current instruction, save context, and vector before the handler can start.",
+    "example": "An overcurrent pin is asserted, and the handler's first instruction runs 12 cycles later.",
+    "scenario": "Engineers measure the time from an IRQ pin rising until the first instruction inside the handler. What are they measuring?",
+    "scenarioAnswer": "Interrupt latency",
+    "scenarioWrongs": ["Handler run time", "The timer period", "Debounce delay"],
+    "scenarioWhy": "The interval ends when the handler starts, so it is latency rather than the handler's own duration."
+  },
+  {
+    "term": "Maskable interrupt",
+    "definition": "An interrupt that software can disable so it will not be accepted until software enables it again.",
+    "wrongs": [
+      "An interrupt that is accepted even while ordinary interrupts are disabled.",
+      "A reset caused only by the supply voltage falling too low.",
+      "A transfer request that moves data without ever notifying the CPU."
+    ],
+    "why": "Ordinary peripheral interrupts must be blockable around updates that cannot tolerate preemption.",
+    "example": "Firmware sets the global interrupt mask, updates a buffer shared with a handler, then clears the mask.",
+    "scenario": "A UART interrupt is ignored while a global disable bit is set and is accepted again after that bit is cleared. Which class is it?",
+    "scenarioAnswer": "Maskable",
+    "scenarioWrongs": ["Non-maskable", "A brown-out reset", "A fault that cannot be masked"],
+    "scenarioWhy": "Software was able to block the interrupt and later allow it, so it is maskable."
+  },
+  {
+    "term": "Non-maskable interrupt",
+    "definition": "An interrupt that the CPU still accepts when ordinary interrupts have been disabled.",
+    "wrongs": [
+      "An interrupt that a critical section can disable and later re-enable.",
+      "A status bit that the main loop must poll.",
+      "A low-priority task switch requested by the scheduler."
+    ],
+    "why": "Events such as a clock failure must be handled even if firmware has masked normal peripheral interrupts.",
+    "example": "A clock-failure event vectors to its handler while firmware is inside a section that disabled ordinary interrupts.",
+    "scenario": "Normal interrupts are disabled, yet a clock-failure event still enters its handler. Which interrupt class is that?",
+    "scenarioAnswer": "Non-maskable",
+    "scenarioWrongs": ["Maskable", "A disabled GPIO edge", "A polled status bit"],
+    "scenarioWhy": "The event was accepted even though the mask that blocks ordinary interrupts was set."
+  },
+  {
+    "term": "Hardware timer",
+    "definition": "A peripheral that counts clock ticks and can signal when a match, capture, or overflow occurs.",
+    "wrongs": [
+      "A software variable that increases only when the main loop reaches an increment.",
+      "A converter that turns a pin voltage into a binary code.",
+      "A pin used only as a general-purpose digital output."
+    ],
+    "why": "A dedicated counter measures time without making the CPU count cycles in a delay loop.",
+    "example": "A 16-bit timer overflows once per millisecond and interrupts so firmware can advance a clock.",
+    "scenario": "A peripheral counts input clocks and interrupts when the count equals a compare register. What peripheral is it?",
+    "scenarioAnswer": "A hardware timer",
+    "scenarioWrongs": ["An ADC", "A GPIO port", "A software delay loop"],
+    "scenarioWhy": "Counting clock ticks and comparing them in a peripheral is the job of a hardware timer."
+  },
+  {
+    "term": "Prescaler",
+    "definition": "A divider in front of a timer counter so the counter advances once every several input clocks.",
+    "wrongs": [
+      "A multiplier that raises the CPU clock above the crystal frequency.",
+      "The compare value that sets how long a PWM output stays high.",
+      "The sample-and-hold time of an analog converter."
+    ],
+    "why": "Slowing the tick rate lets a short counter represent a long interval before it overflows.",
+    "example": "A divider of 80 turns an 80 MHz timer clock into 1 MHz counts, so each tick is one microsecond.",
+    "scenario": "An 80 MHz clock passes through a divider of 80, and the timer then counts at 1 MHz. What is that divider called?",
+    "scenarioAnswer": "A prescaler",
+    "scenarioWrongs": ["A PLL multiplier", "The auto-reload value", "The ADC sample time"],
+    "scenarioWhy": "The divider reduces how often the counter increments, which is a timer prescaler."
+  },
+  {
+    "term": "Watchdog timer",
+    "definition": "A timer that resets the system if firmware does not service it before the timeout expires.",
+    "wrongs": [
+      "A timer whose only job is to produce a PWM waveform for a motor.",
+      "A software counter used only to ignore switch bounce.",
+      "A crystal that replaces the internal clock after reset."
+    ],
+    "why": "If the program locks up and stops refreshing the timer, the timeout forces a recovery reset.",
+    "example": "The main loop services the watchdog every 100 ms, and a stuck loop causes a reset after the timeout.",
+    "scenario": "Firmware hangs, stops refreshing a timer, and the chip resets when that timer expires. Which peripheral caused the reset?",
+    "scenarioAnswer": "The watchdog timer",
+    "scenarioWrongs": ["A PWM timer", "A tick timer used only for delays", "The ADC"],
+    "scenarioWhy": "A watchdog resets the microcontroller when firmware fails to service it in time."
+  },
+  {
+    "term": "PWM",
+    "definition": "A digital waveform of fixed period whose high time is changed to control average power or position.",
+    "wrongs": [
+      "A steady analog voltage produced by a converter with no switching.",
+      "A serial byte framed by start and stop bits.",
+      "A single pulse whose only purpose is to reset the chip."
+    ],
+    "why": "The fraction of each period spent high sets the average output without a linear power amplifier.",
+    "example": "A timer switches a motor driver at 20 kHz, and a shorter high time makes the motor turn more slowly.",
+    "scenario": "A pin switches at a fixed 20 kHz, and firmware changes only how long it stays high in order to dim an LED. What waveform is that?",
+    "scenarioAnswer": "PWM",
+    "scenarioWrongs": ["A UART frame", "A steady DAC voltage", "A one-shot reset pulse"],
+    "scenarioWhy": "A constant period with a programmable high time is pulse-width modulation."
+  },
+  {
+    "term": "Duty cycle",
+    "definition": "The fraction of one period during which a PWM signal stays at its active level.",
+    "wrongs": [
+      "The number of periods that occur in one second.",
+      "The peak voltage of an analog sine wave.",
+      "The divider applied to the timer input clock."
+    ],
+    "why": "Average energy delivered by the switched signal depends on how long the active level lasts in each period.",
+    "example": "A waveform that is high for 2 ms and low for 8 ms has an active fraction of one fifth.",
+    "scenario": "A PWM period is 10 ms and the signal is high for 2 ms. What is the duty cycle?",
+    "scenarioAnswer": "20 percent",
+    "scenarioWrongs": ["2 percent", "50 percent", "80 percent"],
+    "scenarioWhy": "Duty cycle is active time divided by period, and 2 ms out of 10 ms is 20 percent."
+  },
+  {
+    "term": "ADC",
+    "definition": "A peripheral that converts an analog voltage into a binary code the firmware can read.",
+    "wrongs": [
+      "A peripheral that converts a binary code into an analog voltage.",
+      "A timer output that switches high and low to approximate a level.",
+      "A pin that reports only logic high or logic low."
+    ],
+    "why": "Sensors often produce voltages, while the processor can compute only on digital values.",
+    "example": "A converter reads a temperature-sensor voltage and returns a numeric code to the control loop.",
+    "scenario": "Firmware must turn a sensor voltage into a number. Which peripheral performs that conversion?",
+    "scenarioAnswer": "An ADC",
+    "scenarioWrongs": ["A DAC", "A PWM timer", "A digital input"],
+    "scenarioWhy": "Turning a continuous voltage into a digital code is analog-to-digital conversion."
+  },
+  {
+    "term": "ADC resolution",
+    "definition": "The number of bits in a conversion result, which sets how many distinct codes span the input range.",
+    "wrongs": [
+      "The number of conversions completed in one second.",
+      "The reference voltage applied to the converter.",
+      "The time from the start of a conversion until the code is ready."
+    ],
+    "why": "An n-bit result distinguishes 2 to the n codes, so more bits mean a smaller voltage step.",
+    "example": "A 10-bit converter produces 1024 possible codes across its full-scale input range.",
+    "scenario": "A converter's full-scale codes run from 0 through 1023. What is its resolution?",
+    "scenarioAnswer": "10 bits",
+    "scenarioWrongs": ["8 bits", "12 bits", "1023 bits"],
+    "scenarioWhy": "There are 1024 codes, which is 2 to the 10th power, so the resolution is 10 bits."
+  },
+  {
+    "term": "Successive-approximation ADC",
+    "definition": "A converter that finds the digital code one bit at a time by comparing the input with a DAC.",
+    "wrongs": [
+      "A converter that uses a comparator for every possible code and finishes in one step.",
+      "A converter that integrates the input for a time proportional to its voltage.",
+      "A converter that outputs an analog voltage from a digital code."
+    ],
+    "why": "Each comparison keeps or clears one bit, starting at the most significant bit, so an n-bit result takes about n steps.",
+    "example": "A 12-bit converter inside a microcontroller resolves the code with a sequence of comparisons after sampling.",
+    "scenario": "An on-chip converter tests the highest bit, then the next bit, through 12 comparisons against an internal DAC. Which converter type is it?",
+    "scenarioAnswer": "Successive approximation",
+    "scenarioWrongs": ["Flash", "Dual-slope", "A resistor-string DAC"],
+    "scenarioWhy": "Deciding one bit per comparison from the top bit downward is successive approximation."
+  },
+  {
+    "term": "Sampling rate",
+    "definition": "The number of analog samples a converter acquires during one second.",
+    "wrongs": [
+      "The number of bits stored in each sample.",
+      "The reference voltage divided by one code step.",
+      "The switching frequency of a PWM channel."
+    ],
+    "why": "The rate must be high enough to represent the fastest signal component the system needs to capture.",
+    "example": "An audio input taken 44100 times each second records one sample every sample period of that stream.",
+    "scenario": "A logger stores 1000 evenly spaced converter readings during one second. What is the sampling rate?",
+    "scenarioAnswer": "1000 samples per second",
+    "scenarioWrongs": ["100 samples per second", "1 sample per second", "1000 bits per sample"],
+    "scenarioWhy": "One thousand conversions spread across one second is a rate of 1000 samples per second."
+  },
+  {
+    "term": "DAC",
+    "definition": "A peripheral that converts a digital code into a corresponding analog voltage or current.",
+    "wrongs": [
+      "A peripheral that converts an analog voltage into a digital code.",
+      "A digital pin that can drive only a high level or a low level.",
+      "A timer channel used to send asynchronous serial bytes."
+    ],
+    "why": "Some actuators and bias circuits need a real voltage rather than only a number in a register.",
+    "example": "Writing the midscale code to a converter with a given reference produces about half of that reference voltage.",
+    "scenario": "Firmware writes a code, and an output pin settles at a proportional DC voltage used to bias a circuit. Which peripheral does that?",
+    "scenarioAnswer": "A DAC",
+    "scenarioWrongs": ["An ADC", "A GPIO pin", "A UART"],
+    "scenarioWhy": "Producing an analog level from a numeric code is digital-to-analog conversion."
+  },
+  {
+    "term": "Switch debouncing",
+    "definition": "Filtering the brief make-and-break of a mechanical contact so one press produces one logical edge.",
+    "wrongs": [
+      "Counting every mechanical bounce as another intentional press.",
+      "Converting the switch voltage at a very high rate and keeping every bounce sample.",
+      "Using a pulsed output to dim an LED beside the switch."
+    ],
+    "why": "Contacts bounce for a few milliseconds, and an unfiltered input would report several transitions.",
+    "example": "Firmware accepts a button press only after the pin has stayed low for 20 ms.",
+    "scenario": "One physical press increments a counter three times until firmware requires the pin to stay low for 20 ms. What did that check add?",
+    "scenarioAnswer": "Debouncing",
+    "scenarioWrongs": ["Extra edge sensitivity", "Analog oversampling", "PWM dimming"],
+    "scenarioWhy": "Requiring a stable level rejects the short bounce pulses of the mechanical contact."
+  },
+  {
+    "term": "RTOS",
+    "definition": "System software that schedules tasks so time-critical work can meet stated deadlines.",
+    "wrongs": [
+      "A main loop plus interrupt handlers with no task scheduler.",
+      "A file system whose only job is storing logs on a card.",
+      "A small updater that programs a new application image into flash."
+    ],
+    "why": "The kernel provides tasks, delays, and synchronization so firmware can be organized around timing requirements.",
+    "example": "A kernel runs a 1 ms motor task at higher priority than a display task that is allowed to miss a frame.",
+    "scenario": "Firmware is split into prioritized tasks, and a kernel switches to the motor task as soon as it is ready. What provides that switching?",
+    "scenarioAnswer": "An RTOS",
+    "scenarioWrongs": ["A bare-metal superloop", "A flash bootloader", "A batch script"],
+    "scenarioWhy": "Priority-based task switching and timing services are supplied by a real-time kernel."
+  },
+  {
+    "term": "Preemptive scheduling",
+    "definition": "Scheduling in which a higher-priority ready task takes the CPU from a lower-priority task at once.",
+    "wrongs": [
+      "Scheduling in which a running task continues until it voluntarily yields.",
+      "Scheduling that always runs tasks in the order they were created.",
+      "Scheduling that gives every ready task an equal slice and ignores priority."
+    ],
+    "why": "A newly ready high-priority task cannot wait until a low-priority task happens to give up the processor.",
+    "example": "A control task becomes ready and replaces a background logging task in the middle of its work.",
+    "scenario": "A low-priority logger is running when a high-priority control task becomes ready and runs immediately. Which policy is this?",
+    "scenarioAnswer": "Preemptive scheduling",
+    "scenarioWrongs": ["Cooperative scheduling", "Creation-order scheduling", "Equal-share round-robin"],
+    "scenarioWhy": "The higher-priority task took the CPU without waiting for the logger to yield."
+  },
+  {
+    "term": "Priority inversion",
+    "definition": "A delay in which a high-priority task waits for a lock held by a low-priority task while a medium task runs.",
+    "wrongs": [
+      "A high-priority task preempting a low-priority task under normal scheduling.",
+      "Two equal-priority tasks sharing the CPU in turn.",
+      "Two tasks each waiting for a lock the other holds, with no third task involved."
+    ],
+    "why": "The medium-priority task prevents the lock holder from running, so the high-priority task waits longer than the critical section itself.",
+    "example": "A logger holds a mutex, a medium-priority task occupies the CPU, and a control task blocks on that mutex.",
+    "scenario": "High waits for a mutex owned by Low, while Medium runs and keeps Low from releasing the mutex. What is this situation?",
+    "scenarioAnswer": "Priority inversion",
+    "scenarioWrongs": ["Normal preemption", "Deadlock", "Equal-priority sharing"],
+    "scenarioWhy": "A medium-priority task extended the wait of a high-priority task blocked by a low-priority lock owner."
+  },
+  {
+    "term": "Mutex",
+    "definition": "A lock with an owner task, which only that owner may release, used to protect a shared section.",
+    "wrongs": [
+      "A signal with no owner that an interrupt gives to wake a waiting task.",
+      "A counter that tracks how many items are stored in a queue.",
+      "A policy that raises every task to the same priority."
+    ],
+    "why": "Ownership lets the kernel know which task holds the lock and lets that task be the one that releases it.",
+    "example": "A logger locks a mutex, updates a shared buffer, and unlocks it so the control task may read the buffer.",
+    "scenario": "Only the task that locked a shared buffer is allowed to unlock it. Which object matches that rule?",
+    "scenarioAnswer": "A mutex",
+    "scenarioWrongs": ["A binary signaling semaphore", "A counting semaphore", "A message queue"],
+    "scenarioWhy": "A mutex records an owning task and is released by that owner."
+  },
+  {
+    "term": "Binary semaphore",
+    "definition": "A synchronization object whose count is only zero or one, often given from an interrupt to wake a task.",
+    "wrongs": [
+      "A lock that records an owning task and is released only by that owner.",
+      "A queue that copies whole messages from one task to another.",
+      "A timer that resets the chip if firmware stops servicing it."
+    ],
+    "why": "The interrupt gives the semaphore and the waiting task takes it, without the interrupt becoming a lock owner.",
+    "example": "A UART handler gives a semaphore, and a task blocked on that semaphore wakes and reads the received bytes.",
+    "scenario": "An interrupt gives an object to wake one waiting task, and the object has no owning task. Which object fits?",
+    "scenarioAnswer": "A binary semaphore",
+    "scenarioWrongs": ["A mutex", "A recursive lock", "A watchdog"],
+    "scenarioWhy": "Waking a task from an interrupt is signaling, which a binary semaphore can do without lock ownership."
+  },
+  {
+    "term": "Task deadline",
+    "definition": "The latest time at which a real-time job must finish to be considered on time.",
+    "wrongs": [
+      "The time at which the task was first created.",
+      "The priority number stored in the task control block.",
+      "The number of bytes reserved for the task stack."
+    ],
+    "why": "A real-time result is correct only if it is produced by the required time, not merely if it is produced eventually.",
+    "example": "A motor update released every millisecond must finish before the next millisecond boundary.",
+    "scenario": "A control job released every 1 ms must finish before the next release or the loop fails. What is that latest finish time called?",
+    "scenarioAnswer": "The deadline",
+    "scenarioWrongs": ["The priority", "The stack size", "The creation time"],
+    "scenarioWhy": "The latest acceptable completion time of the job is its deadline."
+  },
+  {
+    "term": "Bare-metal firmware",
+    "definition": "Firmware that runs on the hardware as a main loop and interrupt handlers, without a task-scheduling kernel.",
+    "wrongs": [
+      "Firmware divided into prioritized tasks switched by a kernel.",
+      "A desktop program running under a general-purpose operating system.",
+      "A command file interpreted by a shell on a server."
+    ],
+    "why": "The application owns the CPU, and the only concurrency is what the loop and the handlers implement.",
+    "example": "main configures the pins and then loops over a button scan while a timer handler advances a millisecond count.",
+    "scenario": "The image contains main and interrupt handlers, and there is no task scheduler. Which software style is this?",
+    "scenarioAnswer": "Bare-metal firmware",
+    "scenarioWrongs": ["An RTOS application", "A hosted desktop process", "A boot script"],
+    "scenarioWhy": "A main loop plus handlers and no kernel is bare-metal firmware."
+  },
+  {
+    "term": "Bootloader",
+    "definition": "A small program that runs after reset and can load or replace the application image in non-volatile memory.",
+    "wrongs": [
+      "The application control loop that runs after the product image has started.",
+      "The lowest-priority task that sleeps the CPU when no other task is ready.",
+      "A build file that only names the memory regions for the linker."
+    ],
+    "why": "Keeping the updater separate from the application allows a new image to be programmed without a debug probe.",
+    "example": "After reset, a serial updater waits briefly for a new image and otherwise jumps to the installed application.",
+    "scenario": "The first program after reset accepts a new image over a serial port and writes it into the application region. What is that program?",
+    "scenarioAnswer": "A bootloader",
+    "scenarioWrongs": ["The application task", "The idle task", "The linker script"],
+    "scenarioWhy": "A program whose job is to load or replace the application image is a bootloader."
+  },
+  {
+    "term": "Flash memory",
+    "definition": "Non-volatile memory that holds firmware across power loss and is erased in large blocks before rewriting.",
+    "wrongs": [
+      "Volatile working memory used for the stack and lost when power is removed.",
+      "A small non-volatile store intended for updating a few configuration bytes.",
+      "A CPU cache that keeps recent data lines only while the core is powered."
+    ],
+    "why": "The application image must remain after power is removed, and microcontroller program storage provides that.",
+    "example": "The compiled control program remains in on-chip program memory after the board is unplugged and plugged in again.",
+    "scenario": "The application image survives power loss and can be erased only by large sectors. Which memory holds it?",
+    "scenarioAnswer": "Flash",
+    "scenarioWrongs": ["SRAM", "The register file", "The stack"],
+    "scenarioWhy": "Non-volatile program storage that is erased by sectors is flash memory."
+  },
+  {
+    "term": "SRAM",
+    "definition": "Volatile read-write memory used for variables, the stack, and the heap, whose contents are lost without power.",
+    "wrongs": [
+      "Non-volatile memory that stores the firmware image across power cycles.",
+      "Sector-erased memory that holds the application and is slow to rewrite.",
+      "A window of peripheral control registers."
+    ],
+    "why": "Changing data needs fast writable storage that exists only while the supply is present.",
+    "example": "Local arrays and return addresses live in on-chip SRAM and disappear when the board loses power.",
+    "scenario": "Local variables and the stack can be updated a byte at a time while powered, and they vanish when power is removed. Which memory is this?",
+    "scenarioAnswer": "SRAM",
+    "scenarioWrongs": ["Flash", "Mask ROM", "Configuration EEPROM"],
+    "scenarioWhy": "Fast volatile storage for variables and the stack is SRAM."
+  },
+  {
+    "term": "EEPROM",
+    "definition": "Non-volatile memory used to update small configuration values without erasing the whole firmware image.",
+    "wrongs": [
+      "Volatile memory that holds the call stack.",
+      "The main program store that is rewritten only by erasing large sectors of the application.",
+      "Factory read-only memory that can never be updated in the field."
+    ],
+    "why": "A few calibration bytes must survive power loss and be rewritten without a full program-memory erase.",
+    "example": "A calibration byte is saved in non-volatile data memory and read back after the device is power-cycled.",
+    "scenario": "A product must rewrite one calibration byte that survives power-off, without erasing the firmware image. Which memory fits?",
+    "scenarioAnswer": "EEPROM",
+    "scenarioWrongs": ["SRAM", "The register file", "A write-only debug port"],
+    "scenarioWhy": "Small non-volatile configuration updates are the usual role of EEPROM or EEPROM emulation."
+  },
+  {
+    "term": "Brown-out detection",
+    "definition": "A circuit that holds the microcontroller in reset while the supply is below a safe operating voltage.",
+    "wrongs": [
+      "A timer that resets the chip only because firmware stopped servicing it.",
+      "A wake-up that resumes the chip from sleep on a pin edge.",
+      "A regulator that lowers a 5 V supply to 3.3 V."
+    ],
+    "why": "Executing below the specified voltage can corrupt non-volatile writes and make the CPU behave unpredictably.",
+    "example": "When the supply sags during motor start, the detector holds the chip in reset until the voltage recovers.",
+    "scenario": "The supply falls below the safe threshold and the chip stays in reset until the voltage recovers. Which feature did that?",
+    "scenarioAnswer": "Brown-out detection",
+    "scenarioWrongs": ["The watchdog", "A pin wake-up", "The voltage regulator"],
+    "scenarioWhy": "Reset caused by an undervoltage supply is brown-out detection."
+  },
+  {
+    "term": "Sleep mode",
+    "definition": "A low-power state that stops the CPU clock, and often some peripherals, until a wake event occurs.",
+    "wrongs": [
+      "A reset that restarts the chip from the reset vector.",
+      "Full-speed execution with the core and every peripheral clocked.",
+      "A mode used only to erase program memory."
+    ],
+    "why": "A battery-powered device should not clock the core while it is waiting for the next external event.",
+    "example": "A sensor node stops the core after a reading and resumes when a button interrupt arrives.",
+    "scenario": "After a measurement, the core clock stops, and a later button interrupt resumes execution. Which mode was entered?",
+    "scenarioAnswer": "Sleep mode",
+    "scenarioWrongs": ["Full-speed run mode", "Brown-out reset", "Flash erase"],
+    "scenarioWhy": "Stopping the CPU clock until a wake event is sleep."
+  },
+  {
+    "term": "Crystal oscillator",
+    "definition": "A clock source that uses a quartz crystal to produce a stable frequency for the CPU or a timekeeping clock.",
+    "wrongs": [
+      "An on-chip RC oscillator used when frequency accuracy is not important.",
+      "A multiplier that only scales an existing clock and contains no resonator.",
+      "A timer that resets the chip when it is not serviced."
+    ],
+    "why": "Quartz resonates at a precise frequency, which keeps baud rates and long-term timekeeping within tolerance.",
+    "example": "An 8 MHz crystal is the reference from which the chip derives the system clock used for serial timing.",
+    "scenario": "Serial baud error is too large with the internal RC clock, so the board adds an 8 MHz quartz resonator. What source was added?",
+    "scenarioAnswer": "A crystal oscillator",
+    "scenarioWrongs": ["The internal RC oscillator", "The watchdog", "A GPIO toggle"],
+    "scenarioWhy": "A quartz resonator is added when the clock must be accurate enough for baud rate or timekeeping."
+  },
+  {
+    "term": "UART",
+    "definition": "An asynchronous serial interface that exchanges bytes using start and stop bits and no shared clock wire.",
+    "wrongs": [
+      "A two-wire bus with a clock, open-drain lines, and device addresses.",
+      "A clocked link with separate data-in, data-out, clock, and chip-select wires.",
+      "A differential bus that represents bits with dominant and recessive levels."
+    ],
+    "why": "Both ends agree on the bit rate in advance, so a clock wire is unnecessary.",
+    "example": "A debug console sends characters at an agreed baud rate on transmit and receive pins with one stop bit.",
+    "scenario": "Two boards exchange bytes on transmit and receive wires at an agreed baud rate, with no clock wire. Which interface is this?",
+    "scenarioAnswer": "UART",
+    "scenarioWrongs": ["I2C", "SPI", "CAN"],
+    "scenarioWhy": "Asynchronous start-stop serial communication without a shared clock is a UART."
+  },
+  {
+    "term": "I2C",
+    "definition": "A two-wire, open-drain bus on which a master addresses slave devices using a data line and a clock line.",
+    "wrongs": [
+      "An asynchronous link with start and stop bits and no device addresses.",
+      "A clocked link that selects each slave with its own chip-select pin.",
+      "A parallel port that writes eight data bits at the same time."
+    ],
+    "why": "Open-drain clock and data lines plus addresses let several chips share one pair of wires.",
+    "example": "A master reads a temperature sensor by placing that sensor's address on the shared data and clock lines.",
+    "scenario": "One master talks to three sensor chips over two open-drain wires by sending each chip an address. Which bus is this?",
+    "scenarioAnswer": "I2C",
+    "scenarioWrongs": ["UART", "SPI", "A parallel GPIO port"],
+    "scenarioWhy": "Addressed communication on a shared clock and an open-drain data line is I2C."
+  },
+  {
+    "term": "SPI",
+    "definition": "A synchronous serial bus that uses a clock, outgoing data, incoming data, and a chip select for each slave.",
+    "wrongs": [
+      "An asynchronous bus that uses only transmit and receive wires and a baud rate.",
+      "A two-wire open-drain bus that selects slaves with a device address.",
+      "A differential multi-drop bus used for vehicle networks."
+    ],
+    "why": "The master provides the clock, and the chip-select line chooses which slave may drive the incoming data line.",
+    "example": "A controller clocks a sensor with a clock pin, two data pins, and one active-low chip select.",
+    "scenario": "A master toggles a clock, shifts bits out and in on two data wires, and enables one slave with a select pin. Which bus is this?",
+    "scenarioAnswer": "SPI",
+    "scenarioWrongs": ["UART", "I2C", "CAN"],
+    "scenarioWhy": "A master clock plus outgoing data, incoming data, and chip select is SPI."
+  },
+  {
+    "term": "Polling",
+    "definition": "Repeatedly reading a status flag in software to discover when a peripheral is ready.",
+    "wrongs": [
+      "Letting the peripheral force a call to a handler when the event occurs.",
+      "Letting a device move a whole block and notify the CPU only at the end.",
+      "Blocking a task on a signal that an interrupt handler gives."
+    ],
+    "why": "The CPU learns about the event only by checking, so a tight check wastes cycles and a late check adds delay.",
+    "example": "The main loop reads the transmitter-empty flag and writes the next byte only when that flag is set.",
+    "scenario": "The main loop reads a serial status register until the receive-ready flag becomes set. Which method is this?",
+    "scenarioAnswer": "Polling",
+    "scenarioWrongs": ["An interrupt handler", "DMA", "Waiting on a handler signal"],
+    "scenarioWhy": "The CPU itself repeatedly tests the flag instead of being notified."
+  },
+  {
+    "term": "Edge-triggered interrupt",
+    "definition": "An interrupt requested by a rising or falling transition rather than by a pin merely staying at a level.",
+    "wrongs": [
+      "An interrupt that remains pending for the whole time the pin stays at the active level.",
+      "An interrupt generated only when a timer overflows.",
+      "A main-loop read of the pin level with no interrupt at all."
+    ],
+    "why": "The event is the transition, so a pin that remains at the new level does not request the interrupt again.",
+    "example": "A button interrupt is set for the falling edge, so the handler runs once when the contact first closes.",
+    "scenario": "A handler runs when a pin falls, and it does not run again while the pin simply stays low. Which trigger mode is that?",
+    "scenarioAnswer": "Edge-triggered",
+    "scenarioWrongs": ["Level-triggered", "Polled", "Timer overflow"],
+    "scenarioWhy": "One transition caused the request, and a steady level did not repeat it."
+  },
+  {
+    "term": "Critical section",
+    "definition": "A region of code that must not be interrupted by other code sharing the same data.",
+    "wrongs": [
+      "Any function whose source text is longer than a few lines.",
+      "The background loop that runs only when every task is blocked.",
+      "A region of non-volatile memory that stores constant strings."
+    ],
+    "why": "A shared variable can be observed half-updated if a handler or another task changes it in the middle of the update.",
+    "example": "Firmware disables interrupts, updates a multi-byte counter that a handler also uses, then enables interrupts.",
+    "scenario": "Main updates a multi-byte variable that a handler also writes, and that update must not be split by the handler. What is that region?",
+    "scenarioAnswer": "A critical section",
+    "scenarioWrongs": ["The idle loop", "A constant in flash", "The boot region"],
+    "scenarioWhy": "The shared update must appear atomic to the handler that uses the same variable."
+  },
+  {
+    "term": "Context switch",
+    "definition": "Saving one task's registers and restoring another's so the CPU continues in the new task.",
+    "wrongs": [
+      "Resetting the chip so execution starts again at the reset vector.",
+      "Copying a new firmware image from a serial port into flash.",
+      "Toggling a pin inside the loop that runs when no task is ready."
+    ],
+    "why": "Each task has its own registers and stack, and the scheduler must exchange that state to change which task runs.",
+    "example": "The kernel stores the logger's registers on its stack and loads the motor task's stack pointer and registers.",
+    "scenario": "The scheduler saves task A's registers and restores task B's stack pointer so B runs. What operation is that?",
+    "scenarioAnswer": "A context switch",
+    "scenarioWrongs": ["A chip reset", "A flash programming cycle", "A pin toggle"],
+    "scenarioWhy": "Exchanging the saved processor state of two tasks is a context switch."
+  },
+  {
+    "term": "Hard real-time",
+    "definition": "A timing class in which missing a deadline is a failure of the system.",
+    "wrongs": [
+      "A class in which a late result only reduces quality and the system may continue.",
+      "A class that requires a correct result but places no limit on completion time.",
+      "A class that cares only about average delay and allows individual deadlines to be missed."
+    ],
+    "why": "After the deadline, the result is useless or unsafe, so lateness is not treated as a minor loss of quality.",
+    "example": "An airbag firing command that arrives after its deadline has failed its safety requirement.",
+    "scenario": "A motor inverter must update its output before the next carrier period, and a late update can damage the drive. Which timing class is this?",
+    "scenarioAnswer": "Hard real-time",
+    "scenarioWrongs": ["Soft real-time", "Best-effort batch work", "Logging with no deadline"],
+    "scenarioWhy": "Missing the deadline is treated as system failure, not as a tolerable drop in quality."
+  },
+  {
+    "term": "Soft real-time",
+    "definition": "A timing class in which a missed deadline reduces quality but the system is allowed to continue.",
+    "wrongs": [
+      "A class in which a missed deadline is defined as system failure.",
+      "A class that has no timing requirement at all.",
+      "A class that forces every task to use the same priority."
+    ],
+    "why": "A late result is less useful, yet an occasional miss does not make the system incorrect or unsafe.",
+    "example": "A video frame that is finished late causes a visible stutter, and playback continues with the next frame.",
+    "scenario": "A display task sometimes finishes a frame late, the picture stutters, and the device keeps running. Which timing class is this?",
+    "scenarioAnswer": "Soft real-time",
+    "scenarioWrongs": ["Hard real-time", "A failed safety deadline", "Work with no timing goal"],
+    "scenarioWhy": "Lateness reduces quality, and the system is designed to keep operating."
+  },
+  {
+    "term": "System tick",
+    "definition": "A periodic timer interrupt that advances kernel time and wakes tasks whose delays have expired.",
+    "wrongs": [
+      "A one-time pulse that resets the chip at power-up.",
+      "The bit clock recovered inside a UART receiver.",
+      "A timeout that resets the chip because firmware stopped servicing it."
+    ],
+    "why": "Sleeps, timeouts, and time slices are counted in the ticks this interrupt produces.",
+    "example": "A 1 ms interrupt adds one to kernel time, and a task delayed for ten ticks becomes ready after 10 ms.",
+    "scenario": "A 1 ms interrupt wakes tasks whose delays have expired and advances kernel time. What is that interrupt?",
+    "scenarioAnswer": "The system tick",
+    "scenarioWrongs": ["The watchdog reset", "The UART bit clock", "The power-on reset"],
+    "scenarioWhy": "A periodic interrupt that drives kernel time and delay wakeups is the system tick."
+  },
+  {
+    "term": "Idle task",
+    "definition": "The lowest-priority task, which runs only when no application task is ready and often sleeps the CPU.",
+    "wrongs": [
+      "The highest-priority task that runs the control loop.",
+      "The program that runs after reset and may replace the application image.",
+      "An interrupt handler that can preempt every task."
+    ],
+    "why": "The scheduler needs a task that is always ready so there is something to run when every application task is blocked.",
+    "example": "When the motor and display tasks are both blocked, the background task executes an instruction that waits for an interrupt.",
+    "scenario": "Every application task is blocked, and the kernel runs a hook that waits for the next interrupt. Which task is running?",
+    "scenarioAnswer": "The idle task",
+    "scenarioWrongs": ["The control task", "The bootloader", "A UART handler"],
+    "scenarioWhy": "With no application task ready, the scheduler runs the lowest-priority idle task."
+  },
+  {
+    "term": "Firmware",
+    "definition": "Software stored in non-volatile memory that starts after reset and directly controls a device's hardware.",
+    "wrongs": [
+      "A requirements document that is never executed on the device.",
+      "A desktop installer that a user downloads and runs once.",
+      "A schematic that shows how the board is wired."
+    ],
+    "why": "The program resides in the product and runs its peripherals each time power is applied.",
+    "example": "The washing-machine control program stored in the controller's flash is the product's firmware.",
+    "scenario": "A control program is stored in on-chip flash and operates the valves after every power-up. What is that program called?",
+    "scenarioAnswer": "Firmware",
+    "scenarioWrongs": ["A schematic", "A requirements document", "A desktop installer"],
+    "scenarioWhy": "Executable software kept in the device and run from non-volatile memory is firmware."
+  },
+  {
+    "term": "Decoupling capacitor",
+    "definition": "A capacitor placed next to a chip's supply pins to provide short current spikes and reduce supply noise.",
+    "wrongs": [
+      "A resistor that holds an open input at the high supply.",
+      "The inductor that stores energy in a switching regulator.",
+      "A fuse placed in series with the battery."
+    ],
+    "why": "Digital switching demands current faster than long supply traces can provide, and a local capacitor supplies it.",
+    "example": "A 100 nF ceramic capacitor beside the controller supply pin keeps the local rail steady when pins switch.",
+    "scenario": "Pin switching makes the local supply dip until a small capacitor is added directly beside the chip's supply pin. What was added?",
+    "scenarioAnswer": "A decoupling capacitor",
+    "scenarioWrongs": ["A pull-up resistor", "A series fuse", "A crystal"],
+    "scenarioWhy": "A capacitor at the supply pins supplies transient current and shunts high-frequency noise."
+  }
+]

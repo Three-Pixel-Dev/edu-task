@@ -1,0 +1,952 @@
+[
+  {
+    "term": "Learning Objective",
+    "definition": "A specific statement of what the intern intends to be able to do by the end of the placement.",
+    "wrongs": [
+      "A vague wish to have a good experience, with no ability named.",
+      "The employer's profit target for the quarter.",
+      "The number of hours in a working week."
+    ],
+    "why": "A learning objective names a capability the intern should gain, so progress can be judged.",
+    "example": "By week ten the intern aims to configure a basic network switch using the team's checklist.",
+    "scenario": "The placement plan says have a good time and names no capability. Which replacement is a learning objective?",
+    "scenarioAnswer": "Be able to configure a switch using the team checklist by week ten",
+    "scenarioWrongs": [
+      "Have a good experience",
+      "Help the firm raise quarterly profit",
+      "Work thirty-five hours each week"
+    ],
+    "scenarioWhy": "A learning objective states a specific ability the intern should have by a stated point."
+  },
+  {
+    "term": "Learning Agreement",
+    "definition": "A written plan, agreed by the intern, workplace, and university, that sets goals, duties, and supervision.",
+    "wrongs": [
+      "A secret note the intern writes and never shows to the supervisor.",
+      "The company's annual financial statement.",
+      "A bus timetable for the commute."
+    ],
+    "why": "A learning agreement is the shared plan of goals, duties, and supervision among intern, host, and university.",
+    "example": "The intern, workplace supervisor, and tutor sign a plan listing duties, weekly meetings, and two learning goals.",
+    "scenario": "Goals and weekly supervision must be agreed by you, the host, and the university before the placement. Which document records that?",
+    "scenarioAnswer": "The learning agreement",
+    "scenarioWrongs": [
+      "A private note nobody else sees",
+      "The company's financial statement",
+      "The bus timetable"
+    ],
+    "scenarioWhy": "The learning agreement is the shared written plan of goals, duties, and supervision."
+  },
+  {
+    "term": "Workplace Supervisor",
+    "definition": "The staff member at the host organisation who assigns the intern's work and gives day-to-day feedback.",
+    "wrongs": [
+      "The university tutor who never visits the workplace and does not assign daily tasks.",
+      "A friend who texts advice but has no role at the host.",
+      "The receptionist who issues a visitor badge only."
+    ],
+    "why": "The workplace supervisor is the host employee responsible for assigning work and supervising it.",
+    "example": "Each morning the network engineer assigns the intern a ticket and reviews the result that afternoon.",
+    "scenario": "Someone at the host must assign today's ticket and review it later. Which role is that?",
+    "scenarioAnswer": "The workplace supervisor",
+    "scenarioWrongs": [
+      "The university tutor who is not on site",
+      "A friend with no role at the host",
+      "The receptionist who only issues badges"
+    ],
+    "scenarioWhy": "The workplace supervisor assigns host work and reviews it during the placement."
+  },
+  {
+    "term": "Academic Supervisor",
+    "definition": "The university staff member who checks the placement against academic requirements and assesses the intern's learning.",
+    "wrongs": [
+      "The host employee who assigns daily operational tasks.",
+      "A classmate on a different placement.",
+      "The client whose product the intern is testing."
+    ],
+    "why": "The academic supervisor represents the university's learning and assessment requirements.",
+    "example": "The tutor reads the mid-placement report and checks that the work still matches the approved learning goals.",
+    "scenario": "The mid-placement report must be judged against university learning goals. Which person is responsible for that academic check?",
+    "scenarioAnswer": "The academic supervisor",
+    "scenarioWrongs": [
+      "The host employee who assigns tickets",
+      "A classmate on another placement",
+      "The external client"
+    ],
+    "scenarioWhy": "The academic supervisor monitors and assesses the placement against university requirements."
+  },
+  {
+    "term": "Supervision Meeting",
+    "definition": "A scheduled conversation in which the intern and supervisor review progress, problems, and the next tasks.",
+    "wrongs": [
+      "A silent desk session with no review of work.",
+      "The fire-alarm drill for the whole building.",
+      "A social lunch with no discussion of tasks."
+    ],
+    "why": "A supervision meeting is planned time to review progress and set the next work.",
+    "example": "Every Thursday the intern and supervisor spend thirty minutes on finished tickets, blockers, and next week's tasks.",
+    "scenario": "You need a set time to review blockers and agree next week's tasks with your supervisor. Which event is that?",
+    "scenarioAnswer": "A supervision meeting",
+    "scenarioWrongs": [
+      "A silent desk session",
+      "The building fire drill",
+      "A social lunch with no work discussed"
+    ],
+    "scenarioWhy": "A supervision meeting is the scheduled review of progress, problems, and upcoming tasks."
+  },
+  {
+    "term": "Workplace Conduct",
+    "definition": "The behaviour expected at work, including punctuality, respect, honesty, and following local rules.",
+    "wrongs": [
+      "Behaving exactly as you would at a private party, including ignoring start times.",
+      "A technical standard for cable colours.",
+      "The intern's hobby outside working hours that does not affect work."
+    ],
+    "why": "Workplace conduct is the standard of behaviour the host expects while the intern is at work.",
+    "example": "The intern arrives on time, speaks respectfully in client calls, and does not share passwords.",
+    "scenario": "You are late without warning and joke about a client on a call. Which standard have you missed?",
+    "scenarioAnswer": "Workplace conduct",
+    "scenarioWrongs": [
+      "A cable-colour standard",
+      "A weekend hobby that does not affect work",
+      "The right to ignore start times as if at a party"
+    ],
+    "scenarioWhy": "Punctuality and respectful behaviour toward clients are part of workplace conduct."
+  },
+  {
+    "term": "Punctuality",
+    "definition": "Arriving and delivering work at the agreed time, and warning the supervisor early if a delay is unavoidable.",
+    "wrongs": [
+      "Arriving whenever convenient as long as the total weekly hours look similar.",
+      "Finishing early and leaving without telling anyone about unfinished shared work.",
+      "Sending an apology only after missing a client meeting."
+    ],
+    "why": "Punctuality means meeting agreed times and giving early warning when a delay cannot be avoided.",
+    "example": "The intern messages the supervisor at 7 a.m. that a train cancellation will make them twenty minutes late.",
+    "scenario": "A cancelled train will make you late for the standup. Which action shows punctuality?",
+    "scenarioAnswer": "Warn the supervisor before the meeting",
+    "scenarioWrongs": [
+      "Arrive when convenient and say nothing",
+      "Apologise only after the client meeting was missed",
+      "Skip the warning because weekly hours will balance"
+    ],
+    "scenarioWhy": "Punctuality includes early warning when an agreed time cannot be met."
+  },
+  {
+    "term": "Professional Dress",
+    "definition": "Clothing and grooming that meet the host organisation's standard for the workplace and the day's duties.",
+    "wrongs": [
+      "Whatever is most comfortable at home, even if the host forbids it on site.",
+      "A costume that hides a required safety vest.",
+      "A uniform from a different employer that misidentifies you."
+    ],
+    "why": "Professional dress follows the host's standard and the safety needs of the day's work.",
+    "example": "On a client-site day the intern wears the smart clothes named in the induction, plus the required visitor badge.",
+    "scenario": "Induction says client-site days require smart clothes and a visitor badge, not gym wear. Which choice meets professional dress?",
+    "scenarioAnswer": "Smart clothes and the visitor badge",
+    "scenarioWrongs": [
+      "Gym wear because it is comfortable",
+      "A costume that covers the required safety vest",
+      "Another company's uniform"
+    ],
+    "scenarioWhy": "Professional dress follows the host's stated standard for that day's duties."
+  },
+  {
+    "term": "Workplace Confidentiality",
+    "definition": "The duty not to share the organisation's or clients' non-public information beyond people authorised to see it.",
+    "wrongs": [
+      "A duty to post interesting client stories on a public blog for your portfolio.",
+      "Permission to discuss live incidents in a crowded cafe.",
+      "A rule that applies only to full-time staff and never to interns."
+    ],
+    "why": "Interns share the duty to keep non-public organisational and client information within authorised people.",
+    "example": "The intern refuses to describe a client's outage when friends ask about the placement over dinner.",
+    "scenario": "Friends ask for details of a client's outage that is not public. Which response keeps workplace confidentiality?",
+    "scenarioAnswer": "Decline and keep the details private",
+    "scenarioWrongs": [
+      "Describe the outage for your portfolio blog",
+      "Discuss the live incident in a crowded cafe",
+      "Share it because interns are exempt"
+    ],
+    "scenarioWhy": "Workplace confidentiality forbids sharing non-public client information with unauthorised people."
+  },
+  {
+    "term": "Client Data Handling",
+    "definition": "Collecting, storing, and sending client information only in the ways the workplace policy allows.",
+    "wrongs": [
+      "Copying client files to a personal laptop so they are easier to read at home.",
+      "Pasting client records into a private chat because it is faster.",
+      "Leaving printed client lists on a train seat."
+    ],
+    "why": "Client data must stay on approved systems and follow the host policy for collection, storage, and transfer.",
+    "example": "The intern stores a client export only on the approved drive and does not email it to a personal account.",
+    "scenario": "You want a client export at home tonight. Policy allows only the approved drive. Which action is correct client data handling?",
+    "scenarioAnswer": "Leave the export on the approved drive",
+    "scenarioWrongs": [
+      "Copy it to a personal laptop",
+      "Paste the records into a private chat",
+      "Print it and read it on the train"
+    ],
+    "scenarioWhy": "Client data handling means using only the storage and transfer methods the workplace policy allows."
+  },
+  {
+    "term": "Reflection",
+    "definition": "Deliberate thinking about what happened, what was learned, and what should be done differently next time.",
+    "wrongs": [
+      "Copying the day's task list with no thought about learning.",
+      "Blaming others and deciding nothing will change.",
+      "Waiting until graduation and then forgetting the placement."
+    ],
+    "why": "Reflection connects an experience to learning and to a change in future action.",
+    "example": "After a confusing client call, the intern notes the missing question and plans to confirm the goal at the start next time.",
+    "scenario": "A client call went badly because you never confirmed the goal. Which note shows reflection?",
+    "scenarioAnswer": "Next time confirm the goal at the start",
+    "scenarioWrongs": [
+      "A copied task list with no lesson",
+      "A note that only blames the client and changes nothing",
+      "A decision to forget the call"
+    ],
+    "scenarioWhy": "Reflection turns the experience into a specific change for next time."
+  },
+  {
+    "term": "Reflective Journal",
+    "definition": "A regular written record of experiences, lessons, and next steps, kept to show learning during the placement.",
+    "wrongs": [
+      "A timesheet that records only hours.",
+      "A public social post about clients.",
+      "The company's audited accounts."
+    ],
+    "why": "A reflective journal is a continuing private record of experience and learning, not a timesheet or a public post.",
+    "example": "Each Friday the intern writes what was tried, what failed, and one change for the following week.",
+    "scenario": "The tutor wants weekly evidence of what you learned, not only hours worked. Which record fits?",
+    "scenarioAnswer": "A reflective journal",
+    "scenarioWrongs": [
+      "A timesheet of hours only",
+      "A public post about a client",
+      "The audited accounts"
+    ],
+    "scenarioWhy": "A reflective journal regularly records experiences, lessons, and next steps."
+  },
+  {
+    "term": "Gibbs Reflective Cycle",
+    "definition": "A six-stage structure for reflection: description, feelings, evaluation, analysis, conclusion, and action plan.",
+    "wrongs": [
+      "A project schedule of design, build, and test.",
+      "A statistical test of two group means.",
+      "A fire-evacuation route with six exits."
+    ],
+    "why": "Gibbs' cycle is a known sequence for structured reflection ending in an action plan.",
+    "example": "The intern describes a failed demo, notes feeling rushed, evaluates what worked, and ends with a plan to rehearse.",
+    "scenario": "You must structure a reflection from what happened through to a next action. Which sequence matches Gibbs' cycle?",
+    "scenarioAnswer": "Description, feelings, evaluation, analysis, conclusion, action plan",
+    "scenarioWrongs": [
+      "Design, build, and test",
+      "Null, test, and p-value",
+      "Alarm, exit, and assembly point only"
+    ],
+    "scenarioWhy": "Gibbs' reflective cycle moves from description and feelings through evaluation and analysis to a conclusion and action plan."
+  },
+  {
+    "term": "Timesheet",
+    "definition": "A record of hours worked, usually by day and task, submitted so attendance and effort can be verified.",
+    "wrongs": [
+      "A reflective essay about feelings, with no hours.",
+      "A payslip issued by the payroll department.",
+      "A project Gantt chart for the whole company."
+    ],
+    "why": "A timesheet records the hours the intern worked so the host and university can verify attendance and effort.",
+    "example": "The intern enters six hours on Tuesday against network tickets and submits the sheet each Friday.",
+    "scenario": "The university asks for proof of the hours you worked each day. Which record should you submit?",
+    "scenarioAnswer": "A timesheet",
+    "scenarioWrongs": [
+      "A feelings essay with no hours",
+      "A payslip you did not create",
+      "The company Gantt chart"
+    ],
+    "scenarioWhy": "A timesheet is the record of hours worked, used to verify attendance and effort."
+  },
+  {
+    "term": "Attendance Record",
+    "definition": "A log of days present, absent, or late, used to confirm that the placement requirement was met.",
+    "wrongs": [
+      "A diary of technical lessons learned.",
+      "A list of software versions installed.",
+      "A menu of the staff canteen."
+    ],
+    "why": "An attendance record shows presence and absence, which universities often require for a valid placement.",
+    "example": "The sheet shows the intern present every weekday in March except one sick day notified that morning.",
+    "scenario": "The faculty must confirm you were present for the required days, aside from notified absence. Which log is checked?",
+    "scenarioAnswer": "The attendance record",
+    "scenarioWrongs": [
+      "A journal of technical lessons",
+      "A list of installed software",
+      "The canteen menu"
+    ],
+    "scenarioWhy": "The attendance record logs days present, absent, or late against the placement requirement."
+  },
+  {
+    "term": "Feedback",
+    "definition": "Information from a supervisor or colleague about the quality of your work and how it can improve.",
+    "wrongs": [
+      "A salary figure on a contract.",
+      "A compliment with no information about the work.",
+      "An automated out-of-office reply."
+    ],
+    "why": "Feedback tells you how the work was judged and what to change; it is more than praise or a contractual number.",
+    "example": "The supervisor says the network diagram was accurate but the labels were too small for the client to read.",
+    "scenario": "You need to know how your diagram was judged and what to change. Which message is feedback?",
+    "scenarioAnswer": "The diagram is accurate, but the labels are too small to read",
+    "scenarioWrongs": [
+      "Your salary is stated in the contract",
+      "Nice work, with no further detail",
+      "An out-of-office reply"
+    ],
+    "scenarioWhy": "Feedback gives information about quality and a specific improvement."
+  },
+  {
+    "term": "Constructive Feedback",
+    "definition": "Specific comments that describe what worked, what did not, and what change is expected, without personal attack.",
+    "wrongs": [
+      "A general insult about the person's character.",
+      "Praise that names no behaviour worth repeating.",
+      "Silence after a failed task."
+    ],
+    "why": "Constructive feedback is specific and forward-looking, and it separates the work from a personal attack.",
+    "example": "The supervisor says the summary missed the risk section and asks for that section in the next draft by Friday.",
+    "scenario": "A draft missed the risk section. Which comment is constructive feedback?",
+    "scenarioAnswer": "Add the risk section in Friday's draft",
+    "scenarioWrongs": [
+      "You are careless as a person",
+      "Good job, with no detail",
+      "No comment after the failed draft"
+    ],
+    "scenarioWhy": "Constructive feedback names the gap and the expected change without attacking the person."
+  },
+  {
+    "term": "Feedforward",
+    "definition": "Suggestions aimed at improving the next piece of work, rather than only judging work already finished.",
+    "wrongs": [
+      "A final mark with no advice for the next task.",
+      "A complaint about a task that will not be repeated and with no transferable advice.",
+      "A record of hours already worked."
+    ],
+    "why": "Feedforward points to the next performance so the person can apply the advice immediately.",
+    "example": "Before the next client call, the supervisor advises the intern to restate the goal in the first minute.",
+    "scenario": "Tomorrow's client call has not happened. The supervisor tells you to restate the goal in the first minute. Which label fits that advice?",
+    "scenarioAnswer": "Feedforward",
+    "scenarioWrongs": [
+      "A final mark with no advice",
+      "A complaint with no transferable point",
+      "A timesheet of past hours"
+    ],
+    "scenarioWhy": "Advice aimed at the next piece of work is feedforward."
+  },
+  {
+    "term": "Professional Email",
+    "definition": "A work message with a clear subject, a courteous greeting, a short statement of purpose, and a professional sign-off.",
+    "wrongs": [
+      "A message that starts with hey and contains only an unexplained attachment.",
+      "A chat line written in all capitals with no context.",
+      "A text to friends using nicknames and no sign-off."
+    ],
+    "why": "Professional email is identifiable, polite, and purposeful so a busy reader can act on it.",
+    "example": "The intern emails the supervisor with the subject Draft network diagram, a greeting, one question, and a full name.",
+    "scenario": "You must ask your supervisor a question by email. Which message is professional?",
+    "scenarioAnswer": "A clear subject, greeting, one question, and your full name",
+    "scenarioWrongs": [
+      "Hey plus an unexplained attachment",
+      "An all-capitals chat line with no context",
+      "A nickname text with no sign-off"
+    ],
+    "scenarioWhy": "A professional email states the topic, is courteous, gives the purpose, and shows who sent it."
+  },
+  {
+    "term": "Email Subject Line",
+    "definition": "The short heading of an email that states the topic so the reader can prioritise and find the message later.",
+    "wrongs": [
+      "A blank heading because the body will explain everything.",
+      "The single word hello on every message you send.",
+      "A full copy of the email body pasted into the heading."
+    ],
+    "why": "The subject line is a specific heading that helps the recipient sort and retrieve the message.",
+    "example": "The heading Leave request 12 May is used instead of a blank subject on a message about that day.",
+    "scenario": "You are requesting leave on 12 May. Which subject line helps the supervisor find the message later?",
+    "scenarioAnswer": "Leave request 12 May",
+    "scenarioWrongs": [
+      "A blank subject",
+      "Hello",
+      "The entire email body copied into the subject"
+    ],
+    "scenarioWhy": "A subject line should state the specific topic so the message can be prioritised and found."
+  },
+  {
+    "term": "Carbon Copy",
+    "definition": "A copy of an email sent to people who should see the message but are not the primary person expected to act.",
+    "wrongs": [
+      "The main recipient who is expected to carry out the request.",
+      "A hidden copy used to conceal a recipient from everyone else.",
+      "A printed photocopy of a paper letter."
+    ],
+    "why": "Carbon copy informs secondary readers, while the To field holds the person expected to act.",
+    "example": "The intern addresses the request to the supervisor and copies the academic tutor so the tutor can see it.",
+    "scenario": "The supervisor must act, and the tutor should see the request but is not asked to act. Where should the tutor's address go?",
+    "scenarioAnswer": "On carbon copy",
+    "scenarioWrongs": [
+      "As the only To recipient, with the supervisor omitted",
+      "On a hidden copy so the supervisor cannot see the tutor",
+      "On a paper photocopy instead of the email"
+    ],
+    "scenarioWhy": "Carbon copy is for someone who should see the email but is not the primary actor."
+  },
+  {
+    "term": "Reply All",
+    "definition": "The email action that sends a response to every recipient of the original message, suitable only when all of them need it.",
+    "wrongs": [
+      "A reply that goes only to the sender, which is right when others do not need it.",
+      "A new message to an unrelated department.",
+      "Deleting the original thread."
+    ],
+    "why": "Reply all widens the audience to every listed recipient, so it should be used only when each person needs the response.",
+    "example": "Asked a private question by one manager on a twenty-person thread, the intern replies only to that manager.",
+    "scenario": "One manager asks you a private question on a twenty-person thread, and the others do not need the answer. Which action fits?",
+    "scenarioAnswer": "Reply only to that manager",
+    "scenarioWrongs": [
+      "Reply all with the private answer",
+      "Forward the private answer to an unrelated department",
+      "Delete the thread so nobody can read the question"
+    ],
+    "scenarioWhy": "Reply all is appropriate only when every recipient needs the response, which they do not here."
+  },
+  {
+    "term": "Health and Safety Induction",
+    "definition": "The briefing at the start of a placement that explains site hazards, emergency routes, and the rules that keep people safe.",
+    "wrongs": [
+      "A tour of nearby cafes with no mention of hazards.",
+      "The final performance review at the end of the placement.",
+      "A software tutorial unrelated to the site."
+    ],
+    "why": "Health and safety induction is the opening briefing that tells a new person how to stay safe on that site.",
+    "example": "On day one the intern is shown the fire exits, the assembly point, and how to report a spill.",
+    "scenario": "It is day one and you do not know the fire exit or how to report a spill. Which briefing should you complete first?",
+    "scenarioAnswer": "The health and safety induction",
+    "scenarioWrongs": [
+      "A cafe tour",
+      "The end-of-placement review",
+      "A software tutorial with no site safety"
+    ],
+    "scenarioWhy": "Health and safety induction covers hazards, emergency routes, and reporting before other work."
+  },
+  {
+    "term": "Hazard",
+    "definition": "Anything at work with the potential to cause injury, ill health, or damage.",
+    "wrongs": [
+      "The likelihood that harm will occur, which is part of risk rather than the source of harm.",
+      "A completed incident form.",
+      "A safe walkway with no source of harm."
+    ],
+    "why": "A hazard is the source that could cause harm; risk also considers how likely and severe that harm is.",
+    "example": "A trailing power cable across a walkway is reported as a hazard because someone could trip.",
+    "scenario": "A power cable lies across a busy walkway and could trip someone. Which term names the cable in that state?",
+    "scenarioAnswer": "A hazard",
+    "scenarioWrongs": [
+      "A completed incident form",
+      "A clear walkway",
+      "The company's annual profit"
+    ],
+    "scenarioWhy": "A hazard is something that can cause harm, such as a cable that could trip a person."
+  },
+  {
+    "term": "Workplace Risk Assessment",
+    "definition": "A systematic look at hazards, who could be harmed, how serious that harm could be, and what controls are needed.",
+    "wrongs": [
+      "A guess that everything is fine because no one was hurt yesterday.",
+      "A list of hazards with no thought about controls.",
+      "The intern's personal reflection on a meeting."
+    ],
+    "why": "A risk assessment examines hazards, people, severity, and controls rather than assuming past luck will continue.",
+    "example": "Before interns enter the lab, the assessment lists chemicals, who is exposed, and the required gloves and ventilation.",
+    "scenario": "Interns will enter a lab with chemicals. Which process should identify who could be harmed and which controls are required?",
+    "scenarioAnswer": "A workplace risk assessment",
+    "scenarioWrongs": [
+      "Assuming safety because yesterday was quiet",
+      "Listing chemicals and stopping there",
+      "A personal reflection on a meeting"
+    ],
+    "scenarioWhy": "A risk assessment examines hazards, who could be harmed, and the controls required."
+  },
+  {
+    "term": "Personal Protective Equipment",
+    "definition": "Equipment worn to reduce a remaining risk, such as gloves or eye protection, after other controls have been considered.",
+    "wrongs": [
+      "The first and only control, used so the employer can ignore removing the hazard.",
+      "Ordinary fashion accessories with no safety function.",
+      "A software password."
+    ],
+    "why": "Personal protective equipment reduces remaining risk to the wearer and does not replace removing the hazard where that is reasonable.",
+    "example": "After spills cannot be fully removed, the lab requires goggles as well as keeping containers closed.",
+    "scenario": "A lab still has a splash risk after containers are kept closed. Which extra control is personal protective equipment?",
+    "scenarioAnswer": "Wearing goggles",
+    "scenarioWrongs": [
+      "Ignoring the splash because goggles exist somewhere",
+      "A fashionable hat with no safety rating",
+      "A longer computer password"
+    ],
+    "scenarioWhy": "Goggles are equipment worn to reduce the remaining splash risk."
+  },
+  {
+    "term": "Near Miss",
+    "definition": "An unplanned event that could have caused harm but did not, and that should still be reported so controls can improve.",
+    "wrongs": [
+      "An injury that has already occurred.",
+      "A planned fire drill that goes as scripted.",
+      "A hazard that nobody has encountered yet."
+    ],
+    "why": "A near miss is an event that nearly caused harm and is reported so the next occurrence can be prevented.",
+    "example": "A box falls from a shelf and misses a colleague; the intern reports it even though nobody was hurt.",
+    "scenario": "A box falls and misses a colleague, so nobody is hurt. Which action treats the event correctly?",
+    "scenarioAnswer": "Report the near miss so the shelf can be fixed",
+    "scenarioWrongs": [
+      "Ignore it because there was no injury",
+      "Record it as a completed fire drill",
+      "Wait until someone is actually injured"
+    ],
+    "scenarioWhy": "A near miss should be reported so controls improve before harm occurs."
+  },
+  {
+    "term": "Emergency Procedure",
+    "definition": "The agreed steps for raising the alarm, evacuating, and accounting for people when a serious incident occurs.",
+    "wrongs": [
+      "The everyday process for making coffee.",
+      "A plan written after the evacuation and never practised.",
+      "A rule to finish the current email before leaving during a fire alarm."
+    ],
+    "why": "An emergency procedure is the pre-agreed response, including alarm, evacuation, and accounting for people.",
+    "example": "On the alarm, the intern stops work, uses the stairs, and reports to the assembly point named at induction.",
+    "scenario": "The fire alarm sounds. Which sequence follows a typical emergency procedure?",
+    "scenarioAnswer": "Leave by the stairs and go to the assembly point",
+    "scenarioWrongs": [
+      "Finish the email first",
+      "Use the lift so you can carry the laptop",
+      "Stay to make coffee for the team"
+    ],
+    "scenarioWhy": "The emergency procedure is to evacuate by the safe route and account for people at the assembly point."
+  },
+  {
+    "term": "Workplace Orientation",
+    "definition": "The introduction to the site, team, tools, and daily routines that helps a new intern work safely and effectively.",
+    "wrongs": [
+      "A technical exam given before the intern has seen the workplace.",
+      "The final reference written at the end.",
+      "A map of a different city."
+    ],
+    "why": "Orientation introduces the newcomer to the actual workplace so they can start work safely.",
+    "example": "The intern meets the team, learns where tools are stored, and is shown how the daily standup runs.",
+    "scenario": "On the first morning you do not know the team, the tool store, or the standup time. Which activity should supply that?",
+    "scenarioAnswer": "Workplace orientation",
+    "scenarioWrongs": [
+      "A final reference",
+      "An exam before you see the site",
+      "A map of another city"
+    ],
+    "scenarioWhy": "Workplace orientation introduces the site, people, tools, and routines."
+  },
+  {
+    "term": "Mentor",
+    "definition": "An experienced colleague who offers informal guidance on how work is done, distinct from the supervisor who assigns and assesses tasks.",
+    "wrongs": [
+      "The manager who sets official tasks and conducts the performance review.",
+      "A client who only receives the finished work.",
+      "A stranger met once at a conference."
+    ],
+    "why": "A mentor advises informally; the supervisor remains the person who assigns and assesses official work.",
+    "example": "A senior engineer explains how the team writes tickets, while the supervisor still assigns and signs off the work.",
+    "scenario": "You want informal advice on how this team writes tickets, separate from the person who grades you. Which person fits?",
+    "scenarioAnswer": "A mentor",
+    "scenarioWrongs": [
+      "Only the manager who conducts the formal review",
+      "A client who receives the work",
+      "A stranger from a conference"
+    ],
+    "scenarioWhy": "A mentor gives informal guidance and is distinct from the supervisor who assigns and assesses."
+  },
+  {
+    "term": "Task Log",
+    "definition": "A running list of tasks undertaken, with dates and outcomes, used as evidence of what the intern actually did.",
+    "wrongs": [
+      "A list of tasks the intern hopes to do but never starts.",
+      "The company's five-year strategy.",
+      "A log of only personal errands."
+    ],
+    "why": "A task log records completed and current placement work so the intern can evidence what was done.",
+    "example": "The log shows that on 3 May the intern documented three switches and sent the notes to the supervisor.",
+    "scenario": "The tutor asks for evidence of the tasks you actually completed, with dates. Which record fits?",
+    "scenarioAnswer": "A task log",
+    "scenarioWrongs": [
+      "A wishlist of tasks never started",
+      "The five-year strategy",
+      "A log of personal errands"
+    ],
+    "scenarioWhy": "A task log lists work undertaken with dates and outcomes."
+  },
+  {
+    "term": "Weekly Report",
+    "definition": "A short regular summary for the supervisor of work completed, problems, and plans for the coming week.",
+    "wrongs": [
+      "The full thesis written at the end of a degree.",
+      "A daily social-media story.",
+      "An annual company report to shareholders."
+    ],
+    "why": "A weekly report keeps the supervisor informed of progress, problems, and the immediate plan.",
+    "example": "On Friday the intern sends three completed tickets, one blocker, and the two tasks planned for Monday.",
+    "scenario": "Your supervisor wants each Friday's completed work, blockers, and Monday's plan. Which document is that?",
+    "scenarioAnswer": "A weekly report",
+    "scenarioWrongs": [
+      "The final degree thesis",
+      "A social-media story",
+      "The shareholder annual report"
+    ],
+    "scenarioWhy": "A weekly report summarises completed work, problems, and the next week's plan."
+  },
+  {
+    "term": "Internship Portfolio",
+    "definition": "A curated set of evidence, such as work samples, reflections, and feedback, showing the learning objectives were met.",
+    "wrongs": [
+      "A single timesheet with no work samples or reflection.",
+      "A folder of confidential client data taken home.",
+      "The host's marketing brochure."
+    ],
+    "why": "A portfolio selects evidence that the intern met the learning objectives, without removing confidential material improperly.",
+    "example": "The portfolio includes a redacted diagram, the supervisor's feedback, and a reflection on the switch-configuration goal.",
+    "scenario": "The tutor wants proof you met the switch-configuration goal, without raw client data. Which set fits?",
+    "scenarioAnswer": "A portfolio with a redacted sample, feedback, and a reflection",
+    "scenarioWrongs": [
+      "Only a timesheet",
+      "A folder of confidential client files",
+      "The host's marketing brochure"
+    ],
+    "scenarioWhy": "An internship portfolio curates evidence of learning, such as samples, feedback, and reflection."
+  },
+  {
+    "term": "SMART Objective",
+    "definition": "A goal that is specific, measurable, achievable, relevant, and time-bound.",
+    "wrongs": [
+      "A goal that says learn networking someday, with no measure or date.",
+      "A goal to become perfect at every technology by tomorrow.",
+      "A goal unrelated to the placement, such as learn to cook."
+    ],
+    "why": "SMART is a test of whether a goal is specific, measurable, achievable, relevant, and time-bound.",
+    "example": "Document ten live switches to the team template by 30 June is used instead of get better at networks.",
+    "scenario": "Which placement goal is SMART?",
+    "scenarioAnswer": "Document ten switches to the team template by 30 June",
+    "scenarioWrongs": [
+      "Learn networking someday",
+      "Become perfect at every technology by tomorrow",
+      "Learn to cook during the placement"
+    ],
+    "scenarioWhy": "The switch goal is specific, measurable, realistic for the role, relevant, and dated."
+  },
+  {
+    "term": "Skill Gap",
+    "definition": "The difference between the skills a task or objective requires and the skills the intern can already demonstrate.",
+    "wrongs": [
+      "A gap in the office fence.",
+      "The intern's age subtracted from the supervisor's age.",
+      "A missing page in a novel."
+    ],
+    "why": "A skill gap is the missing capability between current skill and what the work requires.",
+    "example": "The objective needs basic SQL, and the intern has never written a query, so that difference is the skill gap.",
+    "scenario": "The role needs basic SQL and you have never written a query. Which description fits that difference?",
+    "scenarioAnswer": "A skill gap",
+    "scenarioWrongs": [
+      "A hole in the office fence",
+      "The age difference with the supervisor",
+      "A missing page in a novel"
+    ],
+    "scenarioWhy": "The difference between required SQL skill and current skill is a skill gap."
+  },
+  {
+    "term": "Professional Boundary",
+    "definition": "The limit that keeps relationships and requests appropriate to the intern role, including refusing work they are not authorised to do.",
+    "wrongs": [
+      "A rule that interns must do any personal favour a colleague requests.",
+      "A requirement to share personal problems with every client.",
+      "Permission to approve expenditure the intern was told not to approve."
+    ],
+    "why": "Professional boundaries keep the intern's relationships and decisions inside the authority of the role.",
+    "example": "A client asks the intern to approve a discount; the intern declines and refers the request to the supervisor.",
+    "scenario": "A client asks you to approve a discount you were told only a manager may approve. Which response respects the professional boundary?",
+    "scenarioAnswer": "Decline and refer the request to the supervisor",
+    "scenarioWrongs": [
+      "Approve it to seem helpful",
+      "Share your personal finances with the client while deciding",
+      "Ask the client to keep the approval secret"
+    ],
+    "scenarioWhy": "The boundary of the role excludes approving a discount, so the intern must refer it."
+  },
+  {
+    "term": "Asking for Help",
+    "definition": "Seeking guidance early when a task is unclear or beyond current skill, rather than guessing on work that affects others.",
+    "wrongs": [
+      "Hiding confusion until a client is given a wrong answer.",
+      "Handing the entire role to someone else on day one.",
+      "Asking the same answered question every hour without trying the advice."
+    ],
+    "why": "Asking for help at the right time prevents harmful guesses while the intern still attempts the work they can do.",
+    "example": "Unsure which VLAN a port should use, the intern asks the supervisor before changing the live switch.",
+    "scenario": "You are unsure which VLAN a live switch port should use. Which action is the right request for help?",
+    "scenarioAnswer": "Ask the supervisor before changing the live port",
+    "scenarioWrongs": [
+      "Guess on the live switch and tell nobody",
+      "Give the whole placement back on day one",
+      "Wait until a client outage proves the guess was wrong"
+    ],
+    "scenarioWhy": "Asking before changing live equipment avoids a harmful guess on work beyond current certainty."
+  },
+  {
+    "term": "Meeting Etiquette",
+    "definition": "Expected behaviour in meetings, including arriving prepared, letting others speak, and leaving with clear actions.",
+    "wrongs": [
+      "Arriving late, interrupting, and leaving with no note of actions.",
+      "Reading unrelated messages for the whole meeting.",
+      "Speaking only in jokes that hide the decision."
+    ],
+    "why": "Meeting etiquette helps the group reach and record decisions without excluding people.",
+    "example": "The intern reads the agenda, speaks when invited, and repeats the action they own before leaving.",
+    "scenario": "You are invited to a client meeting with an agenda. Which behaviour matches meeting etiquette?",
+    "scenarioAnswer": "Read the agenda, take your turn, and confirm your action",
+    "scenarioWrongs": [
+      "Arrive late and interrupt",
+      "Read unrelated messages throughout",
+      "Hide the decision inside jokes"
+    ],
+    "scenarioWhy": "Meeting etiquette means being prepared, sharing the floor, and leaving with clear actions."
+  },
+  {
+    "term": "Active Listening",
+    "definition": "Paying full attention, checking that you have understood, and responding to what was actually said.",
+    "wrongs": [
+      "Waiting silently for a turn to repeat your own point, without checking theirs.",
+      "Typing an unrelated message while they speak.",
+      "Agreeing immediately to a request you did not hear."
+    ],
+    "why": "Active listening checks understanding of the other person's message before you respond.",
+    "example": "The intern restates the client's fault symptoms and asks whether that summary is right before suggesting a fix.",
+    "scenario": "A client describes a fault. Which response shows active listening?",
+    "scenarioAnswer": "Restate the symptoms and ask if that summary is right",
+    "scenarioWrongs": [
+      "Wait only to repeat your own idea",
+      "Type an unrelated message while they speak",
+      "Agree to a fix you did not hear"
+    ],
+    "scenarioWhy": "Active listening checks that you understood what was said before you act on it."
+  },
+  {
+    "term": "Note-Taking",
+    "definition": "Recording decisions, facts, and actions during a meeting or task so they can be confirmed and followed up.",
+    "wrongs": [
+      "Trying to remember every action with no written note.",
+      "Recording a client's secrets in a public notebook you leave behind.",
+      "Writing only doodles with no decisions."
+    ],
+    "why": "Notes capture decisions and actions so they can be checked and done, while still respecting confidentiality.",
+    "example": "During the standup the intern writes the two actions, the owners, and the deadlines, then confirms them.",
+    "scenario": "The standup assigns you two actions with deadlines. Which note-taking practice is sound?",
+    "scenarioAnswer": "Write the actions, owners, and deadlines, then confirm them",
+    "scenarioWrongs": [
+      "Rely on memory alone",
+      "Leave a public notebook of client secrets behind",
+      "Doodle and record no actions"
+    ],
+    "scenarioWhy": "Useful notes record the decisions and actions so they can be confirmed and followed up."
+  },
+  {
+    "term": "Deadline Commitment",
+    "definition": "An agreement to finish a task by a stated time, accepted only when that time is realistic.",
+    "wrongs": [
+      "Saying yes to every date to appear keen, including dates you know you will miss.",
+      "Ignoring a date you already accepted.",
+      "Moving a date secretly without telling the person who is waiting."
+    ],
+    "why": "A deadline commitment should be realistic and, once made, should be kept or renegotiated early.",
+    "example": "Asked for a report by tomorrow morning, the intern explains that testing finishes at noon and offers end of day instead.",
+    "scenario": "You are asked for a report tomorrow morning, but testing cannot finish until noon. Which response is a sound deadline commitment?",
+    "scenarioAnswer": "Offer a realistic end-of-day delivery and agree that",
+    "scenarioWrongs": [
+      "Promise tomorrow morning knowing you will miss it",
+      "Accept the morning and then ignore it",
+      "Slip the date secretly"
+    ],
+    "scenarioWhy": "A deadline should be agreed only when it is realistic, and then honoured."
+  },
+  {
+    "term": "Scope of Authority",
+    "definition": "The decisions and actions an intern is allowed to take without further approval.",
+    "wrongs": [
+      "Every decision a permanent manager is allowed to take.",
+      "No decisions at all, even those the supervisor has explicitly delegated.",
+      "Whatever a client demands in the moment."
+    ],
+    "why": "Scope of authority is the set of actions already delegated to the intern; other actions need approval.",
+    "example": "The intern may close low-priority tickets but must ask before rebooting a production server.",
+    "scenario": "You may close low-priority tickets, but a reboot of production was not delegated. Which action stays inside your authority?",
+    "scenarioAnswer": "Close the low-priority ticket",
+    "scenarioWrongs": [
+      "Reboot production because a client asked",
+      "Approve a budget change",
+      "Sign a contract for the company"
+    ],
+    "scenarioWhy": "Scope of authority includes only the actions delegated to the intern, such as closing low-priority tickets."
+  },
+  {
+    "term": "Workplace Escalation",
+    "definition": "Telling the supervisor about a problem the intern cannot safely or properly resolve alone.",
+    "wrongs": [
+      "Posting the problem on a public network before telling the supervisor.",
+      "Hiding a safety problem to avoid looking inexperienced.",
+      "Asking an uninvolved friend to change company systems."
+    ],
+    "why": "Escalation at work takes an unresolved or unsafe problem to the person who can act.",
+    "example": "When a client demands a production change, the intern stops and tells the supervisor rather than making the change.",
+    "scenario": "A client demands a production change you are not allowed to make. Which step is proper workplace escalation?",
+    "scenarioAnswer": "Tell the supervisor and wait for a decision",
+    "scenarioWrongs": [
+      "Make the change so the client is happy",
+      "Post the argument publicly first",
+      "Ask a friend outside the company to log in and do it"
+    ],
+    "scenarioWhy": "Escalation means taking a problem you cannot properly resolve to the supervisor who can."
+  },
+  {
+    "term": "Workplace Disagreement",
+    "definition": "A difference about tasks or behaviour that should be raised early, calmly, and with the person who can resolve it.",
+    "wrongs": [
+      "A reason to insult a colleague in a public channel.",
+      "Something an intern must always ignore, even when work is blocked.",
+      "A licence to refuse every task you dislike."
+    ],
+    "why": "A workplace disagreement should be addressed early and through the proper person, without public insult.",
+    "example": "Two interns disagree about who owns a ticket, so they ask the supervisor rather than arguing in the client chat.",
+    "scenario": "You and another intern disagree about who owns a ticket, and the client chat is not the place to argue. Which step fits?",
+    "scenarioAnswer": "Ask the supervisor to decide ownership calmly",
+    "scenarioWrongs": [
+      "Insult the other intern in the client chat",
+      "Ignore the block until the deadline fails",
+      "Refuse all further tasks"
+    ],
+    "scenarioWhy": "A disagreement about task ownership should be raised calmly with the person who can resolve it."
+  },
+  {
+    "term": "Team Norms",
+    "definition": "The shared expectations a team sets for how members communicate, share work, and treat one another.",
+    "wrongs": [
+      "A national law that applies whether or not the team discussed it.",
+      "One person's private habit that the team has not agreed.",
+      "The default settings of a chat tool, if the team works differently."
+    ],
+    "why": "Team norms are the expectations the team itself agrees, such as how quickly messages are answered.",
+    "example": "The team agrees that questions in the project channel get a reply the same working day.",
+    "scenario": "The team has agreed that project-channel questions get a same-day reply. Which idea is that agreement?",
+    "scenarioAnswer": "A team norm",
+    "scenarioWrongs": [
+      "A private habit nobody else accepted",
+      "A software default the team does not follow",
+      "A law the team never discussed"
+    ],
+    "scenarioWhy": "A shared expectation about how the team communicates is a team norm."
+  },
+  {
+    "term": "Receiving Feedback",
+    "definition": "Hearing comments without immediate defensiveness, checking what is expected, and applying the agreed change.",
+    "wrongs": [
+      "Arguing before you have understood the comment.",
+      "Agreeing aloud and then repeating the same error with no attempt to change.",
+      "Taking the comment as a judgement of your worth as a person."
+    ],
+    "why": "Receiving feedback well means understanding the expected change and then applying it.",
+    "example": "Told the labels are too small, the intern asks which size the client needs and updates the diagram that day.",
+    "scenario": "Your supervisor says the diagram labels are too small for the client. Which response receives that feedback well?",
+    "scenarioAnswer": "Confirm the size required and update the diagram",
+    "scenarioWrongs": [
+      "Argue before asking what size is needed",
+      "Agree and submit the same labels again",
+      "Treat the comment as an attack on your worth"
+    ],
+    "scenarioWhy": "Receiving feedback means clarifying the expected change and applying it."
+  },
+  {
+    "term": "Self-Assessment",
+    "definition": "The intern's own judgement of progress against the learning objectives, supported by examples from the work.",
+    "wrongs": [
+      "The supervisor's mark, which is someone else's judgement.",
+      "A claim of excellence with no example from the placement.",
+      "A copy of a classmate's assessment."
+    ],
+    "why": "Self-assessment is the intern's evidence-based judgement of their own progress toward the agreed objectives.",
+    "example": "The intern writes that the switch goal is partly met, citing four documented switches out of the ten aimed for.",
+    "scenario": "You must judge your own progress on the switch goal using placement evidence. Which statement is self-assessment?",
+    "scenarioAnswer": "Four of the ten switches are documented, so the goal is partly met",
+    "scenarioWrongs": [
+      "The supervisor's mark alone",
+      "A claim of excellence with no example",
+      "A classmate's assessment copied over"
+    ],
+    "scenarioWhy": "Self-assessment uses your own examples to judge progress against the objective."
+  },
+  {
+    "term": "Final Internship Report",
+    "definition": "The end-of-placement document that describes duties, evidence of learning, and reflection against the agreed objectives.",
+    "wrongs": [
+      "A one-line timesheet total.",
+      "The host's sales brochure.",
+      "A daily standup note from week one only."
+    ],
+    "why": "The final report pulls duties, evidence, and reflection together against the objectives agreed at the start.",
+    "example": "The report describes the network tasks, shows the checklist evidence, and reflects on the configuration objective.",
+    "scenario": "The faculty wants one end document covering duties, evidence, and reflection on the agreed goals. Which document is that?",
+    "scenarioAnswer": "The final internship report",
+    "scenarioWrongs": [
+      "A one-line hours total",
+      "The host's sales brochure",
+      "Only the first standup note"
+    ],
+    "scenarioWhy": "The final internship report brings together duties, learning evidence, and reflection."
+  },
+  {
+    "term": "Handover Note",
+    "definition": "A brief document that tells the next person the status of unfinished work, where files are, and what still needs attention.",
+    "wrongs": [
+      "A goodbye card with no work status.",
+      "A deleted folder and no explanation.",
+      "A full rewrite of the company strategy."
+    ],
+    "why": "A handover note lets the next person continue unfinished work without guessing where things stand.",
+    "example": "On the last day the intern leaves a note listing two open tickets, the file paths, and the test still to run.",
+    "scenario": "You are leaving with two tickets still open. Which document lets the next person continue them?",
+    "scenarioAnswer": "A handover note with status, file paths, and the remaining test",
+    "scenarioWrongs": [
+      "A goodbye card with no status",
+      "Deleting the folder without explanation",
+      "Rewriting the company strategy"
+    ],
+    "scenarioWhy": "A handover note states unfinished work, where the files are, and what still needs attention."
+  },
+  {
+    "term": "Professional Reference",
+    "definition": "A statement from a supervisor about the intern's observed conduct and performance, given truthfully and usually with the intern's knowledge.",
+    "wrongs": [
+      "A reference the intern writes and signs as if they were the supervisor.",
+      "A promise to hide poor attendance if asked.",
+      "A social-media like from a classmate."
+    ],
+    "why": "A professional reference is the supervisor's truthful account of observed work, not a self-written endorsement.",
+    "example": "The supervisor agrees to describe the intern's punctuality and the switches they documented, and will not invent extra duties.",
+    "scenario": "A future employer asks your supervisor about your placement. Which reference is professional?",
+    "scenarioAnswer": "A truthful account of conduct and work the supervisor observed",
+    "scenarioWrongs": [
+      "A reference you write and sign as the supervisor",
+      "A promise to hide poor attendance",
+      "A classmate's social-media reaction"
+    ],
+    "scenarioWhy": "A professional reference is the supervisor's truthful statement about observed conduct and performance."
+  }
+]

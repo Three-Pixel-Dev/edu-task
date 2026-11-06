@@ -1,0 +1,785 @@
+{
+  "subjectId": "professional-practice-it",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Code of Ethics is a published set of principles that states how members of a profession should act toward the public, clients, and one another.",
+        "answer": true,
+        "explanation": "Professional bodies publish codes of ethics so members share duties such as honesty, competence, and regard for the public."
+      },
+      {
+        "statement": "An ACM Code of Ethics is a vendor warranty that promises a full refund if an application fails a single test.",
+        "answer": false,
+        "explanation": "The ACM Code is a widely used computing ethics code covering duties to the public and to the profession."
+      },
+      {
+        "statement": "A Code of Conduct is workplace or membership rules that set expected behaviour, including respect, compliance, and consequences for breaches.",
+        "answer": true,
+        "explanation": "A code of conduct turns expected behaviour into rules people can follow and that the organisation can enforce."
+      },
+      {
+        "statement": "A Public Interest is protect the quarterly revenue target only.",
+        "answer": false,
+        "explanation": "Computing codes treat the public good as a primary duty when systems can harm people outside the contract."
+      },
+      {
+        "statement": "A Professional Competence is the knowledge, skill, and care required to perform a task to the standard expected of a qualified practitioner.",
+        "answer": true,
+        "explanation": "Competence is about being able to do the specific work safely and correctly, not about title or confidence alone."
+      },
+      {
+        "statement": "A Duty of Care is disable backups so the failure is faster.",
+        "answer": false,
+        "explanation": "Duty of care is the legal and professional obligation to act as a reasonable practitioner would, so foreseeable harm is avoided."
+      },
+      {
+        "statement": "An Integrity is honest and consistent adherence to professional standards, including refusing to misstate facts or hide material defects.",
+        "answer": true,
+        "explanation": "Integrity means the professional's statements and actions stay truthful and consistent with their duties."
+      },
+      {
+        "statement": "An Accountability is a rule that blame always moves to the most junior person on the team.",
+        "answer": false,
+        "explanation": "Accountability means a named person can be asked to explain a decision and its results."
+      },
+      {
+        "statement": "A Whistleblowing is disclosing suspected illegal, unsafe, or seriously unethical conduct to a person or body that can investigate it.",
+        "answer": true,
+        "explanation": "Whistleblowing is a disclosure of serious wrongdoing to someone who can act, not gossip or a personal grievance about taste."
+      },
+      {
+        "statement": "A Negligence is a reasonable difference of expert opinion.",
+        "answer": false,
+        "explanation": "Negligence is careless failure to meet the standard of a reasonable professional, not every mistake or a deliberate crime."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Confidentiality is the duty to protect non-public information and to disclose it only to people who are authorised to receive it.",
+        "answer": true,
+        "explanation": "Confidentiality is a duty on people to limit disclosure of non-public information to those allowed to see it."
+      },
+      {
+        "statement": "A Non-Disclosure Agreement is post the prototype video on a public channel.",
+        "answer": false,
+        "explanation": "A non-disclosure agreement is a contract that creates a binding duty of secrecy about defined information."
+      },
+      {
+        "statement": "A Need-to-Know Principle is the rule that sensitive information is shared only with people who require it to perform their current duties.",
+        "answer": true,
+        "explanation": "Need-to-know limits access to people whose present duties require that information, which reduces exposure."
+      },
+      {
+        "statement": "An Informed Consent is a manager's signature that approves a budget, with no data subject involved.",
+        "answer": false,
+        "explanation": "Consent is informed only when the person understands the collection, the purpose, and the main effects before agreeing."
+      },
+      {
+        "statement": "A Data Minimisation is collecting and keeping only the personal data that is adequate, relevant, and limited to a stated purpose.",
+        "answer": true,
+        "explanation": "Data minimisation limits collection and retention to what the stated purpose actually needs."
+      },
+      {
+        "statement": "A Purpose Limitation is send the catalogue because the addresses already exist.",
+        "answer": false,
+        "explanation": "Purpose limitation stops personal data collected for one stated reason being reused for an incompatible reason."
+      },
+      {
+        "statement": "A Privacy Notice is a statement that tells people what personal data is collected, for what purpose, who receives it, and what rights they have.",
+        "answer": true,
+        "explanation": "A privacy notice is the explanation given to people so they know how their personal data will be used."
+      },
+      {
+        "statement": "A Personal Data Breach is routine password reset by the student.",
+        "answer": false,
+        "explanation": "A personal data breach is an incident that compromises personal data, not every technical fault or authorised processing."
+      },
+      {
+        "statement": "An Intellectual Property is legal rights in creations of the mind, such as software, writing, designs, and brands, that can restrict unauthorised use.",
+        "answer": true,
+        "explanation": "Intellectual property covers legal rights in intangible creations, not the organisation's physical assets or payroll data."
+      },
+      {
+        "statement": "A Copyright is a registry entry that protects a brand name and logo from confusing use by rivals.",
+        "answer": false,
+        "explanation": "Copyright arises in original expressive works and restricts copying and adaptation; it is not a patent, trademark, or trade secret."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Software Licence is a legal permission that states whether, and on what conditions, a person may use, copy, or modify a software product.",
+        "answer": true,
+        "explanation": "A software licence is the legal permission and its conditions, separate from a purchase receipt or a coding style."
+      },
+      {
+        "statement": "An Open-Source Licence is secrecy of the source is required for open source.",
+        "answer": false,
+        "explanation": "Open-source licences grant use, study, modification, and sharing, while still imposing stated conditions."
+      },
+      {
+        "statement": "A Copyleft is a licence condition that requires modified versions, when distributed, to stay under the same or a compatible share-alike licence.",
+        "answer": true,
+        "explanation": "Copyleft is the share-alike condition in some open-source licences, not a ban on all conditions and not a permissive waiver."
+      },
+      {
+        "statement": "A Patent is a domain-name renewal receipt.",
+        "answer": false,
+        "explanation": "A patent is a granted, time-limited exclusive right in an invention, unlike automatic copyright or a hidden trade secret."
+      },
+      {
+        "statement": "A Trademark is a sign, such as a name or logo, that identifies the source of goods or services and is protected against confusing use.",
+        "answer": true,
+        "explanation": "A trademark identifies commercial source and stops confusing use of that sign; it does not own ordinary language or inventions."
+      },
+      {
+        "statement": "A Trade Secret is a famous logo printed on every product box.",
+        "answer": false,
+        "explanation": "A trade secret stays protected only while it is secret, valuable, and guarded by reasonable steps."
+      },
+      {
+        "statement": "An Employer Ownership of Work is the usual rule that copyright in work an employee creates as part of the job belongs to the employer, unless a contract says otherwise.",
+        "answer": true,
+        "explanation": "In ordinary employment, work created in the course of the job is owned by the employer unless the contract allocates it differently."
+      },
+      {
+        "statement": "An Attribution is remove the name so the diagram looks original.",
+        "answer": false,
+        "explanation": "Attribution is the credit given to the source, and many academic rules and licences still require it when work is reused."
+      },
+      {
+        "statement": "A Plagiarism is presenting another person's words, code, or ideas as your own without appropriate credit.",
+        "answer": true,
+        "explanation": "Plagiarism is passing off someone else's work or ideas as yours, which proper quotation and citation avoid."
+      },
+      {
+        "statement": "A Public Domain is assume every unpaid website article is unprotected.",
+        "answer": false,
+        "explanation": "Public domain means copyright no longer restricts reuse, which is different from merely being free to view or download."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Conflict of Interest is a situation in which a personal, financial, or family interest could improperly influence a professional decision.",
+        "answer": true,
+        "explanation": "A conflict of interest exists when a personal stake could bias a decision the professional is trusted to make impartially."
+      },
+      {
+        "statement": "A Gift and Hospitality Policy is a ban on ever thanking a colleague for covering a shift.",
+        "answer": false,
+        "explanation": "Gift and hospitality rules manage influence by setting when offers may be kept, must be declared, or must be refused."
+      },
+      {
+        "statement": "A Bribery is offering, giving, or accepting something of value to improperly influence a decision or obtain an unfair advantage.",
+        "answer": true,
+        "explanation": "Bribery is a benefit given or taken to distort a decision, unlike a published fee or an open commercial negotiation."
+      },
+      {
+        "statement": "A Moonlighting is use the employer's customer list to help the weekend job.",
+        "answer": false,
+        "explanation": "Moonlighting is outside paid work that can create competition, fatigue, or a conflict with the main employer."
+      },
+      {
+        "statement": "A Recusal is stepping aside from a decision or review because a personal interest would undermine impartiality.",
+        "answer": true,
+        "explanation": "Recusal removes the person from the specific decision their interest could bias."
+      },
+      {
+        "statement": "A Professional Communication is a private joke sent only to your friends.",
+        "answer": false,
+        "explanation": "Professional communication is judged by clarity, respect, and fit to the audience and purpose."
+      },
+      {
+        "statement": "A Meeting Minutes is a concise record of attendees, decisions, action owners, and deadlines from a meeting.",
+        "answer": true,
+        "explanation": "Minutes exist so people who were present or absent can see what was decided and who must act."
+      },
+      {
+        "statement": "A Status Report is a one-line claim that everything is fine, with no progress or issues.",
+        "answer": false,
+        "explanation": "A status report is a regular picture of progress, problems, and next steps, not a contract or an empty reassurance."
+      },
+      {
+        "statement": "An Escalation is raising an unresolved professional issue to the next person who has authority to act on it.",
+        "answer": true,
+        "explanation": "Escalation moves an issue up the agreed path to someone empowered to resolve it."
+      },
+      {
+        "statement": "An Acceptable Use Policy is use the work server if you do it after 6 p.m.",
+        "answer": false,
+        "explanation": "An acceptable use policy tells staff what they may and may not do with organisational systems and data."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An Employment Contract is a legal agreement that sets the role, pay, hours, duties, and main conditions of a job.",
+        "answer": true,
+        "explanation": "An employment contract is the legal agreement of the job's core terms, not a project update or a tool licence."
+      },
+      {
+        "statement": "A Probation Period is a ten-year training ban.",
+        "answer": false,
+        "explanation": "Probation is an early employment stage for assessing fit, often with different notice rules from a confirmed post."
+      },
+      {
+        "statement": "A Workplace Harassment is unwanted conduct that violates a person's dignity or creates an intimidating, hostile, or offensive working environment.",
+        "answer": true,
+        "explanation": "Harassment is unwanted conduct that attacks dignity or creates a hostile environment, not ordinary management of work."
+      },
+      {
+        "statement": "An Unlawful Discrimination is promoting the candidate with the stronger evidenced performance.",
+        "answer": false,
+        "explanation": "Unlawful discrimination is less favourable treatment because of a protected characteristic, not a decision based on real job needs."
+      },
+      {
+        "statement": "A Reasonable Adjustment is a practical change to equipment, duties, or the workplace that removes a substantial disadvantage for a disabled worker, where the change is reasonable.",
+        "answer": true,
+        "explanation": "A reasonable adjustment changes the work context to remove a disadvantage, without pretending that unsafe incompetence is acceptable."
+      },
+      {
+        "statement": "A Health and Safety Duty is step over it and tell nobody.",
+        "answer": false,
+        "explanation": "Health and safety law and practice require both employer and worker to take reasonable steps against foreseeable harm."
+      },
+      {
+        "statement": "A Grievance Procedure is a formal process for an employee to raise a workplace complaint and have it investigated and answered.",
+        "answer": true,
+        "explanation": "A grievance procedure is the employee's formal route to have a workplace complaint heard and answered."
+      },
+      {
+        "statement": "A Disciplinary Procedure is the server backup schedule.",
+        "answer": false,
+        "explanation": "A disciplinary procedure is the employer's formal path for dealing with alleged misconduct or performance problems."
+      },
+      {
+        "statement": "A Continuing Professional Development is planned learning after qualification that keeps a practitioner's knowledge and skills current and relevant.",
+        "answer": true,
+        "explanation": "Continuing professional development is ongoing, planned learning so practice stays current after formal qualification."
+      },
+      {
+        "statement": "A CPD Record is a timesheet that only records hours in the office.",
+        "answer": false,
+        "explanation": "A CPD record is the evidence log of what was learned and what changed in practice, not a timesheet or a password store."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a compiler option that rejects source files which break a house style for names and comments is called Code of Ethics.",
+        "answer": false,
+        "explanation": "Professional bodies publish codes of ethics so members share duties such as honesty, competence, and regard for the public."
+      },
+      {
+        "statement": "A developer cites the ACM principles when declining to build a feature designed to mislead users about fees.",
+        "answer": true,
+        "explanation": "The ACM Code is a widely used computing ethics code covering duties to the public and to the profession."
+      },
+      {
+        "statement": "In standard textbooks, the office coffee-machine warranty is called Code of Conduct.",
+        "answer": false,
+        "explanation": "A code of conduct turns expected behaviour into rules people can follow and that the organisation can enforce."
+      },
+      {
+        "statement": "A contractor delays a launch and tells the regulator about a flaw that could expose patient records.",
+        "answer": true,
+        "explanation": "Computing codes treat the public good as a primary duty when systems can harm people outside the contract."
+      },
+      {
+        "statement": "In standard textbooks, ask an intern to approve it in your name is called Professional Competence.",
+        "answer": false,
+        "explanation": "Competence is about being able to do the specific work safely and correctly, not about title or confidence alone."
+      },
+      {
+        "statement": "Before go-live, an analyst insists on a backup test because a failed migration could wipe customer orders.",
+        "answer": true,
+        "explanation": "Duty of care is the legal and professional obligation to act as a reasonable practitioner would, so foreseeable harm is avoided."
+      },
+      {
+        "statement": "In standard textbooks, a measure of how many programming languages appear on a CV is called Integrity.",
+        "answer": false,
+        "explanation": "Integrity means the professional's statements and actions stay truthful and consistent with their duties."
+      },
+      {
+        "statement": "The engineer who approved a firewall change writes the incident note when that change causes an outage.",
+        "answer": true,
+        "explanation": "Accountability means a named person can be asked to explain a decision and its results."
+      },
+      {
+        "statement": "In standard textbooks, sell the test data to a competitor is called Whistleblowing.",
+        "answer": false,
+        "explanation": "Whistleblowing is a disclosure of serious wrongdoing to someone who can act, not gossip or a personal grievance about taste."
+      },
+      {
+        "statement": "A consultant skips a standard backup check, and the client's database is lost during an upgrade.",
+        "answer": true,
+        "explanation": "Negligence is careless failure to meet the standard of a reasonable professional, not every mistake or a deliberate crime."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, print a copy for them to read on the way out is called Confidentiality.",
+        "answer": false,
+        "explanation": "Confidentiality is a duty on people to limit disclosure of non-public information to those allowed to see it."
+      },
+      {
+        "statement": "Before a vendor demo, both firms sign an agreement that the prototype design must not be shared.",
+        "answer": true,
+        "explanation": "A non-disclosure agreement is a contract that creates a binding duty of secrecy about defined information."
+      },
+      {
+        "statement": "In standard textbooks, a requirement to copy the whole executive team on every password reset is called Need-to-Know Principle.",
+        "answer": false,
+        "explanation": "Need-to-know limits access to people whose present duties require that information, which reduces exposure."
+      },
+      {
+        "statement": "A pilot app explains location tracking and retention, and staff tick agree before any tracking starts.",
+        "answer": true,
+        "explanation": "Consent is informed only when the person understands the collection, the purpose, and the main effects before agreeing."
+      },
+      {
+        "statement": "In standard textbooks, add date of birth in case marketing wants it later is called Data Minimisation.",
+        "answer": false,
+        "explanation": "Data minimisation limits collection and retention to what the stated purpose actually needs."
+      },
+      {
+        "statement": "Emails gathered for a safety recall are not added to a marketing list for unrelated products.",
+        "answer": true,
+        "explanation": "Purpose limitation stops personal data collected for one stated reason being reused for an incompatible reason."
+      },
+      {
+        "statement": "In standard textbooks, a blank non-disclosure agreement with no data explanation is called Privacy Notice.",
+        "answer": false,
+        "explanation": "A privacy notice is the explanation given to people so they know how their personal data will be used."
+      },
+      {
+        "statement": "A spreadsheet of student phone numbers is emailed to the wrong external supplier, and the team logs a breach.",
+        "answer": true,
+        "explanation": "A personal data breach is an incident that compromises personal data, not every technical fault or authorised processing."
+      },
+      {
+        "statement": "In standard textbooks, a person's salary grade and annual leave balance is called Intellectual Property.",
+        "answer": false,
+        "explanation": "Intellectual property covers legal rights in intangible creations, not the organisation's physical assets or payroll data."
+      },
+      {
+        "statement": "A student who copies a classmate's essay into an assignment infringes copyright as well as academic rules.",
+        "answer": true,
+        "explanation": "Copyright arises in original expressive works and restricts copying and adaptation; it is not a patent, trademark, or trade secret."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, the laptop purchase receipt is called Software Licence.",
+        "answer": false,
+        "explanation": "A software licence is the legal permission and its conditions, separate from a purchase receipt or a coding style."
+      },
+      {
+        "statement": "A team adopts a library after confirming its open-source licence lets them read, change, and redistribute the code.",
+        "answer": true,
+        "explanation": "Open-source licences grant use, study, modification, and sharing, while still imposing stated conditions."
+      },
+      {
+        "statement": "In standard textbooks, charge no price and delete all copyright notices is called Copyleft.",
+        "answer": false,
+        "explanation": "Copyleft is the share-alike condition in some open-source licences, not a ban on all conditions and not a permissive waiver."
+      },
+      {
+        "statement": "A firm files a patent application for a new compression method and, once granted, can stop unlicensed use for a limited term.",
+        "answer": true,
+        "explanation": "A patent is a granted, time-limited exclusive right in an invention, unlike automatic copyright or a hidden trade secret."
+      },
+      {
+        "statement": "In standard textbooks, the right to stop all criticism of a company in a newspaper review is called Trademark.",
+        "answer": false,
+        "explanation": "A trademark identifies commercial source and stops confusing use of that sign; it does not own ordinary language or inventions."
+      },
+      {
+        "statement": "A company stores its ranking formula in a restricted repository and forbids staff from discussing it outside the team.",
+        "answer": true,
+        "explanation": "A trade secret stays protected only while it is secret, valuable, and guarded by reasonable steps."
+      },
+      {
+        "statement": "In standard textbooks, you alone, because you typed it is called Employer Ownership of Work.",
+        "answer": false,
+        "explanation": "In ordinary employment, work created in the course of the job is owned by the employer unless the contract allocates it differently."
+      },
+      {
+        "statement": "A report that reuses a diagram keeps the creator's name and the licence notice under the figure.",
+        "answer": true,
+        "explanation": "Attribution is the credit given to the source, and many academic rules and licences still require it when work is reused."
+      },
+      {
+        "statement": "In standard textbooks, use of a commonplace fact such as the days in a week is called Plagiarism.",
+        "answer": false,
+        "explanation": "Plagiarism is passing off someone else's work or ideas as yours, which proper quotation and citation avoid."
+      },
+      {
+        "statement": "A publisher reprints a nineteenth-century manual whose copyright has expired, without asking permission.",
+        "answer": true,
+        "explanation": "Public domain means copyright no longer restricts reuse, which is different from merely being free to view or download."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a requirement to hold shares in every supplier the company uses is called Conflict of Interest.",
+        "answer": false,
+        "explanation": "A conflict of interest exists when a personal stake could bias a decision the professional is trusted to make impartially."
+      },
+      {
+        "statement": "A buyer refuses match tickets from a bidder during a live tender because the policy forbids that hospitality.",
+        "answer": true,
+        "explanation": "Gift and hospitality rules manage influence by setting when offers may be kept, must be declared, or must be refused."
+      },
+      {
+        "statement": "In standard textbooks, a published fee everyone must pay is called Bribery.",
+        "answer": false,
+        "explanation": "Bribery is a benefit given or taken to distort a decision, unlike a published fee or an open commercial negotiation."
+      },
+      {
+        "statement": "A developer takes weekend paid work for a direct competitor and uses sleep time so weekday performance drops.",
+        "answer": true,
+        "explanation": "Moonlighting is outside paid work that can create competition, fatigue, or a conflict with the main employer."
+      },
+      {
+        "statement": "In standard textbooks, resign from your whole career on the spot is called Recusal.",
+        "answer": false,
+        "explanation": "Recusal removes the person from the specific decision their interest could bias."
+      },
+      {
+        "statement": "During an outage, an analyst sends the client a short update in plain language with the next check time.",
+        "answer": true,
+        "explanation": "Professional communication is judged by clarity, respect, and fit to the audience and purpose."
+      },
+      {
+        "statement": "In standard textbooks, a slide that only shows the company's logo is called Meeting Minutes.",
+        "answer": false,
+        "explanation": "Minutes exist so people who were present or absent can see what was decided and who must act."
+      },
+      {
+        "statement": "Each Friday a project lead emails what was finished, one slipping task, and the action planned for Monday.",
+        "answer": true,
+        "explanation": "A status report is a regular picture of progress, problems, and next steps, not a contract or an empty reassurance."
+      },
+      {
+        "statement": "In standard textbooks, post the contract fight on public social media first is called Escalation.",
+        "answer": false,
+        "explanation": "Escalation moves an issue up the agreed path to someone empowered to resolve it."
+      },
+      {
+        "statement": "The policy forbids using a work account to run a private online shop or to share passwords.",
+        "answer": true,
+        "explanation": "An acceptable use policy tells staff what they may and may not do with organisational systems and data."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, the drawing tool's licence file is called Employment Contract.",
+        "answer": false,
+        "explanation": "An employment contract is the legal agreement of the job's core terms, not a project update or a tool licence."
+      },
+      {
+        "statement": "During the first three months, a new analyst has fortnightly reviews and a shorter notice period than confirmed staff.",
+        "answer": true,
+        "explanation": "Probation is an early employment stage for assessing fit, often with different notice rules from a confirmed post."
+      },
+      {
+        "statement": "In standard textbooks, allocating work fairly according to a published rota is called Workplace Harassment.",
+        "answer": false,
+        "explanation": "Harassment is unwanted conduct that attacks dignity or creates a hostile environment, not ordinary management of work."
+      },
+      {
+        "statement": "A manager refuses an interview to qualified applicants solely because of their religion, and HR treats it as discrimination.",
+        "answer": true,
+        "explanation": "Unlawful discrimination is less favourable treatment because of a protected characteristic, not a decision based on real job needs."
+      },
+      {
+        "statement": "In standard textbooks, refuse any change after the disability is disclosed is called Reasonable Adjustment.",
+        "answer": false,
+        "explanation": "A reasonable adjustment changes the work context to remove a disadvantage, without pretending that unsafe incompetence is acceptable."
+      },
+      {
+        "statement": "A technician reports a trailing cable in a walkway, and the supervisor gets it taped down the same morning.",
+        "answer": true,
+        "explanation": "Health and safety law and practice require both employer and worker to take reasonable steps against foreseeable harm."
+      },
+      {
+        "statement": "In standard textbooks, a public product review site is called Grievance Procedure.",
+        "answer": false,
+        "explanation": "A grievance procedure is the employee's formal route to have a workplace complaint heard and answered."
+      },
+      {
+        "statement": "Before issuing a warning for repeated unauthorised access, HR sets out the allegation and lets the employee respond.",
+        "answer": true,
+        "explanation": "A disciplinary procedure is the employer's formal path for dealing with alleged misconduct or performance problems."
+      },
+      {
+        "statement": "In standard textbooks, repeating the same outdated course title on a CV without doing the learning is called Continuing Professional Development.",
+        "answer": false,
+        "explanation": "Continuing professional development is ongoing, planned learning so practice stays current after formal qualification."
+      },
+      {
+        "statement": "An engineer keeps a log of a cloud course, the date, and how it changed the way backups are designed.",
+        "answer": true,
+        "explanation": "A CPD record is the evidence log of what was learned and what changed in practice, not a timesheet or a password store."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a client asks you to omit a known safety defect from a report so the product can ship. Which action fits a code of ethics, the correct result is omit the defect to keep the client relationship.",
+        "answer": false,
+        "explanation": "A code of ethics requires honesty and regard for safety, so a known defect must not be concealed."
+      },
+      {
+        "statement": "When you are asked to design a dark pattern that hides cancellation fees. Which ACM-aligned response is appropriate, the correct result is build it but disable it in the demo build only.",
+        "answer": false,
+        "explanation": "The ACM Code requires honesty and avoidance of harm, so a feature meant to mislead users should be refused."
+      },
+      {
+        "statement": "When a teammate shares a colleague's private photo in a project chat. The document most directly forbids that behaviour, the correct result is the workplace code of conduct.",
+        "answer": true,
+        "explanation": "A code of conduct sets respectful behaviour and the consequences of harassing or humiliating colleagues."
+      },
+      {
+        "statement": "When shipping this week would raise revenue, but a flaw can leak patient records. The duty should lead the decision, the correct result is protect the public from the data leak.",
+        "answer": true,
+        "explanation": "Public-interest duty puts safety and welfare ahead of a purely commercial reason to ship a dangerous flaw."
+      },
+      {
+        "statement": "When you are asked to certify a safety-critical design you have never been trained to assess. Which response shows competence, the correct result is copy a certificate from a previous project.",
+        "answer": false,
+        "explanation": "Professional competence means you do not claim or sign work you are not qualified to judge."
+      },
+      {
+        "statement": "When a rushed configuration could wipe customer orders, and a backup test would take one hour. Which action meets a duty of care, the correct result is disable backups so the failure is faster.",
+        "answer": false,
+        "explanation": "Duty of care requires reasonable steps against a foreseeable loss, such as testing the backup first."
+      },
+      {
+        "statement": "When the status slide would look better if you marked a failed test as passed. The response shows integrity, the correct result is report the test as failed.",
+        "answer": true,
+        "explanation": "Integrity requires an honest report of the test result even when a green slide would be more convenient."
+      },
+      {
+        "statement": "When a change you approved causes an outage. The response shows accountability, the correct result is own the decision and help write the incident facts.",
+        "answer": true,
+        "explanation": "Accountability means the person who approved the change helps explain what happened and why."
+      },
+      {
+        "statement": "When falsified safety tests were reported internally and ignored. Which next step is whistleblowing, the correct result is delete the evidence to avoid an argument.",
+        "answer": false,
+        "explanation": "Whistleblowing means reporting serious wrongdoing to a proper investigating authority when internal correction has failed."
+      },
+      {
+        "statement": "When a practitioner skips a standard check that peers always do, and the client loses data. The label fits that failure, the correct result is negligence.",
+        "answer": true,
+        "explanation": "Skipping a check that a reasonable practitioner would perform, with foreseeable loss, is negligence."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When friends visit the office and ask you to show a customer's payroll file. Which response keeps confidentiality, the correct result is email the file to your personal account to explain it later.",
+        "answer": false,
+        "explanation": "Confidentiality allows disclosure only to authorised people, and visiting friends are not authorised."
+      },
+      {
+        "statement": "When a journalist asks for details of a prototype covered by a signed secrecy contract. Which response fits that contract, the correct result is post the prototype video on a public channel.",
+        "answer": false,
+        "explanation": "A non-disclosure agreement requires the signer to keep the specified information secret."
+      },
+      {
+        "statement": "When a developer wants the full payroll file out of curiosity while fixing a login bug. The decision fits need-to-know, the correct result is deny access because the bug does not require payroll data.",
+        "answer": true,
+        "explanation": "Need-to-know grants sensitive data only when current duties require it, and curiosity is not a duty."
+      },
+      {
+        "statement": "When you want to track staff phones in a pilot. The step is required for informed consent, the correct result is explain the tracking and get agreement before it starts.",
+        "answer": true,
+        "explanation": "Informed consent requires each person to understand the tracking and agree before collection begins."
+      },
+      {
+        "statement": "When a webinar only needs name and email, but the form also asks for home address and national ID. Which change fits data minimisation, the correct result is keep every extra field because storage is cheap.",
+        "answer": false,
+        "explanation": "Data minimisation keeps only personal data needed for the webinar, which is name and email."
+      },
+      {
+        "statement": "When customers gave emails for a safety recall. Marketing wants those addresses for a new toy catalogue. Which decision fits purpose limitation, the correct result is send the catalogue because the addresses already exist.",
+        "answer": false,
+        "explanation": "Purpose limitation keeps recall contacts for the recall, not for an unrelated marketing catalogue."
+      },
+      {
+        "statement": "When students will upload ID numbers to a placement portal. The artefact should explain the collection, purpose, and their rights, the correct result is a privacy notice.",
+        "answer": true,
+        "explanation": "A privacy notice is the statement that tells people what data is collected, why, and what rights they have."
+      },
+      {
+        "statement": "When a file of student phone numbers is emailed to the wrong supplier. The label should the team apply, the correct result is personal data breach.",
+        "answer": true,
+        "explanation": "Sending personal data to an unauthorised recipient is an unauthorised disclosure, which is a personal data breach."
+      },
+      {
+        "statement": "When an investor asks what intangible creations the firm can legally protect. Which set is intellectual property, the correct result is the office chairs and server racks.",
+        "answer": false,
+        "explanation": "Intellectual property rights attach to creations such as code, brands, and writing, not to furniture or utility bills."
+      },
+      {
+        "statement": "When you want to paste a photographer's image into a commercial app without permission. The right is most directly involved, the correct result is copyright in the photograph.",
+        "answer": true,
+        "explanation": "A photograph is an original work protected by copyright, so commercial copying needs permission or a legal exception."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a library is free to download, but the team wants to ship it inside a paid product. Which document decides whether that is allowed, the correct result is the team's bracket style guide.",
+        "answer": false,
+        "explanation": "The software licence states the conditions on use, copying, and distribution, including inside a commercial product."
+      },
+      {
+        "statement": "When a student claims a project is open source but refuses to let anyone see or change the source. Which conclusion is sound, the correct result is secrecy of the source is required for open source.",
+        "answer": false,
+        "explanation": "An open-source licence must allow others to use, study, modify, and share the source code."
+      },
+      {
+        "statement": "When you distribute a modified program that carries a share-alike condition. The obligation does copyleft impose, the correct result is distribute your modifications under a compatible share-alike licence.",
+        "answer": true,
+        "explanation": "Copyleft requires distributed modifications to remain under the same or a compatible share-alike licence."
+      },
+      {
+        "statement": "When a rival is selling a device that copies your granted invention. The right is designed for that situation, the correct result is a patent.",
+        "answer": true,
+        "explanation": "A granted patent is the time-limited right used to stop others exploiting a qualifying invention."
+      },
+      {
+        "statement": "When your new logo is confusingly similar to a rival's registered brand for the same service. Which right have you most likely collided with, the correct result is their patent on the English alphabet.",
+        "answer": false,
+        "explanation": "A trademark protects a distinctive sign of origin against confusing use on similar goods or services."
+      },
+      {
+        "statement": "When you are considering publishing a valuable formula that rivals do not know. Which protection would publication destroy, the correct result is the copyright in a novel you did not publish.",
+        "answer": false,
+        "explanation": "Trade-secret protection depends on secrecy, so publishing the formula ends that protection."
+      },
+      {
+        "statement": "When you wrote a module as part of your paid duties, and the contract gives copyright to the company. Who owns that code, the correct result is the employer.",
+        "answer": true,
+        "explanation": "Work created as part of the job is ordinarily owned by the employer when the contract says so."
+      },
+      {
+        "statement": "When a licence lets you reuse a diagram if you credit the creator. You include the diagram in a client report. The step is still required, the correct result is keep the creator's name and required notice.",
+        "answer": true,
+        "explanation": "Attribution means giving the credit the licence or academic rule still requires when the work is reused."
+      },
+      {
+        "statement": "When you paste a blog's paragraph into your essay and do not cite it. Which description fits that submission, the correct result is an original argument with full references.",
+        "answer": false,
+        "explanation": "Using someone else's words as your own without credit is plagiarism."
+      },
+      {
+        "statement": "When a manual's copyright has expired. The reuse does public-domain status allow, the correct result is reprint it without asking permission.",
+        "answer": true,
+        "explanation": "Once copyright has expired, permission is no longer required to copy the work, which is public-domain status."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When you are scoring bids, and your sibling owns one bidder. Which response addresses the conflict of interest, the correct result is score your sibling's bid highest and say nothing.",
+        "answer": false,
+        "explanation": "A family financial interest can bias the scoring, so the conflict must be declared and the person should step aside."
+      },
+      {
+        "statement": "When during a live tender, a bidder offers you expensive match tickets. The policy forbids hospitality from bidders. Which action is right, the correct result is accept them if you tell no one.",
+        "answer": false,
+        "explanation": "The gift and hospitality policy exists to stop bidders influencing a live decision with valuable offers."
+      },
+      {
+        "statement": "When a supplier offers you cash to ignore a failed security test. The description fits the offer, the correct result is bribery.",
+        "answer": true,
+        "explanation": "Cash offered to ignore a failed test is a benefit meant to improperly influence a professional decision."
+      },
+      {
+        "statement": "When your contract requires you to declare outside paid work. You start a paid weekend job for a direct competitor. The step is required, the correct result is declare the outside work before continuing.",
+        "answer": true,
+        "explanation": "Moonlighting for a competitor can conflict with the employer, and the contract requires it to be declared."
+      },
+      {
+        "statement": "When you hold shares in a firm whose proposal you were asked to score. Which action is recusal, the correct result is publish the proposal on social media.",
+        "answer": false,
+        "explanation": "Recusal means leaving the particular decision that your shareholding could bias."
+      },
+      {
+        "statement": "When a client who is not a programmer asks for an outage update. Which message is professional communication, the correct result is a private joke sent only to your friends.",
+        "answer": false,
+        "explanation": "Professional communication gives the audience a clear, respectful message they can act on."
+      },
+      {
+        "statement": "When several people missed the design meeting and need to know what was decided. The record should be circulated, the correct result is meeting minutes with decisions, owners, and dates.",
+        "answer": true,
+        "explanation": "Minutes record attendees, decisions, owners, and deadlines so absent people can follow the outcome."
+      },
+      {
+        "statement": "When your manager asks for this week's picture of a task that has slipped. The content belongs in the status report, the correct result is progress, the slip, the risk, and the next action.",
+        "answer": true,
+        "explanation": "A status report tells the reader progress, issues, risks, and what will be done next."
+      },
+      {
+        "statement": "When a supplier has ignored a safety fix, and their manager will not respond. Which step is proper escalation, the correct result is ask an unrelated friend to set company policy.",
+        "answer": false,
+        "explanation": "Escalation takes the unresolved safety issue to the next person with authority to act."
+      },
+      {
+        "statement": "When you want to run a private online shop from your work email and server. The policy forbids personal commercial use. The action complies, the correct result is do not use work systems for the shop.",
+        "answer": true,
+        "explanation": "An acceptable use policy defines forbidden uses of work systems, including a private business."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When you need the agreed hours, pay, and confidentiality duties of your new job. Which document states those terms, the correct result is this week's status email.",
+        "answer": false,
+        "explanation": "The employment contract is the agreement that sets role, pay, hours, duties, and main conditions."
+      },
+      {
+        "statement": "When a new hire is in the first three months, with extra reviews and shorter notice, before the post is confirmed. Which term applies, the correct result is a ten-year training ban.",
+        "answer": false,
+        "explanation": "Probation is the opening period used to assess a new employee, often with shorter notice."
+      },
+      {
+        "statement": "When a colleague keeps mocking another's accent after being asked to stop, and the person feels the office is hostile. The label fits, the correct result is workplace harassment.",
+        "answer": true,
+        "explanation": "Repeated unwanted mockery that creates a hostile environment is workplace harassment."
+      },
+      {
+        "statement": "When qualified applicants are refused interviews solely because of their religion. The description fits that decision, the correct result is unlawful discrimination.",
+        "answer": true,
+        "explanation": "Refusing qualified people solely because of religion is less favourable treatment based on a protected characteristic."
+      },
+      {
+        "statement": "When a blind analyst can do the role if the tools work with a screen reader. Which response is a reasonable adjustment, the correct result is pay an unrelated bonus to every employee instead.",
+        "answer": false,
+        "explanation": "A reasonable adjustment is a practical change, such as compatible tools, that removes a disadvantage for the worker."
+      },
+      {
+        "statement": "When you notice a trailing cable across a busy walkway. Which action meets a worker's health and safety duty, the correct result is step over it and tell nobody.",
+        "answer": false,
+        "explanation": "Workers share a duty to reduce foreseeable harm, so a trip hazard should be reported and controlled."
+      },
+      {
+        "statement": "When you have a serious unresolved complaint about bullying and want it formally investigated. The process should you use, the correct result is the grievance procedure.",
+        "answer": true,
+        "explanation": "The grievance procedure is the formal route for an employee complaint to be investigated and answered."
+      },
+      {
+        "statement": "When an employer believes an employee repeatedly misused access and may issue a warning. The process should it follow first, the correct result is the disciplinary procedure.",
+        "answer": true,
+        "explanation": "Disciplinary procedure is the formal process used before a sanction for alleged misconduct."
+      },
+      {
+        "statement": "When your degree is five years old and a core tool has changed. Which activity is continuing professional development, the correct result is listing an old course you did not attend.",
+        "answer": false,
+        "explanation": "Continuing professional development is planned learning that updates skills after qualification."
+      },
+      {
+        "statement": "When a professional body asks for evidence of learning this year. The item is a CPD record, the correct result is a log of courses, dates, and how practice changed.",
+        "answer": true,
+        "explanation": "A CPD record logs learning activities and outcomes as evidence that competence is being maintained."
+      }
+    ]
+  }
+}

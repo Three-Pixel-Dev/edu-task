@@ -1,0 +1,785 @@
+{
+  "subjectId": "advanced-java-programming",
+  "levels": {
+    "1": [
+      {
+        "statement": "A JVM is software that loads Java bytecode and executes it on a particular operating system and CPU.",
+        "answer": true,
+        "explanation": "Java compiles to bytecode, and the JVM on each host is what actually runs that bytecode."
+      },
+      {
+        "statement": "A Bytecode is the original Java source kept inside a JAR manifest.",
+        "answer": false,
+        "explanation": "javac emits bytecode rather than native machine code so a runtime can execute it on many hosts."
+      },
+      {
+        "statement": "A Class loader is the runtime subsystem that finds class files, reads them, and links them before they can be used.",
+        "answer": true,
+        "explanation": "Classes are brought in on demand, and the class loader is the part that locates and defines them."
+      },
+      {
+        "statement": "A Just-in-time compilation is the heap was deleted.",
+        "answer": false,
+        "explanation": "The runtime watches hot methods and compiles them so later calls can skip interpretation."
+      },
+      {
+        "statement": "A Garbage collection is automatic reclamation of heap objects that running code can no longer reach.",
+        "answer": true,
+        "explanation": "The collector traces references from roots and reclaims objects that nothing can still use."
+      },
+      {
+        "statement": "A Heap is the source-file cache.",
+        "answer": false,
+        "explanation": "A new expression reserves object storage on the heap, which all threads of the process can share."
+      },
+      {
+        "statement": "A Java stack is per-thread memory that holds a frame for each method the thread is currently executing.",
+        "answer": true,
+        "explanation": "Each call pushes a frame of local variables and a return address, and the frame is popped when the method returns."
+      },
+      {
+        "statement": "A Metaspace is a per-thread stack of method frames.",
+        "answer": false,
+        "explanation": "Since Java 8, class metadata has lived in metaspace instead of a fixed permanent generation on the heap."
+      },
+      {
+        "statement": "A Package is a named namespace that groups related classes and gives them package-private access to one another.",
+        "answer": true,
+        "explanation": "The package organizes types on the classpath and is the boundary for members with no access modifier."
+      },
+      {
+        "statement": "An Import declaration is a synchronized block.",
+        "answer": false,
+        "explanation": "The declaration does not load or copy code; it tells the compiler which full type name a short name means."
+      }
+    ],
+    "2": [
+      {
+        "statement": "An Interface is a reference type that declares a contract of methods without holding instance fields.",
+        "answer": true,
+        "explanation": "Implementing classes supply the method bodies, so callers can depend on the contract rather than one class."
+      },
+      {
+        "statement": "An Abstract class is a primitive type.",
+        "answer": false,
+        "explanation": "Subclasses complete the unimplemented methods, while shared fields and code can live in the abstract superclass."
+      },
+      {
+        "statement": "An Inheritance is a mechanism that lets a subclass acquire fields and methods from a superclass.",
+        "answer": true,
+        "explanation": "The extends clause reuses the superclass implementation and lets the subclass add or replace behavior."
+      },
+      {
+        "statement": "A Method overriding is a generic method whose type arguments disappear at runtime.",
+        "answer": false,
+        "explanation": "At a call through a superclass reference, the runtime uses the override belonging to the actual object."
+      },
+      {
+        "statement": "A Method overloading is several methods in one class that share a name but have different parameter lists.",
+        "answer": true,
+        "explanation": "The compiler picks the overload from the argument types at the call site."
+      },
+      {
+        "statement": "A Polymorphism is package-private access.",
+        "answer": false,
+        "explanation": "A supertype reference may point at any subtype, and overridden methods run the subtype's version."
+      },
+      {
+        "statement": "An Encapsulation is hiding an object's data and allowing changes only through its methods.",
+        "answer": true,
+        "explanation": "Private fields plus public methods keep the object's invariants inside the class."
+      },
+      {
+        "statement": "A Generics is varargs.",
+        "answer": false,
+        "explanation": "A type such as List of String is rejected at compile time if the code adds the wrong kind of element."
+      },
+      {
+        "statement": "A Type erasure is the compiler's removal of generic type arguments so they are not kept as separate runtime types.",
+        "answer": true,
+        "explanation": "The runtime sees a raw type, and the compiler inserts casts that enforce the generic constraints."
+      },
+      {
+        "statement": "A Bounded type parameter is a raw type with all generic checks turned off.",
+        "answer": false,
+        "explanation": "The bound lets the method call operations of the upper bound while still accepting any subtype."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An ArrayList is a resizable list that stores its elements in a contiguous array.",
+        "answer": true,
+        "explanation": "Index access jumps directly into the array, and the list copies into a larger array when it is full."
+      },
+      {
+        "statement": "A LinkedList is arrayList.",
+        "answer": false,
+        "explanation": "Inserting or removing at a known node changes a few links instead of shifting an array of elements."
+      },
+      {
+        "statement": "A HashMap is a map from keys to values that places entries in buckets chosen by the key's hash code.",
+        "answer": true,
+        "explanation": "When hash codes spread keys across buckets, get and put take constant time on average."
+      },
+      {
+        "statement": "A HashSet is arrayDeque.",
+        "answer": false,
+        "explanation": "Membership tests use hashing, and equals decides whether two objects count as the same element."
+      },
+      {
+        "statement": "A TreeMap is a map that keeps its keys in sorted order inside a red-black tree.",
+        "answer": true,
+        "explanation": "Keys follow Comparable or a Comparator, so iterating the map yields that order."
+      },
+      {
+        "statement": "An Iterator is a lock shared by every thread in a pool.",
+        "answer": false,
+        "explanation": "The iterator hides whether the collection is an array, a linked structure, or a tree, and it can remove the current element safely."
+      },
+      {
+        "statement": "A Comparable is an interface whose compareTo method defines a class's natural order.",
+        "answer": true,
+        "explanation": "Sort methods and tree collections use compareTo when the caller does not supply another ordering."
+      },
+      {
+        "statement": "A Comparator is a ClassLoader.",
+        "answer": false,
+        "explanation": "An external comparator can order one class in several ways without changing its compareTo method."
+      },
+      {
+        "statement": "An Exception is an object that reports an abnormal condition and can transfer control to a handler.",
+        "answer": true,
+        "explanation": "Throwing the object skips the rest of the normal path and looks for a matching catch."
+      },
+      {
+        "statement": "A Checked exception is a suppressed warning.",
+        "answer": false,
+        "explanation": "Exceptions other than RuntimeException and Error are checked, so they must be handled or declared."
+      }
+    ],
+    "4": [
+      {
+        "statement": "An Unchecked exception is a RuntimeException that callers are not forced to catch or declare.",
+        "answer": true,
+        "explanation": "Unchecked exceptions usually report programming bugs such as a bad index or a null reference."
+      },
+      {
+        "statement": "A Finally block is a clause on the method header that lists exceptions.",
+        "answer": false,
+        "explanation": "Cleanup placed there runs on both the normal path and the exceptional path."
+      },
+      {
+        "statement": "A Try-with-resources is a try statement that automatically closes AutoCloseable resources declared in its parentheses.",
+        "answer": true,
+        "explanation": "Resources declared in the try header are closed when the block ends, including when an exception is thrown."
+      },
+      {
+        "statement": "A Throws clause is a generic bound.",
+        "answer": false,
+        "explanation": "Declaring the exception forces callers to catch it or declare it themselves."
+      },
+      {
+        "statement": "A Lambda expression is a compact expression that supplies the body of a functional interface without a named class.",
+        "answer": true,
+        "explanation": "The compiler turns the expression into an instance of the target interface's single abstract method."
+      },
+      {
+        "statement": "A Functional interface is a record.",
+        "answer": false,
+        "explanation": "The single abstract method gives the lambda exactly one signature to implement."
+      },
+      {
+        "statement": "A Method reference is a shorthand that refers to an existing method where a lambda would otherwise be written.",
+        "answer": true,
+        "explanation": "The referenced method must match the single abstract method of the target functional interface."
+      },
+      {
+        "statement": "A Stream is a thread pool that runs one task per element immediately.",
+        "answer": false,
+        "explanation": "The pipeline describes work but does not run it until a terminal operation asks for a result."
+      },
+      {
+        "statement": "An Intermediate operation is a lazy stream step, such as filter or map, that returns another stream.",
+        "answer": true,
+        "explanation": "These steps are recorded and run only when a later terminal operation pulls values through the pipeline."
+      },
+      {
+        "statement": "A Terminal operation is another filter call.",
+        "answer": false,
+        "explanation": "Operations such as collect, reduce, and forEach start evaluation, and the stream cannot be reused afterward."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An Optional is a container that either holds one value or is empty, used instead of returning null.",
+        "answer": true,
+        "explanation": "Callers handle presence with methods such as orElse or ifPresent, so a missing value is explicit."
+      },
+      {
+        "statement": "A Thread is a generic wildcard.",
+        "answer": false,
+        "explanation": "Each thread has its own stack and program counter while sharing the process heap."
+      },
+      {
+        "statement": "A Runnable is a functional interface whose run method is the code a thread or executor should execute.",
+        "answer": true,
+        "explanation": "Thread and executor APIs accept it and call run on the chosen worker."
+      },
+      {
+        "statement": "A synchronized keyword is a modifier that skips serialization of a field.",
+        "answer": false,
+        "explanation": "The lock is acquired on entry and released on exit, including when the block throws."
+      },
+      {
+        "statement": "A volatile variable is a field whose writes are made visible to other threads and are not freely reordered.",
+        "answer": true,
+        "explanation": "A write to the field happens-before a later read of that field, but a compound action such as increment is still not atomic."
+      },
+      {
+        "statement": "A Thread pool is a new JVM per task.",
+        "answer": false,
+        "explanation": "Reusing workers avoids the cost of creating a thread for every short task."
+      },
+      {
+        "statement": "A JDBC is the standard Java API for connecting to relational databases and executing SQL.",
+        "answer": true,
+        "explanation": "Drivers implement the same interfaces, so application code can talk to different databases through one API."
+      },
+      {
+        "statement": "A PreparedStatement is databaseMetaData.",
+        "answer": false,
+        "explanation": "Placeholders keep values out of the SQL text, which blocks injection and lets the database reuse a plan."
+      },
+      {
+        "statement": "A ResultSet is an object that represents the rows returned by a JDBC query and lets the code read them.",
+        "answer": true,
+        "explanation": "next moves the cursor, and getter methods read column values from the current row."
+      },
+      {
+        "statement": "A Serialization is compiling a class into bytecode.",
+        "answer": false,
+        "explanation": "A class implements Serializable so an object output stream can write its non-transient fields."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a source editor that checks syntax before a file is saved is called JVM.",
+        "answer": false,
+        "explanation": "Java compiles to bytecode, and the JVM on each host is what actually runs that bytecode."
+      },
+      {
+        "statement": "Compiling Hello.java produces Hello.class, and a runtime reads those instructions when the program starts.",
+        "answer": true,
+        "explanation": "javac emits bytecode rather than native machine code so a runtime can execute it on many hosts."
+      },
+      {
+        "statement": "In standard textbooks, the just-in-time compiler is called Class loader.",
+        "answer": false,
+        "explanation": "Classes are brought in on demand, and the class loader is the part that locates and defines them."
+      },
+      {
+        "statement": "A loop that ranks a million scores speeds up after the runtime compiles the comparison method.",
+        "answer": true,
+        "explanation": "The runtime watches hot methods and compiles them so later calls can skip interpretation."
+      },
+      {
+        "statement": "In standard textbooks, package unloading is called Garbage collection.",
+        "answer": false,
+        "explanation": "The collector traces references from roots and reclaims objects that nothing can still use."
+      },
+      {
+        "statement": "Each new Order() created while handling a web request allocates that Order on the shared object area.",
+        "answer": true,
+        "explanation": "A new expression reserves object storage on the heap, which all threads of the process can share."
+      },
+      {
+        "statement": "In standard textbooks, native memory that holds loaded class metadata is called Java stack.",
+        "answer": false,
+        "explanation": "Each call pushes a frame of local variables and a return address, and the frame is popped when the method returns."
+      },
+      {
+        "statement": "Generating a new proxy class for every tenant makes native class-metadata memory grow until it hits its limit.",
+        "answer": true,
+        "explanation": "Since Java 8, class metadata has lived in metaspace instead of a fixed permanent generation on the heap."
+      },
+      {
+        "statement": "In standard textbooks, a lambda is called Package.",
+        "answer": false,
+        "explanation": "The package organizes types on the classpath and is the boundary for members with no access modifier."
+      },
+      {
+        "statement": "A file that declares import java.util.List can write List instead of java.util.List.",
+        "answer": true,
+        "explanation": "The declaration does not load or copy code; it tells the compiler which full type name a short name means."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a primitive type is called Interface.",
+        "answer": false,
+        "explanation": "Implementing classes supply the method bodies, so callers can depend on the contract rather than one class."
+      },
+      {
+        "statement": "Shape stores a color and a concrete move method, while Circle and Square each implement area.",
+        "answer": true,
+        "explanation": "Subclasses complete the unimplemented methods, while shared fields and code can live in the abstract superclass."
+      },
+      {
+        "statement": "In standard textbooks, a compiler feature that erases generic type arguments is called Inheritance.",
+        "answer": false,
+        "explanation": "The extends clause reuses the superclass implementation and lets the subclass add or replace behavior."
+      },
+      {
+        "statement": "Animal declares speak, and a Dog object reached through an Animal variable prints bark from Dog's method.",
+        "answer": true,
+        "explanation": "At a call through a superclass reference, the runtime uses the override belonging to the actual object."
+      },
+      {
+        "statement": "In standard textbooks, overridden methods is called Method overloading.",
+        "answer": false,
+        "explanation": "The compiler picks the overload from the argument types at the call site."
+      },
+      {
+        "statement": "A list of shape references holds circles and squares, and a loop calls area on each reference.",
+        "answer": true,
+        "explanation": "A supertype reference may point at any subtype, and overridden methods run the subtype's version."
+      },
+      {
+        "statement": "In standard textbooks, static import is called Encapsulation.",
+        "answer": false,
+        "explanation": "Private fields plus public methods keep the object's invariants inside the class."
+      },
+      {
+        "statement": "A List of String names fails to compile when the code tries to add the integer 42.",
+        "answer": true,
+        "explanation": "A type such as List of String is rejected at compile time if the code adds the wrong kind of element."
+      },
+      {
+        "statement": "In standard textbooks, a class-loader step that refuses raw types is called Type erasure.",
+        "answer": false,
+        "explanation": "The runtime sees a raw type, and the compiler inserts casts that enforce the generic constraints."
+      },
+      {
+        "statement": "A method declared with T extends Number can call doubleValue on every element of a List of T.",
+        "answer": true,
+        "explanation": "The bound lets the method call operations of the upper bound while still accepting any subtype."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, linkedList is called ArrayList.",
+        "answer": false,
+        "explanation": "Index access jumps directly into the array, and the list copies into a larger array when it is full."
+      },
+      {
+        "statement": "A playlist removes the current song by relinking the neighboring songs instead of shifting every later song.",
+        "answer": true,
+        "explanation": "Inserting or removing at a known node changes a few links instead of shifting an array of elements."
+      },
+      {
+        "statement": "In standard textbooks, arrayDeque is called HashMap.",
+        "answer": false,
+        "explanation": "When hash codes spread keys across buckets, get and put take constant time on average."
+      },
+      {
+        "statement": "Adding an email address a second time leaves the set of used addresses unchanged.",
+        "answer": true,
+        "explanation": "Membership tests use hashing, and equals decides whether two objects count as the same element."
+      },
+      {
+        "statement": "In standard textbooks, a set of array indexes with no keys is called TreeMap.",
+        "answer": false,
+        "explanation": "Keys follow Comparable or a Comparator, so iterating the map yields that order."
+      },
+      {
+        "statement": "A loop walks a task collection and removes a task during the visit when that task is already done.",
+        "answer": true,
+        "explanation": "The iterator hides whether the collection is an array, a linked structure, or a tree, and it can remove the current element safely."
+      },
+      {
+        "statement": "In standard textbooks, serializable is called Comparable.",
+        "answer": false,
+        "explanation": "Sort methods and tree collections use compareTo when the caller does not supply another ordering."
+      },
+      {
+        "statement": "Products already order themselves by name, while a separate object orders the same products by price.",
+        "answer": true,
+        "explanation": "An external comparator can order one class in several ways without changing its compareTo method."
+      },
+      {
+        "statement": "In standard textbooks, a stack frame is called Exception.",
+        "answer": false,
+        "explanation": "Throwing the object skips the rest of the normal path and looks for a matching catch."
+      },
+      {
+        "statement": "Constructing a FileReader can throw FileNotFoundException, so the caller catches it or adds a throws clause.",
+        "answer": true,
+        "explanation": "Exceptions other than RuntimeException and Error are checked, so they must be handled or declared."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a checked I/O failure from the file APIs is called Unchecked exception.",
+        "answer": false,
+        "explanation": "Unchecked exceptions usually report programming bugs such as a bad index or a null reference."
+      },
+      {
+        "statement": "A method closes a scanner in this block so the scanner closes even when parsing throws.",
+        "answer": true,
+        "explanation": "Cleanup placed there runs on both the normal path and the exceptional path."
+      },
+      {
+        "statement": "In standard textbooks, a synchronized method is called Try-with-resources.",
+        "answer": false,
+        "explanation": "Resources declared in the try header are closed when the block ends, including when an exception is thrown."
+      },
+      {
+        "statement": "A load method header lists IOException so callers know load may fail while reading.",
+        "answer": true,
+        "explanation": "Declaring the exception forces callers to catch it or declare it themselves."
+      },
+      {
+        "statement": "In standard textbooks, a static initializer is called Lambda expression.",
+        "answer": false,
+        "explanation": "The compiler turns the expression into an instance of the target interface's single abstract method."
+      },
+      {
+        "statement": "Predicate declares only the abstract method test, so a lambda can act as a Predicate.",
+        "answer": true,
+        "explanation": "The single abstract method gives the lambda exactly one signature to implement."
+      },
+      {
+        "statement": "In standard textbooks, a wildcard import of every type in a package is called Method reference.",
+        "answer": false,
+        "explanation": "The referenced method must match the single abstract method of the target functional interface."
+      },
+      {
+        "statement": "Orders are filtered to the open ones, mapped to totals, and collected, leaving the original list unchanged.",
+        "answer": true,
+        "explanation": "The pipeline describes work but does not run it until a terminal operation asks for a result."
+      },
+      {
+        "statement": "In standard textbooks, filter deletes the source list is called Intermediate operation.",
+        "answer": false,
+        "explanation": "These steps are recorded and run only when a later terminal operation pulls values through the pipeline."
+      },
+      {
+        "statement": "Calling collect to build a list forces the earlier filter and map steps to run.",
+        "answer": true,
+        "explanation": "Operations such as collect, reduce, and forEach start evaluation, and the stream cannot be reused afterward."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a new thread is called Optional.",
+        "answer": false,
+        "explanation": "Callers handle presence with methods such as orElse or ifPresent, so a missing value is explicit."
+      },
+      {
+        "statement": "A server handles a slow report on a worker so the thread that accepts new connections can keep running.",
+        "answer": true,
+        "explanation": "Each thread has its own stack and program counter while sharing the process heap."
+      },
+      {
+        "statement": "In standard textbooks, an interface that defines a natural sort order is called Runnable.",
+        "answer": false,
+        "explanation": "Thread and executor APIs accept it and call run on the chosen worker."
+      },
+      {
+        "statement": "Two threads calling a locked increment method cannot lose updates to a shared counter.",
+        "answer": true,
+        "explanation": "The lock is acquired on entry and released on exit, including when the block throws."
+      },
+      {
+        "statement": "In standard textbooks, transient is called volatile variable.",
+        "answer": false,
+        "explanation": "A write to the field happens-before a later read of that field, but a compound action such as increment is still not atomic."
+      },
+      {
+        "statement": "A fixed pool of eight workers runs incoming web jobs instead of allocating a new thread per request.",
+        "answer": true,
+        "explanation": "Reusing workers avoids the cost of creating a thread for every short task."
+      },
+      {
+        "statement": "In standard textbooks, rMI is called JDBC.",
+        "answer": false,
+        "explanation": "Drivers implement the same interfaces, so application code can talk to different databases through one API."
+      },
+      {
+        "statement": "A query uses a question-mark placeholder for a user id, then setInt binds the id before execution.",
+        "answer": true,
+        "explanation": "Placeholders keep values out of the SQL text, which blocks injection and lets the database reuse a plan."
+      },
+      {
+        "statement": "In standard textbooks, a precompiled statement with unbound placeholders is called ResultSet.",
+        "answer": false,
+        "explanation": "next moves the cursor, and getter methods read column values from the current row."
+      },
+      {
+        "statement": "A game writes a Player with an object output stream and later reads that stream back into a Player.",
+        "answer": true,
+        "explanation": "A class implements Serializable so an object output stream can write its non-transient fields."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a team ships one JAR to Windows servers and Linux laptops. Which component lets that same bytecode run on both, the correct result is the Java compiler.",
+        "answer": false,
+        "explanation": "Each machine's JVM executes the same bytecode, so the JAR needs no separate native build per system."
+      },
+      {
+        "statement": "When after a build, the output folder contains class files but no operating-system executable. What do those class files hold, the correct result is sQL scripts.",
+        "answer": false,
+        "explanation": "The compiler writes bytecode into class files, leaving native code generation to the runtime if it happens at all."
+      },
+      {
+        "statement": "When a rarely used feature fails with NoClassDefFoundError only when it is first called. The runtime part failed to locate that class, the correct result is the class loader.",
+        "answer": true,
+        "explanation": "The class is loaded when it is first needed, so a missing class file shows up as a class-loader failure at that moment."
+      },
+      {
+        "statement": "When a server's first requests are slow, then the same endpoint becomes much faster with no code change. What most likely happened, the correct result is hot methods were compiled at runtime.",
+        "answer": true,
+        "explanation": "After methods run often enough, just-in-time compilation turns them into native code for later calls."
+      },
+      {
+        "statement": "When a service allocates many short-lived request objects. Which mechanism frees them once no thread can reach them, the correct result is an explicit free call.",
+        "answer": false,
+        "explanation": "Unreachable request objects stay on the heap until the collector decides they can be reclaimed."
+      },
+      {
+        "statement": "When creating millions of objects throws OutOfMemoryError: Java heap space. Which memory region is exhausted, the correct result is the source-file cache.",
+        "answer": false,
+        "explanation": "Objects created with new live on the heap, so exhausting that region raises a heap-space error."
+      },
+      {
+        "statement": "When deep recursion throws StackOverflowError while plenty of heap space remains. The memory is exhausted, the correct result is that thread's Java stack.",
+        "answer": true,
+        "explanation": "Each recursive call needs a new frame on that thread's stack, independent of free heap space."
+      },
+      {
+        "statement": "When an app that defines a new class for every tenant eventually fails with Metaspace. What has filled up, the correct result is class metadata.",
+        "answer": true,
+        "explanation": "Each loaded class adds metadata in metaspace, so unbounded class generation can exhaust that area."
+      },
+      {
+        "statement": "When two classes should share helper methods that outside code must not call, and they should share a namespace. What groups them, the correct result is a result set.",
+        "answer": false,
+        "explanation": "Classes in the same package share a namespace and can use each other's package-private members."
+      },
+      {
+        "statement": "When a source file uses ArrayList with no java.util prefix and still compiles. The declaration makes that short name legal, the correct result is an import declaration.",
+        "answer": true,
+        "explanation": "An import tells the compiler that the simple name ArrayList means java.util.ArrayList."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When unrelated payment classes must all be passable to a method that expects a charge operation. What should they share, the correct result is a static initializer.",
+        "answer": false,
+        "explanation": "An interface lets unrelated classes offer the same methods without sharing one superclass."
+      },
+      {
+        "statement": "When shapes share a color field and a move method, but Shape itself must not be constructed and each shape computes area differently. What should Shape be, the correct result is a primitive type.",
+        "answer": false,
+        "explanation": "An abstract class can hold shared state and code while leaving area for concrete subclasses."
+      },
+      {
+        "statement": "When a new account type should reuse deposit and withdraw instead of copying those methods. The feature provides that reuse, the correct result is inheritance.",
+        "answer": true,
+        "explanation": "A subclass inherits the superclass methods, so deposit and withdraw do not need to be copied."
+      },
+      {
+        "statement": "When a variable of type Animal refers to a Dog, and speak prints bark. The feature selected Dog's method, the correct result is method overriding.",
+        "answer": true,
+        "explanation": "The call uses the Dog object's overriding method, not the version declared on the Animal variable."
+      },
+      {
+        "statement": "When a utility class has two methods named max, one taking int values and one taking double values. What is that pair, the correct result is native methods.",
+        "answer": false,
+        "explanation": "The methods share a name and differ in parameter types, so they are overloads resolved at compile time."
+      },
+      {
+        "statement": "When a checkout method accepts any discount rule, and holiday and student rules compute different amounts. Which idea is in use, the correct result is package-private access.",
+        "answer": false,
+        "explanation": "One discount-rule type stands for several implementations, and each object applies its own formula."
+      },
+      {
+        "statement": "When callers were setting a balance field negative by writing it directly. The practice stops that direct write, the correct result is encapsulation.",
+        "answer": true,
+        "explanation": "Keeping the field private forces every change to go through methods that can reject a negative balance."
+      },
+      {
+        "statement": "When a box type should accept only Invoice objects, and inserting a String should fail at compile time. The feature does that, the correct result is generics.",
+        "answer": true,
+        "explanation": "A generic box of Invoice lets the compiler reject a String before the program runs."
+      },
+      {
+        "statement": "When a method cannot use instanceof to test whether a List is specifically a List of String. Which compilation rule explains that, the correct result is class loading.",
+        "answer": false,
+        "explanation": "Generic arguments are erased, so the runtime type of the list does not include String."
+      },
+      {
+        "statement": "When a method must accept a List of Integer or a List of Double and call doubleValue on the elements. How should the type parameter be bounded, the correct result is t extends Number.",
+        "answer": true,
+        "explanation": "An extends Number bound allows Integer and Double and permits calls to Number methods."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a leaderboard needs fast access by position and almost always adds items at the end. Which List implementation fits best, the correct result is priorityQueue.",
+        "answer": false,
+        "explanation": "An array-backed list offers constant-time index access and cheap appends until a resize is needed."
+      },
+      {
+        "statement": "When a queue often inserts and deletes at the ends and almost never looks up an element by index. Which List is a natural fit, the correct result is arrayList.",
+        "answer": false,
+        "explanation": "Link updates at the ends avoid shifting a contiguous array when the index is rarely needed."
+      },
+      {
+        "statement": "When session data must be retrieved by a unique token in expected constant time. The collection fits, the correct result is hashMap.",
+        "answer": true,
+        "explanation": "Hashing the token selects a bucket, so the session can be found without scanning every entry."
+      },
+      {
+        "statement": "When a signup form must remember emails already used and reject a duplicate quickly. The collection fits, the correct result is hashSet.",
+        "answer": true,
+        "explanation": "A hash set treats equal emails as one element and tests membership without scanning a list."
+      },
+      {
+        "statement": "When a leaderboard must stay sorted by its score key and still map each key to a player name. Which map fits, the correct result is hashMap.",
+        "answer": false,
+        "explanation": "A tree map keeps keys ordered, so iteration follows the score order without a separate sort."
+      },
+      {
+        "statement": "When code must visit every element and delete some during the visit without knowing whether the collection is an array or a tree. What should it use, the correct result is a volatile field.",
+        "answer": false,
+        "explanation": "An iterator provides uniform traversal and a remove operation that stays consistent with the collection."
+      },
+      {
+        "statement": "When student objects should sort by student id inside a tree set, with no extra ordering object. The interface should Student implement, the correct result is comparable.",
+        "answer": true,
+        "explanation": "Comparable puts the natural order inside the class, which a tree set uses automatically."
+      },
+      {
+        "statement": "When products already sort by name, but one screen must sort those same objects by price. In this case that screen pass to the sort, the correct result is a Comparator.",
+        "answer": true,
+        "explanation": "A comparator supplies a price ordering without replacing the class's natural name order."
+      },
+      {
+        "statement": "When a parser hits bad input and must jump to a handler instead of returning a normal value. What should it throw, the correct result is a generic bound.",
+        "answer": false,
+        "explanation": "Throwing an exception transfers control to a matching handler instead of continuing the normal return path."
+      },
+      {
+        "statement": "When the compiler rejects a method that calls a file API and neither catches nor declares the failure. What kind of exception is that, the correct result is a checked exception.",
+        "answer": true,
+        "explanation": "Checked exceptions must be caught or declared, so ignoring a file failure is a compile-time error."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a method may throw ArithmeticException when a computed divisor is zero. What must that method do about the exception, the correct result is catch it or add a throws clause.",
+        "answer": false,
+        "explanation": "ArithmeticException is a RuntimeException, so the compiler does not require a catch or a throws clause."
+      },
+      {
+        "statement": "When a lock must be released both when the work succeeds and when it throws. Where should the unlock call go, the correct result is before the try block.",
+        "answer": false,
+        "explanation": "Finally runs after success and after an exception, so the lock is released on both paths."
+      },
+      {
+        "statement": "When a file reader must close even if reading throws, and the team does not want a handwritten close call. The statement does that, the correct result is try-with-resources.",
+        "answer": true,
+        "explanation": "Declaring the reader in the try header closes it automatically when the block exits."
+      },
+      {
+        "statement": "When a method does not catch IOException and wants its caller to handle that failure. In this case the method header include, the correct result is a throws clause.",
+        "answer": true,
+        "explanation": "A throws clause passes the checked IOException to the caller instead of handling it inside the method."
+      },
+      {
+        "statement": "When a button needs one piece of click behavior, and the team wants to avoid declaring a named class. What should they write, the correct result is a native method.",
+        "answer": false,
+        "explanation": "A lambda implements the listener's single method inline, so no named class is required."
+      },
+      {
+        "statement": "When an interface is meant to be implemented by lambdas and declares only one abstract method. What kind of interface is it, the correct result is a record.",
+        "answer": false,
+        "explanation": "One abstract method is what lets the compiler match a lambda to that interface."
+      },
+      {
+        "statement": "When a stream's forEach should call the existing println method without writing lambda parameters. The syntax does that, the correct result is a method reference.",
+        "answer": true,
+        "explanation": "A method reference points at println, and its signature matches the consumer forEach expects."
+      },
+      {
+        "statement": "When a list of orders should be filtered and mapped without changing the original list in place. The API fits, the correct result is the Stream API.",
+        "answer": true,
+        "explanation": "A stream builds a new result from the list instead of rewriting the list's elements."
+      },
+      {
+        "statement": "When a pipeline calls filter and map but never a terminating call, and logging inside map never appears. Why did the work not run, the correct result is the logger ignores stream calls.",
+        "answer": false,
+        "explanation": "Filter and map are intermediate, so they do no work until a terminal operation pulls elements."
+      },
+      {
+        "statement": "When a pipeline of filter and map should actually run and return a list. What kind of call must finish the pipeline, the correct result is a terminal operation.",
+        "answer": true,
+        "explanation": "Only a terminal operation such as collect pulls values through the pipeline and yields the list."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a lookup may find no user, and callers should handle absence without testing a null return. What should the method return, the correct result is void.",
+        "answer": false,
+        "explanation": "Optional makes the missing user explicit, so the caller uses orElse or a similar method instead of a null test."
+      },
+      {
+        "statement": "When a download should continue while the user-interface path keeps painting the window. What should run the download, the correct result is a generic wildcard.",
+        "answer": false,
+        "explanation": "A second thread can run the download while the interface thread continues to paint."
+      },
+      {
+        "statement": "When work should be handed to a Thread without subclassing Thread. The type should that work implement, the correct result is runnable.",
+        "answer": true,
+        "explanation": "Thread accepts a Runnable and calls its run method, so Thread itself need not be subclassed."
+      },
+      {
+        "statement": "When two threads update a shared balance and sometimes lose an increment. The keyword can make the update method mutually exclusive, the correct result is synchronized.",
+        "answer": true,
+        "explanation": "synchronized acquires the method's lock so only one thread runs the balance update at a time."
+      },
+      {
+        "statement": "When a worker loops on a boolean that another thread sets to true, but the worker never notices the write. Which modifier should the field have, the correct result is final.",
+        "answer": false,
+        "explanation": "volatile makes the write to the flag visible to the worker thread that keeps reading it."
+      },
+      {
+        "statement": "When a server runs thousands of short tasks per minute and should not construct a new Thread for each one. What should execute the tasks, the correct result is a new JVM per task.",
+        "answer": false,
+        "explanation": "Workers in a pool stay alive and take the next submitted task, avoiding a thread creation per task."
+      },
+      {
+        "statement": "When java code must send SQL to a relational database without tying every call site to one vendor's classes. The API is the usual choice, the correct result is jDBC.",
+        "answer": true,
+        "explanation": "JDBC defines the connection and statement interfaces, and a vendor driver supplies the implementation."
+      },
+      {
+        "statement": "When user input must filter a query and must not be pasted into the SQL string. The JDBC type should run that query, the correct result is preparedStatement.",
+        "answer": true,
+        "explanation": "Binding the input to a placeholder sends it as data, not as part of the SQL text."
+      },
+      {
+        "statement": "When a query has already run, and the code must walk each returned row to read column values. Which object does it advance, the correct result is a Savepoint.",
+        "answer": false,
+        "explanation": "The result set is the cursor over the query rows, advanced with next and read with column getters."
+      },
+      {
+        "statement": "When a game must save a Player object's fields to a file and rebuild that object later with JDK object streams. The mechanism fits, the correct result is java object serialization.",
+        "answer": true,
+        "explanation": "Object streams write a Serializable object's fields and can read those bytes back into an object."
+      }
+    ]
+  }
+}

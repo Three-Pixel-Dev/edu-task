@@ -1,0 +1,785 @@
+{
+  "subjectId": "object-oriented-programming",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Class is a user-defined type that bundles data members and the functions that operate on them.",
+        "answer": true,
+        "explanation": "The class describes layout and behaviour, while objects created from it hold the actual member values."
+      },
+      {
+        "statement": "An Object is a header file that only declares a class.",
+        "answer": false,
+        "explanation": "Creating an instance allocates its members and runs a constructor so there is a usable value."
+      },
+      {
+        "statement": "An Encapsulation is bundling data with the operations on that data while restricting outside access to the representation.",
+        "answer": true,
+        "explanation": "Callers use the public operations, so the private layout can change without changing those callers."
+      },
+      {
+        "statement": "An Access specifier is public.",
+        "answer": false,
+        "explanation": "Members keep the accessibility of the latest specifier until another specifier appears."
+      },
+      {
+        "statement": "A Constructor is a special member function, with no return type, that initializes an object when the object is created.",
+        "answer": true,
+        "explanation": "Creation must establish a valid initial state, and this function is the place that does so."
+      },
+      {
+        "statement": "A Default constructor is the destructor.",
+        "answer": false,
+        "explanation": "A declaration that supplies no constructor arguments needs a constructor that can be invoked with none."
+      },
+      {
+        "statement": "A Parameterized constructor is a constructor that accepts arguments and uses them to initialize the new object.",
+        "answer": true,
+        "explanation": "The arguments provide the initial state at the moment the object is created."
+      },
+      {
+        "statement": "A Copy constructor is a constructor that takes no arguments.",
+        "answer": false,
+        "explanation": "Copy initialization creates a new object, including when an argument is passed by value."
+      },
+      {
+        "statement": "A Destructor is the member function that runs when an object's lifetime ends and releases resources the object owns.",
+        "answer": true,
+        "explanation": "Automatic objects are destroyed when their scope ends, and this function is the cleanup hook."
+      },
+      {
+        "statement": "A Member initializer list is in an assignment in the constructor body.",
+        "answer": false,
+        "explanation": "Members and bases are initialized before the constructor body executes, which is required for const members and references."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A this pointer is the pointer inside a non-static member function that addresses the object on which the function was called.",
+        "answer": true,
+        "explanation": "The call is made on a particular object, and this names that object inside the function."
+      },
+      {
+        "statement": "A const member function is as a static function marked const.",
+        "answer": false,
+        "explanation": "The const qualifier after the parameter list makes this a pointer to const, so ordinary members cannot be assigned."
+      },
+      {
+        "statement": "A static data member is a class member of which there is one copy shared by all objects, rather than one copy in each object.",
+        "answer": true,
+        "explanation": "The member belongs to the class, so a change made through one object is visible through every other object."
+      },
+      {
+        "statement": "An Inheritance is hiding data behind private access without any derived class.",
+        "answer": false,
+        "explanation": "A derived object contains a base subobject, so it can reuse the base members."
+      },
+      {
+        "statement": "A Base class is the class from which another class inherits members.",
+        "answer": true,
+        "explanation": "The base declares the common members that each derived class receives as a subobject."
+      },
+      {
+        "statement": "A Derived class is animal.",
+        "answer": false,
+        "explanation": "The derived class extends the base and contains the base as a subobject."
+      },
+      {
+        "statement": "A protected access is access that lets a class and classes derived from it use a member, while unrelated code cannot.",
+        "answer": true,
+        "explanation": "It is broader than private, so descendants can use details that ordinary clients still cannot use."
+      },
+      {
+        "statement": "A Function overriding is a non-virtual function with static binding.",
+        "answer": false,
+        "explanation": "Because the base function is virtual, a call through a base pointer or reference uses the derived definition."
+      },
+      {
+        "statement": "A virtual function is a member function whose override is chosen at run time when the call uses a base pointer or reference.",
+        "answer": true,
+        "explanation": "The call uses the dynamic type of the object, so the derived override runs."
+      },
+      {
+        "statement": "A Pure virtual function is a non-virtual function whose result is assigned zero.",
+        "answer": false,
+        "explanation": "The pure specifier means this class does not provide the final implementation that a concrete class needs."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Abstract class is a class with at least one pure virtual function, which therefore cannot be instantiated.",
+        "answer": true,
+        "explanation": "The missing final implementation of a pure virtual function makes creating an object of that class ill-formed."
+      },
+      {
+        "statement": "A Runtime polymorphism is overload resolution.",
+        "answer": false,
+        "explanation": "One call site can run different overrides when the pointer addresses different derived objects."
+      },
+      {
+        "statement": "A Virtual table is the per-class table of addresses of virtual functions used to dispatch a virtual call.",
+        "answer": true,
+        "explanation": "A polymorphic object typically contains a hidden pointer to the table for its dynamic type."
+      },
+      {
+        "statement": "A Virtual destructor is omitted while Dog adds resources.",
+        "answer": false,
+        "explanation": "If the base destructor is not virtual, deleting a derived object through a base pointer has undefined behaviour."
+      },
+      {
+        "statement": "A Function template is a blueprint from which the compiler generates a function for each set of template arguments that is used.",
+        "answer": true,
+        "explanation": "Template parameters stand for types or values, and each instantiation is a separate concrete function."
+      },
+      {
+        "statement": "A Class template is a blueprint that generates functions rather than types.",
+        "answer": false,
+        "explanation": "Different template arguments produce different types, such as a box of int versus a box of string."
+      },
+      {
+        "statement": "A RAII is the practice of binding a resource to an object that acquires it in the constructor and releases it in the destructor.",
+        "answer": true,
+        "explanation": "If an exception unwinds the stack, automatic objects are still destroyed, so their destructors release the resources."
+      },
+      {
+        "statement": "An unique_ptr is shared_ptr.",
+        "answer": false,
+        "explanation": "Ownership is moved rather than copied, so exactly one owner deletes the object."
+      },
+      {
+        "statement": "A shared_ptr is a smart pointer that shares ownership with a reference count and deletes the object when the last owner is destroyed.",
+        "answer": true,
+        "explanation": "Copying increases the count and destroying one owner decreases it, so the object lives while any shared owner remains."
+      },
+      {
+        "statement": "A std::vector is std::map.",
+        "answer": false,
+        "explanation": "Contiguous storage provides constant-time indexing, and adding elements may allocate a larger buffer and move the old one."
+      }
+    ],
+    "4": [
+      {
+        "statement": "An Iterator is an object that designates an element of a container and can be advanced to visit other elements.",
+        "answer": true,
+        "explanation": "Algorithms operate on ranges of these positions, so one algorithm can work with many container types."
+      },
+      {
+        "statement": "A std::string is a fixed character array that cannot grow.",
+        "answer": false,
+        "explanation": "The object tracks its size and buffer, so appending and later destruction are handled by the class."
+      },
+      {
+        "statement": "A std::map is an associative container of unique keys and their values, kept in key order with logarithmic lookup.",
+        "answer": true,
+        "explanation": "Search, insertion, and removal are logarithmic in the number of elements, and walking the container visits keys in sorted order."
+      },
+      {
+        "statement": "An Operator overloading is a newly invented operator token.",
+        "answer": false,
+        "explanation": "The compiler rewrites the operator expression as a call to the function the class provided."
+      },
+      {
+        "statement": "A Friend function is a non-member function that a class explicitly allows to use its private and protected members.",
+        "answer": true,
+        "explanation": "Friendship is granted only by an explicit declaration, and it is not inherited by derived classes."
+      },
+      {
+        "statement": "A Composition is a non-owning pointer with no member.",
+        "answer": false,
+        "explanation": "The member objects are constructed as part of the enclosing object and destroyed with it."
+      },
+      {
+        "statement": "A Function overloading is declaring several functions with one name and different parameter lists in the same scope.",
+        "answer": true,
+        "explanation": "Overload resolution selects one of the functions at compile time from the arguments in the call."
+      },
+      {
+        "statement": "A Namespace is a function body, which limits the lifetime of its local variables.",
+        "answer": false,
+        "explanation": "A name declared in a namespace is found by qualifying it, as with the standard vector name."
+      },
+      {
+        "statement": "A Reference is an alias for an existing object that must be initialized and cannot later be reseated to another object.",
+        "answer": true,
+        "explanation": "Operations on the alias use the object it was bound to, and there is no assignment that makes the alias refer elsewhere."
+      },
+      {
+        "statement": "A Move constructor is the copy constructor.",
+        "answer": false,
+        "explanation": "The source is expendable, so stealing its buffer avoids copying every element."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Rule of Five is the guideline that if a class defines any special member for a raw resource, it should define or delete all five.",
+        "answer": true,
+        "explanation": "A destructor that releases a raw resource usually means the implicit copy would duplicate ownership, so the copy and move operations must be written or suppressed together."
+      },
+      {
+        "statement": "An Object slicing is a virtual destructor call.",
+        "answer": false,
+        "explanation": "The base copy constructor copies only the base subobject, so the extra derived part is not stored."
+      },
+      {
+        "statement": "A Multiple inheritance is a class with more than one direct base class.",
+        "answer": true,
+        "explanation": "The derived object contains one subobject for each direct base."
+      },
+      {
+        "statement": "A Diamond problem is a missing virtual destructor in a single base class.",
+        "answer": false,
+        "explanation": "Without virtual inheritance, the most derived object contains two separate copies of the common ancestor."
+      },
+      {
+        "statement": "A dynamic_cast is a cast that checks at run time whether a pointer or reference in a polymorphic hierarchy refers to the target type.",
+        "answer": true,
+        "explanation": "If a pointer conversion fails, the result is null; if a reference conversion fails, bad_cast is thrown."
+      },
+      {
+        "statement": "An Exception handling is an ignored error code.",
+        "answer": false,
+        "explanation": "As each scope between the throw and the handler exits, the destructors of its automatic objects run."
+      },
+      {
+        "statement": "A std::sort is a standard algorithm that rearranges a random-access range into order and is not required to be stable.",
+        "answer": true,
+        "explanation": "It needs random-access positions and performs on the order of N log N comparisons."
+      },
+      {
+        "statement": "A std::stack is std::priority_queue.",
+        "answer": false,
+        "explanation": "The adapter limits a underlying sequence to push, pop, and top so clients use last-in first-out order."
+      },
+      {
+        "statement": "An Interface is in C++, an abstract class that declares only pure virtual functions and a virtual destructor, with no data members.",
+        "answer": true,
+        "explanation": "C++ expresses a contract as an abstract class of pure virtual operations that derived classes implement."
+      },
+      {
+        "statement": "A Copy assignment operator is the constructor that takes resources from an rvalue to initialize a new object.",
+        "answer": false,
+        "explanation": "The left-hand object is already alive and may already own resources, so assignment replaces that state."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a namespace, which cannot give its members private access is called Class.",
+        "answer": false,
+        "explanation": "The class describes layout and behaviour, while objects created from it hold the actual member values."
+      },
+      {
+        "statement": "The declaration Counter c creates one Counter instance named c.",
+        "answer": true,
+        "explanation": "Creating an instance allocates its members and runs a constructor so there is a usable value."
+      },
+      {
+        "statement": "In standard textbooks, overloading is called Encapsulation.",
+        "answer": false,
+        "explanation": "Callers use the public operations, so the private layout can change without changing those callers."
+      },
+      {
+        "statement": "Members written after private can be used by the class's own functions but not by main.",
+        "answer": true,
+        "explanation": "Members keep the accessibility of the latest specifier until another specifier appears."
+      },
+      {
+        "statement": "In standard textbooks, only a later assignment is called Constructor.",
+        "answer": false,
+        "explanation": "Creation must establish a valid initial state, and this function is the place that does so."
+      },
+      {
+        "statement": "The declaration Sensor s with no parentheses calls a constructor that takes no arguments.",
+        "answer": true,
+        "explanation": "A declaration that supplies no constructor arguments needs a constructor that can be invoked with none."
+      },
+      {
+        "statement": "In standard textbooks, an assignment that changes an object which already exists is called Parameterized constructor.",
+        "answer": false,
+        "explanation": "The arguments provide the initial state at the moment the object is created."
+      },
+      {
+        "statement": "Passing a string by value copy-constructs the parameter from the caller's string.",
+        "answer": true,
+        "explanation": "Copy initialization creates a new object, including when an argument is passed by value."
+      },
+      {
+        "statement": "In standard textbooks, the constructor is called Destructor.",
+        "answer": false,
+        "explanation": "Automatic objects are destroyed when their scope ends, and this function is the cleanup hook."
+      },
+      {
+        "statement": "A constructor sets a const id from a parameter in the initializer list because a const member cannot be assigned in the body.",
+        "answer": true,
+        "explanation": "Members and bases are initialized before the constructor body executes, which is required for const members and references."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a pointer to the class type is called this pointer.",
+        "answer": false,
+        "explanation": "The call is made on a particular object, and this names that object inside the function."
+      },
+      {
+        "statement": "A size function declared const can be called on a const list and cannot push a new element.",
+        "answer": true,
+        "explanation": "The const qualifier after the parameter list makes this a pointer to const, so ordinary members cannot be assigned."
+      },
+      {
+        "statement": "In standard textbooks, a local static variable inside a free function is called static data member.",
+        "answer": false,
+        "explanation": "The member belongs to the class, so a change made through one object is visible through every other object."
+      },
+      {
+        "statement": "A Dog declared to derive from Animal can use Animal's eat operation and add its own bark operation.",
+        "answer": true,
+        "explanation": "A derived object contains a base subobject, so it can reuse the base members."
+      },
+      {
+        "statement": "In standard textbooks, dog is called Base class.",
+        "answer": false,
+        "explanation": "The base declares the common members that each derived class receives as a subobject."
+      },
+      {
+        "statement": "Dog inherits from Animal and adds bark, so Dog is the class that extends Animal.",
+        "answer": true,
+        "explanation": "The derived class extends the base and contains the base as a subobject."
+      },
+      {
+        "statement": "In standard textbooks, static is called protected access.",
+        "answer": false,
+        "explanation": "It is broader than private, so descendants can use details that ordinary clients still cannot use."
+      },
+      {
+        "statement": "Dog replaces Animal's virtual speak, and an Animal pointer to a Dog runs Dog's speak.",
+        "answer": true,
+        "explanation": "Because the base function is virtual, a call through a base pointer or reference uses the derived definition."
+      },
+      {
+        "statement": "In standard textbooks, a function template, which is instantiated at compile time is called virtual function.",
+        "answer": false,
+        "explanation": "The call uses the dynamic type of the object, so the derived override runs."
+      },
+      {
+        "statement": "Shape declares area as a pure virtual function, and Circle provides the overriding area.",
+        "answer": true,
+        "explanation": "The pure specifier means this class does not provide the final implementation that a concrete class needs."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, a Shape object is created is called Abstract class.",
+        "answer": false,
+        "explanation": "The missing final implementation of a pure virtual function makes creating an object of that class ill-formed."
+      },
+      {
+        "statement": "A loop of Animal pointers calls speak, and each element runs the Dog or Cat version that matches its object.",
+        "answer": true,
+        "explanation": "One call site can run different overrides when the pointer addresses different derived objects."
+      },
+      {
+        "statement": "In standard textbooks, the overload set is called Virtual table.",
+        "answer": false,
+        "explanation": "A polymorphic object typically contains a hidden pointer to the table for its dynamic type."
+      },
+      {
+        "statement": "Deleting an Animal pointer that addresses a Dog runs Dog's destructor because Animal's destructor is virtual.",
+        "answer": true,
+        "explanation": "If the base destructor is not virtual, deleting a derived object through a base pointer has undefined behaviour."
+      },
+      {
+        "statement": "In standard textbooks, a macro that pastes text and does not type-check the substitution is called Function template.",
+        "answer": false,
+        "explanation": "Template parameters stand for types or values, and each instantiation is a separate concrete function."
+      },
+      {
+        "statement": "The standard vector blueprint generates one class for int elements and a different class for string elements.",
+        "answer": true,
+        "explanation": "Different template arguments produce different types, such as a box of int versus a box of string."
+      },
+      {
+        "statement": "In standard textbooks, a bare new with no matching delete is called RAII.",
+        "answer": false,
+        "explanation": "If an exception unwinds the stack, automatic objects are still destroyed, so their destructors release the resources."
+      },
+      {
+        "statement": "A factory returns sole ownership of a File, and the caller's smart pointer deletes that File at the end of the scope.",
+        "answer": true,
+        "explanation": "Ownership is moved rather than copied, so exactly one owner deletes the object."
+      },
+      {
+        "statement": "In standard textbooks, a raw pointer is called shared_ptr.",
+        "answer": false,
+        "explanation": "Copying increases the count and destroying one owner decreases it, so the object lives while any shared owner remains."
+      },
+      {
+        "statement": "Adding a fourth int when the buffer can hold only three allocates a larger buffer and moves the existing ints.",
+        "answer": true,
+        "explanation": "Contiguous storage provides constant-time indexing, and adding elements may allocate a larger buffer and move the old one."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a copy of the whole container is called Iterator.",
+        "answer": false,
+        "explanation": "Algorithms operate on ranges of these positions, so one algorithm can work with many container types."
+      },
+      {
+        "statement": "Appending a character may allocate a larger buffer, and destroying the string releases that buffer.",
+        "answer": true,
+        "explanation": "The object tracks its size and buffer, so appending and later destruction are handled by the class."
+      },
+      {
+        "statement": "In standard textbooks, std::unordered_map is called std::map.",
+        "answer": false,
+        "explanation": "Search, insertion, and removal are logarithmic in the number of elements, and walking the container visits keys in sorted order."
+      },
+      {
+        "statement": "A complex type defines addition so that adding two values adds their real parts and their imaginary parts.",
+        "answer": true,
+        "explanation": "The compiler rewrites the operator expression as a call to the function the class provided."
+      },
+      {
+        "statement": "In standard textbooks, the namespace can read private members is called Friend function.",
+        "answer": false,
+        "explanation": "Friendship is granted only by an explicit declaration, and it is not inherited by derived classes."
+      },
+      {
+        "statement": "A Car type contains an Engine member, so constructing a Car also constructs that Engine.",
+        "answer": true,
+        "explanation": "The member objects are constructed as part of the enclosing object and destroyed with it."
+      },
+      {
+        "statement": "In standard textbooks, using one function template to generate functions for many types is called Function overloading.",
+        "answer": false,
+        "explanation": "Overload resolution selects one of the functions at compile time from the arguments in the call."
+      },
+      {
+        "statement": "Two libraries each declare init in their own namespace, and a caller qualifies which init to run.",
+        "answer": true,
+        "explanation": "A name declared in a namespace is found by qualifying it, as with the standard vector name."
+      },
+      {
+        "statement": "In standard textbooks, a pointer is called Reference.",
+        "answer": false,
+        "explanation": "Operations on the alias use the object it was bound to, and there is no assignment that makes the alias refer elsewhere."
+      },
+      {
+        "statement": "Returning a local vector can transfer its buffer into the caller's result instead of copying each element.",
+        "answer": true,
+        "explanation": "The source is expendable, so stealing its buffer avoids copying every element."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, the as-if rule is called Rule of Five.",
+        "answer": false,
+        "explanation": "A destructor that releases a raw resource usually means the implicit copy would duplicate ownership, so the copy and move operations must be written or suppressed together."
+      },
+      {
+        "statement": "Passing a Dog by value to a parameter of type Animal copies only the Animal part, and the parameter is not a Dog.",
+        "answer": true,
+        "explanation": "The base copy constructor copies only the base subobject, so the extra derived part is not stored."
+      },
+      {
+        "statement": "In standard textbooks, a class that contains several member objects and lists no bases is called Multiple inheritance.",
+        "answer": false,
+        "explanation": "The derived object contains one subobject for each direct base."
+      },
+      {
+        "statement": "Student and Employee each derive from Person, and a teaching assistant derives from both, so it contains two Person parts.",
+        "answer": true,
+        "explanation": "Without virtual inheritance, the most derived object contains two separate copies of the common ancestor."
+      },
+      {
+        "statement": "In standard textbooks, static_cast is called dynamic_cast.",
+        "answer": false,
+        "explanation": "If a pointer conversion fails, the result is null; if a reference conversion fails, bad_cast is thrown."
+      },
+      {
+        "statement": "A function throws a runtime error, the caller's handler prints it, and local objects in between are destroyed.",
+        "answer": true,
+        "explanation": "As each scope between the throw and the handler exits, the destructors of its automatic objects run."
+      },
+      {
+        "statement": "In standard textbooks, inserting into a map is called std::sort.",
+        "answer": false,
+        "explanation": "It needs random-access positions and performs on the order of N log N comparisons."
+      },
+      {
+        "statement": "After pushing 1 and then 2, top yields 2, and pop removes 2.",
+        "answer": true,
+        "explanation": "The adapter limits a underlying sequence to push, pop, and top so clients use last-in first-out order."
+      },
+      {
+        "statement": "In standard textbooks, any concrete class whose data members are public is called Interface.",
+        "answer": false,
+        "explanation": "C++ expresses a contract as an abstract class of pure virtual operations that derived classes implement."
+      },
+      {
+        "statement": "After two strings both exist, assigning one to the other copies characters into the existing target.",
+        "answer": true,
+        "explanation": "The left-hand object is already alive and may already own resources, so assignment replaces that state."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a programmer specifies the data and operations of a Counter, and no counter storage exists until an instance is created. What was specified, the correct result is an object.",
+        "answer": false,
+        "explanation": "The declaration describes the type, and later instances are objects of that class."
+      },
+      {
+        "statement": "When the statement Counter c allocates storage and runs a constructor. What does the name c denote, the correct result is a header file.",
+        "answer": false,
+        "explanation": "c names an instance with its own storage, which is an object of the class."
+      },
+      {
+        "statement": "When clients of a stack may call push and pop, but they cannot read the private array inside the stack. The idea is that, the correct result is encapsulation.",
+        "answer": true,
+        "explanation": "The data and operations are bundled, and the representation is hidden from clients."
+      },
+      {
+        "statement": "When a data member can be used by the class's member functions and not by main. The specifier states that restriction, the correct result is private.",
+        "answer": true,
+        "explanation": "private members are available to the class and its friends, not to unrelated functions such as main."
+      },
+      {
+        "statement": "When creating a Counter sets its count to 0 before any normal member function runs. Which function did that initialization, the correct result is a free function that returns a Counter.",
+        "answer": false,
+        "explanation": "Initialization performed as part of creating the object is the constructor's job."
+      },
+      {
+        "statement": "When the declaration Sensor s must compile and initialize s without any arguments. Which constructor is required, the correct result is the destructor.",
+        "answer": false,
+        "explanation": "No arguments are provided, so the class needs a constructor that can be called with an empty argument list."
+      },
+      {
+        "statement": "When the declaration of point p passes 3 and 4, and p is created with those coordinates. The constructor runs, the correct result is a parameterized constructor.",
+        "answer": true,
+        "explanation": "The coordinates are arguments used to initialize a newly created object."
+      },
+      {
+        "statement": "When string b is created from an existing string a. The special member initializes b, the correct result is the copy constructor.",
+        "answer": true,
+        "explanation": "b is a new object initialized from a, so this is copy construction rather than assignment."
+      },
+      {
+        "statement": "When a local file object leaves its block, and the handle it owns is closed automatically. Which function closed the handle, the correct result is a manual free that automatic objects always require.",
+        "answer": false,
+        "explanation": "Leaving the scope ends the object's lifetime and therefore runs the destructor."
+      },
+      {
+        "statement": "When a class has a const int id that must receive its value when the object is created. Where must that initialization be written, the correct result is in the member initializer list.",
+        "answer": true,
+        "explanation": "A const member is initialized before the constructor body and cannot be assigned later."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When increment is called on object c and must name c's own count. Which pointer inside the function addresses c, the correct result is a required null pointer.",
+        "answer": false,
+        "explanation": "A non-static member function receives the address of the object used in the call as this."
+      },
+      {
+        "statement": "When a const rectangle must support a call to area, and that call must compile. How should area be declared, the correct result is as a static function marked const.",
+        "answer": false,
+        "explanation": "Only a const member function may be called on a const object."
+      },
+      {
+        "statement": "When every Counter must see one shared tally of live objects, not a separate tally inside each counter. Where should the tally be declared, the correct result is as a static data member.",
+        "answer": true,
+        "explanation": "A static data member is the single class-wide object shared by all instances."
+      },
+      {
+        "statement": "When dog is declared to derive from Animal and receives Animal's members. The mechanism is that, the correct result is inheritance.",
+        "answer": true,
+        "explanation": "Deriving Dog from Animal makes Dog reuse Animal through inheritance."
+      },
+      {
+        "statement": "When dog derives from Animal. Which of those classes is the base, the correct result is std::string.",
+        "answer": false,
+        "explanation": "The class named as the one being inherited from is the base class."
+      },
+      {
+        "statement": "When animal is inherited from, and Dog adds bark. Which class is derived, the correct result is animal.",
+        "answer": false,
+        "explanation": "Dog is the class that inherits, so Dog is the derived class."
+      },
+      {
+        "statement": "When a Dog method reads hunger, main cannot read hunger, and hunger is not public. The access allows the Dog method, the correct result is protected.",
+        "answer": true,
+        "explanation": "protected members are available to derived classes and hidden from unrelated functions."
+      },
+      {
+        "statement": "When dog defines virtual speak with the same parameters as Animal's virtual speak. In this case Dog's function relative to Animal's, the correct result is an override.",
+        "answer": true,
+        "explanation": "A matching definition of a virtual base function in the derived class is an override."
+      },
+      {
+        "statement": "When an Animal pointer addresses a Dog, and the call to speak runs Dog's version. What property of speak causes that, the correct result is it is static.",
+        "answer": false,
+        "explanation": "A virtual call selects the override that belongs to the object's dynamic type."
+      },
+      {
+        "statement": "When shape declares virtual area as equal to zero, and a concrete Circle must implement area. What kind of function is Shape's area, the correct result is a pure virtual function.",
+        "answer": true,
+        "explanation": "The equal-to-zero specifier makes the virtual function pure and requires a concrete derived class to override it."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When shape has one pure virtual function, and the program declares a Shape variable. What is the result, the correct result is the variable is zero-initialized.",
+        "answer": false,
+        "explanation": "A class that still has a pure virtual function is abstract and cannot be instantiated."
+      },
+      {
+        "statement": "When one call through an Animal pointer runs either Dog's speak or Cat's speak, depending on the object addressed. What is that choice called, the correct result is overload resolution.",
+        "answer": false,
+        "explanation": "The override is selected from the dynamic type when the virtual call executes."
+      },
+      {
+        "statement": "When a virtual call loads a function address from a hidden table chosen by the object's dynamic type. In this case that table, the correct result is the virtual table.",
+        "answer": true,
+        "explanation": "Virtual dispatch uses the dynamic type's table of function addresses."
+      },
+      {
+        "statement": "When an Animal pointer addresses a Dog created with new, and delete must run Dog's destructor. In this case Animal's destructor be, the correct result is virtual.",
+        "answer": true,
+        "explanation": "A virtual destructor in the base makes delete through a base pointer destroy the complete derived object."
+      },
+      {
+        "statement": "When one max blueprint is called on ints and on doubles, and the compiler produces a function for each. What is that blueprint, the correct result is a virtual function.",
+        "answer": false,
+        "explanation": "The compiler instantiates a concrete function from the template for each argument type that is used."
+      },
+      {
+        "statement": "When box is written once, and Box of int is a different type from Box of string. What is Box, the correct result is a function template.",
+        "answer": false,
+        "explanation": "A class template generates a separate class for each template argument list."
+      },
+      {
+        "statement": "When a function throws, a local lock object is destroyed during unwinding, and the mutex is unlocked. The practice made that reliable, the correct result is rAII.",
+        "answer": true,
+        "explanation": "The lock object's destructor runs as the stack unwinds and releases the mutex it acquired."
+      },
+      {
+        "statement": "When a factory hands off sole ownership of a File, the caller stores it in a smart pointer, and the File is deleted when that pointer ends. The type is it, the correct result is unique_ptr.",
+        "answer": true,
+        "explanation": "Exclusive ownership that deletes the object with the owner is unique_ptr."
+      },
+      {
+        "statement": "When two smart pointers address one node, and the node is deleted only after both pointers have been destroyed. Which type does that, the correct result is weak_ptr.",
+        "answer": false,
+        "explanation": "A reference count keeps the object alive until the last sharing owner is destroyed."
+      },
+      {
+        "statement": "When a container of ints supports constant-time indexing and may allocate a new buffer when an element is appended. The container is it, the correct result is std::vector.",
+        "answer": true,
+        "explanation": "A growable contiguous sequence with random-access indexing is a vector."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a sort is given the first position and the past-the-end position of a vector, not the vector object itself. What are those positions, the correct result is allocators.",
+        "answer": false,
+        "explanation": "A range is denoted by iterators that mark elements, including the position just past the last element."
+      },
+      {
+        "statement": "When code builds text by appending, remembers the length, and frees its buffer when the object is destroyed. Which standard type is that, the correct result is a file stream.",
+        "answer": false,
+        "explanation": "A resizable owning sequence of characters in the standard library is std::string."
+      },
+      {
+        "statement": "When a container stores one name per student id, walks the ids in sorted order, and finds a key in logarithmic time. The container fits, the correct result is std::map.",
+        "answer": true,
+        "explanation": "Unique keys stored in order with logarithmic operations match std::map."
+      },
+      {
+        "statement": "When the expression a plus b adds two complex values because the class defined a function for plus. The feature is that, the correct result is operator overloading.",
+        "answer": true,
+        "explanation": "The class supplied behaviour for an existing operator applied to its type."
+      },
+      {
+        "statement": "When a non-member plus reads the private real part of a complex value, and the class named that function in a friend declaration. Why is the read allowed, the correct result is derived classes are friends automatically.",
+        "answer": false,
+        "explanation": "The friend declaration grants that non-member access to the private members."
+      },
+      {
+        "statement": "When car contains an Engine member that is created and destroyed together with the Car. Which relationship is this, the correct result is a non-owning pointer with no member.",
+        "answer": false,
+        "explanation": "The engine is a part stored inside the car, so the car is composed of an engine."
+      },
+      {
+        "statement": "When two functions are both named print, one takes int and one takes string, and a call with 3 selects the int version at compile time. In this case that, the correct result is overloading.",
+        "answer": true,
+        "explanation": "The same name with different parameter lists in one scope is overloading."
+      },
+      {
+        "statement": "When library A and library B both declare init, and the program calls A::init without clashing with B::init. What keeps the names apart, the correct result is namespaces.",
+        "answer": true,
+        "explanation": "Each init is declared in a different named scope, and qualification selects one of them."
+      },
+      {
+        "statement": "When name r is bound to int x, assigning to r changes x, and r cannot later be made to mean y. What is r, the correct result is a macro.",
+        "answer": false,
+        "explanation": "r is another name for x for the rest of r's lifetime, which is a reference."
+      },
+      {
+        "statement": "When a function returns a local vector by value, and the caller can receive that buffer without copying every element. The constructor performs the transfer, the correct result is the move constructor.",
+        "answer": true,
+        "explanation": "The local vector is an rvalue whose buffer can be taken by the move constructor."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a class deletes a raw pointer in its destructor and still uses the compiler-generated copy constructor. Which guideline does that break, the correct result is the one-definition rule.",
+        "answer": false,
+        "explanation": "Releasing a raw resource in the destructor means the copy and move members must be defined or deleted as well."
+      },
+      {
+        "statement": "When a Dog is passed by value to a parameter of type Animal, and the parameter has none of the Dog members. What happened, the correct result is a virtual destructor call.",
+        "answer": false,
+        "explanation": "Copying by value into a base object keeps only the base subobject."
+      },
+      {
+        "statement": "When phone lists both Clock and Radio as direct bases. The inheritance form is that, the correct result is multiple inheritance.",
+        "answer": true,
+        "explanation": "Two direct base classes mean the derived class uses multiple inheritance."
+      },
+      {
+        "statement": "When a teaching assistant derives from Student and Employee, and each of those derives from Person, making an unqualified Person call ambiguous. What problem is this, the correct result is the diamond problem.",
+        "answer": true,
+        "explanation": "Two inheritance paths to Person create two Person subobjects, which is the diamond ambiguity."
+      },
+      {
+        "statement": "When an Animal pointer might address a Dog, and failure to convert it to Dog must produce a null pointer. Which cast performs that check, the correct result is reinterpret_cast.",
+        "answer": false,
+        "explanation": "dynamic_cast checks the dynamic type and returns null when a pointer does not address the target type."
+      },
+      {
+        "statement": "When a function throws, local objects of the callers are destroyed, and a handler prints the error. Which mechanism did that, the correct result is an ignored error code.",
+        "answer": false,
+        "explanation": "throw transfers control to a handler and unwinds the stack, destroying automatic objects."
+      },
+      {
+        "statement": "When a vector must be fully ordered in about N log N comparisons, and equal elements need not keep their old order. The algorithm matches, the correct result is std::sort.",
+        "answer": true,
+        "explanation": "std::sort orders a random-access range and does not promise to keep equal elements in their original order."
+      },
+      {
+        "statement": "When values are pushed, and the next pop removes the value pushed most recently. The adapter provides that interface, the correct result is std::stack.",
+        "answer": true,
+        "explanation": "Removing the most recently pushed element is last-in first-out behaviour of a stack."
+      },
+      {
+        "statement": "When a class has a virtual destructor, only pure virtual functions, and no data, and clients program to that class. What role is it playing, the correct result is a concrete value type.",
+        "answer": false,
+        "explanation": "An abstract class made only of pure virtual operations is the C++ form of an interface."
+      },
+      {
+        "statement": "When string a and string b both already exist, and the statement b = a copies a into b. The special member runs, the correct result is the copy assignment operator.",
+        "answer": true,
+        "explanation": "b already exists, so the copy is assignment rather than initialization of a new object."
+      }
+    ]
+  }
+}

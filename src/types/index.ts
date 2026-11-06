@@ -3,9 +3,11 @@
  *   users/{uid}                         → UserProfile
  *   subjectFields/{fieldId}             → SubjectField
  *   subjects/{subjectId}                → Subject
- *   questions/{questionId}              → Question
+ *   questions/{questionId}              → Question (Multiple choice, A–D)
+ *   (Quiz True/False statements are bundled in the app — see src/data/true-false/)
  *   quizResults/{resultId}              → QuizResult
  *   tasks/{taskId}                      → Task
+ *   notifications/{notificationId}      → AppNotification (inbox)
  *   users/{uid}/quizSessions/{id}       → QuizSession (an unfinished quiz, for "Continue quiz")
  *
  * Firestore Timestamps are converted to ISO-8601 strings when read (see
@@ -33,6 +35,13 @@ export interface RegisterInput extends Credentials {
 }
 
 // ── Quiz content (read-only for students) ────────────────────────────────
+/**
+ * The two kinds of practice. Shown in the UI as "Multiple choice" (A–D,
+ * `questions` collection) and "Quiz" (True / False, local JSON bank).
+ * Documents saved before Quiz existed have no type and count as multipleChoice.
+ */
+export type QuizType = 'multipleChoice' | 'trueFalse';
+
 export interface SubjectField {
   id: string;
   name: string;
@@ -78,6 +87,7 @@ export interface QuizAnswer {
 export interface QuizResult {
   id: string;
   userId: string;
+  quizType: QuizType;
   subjectId: string;
   subjectName: string;
   subjectCode: string;
@@ -95,6 +105,7 @@ export interface QuizResult {
 /** An unfinished quiz, saved so the student can leave and continue later. */
 export interface QuizSession {
   id: string;
+  quizType: QuizType;
   subjectId: string;
   subjectName: string;
   subjectCode: string;
@@ -148,6 +159,38 @@ export type TaskInput = Pick<Task, 'title' | 'description' | 'subjectId' | 'dueD
 export type TaskUrgency = 'overdue' | 'dueSoon' | 'upcoming' | 'completed';
 
 export type TaskSection = 'today' | 'upcoming' | 'completed';
+
+// ── Notifications (inbox) ────────────────────────────────────────────────
+export type NotificationType = 'taskDue' | 'taskOverdue' | 'quizCompleted';
+
+export interface AppNotification {
+  id: string;
+  userId: string;
+  type: NotificationType;
+  title: string;
+  body: string;
+  read: boolean;
+  /** Stable key to avoid duplicates, e.g. taskOverdue:{taskId} or quizCompleted:{resultId}. */
+  dedupeKey: string;
+  createdAt: ISODateString;
+  taskId?: string;
+  resultId?: string;
+  subjectId?: string;
+  level?: number;
+  quizType?: QuizType;
+}
+
+export type NotificationInput = {
+  type: NotificationType;
+  title: string;
+  body: string;
+  dedupeKey: string;
+  taskId?: string;
+  resultId?: string;
+  subjectId?: string;
+  level?: number;
+  quizType?: QuizType;
+};
 
 // ── Misc ─────────────────────────────────────────────────────────────────
 export type AsyncStatus = 'loading' | 'success' | 'error';

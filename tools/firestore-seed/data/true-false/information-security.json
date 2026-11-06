@@ -1,0 +1,785 @@
+{
+  "subjectId": "information-security",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Confidentiality is the goal that information is disclosed only to people or systems allowed to see it.",
+        "answer": true,
+        "explanation": "Secrecy controls such as encryption and access limits exist to prevent unauthorised disclosure."
+      },
+      {
+        "statement": "An Integrity is the goal that a service answers every request on time.",
+        "answer": false,
+        "explanation": "Hashes, signatures, and write controls protect correctness and completeness of data."
+      },
+      {
+        "statement": "An Availability is the goal that authorised users can reach systems and data when they need them.",
+        "answer": true,
+        "explanation": "Redundancy, backups, and protection from overload keep a service usable."
+      },
+      {
+        "statement": "A CIA triad is parkerian hexad only.",
+        "answer": false,
+        "explanation": "Most security requirements can be stated as protecting secrecy, correctness, or timely access."
+      },
+      {
+        "statement": "A Non-repudiation is evidence that stops a party from falsely denying that they sent or signed something.",
+        "answer": true,
+        "explanation": "A digital signature checked with the signer's public key ties the action to that signer."
+      },
+      {
+        "statement": "An Asset is risk scores.",
+        "answer": false,
+        "explanation": "Risk work starts by listing valued items such as data, systems, people, and reputation."
+      },
+      {
+        "statement": "A Threat is a potential cause of an unwanted incident that may harm an asset.",
+        "answer": true,
+        "explanation": "A threat is the possible danger, such as malware or a flood, not the weakness it uses."
+      },
+      {
+        "statement": "A Vulnerability is the value of the data being protected.",
+        "answer": false,
+        "explanation": "Without a weakness to exploit, a threat cannot turn into a successful incident."
+      },
+      {
+        "statement": "A Risk is the combination of how likely a harmful event is and how serious its impact would be.",
+        "answer": true,
+        "explanation": "Risk analysis weighs both the chance of an event and the damage to assets."
+      },
+      {
+        "statement": "An Impact is likelihood.",
+        "answer": false,
+        "explanation": "Impact is the consequence, such as lost marks data or a week of downtime, separate from likelihood."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Threat actor is a person, group, or force that may carry out a threat against an asset.",
+        "answer": true,
+        "explanation": "Actors differ in skill and motive, from careless insiders to criminal groups."
+      },
+      {
+        "statement": "An Attack surface is offline backup.",
+        "answer": false,
+        "explanation": "Every exposed service, form, account, and interface adds a place that must be defended."
+      },
+      {
+        "statement": "A Security control is a safeguard that prevents, detects, or limits the harm from a security event.",
+        "answer": true,
+        "explanation": "Controls may be technical, administrative, or physical, and they exist to reduce risk."
+      },
+      {
+        "statement": "An Authentication is deciding which files a known user may open.",
+        "answer": false,
+        "explanation": "Authentication comes after a claim of identity and before granting that identity any rights."
+      },
+      {
+        "statement": "An Identification is the act of claiming an identity, before that claim has been verified.",
+        "answer": true,
+        "explanation": "A username or ID number asserts who the user is; a separate check must still prove it."
+      },
+      {
+        "statement": "An Authorisation is authentication.",
+        "answer": false,
+        "explanation": "After identity is proved, policy still has to allow or deny each action."
+      },
+      {
+        "statement": "An Accountability is the ability to trace actions on a system back to the identity that performed them.",
+        "answer": true,
+        "explanation": "Unique accounts and reliable logs make it possible to answer who did what and when."
+      },
+      {
+        "statement": "A Multi-factor authentication is a longer single password.",
+        "answer": false,
+        "explanation": "Factors are something you know, have, or are; two of the same type do not make multiple factors."
+      },
+      {
+        "statement": "A Least privilege is giving each account only the minimum rights it needs for its task.",
+        "answer": true,
+        "explanation": "Extra rights turn a mistake or a stolen account into a larger incident."
+      },
+      {
+        "statement": "A Separation of duties is giving every user the same small set of rights.",
+        "answer": false,
+        "explanation": "Collusion would be needed to abuse a process when no single person holds every step."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Need to know is restricting information to people whose current duties require that specific information.",
+        "answer": true,
+        "explanation": "A clearance or job title is not enough; the person must also need that information for the task."
+      },
+      {
+        "statement": "An Access control list is a role catalogue with no object.",
+        "answer": false,
+        "explanation": "The object carries entries such as 'user A may read' and 'user B may write'."
+      },
+      {
+        "statement": "A Role-based access control is assigning permissions to roles, then giving users those roles instead of direct per-file grants.",
+        "answer": true,
+        "explanation": "Changing a person's job means changing their role, and the role already carries the right permissions."
+      },
+      {
+        "statement": "A Mandatory access control is password-only login.",
+        "answer": false,
+        "explanation": "A central policy compares subject and object labels, as in classified government systems."
+      },
+      {
+        "statement": "A Discretionary access control is access rules that the owner of an object is allowed to set and change.",
+        "answer": true,
+        "explanation": "The owner decides who else may read or write, which is the usual model of personal file permissions."
+      },
+      {
+        "statement": "A Malware is a signed operating-system update from the vendor.",
+        "answer": false,
+        "explanation": "The defining feature is malicious purpose, whether it is a virus, worm, Trojan, or ransomware."
+      },
+      {
+        "statement": "A Virus is malware that attaches to a host program and spreads when that host is executed.",
+        "answer": true,
+        "explanation": "A virus needs a host file and user or system execution of that host to infect further files."
+      },
+      {
+        "statement": "A Worm is virus.",
+        "answer": false,
+        "explanation": "A worm uses the network or removable media to copy itself and run independently."
+      },
+      {
+        "statement": "A Trojan horse is malware disguised as useful software that does not replicate itself.",
+        "answer": true,
+        "explanation": "The user is tricked into running a program that looks legitimate while it performs a hidden action."
+      },
+      {
+        "statement": "A Ransomware is antivirus quarantine.",
+        "answer": false,
+        "explanation": "The attacker withholds availability of the data, often after stealing a copy as extra pressure."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Spyware is malware that secretly collects information about a user or system.",
+        "answer": true,
+        "explanation": "The harm is covert collection, which attacks confidentiality rather than encrypting the disk."
+      },
+      {
+        "statement": "A Phishing is flooding a server so it cannot answer.",
+        "answer": false,
+        "explanation": "Phishing is social engineering delivered by email, text, or a fake site that imitates a trusted one."
+      },
+      {
+        "statement": "A Social engineering is manipulating people into breaking security procedures or giving away sensitive information.",
+        "answer": true,
+        "explanation": "The attacker uses trust, urgency, or authority instead of relying only on a technical flaw."
+      },
+      {
+        "statement": "A Security policy is one router's rule file.",
+        "answer": false,
+        "explanation": "Policy sets what must be protected and who is accountable, and other procedures implement it."
+      },
+      {
+        "statement": "An Acceptable use policy is rules that tell users what they may and may not do with organisational systems.",
+        "answer": true,
+        "explanation": "It is a user-facing part of security policy covering behaviour such as account sharing and personal use."
+      },
+      {
+        "statement": "A Security incident is a public lecture slide.",
+        "answer": false,
+        "explanation": "Not every event is an incident; an incident is a policy breach or an actual or imminent compromise."
+      },
+      {
+        "statement": "An Incident response is the organised process for preparing for, handling, and learning from a security incident.",
+        "answer": true,
+        "explanation": "A typical cycle prepares, detects, contains, eradicates, recovers, and records lessons."
+      },
+      {
+        "statement": "A Containment is publishing a final lessons-learned report.",
+        "answer": false,
+        "explanation": "Short-term containment, such as isolating a host, stops the attacker moving further."
+      },
+      {
+        "statement": "A Business continuity is planning so essential operations can continue during and after a serious disruption.",
+        "answer": true,
+        "explanation": "Continuity covers people, premises, and processes, not only the recovery of IT equipment."
+      },
+      {
+        "statement": "A Disaster recovery is a staffing plan with no technology.",
+        "answer": false,
+        "explanation": "Disaster recovery is the technology part of surviving a disaster, using backups, sites, and restore procedures."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Defence in depth is using several overlapping safeguards so the failure of one control does not expose everything.",
+        "answer": true,
+        "explanation": "Independent layers, such as network filtering, patching, and access control, cover each other's failures."
+      },
+      {
+        "statement": "A Firewall is password hashing.",
+        "answer": false,
+        "explanation": "Rules match addresses, ports, or application behaviour and decide whether a packet or session may pass."
+      },
+      {
+        "statement": "An Intrusion detection system is a monitor that analyses activity and raises alerts about suspected attacks.",
+        "answer": true,
+        "explanation": "Detection and alerting are the core; blocking is the job of an intrusion prevention system or firewall."
+      },
+      {
+        "statement": "An Encryption is signing data with a private key so others can check the signer.",
+        "answer": false,
+        "explanation": "Encryption provides confidentiality; integrity needs an additional check such as a MAC or signature."
+      },
+      {
+        "statement": "A Cryptographic hash is a one-way function that maps data to a short digest for integrity checks.",
+        "answer": true,
+        "explanation": "A good hash makes it infeasible to recover the input or to find another input with the same digest."
+      },
+      {
+        "statement": "A Digital signature is secret-key encryption.",
+        "answer": false,
+        "explanation": "Only the private key can create the signature, and the public key lets anyone check it."
+      },
+      {
+        "statement": "A Denial of service is an attack that makes a system or data unavailable to legitimate users.",
+        "answer": true,
+        "explanation": "The attacker exhausts bandwidth, CPU, disk, or a process so authorised users cannot be served."
+      },
+      {
+        "statement": "A Patch management is phishing training.",
+        "answer": false,
+        "explanation": "Known vulnerabilities stay exploitable until a tested patch is deployed and confirmed."
+      },
+      {
+        "statement": "A Security awareness is training and communication that help people recognise threats and follow security rules.",
+        "answer": true,
+        "explanation": "Many incidents start with a person, so behaviour is part of the control set."
+      },
+      {
+        "statement": "A Zero trust is removing authentication once a VPN connection is up.",
+        "answer": false,
+        "explanation": "Each request is authenticated and authorised in context, assuming the network may already be hostile."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the goal that systems stay reachable when users need them is called Confidentiality.",
+        "answer": false,
+        "explanation": "Secrecy controls such as encryption and access limits exist to prevent unauthorised disclosure."
+      },
+      {
+        "statement": "A downloaded installer is rejected because its hash does not match the publisher's hash.",
+        "answer": true,
+        "explanation": "Hashes, signatures, and write controls protect correctness and completeness of data."
+      },
+      {
+        "statement": "In standard textbooks, confidentiality is called Availability.",
+        "answer": false,
+        "explanation": "Redundancy, backups, and protection from overload keep a service usable."
+      },
+      {
+        "statement": "A course policy asks staff to prevent leaks, block silent edits, and keep the site up during exams.",
+        "answer": true,
+        "explanation": "Most security requirements can be stated as protecting secrecy, correctness, or timely access."
+      },
+      {
+        "statement": "In standard textbooks, anonymity of the student is called Non-repudiation.",
+        "answer": false,
+        "explanation": "A digital signature checked with the signer's public key ties the action to that signer."
+      },
+      {
+        "statement": "The student-record database, the exam servers, and the university's reputation are all assets.",
+        "answer": true,
+        "explanation": "Risk work starts by listing valued items such as data, systems, people, and reputation."
+      },
+      {
+        "statement": "In standard textbooks, the harm measured after an incident has already finished is called Threat.",
+        "answer": false,
+        "explanation": "A threat is the possible danger, such as malware or a flood, not the weakness it uses."
+      },
+      {
+        "statement": "An unpatched library bug lets a remote attacker run code on the web server.",
+        "answer": true,
+        "explanation": "Without a weakness to exploit, a threat cannot turn into a successful incident."
+      },
+      {
+        "statement": "In standard textbooks, vulnerability listing only is called Risk.",
+        "answer": false,
+        "explanation": "Risk analysis weighs both the chance of an event and the damage to assets."
+      },
+      {
+        "statement": "Loss of the only exam-script store would delay graduation for an entire cohort.",
+        "answer": true,
+        "explanation": "Impact is the consequence, such as lost marks data or a week of downtime, separate from likelihood."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, security policy is called Threat actor.",
+        "answer": false,
+        "explanation": "Actors differ in skill and motive, from careless insiders to criminal groups."
+      },
+      {
+        "statement": "A public login page, an open admin port, and staff email are all part of a school's attack surface.",
+        "answer": true,
+        "explanation": "Every exposed service, form, account, and interface adds a place that must be defended."
+      },
+      {
+        "statement": "In standard textbooks, the attacker who causes the event is called Security control.",
+        "answer": false,
+        "explanation": "Controls may be technical, administrative, or physical, and they exist to reduce risk."
+      },
+      {
+        "statement": "A portal accepts the username only after the correct password and a phone prompt both succeed.",
+        "answer": true,
+        "explanation": "Authentication comes after a claim of identity and before granting that identity any rights."
+      },
+      {
+        "statement": "In standard textbooks, authentication is called Identification.",
+        "answer": false,
+        "explanation": "A username or ID number asserts who the user is; a separate check must still prove it."
+      },
+      {
+        "statement": "A logged-in student may read their own marks but may not edit the class list.",
+        "answer": true,
+        "explanation": "After identity is proved, policy still has to allow or deny each action."
+      },
+      {
+        "statement": "In standard textbooks, network filtering is called Accountability.",
+        "answer": false,
+        "explanation": "Unique accounts and reliable logs make it possible to answer who did what and when."
+      },
+      {
+        "statement": "Staff enter a password and then approve a prompt on a registered phone.",
+        "answer": true,
+        "explanation": "Factors are something you know, have, or are; two of the same type do not make multiple factors."
+      },
+      {
+        "statement": "In standard textbooks, sharing one powerful account among a whole team is called Least privilege.",
+        "answer": false,
+        "explanation": "Extra rights turn a mistake or a stolen account into a larger incident."
+      },
+      {
+        "statement": "One clerk creates a supplier and a different officer must approve any payment to that supplier.",
+        "answer": true,
+        "explanation": "Collusion would be needed to abuse a process when no single person holds every step."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, blanket access for the clearance is called Need to know.",
+        "answer": false,
+        "explanation": "A clearance or job title is not enough; the person must also need that information for the task."
+      },
+      {
+        "statement": "A file allows the owner to read and write, the tutor group to read, and everyone else no access.",
+        "answer": true,
+        "explanation": "The object carries entries such as 'user A may read' and 'user B may write'."
+      },
+      {
+        "statement": "In standard textbooks, one identical right for every login is called Role-based access control.",
+        "answer": false,
+        "explanation": "Changing a person's job means changing their role, and the role already carries the right permissions."
+      },
+      {
+        "statement": "A user cleared to Confidential cannot open a Secret file, and cannot relabel that file downward.",
+        "answer": true,
+        "explanation": "A central policy compares subject and object labels, as in classified government systems."
+      },
+      {
+        "statement": "In standard textbooks, permissions granted only by membership of a central role is called Discretionary access control.",
+        "answer": false,
+        "explanation": "The owner decides who else may read or write, which is the usual model of personal file permissions."
+      },
+      {
+        "statement": "A hidden program sends copies of a user's documents to an unknown server.",
+        "answer": true,
+        "explanation": "The defining feature is malicious purpose, whether it is a virus, worm, Trojan, or ransomware."
+      },
+      {
+        "statement": "In standard textbooks, worm is called Virus.",
+        "answer": false,
+        "explanation": "A virus needs a host file and user or system execution of that host to infect further files."
+      },
+      {
+        "statement": "A program scans the campus network, logs into weak accounts, and copies itself onto those machines.",
+        "answer": true,
+        "explanation": "A worm uses the network or removable media to copy itself and run independently."
+      },
+      {
+        "statement": "In standard textbooks, a physical keylogger is called Trojan horse.",
+        "answer": false,
+        "explanation": "The user is tricked into running a program that looks legitimate while it performs a hidden action."
+      },
+      {
+        "statement": "A lab's project files are encrypted and a note demands cryptocurrency for the decryption key.",
+        "answer": true,
+        "explanation": "The attacker withholds availability of the data, often after stealing a copy as extra pressure."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a self-spreading program that only deletes files is called Spyware.",
+        "answer": false,
+        "explanation": "The harm is covert collection, which attacks confidentiality rather than encrypting the disk."
+      },
+      {
+        "statement": "Mail pretending to be the university asks students to enter passwords on a look-alike login page.",
+        "answer": true,
+        "explanation": "Phishing is social engineering delivered by email, text, or a fake site that imitates a trusted one."
+      },
+      {
+        "statement": "In standard textbooks, a buffer overflow is called Social engineering.",
+        "answer": false,
+        "explanation": "The attacker uses trust, urgency, or authority instead of relying only on a technical flaw."
+      },
+      {
+        "statement": "A university policy states that examination papers are confidential until the published start time.",
+        "answer": true,
+        "explanation": "Policy sets what must be protected and who is accountable, and other procedures implement it."
+      },
+      {
+        "statement": "In standard textbooks, an incident-response procedure is called Acceptable use policy.",
+        "answer": false,
+        "explanation": "It is a user-facing part of security policy covering behaviour such as account sharing and personal use."
+      },
+      {
+        "statement": "Discovery that an attacker copied the student database is a security incident.",
+        "answer": true,
+        "explanation": "Not every event is an incident; an incident is a policy breach or an actual or imminent compromise."
+      },
+      {
+        "statement": "In standard textbooks, writing the acceptable use policy for the first time is called Incident response.",
+        "answer": false,
+        "explanation": "A typical cycle prepares, detects, contains, eradicates, recovers, and records lessons."
+      },
+      {
+        "statement": "The team disconnects an infected lab subnet from the campus network before cleaning the machines.",
+        "answer": true,
+        "explanation": "Short-term containment, such as isolating a host, stops the attacker moving further."
+      },
+      {
+        "statement": "In standard textbooks, iT restoration alone is called Business continuity.",
+        "answer": false,
+        "explanation": "Continuity covers people, premises, and processes, not only the recovery of IT equipment."
+      },
+      {
+        "statement": "After a data-centre fire, virtual machines are restored from off-site backups in another region.",
+        "answer": true,
+        "explanation": "Disaster recovery is the technology part of surviving a disaster, using backups, sites, and restore procedures."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, one shared administrator password is called Defence in depth.",
+        "answer": false,
+        "explanation": "Independent layers, such as network filtering, patching, and access control, cover each other's failures."
+      },
+      {
+        "statement": "A campus firewall allows HTTPS to the web server and blocks inbound connections to student laptops.",
+        "answer": true,
+        "explanation": "Rules match addresses, ports, or application behaviour and decide whether a packet or session may pass."
+      },
+      {
+        "statement": "In standard textbooks, a tool that only encrypts disks is called Intrusion detection system.",
+        "answer": false,
+        "explanation": "Detection and alerting are the core; blocking is the job of an intrusion prevention system or firewall."
+      },
+      {
+        "statement": "A laptop disk is encrypted, so a stolen drive is unreadable without the key.",
+        "answer": true,
+        "explanation": "Encryption provides confidentiality; integrity needs an additional check such as a MAC or signature."
+      },
+      {
+        "statement": "In standard textbooks, encryption is called Cryptographic hash.",
+        "answer": false,
+        "explanation": "A good hash makes it infeasible to recover the input or to find another input with the same digest."
+      },
+      {
+        "statement": "A published grade file carries a signature that verifies with the registry's public key.",
+        "answer": true,
+        "explanation": "Only the private key can create the signature, and the public key lets anyone check it."
+      },
+      {
+        "statement": "In standard textbooks, use of a stolen password is called Denial of service.",
+        "answer": false,
+        "explanation": "The attacker exhausts bandwidth, CPU, disk, or a process so authorised users cannot be served."
+      },
+      {
+        "statement": "The IT team tests a browser update on a pilot group, then rolls it out to all lab PCs.",
+        "answer": true,
+        "explanation": "Known vulnerabilities stay exploitable until a tested patch is deployed and confirmed."
+      },
+      {
+        "statement": "In standard textbooks, automatic installation of patches with no human audience is called Security awareness.",
+        "answer": false,
+        "explanation": "Many incidents start with a person, so behaviour is part of the control set."
+      },
+      {
+        "statement": "An internal admin console still demands phishing-resistant login and a managed device, even from a campus IP address.",
+        "answer": true,
+        "explanation": "Each request is authenticated and authorised in context, assuming the network may already be hostile."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When an exam paper must stay hidden from candidates until the start time. Which security goal is that, the correct result is integrity.",
+        "answer": false,
+        "explanation": "Preventing unauthorised disclosure is confidentiality."
+      },
+      {
+        "statement": "When a student record's marks change in transit and the mismatch is noticed before results are published. Which goal caught that, the correct result is availability.",
+        "answer": false,
+        "explanation": "Detecting improper change is an integrity goal."
+      },
+      {
+        "statement": "When a flood of junk requests stops students reaching the enrolment site. The goal has been harmed, the correct result is availability.",
+        "answer": true,
+        "explanation": "Users who should have access cannot get it, so availability failed."
+      },
+      {
+        "statement": "When a module brief lists secrecy of papers, detection of tampering, and uptime of the site as the three aims. The model is that, the correct result is cIA triad.",
+        "answer": true,
+        "explanation": "Confidentiality, integrity, and availability together are the CIA triad."
+      },
+      {
+        "statement": "When a student denies submitting an essay, but a signature made with their private key verifies on the file. Which goal does that signature support, the correct result is availability of the server.",
+        "answer": false,
+        "explanation": "Proof that the holder of the private key signed the file supports non-repudiation."
+      },
+      {
+        "statement": "When analysts list the payroll database and the campus reputation before they list attackers. What are those listed items, the correct result is risk scores.",
+        "answer": false,
+        "explanation": "Things of value that need protection are assets."
+      },
+      {
+        "statement": "When a review names phishing campaigns as something that could harm staff mail accounts. The term is the campaign, the correct result is threat.",
+        "answer": true,
+        "explanation": "A potential cause of harm is a threat."
+      },
+      {
+        "statement": "When a missing patch lets outsiders run code, although no attack has happened yet. The term is the missing patch, the correct result is vulnerability.",
+        "answer": true,
+        "explanation": "A weakness that can be exploited is a vulnerability."
+      },
+      {
+        "statement": "When a rare bug on an isolated lab PC is ranked lower than a likely bug on the payroll system. Which judgement is being made, the correct result is control installation.",
+        "answer": false,
+        "explanation": "Comparing likelihood and impact is a risk judgement."
+      },
+      {
+        "statement": "When analysts estimate that a database wipe would delay graduation, without yet estimating how often that might happen. The factor are they estimating, the correct result is impact.",
+        "answer": true,
+        "explanation": "The harm from an event, apart from its chance, is the impact."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a report blames a criminal gang, not the unpatched bug, for a ransomware outbreak. Which term is the gang, the correct result is asset.",
+        "answer": false,
+        "explanation": "The party that carries out the attack is the threat actor."
+      },
+      {
+        "statement": "When closing an unused admin port removes one place an outsider could try to connect. What has been reduced, the correct result is offline backup.",
+        "answer": false,
+        "explanation": "Fewer entry points means a smaller attack surface."
+      },
+      {
+        "statement": "When a locked server-room door and a firewall rule are added to reduce the chance of a breach. In this case those two measures, the correct result is security controls.",
+        "answer": true,
+        "explanation": "Safeguards that reduce risk are security controls."
+      },
+      {
+        "statement": "When a site asks for a password after the user types a username, and it rejects a wrong password. The step is the password check, the correct result is authentication.",
+        "answer": true,
+        "explanation": "Proving a claimed identity is authentication."
+      },
+      {
+        "statement": "When a user types a student number and has not yet entered a password. Which step has occurred, the correct result is encryption.",
+        "answer": false,
+        "explanation": "Stating who you are, without proof, is identification."
+      },
+      {
+        "statement": "When a verified lecturer may edit marks, while a verified student using the same site may not. Which decision is that, the correct result is authentication.",
+        "answer": false,
+        "explanation": "Allowing or denying actions for a known identity is authorisation."
+      },
+      {
+        "statement": "When investigators use unique logins and logs to show The account exported the student list. Which goal do those logs support, the correct result is accountability.",
+        "answer": true,
+        "explanation": "Tracing an action to an identity is accountability."
+      },
+      {
+        "statement": "When login demands a password and a code from a registered phone. The control is that, the correct result is multi-factor authentication.",
+        "answer": true,
+        "explanation": "A knowledge factor plus a possession factor is multi-factor authentication."
+      },
+      {
+        "statement": "When a lab assistant account can reboot lab PCs but cannot open the finance system. Which principle is being applied, the correct result is universal administrator rights.",
+        "answer": false,
+        "explanation": "Rights limited to the job are least privilege."
+      },
+      {
+        "statement": "When the person who adds a supplier cannot also approve payments to that supplier. The principle is that, the correct result is separation of duties.",
+        "answer": true,
+        "explanation": "Dividing request and approval is separation of duties."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When two officers hold the same clearance, but each may open only the case files assigned to them. Which principle is that, the correct result is short encryption keys.",
+        "answer": false,
+        "explanation": "Access limited to assigned information is need to know."
+      },
+      {
+        "statement": "When one document lists Alice as editor and the tutor group as readers. Which mechanism stores those permissions, the correct result is a role catalogue with no object.",
+        "answer": false,
+        "explanation": "Per-object subject permissions are an access control list."
+      },
+      {
+        "statement": "When permissions sit on the role Librarian, and new librarians receive that role rather than individual file grants. The model is that, the correct result is role-based access control.",
+        "answer": true,
+        "explanation": "Permissions attached to job roles are role-based access control."
+      },
+      {
+        "statement": "When the operating system denies a Confidential user access to a Secret file, and the user cannot change the file's label. The model is that, the correct result is mandatory access control.",
+        "answer": true,
+        "explanation": "System-enforced labels the user cannot override are mandatory access control."
+      },
+      {
+        "statement": "When the owner of a folder grants read access to a teammate and can take that grant away. Which model is that, the correct result is mandatory access control.",
+        "answer": false,
+        "explanation": "Owner-controlled permissions are discretionary access control."
+      },
+      {
+        "statement": "When a hidden program copies documents to an attacker's server without consent. Which broad category fits it, the correct result is a vendor security update.",
+        "answer": false,
+        "explanation": "Software built to steal or harm is malware."
+      },
+      {
+        "statement": "When malicious code rides inside a document and infects other documents only when they are opened. The malware type is that, the correct result is virus.",
+        "answer": true,
+        "explanation": "Code that spreads by infecting host files is a virus."
+      },
+      {
+        "statement": "When a program copies itself to other computers over the network and never infects a host document. The malware type is that, the correct result is worm.",
+        "answer": true,
+        "explanation": "Independent self-replication across systems is a worm."
+      },
+      {
+        "statement": "When a student runs a fake calculator app that quietly installs a backdoor and does not spread further by itself. Which malware type is that, the correct result is virus.",
+        "answer": false,
+        "explanation": "Disguised malicious software that does not self-replicate is a Trojan horse."
+      },
+      {
+        "statement": "When project files are encrypted and a note demands payment for the key. The malware type is that, the correct result is ransomware.",
+        "answer": true,
+        "explanation": "Encryption plus a payment demand is ransomware."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When an add-on silently records browsing history and uploads it. Which malware type is that, the correct result is ransomware.",
+        "answer": false,
+        "explanation": "Secret collection of user information is spyware."
+      },
+      {
+        "statement": "When email that looks like the library asks users to type passwords into a copied login page. Which attack is that, the correct result is a denial-of-service flood.",
+        "answer": false,
+        "explanation": "A deceptive message that steals credentials is phishing."
+      },
+      {
+        "statement": "When an attacker phones the help desk, pretends to be a dean, and obtains a password reset. The attack class is that, the correct result is social engineering.",
+        "answer": true,
+        "explanation": "Tricking a person into bypassing procedure is social engineering."
+      },
+      {
+        "statement": "When the senate approves a document that assigns who must protect exam papers and The rules apply. Which document is that, the correct result is security policy.",
+        "answer": true,
+        "explanation": "A management statement of security rules is a security policy."
+      },
+      {
+        "statement": "When a handbook forbids sharing accounts and using lab PCs to attack other sites. Which document is that, the correct result is an uptime contract.",
+        "answer": false,
+        "explanation": "Rules of user behaviour on organisational systems form an acceptable use policy."
+      },
+      {
+        "statement": "When staff confirm that an outsider copied the student database. Which term best describes that confirmed harm, the correct result is a public lecture slide.",
+        "answer": false,
+        "explanation": "A real compromise of sensitive data is a security incident."
+      },
+      {
+        "statement": "When a named team isolates infected hosts, restores service, and writes In this case change next time. The process is that, the correct result is incident response.",
+        "answer": true,
+        "explanation": "Handling an incident through containment, recovery, and lessons is incident response."
+      },
+      {
+        "statement": "When responders unplug an infected subnet so the malware cannot reach the rest of campus. The response step is that, the correct result is containment.",
+        "answer": true,
+        "explanation": "Stopping the incident from spreading further is containment."
+      },
+      {
+        "statement": "When when a building is unusable, teaching continues online under a rehearsed plan. Which planning area is that, the correct result is routine antivirus scanning.",
+        "answer": false,
+        "explanation": "Keeping essential operations going through a disruption is business continuity."
+      },
+      {
+        "statement": "When after a data-centre fire, servers and databases are rebuilt from off-site backups. The plan is being executed, the correct result is disaster recovery.",
+        "answer": true,
+        "explanation": "Restoring IT after a disaster is disaster recovery."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a host is behind a firewall, still requires login, and encrypts its database even if an attacker gets in. Which principle is that, the correct result is trusting the internal network fully.",
+        "answer": false,
+        "explanation": "Multiple independent layers are defence in depth."
+      },
+      {
+        "statement": "When a device permits inbound HTTPS to one server and blocks all other unsolicited inbound connections. Which control is that, the correct result is password hashing.",
+        "answer": false,
+        "explanation": "Rule-based filtering of network traffic is a firewall."
+      },
+      {
+        "statement": "When a sensor emails the team that a host is port-scanning the lab, but it does not itself block the packets. The tool is that, the correct result is intrusion detection system.",
+        "answer": true,
+        "explanation": "Alerting on suspected attacks without being the blocker is intrusion detection."
+      },
+      {
+        "statement": "When a stolen laptop drive is unreadable unless the owner's key is supplied. The protection produced that result, the correct result is encryption.",
+        "answer": true,
+        "explanation": "Ciphertext that requires a key to read is encryption."
+      },
+      {
+        "statement": "When students compare a downloaded file with a published digest to see whether any bit changed. Which tool is the digest, the correct result is lossless compression.",
+        "answer": false,
+        "explanation": "A one-way digest used to detect change is a cryptographic hash."
+      },
+      {
+        "statement": "When anyone can check, using a public key, that the registry signed a grade file and that it is unchanged. Which mechanism is that, the correct result is secret-key encryption.",
+        "answer": false,
+        "explanation": "Public verification of a private-key signature shows signer and integrity."
+      },
+      {
+        "statement": "When a botnet fills a web server's connections so students cannot open the enrolment page. The attack is that, the correct result is denial of service.",
+        "answer": true,
+        "explanation": "Exhausting resources so users lose access is denial of service."
+      },
+      {
+        "statement": "When a team tests a vendor fix for a remote-code bug, then deploys it to every lab PC. The process is that, the correct result is patch management.",
+        "answer": true,
+        "explanation": "Finding, testing, and deploying security fixes is patch management."
+      },
+      {
+        "statement": "When before receiving campus email, new students must finish a module on fake login pages. Which control is that module, the correct result is an invisible firewall rule.",
+        "answer": false,
+        "explanation": "Teaching people to recognise threats is security awareness."
+      },
+      {
+        "statement": "When an admin tool requires a managed device and strong login even for connections that already come from the campus network. The model is that, the correct result is zero trust.",
+        "answer": true,
+        "explanation": "Refusing to trust a connection just because it is internal is zero trust."
+      }
+    ]
+  }
+}

@@ -1,0 +1,785 @@
+{
+  "subjectId": "cryptography-network-security",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Symmetric encryption is encryption that uses the same secret key both to encrypt data and to decrypt it.",
+        "answer": true,
+        "explanation": "Both parties share one secret, so that same key undoes the encryption."
+      },
+      {
+        "statement": "A Public-key encryption is a checksum stored beside a file so accidental bit flips can be noticed.",
+        "answer": false,
+        "explanation": "Anyone may encrypt with the published key, but only the private-key holder can decrypt."
+      },
+      {
+        "statement": "An AES is a symmetric block cipher that encrypts 128-bit blocks using a 128-, 192-, or 256-bit key.",
+        "answer": true,
+        "explanation": "AES is the standard symmetric block cipher used to encrypt bulk data with one shared key."
+      },
+      {
+        "statement": "A RSA is aES.",
+        "answer": false,
+        "explanation": "RSA builds a public and private key from two large primes and their product."
+      },
+      {
+        "statement": "A Cryptographic hash function is a one-way function that maps data of any length to a fixed-size digest.",
+        "answer": true,
+        "explanation": "The digest has a fixed length, and the input should not be recoverable from it."
+      },
+      {
+        "statement": "A Digital signature is a VPN tunnel address.",
+        "answer": false,
+        "explanation": "Only the private-key holder can create a signature that the matching public key accepts."
+      },
+      {
+        "statement": "A TLS is a protocol that authenticates an endpoint and encrypts application data on a network connection.",
+        "answer": true,
+        "explanation": "After the handshake checks the server, TLS protects the confidentiality and integrity of the session data."
+      },
+      {
+        "statement": "A Firewall is a hash stored in a certificate so a browser can rebuild a private key.",
+        "answer": false,
+        "explanation": "A firewall compares traffic with rules and then permits or denies each connection."
+      },
+      {
+        "statement": "An Intrusion detection system is a monitor that analyzes traffic or host activity and raises alerts about suspected attacks.",
+        "answer": true,
+        "explanation": "An intrusion detection system reports suspicious events and does not by itself block them."
+      },
+      {
+        "statement": "A VPN is an open FTP server.",
+        "answer": false,
+        "explanation": "The tunnel encrypts packets so outsiders on the shared network cannot read the private traffic."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Public key infrastructure is the authorities, policies, and certificates used to bind public keys to checked identities.",
+        "answer": true,
+        "explanation": "Relying parties trust a public key because a certificate authority has vouched for the binding."
+      },
+      {
+        "statement": "A Diffie-Hellman is reusing a static password as the ciphertext.",
+        "answer": false,
+        "explanation": "Each side combines its own private value with the other side's public value to compute the same secret."
+      },
+      {
+        "statement": "A Plaintext is the original readable data before encryption, or the readable data restored by decryption.",
+        "answer": true,
+        "explanation": "Plaintext is the meaningful message that a cipher is meant to hide and later restore."
+      },
+      {
+        "statement": "A Ciphertext is a public key listed in a directory.",
+        "answer": false,
+        "explanation": "Ciphertext should be unreadable unless the proper decryption key is applied."
+      },
+      {
+        "statement": "A Block cipher is a symmetric cipher that encrypts fixed-size groups of bits under a secret key.",
+        "answer": true,
+        "explanation": "Block ciphers such as AES work on a fixed block length rather than a continuous stream of bytes."
+      },
+      {
+        "statement": "A Stream cipher is a block cipher used only on whole files.",
+        "answer": false,
+        "explanation": "A keystream is generated from the key and combined with the plaintext to produce ciphertext."
+      },
+      {
+        "statement": "A Message authentication code is a keyed tag that lets a receiver check that a message is unchanged and came from a holder of the key.",
+        "answer": true,
+        "explanation": "Only a party that knows the shared key can produce a tag the receiver will accept."
+      },
+      {
+        "statement": "A Salt is the server's port number.",
+        "answer": false,
+        "explanation": "A different salt forces each stored hash to differ even when the passwords are the same."
+      },
+      {
+        "statement": "A Certificate authority is an organization that checks identities and issues signed digital certificates for public keys.",
+        "answer": true,
+        "explanation": "Others trust the certificate because it was signed by an authority they already accept."
+      },
+      {
+        "statement": "A Digital certificate is an alert record produced by a network sensor.",
+        "answer": false,
+        "explanation": "The issuer's signature lets others rely on the name-to-key binding inside the certificate."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Perfect forward secrecy is a property where later exposure of a long-term key does not reveal the keys of past sessions.",
+        "answer": true,
+        "explanation": "Each session uses an ephemeral secret that is discarded and cannot be derived from the long-term key alone."
+      },
+      {
+        "statement": "A Confidentiality is availability alone.",
+        "answer": false,
+        "explanation": "Confidentiality is about secrecy of content, usually enforced by access control or encryption."
+      },
+      {
+        "statement": "An Integrity is the security goal of detecting or preventing unauthorized changes to data.",
+        "answer": true,
+        "explanation": "Hashes, message authentication codes, and signatures provide evidence about whether data changed."
+      },
+      {
+        "statement": "An Authentication is address translation.",
+        "answer": false,
+        "explanation": "Authentication examines evidence such as a password, key, or certificate for the claimed identity."
+      },
+      {
+        "statement": "A Non-repudiation is evidence that a party cannot convincingly deny having signed or sent a particular message.",
+        "answer": true,
+        "explanation": "A digital signature tied to a controlled private key is evidence that the signer approved the message."
+      },
+      {
+        "statement": "A Hybrid cryptosystem is a design that uses only packet filters and never encrypts data.",
+        "answer": false,
+        "explanation": "Public-key operations are slower, so they wrap a short key while a symmetric cipher handles the data."
+      },
+      {
+        "statement": "A Session key is a short-lived symmetric key used to protect the data of one communication session.",
+        "answer": true,
+        "explanation": "Limiting a key to one session reduces how much data is exposed if that key later leaks."
+      },
+      {
+        "statement": "An Initialization vector is the same starting block every time.",
+        "answer": false,
+        "explanation": "Modes such as CBC use this value so identical messages do not always produce identical ciphertext."
+      },
+      {
+        "statement": "An Authenticated encryption is encryption that hides the data and also produces a tag that detects tampering with the ciphertext.",
+        "answer": true,
+        "explanation": "Constructions such as GCM encrypt the plaintext and create an authentication tag together."
+      },
+      {
+        "statement": "A SHA-256 is diffie-Hellman.",
+        "answer": false,
+        "explanation": "SHA-256 maps any input to a 256-bit digest and is widely used for integrity checks."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A HMAC is a message authentication code constructed from a cryptographic hash and a secret key.",
+        "answer": true,
+        "explanation": "The secret key is mixed into the hash computation so an outsider cannot forge the tag."
+      },
+      {
+        "statement": "A Certificate revocation is encrypting a certificate with a block cipher for storage.",
+        "answer": false,
+        "explanation": "Revocation covers keys that were exposed, lost, or issued by mistake while the dates still look valid."
+      },
+      {
+        "statement": "An IPsec is a suite that can authenticate and encrypt IP packets between hosts or security gateways.",
+        "answer": true,
+        "explanation": "IPsec protects traffic at the IP layer using security associations and protocols such as ESP."
+      },
+      {
+        "statement": "A Stateful inspection is allowing every inbound packet.",
+        "answer": false,
+        "explanation": "The firewall records the connection and then accepts packets that match that remembered state."
+      },
+      {
+        "statement": "An Intrusion prevention system is an inline control that detects suspected attacks and blocks the matching traffic.",
+        "answer": true,
+        "explanation": "Unlike a detection-only monitor, this control sits in the traffic path so it can stop the activity."
+      },
+      {
+        "statement": "A Defense in depth is encryption with access checks removed.",
+        "answer": false,
+        "explanation": "Independent layers, such as network filtering, authentication, and encryption, cover different failures."
+      },
+      {
+        "statement": "A Least privilege is the principle that each account or process gets only the access its task requires.",
+        "answer": true,
+        "explanation": "Narrow rights limit the damage if that account is misused or taken over."
+      },
+      {
+        "statement": "A DMZ is a client program that encrypts one laptop's disk.",
+        "answer": false,
+        "explanation": "Services in that segment can be reached from outside while stricter rules protect internal systems."
+      },
+      {
+        "statement": "An End-to-end encryption is encryption in which only the communicating endpoints can read the content, not the servers that forward it.",
+        "answer": true,
+        "explanation": "Forwarding servers may see ciphertext, but they do not hold the keys needed to read the message."
+      },
+      {
+        "statement": "A Key management is font selection.",
+        "answer": false,
+        "explanation": "Even a strong cipher fails if its keys are generated poorly, leaked, or never changed."
+      }
+    ],
+    "5": [
+      {
+        "statement": "An Elliptic-curve cryptography is public-key cryptography based on the difficulty of the elliptic-curve discrete logarithm problem.",
+        "answer": true,
+        "explanation": "Elliptic-curve schemes provide public-key security with shorter keys than RSA at a similar strength."
+      },
+      {
+        "statement": "A Challenge-response authentication is skipping any random challenge.",
+        "answer": false,
+        "explanation": "A fresh challenge means an old captured reply will not match the next exchange."
+      },
+      {
+        "statement": "A Kerberos is a network authentication system that uses a trusted ticket service and time-limited tickets.",
+        "answer": true,
+        "explanation": "A user authenticates to the trusted service and then presents tickets to application servers."
+      },
+      {
+        "statement": "A Role-based access control is an encryption mode that grants access by hashing the file name.",
+        "answer": false,
+        "explanation": "Rights stay attached to the role, so a job change is handled by changing role membership."
+      },
+      {
+        "statement": "A Multi-factor authentication is authentication that requires proof from at least two different categories of evidence.",
+        "answer": true,
+        "explanation": "The factors come from different categories, such as a secret, a device, or a biometric."
+      },
+      {
+        "statement": "A Network segmentation is one flat network for every system.",
+        "answer": false,
+        "explanation": "Separate zones limit how far a problem on one part of the network can spread."
+      },
+      {
+        "statement": "An Availability is the security goal that authorized users can reach systems and data when they need them.",
+        "answer": true,
+        "explanation": "Availability completes the confidentiality-integrity-availability triad by focusing on reliable access."
+      },
+      {
+        "statement": "A Nonce is a constant block of zeros.",
+        "answer": false,
+        "explanation": "Because the value is fresh, a message captured earlier will not match the current exchange."
+      },
+      {
+        "statement": "A Collision resistance is the hash property that it is infeasible to find two different inputs with the same digest.",
+        "answer": true,
+        "explanation": "Signatures and integrity checks fail if an attacker can swap in a second input with the same digest."
+      },
+      {
+        "statement": "A Code signing is publishing source code with an unsigned checksum and no publisher key.",
+        "answer": false,
+        "explanation": "The signature covers the software bytes, and the publisher certificate identifies who signed them."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a one-way function that maps data to a fixed-length digest that cannot be reversed is called Symmetric encryption.",
+        "answer": false,
+        "explanation": "Both parties share one secret, so that same key undoes the encryption."
+      },
+      {
+        "statement": "A browser encrypts a short secret with a bank site's published key so only the bank can read it.",
+        "answer": true,
+        "explanation": "Anyone may encrypt with the published key, but only the private-key holder can decrypt."
+      },
+      {
+        "statement": "In standard textbooks, rSA is called AES.",
+        "answer": false,
+        "explanation": "AES is the standard symmetric block cipher used to encrypt bulk data with one shared key."
+      },
+      {
+        "statement": "An email program encrypts a short message key with the recipient's RSA public key.",
+        "answer": true,
+        "explanation": "RSA builds a public and private key from two large primes and their product."
+      },
+      {
+        "statement": "In standard textbooks, a firewall log of the download is called Cryptographic hash function.",
+        "answer": false,
+        "explanation": "The digest has a fixed length, and the input should not be recoverable from it."
+      },
+      {
+        "statement": "A software vendor signs a release so customers can confirm the package came from that vendor.",
+        "answer": true,
+        "explanation": "Only the private-key holder can create a signature that the matching public key accepts."
+      },
+      {
+        "statement": "In standard textbooks, a host filter that drops packets with private source addresses is called TLS.",
+        "answer": false,
+        "explanation": "After the handshake checks the server, TLS protects the confidentiality and integrity of the session data."
+      },
+      {
+        "statement": "A lab server allows inbound TCP port 443 from campus and drops every other inbound connection.",
+        "answer": true,
+        "explanation": "A firewall compares traffic with rules and then permits or denies each connection."
+      },
+      {
+        "statement": "In standard textbooks, a one-time pad is called Intrusion detection system.",
+        "answer": false,
+        "explanation": "An intrusion detection system reports suspicious events and does not by itself block them."
+      },
+      {
+        "statement": "A remote employee opens the company VPN and then reaches an internal file server as if on the office LAN.",
+        "answer": true,
+        "explanation": "The tunnel encrypts packets so outsiders on the shared network cannot read the private traffic."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a network address translation table is called Public key infrastructure.",
+        "answer": false,
+        "explanation": "Relying parties trust a public key because a certificate authority has vouched for the binding."
+      },
+      {
+        "statement": "A TLS handshake uses ephemeral Diffie-Hellman so the browser and server agree a fresh session key.",
+        "answer": true,
+        "explanation": "Each side combines its own private value with the other side's public value to compute the same secret."
+      },
+      {
+        "statement": "In standard textbooks, the public certificate that names a server is called Plaintext.",
+        "answer": false,
+        "explanation": "Plaintext is the meaningful message that a cipher is meant to hide and later restore."
+      },
+      {
+        "statement": "A messaging app stores an encrypted chat blob on a server, and only the users' devices hold the keys.",
+        "answer": true,
+        "explanation": "Ciphertext should be unreadable unless the proper decryption key is applied."
+      },
+      {
+        "statement": "In standard textbooks, a stream cipher is called Block cipher.",
+        "answer": false,
+        "explanation": "Block ciphers such as AES work on a fixed block length rather than a continuous stream of bytes."
+      },
+      {
+        "statement": "A radio link encrypts each outgoing byte by combining it with the next byte of a keystream.",
+        "answer": true,
+        "explanation": "A keystream is generated from the key and combined with the plaintext to produce ciphertext."
+      },
+      {
+        "statement": "In standard textbooks, a second copy of the plaintext is called Message authentication code.",
+        "answer": false,
+        "explanation": "Only a party that knows the shared key can produce a tag the receiver will accept."
+      },
+      {
+        "statement": "Two students choose the same password, but the login table stores different hashes because each row has its own salt.",
+        "answer": true,
+        "explanation": "A different salt forces each stored hash to differ even when the passwords are the same."
+      },
+      {
+        "statement": "In standard textbooks, a sensor that only raises alerts and never issues credentials is called Certificate authority.",
+        "answer": false,
+        "explanation": "Others trust the certificate because it was signed by an authority they already accept."
+      },
+      {
+        "statement": "A server presents a certificate that names its domain and contains the public key browsers should use.",
+        "answer": true,
+        "explanation": "The issuer's signature lets others rely on the name-to-key binding inside the certificate."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, reusing one session key forever is called Perfect forward secrecy.",
+        "answer": false,
+        "explanation": "Each session uses an ephemeral secret that is discarded and cannot be derived from the long-term key alone."
+      },
+      {
+        "statement": "A clinic encrypts patient notes so only staff with the proper keys can read the diagnoses.",
+        "answer": true,
+        "explanation": "Confidentiality is about secrecy of content, usually enforced by access control or encryption."
+      },
+      {
+        "statement": "In standard textbooks, link speed is called Integrity.",
+        "answer": false,
+        "explanation": "Hashes, message authentication codes, and signatures provide evidence about whether data changed."
+      },
+      {
+        "statement": "A student portal asks for a password and a phone code before it treats the session as that student.",
+        "answer": true,
+        "explanation": "Authentication examines evidence such as a password, key, or certificate for the claimed identity."
+      },
+      {
+        "statement": "In standard textbooks, evidence that two users memorized the same symmetric password is called Non-repudiation.",
+        "answer": false,
+        "explanation": "A digital signature tied to a controlled private key is evidence that the signer approved the message."
+      },
+      {
+        "statement": "A mail program encrypts a letter with AES and encrypts that AES key with the recipient's RSA public key.",
+        "answer": true,
+        "explanation": "Public-key operations are slower, so they wrap a short key while a symmetric cipher handles the data."
+      },
+      {
+        "statement": "In standard textbooks, the root authority's private key is called Session key.",
+        "answer": false,
+        "explanation": "Limiting a key to one session reduces how much data is exposed if that key later leaks."
+      },
+      {
+        "statement": "A file vault chooses a fresh starting value for each memo so two copies of the same memo encrypt differently.",
+        "answer": true,
+        "explanation": "Modes such as CBC use this value so identical messages do not always produce identical ciphertext."
+      },
+      {
+        "statement": "In standard textbooks, a public digest of the plaintext only is called Authenticated encryption.",
+        "answer": false,
+        "explanation": "Constructions such as GCM encrypt the plaintext and create an authentication tag together."
+      },
+      {
+        "statement": "A package mirror prints a SHA-256 digest beside each download so students can verify the file.",
+        "answer": true,
+        "explanation": "SHA-256 maps any input to a 256-bit digest and is widely used for integrity checks."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, an extension field inside a public certificate is called HMAC.",
+        "answer": false,
+        "explanation": "The secret key is mixed into the hash computation so an outsider cannot forge the tag."
+      },
+      {
+        "statement": "After a laptop holding a client certificate is stolen, the campus authority revokes that certificate the same day.",
+        "answer": true,
+        "explanation": "Revocation covers keys that were exposed, lost, or issued by mistake while the dates still look valid."
+      },
+      {
+        "statement": "In standard textbooks, sMTP is called IPsec.",
+        "answer": false,
+        "explanation": "IPsec protects traffic at the IP layer using security associations and protocols such as ESP."
+      },
+      {
+        "statement": "A firewall allows an outbound web request and then permits the matching replies without a separate inbound allow rule.",
+        "answer": true,
+        "explanation": "The firewall records the connection and then accepts packets that match that remembered state."
+      },
+      {
+        "statement": "In standard textbooks, a password hash store is called Intrusion prevention system.",
+        "answer": false,
+        "explanation": "Unlike a detection-only monitor, this control sits in the traffic path so it can stop the activity."
+      },
+      {
+        "statement": "A records system sits behind a firewall, requires a second login factor, and encrypts the database disk.",
+        "answer": true,
+        "explanation": "Independent layers, such as network filtering, authentication, and encryption, cover different failures."
+      },
+      {
+        "statement": "In standard textbooks, the principle that encryption keys should be published to all staff is called Least privilege.",
+        "answer": false,
+        "explanation": "Narrow rights limit the damage if that account is misused or taken over."
+      },
+      {
+        "statement": "The university web server sits on a screened segment, and the firewall blocks it from opening connections to the student database.",
+        "answer": true,
+        "explanation": "Services in that segment can be reached from outside while stricter rules protect internal systems."
+      },
+      {
+        "statement": "In standard textbooks, encryption that the provider can decrypt is called End-to-end encryption.",
+        "answer": false,
+        "explanation": "Forwarding servers may see ciphertext, but they do not hold the keys needed to read the message."
+      },
+      {
+        "statement": "A clinic rotates database encryption keys each year and keeps the previous key only to read old backups.",
+        "answer": true,
+        "explanation": "Even a strong cipher fails if its keys are generated poorly, leaked, or never changed."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a short key in ECB mode is called Elliptic-curve cryptography.",
+        "answer": false,
+        "explanation": "Elliptic-curve schemes provide public-key security with shorter keys than RSA at a similar strength."
+      },
+      {
+        "statement": "A door reader sends a random challenge, and a smart card returns a signed reply that the reader checks.",
+        "answer": true,
+        "explanation": "A fresh challenge means an old captured reply will not match the next exchange."
+      },
+      {
+        "statement": "In standard textbooks, a hash function designed for storing passwords is called Kerberos.",
+        "answer": false,
+        "explanation": "A user authenticates to the trusted service and then presents tickets to application servers."
+      },
+      {
+        "statement": "A registrar gives instructors a grade-editor role and gives advisers a view-only role.",
+        "answer": true,
+        "explanation": "Rights stay attached to the role, so a job change is handled by changing role membership."
+      },
+      {
+        "statement": "In standard textbooks, typing one password twice is called Multi-factor authentication.",
+        "answer": false,
+        "explanation": "The factors come from different categories, such as a secret, a device, or a biometric."
+      },
+      {
+        "statement": "A college puts lab instruments on a segment that cannot open connections to the finance segment.",
+        "answer": true,
+        "explanation": "Separate zones limit how far a problem on one part of the network can spread."
+      },
+      {
+        "statement": "In standard textbooks, compression is called Availability.",
+        "answer": false,
+        "explanation": "Availability completes the confidentiality-integrity-availability triad by focusing on reliable access."
+      },
+      {
+        "statement": "A login server sends a new random number, and the client includes that number in its signed reply.",
+        "answer": true,
+        "explanation": "Because the value is fresh, a message captured earlier will not match the current exchange."
+      },
+      {
+        "statement": "In standard textbooks, the property that every short file is stored unchanged inside the digest is called Collision resistance.",
+        "answer": false,
+        "explanation": "Signatures and integrity checks fail if an attacker can swap in a second input with the same digest."
+      },
+      {
+        "statement": "An operating system warns about an unsigned installer but runs a campus app that carries a trusted signature.",
+        "answer": true,
+        "explanation": "The signature covers the software bytes, and the publisher certificate identifies who signed them."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When alice and Bob already share a secret key. Which property lets Bob read a file Alice encrypted with that key, the correct result is a different public key decrypts it.",
+        "answer": false,
+        "explanation": "Symmetric encryption decrypts with the same secret key that was used to encrypt."
+      },
+      {
+        "statement": "When a website publishes one key and keeps another secret. Which key should visitors use to encrypt data for that site, the correct result is a hash of the home page.",
+        "answer": false,
+        "explanation": "Public-key encryption lets anyone encrypt to the owner with the published key."
+      },
+      {
+        "statement": "When a product must encrypt large files quickly with one shared secret. The algorithm fits that job, the correct result is aES.",
+        "answer": true,
+        "explanation": "AES is a symmetric block cipher built for fast bulk encryption with a shared key."
+      },
+      {
+        "statement": "When a protocol needs a public-key operation based on the hardness of integer factoring. The algorithm matches, the correct result is rSA.",
+        "answer": true,
+        "explanation": "RSA is the classic public-key algorithm whose trapdoor is related to factoring."
+      },
+      {
+        "statement": "When a team must detect a changed file without being able to rebuild the file from the check value. What should they store, the correct result is the file's private key.",
+        "answer": false,
+        "explanation": "A cryptographic hash is a one-way fingerprint of the file contents."
+      },
+      {
+        "statement": "When customers must confirm that a patch came from the vendor and was not edited. What should the vendor attach, the correct result is a VPN tunnel address.",
+        "answer": false,
+        "explanation": "A digital signature ties the vendor's private key to the exact bytes of the patch."
+      },
+      {
+        "statement": "When a web app must encrypt HTTP and let browsers check the server certificate. The protocol should it use, the correct result is tLS.",
+        "answer": true,
+        "explanation": "TLS is the protocol that secures web sessions and authenticates the server certificate."
+      },
+      {
+        "statement": "When an admin must permit only HTTPS into a server and reject other inbound ports. The control does that, the correct result is a firewall rule.",
+        "answer": true,
+        "explanation": "A firewall rule can allow one service port and deny the remaining inbound traffic."
+      },
+      {
+        "statement": "When the team wants warnings about odd scans, while a person still decides whether to block them. What should they deploy, the correct result is a root certificate.",
+        "answer": false,
+        "explanation": "A detection system raises alerts for people to review instead of automatically blocking traffic."
+      },
+      {
+        "statement": "When staff at home must reach internal servers over the internet without exposing that traffic. In this case they use, the correct result is a VPN.",
+        "answer": true,
+        "explanation": "A VPN encrypts the path between the remote computer and the internal network."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When an organization must issue and revoke certificates that tie employee names to public keys. What system does that, the correct result is a host intrusion log.",
+        "answer": false,
+        "explanation": "Public key infrastructure is the set of authorities and certificates that bind keys to identities."
+      },
+      {
+        "statement": "When two hosts have never shared a key and must agree one while an eavesdropper can see their messages. Which method fits, the correct result is reusing a static password as the ciphertext.",
+        "answer": false,
+        "explanation": "Diffie-Hellman derives a shared secret from public values without sending that secret."
+      },
+      {
+        "statement": "When after Bob decrypts a message with the correct key, what form is the recovered message in, the correct result is plaintext.",
+        "answer": true,
+        "explanation": "Decryption restores the original readable plaintext."
+      },
+      {
+        "statement": "When an observer records the bytes leaving a laptop after encryption and before they reach the server. In this case those bytes, the correct result is ciphertext.",
+        "answer": true,
+        "explanation": "Encryption turns the readable message into ciphertext before it crosses the network."
+      },
+      {
+        "statement": "When a designer picks a cipher that always processes 128-bit chunks with one secret key. What kind of cipher is that, the correct result is a certificate authority.",
+        "answer": false,
+        "explanation": "A block cipher encrypts fixed-size blocks under a symmetric key."
+      },
+      {
+        "statement": "When a link encrypts a continuous byte stream by combining each byte with a keystream. Which cipher type is that, the correct result is a block cipher used only on whole files.",
+        "answer": false,
+        "explanation": "A stream cipher encrypts a running sequence with a keystream rather than fixed blocks."
+      },
+      {
+        "statement": "When two servers share a secret and must notice if a status message changes in transit. In this case they append, the correct result is a message authentication code.",
+        "answer": true,
+        "explanation": "A message authentication code uses the shared secret so an outsider cannot forge a valid tag."
+      },
+      {
+        "statement": "When a login database must keep identical passwords from producing identical stored hashes. In this case be mixed in before hashing, the correct result is a unique salt.",
+        "answer": true,
+        "explanation": "A unique salt makes each stored password hash different even for matching passwords."
+      },
+      {
+        "statement": "When a company wants ordinary browsers to trust its new website certificate. Who should sign that certificate, the correct result is any anonymous visitor.",
+        "answer": false,
+        "explanation": "Browsers trust a site certificate when a recognized certificate authority has signed it."
+      },
+      {
+        "statement": "When during a handshake the server must show The public key belongs to its domain name. In this case it send, the correct result is a digital certificate.",
+        "answer": true,
+        "explanation": "A digital certificate binds the domain name to a public key under an issuer's signature."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When designers want a stolen long-term server key to be useless for reading recorded past sessions. Which property is that, the correct result is disabling certificate checks.",
+        "answer": false,
+        "explanation": "Forward secrecy keeps past session keys independent of the long-term private key."
+      },
+      {
+        "statement": "When a hospital must stop outsiders from reading stored lab results. Which security goal is that, the correct result is availability alone.",
+        "answer": false,
+        "explanation": "Keeping unauthorized people from reading the data is confidentiality."
+      },
+      {
+        "statement": "When auditors must notice if a grade file changes after the instructor saves it. The goal are they protecting, the correct result is integrity.",
+        "answer": true,
+        "explanation": "Noticing an unauthorized change is the integrity goal."
+      },
+      {
+        "statement": "When a mail server must check that a person really is the account holder before showing the inbox. What process is that, the correct result is authentication.",
+        "answer": true,
+        "explanation": "Authentication checks the identity claim before the server grants access."
+      },
+      {
+        "statement": "When a dispute needs evidence that one specific manager approved a purchase order. Which goal supplies that evidence, the correct result is packet fragmentation.",
+        "answer": false,
+        "explanation": "Non-repudiation gives evidence that the identified manager signed the order."
+      },
+      {
+        "statement": "When a large video must be encrypted quickly, yet only the recipient's private key should unlock it. Which design fits, the correct result is encrypting every video byte with RSA alone.",
+        "answer": false,
+        "explanation": "The hybrid design uses public-key encryption for a short AES key and AES for the video."
+      },
+      {
+        "statement": "When a call should be protected by a key that will not be reused for tomorrow's call. What kind of key is that, the correct result is a session key.",
+        "answer": true,
+        "explanation": "A session key is created for one conversation and then discarded."
+      },
+      {
+        "statement": "When two identical messages encrypted with the same key must not produce the same ciphertext. What extra non-secret value is needed, the correct result is a fresh initialization vector.",
+        "answer": true,
+        "explanation": "A new initialization vector changes the ciphertext even when the key and plaintext stay the same."
+      },
+      {
+        "statement": "When a link must hide packet contents and reject packets that are edited on the way. Which construction fits, the correct result is an unkeyed checksum with no secret.",
+        "answer": false,
+        "explanation": "Authenticated encryption supplies secrecy and a tag that reveals tampering."
+      },
+      {
+        "statement": "When a release process needs a 256-bit one-way fingerprint of a binary, not encryption. The function fits, the correct result is sHA-256.",
+        "answer": true,
+        "explanation": "SHA-256 is a hash function, and its output is a 256-bit digest."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When an API already has SHA-256 and a shared secret and must authenticate request bodies. Which construction matches, the correct result is a bare SHA-256 with no key.",
+        "answer": false,
+        "explanation": "HMAC is the standard way to build a keyed tag from a hash function and a secret."
+      },
+      {
+        "statement": "When a private key on a lost laptop may be misused, and the certificate dates are still valid. What should the authority do, the correct result is publish the private key.",
+        "answer": false,
+        "explanation": "Revocation tells relying parties to stop trusting the certificate before it expires."
+      },
+      {
+        "statement": "When two site routers must encrypt IP packets between their networks, not only web traffic. The suite fits, the correct result is iPsec.",
+        "answer": true,
+        "explanation": "IPsec protects IP packets between gateways and therefore covers many applications."
+      },
+      {
+        "statement": "When replies to connections a host started should pass, while unexpected inbound connections stay blocked. The firewall behavior is that, the correct result is stateful inspection.",
+        "answer": true,
+        "explanation": "Stateful inspection remembers legitimate connections and permits their return traffic."
+      },
+      {
+        "statement": "When a device in the traffic path must stop a matching attack at once, not merely record it. What role is it filling, the correct result is a certificate authority.",
+        "answer": false,
+        "explanation": "An intrusion prevention system can block traffic it classifies as an attack."
+      },
+      {
+        "statement": "When architects refuse to trust the firewall alone and also require login checks and encrypted storage. Which strategy is that, the correct result is encryption with access checks removed.",
+        "answer": false,
+        "explanation": "Defense in depth stacks separate controls so bypassing one of them is not enough."
+      },
+      {
+        "statement": "When a print service only needs to write to the print queue. The principle says it should not be an administrator, the correct result is least privilege.",
+        "answer": true,
+        "explanation": "Least privilege limits the print account to the access its job actually needs."
+      },
+      {
+        "statement": "When a public website must be reachable from the internet but must not share a segment with payroll systems. Where should it be placed, the correct result is in a DMZ.",
+        "answer": true,
+        "explanation": "A DMZ separates public-facing hosts from sensitive internal systems."
+      },
+      {
+        "statement": "When users want a chat provider to forward messages without being able to read them. Which protection fits, the correct result is hashing only the recipient's display name.",
+        "answer": false,
+        "explanation": "End-to-end encryption leaves the readable message only on the users' endpoints."
+      },
+      {
+        "statement": "When a team selected AES but has no process for issuing, storing, or retiring keys. The discipline is missing, the correct result is key management.",
+        "answer": true,
+        "explanation": "Key management covers the life cycle of the keys the cipher depends on."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a small device needs public-key security with shorter keys than a typical RSA modulus. Which approach fits, the correct result is sHA-1 used as a cipher.",
+        "answer": false,
+        "explanation": "Elliptic-curve public-key schemes reach strong security with comparatively short keys."
+      },
+      {
+        "statement": "When a door reader must make yesterday's captured unlock message useless today. Which authentication pattern helps, the correct result is skipping any random challenge.",
+        "answer": false,
+        "explanation": "A new challenge binds the reply to this attempt, so a replayed old reply fails."
+      },
+      {
+        "statement": "When a domain needs single sign-on with time-limited tickets from a trusted service. The system matches, the correct result is kerberos.",
+        "answer": true,
+        "explanation": "Kerberos issues time-limited tickets after authentication by a trusted service."
+      },
+      {
+        "statement": "When when a clerk becomes a supervisor, access should change by moving the person between job roles. The model is that, the correct result is role-based access control.",
+        "answer": true,
+        "explanation": "Role-based access control attaches permissions to roles instead of copying them onto each person."
+      },
+      {
+        "statement": "When a policy says a password alone is not enough for payroll and a phone code is also required. What control is that, the correct result is removing the second check.",
+        "answer": false,
+        "explanation": "A password and a phone code are two different kinds of authentication evidence."
+      },
+      {
+        "statement": "When a compromised lab machine must still be unable to reach finance servers directly. Which design goal is that, the correct result is one flat network for every system.",
+        "answer": false,
+        "explanation": "Segmentation puts the lab and finance systems in zones with controlled paths between them."
+      },
+      {
+        "statement": "When during maintenance, an exam site must stay reachable for students who are allowed to use it. The goal is that, the correct result is availability.",
+        "answer": true,
+        "explanation": "Keeping an authorized service usable when it is needed is availability."
+      },
+      {
+        "statement": "When a login protocol must make a captured reply useless on the next attempt. The value should change every time, the correct result is a nonce.",
+        "answer": true,
+        "explanation": "A new nonce ties the reply to the current attempt, so a replay fails."
+      },
+      {
+        "statement": "When a signature covers the hash of a contract. Which hash property stops someone from swapping in a different contract with that same hash, the correct result is reversibility of the hash.",
+        "answer": false,
+        "explanation": "Collision resistance makes it infeasible to find a second contract that hashes to the signed digest."
+      },
+      {
+        "statement": "When students should detect a changed lab installer and see The department published it. In this case the department attach, the correct result is a code signature.",
+        "answer": true,
+        "explanation": "Code signing binds the installer bytes to the department's certified signing key."
+      }
+    ]
+  }
+}

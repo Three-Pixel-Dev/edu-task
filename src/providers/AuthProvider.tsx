@@ -18,6 +18,7 @@ export interface AuthContextValue {
   register(input: RegisterInput): Promise<void>;
   login(credentials: Credentials): Promise<void>;
   logout(): Promise<void>;
+  changePassword(currentPassword: string, newPassword: string): Promise<void>;
   resetPassword(email: string): Promise<void>;
 }
 
@@ -83,11 +84,15 @@ export function AuthProvider({ children }: PropsWithChildren) {
     await authService.login(credentials);
   }, []);
   const logout = useCallback(() => authService.logout(), []);
+  const changePassword = useCallback(
+    (currentPassword: string, newPassword: string) => authService.changePassword(currentPassword, newPassword),
+    [],
+  );
   const resetPassword = useCallback((email: string) => authService.resetPassword(email), []);
 
   const value = useMemo(
-    () => ({ status, user, profile, profileStatus, profileError, register, login, logout, resetPassword }),
-    [status, user, profile, profileStatus, profileError, register, login, logout, resetPassword],
+    () => ({ status, user, profile, profileStatus, profileError, register, login, logout, changePassword, resetPassword }),
+    [status, user, profile, profileStatus, profileError, register, login, logout, changePassword, resetPassword],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

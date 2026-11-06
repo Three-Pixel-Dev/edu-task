@@ -1,0 +1,785 @@
+{
+  "subjectId": "research-methodology",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Research Question is a clear question that the study is designed to answer and that is narrow enough for the chosen methods.",
+        "answer": true,
+        "explanation": "A research question states what the study will answer and guides the choice of method and data."
+      },
+      {
+        "statement": "A Research Objective is the name of the statistics package.",
+        "answer": false,
+        "explanation": "An objective is a concrete outcome of the study, specific enough that completion can be judged."
+      },
+      {
+        "statement": "A Literature Review is a critical synthesis of published work that shows what is already known and where the new study fits.",
+        "answer": true,
+        "explanation": "A literature review argues from existing work; it is more than a sequence of summaries or a bare list of titles."
+      },
+      {
+        "statement": "A Citation is a footnote that names no source.",
+        "answer": false,
+        "explanation": "A citation tells the reader exactly which source supports a borrowed idea or result."
+      },
+      {
+        "statement": "A Peer-Reviewed Source is a publication that experts in the field have examined for quality before it was accepted.",
+        "answer": true,
+        "explanation": "Peer review means qualified reviewers assessed the work before publication, which is a quality filter, not a guarantee."
+      },
+      {
+        "statement": "A Primary Source is a slide that cites a review.",
+        "answer": false,
+        "explanation": "A primary source presents original evidence, whereas secondary sources interpret or summarise that evidence."
+      },
+      {
+        "statement": "A Secondary Source is a work that summarises, reviews, or interprets primary research rather than reporting a new study by its author.",
+        "answer": true,
+        "explanation": "A secondary source comments on or synthesises primary work; it is not the original evidence."
+      },
+      {
+        "statement": "A Research Gap is a spelling mistake in one old paper.",
+        "answer": false,
+        "explanation": "A research gap is a genuine opening in what is known, which justifies a new study."
+      },
+      {
+        "statement": "A Theoretical Framework is a set of established theories used to explain the phenomenon and to guide what the study examines.",
+        "answer": true,
+        "explanation": "A theoretical framework uses existing theory to explain the phenomenon and shape the study."
+      },
+      {
+        "statement": "A Conceptual Framework is a consent form.",
+        "answer": false,
+        "explanation": "A conceptual framework shows how this study's concepts are expected to relate, often in a diagram."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Hypothesis is a testable statement that predicts a relationship or difference between variables.",
+        "answer": true,
+        "explanation": "A hypothesis predicts an observable relationship or difference so that data can support or contradict it."
+      },
+      {
+        "statement": "A Null Hypothesis is the conclusion the author prefers.",
+        "answer": false,
+        "explanation": "The null hypothesis states no effect or no difference and is the statement the test attempts to reject."
+      },
+      {
+        "statement": "An Alternative Hypothesis is a statement that there is an effect or a difference, considered if the evidence leads you to reject the null.",
+        "answer": true,
+        "explanation": "The alternative hypothesis states that an effect or difference exists and is adopted only if the null is rejected."
+      },
+      {
+        "statement": "An Independent Variable is a factor deliberately held constant so it cannot explain the result.",
+        "answer": false,
+        "explanation": "The independent variable is the presumed influence or grouping, not the measured outcome."
+      },
+      {
+        "statement": "A Dependent Variable is the outcome variable that is measured to see whether it is associated with, or affected by, the independent variable.",
+        "answer": true,
+        "explanation": "The dependent variable is the measured outcome, not the condition the researcher manipulates."
+      },
+      {
+        "statement": "A Control Variable is dependent variables.",
+        "answer": false,
+        "explanation": "A control variable is managed so that it cannot offer an alternative explanation of the outcome."
+      },
+      {
+        "statement": "An Operational Definition is a statement of how a concept will be observed or measured in a particular study.",
+        "answer": true,
+        "explanation": "An operational definition makes a concept measurable by stating the exact observation this study will use."
+      },
+      {
+        "statement": "A Population is only students who happened to be in one cafe.",
+        "answer": false,
+        "explanation": "The population is the entire group the conclusions are meant to cover, not only those who were observed."
+      },
+      {
+        "statement": "A Sample is the subset of the population that is actually observed or measured in the study.",
+        "answer": true,
+        "explanation": "The sample is the part of the population from which data are actually collected."
+      },
+      {
+        "statement": "A Sampling Frame is the theoretical population, including people missing from every available list.",
+        "answer": false,
+        "explanation": "The sampling frame is the operational list used for selection and may not perfectly match the population."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Simple Random Sampling is a probability method in which every member of the frame has an equal chance of being included.",
+        "answer": true,
+        "explanation": "Simple random sampling gives each member of the frame an equal chance of selection."
+      },
+      {
+        "statement": "A Stratified Sampling is one simple random draw with no faculty split.",
+        "answer": false,
+        "explanation": "Stratified sampling samples within defined subgroups so those subgroups are represented."
+      },
+      {
+        "statement": "A Convenience Sampling is a non-probability method that selects whoever is easiest to reach, which limits how far results can be generalised.",
+        "answer": true,
+        "explanation": "Convenience sampling trades representativeness for ease, so generalisation is weak."
+      },
+      {
+        "statement": "A Sample Size is the 2 authors of the report.",
+        "answer": false,
+        "explanation": "Sample size is how many observations are analysed, and larger samples usually give more precise estimates."
+      },
+      {
+        "statement": "A Bias is a systematic error that pushes results away from the true value, rather than random variation around it.",
+        "answer": true,
+        "explanation": "Bias is systematic: it pushes the result in a direction, unlike random error that varies around the truth."
+      },
+      {
+        "statement": "An Internal Validity is the consistency of a questionnaire when it is repeated.",
+        "answer": false,
+        "explanation": "Internal validity concerns whether the study itself can support a cause-and-effect claim."
+      },
+      {
+        "statement": "An External Validity is the extent to which findings can be generalised to other people, settings, or times.",
+        "answer": true,
+        "explanation": "External validity is about generalisation beyond the people and setting actually studied."
+      },
+      {
+        "statement": "A Construct Validity is generalisation to another country.",
+        "answer": false,
+        "explanation": "Construct validity asks if the measurement matches the concept, not if the sample generalises."
+      },
+      {
+        "statement": "A Reliability is the consistency of a measure when it is repeated under the same conditions.",
+        "answer": true,
+        "explanation": "Reliability means consistency of measurement; a measure can be consistent and still measure the wrong concept."
+      },
+      {
+        "statement": "A Quantitative Research is a prose diary of the project.",
+        "answer": false,
+        "explanation": "Quantitative research uses numbers and statistics to examine relationships or group differences."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Qualitative Research is research that collects non-numerical data, such as interviews or documents, to interpret meanings and experiences.",
+        "answer": true,
+        "explanation": "Qualitative research interprets meanings in non-numerical material such as talk or text."
+      },
+      {
+        "statement": "A Descriptive Statistics is the ethical rules for recruiting participants.",
+        "answer": false,
+        "explanation": "Descriptive statistics summarise the observed data and do not, by themselves, infer beyond that data."
+      },
+      {
+        "statement": "An Inferential Statistics is methods that use sample data to draw conclusions about a larger population, including estimates and hypothesis tests.",
+        "answer": true,
+        "explanation": "Inferential statistics go beyond the sample to estimate or test claims about a population."
+      },
+      {
+        "statement": "A Mean is 6.",
+        "answer": false,
+        "explanation": "The mean is the sum of the values divided by the count of values."
+      },
+      {
+        "statement": "A Standard Deviation is a measure of how far values in a data set typically sit from their mean.",
+        "answer": true,
+        "explanation": "Standard deviation summarises typical distance from the mean, so it describes spread rather than centre."
+      },
+      {
+        "statement": "A Confidence Interval is the standard deviation of the sample.",
+        "answer": false,
+        "explanation": "A confidence interval is an inferential range for a population value, with a stated confidence level tied to the method."
+      },
+      {
+        "statement": "A p-Value is the probability of data at least as extreme as those observed if the null hypothesis were true.",
+        "answer": true,
+        "explanation": "A p-value is computed assuming the null is true; it is not the probability that the null is true."
+      },
+      {
+        "statement": "A Statistical Significance is proof that the null hypothesis is false beyond any doubt.",
+        "answer": false,
+        "explanation": "Statistical significance means the result is unlikely given the null and the chosen threshold; it is not practical importance."
+      },
+      {
+        "statement": "A Type I Error is rejecting a null hypothesis that is actually true, also called a false positive.",
+        "answer": true,
+        "explanation": "A Type I error is a false claim of an effect when the null is true."
+      },
+      {
+        "statement": "A Type II Error is a Type I error.",
+        "answer": false,
+        "explanation": "A Type II error misses a real effect by failing to reject a false null."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Correlation is a statistical association in which two variables vary together, which by itself does not prove that one causes the other.",
+        "answer": true,
+        "explanation": "Correlation describes association; causation needs a design that can support a causal claim."
+      },
+      {
+        "statement": "A Causation is a small p-value from a confounded convenience sample.",
+        "answer": false,
+        "explanation": "A causal claim needs a design, such as controlled assignment, that can rule out alternative explanations."
+      },
+      {
+        "statement": "A Research Informed Consent is voluntary agreement to take part, given after the person understands the purpose, procedures, risks, and right to withdraw.",
+        "answer": true,
+        "explanation": "Research consent is informed and voluntary, and it includes the freedom to withdraw."
+      },
+      {
+        "statement": "A Research Ethics is a requirement to fabricate data if the hypothesis looks weak.",
+        "answer": false,
+        "explanation": "Research ethics protect people and require honest conduct; they are not waived for an interesting result."
+      },
+      {
+        "statement": "An Anonymity is a condition in which the researcher cannot link a response to the identity of the person who provided it.",
+        "answer": true,
+        "explanation": "Anonymity means even the researcher cannot connect responses to identities, which is stronger than confidential storage of names."
+      },
+      {
+        "statement": "A Research Confidentiality is anonymity, which you no longer have because you know the names.",
+        "answer": false,
+        "explanation": "Confidentiality protects known identities from disclosure; it is different from anonymity, where identities are not known."
+      },
+      {
+        "statement": "A Fabrication is making up data or results and reporting them as if they had been collected.",
+        "answer": true,
+        "explanation": "Fabrication is invention of data or results, which is research misconduct."
+      },
+      {
+        "statement": "A Falsification is using the statistical test named in the proposal.",
+        "answer": false,
+        "explanation": "Falsification changes real materials or data so the report no longer represents what happened."
+      },
+      {
+        "statement": "A Research Plagiarism is using another person's words, ideas, or data without proper credit and presenting that material as your own.",
+        "answer": true,
+        "explanation": "Plagiarism presents someone else's work as yours; quotation or paraphrase with credit avoids it."
+      },
+      {
+        "statement": "A Research Report is the raw data file with no explanation.",
+        "answer": false,
+        "explanation": "A research report lets others judge the study by presenting question, method, results, and interpretation together."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the list of references at the end of a paper is called Research Question.",
+        "answer": false,
+        "explanation": "A research question states what the study will answer and guides the choice of method and data."
+      },
+      {
+        "statement": "One objective is to measure the change in reset calls in the month after the video guide is published.",
+        "answer": true,
+        "explanation": "An objective is a concrete outcome of the study, specific enough that completion can be judged."
+      },
+      {
+        "statement": "In standard textbooks, add more quotations and still not compare them is called Literature Review.",
+        "answer": false,
+        "explanation": "A literature review argues from existing work; it is more than a sequence of summaries or a bare list of titles."
+      },
+      {
+        "statement": "A sentence about reset-call rates ends with an author-year citation that matches an entry in the reference list.",
+        "answer": true,
+        "explanation": "A citation tells the reader exactly which source supports a borrowed idea or result."
+      },
+      {
+        "statement": "In standard textbooks, the vendor's advertisement is called Peer-Reviewed Source.",
+        "answer": false,
+        "explanation": "Peer review means qualified reviewers assessed the work before publication, which is a quality filter, not a guarantee."
+      },
+      {
+        "statement": "The student reads the original experiment on video guides rather than only the textbook paragraph about it.",
+        "answer": true,
+        "explanation": "A primary source presents original evidence, whereas secondary sources interpret or summarise that evidence."
+      },
+      {
+        "statement": "In standard textbooks, a lab notebook from the study itself is called Secondary Source.",
+        "answer": false,
+        "explanation": "A secondary source comments on or synthesises primary work; it is not the original evidence."
+      },
+      {
+        "statement": "Studies measure exam scores after a video, but none measure whether help-desk calls actually fall.",
+        "answer": true,
+        "explanation": "A research gap is a genuine opening in what is known, which justifies a new study."
+      },
+      {
+        "statement": "In standard textbooks, an unsupported personal hunch is called Theoretical Framework.",
+        "answer": false,
+        "explanation": "A theoretical framework uses existing theory to explain the phenomenon and shape the study."
+      },
+      {
+        "statement": "A diagram links video length to understanding and then to the number of reset calls.",
+        "answer": true,
+        "explanation": "A conceptual framework shows how this study's concepts are expected to relate, often in a diagram."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, the planned sample size is called Hypothesis.",
+        "answer": false,
+        "explanation": "A hypothesis predicts an observable relationship or difference so that data can support or contradict it."
+      },
+      {
+        "statement": "The null states that mean reset calls do not differ between the video group and the text group.",
+        "answer": true,
+        "explanation": "The null hypothesis states no effect or no difference and is the statement the test attempts to reject."
+      },
+      {
+        "statement": "In standard textbooks, a description of how the sample was recruited is called Alternative Hypothesis.",
+        "answer": false,
+        "explanation": "The alternative hypothesis states that an effect or difference exists and is adopted only if the null is rejected."
+      },
+      {
+        "statement": "The study assigns students to either a short video or a text policy, which is the independent variable.",
+        "answer": true,
+        "explanation": "The independent variable is the presumed influence or grouping, not the measured outcome."
+      },
+      {
+        "statement": "In standard textbooks, whether the student saw video or text is called Dependent Variable.",
+        "answer": false,
+        "explanation": "The dependent variable is the measured outcome, not the condition the researcher manipulates."
+      },
+      {
+        "statement": "Both groups use the same help-desk and the same week of term so those factors cannot explain a difference in calls.",
+        "answer": true,
+        "explanation": "A control variable is managed so that it cannot offer an alternative explanation of the outcome."
+      },
+      {
+        "statement": "In standard textbooks, the title of a statistics book is called Operational Definition.",
+        "answer": false,
+        "explanation": "An operational definition makes a concept measurable by stating the exact observation this study will use."
+      },
+      {
+        "statement": "The population is all first-year undergraduates at the university, not only the 200 who answered the survey.",
+        "answer": true,
+        "explanation": "The population is the entire group the conclusions are meant to cover, not only those who were observed."
+      },
+      {
+        "statement": "In standard textbooks, the sampling method's name, rather than the people selected is called Sample.",
+        "answer": false,
+        "explanation": "The sample is the part of the population from which data are actually collected."
+      },
+      {
+        "statement": "The frame is the registrar's enrolment list, which omits two late-joining students.",
+        "answer": true,
+        "explanation": "The sampling frame is the operational list used for selection and may not perfectly match the population."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, asking whoever walks past is called Simple Random Sampling.",
+        "answer": false,
+        "explanation": "Simple random sampling gives each member of the frame an equal chance of selection."
+      },
+      {
+        "statement": "The frame is split into faculties, and a random sample is drawn inside each faculty.",
+        "answer": true,
+        "explanation": "Stratified sampling samples within defined subgroups so those subgroups are represented."
+      },
+      {
+        "statement": "In standard textbooks, a census of all students is called Convenience Sampling.",
+        "answer": false,
+        "explanation": "Convenience sampling trades representativeness for ease, so generalisation is weak."
+      },
+      {
+        "statement": "The study analyses quiz scores from 180 students, so the sample size is 180.",
+        "answer": true,
+        "explanation": "Sample size is how many observations are analysed, and larger samples usually give more precise estimates."
+      },
+      {
+        "statement": "In standard textbooks, a clearly reported limitation that does not shift the estimate is called Bias.",
+        "answer": false,
+        "explanation": "Bias is systematic: it pushes the result in a direction, unlike random error that varies around the truth."
+      },
+      {
+        "statement": "Because both groups share the same week and help-desk, a drop in calls is more plausibly due to the video.",
+        "answer": true,
+        "explanation": "Internal validity concerns whether the study itself can support a cause-and-effect claim."
+      },
+      {
+        "statement": "In standard textbooks, whether a confound explains the college result is called External Validity.",
+        "answer": false,
+        "explanation": "External validity is about generalisation beyond the people and setting actually studied."
+      },
+      {
+        "statement": "A quiz of trivia about the video's actors is a poor measure of the concept password-reset skill.",
+        "answer": true,
+        "explanation": "Construct validity asks if the measurement matches the concept, not if the sample generalises."
+      },
+      {
+        "statement": "In standard textbooks, proof that the video causes fewer calls is called Reliability.",
+        "answer": false,
+        "explanation": "Reliability means consistency of measurement; a measure can be consistent and still measure the wrong concept."
+      },
+      {
+        "statement": "The study compares mean reset-call counts between two groups with a statistical test.",
+        "answer": true,
+        "explanation": "Quantitative research uses numbers and statistics to examine relationships or group differences."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a census that only counts people is called Qualitative Research.",
+        "answer": false,
+        "explanation": "Qualitative research interprets meanings in non-numerical material such as talk or text."
+      },
+      {
+        "statement": "The report states that the 180 quiz scores have a mean of 7.4 and a standard deviation of 1.2.",
+        "answer": true,
+        "explanation": "Descriptive statistics summarise the observed data and do not, by themselves, infer beyond that data."
+      },
+      {
+        "statement": "In standard textbooks, a mean that describes only the sample is called Inferential Statistics.",
+        "answer": false,
+        "explanation": "Inferential statistics go beyond the sample to estimate or test claims about a population."
+      },
+      {
+        "statement": "Scores of 6, 7, and 8 have a mean of 7 because their sum is 21 and there are three scores.",
+        "answer": true,
+        "explanation": "The mean is the sum of the values divided by the count of values."
+      },
+      {
+        "statement": "In standard textbooks, the p-value of an unrelated test is called Standard Deviation.",
+        "answer": false,
+        "explanation": "Standard deviation summarises typical distance from the mean, so it describes spread rather than centre."
+      },
+      {
+        "statement": "From the sample, the 95 percent confidence interval for the mean score runs from 7.1 to 7.7.",
+        "answer": true,
+        "explanation": "A confidence interval is an inferential range for a population value, with a stated confidence level tied to the method."
+      },
+      {
+        "statement": "In standard textbooks, the probability that the alternative hypothesis is true is called p-Value.",
+        "answer": false,
+        "explanation": "A p-value is computed assuming the null is true; it is not the probability that the null is true."
+      },
+      {
+        "statement": "With a threshold of 0.05, a p-value of 0.03 is reported as statistically significant.",
+        "answer": true,
+        "explanation": "Statistical significance means the result is unlikely given the null and the chosen threshold; it is not practical importance."
+      },
+      {
+        "statement": "In standard textbooks, a Type II error is called Type I Error.",
+        "answer": false,
+        "explanation": "A Type I error is a false claim of an effect when the null is true."
+      },
+      {
+        "statement": "The video truly reduces calls, but a tiny sample does not reject the null, so the report finds no difference.",
+        "answer": true,
+        "explanation": "A Type II error misses a real effect by failing to reject a false null."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, the study has ethical approval because of the association is called Correlation.",
+        "answer": false,
+        "explanation": "Correlation describes association; causation needs a design that can support a causal claim."
+      },
+      {
+        "statement": "Students are randomly assigned to video or text, and other conditions are held constant, before calls are compared.",
+        "answer": true,
+        "explanation": "A causal claim needs a design, such as controlled assignment, that can rule out alternative explanations."
+      },
+      {
+        "statement": "In standard textbooks, a signature collected with no explanation of the study is called Research Informed Consent.",
+        "answer": false,
+        "explanation": "Research consent is informed and voluntary, and it includes the freedom to withdraw."
+      },
+      {
+        "statement": "A study of staff passwords is redesigned so it does not collect live passwords, after ethics review flags the harm.",
+        "answer": true,
+        "explanation": "Research ethics protect people and require honest conduct; they are not waived for an interesting result."
+      },
+      {
+        "statement": "In standard textbooks, confidential storage of a name list you can still match is called Anonymity.",
+        "answer": false,
+        "explanation": "Anonymity means even the researcher cannot connect responses to identities, which is stronger than confidential storage of names."
+      },
+      {
+        "statement": "Interview names are kept in a locked file separate from transcripts and are not used in the thesis.",
+        "answer": true,
+        "explanation": "Confidentiality protects known identities from disclosure; it is different from anonymity, where identities are not known."
+      },
+      {
+        "statement": "In standard textbooks, citing a source that was read is called Fabrication.",
+        "answer": false,
+        "explanation": "Fabrication is invention of data or results, which is research misconduct."
+      },
+      {
+        "statement": "A student deletes the questionnaires that contradict the hypothesis and analyses only the rest, without saying so.",
+        "answer": true,
+        "explanation": "Falsification changes real materials or data so the report no longer represents what happened."
+      },
+      {
+        "statement": "In standard textbooks, paraphrasing an idea and citing the source is called Research Plagiarism.",
+        "answer": false,
+        "explanation": "Plagiarism presents someone else's work as yours; quotation or paraphrase with credit avoids it."
+      },
+      {
+        "statement": "The paper states the call-rate question, how groups were assigned, the test result, and what that result means.",
+        "answer": true,
+        "explanation": "A research report lets others judge the study by presenting question, method, results, and interpretation together."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a proposal has only the title student passwords and no question the data could answer. What must be added before the method can be chosen, the correct result is a longer topic title and nothing else.",
+        "answer": false,
+        "explanation": "Methods are chosen to answer a research question, so a topic title alone is not enough."
+      },
+      {
+        "statement": "When the proposal says explore passwords. Reviewers cannot tell when the study would be finished. Which replacement is a research objective, the correct result is use a well-known statistics package.",
+        "answer": false,
+        "explanation": "A research objective states a checkable outcome, such as measuring a defined change."
+      },
+      {
+        "statement": "When a draft lists twenty quotations in date order and never compares them. The improvement would make it a literature review, the correct result is synthesise the sources into an argument about what is known and missing.",
+        "answer": true,
+        "explanation": "A literature review critically synthesises sources to show the state of knowledge and the gap."
+      },
+      {
+        "statement": "When you use another study's finding about reset calls in your introduction. The addition gives the reader the source, the correct result is a citation that identifies that study.",
+        "answer": true,
+        "explanation": "A citation identifies the source of the finding so the reader can trace it."
+      },
+      {
+        "statement": "When you need a quality-checked study of training videos rather than a vendor advert. Which source type fits, the correct result is an anonymous unchecked blog.",
+        "answer": false,
+        "explanation": "A peer-reviewed article has been examined by field experts before acceptance."
+      },
+      {
+        "statement": "When you need the authors' own report of their video-guide experiment, not a retelling. Which source should you read, the correct result is a slide that cites a review.",
+        "answer": false,
+        "explanation": "The paper in which the authors report their own study is the primary source."
+      },
+      {
+        "statement": "When an article compares twelve studies and runs no new experiment. The label fits that article, the correct result is a secondary source.",
+        "answer": true,
+        "explanation": "A review that interprets other studies, without a new study, is a secondary source."
+      },
+      {
+        "statement": "When many papers agree on exam scores after training videos, but none measure help-desk calls. The opening can justify a new study, the correct result is the unmeasured effect on help-desk calls.",
+        "answer": true,
+        "explanation": "A research gap is an unanswered question, here the effect on help-desk calls."
+      },
+      {
+        "statement": "When you explain the expected benefit of a short video by using cognitive load theory. Which role is that theory playing, the correct result is the ethics form's phone number.",
+        "answer": false,
+        "explanation": "Using an established theory to explain and guide the study makes it the theoretical framework."
+      },
+      {
+        "statement": "When a diagram shows video length affecting understanding, The then affects reset calls. Which artefact is that diagram, the correct result is the conceptual framework.",
+        "answer": true,
+        "explanation": "A diagram of this study's concepts and expected links is the conceptual framework."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When you predict that the video group will log fewer reset calls than the text group. Which kind of statement is that prediction, the correct result is a moral claim that data cannot test.",
+        "answer": false,
+        "explanation": "A testable prediction of a difference between groups is a hypothesis."
+      },
+      {
+        "statement": "When the test assumes no difference in mean reset calls between the two groups. Which statement is that, the correct result is the conclusion the author prefers.",
+        "answer": false,
+        "explanation": "A statement of no difference, used as the basis of the test, is the null hypothesis."
+      },
+      {
+        "statement": "When you will claim a difference in mean calls only if the test rejects no difference. The statement expresses that difference, the correct result is the alternative hypothesis.",
+        "answer": true,
+        "explanation": "The statement that a difference exists is the alternative hypothesis."
+      },
+      {
+        "statement": "When students are assigned either a video or a text, and reset calls are counted afterwards. The is the independent variable, the correct result is the guide type, video or text.",
+        "answer": true,
+        "explanation": "The factor the researcher assigns, the type of guide, is the independent variable."
+      },
+      {
+        "statement": "When guide type is assigned, and the study counts reset calls over the next month. Which is the dependent variable, the correct result is the chart software.",
+        "answer": false,
+        "explanation": "The measured outcome, reset calls, is the dependent variable."
+      },
+      {
+        "statement": "When both groups share the same help-desk and the same week so those factors cannot explain the result. What role do those factors play, the correct result is dependent variables.",
+        "answer": false,
+        "explanation": "Factors held constant so they cannot explain the outcome are control variables."
+      },
+      {
+        "statement": "When the study must say exactly how understanding will be measured. The statement is an operational definition, the correct result is the score on a ten-item quiz taken right after the guide.",
+        "answer": true,
+        "explanation": "An operational definition states the concrete measurement used in this study."
+      },
+      {
+        "statement": "When conclusions are meant to cover every first-year student, but only 200 answer. The group is the population, the correct result is all first-year undergraduates at the university.",
+        "answer": true,
+        "explanation": "The population is the full set the study wants to conclude about, here every first-year student."
+      },
+      {
+        "statement": "When data come from 200 first-year students, not from every first-year student. Which group is the sample, the correct result is every first-year student, including those not contacted.",
+        "answer": false,
+        "explanation": "The sample is the subset that was actually observed."
+      },
+      {
+        "statement": "When names are drawn from the registrar's enrolment list, The misses late joiners. Which item is the sampling frame, the correct result is the registrar's enrolment list.",
+        "answer": true,
+        "explanation": "The list from which the sample is drawn is the sampling frame."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When each student on the enrolment list must have the same chance of selection. Which method fits, the correct result is using one convenient class in full.",
+        "answer": false,
+        "explanation": "Equal chance of selection for every member of the frame is simple random sampling."
+      },
+      {
+        "statement": "When each faculty must be represented, so names are drawn at random inside every faculty. Which method is that, the correct result is one simple random draw with no faculty split.",
+        "answer": false,
+        "explanation": "Dividing into subgroups and sampling from each one is stratified sampling."
+      },
+      {
+        "statement": "When you survey only students sitting in the library on Tuesday because they are easy to reach. The method is that, the correct result is convenience sampling.",
+        "answer": true,
+        "explanation": "Selecting whoever is easiest to reach is convenience sampling and limits generalisation."
+      },
+      {
+        "statement": "When quiz scores from 180 students will be analysed, one score each. The number is the sample size, the correct result is 180.",
+        "answer": true,
+        "explanation": "Sample size is the number of observations, here the 180 student scores."
+      },
+      {
+        "statement": "When only students who loved the video reply, and satisfaction looks higher than it is for the class. Which problem is that, the correct result is random variation that would shrink with more replies.",
+        "answer": false,
+        "explanation": "A systematic push away from the true value, here from who chooses to reply, is bias."
+      },
+      {
+        "statement": "When a critic says a holiday week, not the video, caused fewer calls. Which property is being challenged, the correct result is whether the quiz gives the same score twice.",
+        "answer": false,
+        "explanation": "A possible confound attacks internal validity, the basis for a causal claim inside the study."
+      },
+      {
+        "statement": "When the result comes from one small college, and you ask whether it applies to large public universities. The property is that question about, the correct result is external validity.",
+        "answer": true,
+        "explanation": "Generalising beyond the studied setting is a question of external validity."
+      },
+      {
+        "statement": "When the quiz asks about the presenter's clothes, but the concept is password-reset skill. The property is weak, the correct result is construct validity.",
+        "answer": true,
+        "explanation": "Construct validity is weak when the measure does not capture the intended concept."
+      },
+      {
+        "statement": "When the same students retake the same quiz under the same conditions and scores barely change. Which property does that support, the correct result is proof the result applies worldwide.",
+        "answer": false,
+        "explanation": "Similar scores on repetition support reliability, which is consistency, not correctness of the concept."
+      },
+      {
+        "statement": "When you will compare mean call counts between two groups with a statistical test. The approach is that, the correct result is quantitative research.",
+        "answer": true,
+        "explanation": "Collecting numerical data and testing a difference statistically is quantitative research."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When you interview students about why they ignore prompts and code themes from the transcripts. Which approach is that, the correct result is a statistical test of two mean scores.",
+        "answer": false,
+        "explanation": "Interpreting interview meanings through themes is qualitative research."
+      },
+      {
+        "statement": "When you report the mean and spread of the 180 scores you collected, with no claim about all students. Which statistics are those, the correct result is the ethics rules.",
+        "answer": false,
+        "explanation": "Summaries of the data in hand, such as mean and spread, are descriptive statistics."
+      },
+      {
+        "statement": "When the sample is used to judge whether video and text differ for all first-year students. The methods do that, the correct result is inferential statistics.",
+        "answer": true,
+        "explanation": "Using sample data to conclude about a larger population is inferential statistics."
+      },
+      {
+        "statement": "When three quiz scores are 6, 7, and 8. The value is their mean, the correct result is 7.",
+        "answer": true,
+        "explanation": "The mean is the sum divided by the count: 21 divided by 3 equals 7."
+      },
+      {
+        "statement": "When two classes share a mean of 70, but one class's scores cluster tightly and the other's are widely spread. Which measure shows that difference, the correct result is the middle name of the teacher.",
+        "answer": false,
+        "explanation": "Standard deviation measures typical distance from the mean, so it distinguishes the tight and wide classes."
+      },
+      {
+        "statement": "When a sample produces a 95 percent interval of 7.1 to 7.7 for the population mean score. Which result is that interval, the correct result is the standard deviation of the sample.",
+        "answer": false,
+        "explanation": "A range estimated from the sample for a population value, at a stated confidence level, is a confidence interval."
+      },
+      {
+        "statement": "When a classmate says the p-value of 0.03 is the probability that the null hypothesis is true. The correction is right, the correct result is it is the probability of data at least this extreme if the null were true.",
+        "answer": true,
+        "explanation": "The p-value assumes the null is true and states how surprising the data would then be."
+      },
+      {
+        "statement": "When the threshold was set at 0.05 and the p-value is 0.03. The claim is justified by that comparison alone, the correct result is the result is statistically significant.",
+        "answer": true,
+        "explanation": "A p-value below the pre-set threshold supports calling the result statistically significant, not practically important."
+      },
+      {
+        "statement": "When there is truly no difference, yet the test rejects the null and a difference is claimed. Which error is that, the correct result is the use of a convenience sample.",
+        "answer": false,
+        "explanation": "Rejecting a true null is a Type I error, a false positive."
+      },
+      {
+        "statement": "When the video truly reduces calls, but the test does not reject no difference. The error is that, the correct result is a Type II error.",
+        "answer": true,
+        "explanation": "Failing to reject a false null is a Type II error, a false negative."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When video hours and quiz scores rise together, and nothing was assigned by the researcher. Which claim is justified, the correct result is the means of two randomised groups differ.",
+        "answer": false,
+        "explanation": "Joint variation without a causal design supports correlation, not causation."
+      },
+      {
+        "statement": "When you want to claim the video produces fewer calls, not merely that the two are associated. Which design feature is required, the correct result is a small p-value from a confounded convenience sample.",
+        "answer": false,
+        "explanation": "Causation requires a design that can support a production claim, not association alone."
+      },
+      {
+        "statement": "When you want to interview students. The step secures research informed consent, the correct result is explain purpose, risks, and withdrawal, then accept only voluntary agreement.",
+        "answer": true,
+        "explanation": "Informed consent is a voluntary agreement after the participant understands the study and the right to withdraw."
+      },
+      {
+        "statement": "When a design would collect live staff passwords and cannot explain a matching benefit. The demand of research ethics applies, the correct result is change the design to avoid unjustified harm.",
+        "answer": true,
+        "explanation": "Research ethics require avoidance of unjustified harm, so the dangerous design must change."
+      },
+      {
+        "statement": "When you must ensure that even you cannot tell who gave which quiz sheet. Which condition are you creating, the correct result is printing student IDs on every sheet.",
+        "answer": false,
+        "explanation": "Anonymity means responses cannot be linked to identities, including by the researcher."
+      },
+      {
+        "statement": "When you know who was interviewed and must stop others identifying them in the thesis. Which duty is that, the correct result is anonymity, which you no longer have because you know the names.",
+        "answer": false,
+        "explanation": "Protecting identities you do know from unauthorised disclosure is confidentiality."
+      },
+      {
+        "statement": "When the questionnaires were lost, so a student types plausible scores and treats them as real. The misconduct is that, the correct result is fabrication.",
+        "answer": true,
+        "explanation": "Inventing data and reporting them as collected is fabrication."
+      },
+      {
+        "statement": "When real questionnaires that contradict the hypothesis are deleted and the deletion is hidden. The misconduct is that, the correct result is falsification.",
+        "answer": true,
+        "explanation": "Altering the real data record so it misrepresents the study is falsification."
+      },
+      {
+        "statement": "When a procedure paragraph is copied from a paper and no source is given. Which label fits the draft, the correct result is a quotation with marks and a citation.",
+        "answer": false,
+        "explanation": "Copying another's words into the thesis without credit is plagiarism."
+      },
+      {
+        "statement": "When readers must be able to judge how the call-rate question was studied and what was found. The document does that, the correct result is the research report.",
+        "answer": true,
+        "explanation": "A research report presents the question, method, results, and interpretation for evaluation."
+      }
+    ]
+  }
+}

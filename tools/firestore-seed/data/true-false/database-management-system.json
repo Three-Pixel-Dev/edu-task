@@ -1,0 +1,785 @@
+{
+  "subjectId": "database-management-system",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Relation is a table of tuples that all have the same attributes.",
+        "answer": true,
+        "explanation": "In the relational model, a relation is the set of tuples that share one schema."
+      },
+      {
+        "statement": "A Tuple is the name and column list of a table, without the current rows.",
+        "answer": false,
+        "explanation": "Each tuple is one instance stored in the relation."
+      },
+      {
+        "statement": "An Attribute is a named column of a relation that describes one property of each tuple.",
+        "answer": true,
+        "explanation": "The schema lists attributes, and every tuple provides one value for each of them."
+      },
+      {
+        "statement": "A Domain is its foreign key.",
+        "answer": false,
+        "explanation": "A domain constrains storage, for example integers for credits or strings for names."
+      },
+      {
+        "statement": "A Relational schema is the name, attributes, and constraints of a relation, separate from the rows stored at the moment.",
+        "answer": true,
+        "explanation": "The schema is the design, while an instance is the data at a particular time."
+      },
+      {
+        "statement": "A Primary key is a view.",
+        "answer": false,
+        "explanation": "One candidate key is selected as the primary key so every row has a unique, non-null identity."
+      },
+      {
+        "statement": "A Candidate key is a minimal set of attributes that uniquely identifies each tuple.",
+        "answer": true,
+        "explanation": "Removing any attribute from a candidate key would leave some tuples indistinguishable."
+      },
+      {
+        "statement": "A Superkey is a non-unique column that only describes a property.",
+        "answer": false,
+        "explanation": "Every candidate key is a superkey, but a superkey may contain attributes that uniqueness does not need."
+      },
+      {
+        "statement": "A Foreign key is an attribute set in one relation that must match a candidate key in another relation.",
+        "answer": true,
+        "explanation": "Foreign keys are how rows in one table refer to rows in another."
+      },
+      {
+        "statement": "A Composite key is a surrogate key of one column.",
+        "answer": false,
+        "explanation": "No single attribute of the key is unique, but the combination is."
+      }
+    ],
+    "2": [
+      {
+        "statement": "An Entity is a distinguishable real-world thing represented in a conceptual database design.",
+        "answer": true,
+        "explanation": "Entity sets group instances of the same kind, and those sets are later mapped to relations."
+      },
+      {
+        "statement": "A Relationship is a latch.",
+        "answer": false,
+        "explanation": "Relationships record how entity instances are connected and may carry attributes of their own."
+      },
+      {
+        "statement": "A Cardinality is the number of entity instances allowed on each side of a relationship.",
+        "answer": true,
+        "explanation": "Ratios such as one-to-many state how many instances on each side may participate."
+      },
+      {
+        "statement": "A Weak entity is a multivalued attribute drawn as a double oval.",
+        "answer": false,
+        "explanation": "Its primary key combines a partial key with the owner entity's key."
+      },
+      {
+        "statement": "An ER diagram is a drawing of entities, attributes, and relationships used to design a database conceptually.",
+        "answer": true,
+        "explanation": "The diagram communicates the conceptual schema before it is turned into tables."
+      },
+      {
+        "statement": "A SQL is hTML.",
+        "answer": false,
+        "explanation": "SQL includes statements for schema definition, queries, updates, and access control."
+      },
+      {
+        "statement": "A Relational selection is an operation that keeps only the tuples that satisfy a condition.",
+        "answer": true,
+        "explanation": "Selection filters rows and corresponds to a WHERE condition in SQL."
+      },
+      {
+        "statement": "A Projection is division.",
+        "answer": false,
+        "explanation": "Projection chooses columns, and in the formal algebra it also removes duplicate result tuples."
+      },
+      {
+        "statement": "An Inner join is a join that returns only tuples whose join attributes match on both sides.",
+        "answer": true,
+        "explanation": "Tuples that fail the match condition are left out of the result."
+      },
+      {
+        "statement": "A Left outer join is a join that keeps unmatched tuples from both relations.",
+        "answer": false,
+        "explanation": "Unmatched left tuples remain visible so missing related data shows up as nulls."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Full outer join is a join that keeps unmatched tuples from both relations and fills the missing side with nulls.",
+        "answer": true,
+        "explanation": "Both left-only and right-only tuples survive, which an inner join would drop."
+      },
+      {
+        "statement": "A GROUP BY is oRDER BY.",
+        "answer": false,
+        "explanation": "Each distinct combination of grouping columns produces one group for functions such as COUNT."
+      },
+      {
+        "statement": "A HAVING clause is a clause that keeps or drops groups after aggregation, using a condition on each group.",
+        "answer": true,
+        "explanation": "WHERE filters input rows, while this clause filters the groups produced by GROUP BY."
+      },
+      {
+        "statement": "A View is a sequence.",
+        "answer": false,
+        "explanation": "Reading a view usually runs its defining query rather than fetching separately stored rows."
+      },
+      {
+        "statement": "An Index is an auxiliary structure that locates rows matching a search key without a full table scan.",
+        "answer": true,
+        "explanation": "The structure maps key values to row locations so the engine can read fewer pages."
+      },
+      {
+        "statement": "A B+ tree index is a bitmap used only for low-cardinality columns in a data warehouse.",
+        "answer": false,
+        "explanation": "Leaf pages keep keys in order, so a range is a short walk along those leaves."
+      },
+      {
+        "statement": "A Clustered index is an index whose key order matches the physical order of the table's rows.",
+        "answer": true,
+        "explanation": "Range scans on the clustering key read nearby rows together, and a table has only one such order."
+      },
+      {
+        "statement": "A First normal form is second normal form.",
+        "answer": false,
+        "explanation": "A cell may not hold a list of values or a repeating group of the same fact."
+      },
+      {
+        "statement": "A Second normal form is the rule that every non-key attribute depends on the whole candidate key, not on part of it.",
+        "answer": true,
+        "explanation": "Partial dependencies appear when a composite key determines a column through only some of its attributes."
+      },
+      {
+        "statement": "A Third normal form is fourth normal form.",
+        "answer": false,
+        "explanation": "Third normal form removes transitive dependencies in which a non-key column determines another column."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Boyce-Codd normal form is a normal form in which every determinant of a functional dependency is a candidate key.",
+        "answer": true,
+        "explanation": "It catches some dependencies that third normal form still allows when a determinant is not a candidate key."
+      },
+      {
+        "statement": "A Functional dependency is a rule that a foreign key matches a parent row.",
+        "answer": false,
+        "explanation": "X determines Y when no two tuples agree on X and disagree on Y."
+      },
+      {
+        "statement": "A Transitive dependency is a dependency in which a key determines an attribute through some intermediate non-key attribute.",
+        "answer": true,
+        "explanation": "If A determines B and B determines C, with B not a key, then C depends on A transitively."
+      },
+      {
+        "statement": "A Normalization is denormalization.",
+        "answer": false,
+        "explanation": "Higher normal forms split tables so a change to one fact does not have to be repeated on many rows."
+      },
+      {
+        "statement": "A Transaction is a unit of database work that is applied completely or not at all.",
+        "answer": true,
+        "explanation": "Its changes become visible together at commit, or they disappear if the transaction aborts."
+      },
+      {
+        "statement": "An Atomicity is consistency.",
+        "answer": false,
+        "explanation": "If any step fails, recovery undoes the transaction so a partial update does not remain."
+      },
+      {
+        "statement": "A Consistency is the guarantee that a committed transaction leaves the database in a valid state.",
+        "answer": true,
+        "explanation": "Integrity constraints that hold before the transaction still hold after it commits."
+      },
+      {
+        "statement": "An Isolation is the guarantee that a commit survives a crash.",
+        "answer": false,
+        "explanation": "Isolation levels specify which anomalies, such as dirty reads, concurrent transactions may allow."
+      },
+      {
+        "statement": "A Durability is the guarantee that changes from a committed transaction survive crashes and can be recovered.",
+        "answer": true,
+        "explanation": "After commit, the log can redo the changes even if memory contents are lost."
+      },
+      {
+        "statement": "A Commit is rOLLBACK.",
+        "answer": false,
+        "explanation": "Once it succeeds, the DBMS must be able to recover those changes and other transactions may see them."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Rollback is the undoing of a transaction's uncommitted changes so they do not become permanent.",
+        "answer": true,
+        "explanation": "The log is used to restore the state from the start of the transaction or from a savepoint."
+      },
+      {
+        "statement": "A Two-phase locking is checkpointing.",
+        "answer": false,
+        "explanation": "A growing phase followed by a shrinking phase keeps the schedule conflict serializable."
+      },
+      {
+        "statement": "A Database deadlock is a cycle in which each transaction waits for a lock held by the next transaction.",
+        "answer": true,
+        "explanation": "None of the transactions can proceed, so the system detects the cycle and aborts one of them."
+      },
+      {
+        "statement": "A Dirty read is two transactions writing the same item so one update disappears.",
+        "answer": false,
+        "explanation": "If the writer later rolls back, the reader has used a value that never became permanent."
+      },
+      {
+        "statement": "A Phantom read is a repeated query that returns a different set of rows because another transaction inserted or deleted matching rows.",
+        "answer": true,
+        "explanation": "The new or missing rows are phantoms; the first query did not lock the whole predicate."
+      },
+      {
+        "statement": "A Referential integrity is entity integrity.",
+        "answer": false,
+        "explanation": "The DBMS rejects a child row that would point at a missing parent, and it controls deletes of parent rows."
+      },
+      {
+        "statement": "A Trigger is a procedure the database runs automatically when a specified insert, update, or delete occurs.",
+        "answer": true,
+        "explanation": "The procedure can enforce a rule or write an audit row without a separate statement from the application."
+      },
+      {
+        "statement": "A Stored procedure is an index.",
+        "answer": false,
+        "explanation": "The program runs on the server, close to the data, and many applications can call it."
+      },
+      {
+        "statement": "A Query optimizer is the component that chooses an efficient execution plan for a SQL statement.",
+        "answer": true,
+        "explanation": "It estimates the cost of scans, joins, and indexes, then picks a plan expected to be cheap."
+      },
+      {
+        "statement": "A Concurrency control is the redo of committed work after a crash.",
+        "answer": false,
+        "explanation": "Locks, timestamps, or multiple versions coordinate conflicting reads and writes."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a drawing of entities and diamonds used before tables exist is called Relation.",
+        "answer": false,
+        "explanation": "In the relational model, a relation is the set of tuples that share one schema."
+      },
+      {
+        "statement": "The student row (102, Ada, CS) is one complete record in the student table.",
+        "answer": true,
+        "explanation": "Each tuple is one instance stored in the relation."
+      },
+      {
+        "statement": "In standard textbooks, a tuple is called Attribute.",
+        "answer": false,
+        "explanation": "The schema lists attributes, and every tuple provides one value for each of them."
+      },
+      {
+        "statement": "The credits column accepts only integers from 1 to 6 and rejects other values.",
+        "answer": true,
+        "explanation": "A domain constrains storage, for example integers for credits or strings for names."
+      },
+      {
+        "statement": "In standard textbooks, a dirty read is called Relational schema.",
+        "answer": false,
+        "explanation": "The schema is the design, while an instance is the data at a particular time."
+      },
+      {
+        "statement": "student_id identifies each student row, and the table rejects a second row with the same id.",
+        "answer": true,
+        "explanation": "One candidate key is selected as the primary key so every row has a unique, non-null identity."
+      },
+      {
+        "statement": "In standard textbooks, a column that references another relation is called Candidate key.",
+        "answer": false,
+        "explanation": "Removing any attribute from a candidate key would leave some tuples indistinguishable."
+      },
+      {
+        "statement": "The pair student_id and name still identifies each student because student_id alone is already unique.",
+        "answer": true,
+        "explanation": "Every candidate key is a superkey, but a superkey may contain attributes that uniqueness does not need."
+      },
+      {
+        "statement": "In standard textbooks, a check constraint on a number is called Foreign key.",
+        "answer": false,
+        "explanation": "Foreign keys are how rows in one table refer to rows in another."
+      },
+      {
+        "statement": "An enrolment table uses the pair student_id and course_id because one student takes many courses.",
+        "answer": true,
+        "explanation": "No single attribute of the key is unique, but the combination is."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, transactions is called Entity.",
+        "answer": false,
+        "explanation": "Entity sets group instances of the same kind, and those sets are later mapped to relations."
+      },
+      {
+        "statement": "An enrols association links a student to a course and stores the term of that enrolment.",
+        "answer": true,
+        "explanation": "Relationships record how entity instances are connected and may carry attributes of their own."
+      },
+      {
+        "statement": "In standard textbooks, the number of indexes defined on one column is called Cardinality.",
+        "answer": false,
+        "explanation": "Ratios such as one-to-many state how many instances on each side may participate."
+      },
+      {
+        "statement": "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+        "answer": true,
+        "explanation": "Its primary key combines a partial key with the owner entity's key."
+      },
+      {
+        "statement": "In standard textbooks, a sequence diagram is called ER diagram.",
+        "answer": false,
+        "explanation": "The diagram communicates the conceptual schema before it is turned into tables."
+      },
+      {
+        "statement": "A lab uses statements in this language to create a student table and then read students in one major.",
+        "answer": true,
+        "explanation": "SQL includes statements for schema definition, queries, updates, and access control."
+      },
+      {
+        "statement": "In standard textbooks, rename is called Relational selection.",
+        "answer": false,
+        "explanation": "Selection filters rows and corresponds to a WHERE condition in SQL."
+      },
+      {
+        "statement": "Asking only for name and major from a student table drops the id column from the result.",
+        "answer": true,
+        "explanation": "Projection chooses columns, and in the formal algebra it also removes duplicate result tuples."
+      },
+      {
+        "statement": "In standard textbooks, a join that keeps unmatched tuples from both sides is called Inner join.",
+        "answer": false,
+        "explanation": "Tuples that fail the match condition are left out of the result."
+      },
+      {
+        "statement": "Listing students together with enrolments still shows a student who has not enrolled in any course.",
+        "answer": true,
+        "explanation": "Unmatched left tuples remain visible so missing related data shows up as nulls."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, an inner join is called Full outer join.",
+        "answer": false,
+        "explanation": "Both left-only and right-only tuples survive, which an inner join would drop."
+      },
+      {
+        "statement": "Counting students while grouping by major returns one count for each major.",
+        "answer": true,
+        "explanation": "Each distinct combination of grouping columns produces one group for functions such as COUNT."
+      },
+      {
+        "statement": "In standard textbooks, lIMIT is called HAVING clause.",
+        "answer": false,
+        "explanation": "WHERE filters input rows, while this clause filters the groups produced by GROUP BY."
+      },
+      {
+        "statement": "Analysts query a saved name that always means students whose status is active.",
+        "answer": true,
+        "explanation": "Reading a view usually runs its defining query rather than fetching separately stored rows."
+      },
+      {
+        "statement": "In standard textbooks, a constraint that rejects a missing parent key is called Index.",
+        "answer": false,
+        "explanation": "The structure maps key values to row locations so the engine can read fewer pages."
+      },
+      {
+        "statement": "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+        "answer": true,
+        "explanation": "Leaf pages keep keys in order, so a range is a short walk along those leaves."
+      },
+      {
+        "statement": "In standard textbooks, a nonclustered index is called Clustered index.",
+        "answer": false,
+        "explanation": "Range scans on the clustering key read nearby rows together, and a table has only one such order."
+      },
+      {
+        "statement": "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+        "answer": true,
+        "explanation": "A cell may not hold a list of values or a repeating group of the same fact."
+      },
+      {
+        "statement": "In standard textbooks, fourth normal form is called Second normal form.",
+        "answer": false,
+        "explanation": "Partial dependencies appear when a composite key determines a column through only some of its attributes."
+      },
+      {
+        "statement": "If a student row stores both department id and department name, the name depends on the department id.",
+        "answer": true,
+        "explanation": "Third normal form removes transitive dependencies in which a non-key column determines another column."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a form that only removes partial dependencies on a composite key is called Boyce-Codd normal form.",
+        "answer": false,
+        "explanation": "It catches some dependencies that third normal form still allows when a determinant is not a candidate key."
+      },
+      {
+        "statement": "Each student id is stored with only one major, never with two different majors.",
+        "answer": true,
+        "explanation": "X determines Y when no two tuples agree on X and disagree on Y."
+      },
+      {
+        "statement": "In standard textbooks, a partial dependency is called Transitive dependency.",
+        "answer": false,
+        "explanation": "If A determines B and B determines C, with B not a key, then C depends on A transitively."
+      },
+      {
+        "statement": "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+        "answer": true,
+        "explanation": "Higher normal forms split tables so a change to one fact does not have to be repeated on many rows."
+      },
+      {
+        "statement": "In standard textbooks, a trigger is called Transaction.",
+        "answer": false,
+        "explanation": "Its changes become visible together at commit, or they disappear if the transaction aborts."
+      },
+      {
+        "statement": "If crediting the destination account fails, the debit of the source account is undone as well.",
+        "answer": true,
+        "explanation": "If any step fails, recovery undoes the transaction so a partial update does not remain."
+      },
+      {
+        "statement": "In standard textbooks, the guarantee that committed writes survive a power failure is called Consistency.",
+        "answer": false,
+        "explanation": "Integrity constraints that hold before the transaction still hold after it commits."
+      },
+      {
+        "statement": "Two transfers on one account each behave as if one finished before the other started.",
+        "answer": true,
+        "explanation": "Isolation levels specify which anomalies, such as dirty reads, concurrent transactions may allow."
+      },
+      {
+        "statement": "In standard textbooks, atomicity is called Durability.",
+        "answer": false,
+        "explanation": "After commit, the log can redo the changes even if memory contents are lost."
+      },
+      {
+        "statement": "Ending an order insertion successfully makes that order durable and visible to later queries.",
+        "answer": true,
+        "explanation": "Once it succeeds, the DBMS must be able to recover those changes and other transactions may see them."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, gRANT is called Rollback.",
+        "answer": false,
+        "explanation": "The log is used to restore the state from the start of the transaction or from a savepoint."
+      },
+      {
+        "statement": "A transfer locks both accounts, updates them, and only afterward releases those locks.",
+        "answer": true,
+        "explanation": "A growing phase followed by a shrinking phase keeps the schedule conflict serializable."
+      },
+      {
+        "statement": "In standard textbooks, a repeated query that sees a newly inserted matching row is called Database deadlock.",
+        "answer": false,
+        "explanation": "None of the transactions can proceed, so the system detects the cycle and aborts one of them."
+      },
+      {
+        "statement": "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+        "answer": true,
+        "explanation": "If the writer later rolls back, the reader has used a value that never became permanent."
+      },
+      {
+        "statement": "In standard textbooks, a dirty read is called Phantom read.",
+        "answer": false,
+        "explanation": "The new or missing rows are phantoms; the first query did not lock the whole predicate."
+      },
+      {
+        "statement": "Inserting an enrolment whose student id is not in the student table is rejected.",
+        "answer": true,
+        "explanation": "The DBMS rejects a child row that would point at a missing parent, and it controls deletes of parent rows."
+      },
+      {
+        "statement": "In standard textbooks, a sequence is called Trigger.",
+        "answer": false,
+        "explanation": "The procedure can enforce a rule or write an audit row without a separate statement from the application."
+      },
+      {
+        "statement": "Applications call one server routine that debits one account and credits another.",
+        "answer": true,
+        "explanation": "The program runs on the server, close to the data, and many applications can call it."
+      },
+      {
+        "statement": "In standard textbooks, the component that writes log records for recovery is called Query optimizer.",
+        "answer": false,
+        "explanation": "It estimates the cost of scans, joins, and indexes, then picks a plan expected to be cheap."
+      },
+      {
+        "statement": "Row locks stop two transfers from updating the same account balance at the same moment.",
+        "answer": true,
+        "explanation": "Locks, timestamps, or multiple versions coordinate conflicting reads and writes."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a designer stores students as rows that all use the same columns, rather than as nested lists. What is that table in the relational model, the correct result is a trigger.",
+        "answer": false,
+        "explanation": "A relation is the table structure of tuples that share one set of attributes."
+      },
+      {
+        "statement": "When an import adds one student row containing an id, a name, and a major. What is that row called, the correct result is a schema.",
+        "answer": false,
+        "explanation": "A tuple is a single row that supplies one value for every attribute of the relation."
+      },
+      {
+        "statement": "When a course table has columns named code, title, and credits. In this case the credits column called, the correct result is an attribute.",
+        "answer": true,
+        "explanation": "An attribute is a column, so credits names one property of each course tuple."
+      },
+      {
+        "statement": "When a column must accept only integers from 1 to 6 and must reject the text six. What limits those legal values, the correct result is its domain.",
+        "answer": true,
+        "explanation": "The domain is the set of legal atomic values for that attribute."
+      },
+      {
+        "statement": "When a catalog design lists table names and columns before any student has enrolled. What is that design called, the correct result is a deadlock.",
+        "answer": false,
+        "explanation": "The schema describes structure and constraints, whether or not any rows have been inserted yet."
+      },
+      {
+        "statement": "When every student row needs one unique, non-null identifier that other tables will reference. Which key should be designated, the correct result is a view.",
+        "answer": false,
+        "explanation": "The primary key is the unique, non-null identifier chosen for the table."
+      },
+      {
+        "statement": "When both national_id and email uniquely identify a person, and neither set has a spare column. In this case each of those sets, the correct result is a candidate key.",
+        "answer": true,
+        "explanation": "Each set is minimal and unique, so each one is a candidate key."
+      },
+      {
+        "statement": "When student_id plus major still identifies each student, but major is unnecessary for uniqueness. What kind of key is that larger set, the correct result is a superkey.",
+        "answer": true,
+        "explanation": "The set is unique, but it is not minimal, so it is a superkey rather than a candidate key."
+      },
+      {
+        "statement": "When an enrolment row must point at a student row that already exists. Which key column expresses that link, the correct result is a savepoint.",
+        "answer": false,
+        "explanation": "A foreign key requires the enrolment's student id to match an existing student key."
+      },
+      {
+        "statement": "When in an enrolment table, neither student_id nor course_id is unique alone, but the pair is unique. In this case that key, the correct result is a composite key.",
+        "answer": true,
+        "explanation": "The key needs both columns together, so it is composite."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a university model must remember students, courses, and departments as the things of interest. What are those things called, the correct result is domains.",
+        "answer": false,
+        "explanation": "Students, courses, and departments are the entity sets in the conceptual model."
+      },
+      {
+        "statement": "When the design must record which students take which courses, not only the students and the courses. What should connect those sets, the correct result is a latch.",
+        "answer": false,
+        "explanation": "A relationship associates student instances with the course instances they take."
+      },
+      {
+        "statement": "When each department has many students, and each student belongs to exactly one department. The cardinality describes the department-to-student relationship, the correct result is one-to-many.",
+        "answer": true,
+        "explanation": "One department relates to many students, so the department-to-student cardinality is one-to-many."
+      },
+      {
+        "statement": "When a dependent cannot be identified by name alone and also needs the employee's id. What kind of entity is the dependent, the correct result is a weak entity.",
+        "answer": true,
+        "explanation": "The dependent has no identity of its own and borrows the owner employee's key."
+      },
+      {
+        "statement": "When before creating tables, a team sketches rectangles for students and a diamond for enrolment. What kind of diagram is that, the correct result is a use-case diagram.",
+        "answer": false,
+        "explanation": "Rectangles for entities and diamonds for relationships are the notation of an ER diagram."
+      },
+      {
+        "statement": "When an application must create tables and query rows in PostgreSQL using the standard relational language. Which language is that, the correct result is hTML.",
+        "answer": false,
+        "explanation": "SQL is the language relational systems use both to define tables and to query them."
+      },
+      {
+        "statement": "When a query must return only courses whose credits are greater than 3. The relational-algebra operation filters those rows, the correct result is selection.",
+        "answer": true,
+        "explanation": "Selection keeps tuples that meet a predicate and drops the rest."
+      },
+      {
+        "statement": "When a query should return name and major, not every column of the student table. The relational operation drops the other columns, the correct result is projection.",
+        "answer": true,
+        "explanation": "Projection retains the named attributes and discards the columns that were not requested."
+      },
+      {
+        "statement": "When a report must list enrolments only when the course id exists in the course table. Which join keeps only those matches, the correct result is a left outer join.",
+        "answer": false,
+        "explanation": "An inner join drops enrolments that have no matching course row."
+      },
+      {
+        "statement": "When a student list must include students who have no enrolment, with nulls in the course columns. The join does that, the correct result is a left outer join.",
+        "answer": true,
+        "explanation": "A left outer join preserves every student and fills missing enrolment columns with null."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When one result must show departments with no employees and employees with no department. Which join does that, the correct result is a semi-join.",
+        "answer": false,
+        "explanation": "A full outer join retains unmatched rows from both the department side and the employee side."
+      },
+      {
+        "statement": "When a registrar needs the number of students in each major, with one result row per major. Which clause forms those groups, the correct result is oRDER BY.",
+        "answer": false,
+        "explanation": "GROUP BY major builds one group per major so COUNT can be computed for each group."
+      },
+      {
+        "statement": "When after counting students per major, the query must drop groups whose count is 30 or less. The clause filters the groups, the correct result is hAVING.",
+        "answer": true,
+        "explanation": "HAVING applies the count condition after groups exist, which is later than WHERE."
+      },
+      {
+        "statement": "When analysts often need only active students, and the administrator wants them to query a saved name instead of repeating the filter. In this case be created, the correct result is a view.",
+        "answer": true,
+        "explanation": "A view stores the active-student query under a name that can be selected like a table."
+      },
+      {
+        "statement": "When finding a user by email currently reads every row and is too slow. What should be added on the email column, the correct result is a view.",
+        "answer": false,
+        "explanation": "An index on email can point at the matching row without scanning the whole table."
+      },
+      {
+        "statement": "When queries often ask for invoices whose dates fall between two days, and the index should stay balanced. Which index structure fits, the correct result is an unordered heap.",
+        "answer": false,
+        "explanation": "A B+ tree keeps keys ordered in its leaves, so a date range is a contiguous leaf scan."
+      },
+      {
+        "statement": "When range scans on student_id should read nearby rows in key order, and the table can be stored in only one order. What kind of index matches that storage, the correct result is a clustered index.",
+        "answer": true,
+        "explanation": "A clustered index is the one order in which the rows themselves are stored."
+      },
+      {
+        "statement": "When one student cell contains two phone numbers separated by a comma. The normal form requires that cell to hold a single atomic value, the correct result is first normal form.",
+        "answer": true,
+        "explanation": "A comma-separated list is not an atomic value, so the table is not in first normal form."
+      },
+      {
+        "statement": "When a table keyed by student_id and course_id stores student_name, which depends only on student_id. Which normal form removes that partial dependency, the correct result is third normal form.",
+        "answer": false,
+        "explanation": "student_name depends on part of the composite key, which is a partial dependency forbidden by second normal form."
+      },
+      {
+        "statement": "When student stores dept_id and dept_name, and the name is determined by dept_id rather than by the student id. The normal form removes that pattern, the correct result is third normal form.",
+        "answer": true,
+        "explanation": "dept_name depends on the non-key dept_id, a transitive dependency removed to reach third normal form."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When in a timetable, room determines course and room is not a candidate key. Which normal form does that determinant violate, the correct result is first normal form.",
+        "answer": false,
+        "explanation": "Boyce-Codd normal form requires every determinant, including room, to be a candidate key."
+      },
+      {
+        "statement": "When each student id always appears with the same major. Which constraint describes that, the correct result is a join dependency.",
+        "answer": false,
+        "explanation": "student_id determines major because one id never pairs with two majors."
+      },
+      {
+        "statement": "When student id determines department id, and department id determines the department phone. What kind of dependency reaches that phone, the correct result is a transitive dependency.",
+        "answer": true,
+        "explanation": "The phone depends on the student id only by way of the department id, so the dependency is transitive."
+      },
+      {
+        "statement": "When a department phone is copied onto every student row, so one phone change needs many updates. What process moves that fact into its own table, the correct result is normalization.",
+        "answer": true,
+        "explanation": "Normalization decomposes the table so the phone is stored once, with the department."
+      },
+      {
+        "statement": "When a transfer must debit one account and credit another so both changes persist together or neither does. What should enclose those statements, the correct result is an index.",
+        "answer": false,
+        "explanation": "A transaction groups the debit and the credit into one success or one failure."
+      },
+      {
+        "statement": "When a transfer debits an account and crashes before the credit. After recovery the debit is gone too. Which ACID property produced that outcome, the correct result is consistency.",
+        "answer": false,
+        "explanation": "Atomicity rolls the whole transfer back when it cannot complete every step."
+      },
+      {
+        "statement": "When after a transfer commits, the sum of all account balances is the same as before. The ACID property is that outcome, the correct result is consistency.",
+        "answer": true,
+        "explanation": "Consistency means the committed transfer preserves the database's integrity rules."
+      },
+      {
+        "statement": "When two clerks update the same account, and neither should see the other's uncommitted balance. The ACID property requires that, the correct result is isolation.",
+        "answer": true,
+        "explanation": "Isolation hides uncommitted work so concurrent clerks do not read each other's intermediate balances."
+      },
+      {
+        "statement": "When a booking commits, then the server loses power, and after restart the booking is still stored. Which ACID property explains that, the correct result is consistency.",
+        "answer": false,
+        "explanation": "Durability requires a committed booking to remain available after a crash."
+      },
+      {
+        "statement": "When checkout has inserted the order and payment rows and now wants those changes to become permanent. The command ends the transaction successfully, the correct result is cOMMIT.",
+        "answer": true,
+        "explanation": "COMMIT makes the inserted rows durable and ends the transaction successfully."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a clerk notices a mistaken debit before finishing the transaction and wants the prior committed state back. Which command does that, the correct result is tRUNCATE.",
+        "answer": false,
+        "explanation": "ROLLBACK undoes the uncommitted debit and returns the database to the last commit."
+      },
+      {
+        "statement": "When the engine requires each transaction to finish acquiring locks before it unlocks anything. Which concurrency protocol is that, the correct result is checkpointing.",
+        "answer": false,
+        "explanation": "Two-phase locking separates a growing phase of lock acquisition from a shrinking phase of releases."
+      },
+      {
+        "statement": "When t1 waits for a row lock held by T2, and T2 waits for a row lock held by T1. In this case that wait cycle, the correct result is a deadlock.",
+        "answer": true,
+        "explanation": "Each transaction waits for the other, forming a lock-wait cycle called a deadlock."
+      },
+      {
+        "statement": "When a report reads a balance written by another transaction that later aborts. The anomaly occurred, the correct result is a dirty read.",
+        "answer": true,
+        "explanation": "The report consumed an uncommitted balance that the writer subsequently rolled back."
+      },
+      {
+        "statement": "When a transaction rereads seats whose status is open and finds a new row committed by someone else. Which anomaly is that, the correct result is a nonrepeatable read.",
+        "answer": false,
+        "explanation": "The new open-seat row is a phantom that was not in the first result set."
+      },
+      {
+        "statement": "When an enrolment insert uses a student id that does not exist, and the DBMS rejects the insert. Which rule caused the rejection, the correct result is entity integrity.",
+        "answer": false,
+        "explanation": "The foreign key has no matching student, so referential integrity forbids the insert."
+      },
+      {
+        "statement": "When every account update must write an audit row even when the application issues only the update. What database object does that, the correct result is a trigger.",
+        "answer": true,
+        "explanation": "A trigger on the update event runs the audit insert automatically."
+      },
+      {
+        "statement": "When several applications must run the same multi-statement transfer on the database server. In this case hold that program, the correct result is a stored procedure.",
+        "answer": true,
+        "explanation": "A stored procedure keeps the transfer program in the database so every application can call it."
+      },
+      {
+        "statement": "When a SELECT could scan the whole table or use an index, and the engine picks the cheaper plan. Which component chooses, the correct result is the lock manager.",
+        "answer": false,
+        "explanation": "The optimizer compares estimated costs and selects the plan used to run the statement."
+      },
+      {
+        "statement": "When many tellers update accounts at the same time, and the DBMS must keep those updates from corrupting balances. In this case that coordination called, the correct result is concurrency control.",
+        "answer": true,
+        "explanation": "Concurrency control coordinates the tellers' transactions so conflicting updates stay correct."
+      }
+    ]
+  }
+}

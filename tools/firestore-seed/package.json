@@ -7,6 +7,10 @@
   "scripts": {
     "validate": "node seed.mjs --dry-run",
     "seed": "node seed.mjs",
+    "seed:demo": "node seed-demo-user.mjs",
+    "generate:true-false": "node generate-true-false.mjs",
+    "sync:true-false": "node sync-true-false-to-app.mjs",
+    "delete:true-false": "node delete-true-false-collection.mjs",
     "set-admin": "node set-admin.mjs"
   },
   "dependencies": {

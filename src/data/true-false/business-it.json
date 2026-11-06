@@ -1,0 +1,785 @@
+{
+  "subjectId": "business-it",
+  "levels": {
+    "1": [
+      {
+        "statement": "An Information System is a set of people, processes, data, and technology that collects, stores, and delivers information to support a business activity.",
+        "answer": true,
+        "explanation": "An information system combines people, process, data, and technology in support of a business activity."
+      },
+      {
+        "statement": "A Transaction Processing System is a library of past project essays kept for students to read.",
+        "answer": false,
+        "explanation": "Transaction processing systems exist to record high-volume routine events accurately and immediately."
+      },
+      {
+        "statement": "A Management Information System is a system that summarises operational data into regular reports managers use to monitor and control performance.",
+        "answer": true,
+        "explanation": "A management information system turns operational data into routine reports for monitoring, rather than only posting transactions."
+      },
+      {
+        "statement": "A Decision Support System is a door lock.",
+        "answer": false,
+        "explanation": "Decision support helps a person explore alternatives with data and models when the decision is semi-structured."
+      },
+      {
+        "statement": "An Executive Dashboard is a visual display of a small set of key indicators that senior managers use to see organisational performance quickly.",
+        "answer": true,
+        "explanation": "An executive dashboard concentrates a few important indicators into a visual view for senior oversight."
+      },
+      {
+        "statement": "An Enterprise Resource Planning is a game on the reception PC.",
+        "answer": false,
+        "explanation": "Enterprise resource planning integrates core business functions on shared data so the organisation does not run them as isolated systems."
+      },
+      {
+        "statement": "A Customer Relationship Management is a system that records customer interactions and supports sales, marketing, and service so relationships can be managed consistently.",
+        "answer": true,
+        "explanation": "Customer relationship management keeps a shared view of customers and supports sales, marketing, and service work."
+      },
+      {
+        "statement": "A Supply Chain Management System is a word processor used to write the annual report.",
+        "answer": false,
+        "explanation": "Supply chain systems coordinate flows across suppliers, the organisation, and customers, not internal HR tasks."
+      },
+      {
+        "statement": "A Knowledge Management System is a system that captures, stores, and shares organisational knowledge so staff can find and reuse it.",
+        "answer": true,
+        "explanation": "Knowledge management systems exist so expertise and documents can be found and reused, rather than remaining with one person."
+      },
+      {
+        "statement": "A Business Process is a website header colour.",
+        "answer": false,
+        "explanation": "A business process is the linked work that converts inputs into a valued output, not an isolated click or a colour choice."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Process Map is a diagram that shows the steps, decisions, and hand-offs in a business process.",
+        "answer": true,
+        "explanation": "A process map is a diagram of how work flows, including decisions and hand-offs, not a geographical map."
+      },
+      {
+        "statement": "An As-Is Process is the vendor's wishlist of features.",
+        "answer": false,
+        "explanation": "The as-is process records current practice, including its problems, before improvement is designed."
+      },
+      {
+        "statement": "A To-Be Process is a description of how a process should work after a planned improvement or system change.",
+        "answer": true,
+        "explanation": "The to-be process is the intended future way of working, used to guide design and change."
+      },
+      {
+        "statement": "A Process Owner is a server that stores the process diagram.",
+        "answer": false,
+        "explanation": "A process owner is the named person accountable for how well that process performs and how it improves."
+      },
+      {
+        "statement": "A Gap Analysis is a comparison of current performance or capability with a desired target, used to identify what must change.",
+        "answer": true,
+        "explanation": "Gap analysis identifies the difference between where the organisation is and where it needs to be."
+      },
+      {
+        "statement": "A Stakeholder is only the last programmer to commit code.",
+        "answer": false,
+        "explanation": "Stakeholders are people or groups with influence on a decision or who feel its effects."
+      },
+      {
+        "statement": "A Business Sponsor is a senior manager who authorises a change, secures resources, and is accountable for its business outcome.",
+        "answer": true,
+        "explanation": "The business sponsor owns the outcome and provides authority and resources, rather than merely observing."
+      },
+      {
+        "statement": "A Business Requirement is a source-code loop.",
+        "answer": false,
+        "explanation": "A business requirement states a business need, leaving technical design choices to a later step."
+      },
+      {
+        "statement": "A Functional Requirement is a statement of a behaviour the system must provide, such as recording an order or producing an invoice.",
+        "answer": true,
+        "explanation": "A functional requirement states a behaviour the system must perform, not a quality level or a budget."
+      },
+      {
+        "statement": "A Non-Functional Requirement is the name of the project sponsor.",
+        "answer": false,
+        "explanation": "A non-functional requirement states how well the system must perform, not which business function it offers."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An IT Strategy is a plan that sets how technology investments will support the organisation's goals over several years.",
+        "answer": true,
+        "explanation": "IT strategy is a multi-year plan linking technology investment to organisational goals, not daily support work."
+      },
+      {
+        "statement": "A Strategic Alignment is it should be bought because it is new.",
+        "answer": false,
+        "explanation": "Strategic alignment means IT work is chosen because it supports stated business objectives."
+      },
+      {
+        "statement": "A SWOT Analysis is a structured review of internal strengths and weaknesses and of external opportunities and threats.",
+        "answer": true,
+        "explanation": "SWOT examines internal strengths and weaknesses together with external opportunities and threats."
+      },
+      {
+        "statement": "A Competitive Advantage is having extra office chairs.",
+        "answer": false,
+        "explanation": "Competitive advantage is a lasting performance edge; technology can support it but does not create it automatically."
+      },
+      {
+        "statement": "A Value Chain is the sequence of primary and support activities through which an organisation creates value for its customers.",
+        "answer": true,
+        "explanation": "The value chain describes the activities that create customer value, including both primary work and support activities."
+      },
+      {
+        "statement": "A Digital Transformation is scanning a single paper letter without changing the service.",
+        "answer": false,
+        "explanation": "Digital transformation changes how the organisation works or what it offers, not a like-for-like equipment swap."
+      },
+      {
+        "statement": "A Make-or-Buy Decision is a choice between building a system in-house and purchasing or subscribing to an existing product.",
+        "answer": true,
+        "explanation": "Make-or-buy compares building a capability internally with acquiring an existing product or service."
+      },
+      {
+        "statement": "A Business Case is a laptop suitcase.",
+        "answer": false,
+        "explanation": "A business case is the written justification of an investment, weighing benefits, costs, and risks."
+      },
+      {
+        "statement": "A Cost-Benefit Analysis is a comparison of the expected costs of an option with its expected benefits, expressed in money where that is possible.",
+        "answer": true,
+        "explanation": "Cost-benefit analysis puts expected costs and expected benefits side by side so an option can be judged."
+      },
+      {
+        "statement": "A Return on Investment is the number of slides.",
+        "answer": false,
+        "explanation": "Return on investment relates net gain to the cost of the investment so options can be compared."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Total Cost of Ownership is the full cost of owning a system over its life, including purchase, operation, support, training, and retirement.",
+        "answer": true,
+        "explanation": "Total cost of ownership includes the whole life cost, not just the initial purchase price."
+      },
+      {
+        "statement": "A Payback Period is the length of the chief executive's employment contract.",
+        "answer": false,
+        "explanation": "Payback period is how long cumulative net benefits take to cover the initial outlay."
+      },
+      {
+        "statement": "An Intangible Benefit is an expected gain that is real but hard to price reliably, such as better morale or a stronger reputation.",
+        "answer": true,
+        "explanation": "Intangible benefits matter but cannot be priced with the same confidence as a measured cash saving."
+      },
+      {
+        "statement": "A Tangible Benefit is an unpriced feeling that the brand is modern.",
+        "answer": false,
+        "explanation": "A tangible benefit can be expressed in money from a stated measure, unlike a vague improvement in feeling."
+      },
+      {
+        "statement": "A Feasibility Study is an early assessment of whether a proposal is technically, economically, legally, and operationally workable.",
+        "answer": true,
+        "explanation": "A feasibility study checks, before major commitment, whether the proposal can work on technical, economic, legal, and operational grounds."
+      },
+      {
+        "statement": "A Change Management is reading the repository history only.",
+        "answer": false,
+        "explanation": "Change management focuses on people adopting the new way of working, not only on the technical change."
+      },
+      {
+        "statement": "A Resistance to Change is reluctance to adopt a new system or process, often from fear of lost skill, extra work, or an unclear benefit.",
+        "answer": true,
+        "explanation": "Resistance is human reluctance to adopt a change, and it is different from a technical fault or a legal ban."
+      },
+      {
+        "statement": "A Change Champion is an external celebrity with no role in the workplace.",
+        "answer": false,
+        "explanation": "A change champion is a trusted insider who actively helps colleagues take up the new way of working."
+      },
+      {
+        "statement": "A Training Needs Analysis is a study that identifies the skills people lack for a new process or system and the learning required to close that gap.",
+        "answer": true,
+        "explanation": "Training needs analysis compares required skills with current skills so the right learning can be planned."
+      },
+      {
+        "statement": "A Benefits Realisation is writing benefits and never looking again.",
+        "answer": false,
+        "explanation": "Benefits realisation tracks promised benefits after go-live and acts if they are not appearing."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Key Performance Indicator is a quantified measure that shows how well an important business objective is being achieved.",
+        "answer": true,
+        "explanation": "A key performance indicator is a number tied to an important objective so performance can be judged."
+      },
+      {
+        "statement": "A Data-Driven Decision is act on a corridor rumour about one shop.",
+        "answer": false,
+        "explanation": "A data-driven decision gives relevant, reliable evidence the leading role in the choice."
+      },
+      {
+        "statement": "A Data Quality is the fitness of data for its intended use, including accuracy, completeness, timeliness, and consistency.",
+        "answer": true,
+        "explanation": "Data quality is whether data are fit to use, judged by properties such as accuracy, completeness, timeliness, and consistency."
+      },
+      {
+        "statement": "A Master Data is the temperature reading from a sensor at a single moment, kept only in that device.",
+        "answer": false,
+        "explanation": "Master data are the shared core records of the business, such as who the customers and products are."
+      },
+      {
+        "statement": "A Single Source of Truth is one authoritative store for a given data item so teams do not act on conflicting copies.",
+        "answer": true,
+        "explanation": "A single source of truth means one agreed place holds the authoritative value for that data item."
+      },
+      {
+        "statement": "A Business Intelligence is an IQ test.",
+        "answer": false,
+        "explanation": "Business intelligence is the reporting and analysis of organisational data to support decisions."
+      },
+      {
+        "statement": "A Data Warehouse is a subject-oriented store of integrated historical data, kept for analysis rather than for moment-by-moment transactions.",
+        "answer": true,
+        "explanation": "A data warehouse integrates history for analysis and is not the system that posts live transactions."
+      },
+      {
+        "statement": "An Operational System is an archive of old posters.",
+        "answer": false,
+        "explanation": "An operational system processes current business events, whereas analytical stores are built for history and reporting."
+      },
+      {
+        "statement": "A Legacy System is an older system that is still required for operations but is costly or risky to change and poorly linked to newer tools.",
+        "answer": true,
+        "explanation": "A legacy system is old but still operational, and it is typically hard to change or integrate."
+      },
+      {
+        "statement": "An IT Governance is the physical guard rota at the data-centre door, with no decision rights.",
+        "answer": false,
+        "explanation": "IT governance sets who decides, who is accountable, and how IT is monitored so it serves business goals."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a paper company logo with no data and no process behind it is called Information System.",
+        "answer": false,
+        "explanation": "An information system combines people, process, data, and technology in support of a business activity."
+      },
+      {
+        "statement": "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+        "answer": true,
+        "explanation": "Transaction processing systems exist to record high-volume routine events accurately and immediately."
+      },
+      {
+        "statement": "In standard textbooks, a personal photo network is called Management Information System.",
+        "answer": false,
+        "explanation": "A management information system turns operational data into routine reports for monitoring, rather than only posting transactions."
+      },
+      {
+        "statement": "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff.",
+        "answer": true,
+        "explanation": "Decision support helps a person explore alternatives with data and models when the decision is semi-structured."
+      },
+      {
+        "statement": "In standard textbooks, an annual-leave form is called Executive Dashboard.",
+        "answer": false,
+        "explanation": "An executive dashboard concentrates a few important indicators into a visual view for senior oversight."
+      },
+      {
+        "statement": "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+        "answer": true,
+        "explanation": "Enterprise resource planning integrates core business functions on shared data so the organisation does not run them as isolated systems."
+      },
+      {
+        "statement": "In standard textbooks, a tool that tracks raw materials inside a warehouse and never stores customer contacts is called Customer Relationship Management.",
+        "answer": false,
+        "explanation": "Customer relationship management keeps a shared view of customers and supports sales, marketing, and service work."
+      },
+      {
+        "statement": "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders.",
+        "answer": true,
+        "explanation": "Supply chain systems coordinate flows across suppliers, the organisation, and customers, not internal HR tasks."
+      },
+      {
+        "statement": "In standard textbooks, a sales till is called Knowledge Management System.",
+        "answer": false,
+        "explanation": "Knowledge management systems exist so expertise and documents can be found and reused, rather than remaining with one person."
+      },
+      {
+        "statement": "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+        "answer": true,
+        "explanation": "A business process is the linked work that converts inputs into a valued output, not an isolated click or a colour choice."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a portrait of the chief executive is called Process Map.",
+        "answer": false,
+        "explanation": "A process map is a diagram of how work flows, including decisions and hand-offs, not a geographical map."
+      },
+      {
+        "statement": "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+        "answer": true,
+        "explanation": "The as-is process records current practice, including its problems, before improvement is designed."
+      },
+      {
+        "statement": "In standard textbooks, an unrelated historical novel about the industry is called To-Be Process.",
+        "answer": false,
+        "explanation": "The to-be process is the intended future way of working, used to guide design and change."
+      },
+      {
+        "statement": "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+        "answer": true,
+        "explanation": "A process owner is the named person accountable for how well that process performs and how it improves."
+      },
+      {
+        "statement": "In standard textbooks, a party for meeting the target is called Gap Analysis.",
+        "answer": false,
+        "explanation": "Gap analysis identifies the difference between where the organisation is and where it needs to be."
+      },
+      {
+        "statement": "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders.",
+        "answer": true,
+        "explanation": "Stakeholders are people or groups with influence on a decision or who feel its effects."
+      },
+      {
+        "statement": "In standard textbooks, the vendor brochure is called Business Sponsor.",
+        "answer": false,
+        "explanation": "The business sponsor owns the outcome and provides authority and resources, rather than merely observing."
+      },
+      {
+        "statement": "The business requires that a customer can receive a correct invoice within one day of delivery.",
+        "answer": true,
+        "explanation": "A business requirement states a business need, leaving technical design choices to a later step."
+      },
+      {
+        "statement": "In standard textbooks, the project budget approved by the board is called Functional Requirement.",
+        "answer": false,
+        "explanation": "A functional requirement states a behaviour the system must perform, not a quality level or a budget."
+      },
+      {
+        "statement": "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+        "answer": true,
+        "explanation": "A non-functional requirement states how well the system must perform, not which business function it offers."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, today's help-desk ticket list is called IT Strategy.",
+        "answer": false,
+        "explanation": "IT strategy is a multi-year plan linking technology investment to organisational goals, not daily support work."
+      },
+      {
+        "statement": "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+        "answer": true,
+        "explanation": "Strategic alignment means IT work is chosen because it supports stated business objectives."
+      },
+      {
+        "statement": "In standard textbooks, a chair count is called SWOT Analysis.",
+        "answer": false,
+        "explanation": "SWOT examines internal strengths and weaknesses together with external opportunities and threats."
+      },
+      {
+        "statement": "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+        "answer": true,
+        "explanation": "Competitive advantage is a lasting performance edge; technology can support it but does not create it automatically."
+      },
+      {
+        "statement": "In standard textbooks, the order of slides in a sales presentation only is called Value Chain.",
+        "answer": false,
+        "explanation": "The value chain describes the activities that create customer value, including both primary work and support activities."
+      },
+      {
+        "statement": "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+        "answer": true,
+        "explanation": "Digital transformation changes how the organisation works or what it offers, not a like-for-like equipment swap."
+      },
+      {
+        "statement": "In standard textbooks, a wall-colour choice is called Make-or-Buy Decision.",
+        "answer": false,
+        "explanation": "Make-or-buy compares building a capability internally with acquiring an existing product or service."
+      },
+      {
+        "statement": "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+        "answer": true,
+        "explanation": "A business case is the written justification of an investment, weighing benefits, costs, and risks."
+      },
+      {
+        "statement": "In standard textbooks, choosing the option with the nicest name is called Cost-Benefit Analysis.",
+        "answer": false,
+        "explanation": "Cost-benefit analysis puts expected costs and expected benefits side by side so an option can be judged."
+      },
+      {
+        "statement": "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment.",
+        "answer": true,
+        "explanation": "Return on investment relates net gain to the cost of the investment so options can be compared."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, only the cost of electricity on the first day is called Total Cost of Ownership.",
+        "answer": false,
+        "explanation": "Total cost of ownership includes the whole life cost, not just the initial purchase price."
+      },
+      {
+        "statement": "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+        "answer": true,
+        "explanation": "Payback period is how long cumulative net benefits take to cover the initial outlay."
+      },
+      {
+        "statement": "In standard textbooks, a measured overtime saving at a known wage is called Intangible Benefit.",
+        "answer": false,
+        "explanation": "Intangible benefits matter but cannot be priced with the same confidence as a measured cash saving."
+      },
+      {
+        "statement": "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+        "answer": true,
+        "explanation": "A tangible benefit can be expressed in money from a stated measure, unlike a vague improvement in feeling."
+      },
+      {
+        "statement": "In standard textbooks, starting to code with no investigation is called Feasibility Study.",
+        "answer": false,
+        "explanation": "A feasibility study checks, before major commitment, whether the proposal can work on technical, economic, legal, and operational grounds."
+      },
+      {
+        "statement": "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+        "answer": true,
+        "explanation": "Change management focuses on people adopting the new way of working, not only on the technical change."
+      },
+      {
+        "statement": "In standard textbooks, a measured technical defect that stops the software starting is called Resistance to Change.",
+        "answer": false,
+        "explanation": "Resistance is human reluctance to adopt a change, and it is different from a technical fault or a legal ban."
+      },
+      {
+        "statement": "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+        "answer": true,
+        "explanation": "A change champion is a trusted insider who actively helps colleagues take up the new way of working."
+      },
+      {
+        "statement": "In standard textbooks, a count of chairs in the room is called Training Needs Analysis.",
+        "answer": false,
+        "explanation": "Training needs analysis compares required skills with current skills so the right learning can be planned."
+      },
+      {
+        "statement": "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+        "answer": true,
+        "explanation": "Benefits realisation tracks promised benefits after go-live and acts if they are not appearing."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, the objective name alone is called Key Performance Indicator.",
+        "answer": false,
+        "explanation": "A key performance indicator is a number tied to an important objective so performance can be judged."
+      },
+      {
+        "statement": "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+        "answer": true,
+        "explanation": "A data-driven decision gives relevant, reliable evidence the leading role in the choice."
+      },
+      {
+        "statement": "In standard textbooks, the artistic layout of a report that hides missing values is called Data Quality.",
+        "answer": false,
+        "explanation": "Data quality is whether data are fit to use, judged by properties such as accuracy, completeness, timeliness, and consistency."
+      },
+      {
+        "statement": "Customer name and account number are maintained once and reused by billing, support, and marketing.",
+        "answer": true,
+        "explanation": "Master data are the shared core records of the business, such as who the customers and products are."
+      },
+      {
+        "statement": "In standard textbooks, let every team keep a private price and call them all official is called Single Source of Truth.",
+        "answer": false,
+        "explanation": "A single source of truth means one agreed place holds the authoritative value for that data item."
+      },
+      {
+        "statement": "Managers explore a report of profit by region and product to decide which line to expand.",
+        "answer": true,
+        "explanation": "Business intelligence is the reporting and analysis of organisational data to support decisions."
+      },
+      {
+        "statement": "In standard textbooks, today's operational chat channel is called Data Warehouse.",
+        "answer": false,
+        "explanation": "A data warehouse integrates history for analysis and is not the system that posts live transactions."
+      },
+      {
+        "statement": "The reservations system records today's bookings and must stay available during opening hours.",
+        "answer": true,
+        "explanation": "An operational system processes current business events, whereas analytical stores are built for history and reporting."
+      },
+      {
+        "statement": "In standard textbooks, a paper notebook that was never part of operations is called Legacy System.",
+        "answer": false,
+        "explanation": "A legacy system is old but still operational, and it is typically hard to change or integrate."
+      },
+      {
+        "statement": "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+        "answer": true,
+        "explanation": "IT governance sets who decides, who is accountable, and how IT is monitored so it serves business goals."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a manager describes only the new server and ignores staff, data, and the sales process. Which label is incomplete, the correct result is including people, data, process, and technology.",
+        "answer": false,
+        "explanation": "An information system is the combination of people, process, data, and technology, not the server by itself."
+      },
+      {
+        "statement": "When the business needs every card payment recorded as it happens so stock stays correct. Which system type fits, the correct result is a quarterly executive chart pack only.",
+        "answer": false,
+        "explanation": "Recording routine events such as payments as they occur is the job of a transaction processing system."
+      },
+      {
+        "statement": "When store managers want a weekly summary of sales by department, not a live till. The system type fits, the correct result is a management information system.",
+        "answer": true,
+        "explanation": "Summarising operational data into regular management reports is the role of a management information system."
+      },
+      {
+        "statement": "When a planner must compare three staffing plans under different forecasts before hiring. The system type fits, the correct result is a decision support system.",
+        "answer": true,
+        "explanation": "Comparing options with data and models for a non-routine choice is decision support."
+      },
+      {
+        "statement": "When a director wants one screen with revenue, complaints, and on-time delivery, not raw rows. Which tool fits, the correct result is a source-code editor.",
+        "answer": false,
+        "explanation": "An executive dashboard shows a few key indicators visually so a senior manager can see performance quickly."
+      },
+      {
+        "statement": "When receiving goods must update stock, the purchase order, and the supplier balance together. Which system type fits, the correct result is a game on the reception PC.",
+        "answer": false,
+        "explanation": "Enterprise resource planning shares one data set across functions such as inventory, purchasing, and finance."
+      },
+      {
+        "statement": "When service staff need the customer's orders and recent calls on one screen before answering a complaint. The system fits, the correct result is a customer relationship management system.",
+        "answer": true,
+        "explanation": "Customer relationship management stores interactions so sales and service share one view of the customer."
+      },
+      {
+        "statement": "When supplier deliveries, the factory schedule, and retailer orders must be planned together. The system type fits, the correct result is a supply chain management system.",
+        "answer": true,
+        "explanation": "Supply chain management coordinates materials, information, and orders from suppliers through to customers."
+      },
+      {
+        "statement": "When new engineers need the approved reset steps without calling a retired expert. Which system type fits, the correct result is a door alarm.",
+        "answer": false,
+        "explanation": "A knowledge management system stores and shares organisational know-how so others can reuse it."
+      },
+      {
+        "statement": "When taking an order, picking stock, packing, and shipping are linked to deliver a parcel. The term covers that chain, the correct result is a business process.",
+        "answer": true,
+        "explanation": "A business process is the linked set of activities that produces a valued result, such as a delivered order."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When staff disagree about who approves large refunds. Which artefact should show the steps and the decision, the correct result is a birthday list.",
+        "answer": false,
+        "explanation": "A process map diagrams steps, decisions, and hand-offs so the refund approval path is visible."
+      },
+      {
+        "statement": "When before buying software, analysts watch clerks retype invoices from email. Which description are they capturing, the correct result is the vendor's wishlist of features.",
+        "answer": false,
+        "explanation": "Watching how invoices are handled today, including the retyping workaround, captures the as-is process."
+      },
+      {
+        "statement": "When the design shows customers uploading a claim once, replacing today's paper copies. The description is that, the correct result is the to-be process.",
+        "answer": true,
+        "explanation": "The intended future way of working, after the change, is the to-be process."
+      },
+      {
+        "statement": "When cycle time for applications is poor, and someone must be accountable for improving that process. The role is that, the correct result is the process owner.",
+        "answer": true,
+        "explanation": "The process owner is the person accountable for the performance and improvement of that named process."
+      },
+      {
+        "statement": "When a clinic can book 40 visits a day and needs 70. Which analysis names that shortfall and what must change, the correct result is reissuing last year's plan unchanged.",
+        "answer": false,
+        "explanation": "Gap analysis compares the current 40 visits with the needed 70 and identifies what must change."
+      },
+      {
+        "statement": "When a new billing system will change what customers pay and what finance staff do, and a regulator sets rules. Who should be treated as stakeholders, the correct result is only the last programmer to commit code.",
+        "answer": false,
+        "explanation": "Stakeholders include those affected, such as customers and staff, and those who can affect the decision, such as a regulator."
+      },
+      {
+        "statement": "When someone must approve the budget for a billing replacement and answer for the savings. The role is that, the correct result is the business sponsor.",
+        "answer": true,
+        "explanation": "The business sponsor authorises the change, secures resources, and is accountable for the business outcome."
+      },
+      {
+        "statement": "When the organisation needs customers to receive a correct invoice within one day of delivery. The kind of statement is that, the correct result is a business requirement.",
+        "answer": true,
+        "explanation": "A need stated in business terms, such as invoice timing, is a business requirement rather than a technical design."
+      },
+      {
+        "statement": "When the statement says the system must record a refund and email the customer. Which kind of requirement is that, the correct result is a response-time limit with no behaviour named.",
+        "answer": false,
+        "explanation": "Recording a refund and sending an email are behaviours the system must provide, so the statement is functional."
+      },
+      {
+        "statement": "When checkout confirmation must appear within two seconds for 95 percent of requests. The kind of requirement is that, the correct result is a non-functional requirement.",
+        "answer": true,
+        "explanation": "A response-time target is a quality the system must meet, so it is a non-functional requirement."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When leaders must decide five years of technology investment to support growth in remote students. Which plan is that, the correct result is this week's canteen menu.",
+        "answer": false,
+        "explanation": "IT strategy sets how technology investment will support business goals over several years."
+      },
+      {
+        "statement": "When a proposed system does not support any stated business objective. Which judgement follows from strategic alignment, the correct result is it should be bought because it is new.",
+        "answer": false,
+        "explanation": "Strategic alignment requires an IT project to fit stated business objectives, so an unrelated system is a poor priority."
+      },
+      {
+        "statement": "When a retailer lists a strong brand, weak delivery IT, a new market, and a powerful online rival. The analysis is that, the correct result is a SWOT analysis.",
+        "answer": true,
+        "explanation": "Strengths, weaknesses, opportunities, and threats are the four parts of a SWOT analysis."
+      },
+      {
+        "statement": "When rivals copy a one-day discount overnight, but they still cannot match your reliable routing system. The item is the competitive advantage, the correct result is the durable delivery reliability rivals cannot match.",
+        "answer": true,
+        "explanation": "Competitive advantage is a durable edge rivals cannot quickly copy, not a short-lived discount or a purchase by itself."
+      },
+      {
+        "statement": "When leaders trace how parts, production, delivery, marketing, and service together create what customers pay for. Which model is that, the correct result is a bicycle lock.",
+        "answer": false,
+        "explanation": "The value chain is the set of primary and support activities that create what the customer values."
+      },
+      {
+        "statement": "When a bank moves account opening fully online and redesigns branch jobs. Which description fits that change, the correct result is scanning one letter and leaving the service unchanged.",
+        "answer": false,
+        "explanation": "Changing the customer journey and the related jobs through digital technology is digital transformation."
+      },
+      {
+        "statement": "When a charity can build a donor system or subscribe to an existing platform. The decision is that, the correct result is a make-or-buy decision.",
+        "answer": true,
+        "explanation": "Choosing between an in-house build and an existing product is a make-or-buy decision."
+      },
+      {
+        "statement": "When the board wants the costs, benefits, and risks of a roster system before approving money. The document should they read, the correct result is the business case.",
+        "answer": true,
+        "explanation": "A business case documents the expected benefits, costs, and risks of the proposed investment."
+      },
+      {
+        "statement": "When one option costs 80,000 and is expected to save 30,000 a year. Which technique sets those figures side by side, the correct result is listing costs and ignoring benefits.",
+        "answer": false,
+        "explanation": "Cost-benefit analysis compares expected costs with expected benefits for the option."
+      },
+      {
+        "statement": "When a 100,000 system returns 20,000 net in a year. The measure states that gain relative to the cost, the correct result is return on investment.",
+        "answer": true,
+        "explanation": "Return on investment expresses net gain relative to investment cost, here 20,000 on 100,000."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a cheap printer has high toner, maintenance, and downtime costs over four years. Which figure should drive the choice, the correct result is the sticker price alone.",
+        "answer": false,
+        "explanation": "Total cost of ownership adds purchase, running, support, and retirement costs over the system's life."
+      },
+      {
+        "statement": "When a 60,000 kiosk saves 20,000 net each year. How long is the payback period, the correct result is ten years.",
+        "answer": false,
+        "explanation": "Payback is initial cost divided by annual net benefit, so 60,000 divided by 20,000 is three years."
+      },
+      {
+        "statement": "When a portal should improve public reputation, but no reliable cash value can be given. The label fits that gain, the correct result is an intangible benefit.",
+        "answer": true,
+        "explanation": "A real gain that cannot be priced reliably, such as reputation, is an intangible benefit."
+      },
+      {
+        "statement": "When failed deliveries fall by 200 a month and each failure costs 15. The label fits that monthly saving, the correct result is a tangible benefit.",
+        "answer": true,
+        "explanation": "A gain that can be priced, here 200 failures times 15, is a tangible benefit."
+      },
+      {
+        "statement": "When before spending build money, a hospital checks whether an app is legal, affordable, and operable. Which study is that, the correct result is a completion party.",
+        "answer": false,
+        "explanation": "An early check of technical, economic, legal, and operational workability is a feasibility study."
+      },
+      {
+        "statement": "When a new roster will fail if supervisors and staff do not adopt it. Which work prepares and supports those people, the correct result is reading the repository history only.",
+        "answer": false,
+        "explanation": "Change management prepares and supports people so they actually adopt the new roster."
+      },
+      {
+        "statement": "When clerks keep old spreadsheets because they fear looking slow on the new system, The itself works. Which issue is that, the correct result is resistance to change.",
+        "answer": true,
+        "explanation": "Avoiding a working system from fear of lost standing is resistance to change, not a technical failure."
+      },
+      {
+        "statement": "When a respected nurse demonstrates the new chart and helps colleagues on the first shifts. The role is that, the correct result is change champion.",
+        "answer": true,
+        "explanation": "A change champion is a respected colleague who promotes the change and helps others adopt it."
+      },
+      {
+        "statement": "When cashiers cannot reverse card payments on the new till, and that skill is required. Which study should find and plan that lesson, the correct result is a list of hobbies.",
+        "answer": false,
+        "explanation": "Training needs analysis identifies the missing skill and the learning needed before the new till is used."
+      },
+      {
+        "statement": "When six months after launch, finance checks whether the promised postage savings happened. The activity is that, the correct result is benefits realisation.",
+        "answer": true,
+        "explanation": "Benefits realisation measures whether the savings promised in the case have actually occurred after launch."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When the objective is fast support, and the team tracks the percentage of tickets closed within one day. Which label fits that measure, the correct result is a count of office plants.",
+        "answer": false,
+        "explanation": "A quantified measure of an important objective, such as same-day resolution rate, is a key performance indicator."
+      },
+      {
+        "statement": "When evening opening is proposed for every store by habit, but sales data show demand after 6 p.m. in only some branches. Which decision is data-driven, the correct result is act on a corridor rumour about one shop.",
+        "answer": false,
+        "explanation": "A data-driven decision follows the relevant sales evidence about where evening demand actually exists."
+      },
+      {
+        "statement": "When thirty percent of postcodes are blank, so labels would go to the wrong places. The problem is that, the correct result is poor data quality.",
+        "answer": true,
+        "explanation": "Missing postcodes mean the address data are not complete enough for the mailing, which is a data-quality failure."
+      },
+      {
+        "statement": "When billing, support, and marketing must use the same customer name and account number. The data are those, the correct result is master data.",
+        "answer": true,
+        "explanation": "Shared core entities such as customers, kept consistent across systems, are master data."
+      },
+      {
+        "statement": "When two teams quote different prices because each edits its own spreadsheet. Which fix creates a single source of truth, the correct result is email conflicting prices and let staff guess.",
+        "answer": false,
+        "explanation": "A single source of truth is one authoritative store, so teams stop acting on conflicting copies."
+      },
+      {
+        "statement": "When managers need to explore profit by region and product before choosing a line to expand. Which capability fits, the correct result is an IQ test.",
+        "answer": false,
+        "explanation": "Turning organisational data into analysis for a management decision is business intelligence."
+      },
+      {
+        "statement": "When analysts need five years of sales from many shops, integrated for trends, without querying the live tills. The store fits, the correct result is a data warehouse.",
+        "answer": true,
+        "explanation": "A data warehouse holds integrated historical data for analysis, separate from live transaction processing."
+      },
+      {
+        "statement": "When staff must record today's bookings as they happen during opening hours. The system type fits, the correct result is an operational system.",
+        "answer": true,
+        "explanation": "Recording current transactions as they happen is the job of an operational system."
+      },
+      {
+        "statement": "When payroll still depends on a twenty-year-old application that is risky to modify and cannot feed the new finance suite. Which term fits, the correct result is a platform launched last week.",
+        "answer": false,
+        "explanation": "An old operational system that is hard to change and poorly integrated is a legacy system."
+      },
+      {
+        "statement": "When nobody knows who may approve large IT spend, and projects ignore business goals. The missing framework addresses that, the correct result is iT governance.",
+        "answer": true,
+        "explanation": "IT governance defines decision rights and accountability so technology is directed toward business goals."
+      }
+    ]
+  }
+}

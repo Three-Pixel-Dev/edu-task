@@ -1,0 +1,1685 @@
+{
+  "subjectId": "engineering-circuit-analysis",
+  "levels": {
+    "1": [
+      {
+        "question": "What is electric current?",
+        "options": [
+          "The reciprocal of resistance.",
+          "The opposition of a resistor to charge flow.",
+          "The energy per unit charge between two points.",
+          "The rate at which charge passes a point, measured in amperes."
+        ],
+        "correctAnswer": "The rate at which charge passes a point, measured in amperes.",
+        "explanation": "One ampere is one coulomb of charge passing a point each second."
+      },
+      {
+        "question": "What is voltage?",
+        "options": [
+          "The product of resistance and conductance.",
+          "The reciprocal of current.",
+          "The energy per unit charge required to move charge between two points, measured in volts.",
+          "The rate at which charge passes a point."
+        ],
+        "correctAnswer": "The energy per unit charge required to move charge between two points, measured in volts.",
+        "explanation": "One volt is one joule of energy given to each coulomb moved between the two points."
+      },
+      {
+        "question": "What is resistance?",
+        "options": [
+          "The reciprocal of voltage.",
+          "The rate of charge flow through an element.",
+          "The energy stored in a magnetic field.",
+          "The opposition of an element to current, equal to voltage divided by current for an ohmic element."
+        ],
+        "correctAnswer": "The opposition of an element to current, equal to voltage divided by current for an ohmic element.",
+        "explanation": "Ohmic materials have a constant ratio of voltage to current, and that ratio is the resistance."
+      },
+      {
+        "question": "What is Ohm's law?",
+        "options": [
+          "The rule that the sum of voltages around a loop is zero.",
+          "The rule that a resistive load should equal the source resistance for maximum power.",
+          "The rule that the sum of currents at a node is zero.",
+          "The relation that the voltage across a resistor equals the current through it multiplied by its resistance."
+        ],
+        "correctAnswer": "The relation that the voltage across a resistor equals the current through it multiplied by its resistance.",
+        "explanation": "For a resistor, V, I, and R are tied by V = IR at every instant in the lumped model."
+      },
+      {
+        "question": "What is electrical power?",
+        "options": [
+          "The rate of energy transfer in an element, equal to the product of its voltage and current.",
+          "The sum of voltages around a loop.",
+          "The energy stored per coulomb.",
+          "The opposition to current."
+        ],
+        "correctAnswer": "The rate of energy transfer in an element, equal to the product of its voltage and current.",
+        "explanation": "Multiplying volts by amperes yields joules per second, which is watts."
+      },
+      {
+        "question": "What is Kirchhoff's current law?",
+        "options": [
+          "The principle that the algebraic sum of the currents leaving a node is zero.",
+          "The principle that the algebraic sum of voltages around a loop is zero.",
+          "The rule that parallel resistors share one current.",
+          "The relation that voltage equals current times resistance."
+        ],
+        "correctAnswer": "The principle that the algebraic sum of the currents leaving a node is zero.",
+        "explanation": "Charge does not accumulate at a node in the lumped-circuit model, so currents in must balance currents out."
+      },
+      {
+        "question": "What is Kirchhoff's voltage law?",
+        "options": [
+          "The formula for capacitive reactance.",
+          "The principle that the algebraic sum of the voltages around a closed loop is zero.",
+          "The rule that parallel elements have different voltages.",
+          "The principle that the algebraic sum of currents at a node is zero."
+        ],
+        "correctAnswer": "The principle that the algebraic sum of the voltages around a closed loop is zero.",
+        "explanation": "Energy conservation around a closed path requires the voltage rises and drops to balance."
+      },
+      {
+        "question": "What is a series connection?",
+        "options": [
+          "A connection in which elements have the same voltage and their currents add.",
+          "A connection in which elements carry the same current and their voltages add.",
+          "A connection that forces the voltage between two nodes to zero.",
+          "A connection that leaves a branch current at zero by a break."
+        ],
+        "correctAnswer": "A connection in which elements carry the same current and their voltages add.",
+        "explanation": "There is only one path, so the same current passes through each series element."
+      },
+      {
+        "question": "What is a parallel connection?",
+        "options": [
+          "A connection used only for magnetic coupling.",
+          "A connection in which elements have the same voltage and their currents add.",
+          "A connection in which elements carry the same current and their voltages add.",
+          "A connection that stores charge on two plates."
+        ],
+        "correctAnswer": "A connection in which elements have the same voltage and their currents add.",
+        "explanation": "Parallel elements share both end nodes, so each has the same terminal voltage."
+      },
+      {
+        "question": "What is a voltage divider?",
+        "options": [
+          "An inductor that blocks DC.",
+          "A parallel pair that splits a source current.",
+          "A series string of resistors that splits a source voltage in proportion to the resistances.",
+          "A transformer that isolates two grounds."
+        ],
+        "correctAnswer": "A series string of resistors that splits a source voltage in proportion to the resistances.",
+        "explanation": "The same series current times each resistance gives a drop proportional to that resistance."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is a current divider?",
+        "options": [
+          "A series string that splits a source voltage.",
+          "A capacitor that blocks DC current.",
+          "A diode bridge that reverses half of an AC wave.",
+          "A parallel pair of resistors that splits a source current so each branch current is inversely related to its resistance."
+        ],
+        "correctAnswer": "A parallel pair of resistors that splits a source current so each branch current is inversely related to its resistance.",
+        "explanation": "The smaller parallel resistor has the larger conductance and therefore carries more of the source current."
+      },
+      {
+        "question": "What is a node?",
+        "options": [
+          "A point in a circuit where two or more elements are joined together.",
+          "A device that stores charge.",
+          "A loop that contains no other loop.",
+          "A source whose value depends on another current."
+        ],
+        "correctAnswer": "A point in a circuit where two or more elements are joined together.",
+        "explanation": "Joined terminals are at one voltage, and the current law is written at that point."
+      },
+      {
+        "question": "What is a mesh?",
+        "options": [
+          "A phasor ratio of voltage to current.",
+          "A loop in a planar circuit that does not contain any other loop inside it.",
+          "A point where several elements join.",
+          "An open branch with zero current."
+        ],
+        "correctAnswer": "A loop in a planar circuit that does not contain any other loop inside it.",
+        "explanation": "Mesh analysis assigns one current to each such empty loop and writes the voltage law there."
+      },
+      {
+        "question": "What is nodal analysis?",
+        "options": [
+          "A solution method that uses node voltages as unknowns and writes the current law at the essential nodes.",
+          "A method that uses mesh currents and the voltage law.",
+          "A method that activates one independent source at a time.",
+          "A method that replaces a network by a current source in parallel with a resistance."
+        ],
+        "correctAnswer": "A solution method that uses node voltages as unknowns and writes the current law at the essential nodes.",
+        "explanation": "After a reference node is chosen, each other node voltage is found from the current law."
+      },
+      {
+        "question": "What is mesh analysis?",
+        "options": [
+          "A solution method that uses mesh currents as unknowns and writes the voltage law around each mesh.",
+          "A method that adds responses of independent sources.",
+          "A method that open-circuits a load to find a voltage.",
+          "A method that uses node voltages and the current law."
+        ],
+        "correctAnswer": "A solution method that uses mesh currents as unknowns and writes the voltage law around each mesh.",
+        "explanation": "Each mesh current circulates around one empty loop, and the voltage law supplies one equation per mesh."
+      },
+      {
+        "question": "What is equivalent resistance?",
+        "options": [
+          "The single resistance that draws the same current from a source as the original resistor network.",
+          "The time constant of a capacitor circuit.",
+          "The short-circuit current of a network.",
+          "The open-circuit voltage of a network."
+        ],
+        "correctAnswer": "The single resistance that draws the same current from a source as the original resistor network.",
+        "explanation": "At the source terminals, one resistor can replace the network if it has the same terminal V-I behavior."
+      },
+      {
+        "question": "What is the Thevenin equivalent?",
+        "options": [
+          "A model made of only an ideal wire.",
+          "A model made of one current source in parallel with one resistance.",
+          "A two-terminal model of a linear network made of one voltage source in series with one resistance.",
+          "A model made of a capacitor in series with an inductor."
+        ],
+        "correctAnswer": "A two-terminal model of a linear network made of one voltage source in series with one resistance.",
+        "explanation": "The series voltage is the open-circuit voltage, and the series resistance is found with independent sources deactivated."
+      },
+      {
+        "question": "What is the Norton equivalent?",
+        "options": [
+          "A model used only for nonlinear diodes.",
+          "A model made of one voltage source in series with one resistance.",
+          "A two-terminal model of a linear network made of one current source in parallel with one resistance.",
+          "A model that keeps every original source in place."
+        ],
+        "correctAnswer": "A two-terminal model of a linear network made of one current source in parallel with one resistance.",
+        "explanation": "The parallel current is the short-circuit current, and the parallel resistance equals the Thevenin resistance."
+      },
+      {
+        "question": "What is superposition?",
+        "options": [
+          "A method that writes only mesh equations.",
+          "A method that sets the load equal to the source resistance.",
+          "A method for linear circuits that finds each independent source's response alone and adds those responses.",
+          "A method that replaces a network by one voltage source and one resistance."
+        ],
+        "correctAnswer": "A method for linear circuits that finds each independent source's response alone and adds those responses.",
+        "explanation": "Linearity lets responses add, while dependent sources stay active and are never turned off."
+      },
+      {
+        "question": "What is source transformation?",
+        "options": [
+          "Replacing a voltage source in series with a resistance by a current source of V/R in parallel with that resistance, or the reverse.",
+          "Replacing a diode by an open circuit in both directions.",
+          "Splitting one resistor into two series parts with no change of source type.",
+          "Turning off every source to find a time constant."
+        ],
+        "correctAnswer": "Replacing a voltage source in series with a resistance by a current source of V/R in parallel with that resistance, or the reverse.",
+        "explanation": "Both forms produce the same voltage and current at the external terminals."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is maximum power transfer?",
+        "options": [
+          "The condition that the load is zero so current is largest.",
+          "The condition that the load is infinite so voltage is largest.",
+          "The condition that the load is half the source voltage.",
+          "The resistive-load condition in which the load equals the resistance seen looking back into the network."
+        ],
+        "correctAnswer": "The resistive-load condition in which the load equals the resistance seen looking back into the network.",
+        "explanation": "For a Thevenin resistance Rth, power in a resistive load peaks when the load equals Rth."
+      },
+      {
+        "question": "What is an independent source?",
+        "options": [
+          "A capacitor whose current depends on voltage slope.",
+          "A voltage or current source whose value does not depend on any other voltage or current in the circuit.",
+          "A resistor whose voltage depends on its current.",
+          "A source whose value is a constant times some other voltage or current."
+        ],
+        "correctAnswer": "A voltage or current source whose value does not depend on any other voltage or current in the circuit.",
+        "explanation": "A battery or a fixed current source keeps its specified value regardless of the rest of the circuit, within its ratings."
+      },
+      {
+        "question": "What is a dependent source?",
+        "options": [
+          "A source whose value is fixed by the user and by nothing in the circuit.",
+          "A resistor that only converts energy to heat.",
+          "An ideal wire between two nodes.",
+          "A voltage or current source whose value is controlled by a voltage or current elsewhere in the circuit."
+        ],
+        "correctAnswer": "A voltage or current source whose value is controlled by a voltage or current elsewhere in the circuit.",
+        "explanation": "The controlling variable may be a branch current or a node-pair voltage, and the source scales that variable."
+      },
+      {
+        "question": "What is an open circuit?",
+        "options": [
+          "A resistor equal to the Thevenin resistance.",
+          "An ideal wire that forces the voltage between two points to zero.",
+          "A capacitor in sinusoidal steady state.",
+          "A break that forces the current in that branch to zero."
+        ],
+        "correctAnswer": "A break that forces the current in that branch to zero.",
+        "explanation": "With the path broken, no charge flows, while the voltage across the break may be nonzero."
+      },
+      {
+        "question": "What is a short circuit?",
+        "options": [
+          "An infinite resistance.",
+          "A break that forces a branch current to zero.",
+          "A resonant circuit with zero reactance only at one frequency.",
+          "An ideal connection that forces the voltage between two points to zero."
+        ],
+        "correctAnswer": "An ideal connection that forces the voltage between two points to zero.",
+        "explanation": "An ideal wire has zero resistance, so the voltage law leaves no drop between its ends."
+      },
+      {
+        "question": "What is a capacitor?",
+        "options": [
+          "An element whose voltage equals L times the derivative of current.",
+          "An element that stores energy in an electric field and whose current equals C times the derivative of voltage.",
+          "An element whose voltage equals current times a constant resistance.",
+          "A source whose value is fixed by the user."
+        ],
+        "correctAnswer": "An element that stores energy in an electric field and whose current equals C times the derivative of voltage.",
+        "explanation": "Current through a capacitor is proportional to how fast its voltage is changing, not to the voltage itself."
+      },
+      {
+        "question": "What is an inductor?",
+        "options": [
+          "A diode that conducts in only one direction.",
+          "An element that dissipates energy as heat in proportion to current squared.",
+          "An element that stores energy in a magnetic field and whose voltage equals L times the derivative of current.",
+          "An element whose current equals C times the derivative of voltage."
+        ],
+        "correctAnswer": "An element that stores energy in a magnetic field and whose voltage equals L times the derivative of current.",
+        "explanation": "Voltage across an inductor is proportional to how fast its current is changing."
+      },
+      {
+        "question": "What is an RC time constant?",
+        "options": [
+          "The product of inductance and capacitance.",
+          "The ratio of inductance to resistance.",
+          "The product of resistance and capacitance that sets the speed of a first-order resistor-capacitor response.",
+          "The sum of resistance and capacitance."
+        ],
+        "correctAnswer": "The product of resistance and capacitance that sets the speed of a first-order resistor-capacitor response.",
+        "explanation": "The source-free capacitor voltage changes with the exponential rate 1 over RC."
+      },
+      {
+        "question": "What is an RL time constant?",
+        "options": [
+          "The product of resistance and capacitance.",
+          "The ratio of inductance to resistance that sets the speed of a first-order resistor-inductor response.",
+          "The difference of inductance and resistance.",
+          "The product of resistance and inductance."
+        ],
+        "correctAnswer": "The ratio of inductance to resistance that sets the speed of a first-order resistor-inductor response.",
+        "explanation": "The source-free inductor current changes with the exponential rate R over L."
+      },
+      {
+        "question": "What is the natural response?",
+        "options": [
+          "The particular response that remains after a long-lived DC source has settled the circuit.",
+          "The source-free part of a circuit's behavior, set by stored energy and typically an exponential decay.",
+          "The sinusoidal steady state at resonance.",
+          "The response of an ideal diode in breakdown."
+        ],
+        "correctAnswer": "The source-free part of a circuit's behavior, set by stored energy and typically an exponential decay.",
+        "explanation": "With independent sources removed, only the energy already stored in capacitors or inductors drives the transient."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is DC steady state?",
+        "options": [
+          "The settled condition, long after constant sources are applied, when capacitor currents and inductor voltages are zero.",
+          "The frequency at which reactances cancel.",
+          "The source-free exponential that dies away.",
+          "The instant just after a switch changes, when stored variables have not yet moved."
+        ],
+        "correctAnswer": "The settled condition, long after constant sources are applied, when capacitor currents and inductor voltages are zero.",
+        "explanation": "Constant voltages and currents have zero derivatives, so a capacitor acts open and an inductor acts short."
+      },
+      {
+        "question": "What is an RMS value?",
+        "options": [
+          "The average of a sine wave over a whole number of cycles, which is zero.",
+          "The peak value of a sine wave.",
+          "The equivalent DC value of a periodic waveform that delivers the same average power to a resistor.",
+          "The peak-to-peak value of a sine wave."
+        ],
+        "correctAnswer": "The equivalent DC value of a periodic waveform that delivers the same average power to a resistor.",
+        "explanation": "For a sine wave, that equivalent is the peak divided by the square root of 2."
+      },
+      {
+        "question": "What is a phasor?",
+        "options": [
+          "A DC offset added to a sine wave.",
+          "The instantaneous waveform written as a function of time.",
+          "A complex number that represents the amplitude and phase of a sinusoid at one fixed frequency.",
+          "The time constant of a transient."
+        ],
+        "correctAnswer": "A complex number that represents the amplitude and phase of a sinusoid at one fixed frequency.",
+        "explanation": "Suppressing the common rotating time factor lets AC circuits be solved with complex algebra."
+      },
+      {
+        "question": "What is impedance?",
+        "options": [
+          "The complex ratio of a voltage phasor to the current phasor at the same frequency, in ohms.",
+          "A purely real resistance with no phase shift.",
+          "The reciprocal of that complex ratio.",
+          "The average power divided by the RMS current."
+        ],
+        "correctAnswer": "The complex ratio of a voltage phasor to the current phasor at the same frequency, in ohms.",
+        "explanation": "Impedance generalizes resistance to inductors and capacitors by using phasors, so it may be complex."
+      },
+      {
+        "question": "What is capacitive reactance?",
+        "options": [
+          "The resistance of a carbon resistor.",
+          "The quantity omega times L.",
+          "The conductance of a parallel branch.",
+          "The magnitude of a capacitor's opposition to sinusoidal current, equal to 1 divided by omega C."
+        ],
+        "correctAnswer": "The magnitude of a capacitor's opposition to sinusoidal current, equal to 1 divided by omega C.",
+        "explanation": "A capacitor passes high-frequency current more easily, so this opposition falls as frequency rises."
+      },
+      {
+        "question": "What is inductive reactance?",
+        "options": [
+          "The DC resistance of the coil wire only.",
+          "The resonant frequency in hertz.",
+          "The quantity 1 divided by omega C.",
+          "The magnitude of an inductor's opposition to sinusoidal current, equal to omega times L."
+        ],
+        "correctAnswer": "The magnitude of an inductor's opposition to sinusoidal current, equal to omega times L.",
+        "explanation": "An inductor opposes fast changes of current, so this opposition rises as frequency rises."
+      },
+      {
+        "question": "What is resonance?",
+        "options": [
+          "The AC condition in an RLC circuit at which the inductive and capacitive reactances cancel.",
+          "The bias region in which a diode is off.",
+          "The DC condition in which a capacitor is an open circuit.",
+          "The instant after a switch closes."
+        ],
+        "correctAnswer": "The AC condition in an RLC circuit at which the inductive and capacitive reactances cancel.",
+        "explanation": "When the reactances are equal, a series RLC circuit has minimum impedance and a purely resistive current."
+      },
+      {
+        "question": "What is power factor?",
+        "options": [
+          "The cosine of the phase angle between voltage and current, equal to real power divided by apparent power.",
+          "The product of RMS voltage and RMS current with no angle.",
+          "The difference between inductive and capacitive reactance.",
+          "The sine of the phase angle between voltage and current."
+        ],
+        "correctAnswer": "The cosine of the phase angle between voltage and current, equal to real power divided by apparent power.",
+        "explanation": "Only the in-phase component of current contributes to average power, and that fraction is the cosine of the angle."
+      },
+      {
+        "question": "What is an ideal diode?",
+        "options": [
+          "A diode model that is always an open circuit.",
+          "A diode model that conducts equally in both directions.",
+          "A diode model that is a short circuit when forward biased and an open circuit when reverse biased.",
+          "A diode model with a constant 0.7 volt drop whenever it conducts."
+        ],
+        "correctAnswer": "A diode model that is a short circuit when forward biased and an open circuit when reverse biased.",
+        "explanation": "The ideal model keeps zero drop while conducting and zero current while blocking."
+      },
+      {
+        "question": "What is forward bias?",
+        "options": [
+          "The diode bias in which the anode is at a higher potential than the cathode, allowing conduction.",
+          "The reverse-breakdown region used by a regulator diode.",
+          "The bias in which the cathode is higher than the anode and an ideal diode is off.",
+          "The zero-voltage condition with no applied source."
+        ],
+        "correctAnswer": "The diode bias in which the anode is at a higher potential than the cathode, allowing conduction.",
+        "explanation": "That polarity reduces the junction barrier so carriers can cross and current rises quickly."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is reverse bias?",
+        "options": [
+          "The active region of a bipolar transistor.",
+          "The intended breakdown region of a regulator diode.",
+          "The diode bias in which the cathode is at a higher potential than the anode, so an ideal diode blocks.",
+          "The bias in which the anode is higher and the diode conducts."
+        ],
+        "correctAnswer": "The diode bias in which the cathode is at a higher potential than the anode, so an ideal diode blocks.",
+        "explanation": "That polarity widens the junction barrier, and only a tiny leakage flows in an ordinary diode."
+      },
+      {
+        "question": "What is a Zener diode?",
+        "options": [
+          "A diode that generates current from incident light.",
+          "A diode chosen for a very small forward drop from a metal-semiconductor junction.",
+          "A diode designed to operate in reverse breakdown at a specified voltage and used to hold that voltage.",
+          "A diode that emits light when forward biased."
+        ],
+        "correctAnswer": "A diode designed to operate in reverse breakdown at a specified voltage and used to hold that voltage.",
+        "explanation": "In breakdown, the voltage stays near the rated value over a useful range of reverse current."
+      },
+      {
+        "question": "What is an ideal op-amp?",
+        "options": [
+          "An op-amp model that draws large input current.",
+          "An op-amp model whose output resistance is infinite.",
+          "An op-amp model with infinite open-loop gain, infinite input impedance, and zero output impedance.",
+          "An op-amp model with zero open-loop gain."
+        ],
+        "correctAnswer": "An op-amp model with infinite open-loop gain, infinite input impedance, and zero output impedance.",
+        "explanation": "Infinite gain with negative feedback forces the input difference toward zero, and infinite input impedance draws no input current."
+      },
+      {
+        "question": "What is an inverting amplifier?",
+        "options": [
+          "A connection whose gain is one plus a resistor ratio and whose input is on the plus terminal.",
+          "An op-amp connection whose closed-loop gain is the negative ratio of the feedback resistor to the input resistor.",
+          "A connection whose gain is exactly one.",
+          "A connection with no feedback resistor."
+        ],
+        "correctAnswer": "An op-amp connection whose closed-loop gain is the negative ratio of the feedback resistor to the input resistor.",
+        "explanation": "The input is applied through a resistor to the inverting terminal, so the output has the opposite sign."
+      },
+      {
+        "question": "What is a non-inverting amplifier?",
+        "options": [
+          "A connection that uses positive feedback to latch.",
+          "An op-amp connection whose closed-loop gain is one plus the ratio of the feedback resistor to the grounded resistor.",
+          "A connection whose gain is the negative of a resistor ratio.",
+          "A connection whose gain is exactly zero."
+        ],
+        "correctAnswer": "An op-amp connection whose closed-loop gain is one plus the ratio of the feedback resistor to the grounded resistor.",
+        "explanation": "The signal enters the plus terminal, and the divider from output to the minus terminal sets a positive gain of at least one."
+      },
+      {
+        "question": "What is a voltage follower?",
+        "options": [
+          "A connection with a large negative gain.",
+          "An op-amp connection that ties the output to the inverting input and produces a voltage gain of one.",
+          "A summing connection with several inputs.",
+          "An open-loop comparator with no feedback."
+        ],
+        "correctAnswer": "An op-amp connection that ties the output to the inverting input and produces a voltage gain of one.",
+        "explanation": "Unity feedback forces the output to copy the voltage applied to the non-inverting input while drawing no input current."
+      },
+      {
+        "question": "What is a virtual short?",
+        "options": [
+          "Saturation of the output at a supply rail.",
+          "A real wire soldered between the two input pins.",
+          "The ideal-op-amp result, under negative feedback, that the two input terminals are at the same voltage.",
+          "Positive feedback that latches the output."
+        ],
+        "correctAnswer": "The ideal-op-amp result, under negative feedback, that the two input terminals are at the same voltage.",
+        "explanation": "Infinite open-loop gain cannot have a finite output unless the differential input voltage is zero."
+      },
+      {
+        "question": "What is a summing amplifier?",
+        "options": [
+          "A difference amplifier with exactly one output equal to one input.",
+          "An inverting op-amp connection whose output is a weighted negative sum of two or more input voltages.",
+          "A comparator that only reports which input is larger.",
+          "A follower that copies one input."
+        ],
+        "correctAnswer": "An inverting op-amp connection whose output is a weighted negative sum of two or more input voltages.",
+        "explanation": "Each input current is a voltage over its resistor, and those currents sum through the feedback resistor."
+      },
+      {
+        "question": "What is the passive sign convention?",
+        "options": [
+          "The rule that power absorbed is negative whenever current enters the positive terminal.",
+          "The rule that power absorbed is voltage times current when current enters the positive-labeled voltage terminal.",
+          "The right-hand rule for a magnetic field around a wire.",
+          "The dot rule for the polarity of coupled coils."
+        ],
+        "correctAnswer": "The rule that power absorbed is voltage times current when current enters the positive-labeled voltage terminal.",
+        "explanation": "With that current direction, a positive product means the element absorbs power, and a negative product means it supplies power."
+      },
+      {
+        "question": "What is conductance?",
+        "options": [
+          "The reciprocal of resistance, measured in siemens, which adds for elements connected in parallel.",
+          "The product of voltage and current.",
+          "The ratio of inductance to resistance.",
+          "The reciprocal of current."
+        ],
+        "correctAnswer": "The reciprocal of resistance, measured in siemens, which adds for elements connected in parallel.",
+        "explanation": "A larger conductance draws more current at the same voltage, and parallel paths add their conductances."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates electric current?",
+        "options": [
+          "A lamp filament carries a steady flow of charge equal to two coulombs every second.",
+          "A 4 ohm heater carrying 3 amperes must have 12 volts across its terminals.",
+          "A heater draws 2 amperes when 10 volts is placed across its terminals.",
+          "A battery supplies four joules for every coulomb that leaves its positive terminal and returns to the negative."
+        ],
+        "correctAnswer": "A lamp filament carries a steady flow of charge equal to two coulombs every second.",
+        "explanation": "One ampere is one coulomb of charge passing a point each second."
+      },
+      {
+        "question": "Which situation illustrates voltage?",
+        "options": [
+          "A battery supplies four joules for every coulomb that leaves its positive terminal and returns to the negative.",
+          "A 4 ohm heater carrying 3 amperes must have 12 volts across its terminals.",
+          "A heater draws 2 amperes when 10 volts is placed across its terminals.",
+          "A phone charger delivers 5 volts at 2 amperes to a handset."
+        ],
+        "correctAnswer": "A battery supplies four joules for every coulomb that leaves its positive terminal and returns to the negative.",
+        "explanation": "One volt is one joule of energy given to each coulomb moved between the two points."
+      },
+      {
+        "question": "Which situation illustrates resistance?",
+        "options": [
+          "A phone charger delivers 5 volts at 2 amperes to a handset.",
+          "A 4 ohm heater carrying 3 amperes must have 12 volts across its terminals.",
+          "A heater draws 2 amperes when 10 volts is placed across its terminals.",
+          "At a junction, 4 amperes and 5 amperes arrive on two wires, and one wire carries the total away."
+        ],
+        "correctAnswer": "A heater draws 2 amperes when 10 volts is placed across its terminals.",
+        "explanation": "Ohmic materials have a constant ratio of voltage to current, and that ratio is the resistance."
+      },
+      {
+        "question": "Which situation illustrates Ohm's law?",
+        "options": [
+          "A 4 ohm heater carrying 3 amperes must have 12 volts across its terminals.",
+          "At a junction, 4 amperes and 5 amperes arrive on two wires, and one wire carries the total away.",
+          "A phone charger delivers 5 volts at 2 amperes to a handset.",
+          "A loop contains a battery and two resistors, and the two resistor voltages add up to the battery voltage."
+        ],
+        "correctAnswer": "A 4 ohm heater carrying 3 amperes must have 12 volts across its terminals.",
+        "explanation": "For a resistor, V, I, and R are tied by V = IR at every instant in the lumped model."
+      },
+      {
+        "question": "Which situation illustrates electrical power?",
+        "options": [
+          "Two lamp filaments are placed one after another on a single path, so the same current heats both.",
+          "A phone charger delivers 5 volts at 2 amperes to a handset.",
+          "At a junction, 4 amperes and 5 amperes arrive on two wires, and one wire carries the total away.",
+          "A loop contains a battery and two resistors, and the two resistor voltages add up to the battery voltage."
+        ],
+        "correctAnswer": "A phone charger delivers 5 volts at 2 amperes to a handset.",
+        "explanation": "Multiplying volts by amperes yields joules per second, which is watts."
+      },
+      {
+        "question": "Which situation illustrates Kirchhoff's current law?",
+        "options": [
+          "A loop contains a battery and two resistors, and the two resistor voltages add up to the battery voltage.",
+          "Two identical lamps are tied across the same battery, and each lamp sees the full battery voltage.",
+          "At a junction, 4 amperes and 5 amperes arrive on two wires, and one wire carries the total away.",
+          "Two lamp filaments are placed one after another on a single path, so the same current heats both."
+        ],
+        "correctAnswer": "At a junction, 4 amperes and 5 amperes arrive on two wires, and one wire carries the total away.",
+        "explanation": "Charge does not accumulate at a node in the lumped-circuit model, so currents in must balance currents out."
+      },
+      {
+        "question": "Which situation illustrates Kirchhoff's voltage law?",
+        "options": [
+          "A 12 volt battery feeds 2 ohms in series with 4 ohms, and the larger resistor drops more of the 12 volts.",
+          "Two lamp filaments are placed one after another on a single path, so the same current heats both.",
+          "A loop contains a battery and two resistors, and the two resistor voltages add up to the battery voltage.",
+          "Two identical lamps are tied across the same battery, and each lamp sees the full battery voltage."
+        ],
+        "correctAnswer": "A loop contains a battery and two resistors, and the two resistor voltages add up to the battery voltage.",
+        "explanation": "Energy conservation around a closed path requires the voltage rises and drops to balance."
+      },
+      {
+        "question": "Which situation illustrates a series connection?",
+        "options": [
+          "A 5 ampere source feeds 10 ohms in parallel with 15 ohms, and the 10 ohm branch carries the larger share.",
+          "A 12 volt battery feeds 2 ohms in series with 4 ohms, and the larger resistor drops more of the 12 volts.",
+          "Two identical lamps are tied across the same battery, and each lamp sees the full battery voltage.",
+          "Two lamp filaments are placed one after another on a single path, so the same current heats both."
+        ],
+        "correctAnswer": "Two lamp filaments are placed one after another on a single path, so the same current heats both.",
+        "explanation": "There is only one path, so the same current passes through each series element."
+      },
+      {
+        "question": "Which situation illustrates a parallel connection?",
+        "options": [
+          "Three resistor leads are soldered to one pad, and that pad is treated as a single voltage point.",
+          "A 5 ampere source feeds 10 ohms in parallel with 15 ohms, and the 10 ohm branch carries the larger share.",
+          "A 12 volt battery feeds 2 ohms in series with 4 ohms, and the larger resistor drops more of the 12 volts.",
+          "Two identical lamps are tied across the same battery, and each lamp sees the full battery voltage."
+        ],
+        "correctAnswer": "Two identical lamps are tied across the same battery, and each lamp sees the full battery voltage.",
+        "explanation": "Parallel elements share both end nodes, so each has the same terminal voltage."
+      },
+      {
+        "question": "Which situation illustrates a voltage divider?",
+        "options": [
+          "Three resistor leads are soldered to one pad, and that pad is treated as a single voltage point.",
+          "A 5 ampere source feeds 10 ohms in parallel with 15 ohms, and the 10 ohm branch carries the larger share.",
+          "A window-shaped circuit has two inner openings, and each opening is traced as its own current loop.",
+          "A 12 volt battery feeds 2 ohms in series with 4 ohms, and the larger resistor drops more of the 12 volts."
+        ],
+        "correctAnswer": "A 12 volt battery feeds 2 ohms in series with 4 ohms, and the larger resistor drops more of the 12 volts.",
+        "explanation": "The same series current times each resistance gives a drop proportional to that resistance."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates a current divider?",
+        "options": [
+          "A 5 ampere source feeds 10 ohms in parallel with 15 ohms, and the 10 ohm branch carries the larger share.",
+          "A student labels two unknown voltages relative to ground and writes one current-balance equation at each of those nodes.",
+          "Three resistor leads are soldered to one pad, and that pad is treated as a single voltage point.",
+          "A window-shaped circuit has two inner openings, and each opening is traced as its own current loop."
+        ],
+        "correctAnswer": "A 5 ampere source feeds 10 ohms in parallel with 15 ohms, and the 10 ohm branch carries the larger share.",
+        "explanation": "The smaller parallel resistor has the larger conductance and therefore carries more of the source current."
+      },
+      {
+        "question": "Which situation illustrates a node?",
+        "options": [
+          "A window-shaped circuit has two inner openings, and each opening is traced as its own current loop.",
+          "Three resistor leads are soldered to one pad, and that pad is treated as a single voltage point.",
+          "A student assigns clockwise currents to two window loops and writes a voltage sum around each window.",
+          "A student labels two unknown voltages relative to ground and writes one current-balance equation at each of those nodes."
+        ],
+        "correctAnswer": "Three resistor leads are soldered to one pad, and that pad is treated as a single voltage point.",
+        "explanation": "Joined terminals are at one voltage, and the current law is written at that point."
+      },
+      {
+        "question": "Which situation illustrates a mesh?",
+        "options": [
+          "A student assigns clockwise currents to two window loops and writes a voltage sum around each window.",
+          "A window-shaped circuit has two inner openings, and each opening is traced as its own current loop.",
+          "Three 5 ohm resistors in a single path are replaced by one resistor before the source current is computed.",
+          "A student labels two unknown voltages relative to ground and writes one current-balance equation at each of those nodes."
+        ],
+        "correctAnswer": "A window-shaped circuit has two inner openings, and each opening is traced as its own current loop.",
+        "explanation": "Mesh analysis assigns one current to each such empty loop and writes the voltage law there."
+      },
+      {
+        "question": "Which situation illustrates nodal analysis?",
+        "options": [
+          "A bias network seen by a load is redrawn as 10 volts in series with 5 ohms.",
+          "A student assigns clockwise currents to two window loops and writes a voltage sum around each window.",
+          "A student labels two unknown voltages relative to ground and writes one current-balance equation at each of those nodes.",
+          "Three 5 ohm resistors in a single path are replaced by one resistor before the source current is computed."
+        ],
+        "correctAnswer": "A student labels two unknown voltages relative to ground and writes one current-balance equation at each of those nodes.",
+        "explanation": "After a reference node is chosen, each other node voltage is found from the current law."
+      },
+      {
+        "question": "Which situation illustrates mesh analysis?",
+        "options": [
+          "A bias network seen by a load is redrawn as 10 volts in series with 5 ohms.",
+          "A student assigns clockwise currents to two window loops and writes a voltage sum around each window.",
+          "Three 5 ohm resistors in a single path are replaced by one resistor before the source current is computed.",
+          "The same bias network is redrawn as 2 amperes in parallel with 5 ohms before a load is attached."
+        ],
+        "correctAnswer": "A student assigns clockwise currents to two window loops and writes a voltage sum around each window.",
+        "explanation": "Each mesh current circulates around one empty loop, and the voltage law supplies one equation per mesh."
+      },
+      {
+        "question": "Which situation illustrates equivalent resistance?",
+        "options": [
+          "A circuit has a battery and a current source, so the resistor voltage is computed twice, once for each source, and then added.",
+          "The same bias network is redrawn as 2 amperes in parallel with 5 ohms before a load is attached.",
+          "Three 5 ohm resistors in a single path are replaced by one resistor before the source current is computed.",
+          "A bias network seen by a load is redrawn as 10 volts in series with 5 ohms."
+        ],
+        "correctAnswer": "Three 5 ohm resistors in a single path are replaced by one resistor before the source current is computed.",
+        "explanation": "At the source terminals, one resistor can replace the network if it has the same terminal V-I behavior."
+      },
+      {
+        "question": "Which situation illustrates the Thevenin equivalent?",
+        "options": [
+          "The same bias network is redrawn as 2 amperes in parallel with 5 ohms before a load is attached.",
+          "A circuit has a battery and a current source, so the resistor voltage is computed twice, once for each source, and then added.",
+          "A bias network seen by a load is redrawn as 10 volts in series with 5 ohms.",
+          "A 12 volt source in series with 4 ohms is redrawn as a current source in parallel with 4 ohms."
+        ],
+        "correctAnswer": "A bias network seen by a load is redrawn as 10 volts in series with 5 ohms.",
+        "explanation": "The series voltage is the open-circuit voltage, and the series resistance is found with independent sources deactivated."
+      },
+      {
+        "question": "Which situation illustrates the Norton equivalent?",
+        "options": [
+          "A 12 volt source in series with 4 ohms is redrawn as a current source in parallel with 4 ohms.",
+          "A circuit has a battery and a current source, so the resistor voltage is computed twice, once for each source, and then added.",
+          "The same bias network is redrawn as 2 amperes in parallel with 5 ohms before a load is attached.",
+          "A sensor is modeled as a source with 8 ohms of internal resistance, and the attached resistive load is also 8 ohms."
+        ],
+        "correctAnswer": "The same bias network is redrawn as 2 amperes in parallel with 5 ohms before a load is attached.",
+        "explanation": "The parallel current is the short-circuit current, and the parallel resistance equals the Thevenin resistance."
+      },
+      {
+        "question": "Which situation illustrates superposition?",
+        "options": [
+          "A circuit has a battery and a current source, so the resistor voltage is computed twice, once for each source, and then added.",
+          "A 12 volt source in series with 4 ohms is redrawn as a current source in parallel with 4 ohms.",
+          "A sensor is modeled as a source with 8 ohms of internal resistance, and the attached resistive load is also 8 ohms.",
+          "A laboratory supply is set to 5 volts and holds that voltage whether the attached resistor is 100 ohms or 200 ohms."
+        ],
+        "correctAnswer": "A circuit has a battery and a current source, so the resistor voltage is computed twice, once for each source, and then added.",
+        "explanation": "Linearity lets responses add, while dependent sources stay active and are never turned off."
+      },
+      {
+        "question": "Which situation illustrates source transformation?",
+        "options": [
+          "A diamond-shaped source outputs a current equal to three times the current through a distant resistor.",
+          "A laboratory supply is set to 5 volts and holds that voltage whether the attached resistor is 100 ohms or 200 ohms.",
+          "A sensor is modeled as a source with 8 ohms of internal resistance, and the attached resistive load is also 8 ohms.",
+          "A 12 volt source in series with 4 ohms is redrawn as a current source in parallel with 4 ohms."
+        ],
+        "correctAnswer": "A 12 volt source in series with 4 ohms is redrawn as a current source in parallel with 4 ohms.",
+        "explanation": "Both forms produce the same voltage and current at the external terminals."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates maximum power transfer?",
+        "options": [
+          "A laboratory supply is set to 5 volts and holds that voltage whether the attached resistor is 100 ohms or 200 ohms.",
+          "A diamond-shaped source outputs a current equal to three times the current through a distant resistor.",
+          "A switch in a lamp branch is opened, and the lamp current falls to zero while voltage remains across the switch.",
+          "A sensor is modeled as a source with 8 ohms of internal resistance, and the attached resistive load is also 8 ohms."
+        ],
+        "correctAnswer": "A sensor is modeled as a source with 8 ohms of internal resistance, and the attached resistive load is also 8 ohms.",
+        "explanation": "For a Thevenin resistance Rth, power in a resistive load peaks when the load equals Rth."
+      },
+      {
+        "question": "Which situation illustrates an independent source?",
+        "options": [
+          "A switch in a lamp branch is opened, and the lamp current falls to zero while voltage remains across the switch.",
+          "A laboratory supply is set to 5 volts and holds that voltage whether the attached resistor is 100 ohms or 200 ohms.",
+          "A diamond-shaped source outputs a current equal to three times the current through a distant resistor.",
+          "A screwdriver accidentally joins the two terminals of a battery, and the voltage between those terminals collapses."
+        ],
+        "correctAnswer": "A laboratory supply is set to 5 volts and holds that voltage whether the attached resistor is 100 ohms or 200 ohms.",
+        "explanation": "A battery or a fixed current source keeps its specified value regardless of the rest of the circuit, within its ratings."
+      },
+      {
+        "question": "Which situation illustrates a dependent source?",
+        "options": [
+          "A diamond-shaped source outputs a current equal to three times the current through a distant resistor.",
+          "A switch in a lamp branch is opened, and the lamp current falls to zero while voltage remains across the switch.",
+          "When the voltage on a timing element is constant, that element draws no current even though voltage remains across it.",
+          "A screwdriver accidentally joins the two terminals of a battery, and the voltage between those terminals collapses."
+        ],
+        "correctAnswer": "A diamond-shaped source outputs a current equal to three times the current through a distant resistor.",
+        "explanation": "The controlling variable may be a branch current or a node-pair voltage, and the source scales that variable."
+      },
+      {
+        "question": "Which situation illustrates an open circuit?",
+        "options": [
+          "When the voltage on a timing element is constant, that element draws no current even though voltage remains across it.",
+          "A switch in a lamp branch is opened, and the lamp current falls to zero while voltage remains across the switch.",
+          "A coil on a relay holds a steady current and the voltage measured across that coil is then zero.",
+          "A screwdriver accidentally joins the two terminals of a battery, and the voltage between those terminals collapses."
+        ],
+        "correctAnswer": "A switch in a lamp branch is opened, and the lamp current falls to zero while voltage remains across the switch.",
+        "explanation": "With the path broken, no charge flows, while the voltage across the break may be nonzero."
+      },
+      {
+        "question": "Which situation illustrates a short circuit?",
+        "options": [
+          "A timer uses 4 ohms in series with 2 farads, and the exponential is written with an 8 second scale.",
+          "A coil on a relay holds a steady current and the voltage measured across that coil is then zero.",
+          "When the voltage on a timing element is constant, that element draws no current even though voltage remains across it.",
+          "A screwdriver accidentally joins the two terminals of a battery, and the voltage between those terminals collapses."
+        ],
+        "correctAnswer": "A screwdriver accidentally joins the two terminals of a battery, and the voltage between those terminals collapses.",
+        "explanation": "An ideal wire has zero resistance, so the voltage law leaves no drop between its ends."
+      },
+      {
+        "question": "Which situation illustrates a capacitor?",
+        "options": [
+          "A timer uses 4 ohms in series with 2 farads, and the exponential is written with an 8 second scale.",
+          "When the voltage on a timing element is constant, that element draws no current even though voltage remains across it.",
+          "A coil on a relay holds a steady current and the voltage measured across that coil is then zero.",
+          "A coil of 8 henries is discharged through 2 ohms, and the current decays on a 4 second scale."
+        ],
+        "correctAnswer": "When the voltage on a timing element is constant, that element draws no current even though voltage remains across it.",
+        "explanation": "Current through a capacitor is proportional to how fast its voltage is changing, not to the voltage itself."
+      },
+      {
+        "question": "Which situation illustrates an inductor?",
+        "options": [
+          "A coil on a relay holds a steady current and the voltage measured across that coil is then zero.",
+          "A timer uses 4 ohms in series with 2 farads, and the exponential is written with an 8 second scale.",
+          "A coil of 8 henries is discharged through 2 ohms, and the current decays on a 4 second scale.",
+          "After a switch removes a battery, a capacitor voltage falls exponentially through the remaining resistor."
+        ],
+        "correctAnswer": "A coil on a relay holds a steady current and the voltage measured across that coil is then zero.",
+        "explanation": "Voltage across an inductor is proportional to how fast its current is changing."
+      },
+      {
+        "question": "Which situation illustrates an RC time constant?",
+        "options": [
+          "A timer uses 4 ohms in series with 2 farads, and the exponential is written with an 8 second scale.",
+          "A coil of 8 henries is discharged through 2 ohms, and the current decays on a 4 second scale.",
+          "Minutes after a DC supply is connected, a coupling capacitor carries no current and a series coil drops no voltage.",
+          "After a switch removes a battery, a capacitor voltage falls exponentially through the remaining resistor."
+        ],
+        "correctAnswer": "A timer uses 4 ohms in series with 2 farads, and the exponential is written with an 8 second scale.",
+        "explanation": "The source-free capacitor voltage changes with the exponential rate 1 over RC."
+      },
+      {
+        "question": "Which situation illustrates an RL time constant?",
+        "options": [
+          "Minutes after a DC supply is connected, a coupling capacitor carries no current and a series coil drops no voltage.",
+          "After a switch removes a battery, a capacitor voltage falls exponentially through the remaining resistor.",
+          "A wall outlet sine wave with a peak of about 170 volts has an effective value near 120 volts.",
+          "A coil of 8 henries is discharged through 2 ohms, and the current decays on a 4 second scale."
+        ],
+        "correctAnswer": "A coil of 8 henries is discharged through 2 ohms, and the current decays on a 4 second scale.",
+        "explanation": "The source-free inductor current changes with the exponential rate R over L."
+      },
+      {
+        "question": "Which situation illustrates the natural response?",
+        "options": [
+          "After a switch removes a battery, a capacitor voltage falls exponentially through the remaining resistor.",
+          "A cosine of amplitude 6 and phase 30 degrees is written as the complex value 6 at angle 30 degrees.",
+          "Minutes after a DC supply is connected, a coupling capacitor carries no current and a series coil drops no voltage.",
+          "A wall outlet sine wave with a peak of about 170 volts has an effective value near 120 volts."
+        ],
+        "correctAnswer": "After a switch removes a battery, a capacitor voltage falls exponentially through the remaining resistor.",
+        "explanation": "With independent sources removed, only the energy already stored in capacitors or inductors drives the transient."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates DC steady state?",
+        "options": [
+          "A wall outlet sine wave with a peak of about 170 volts has an effective value near 120 volts.",
+          "A cosine of amplitude 6 and phase 30 degrees is written as the complex value 6 at angle 30 degrees.",
+          "A coil's voltage phasor leads its current phasor by 90 degrees, and their ratio is a positive imaginary number.",
+          "Minutes after a DC supply is connected, a coupling capacitor carries no current and a series coil drops no voltage."
+        ],
+        "correctAnswer": "Minutes after a DC supply is connected, a coupling capacitor carries no current and a series coil drops no voltage.",
+        "explanation": "Constant voltages and currents have zero derivatives, so a capacitor acts open and an inductor acts short."
+      },
+      {
+        "question": "Which situation illustrates an RMS value?",
+        "options": [
+          "A wall outlet sine wave with a peak of about 170 volts has an effective value near 120 volts.",
+          "At 2 radians per second, a 1 farad capacitor opposes sinusoidal current by half an ohm.",
+          "A coil's voltage phasor leads its current phasor by 90 degrees, and their ratio is a positive imaginary number.",
+          "A cosine of amplitude 6 and phase 30 degrees is written as the complex value 6 at angle 30 degrees."
+        ],
+        "correctAnswer": "A wall outlet sine wave with a peak of about 170 volts has an effective value near 120 volts.",
+        "explanation": "For a sine wave, that equivalent is the peak divided by the square root of 2."
+      },
+      {
+        "question": "Which situation illustrates a phasor?",
+        "options": [
+          "At 2 radians per second, a 1 farad capacitor opposes sinusoidal current by half an ohm.",
+          "A coil's voltage phasor leads its current phasor by 90 degrees, and their ratio is a positive imaginary number.",
+          "A 3 henry coil at 4 radians per second opposes sinusoidal current by 12 ohms.",
+          "A cosine of amplitude 6 and phase 30 degrees is written as the complex value 6 at angle 30 degrees."
+        ],
+        "correctAnswer": "A cosine of amplitude 6 and phase 30 degrees is written as the complex value 6 at angle 30 degrees.",
+        "explanation": "Suppressing the common rotating time factor lets AC circuits be solved with complex algebra."
+      },
+      {
+        "question": "Which situation illustrates impedance?",
+        "options": [
+          "A coil's voltage phasor leads its current phasor by 90 degrees, and their ratio is a positive imaginary number.",
+          "A 3 henry coil at 4 radians per second opposes sinusoidal current by 12 ohms.",
+          "At 2 radians per second, a 1 farad capacitor opposes sinusoidal current by half an ohm.",
+          "A series RLC tuner is adjusted until the coil's reactance equals the capacitor's reactance and the source current peaks."
+        ],
+        "correctAnswer": "A coil's voltage phasor leads its current phasor by 90 degrees, and their ratio is a positive imaginary number.",
+        "explanation": "Impedance generalizes resistance to inductors and capacitors by using phasors, so it may be complex."
+      },
+      {
+        "question": "Which situation illustrates capacitive reactance?",
+        "options": [
+          "A series RLC tuner is adjusted until the coil's reactance equals the capacitor's reactance and the source current peaks.",
+          "At 2 radians per second, a 1 farad capacitor opposes sinusoidal current by half an ohm.",
+          "A 3 henry coil at 4 radians per second opposes sinusoidal current by 12 ohms.",
+          "A heater draws current in phase with its voltage, so all of its apparent power is real power."
+        ],
+        "correctAnswer": "At 2 radians per second, a 1 farad capacitor opposes sinusoidal current by half an ohm.",
+        "explanation": "A capacitor passes high-frequency current more easily, so this opposition falls as frequency rises."
+      },
+      {
+        "question": "Which situation illustrates inductive reactance?",
+        "options": [
+          "A heater draws current in phase with its voltage, so all of its apparent power is real power.",
+          "A 3 henry coil at 4 radians per second opposes sinusoidal current by 12 ohms.",
+          "A series RLC tuner is adjusted until the coil's reactance equals the capacitor's reactance and the source current peaks.",
+          "In a first-pass rectifier sketch, the conducting device is replaced by a wire and the blocking device by a gap."
+        ],
+        "correctAnswer": "A 3 henry coil at 4 radians per second opposes sinusoidal current by 12 ohms.",
+        "explanation": "An inductor opposes fast changes of current, so this opposition rises as frequency rises."
+      },
+      {
+        "question": "Which situation illustrates resonance?",
+        "options": [
+          "In a first-pass rectifier sketch, the conducting device is replaced by a wire and the blocking device by a gap.",
+          "A silicon rectifier has its anode tied to the positive side of a DC source and its cathode toward the load return.",
+          "A series RLC tuner is adjusted until the coil's reactance equals the capacitor's reactance and the source current peaks.",
+          "A heater draws current in phase with its voltage, so all of its apparent power is real power."
+        ],
+        "correctAnswer": "A series RLC tuner is adjusted until the coil's reactance equals the capacitor's reactance and the source current peaks.",
+        "explanation": "When the reactances are equal, a series RLC circuit has minimum impedance and a purely resistive current."
+      },
+      {
+        "question": "Which situation illustrates power factor?",
+        "options": [
+          "A silicon rectifier has its anode tied to the positive side of a DC source and its cathode toward the load return.",
+          "A protection diode has its cathode held positive relative to its anode so it stays off during normal operation.",
+          "A heater draws current in phase with its voltage, so all of its apparent power is real power.",
+          "In a first-pass rectifier sketch, the conducting device is replaced by a wire and the blocking device by a gap."
+        ],
+        "correctAnswer": "A heater draws current in phase with its voltage, so all of its apparent power is real power.",
+        "explanation": "Only the in-phase component of current contributes to average power, and that fraction is the cosine of the angle."
+      },
+      {
+        "question": "Which situation illustrates an ideal diode?",
+        "options": [
+          "A regulator diode holds a 5.1 volt rail while the reverse current varies within its rated range.",
+          "In a first-pass rectifier sketch, the conducting device is replaced by a wire and the blocking device by a gap.",
+          "A protection diode has its cathode held positive relative to its anode so it stays off during normal operation.",
+          "A silicon rectifier has its anode tied to the positive side of a DC source and its cathode toward the load return."
+        ],
+        "correctAnswer": "In a first-pass rectifier sketch, the conducting device is replaced by a wire and the blocking device by a gap.",
+        "explanation": "The ideal model keeps zero drop while conducting and zero current while blocking."
+      },
+      {
+        "question": "Which situation illustrates forward bias?",
+        "options": [
+          "In a first analysis, both input terminals of a feedback amplifier are assumed to draw no current at all.",
+          "A silicon rectifier has its anode tied to the positive side of a DC source and its cathode toward the load return.",
+          "A regulator diode holds a 5.1 volt rail while the reverse current varies within its rated range.",
+          "A protection diode has its cathode held positive relative to its anode so it stays off during normal operation."
+        ],
+        "correctAnswer": "A silicon rectifier has its anode tied to the positive side of a DC source and its cathode toward the load return.",
+        "explanation": "That polarity reduces the junction barrier so carriers can cross and current rises quickly."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates reverse bias?",
+        "options": [
+          "In a first analysis, both input terminals of a feedback amplifier are assumed to draw no current at all.",
+          "With 20 kilohms of feedback and 10 kilohms at the input, a 1 volt input becomes a negative 2 volt output.",
+          "A regulator diode holds a 5.1 volt rail while the reverse current varies within its rated range.",
+          "A protection diode has its cathode held positive relative to its anode so it stays off during normal operation."
+        ],
+        "correctAnswer": "A protection diode has its cathode held positive relative to its anode so it stays off during normal operation.",
+        "explanation": "That polarity widens the junction barrier, and only a tiny leakage flows in an ordinary diode."
+      },
+      {
+        "question": "Which situation illustrates a Zener diode?",
+        "options": [
+          "In a first analysis, both input terminals of a feedback amplifier are assumed to draw no current at all.",
+          "Feedback of 9 kilohms to a 1 kilohm grounded resistor gives a gain of ten for a signal on the plus terminal.",
+          "A regulator diode holds a 5.1 volt rail while the reverse current varies within its rated range.",
+          "With 20 kilohms of feedback and 10 kilohms at the input, a 1 volt input becomes a negative 2 volt output."
+        ],
+        "correctAnswer": "A regulator diode holds a 5.1 volt rail while the reverse current varies within its rated range.",
+        "explanation": "In breakdown, the voltage stays near the rated value over a useful range of reverse current."
+      },
+      {
+        "question": "Which situation illustrates an ideal op-amp?",
+        "options": [
+          "In a first analysis, both input terminals of a feedback amplifier are assumed to draw no current at all.",
+          "A sensor that cannot supply current drives the plus terminal, and the op-amp output, tied back to the minus terminal, drives the next stage.",
+          "Feedback of 9 kilohms to a 1 kilohm grounded resistor gives a gain of ten for a signal on the plus terminal.",
+          "With 20 kilohms of feedback and 10 kilohms at the input, a 1 volt input becomes a negative 2 volt output."
+        ],
+        "correctAnswer": "In a first analysis, both input terminals of a feedback amplifier are assumed to draw no current at all.",
+        "explanation": "Infinite gain with negative feedback forces the input difference toward zero, and infinite input impedance draws no input current."
+      },
+      {
+        "question": "Which situation illustrates an inverting amplifier?",
+        "options": [
+          "With negative feedback, a designer sets the inverting-input voltage equal to the non-inverting-input voltage before writing the resistor equations.",
+          "With 20 kilohms of feedback and 10 kilohms at the input, a 1 volt input becomes a negative 2 volt output.",
+          "Feedback of 9 kilohms to a 1 kilohm grounded resistor gives a gain of ten for a signal on the plus terminal.",
+          "A sensor that cannot supply current drives the plus terminal, and the op-amp output, tied back to the minus terminal, drives the next stage."
+        ],
+        "correctAnswer": "With 20 kilohms of feedback and 10 kilohms at the input, a 1 volt input becomes a negative 2 volt output.",
+        "explanation": "The input is applied through a resistor to the inverting terminal, so the output has the opposite sign."
+      },
+      {
+        "question": "Which situation illustrates a non-inverting amplifier?",
+        "options": [
+          "Feedback of 9 kilohms to a 1 kilohm grounded resistor gives a gain of ten for a signal on the plus terminal.",
+          "With negative feedback, a designer sets the inverting-input voltage equal to the non-inverting-input voltage before writing the resistor equations.",
+          "A sensor that cannot supply current drives the plus terminal, and the op-amp output, tied back to the minus terminal, drives the next stage.",
+          "Two equal input resistors and an equal feedback resistor turn input voltages of 2 volts and 5 volts into an output of negative 7 volts."
+        ],
+        "correctAnswer": "Feedback of 9 kilohms to a 1 kilohm grounded resistor gives a gain of ten for a signal on the plus terminal.",
+        "explanation": "The signal enters the plus terminal, and the divider from output to the minus terminal sets a positive gain of at least one."
+      },
+      {
+        "question": "Which situation illustrates a voltage follower?",
+        "options": [
+          "A sensor that cannot supply current drives the plus terminal, and the op-amp output, tied back to the minus terminal, drives the next stage.",
+          "Two equal input resistors and an equal feedback resistor turn input voltages of 2 volts and 5 volts into an output of negative 7 volts.",
+          "Current enters the plus-marked end of a resistor, and the positive product of voltage and current is the heat leaving the resistor.",
+          "With negative feedback, a designer sets the inverting-input voltage equal to the non-inverting-input voltage before writing the resistor equations."
+        ],
+        "correctAnswer": "A sensor that cannot supply current drives the plus terminal, and the op-amp output, tied back to the minus terminal, drives the next stage.",
+        "explanation": "Unity feedback forces the output to copy the voltage applied to the non-inverting input while drawing no input current."
+      },
+      {
+        "question": "Which situation illustrates a virtual short?",
+        "options": [
+          "Current enters the plus-marked end of a resistor, and the positive product of voltage and current is the heat leaving the resistor.",
+          "A 4 ohm resistor is entered in a parallel formula as one quarter of a siemens.",
+          "Two equal input resistors and an equal feedback resistor turn input voltages of 2 volts and 5 volts into an output of negative 7 volts.",
+          "With negative feedback, a designer sets the inverting-input voltage equal to the non-inverting-input voltage before writing the resistor equations."
+        ],
+        "correctAnswer": "With negative feedback, a designer sets the inverting-input voltage equal to the non-inverting-input voltage before writing the resistor equations.",
+        "explanation": "Infinite open-loop gain cannot have a finite output unless the differential input voltage is zero."
+      },
+      {
+        "question": "Which situation illustrates a summing amplifier?",
+        "options": [
+          "A lamp filament carries a steady flow of charge equal to two coulombs every second.",
+          "Current enters the plus-marked end of a resistor, and the positive product of voltage and current is the heat leaving the resistor.",
+          "Two equal input resistors and an equal feedback resistor turn input voltages of 2 volts and 5 volts into an output of negative 7 volts.",
+          "A 4 ohm resistor is entered in a parallel formula as one quarter of a siemens."
+        ],
+        "correctAnswer": "Two equal input resistors and an equal feedback resistor turn input voltages of 2 volts and 5 volts into an output of negative 7 volts.",
+        "explanation": "Each input current is a voltage over its resistor, and those currents sum through the feedback resistor."
+      },
+      {
+        "question": "Which situation illustrates the passive sign convention?",
+        "options": [
+          "A battery supplies four joules for every coulomb that leaves its positive terminal and returns to the negative.",
+          "A lamp filament carries a steady flow of charge equal to two coulombs every second.",
+          "Current enters the plus-marked end of a resistor, and the positive product of voltage and current is the heat leaving the resistor.",
+          "A 4 ohm resistor is entered in a parallel formula as one quarter of a siemens."
+        ],
+        "correctAnswer": "Current enters the plus-marked end of a resistor, and the positive product of voltage and current is the heat leaving the resistor.",
+        "explanation": "With that current direction, a positive product means the element absorbs power, and a negative product means it supplies power."
+      },
+      {
+        "question": "Which situation illustrates conductance?",
+        "options": [
+          "A battery supplies four joules for every coulomb that leaves its positive terminal and returns to the negative.",
+          "A 4 ohm resistor is entered in a parallel formula as one quarter of a siemens.",
+          "A lamp filament carries a steady flow of charge equal to two coulombs every second.",
+          "A heater draws 2 amperes when 10 volts is placed across its terminals."
+        ],
+        "correctAnswer": "A 4 ohm resistor is entered in a parallel formula as one quarter of a siemens.",
+        "explanation": "A larger conductance draws more current at the same voltage, and parallel paths add their conductances."
+      }
+    ],
+    "11": [
+      {
+        "question": "A charge of 6 coulombs passes a point in 2 seconds. State the current in amperes.",
+        "options": [
+          "12",
+          "3",
+          "8",
+          "4"
+        ],
+        "correctAnswer": "3",
+        "explanation": "Current is charge divided by time, so 6 coulombs in 2 seconds is 3 amperes."
+      },
+      {
+        "question": "Moving 3 coulombs through an element requires 12 joules. State the voltage in volts.",
+        "options": [
+          "4",
+          "15",
+          "36",
+          "9"
+        ],
+        "correctAnswer": "4",
+        "explanation": "Voltage is energy divided by charge, so 12 joules for 3 coulombs is 4 volts."
+      },
+      {
+        "question": "An element has 10 volts across it and 2 amperes through it. State its resistance in ohms.",
+        "options": [
+          "5",
+          "8",
+          "20",
+          "12"
+        ],
+        "correctAnswer": "5",
+        "explanation": "Resistance is voltage divided by current, so 10 volts divided by 2 amperes is 5 ohms."
+      },
+      {
+        "question": "A 4 ohm resistor carries 3 amperes. State the voltage across it in volts.",
+        "options": [
+          "7",
+          "1.33",
+          "0.75",
+          "12"
+        ],
+        "correctAnswer": "12",
+        "explanation": "Ohm's law gives voltage as 4 ohms times 3 amperes, which is 12 volts."
+      },
+      {
+        "question": "A device draws 2 amperes from a 5 volt source. State the power absorbed in watts.",
+        "options": [
+          "2.5",
+          "7",
+          "10",
+          "3"
+        ],
+        "correctAnswer": "10",
+        "explanation": "Power is voltage times current, so 5 volts times 2 amperes is 10 watts."
+      },
+      {
+        "question": "Currents of 4 amperes and 5 amperes enter a node, and one current leaves. State the leaving current in amperes.",
+        "options": [
+          "20",
+          "0.8",
+          "9",
+          "1"
+        ],
+        "correctAnswer": "9",
+        "explanation": "The current law requires the single leaving current to equal 4 amperes plus 5 amperes."
+      },
+      {
+        "question": "Two series resistors drop 7 volts and 8 volts. State the source voltage, in volts, that closes the loop.",
+        "options": [
+          "15",
+          "7.5",
+          "1",
+          "56"
+        ],
+        "correctAnswer": "15",
+        "explanation": "Around the loop, the source voltage must equal the sum of the drops, 7 volts plus 8 volts."
+      },
+      {
+        "question": "Resistors of 3 ohms and 7 ohms lie on one path and carry the same current. State their equivalent resistance in ohms.",
+        "options": [
+          "21",
+          "4",
+          "2.1",
+          "10"
+        ],
+        "correctAnswer": "10",
+        "explanation": "Resistances on one current path add, so 3 ohms plus 7 ohms is 10 ohms."
+      },
+      {
+        "question": "Two resistors of 6 ohms are tied across the same two nodes. State the equivalent resistance in ohms.",
+        "options": [
+          "3",
+          "6",
+          "12",
+          "36"
+        ],
+        "correctAnswer": "3",
+        "explanation": "Two equal resistances in parallel have an equivalent of half of one of them, so 6 ohms becomes 3 ohms."
+      },
+      {
+        "question": "A 12 volt source feeds 2 ohms in series with 4 ohms. State the voltage across the 4 ohm resistor in volts.",
+        "options": [
+          "8",
+          "6",
+          "2",
+          "4"
+        ],
+        "correctAnswer": "8",
+        "explanation": "The 4 ohm resistor takes 4/6 of 12 volts, which is 8 volts."
+      }
+    ],
+    "12": [
+      {
+        "question": "A 5 ampere source feeds 10 ohms in parallel with 15 ohms. State the current in the 10 ohm branch, in amperes.",
+        "options": [
+          "1.5",
+          "3",
+          "5",
+          "2"
+        ],
+        "correctAnswer": "3",
+        "explanation": "The 10 ohm branch carries 5 amperes times 15/25, which is 3 amperes."
+      },
+      {
+        "question": "Three resistor leads meet at one solder pad that has a single voltage. Name that connection point.",
+        "options": [
+          "A controlled source",
+          "A loop with no inner loop",
+          "A junction of elements",
+          "A charge-storage element"
+        ],
+        "correctAnswer": "A junction of elements",
+        "explanation": "A point where element terminals join is a node."
+      },
+      {
+        "question": "A planar circuit is divided into loops that contain no smaller loop. Name one of those empty loops.",
+        "options": [
+          "A branch with zero current",
+          "A ratio of voltage to current",
+          "A junction of element leads",
+          "An empty inner loop"
+        ],
+        "correctAnswer": "An empty inner loop",
+        "explanation": "A loop that encloses no other loop is a mesh."
+      },
+      {
+        "question": "Unknowns are voltages measured from a reference node, and the current law is written at each of those nodes. Name that method.",
+        "options": [
+          "Solving with node voltages",
+          "Activating one source at a time",
+          "Solving with mesh currents",
+          "Replacing the network by a parallel current source"
+        ],
+        "correctAnswer": "Solving with node voltages",
+        "explanation": "Using node voltages and the current law is nodal analysis."
+      },
+      {
+        "question": "Unknowns are currents circulating around empty loops, and the voltage law is written on each loop. Name that method.",
+        "options": [
+          "Solving with loop currents",
+          "Finding an open-circuit voltage",
+          "Adding single-source responses",
+          "Solving with node voltages"
+        ],
+        "correctAnswer": "Solving with loop currents",
+        "explanation": "Using mesh currents and the voltage law is mesh analysis."
+      },
+      {
+        "question": "Three resistors of 5 ohms each lie in series. State the single equivalent resistance in ohms.",
+        "options": [
+          "15",
+          "10",
+          "5",
+          "1.67"
+        ],
+        "correctAnswer": "15",
+        "explanation": "Series resistances add, so three 5 ohm resistors equal 15 ohms."
+      },
+      {
+        "question": "A linear network seen by a load is redrawn as one voltage source in series with one resistance. Name that model.",
+        "options": [
+          "Parallel current-source model",
+          "Series voltage-source model",
+          "A series LC pair",
+          "An ideal short"
+        ],
+        "correctAnswer": "Series voltage-source model",
+        "explanation": "One voltage source in series with one resistance is the Thevenin model."
+      },
+      {
+        "question": "A linear network is redrawn as one current source in parallel with one resistance. Name that model.",
+        "options": [
+          "Parallel current-source model",
+          "Series voltage-source model",
+          "The original unchanged network",
+          "A nonlinear diode model"
+        ],
+        "correctAnswer": "Parallel current-source model",
+        "explanation": "One current source in parallel with one resistance is the Norton model."
+      },
+      {
+        "question": "A linear circuit has two independent sources. Each is activated alone, with the other deactivated, and the voltages are added. Name that method.",
+        "options": [
+          "Replacing the network by a series voltage source",
+          "Matching the load to the source resistance",
+          "Writing only mesh equations",
+          "Adding single-source responses"
+        ],
+        "correctAnswer": "Adding single-source responses",
+        "explanation": "Finding each independent source's response and adding them is superposition."
+      },
+      {
+        "question": "A 12 volt source in series with 4 ohms becomes a current source in parallel with 4 ohms. State that current in amperes.",
+        "options": [
+          "8",
+          "16",
+          "3",
+          "48"
+        ],
+        "correctAnswer": "3",
+        "explanation": "The equivalent current is 12 volts divided by 4 ohms, which is 3 amperes."
+      }
+    ],
+    "13": [
+      {
+        "question": "The resistance seen by a resistive load is 8 ohms. State the load, in ohms, that absorbs maximum power.",
+        "options": [
+          "4",
+          "8",
+          "0",
+          "16"
+        ],
+        "correctAnswer": "8",
+        "explanation": "Maximum power occurs when the resistive load equals the 8 ohm resistance of the source network."
+      },
+      {
+        "question": "A supply is set to 5 volts and does not change that setting when the load resistor changes. Which source type is it?",
+        "options": [
+          "A source with its own fixed value",
+          "A capacitor",
+          "A source set by another circuit variable",
+          "A resistor"
+        ],
+        "correctAnswer": "A source with its own fixed value",
+        "explanation": "A source whose value is set by itself, not by another circuit variable, is independent."
+      },
+      {
+        "question": "A current source outputs three times the current measured in another branch. Which source type is it?",
+        "options": [
+          "A source controlled by another variable",
+          "A heating resistor",
+          "An ideal wire",
+          "A source with a fixed user setting"
+        ],
+        "correctAnswer": "A source controlled by another variable",
+        "explanation": "A source set by a current elsewhere in the circuit is dependent."
+      },
+      {
+        "question": "A switch opens and the current in that lamp branch becomes zero. Name that branch condition.",
+        "options": [
+          "An ideal zero-volt wire",
+          "Sinusoidal capacitor operation",
+          "A matched load",
+          "A broken path"
+        ],
+        "correctAnswer": "A broken path",
+        "explanation": "A break that forces branch current to zero is an open circuit."
+      },
+      {
+        "question": "An ideal wire joins two nodes so the voltage between them is zero. Name that connection.",
+        "options": [
+          "A zero-voltage join",
+          "A single-frequency cancellation",
+          "A broken path",
+          "An infinite resistance"
+        ],
+        "correctAnswer": "A zero-voltage join",
+        "explanation": "An ideal connection with zero voltage between its ends is a short circuit."
+      },
+      {
+        "question": "Long after a DC source is applied, the current in an ideal capacitor is zero. How does that capacitor behave?",
+        "options": [
+          "As a short circuit",
+          "As a voltage source",
+          "As a current source",
+          "As an open circuit"
+        ],
+        "correctAnswer": "As an open circuit",
+        "explanation": "Zero current with a possible nonzero voltage is the open-circuit behavior of a capacitor in DC steady state."
+      },
+      {
+        "question": "Long after a DC source is applied, the voltage across an ideal inductor is zero. How does that inductor behave?",
+        "options": [
+          "As a short circuit",
+          "As a current source",
+          "As an open circuit",
+          "As an open load"
+        ],
+        "correctAnswer": "As a short circuit",
+        "explanation": "Zero voltage while current may be nonzero is the short-circuit behavior of an inductor in DC steady state."
+      },
+      {
+        "question": "A series RC circuit has R equal to 4 ohms and C equal to 2 farads. State the time constant in seconds.",
+        "options": [
+          "0.5",
+          "6",
+          "8",
+          "2"
+        ],
+        "correctAnswer": "8",
+        "explanation": "The RC time constant is R times C, so 4 times 2 is 8 seconds."
+      },
+      {
+        "question": "A series RL circuit has L equal to 8 henries and R equal to 2 ohms. State the time constant in seconds.",
+        "options": [
+          "10",
+          "0.25",
+          "16",
+          "4"
+        ],
+        "correctAnswer": "4",
+        "explanation": "The RL time constant is L divided by R, so 8 henries divided by 2 ohms is 4 seconds."
+      },
+      {
+        "question": "A switch removes the battery, and a capacitor voltage then decays exponentially through a resistor. Name that source-free behavior.",
+        "options": [
+          "Diode breakdown",
+          "Resonance",
+          "The settled response to a lasting DC source",
+          "The stored-energy transient"
+        ],
+        "correctAnswer": "The stored-energy transient",
+        "explanation": "An exponential decay after the source is removed is the natural response."
+      }
+    ],
+    "14": [
+      {
+        "question": "Long after constant sources are applied, derivatives have died and stored-element derivatives are zero. Name that condition.",
+        "options": [
+          "The dying source-free exponential",
+          "The instant after switching",
+          "The settled constant-source condition",
+          "Reactance cancellation"
+        ],
+        "correctAnswer": "The settled constant-source condition",
+        "explanation": "The settled condition under constant sources, with zero capacitor current and zero inductor voltage, is DC steady state."
+      },
+      {
+        "question": "A sine wave has a peak of 10 volts. State its RMS value in volts, rounded to two decimal places.",
+        "options": [
+          "14.14",
+          "5",
+          "7.07",
+          "10"
+        ],
+        "correctAnswer": "7.07",
+        "explanation": "The RMS value of a sine wave is the peak divided by the square root of 2, and 10 divided by that factor is 7.07."
+      },
+      {
+        "question": "A cosine of amplitude 6 and phase 30 degrees is replaced by a complex amplitude for AC analysis. Name that complex representation.",
+        "options": [
+          "A complex amplitude and phase",
+          "A DC offset",
+          "The full waveform versus time",
+          "A transient time constant"
+        ],
+        "correctAnswer": "A complex amplitude and phase",
+        "explanation": "A complex number holding amplitude and phase of a fixed-frequency sinusoid is a phasor."
+      },
+      {
+        "question": "In the phasor domain, a voltage complex value is divided by the current complex value at the same frequency. Name that ratio.",
+        "options": [
+          "The complex volts-per-ampere ratio",
+          "The reciprocal complex ratio",
+          "A resistance that cannot have phase",
+          "Average power per RMS ampere"
+        ],
+        "correctAnswer": "The complex volts-per-ampere ratio",
+        "explanation": "The complex ratio of voltage phasor to current phasor is impedance."
+      },
+      {
+        "question": "A capacitor of 1 farad operates at 2 radians per second. State its reactance magnitude in ohms.",
+        "options": [
+          "1",
+          "2",
+          "0.5",
+          "3"
+        ],
+        "correctAnswer": "0.5",
+        "explanation": "Capacitive reactance is 1 divided by omega C, so 1 divided by 2 is 0.5 ohms."
+      },
+      {
+        "question": "An inductor of 3 henries operates at 4 radians per second. State its reactance magnitude in ohms.",
+        "options": [
+          "1.33",
+          "0.75",
+          "12",
+          "7"
+        ],
+        "correctAnswer": "12",
+        "explanation": "Inductive reactance is omega times L, so 4 times 3 is 12 ohms."
+      },
+      {
+        "question": "A series RLC circuit is at resonance and the inductive reactance is 20 ohms. State the capacitive reactance in ohms.",
+        "options": [
+          "20",
+          "0",
+          "10",
+          "40"
+        ],
+        "correctAnswer": "20",
+        "explanation": "At series resonance the two reactances are equal, so the capacitive reactance is also 20 ohms."
+      },
+      {
+        "question": "Voltage and current of a load are in phase. State the power factor.",
+        "options": [
+          "0",
+          "0.707",
+          "0.5",
+          "1"
+        ],
+        "correctAnswer": "1",
+        "explanation": "The phase angle is zero, and the cosine of zero is 1, so the power factor is unity."
+      },
+      {
+        "question": "An ideal diode is forward biased and conducting. Which simple element replaces it?",
+        "options": [
+          "A short circuit",
+          "An open circuit",
+          "A 0.7 volt source",
+          "A current source"
+        ],
+        "correctAnswer": "A short circuit",
+        "explanation": "A forward-biased ideal diode has zero voltage drop, so it is replaced by a short circuit."
+      },
+      {
+        "question": "A diode anode is more positive than its cathode, and the diode conducts. Name that bias.",
+        "options": [
+          "Breakdown bias",
+          "Conducting-direction bias",
+          "Blocking-direction bias",
+          "Zero bias"
+        ],
+        "correctAnswer": "Conducting-direction bias",
+        "explanation": "A higher anode potential that turns the diode on is forward bias."
+      }
+    ],
+    "15": [
+      {
+        "question": "A diode cathode is more positive than its anode, and an ideal diode carries no current. Name that bias.",
+        "options": [
+          "Forward breakdown",
+          "Saturation bias",
+          "Conducting-direction bias",
+          "Blocking-direction bias"
+        ],
+        "correctAnswer": "Blocking-direction bias",
+        "explanation": "A higher cathode potential that keeps an ideal diode off is reverse bias."
+      },
+      {
+        "question": "A diode is intended to hold a nearly constant voltage while operating in reverse breakdown. Which diode is that?",
+        "options": [
+          "A Schottky diode",
+          "A light-emitting diode",
+          "A breakdown regulator diode",
+          "A photodiode"
+        ],
+        "correctAnswer": "A breakdown regulator diode",
+        "explanation": "A diode used in controlled reverse breakdown to hold a voltage is a Zener diode."
+      },
+      {
+        "question": "State the current, in amperes, drawn by either input terminal of an ideal op-amp.",
+        "options": [
+          "0",
+          "Infinite",
+          "0.7",
+          "1"
+        ],
+        "correctAnswer": "0",
+        "explanation": "Infinite input impedance means an ideal op-amp input current is zero."
+      },
+      {
+        "question": "Feedback is 20 kilohms and the input resistor is 10 kilohms in an inverting op-amp. State the closed-loop voltage gain.",
+        "options": [
+          "-0.5",
+          "30",
+          "-2",
+          "2"
+        ],
+        "correctAnswer": "-2",
+        "explanation": "The inverting gain is the negative of 20 kilohms divided by 10 kilohms, which is -2."
+      },
+      {
+        "question": "Feedback is 9 kilohms and the resistor from the inverting input to ground is 1 kilohm. State the non-inverting closed-loop gain.",
+        "options": [
+          "1",
+          "10",
+          "-9",
+          "9"
+        ],
+        "correctAnswer": "10",
+        "explanation": "The gain is 1 plus 9 kilohms divided by 1 kilohm, which is 10."
+      },
+      {
+        "question": "The output is tied directly to the inverting input, and the signal enters the non-inverting input. State the voltage gain.",
+        "options": [
+          "-1",
+          "1",
+          "100",
+          "0"
+        ],
+        "correctAnswer": "1",
+        "explanation": "Direct feedback from the output to the inverting input makes the gain equal to 1."
+      },
+      {
+        "question": "Negative feedback and infinite gain force the two op-amp input terminals to one voltage, without a wire between them. Name that condition.",
+        "options": [
+          "Output saturation",
+          "A soldered input wire",
+          "Latching from positive feedback",
+          "Equal input voltages"
+        ],
+        "correctAnswer": "Equal input voltages",
+        "explanation": "Equal input voltages caused by negative feedback, without a physical short, is the virtual short."
+      },
+      {
+        "question": "An inverting summer uses equal resistors on two inputs and on the feedback path. The inputs are 2 volts and 5 volts. State the output in volts.",
+        "options": [
+          "-3",
+          "-7",
+          "10",
+          "7"
+        ],
+        "correctAnswer": "-7",
+        "explanation": "With equal resistors, the output is the negative of 2 volts plus 5 volts, which is -7 volts."
+      },
+      {
+        "question": "Current enters the positive-labeled terminal of an element, and voltage times current is positive. What does that positive product mean?",
+        "options": [
+          "The element is open",
+          "The element absorbs power",
+          "The element supplies power",
+          "The element is in resonance"
+        ],
+        "correctAnswer": "The element absorbs power",
+        "explanation": "Under the passive sign convention, a positive product of voltage and current is power absorbed."
+      },
+      {
+        "question": "A resistor is 4 ohms. State its conductance in siemens.",
+        "options": [
+          "0.5",
+          "2",
+          "4",
+          "0.25"
+        ],
+        "correctAnswer": "0.25",
+        "explanation": "Conductance is 1 divided by resistance, so 1 divided by 4 ohms is 0.25 siemens."
+      }
+    ]
+  }
+}

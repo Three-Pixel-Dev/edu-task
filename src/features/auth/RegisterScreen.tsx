@@ -25,7 +25,7 @@ interface StrengthFooterProps {
   strength: number;
 }
 const PasswordStrengthFooter = memo(function PasswordStrengthFooter({ strength }: StrengthFooterProps) {
-  const meta = STRENGTH_META[strength];
+  const meta = STRENGTH_META[strength] ?? STRENGTH_META[0];
   return (
     <View style={styles.strength} accessible accessibilityLabel={`Password strength: ${meta.label}`}>
       {[1, 2, 3].map((step) => (

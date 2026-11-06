@@ -1,0 +1,785 @@
+{
+  "subjectId": "big-data-analysis",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Big Data Analysis is the study of data whose size, speed, or variety exceeds one computer, using distributed storage and parallel computation.",
+        "answer": true,
+        "explanation": "Big Data Analysis exists because volume, velocity, or variety makes single-machine storage and processing impractical."
+      },
+      {
+        "statement": "A Volume is the mix of tables, logs, JSON, and media in one collection.",
+        "answer": false,
+        "explanation": "Volume refers to scale in bytes or records, which is why clusters and distributed file systems are used."
+      },
+      {
+        "statement": "A Velocity is the speed at which data are generated and must be ingested or analyzed.",
+        "answer": true,
+        "explanation": "Velocity is about arrival rate and the time available to process each new record."
+      },
+      {
+        "statement": "A Variety is volume.",
+        "answer": false,
+        "explanation": "Variety means the collection is not one rigid table, so tools must accept differing structures."
+      },
+      {
+        "statement": "A Veracity is uncertainty about data quality, including noise, bias, conflicts, and missing values.",
+        "answer": true,
+        "explanation": "Veracity asks whether values can be trusted, which is separate from how much data there is or how fast it arrives."
+      },
+      {
+        "statement": "A Hadoop is a network switch.",
+        "answer": false,
+        "explanation": "Hadoop provides distributed storage and job execution so Big Data Analysis can run on many commodity machines."
+      },
+      {
+        "statement": "A HDFS is the distributed file system that splits large files into blocks and stores replicas across a cluster.",
+        "answer": true,
+        "explanation": "HDFS is the storage layer: files become large blocks, and copies of those blocks live on data nodes."
+      },
+      {
+        "statement": "A MapReduce is a streaming watermark that closes late event windows.",
+        "answer": false,
+        "explanation": "Map tasks emit key-value pairs and reduce tasks aggregate all values that share a key."
+      },
+      {
+        "statement": "A Spark is a distributed engine that plans work as a directed graph and can keep intermediate data in memory.",
+        "answer": true,
+        "explanation": "Spark builds a job graph and can reuse partitions in memory, which avoids rereading every intermediate result from disk."
+      },
+      {
+        "statement": "A Data partitioning is full replication to every node.",
+        "answer": false,
+        "explanation": "Each partition can be read and transformed by a local task, which is how parallel jobs divide the work."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Schema-on-read is leaving stored files without one enforced schema and applying structure only when a query reads them.",
+        "answer": true,
+        "explanation": "The bytes are stored first, and each job interprets columns when it reads, which is the data-lake style."
+      },
+      {
+        "statement": "A Schema-on-write is blind block replication.",
+        "answer": false,
+        "explanation": "The schema is a gate at write time, so later readers can assume the stored table already conforms."
+      },
+      {
+        "statement": "A NoSQL analytics is analysis that uses flexible non-relational stores, such as key-value, document, or wide-column databases, at large scale.",
+        "answer": true,
+        "explanation": "These stores scale out and accept evolving or sparse records that are awkward in one rigid relational table."
+      },
+      {
+        "statement": "A Batch processing is holding each sample constant between audio sampling instants.",
+        "answer": false,
+        "explanation": "The input is a bounded, stored collection, and the job runs to completion over that collection."
+      },
+      {
+        "statement": "A Stream processing is continuously computing results on events as they arrive, without waiting for a data set to close.",
+        "answer": true,
+        "explanation": "The input is unbounded, so operators update results as events flow through the system."
+      },
+      {
+        "statement": "A NameNode is dataNode.",
+        "answer": false,
+        "explanation": "Clients ask the NameNode where blocks live, while the file bytes themselves stay on DataNodes."
+      },
+      {
+        "statement": "A DataNode is a worker that stores HDFS blocks and serves the read and write requests for those blocks.",
+        "answer": true,
+        "explanation": "Block bytes reside on DataNodes, which send those bytes to clients after the NameNode supplies locations."
+      },
+      {
+        "statement": "A Block replication is a memory-only cache.",
+        "answer": false,
+        "explanation": "If one replica is lost, HDFS can still serve the block from another replica."
+      },
+      {
+        "statement": "A YARN is hadoop's resource layer that assigns CPU and memory containers on cluster nodes to distributed jobs.",
+        "answer": true,
+        "explanation": "YARN separates resource scheduling from the storage layer, so different engines can request containers."
+      },
+      {
+        "statement": "A Map task is the master lookup of block locations.",
+        "answer": false,
+        "explanation": "Each map task sees one split of the input and independently produces pairs for later grouping."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Reduce task is the MapReduce step that aggregates all values sharing a key after they have been grouped.",
+        "answer": true,
+        "explanation": "After the shuffle groups values by key, the reducer combines those values into a final result per key."
+      },
+      {
+        "statement": "A Shuffle is input splitting.",
+        "answer": false,
+        "explanation": "Pairs must move across the network and be sorted by key before a reducer can see a complete group."
+      },
+      {
+        "statement": "A Resilient distributed dataset is an immutable, partitioned Spark collection that remembers its lineage so lost partitions can be recomputed.",
+        "answer": true,
+        "explanation": "Partitions are immutable and the lineage of transformations lets Spark rebuild a lost partition instead of relying on a copy of every intermediate result."
+      },
+      {
+        "statement": "A Spark DataFrame is a YARN queue.",
+        "answer": false,
+        "explanation": "Named columns let the planner push filters and prune columns before the distributed job runs."
+      },
+      {
+        "statement": "A Lazy evaluation is delaying Spark work until an action needs a result, so transformations can be planned together.",
+        "answer": true,
+        "explanation": "Transformations only build a plan, and an action such as a count or a write triggers execution of that plan."
+      },
+      {
+        "statement": "A Narrow transformation is a full sort of every record by one key across the cluster.",
+        "answer": false,
+        "explanation": "Because each parent partition feeds at most one child partition, the work stays local and no exchange is needed."
+      },
+      {
+        "statement": "A Wide transformation is a Spark step in which an output partition depends on many input partitions, requiring a shuffle.",
+        "answer": true,
+        "explanation": "Records with the same key must be brought together from many partitions, which is a shuffle."
+      },
+      {
+        "statement": "A Partition skew is even key balance.",
+        "answer": false,
+        "explanation": "The stage cannot finish until the overloaded partition finishes, so one hot key stalls the job."
+      },
+      {
+        "statement": "A Horizontal scaling is increasing capacity by adding more machines rather than by replacing one machine with a larger one.",
+        "answer": true,
+        "explanation": "Big Data Analysis grows a cluster outward, distributing partitions across the added nodes."
+      },
+      {
+        "statement": "A Commodity hardware is tape-only storage.",
+        "answer": false,
+        "explanation": "Hadoop-style systems expect many cheap servers, with software handling failures instead of exotic hardware."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Fault tolerance is continuing a job after a node fails by reading a replica or recomputing lost partitions.",
+        "answer": true,
+        "explanation": "Replicas and lineage let the system replace lost pieces without restarting the whole analysis from scratch by hand."
+      },
+      {
+        "statement": "A Data locality is randomly placing tasks with no regard to where blocks live.",
+        "answer": false,
+        "explanation": "Moving the program to the data is cheaper than moving large blocks across the network."
+      },
+      {
+        "statement": "A Combiner is an optional local aggregation of map output on the same node, used to shrink data before the shuffle.",
+        "answer": true,
+        "explanation": "The combiner partially aggregates pairs locally so fewer bytes cross the network, without changing a compatible final reduce."
+      },
+      {
+        "statement": "A Speculative execution is dropping the slow input.",
+        "answer": false,
+        "explanation": "A straggler may be stuck on a unhealthy node, so a second attempt elsewhere can finish the task sooner."
+      },
+      {
+        "statement": "An Apache Hive is a SQL-like warehouse layer that queries data in HDFS and translates statements into distributed jobs.",
+        "answer": true,
+        "explanation": "Hive exposes tables and a SQL-like language while the execution still runs as cluster jobs on the stored files."
+      },
+      {
+        "statement": "A Columnar storage is one-row files.",
+        "answer": false,
+        "explanation": "Analytic scans often touch a few columns of many rows, and contiguous columns make that scan cheaper."
+      },
+      {
+        "statement": "A Parquet is a compressed columnar file format widely used for analytical tables in Hadoop and Spark.",
+        "answer": true,
+        "explanation": "Parquet stores columns contiguously with compression and statistics, which suits selective analytic reads."
+      },
+      {
+        "statement": "An Avro is an in-memory Spark table API.",
+        "answer": false,
+        "explanation": "Avro writes records row by row and keeps a schema so producers and consumers agree on fields."
+      },
+      {
+        "statement": "A Key-value model is a NoSQL model that stores each record as a unique key and an opaque value for fast lookups.",
+        "answer": true,
+        "explanation": "The access path is the key, and the value can be retrieved without a relational join."
+      },
+      {
+        "statement": "A Document model is opaque key-value.",
+        "answer": false,
+        "explanation": "Each document carries its own fields, which lets analysts store evolving event structures."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Wide-column model is a NoSQL model that stores rows with large numbers of sparse, grouped columns for big analytical tables.",
+        "answer": true,
+        "explanation": "Column families can be sparse and very wide, which suits tall analytical data such as time series per row key."
+      },
+      {
+        "statement": "A CAP theorem is a batch-is-always-faster rule.",
+        "answer": false,
+        "explanation": "When messages between nodes fail, the system must either refuse some requests or serve data that may not be the latest."
+      },
+      {
+        "statement": "An Eventual consistency is a guarantee that replicas will agree if new updates stop, even if reads briefly disagree.",
+        "answer": true,
+        "explanation": "Updates propagate asynchronously, so replicas converge once the system is given time without new conflicting writes."
+      },
+      {
+        "statement": "A Lambda architecture is a single nightly batch with no path for recent events.",
+        "answer": false,
+        "explanation": "The batch layer recomputes correct views, while the speed layer covers data the batch has not absorbed yet."
+      },
+      {
+        "statement": "A Kappa architecture is a stream-only design that serves both live results and reprocessed history from one log, without a separate batch layer.",
+        "answer": true,
+        "explanation": "Reprocessing means replaying the same log through the stream pipeline, so a second batch codebase is unnecessary."
+      },
+      {
+        "statement": "An Event-time window is processing time.",
+        "answer": false,
+        "explanation": "Event time stays meaningful even when events arrive late or out of order."
+      },
+      {
+        "statement": "A Watermark is a moving event-time threshold that states how late an event can be and still enter its window.",
+        "answer": true,
+        "explanation": "The watermark estimates progress in event time so the engine can close windows while still allowing limited lateness."
+      },
+      {
+        "statement": "A Micro-batch is a one-time file store.",
+        "answer": false,
+        "explanation": "Each short interval becomes a tiny batch job, which is how classic Spark Streaming handles streams."
+      },
+      {
+        "statement": "A Data lake is a large store of raw data kept in its original formats until a specific analysis needs it.",
+        "answer": true,
+        "explanation": "The lake retains raw variety at scale so different jobs can apply schema-on-read later."
+      },
+      {
+        "statement": "An ELT is deleting raw data and keeping only a final chart image.",
+        "answer": false,
+        "explanation": "The cluster has the scale to transform data after landing, which matches schema-on-read lakes."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a single-server backup that copies one database to a second disk is called Big Data Analysis.",
+        "answer": false,
+        "explanation": "Big Data Analysis exists because volume, velocity, or variety makes single-machine storage and processing impractical."
+      },
+      {
+        "statement": "A science archive holds petabytes of telescope images that cannot fit on one disk.",
+        "answer": true,
+        "explanation": "Volume refers to scale in bytes or records, which is why clusters and distributed file systems are used."
+      },
+      {
+        "statement": "In standard textbooks, volume of a closed archive is called Velocity.",
+        "answer": false,
+        "explanation": "Velocity is about arrival rate and the time available to process each new record."
+      },
+      {
+        "statement": "A support project joins ticket tables, chat transcripts, and phone-audio files in one analysis.",
+        "answer": true,
+        "explanation": "Variety means the collection is not one rigid table, so tools must accept differing structures."
+      },
+      {
+        "statement": "In standard textbooks, variety is called Veracity.",
+        "answer": false,
+        "explanation": "Veracity asks whether values can be trusted, which is separate from how much data there is or how fast it arrives."
+      },
+      {
+        "statement": "A university cluster runs Hadoop so students can query a multi-terabyte click log.",
+        "answer": true,
+        "explanation": "Hadoop provides distributed storage and job execution so Big Data Analysis can run on many commodity machines."
+      },
+      {
+        "statement": "In standard textbooks, an in-memory table API with named columns and a query planner is called HDFS.",
+        "answer": false,
+        "explanation": "HDFS is the storage layer: files become large blocks, and copies of those blocks live on data nodes."
+      },
+      {
+        "statement": "Word-count mappers emit each word with a count of 1, and reducers sum the counts per word.",
+        "answer": true,
+        "explanation": "Map tasks emit key-value pairs and reduce tasks aggregate all values that share a key."
+      },
+      {
+        "statement": "In standard textbooks, hDFS alone is called Spark.",
+        "answer": false,
+        "explanation": "Spark builds a job graph and can reuse partitions in memory, which avoids rereading every intermediate result from disk."
+      },
+      {
+        "statement": "A sales table is split by country so each country folder is processed by a different worker.",
+        "answer": true,
+        "explanation": "Each partition can be read and transformed by a local task, which is how parallel jobs divide the work."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, index-only storage is called Schema-on-read.",
+        "answer": false,
+        "explanation": "The bytes are stored first, and each job interprets columns when it reads, which is the data-lake style."
+      },
+      {
+        "statement": "A warehouse load rejects a sales row whose date column cannot be parsed as a date.",
+        "answer": true,
+        "explanation": "The schema is a gate at write time, so later readers can assume the stored table already conforms."
+      },
+      {
+        "statement": "In standard textbooks, a tape backup format that cannot be queried is called NoSQL analytics.",
+        "answer": false,
+        "explanation": "These stores scale out and accept evolving or sparse records that are awkward in one rigid relational table."
+      },
+      {
+        "statement": "A nightly job recomputes yesterday's complete web-log summaries after the files have landed.",
+        "answer": true,
+        "explanation": "The input is a bounded, stored collection, and the job runs to completion over that collection."
+      },
+      {
+        "statement": "In standard textbooks, nightly batch is called Stream processing.",
+        "answer": false,
+        "explanation": "The input is unbounded, so operators update results as events flow through the system."
+      },
+      {
+        "statement": "A read of a huge log first asks the NameNode which servers hold the needed blocks.",
+        "answer": true,
+        "explanation": "Clients ask the NameNode where blocks live, while the file bytes themselves stay on DataNodes."
+      },
+      {
+        "statement": "In standard textbooks, hive server is called DataNode.",
+        "answer": false,
+        "explanation": "Block bytes reside on DataNodes, which send those bytes to clients after the NameNode supplies locations."
+      },
+      {
+        "statement": "The cluster keeps the usual three copies of each block of a census file on different machines.",
+        "answer": true,
+        "explanation": "If one replica is lost, HDFS can still serve the block from another replica."
+      },
+      {
+        "statement": "In standard textbooks, a columnar file format used for analytic scans is called YARN.",
+        "answer": false,
+        "explanation": "YARN separates resource scheduling from the storage layer, so different engines can request containers."
+      },
+      {
+        "statement": "A mapper reads one slice of a novel and emits each word paired with the count 1.",
+        "answer": true,
+        "explanation": "Each map task sees one split of the input and independently produces pairs for later grouping."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, the map task is called Reduce task.",
+        "answer": false,
+        "explanation": "After the shuffle groups values by key, the reducer combines those values into a final result per key."
+      },
+      {
+        "statement": "Partial word counts travel across the cluster so every count for one word meets at one reducer.",
+        "answer": true,
+        "explanation": "Pairs must move across the network and be sorted by key before a reducer can see a complete group."
+      },
+      {
+        "statement": "In standard textbooks, a lone reducer file is called Resilient distributed dataset.",
+        "answer": false,
+        "explanation": "Partitions are immutable and the lineage of transformations lets Spark rebuild a lost partition instead of relying on a copy of every intermediate result."
+      },
+      {
+        "statement": "Analysts select only the fare and distance columns of a distributed taxi table, and Spark skips the other fields.",
+        "answer": true,
+        "explanation": "Named columns let the planner push filters and prune columns before the distributed job runs."
+      },
+      {
+        "statement": "In standard textbooks, writing each intermediate RDD fully to HDFS before the next call returns is called Lazy evaluation.",
+        "answer": false,
+        "explanation": "Transformations only build a plan, and an action such as a count or a write triggers execution of that plan."
+      },
+      {
+        "statement": "A map that converts each taxi row's fare from cents to dollars touches each partition independently.",
+        "answer": true,
+        "explanation": "Because each parent partition feeds at most one child partition, the work stays local and no exchange is needed."
+      },
+      {
+        "statement": "In standard textbooks, a narrow filter is called Wide transformation.",
+        "answer": false,
+        "explanation": "Records with the same key must be brought together from many partitions, which is a shuffle."
+      },
+      {
+        "statement": "One celebrity account owns most of the clicks, so its reducer runs for hours while other reducers finish quickly.",
+        "answer": true,
+        "explanation": "The stage cannot finish until the overloaded partition finishes, so one hot key stalls the job."
+      },
+      {
+        "statement": "In standard textbooks, deleting data to fit RAM is called Horizontal scaling.",
+        "answer": false,
+        "explanation": "Big Data Analysis grows a cluster outward, distributing partitions across the added nodes."
+      },
+      {
+        "statement": "A startup builds its lake on racks of standard two-socket servers from a catalog.",
+        "answer": true,
+        "explanation": "Hadoop-style systems expect many cheap servers, with software handling failures instead of exotic hardware."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, ignoring input checksums and writing partial answers as if they were complete is called Fault tolerance.",
+        "answer": false,
+        "explanation": "Replicas and lineage let the system replace lost pieces without restarting the whole analysis from scratch by hand."
+      },
+      {
+        "statement": "Hadoop starts a map task on the server that already holds the log block being counted.",
+        "answer": true,
+        "explanation": "Moving the program to the data is cheaper than moving large blocks across the network."
+      },
+      {
+        "statement": "In standard textbooks, a replacement reducer on other keys is called Combiner.",
+        "answer": false,
+        "explanation": "The combiner partially aggregates pairs locally so fewer bytes cross the network, without changing a compatible final reduce."
+      },
+      {
+        "statement": "One map task stalls, Hadoop launches a second copy on another node, and the first copy to finish is kept.",
+        "answer": true,
+        "explanation": "A straggler may be stuck on a unhealthy node, so a second attempt elsewhere can finish the task sooner."
+      },
+      {
+        "statement": "In standard textbooks, a watermark operator is called Apache Hive.",
+        "answer": false,
+        "explanation": "Hive exposes tables and a SQL-like language while the execution still runs as cluster jobs on the stored files."
+      },
+      {
+        "statement": "A fare analysis reads only the price column of a huge trip table and skips rider names.",
+        "answer": true,
+        "explanation": "Analytic scans often touch a few columns of many rows, and contiguous columns make that scan cheaper."
+      },
+      {
+        "statement": "In standard textbooks, a resource-manager protocol for requesting containers is called Parquet.",
+        "answer": false,
+        "explanation": "Parquet stores columns contiguously with compression and statistics, which suits selective analytic reads."
+      },
+      {
+        "statement": "An ingest service writes click events as Avro messages that a later job deserializes with the same schema.",
+        "answer": true,
+        "explanation": "Avro writes records row by row and keeps a schema so producers and consumers agree on fields."
+      },
+      {
+        "statement": "In standard textbooks, document is called Key-value model.",
+        "answer": false,
+        "explanation": "The access path is the key, and the value can be retrieved without a relational join."
+      },
+      {
+        "statement": "Product reviews are stored as JSON documents, some with photos and some without.",
+        "answer": true,
+        "explanation": "Each document carries its own fields, which lets analysts store evolving event structures."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, an image grid is called Wide-column model.",
+        "answer": false,
+        "explanation": "Column families can be sparse and very wide, which suits tall analytical data such as time series per row key."
+      },
+      {
+        "statement": "During a split between data centers, a cart service either rejects writes or accepts writes that replicas have not all seen.",
+        "answer": true,
+        "explanation": "When messages between nodes fail, the system must either refuse some requests or serve data that may not be the latest."
+      },
+      {
+        "statement": "In standard textbooks, a guarantee that a partition never happens is called Eventual consistency.",
+        "answer": false,
+        "explanation": "Updates propagate asynchronously, so replicas converge once the system is given time without new conflicting writes."
+      },
+      {
+        "statement": "A dashboard reads a nightly master count and adds a fast layer of clicks that arrived since midnight.",
+        "answer": true,
+        "explanation": "The batch layer recomputes correct views, while the speed layer covers data the batch has not absorbed yet."
+      },
+      {
+        "statement": "In standard textbooks, lambda architecture is called Kappa architecture.",
+        "answer": false,
+        "explanation": "Reprocessing means replaying the same log through the stream pipeline, so a second batch codebase is unnecessary."
+      },
+      {
+        "statement": "Gate scans are counted by the minute printed on the scan, even if a phone uploads the scan late.",
+        "answer": true,
+        "explanation": "Event time stays meaningful even when events arrive late or out of order."
+      },
+      {
+        "statement": "In standard textbooks, a replication factor is called Watermark.",
+        "answer": false,
+        "explanation": "The watermark estimates progress in event time so the engine can close windows while still allowing limited lateness."
+      },
+      {
+        "statement": "A dashboard recomputes click totals every two seconds from the events collected in that slice.",
+        "answer": true,
+        "explanation": "Each short interval becomes a tiny batch job, which is how classic Spark Streaming handles streams."
+      },
+      {
+        "statement": "In standard textbooks, a single CSV on a laptop desktop is called Data lake.",
+        "answer": false,
+        "explanation": "The lake retains raw variety at scale so different jobs can apply schema-on-read later."
+      },
+      {
+        "statement": "Click files land raw in the lake overnight, and a morning Spark job builds the cleaned session table.",
+        "answer": true,
+        "explanation": "The cluster has the scale to transform data after landing, which matches schema-on-read lakes."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a phone carrier's daily event logs no longer fit or finish on one server. Which subject area studies how to analyze them on a cluster, the correct result is desktop pivot tables.",
+        "answer": false,
+        "explanation": "Data too large or fast for one machine, analyzed with distributed tools, is Big Data Analysis."
+      },
+      {
+        "statement": "When a retailer keeps ten years of item-level receipts totaling many terabytes. Which big-data dimension is the main issue, the correct result is variety.",
+        "answer": false,
+        "explanation": "The difficulty is how much data is stored, so the dimension is volume."
+      },
+      {
+        "statement": "When click events from a game arrive continuously at hundreds of thousands per second. The dimension dominates the design, the correct result is velocity.",
+        "answer": true,
+        "explanation": "The design pressure is how fast events arrive, which is velocity."
+      },
+      {
+        "statement": "When an investigation must combine CSV exports, JSON APIs, and PDF scans. The dimension describes that mix, the correct result is variety.",
+        "answer": true,
+        "explanation": "Several incompatible forms in one analysis are variety."
+      },
+      {
+        "statement": "When two source systems disagree on the same customer's address, so analysts doubt the field. Which dimension is that doubt, the correct result is velocity.",
+        "answer": false,
+        "explanation": "Distrust caused by conflicting values is a veracity problem."
+      },
+      {
+        "statement": "When a lab wants an open-source cluster stack whose file system and jobs span many cheap servers. Which framework is the usual choice, the correct result is a network switch.",
+        "answer": false,
+        "explanation": "Hadoop is the open-source framework built to store and process data across ordinary servers."
+      },
+      {
+        "statement": "When engineers need a file system that breaks a huge log into blocks and keeps copies on different servers. The component is that, the correct result is hDFS.",
+        "answer": true,
+        "explanation": "Block storage with replicas across the cluster is HDFS."
+      },
+      {
+        "statement": "When a course lab must emit key-value pairs from each input split and then sum values by key. The model is that, the correct result is mapReduce.",
+        "answer": true,
+        "explanation": "A map over splits followed by a keyed aggregation is MapReduce."
+      },
+      {
+        "statement": "When a machine-learning loop must reuse a multi-gigabyte intermediate data set in memory across passes. Which engine fits that habit, the correct result is classic MapReduce disk stages.",
+        "answer": false,
+        "explanation": "Keeping intermediate partitions in memory between stages is a defining Spark behavior."
+      },
+      {
+        "statement": "When a daily log is divided by hour into separate pieces, each handled by one worker. The technique is that division, the correct result is partitioning.",
+        "answer": true,
+        "explanation": "Splitting the log into independently processed pieces is data partitioning."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When logs are stored as-is, and two teams apply different column interpretations when they query. Which approach is that, the correct result is a mandatory star-schema load.",
+        "answer": false,
+        "explanation": "Structure is applied at query time rather than at ingest, which is schema-on-read."
+      },
+      {
+        "statement": "When a warehouse refuses to insert a row that lacks the declared order-id column. Which policy is that, the correct result is blind block replication.",
+        "answer": false,
+        "explanation": "Validating structure before the row is stored is schema-on-write."
+      },
+      {
+        "statement": "When event documents have uneven fields and must be aggregated at cluster scale without a fixed relational schema. The storage style fits, the correct result is a NoSQL analytics store.",
+        "answer": true,
+        "explanation": "Flexible non-relational storage used for large-scale analysis is NoSQL analytics."
+      },
+      {
+        "statement": "When each night a job reads the closed sales files for that day and writes a finished summary. The processing style is that, the correct result is batch processing.",
+        "answer": true,
+        "explanation": "A completed, stored data set processed as one job is batch processing."
+      },
+      {
+        "statement": "When fraud scores must update as each card swipe arrives, with no end-of-day file to wait for. Which style is required, the correct result is a one-shot laptop sort.",
+        "answer": false,
+        "explanation": "Computing on events as they arrive is stream processing."
+      },
+      {
+        "statement": "When a process must look up which servers store the blocks of a path, and it does not hold the file bytes itself. Which role is that, the correct result is dataNode.",
+        "answer": false,
+        "explanation": "Namespace and block-location metadata, without the block bytes, belong to the NameNode."
+      },
+      {
+        "statement": "When a machine on the cluster physically stores file blocks and returns their bytes to readers. The role is that machine playing, the correct result is dataNode.",
+        "answer": true,
+        "explanation": "Storing and serving block bytes is the DataNode's job."
+      },
+      {
+        "statement": "When after one disk dies, readers can still open a file because other servers hold the same blocks. The HDFS feature made that possible, the correct result is block replication.",
+        "answer": true,
+        "explanation": "Extra copies of each block on other nodes are block replication."
+      },
+      {
+        "statement": "When several engines must share one cluster by requesting CPU and memory containers. Which Hadoop layer grants them, the correct result is hDFS.",
+        "answer": false,
+        "explanation": "Container scheduling for cluster jobs is YARN."
+      },
+      {
+        "statement": "When each worker reads one input split of a log and outputs pairs of user id and a partial count. The MapReduce step is that, the correct result is the map task.",
+        "answer": true,
+        "explanation": "Reading a split and emitting key-value pairs is the map task."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When all partial sums for customer 42 arrive at one worker, which outputs a single total. Which step is that worker performing, the correct result is lazy planning.",
+        "answer": false,
+        "explanation": "Aggregating every value for one key is the reduce task."
+      },
+      {
+        "statement": "When map outputs must be moved and grouped by key before reducers can sum them. Which phase does that movement, the correct result is input splitting.",
+        "answer": false,
+        "explanation": "Network transfer and grouping by key between map and reduce is the shuffle."
+      },
+      {
+        "statement": "When a Spark collection is immutable and partitioned, and a lost piece is rebuilt from the record of transformations. In this case that collection called, the correct result is an RDD.",
+        "answer": true,
+        "explanation": "Immutable partitions plus lineage for recomputation define a resilient distributed dataset."
+      },
+      {
+        "statement": "When a distributed taxi table has named columns, and the engine reorders filters before execution. The Spark abstraction is that, the correct result is a DataFrame.",
+        "answer": true,
+        "explanation": "Named columns plus planner optimization describe a Spark DataFrame."
+      },
+      {
+        "statement": "When a student chains filters and a select, and the cluster stays idle until a write action is called. Which Spark behavior is that, the correct result is immediate execution of each call.",
+        "answer": false,
+        "explanation": "Waiting for an action before running the planned transformations is lazy evaluation."
+      },
+      {
+        "statement": "When a per-row fare conversion never moves records between workers. Which kind of Spark transformation is that, the correct result is a cluster-wide sort.",
+        "answer": false,
+        "explanation": "A per-partition map with no data exchange is a narrow transformation."
+      },
+      {
+        "statement": "When grouping trips by driver id forces records to move across the cluster. The kind of transformation is that, the correct result is a wide transformation.",
+        "answer": true,
+        "explanation": "A group-by that reshuffles keys across partitions is a wide transformation."
+      },
+      {
+        "statement": "When one key owns 90 percent of the events, and its task runs long after the other tasks finish. The problem is that, the correct result is partition skew.",
+        "answer": true,
+        "explanation": "One oversized partition holding up the stage is partition skew."
+      },
+      {
+        "statement": "When a pipeline is slow, and the team adds nodes instead of buying a bigger single computer. Which scaling approach is that, the correct result is compressing onto a laptop.",
+        "answer": false,
+        "explanation": "Adding machines to share the work is horizontal scaling."
+      },
+      {
+        "statement": "When a design brief says to use many ordinary servers and let software tolerate failures. The hardware approach is that, the correct result is commodity hardware.",
+        "answer": true,
+        "explanation": "Clusters of ordinary servers are commodity hardware."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a DataNode crashes during a query, yet the job finishes by using other copies and recomputation. Which property is being shown, the correct result is a full permanent stop.",
+        "answer": false,
+        "explanation": "Finishing after a node loss by replica reads or recomputation is fault tolerance."
+      },
+      {
+        "statement": "When the scheduler prefers to run a task on the server that already has the needed block. Which principle is that, the correct result is random task placement.",
+        "answer": false,
+        "explanation": "Placing the task where the block already resides is data locality."
+      },
+      {
+        "statement": "When word-count mappers add local counts before the network transfer so less data moves. The optional step is that, the correct result is a combiner.",
+        "answer": true,
+        "explanation": "Local pre-aggregation of map output before the shuffle is a combiner."
+      },
+      {
+        "statement": "When a straggler task is duplicated on another node, and the faster copy's result is kept. The Hadoop behavior is that, the correct result is speculative execution.",
+        "answer": true,
+        "explanation": "Launching a backup attempt of a slow task is speculative execution."
+      },
+      {
+        "statement": "When business students query HDFS tables with SQL-like statements that compile into cluster jobs. Which layer are they using, the correct result is yARN alone.",
+        "answer": false,
+        "explanation": "SQL-like queries translated into jobs over HDFS data are Hive."
+      },
+      {
+        "statement": "When a report needs 2 columns from a 200-column table and should not read the other fields. Which layout helps most, the correct result is one-row files.",
+        "answer": false,
+        "explanation": "Grouping values by column lets the scan skip unneeded fields."
+      },
+      {
+        "statement": "When a team stores a warehouse table in a compressed columnar format for Spark scans. The format is the common choice, the correct result is parquet.",
+        "answer": true,
+        "explanation": "The common compressed columnar analytic format on this stack is Parquet."
+      },
+      {
+        "statement": "When services exchange complete records in a compact binary form that carries a schema, row by row. The format fits, the correct result is avro.",
+        "answer": true,
+        "explanation": "Row-oriented binary records with a schema are Avro."
+      },
+      {
+        "statement": "When an application retrieves each shopping cart by a single id and does not query inside the payload. Which NoSQL model matches, the correct result is normalized relational.",
+        "answer": false,
+        "explanation": "Lookup by a unique key of an opaque value is the key-value model."
+      },
+      {
+        "statement": "When events are JSON objects whose fields differ by event type and must stay queryable. The NoSQL model fits, the correct result is document.",
+        "answer": true,
+        "explanation": "Self-describing JSON-like records with varying fields are the document model."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When each device row needs a huge sparse set of timestamp columns, not one opaque blob. Which NoSQL model fits, the correct result is a fixed three-column table.",
+        "answer": false,
+        "explanation": "Rows with many sparse grouped columns are the wide-column model."
+      },
+      {
+        "statement": "When a partition separates two data centers, and designers must choose between up-to-date reads and answering every request. Which theorem frames that choice, the correct result is a batch-is-always-faster rule.",
+        "answer": false,
+        "explanation": "The consistency-versus-availability choice during a partition is the CAP theorem."
+      },
+      {
+        "statement": "When two replicas of a shopping cart may differ for a short time, but they match after updates pause. The guarantee is that, the correct result is eventual consistency.",
+        "answer": true,
+        "explanation": "Temporary disagreement that disappears after updates stop is eventual consistency."
+      },
+      {
+        "statement": "When a product keeps an accurate batch view and a separate fast view of the latest hour, merged for queries. The architecture is that, the correct result is lambda architecture.",
+        "answer": true,
+        "explanation": "A batch layer plus a speed layer merged at query time is the lambda architecture."
+      },
+      {
+        "statement": "When a team handles both live traffic and historical corrections by replaying one log, with no second batch system. Which architecture is that, the correct result is hDFS replication.",
+        "answer": false,
+        "explanation": "One stream pipeline for live data and replayed history is the kappa architecture."
+      },
+      {
+        "statement": "When late-arriving ticket scans must still count in the minute they were scanned, not the minute they were uploaded. Which window basis is that, the correct result is processing time.",
+        "answer": false,
+        "explanation": "Bucketing by when the event happened is an event-time window."
+      },
+      {
+        "statement": "When a streaming count closes a minute once event time is judged to have passed it by 2 minutes. The marker tracks that lateness bound, the correct result is a watermark.",
+        "answer": true,
+        "explanation": "The lateness bound that lets windows close is a watermark."
+      },
+      {
+        "statement": "When a Spark stream job runs a small batch every few seconds instead of one record at a time or one nightly job. The style is that, the correct result is micro-batch.",
+        "answer": true,
+        "explanation": "Repeated short batches over a stream are micro-batch processing."
+      },
+      {
+        "statement": "When a company stores raw logs, dumps, and media in place and interprets them only when jobs run. Which repository style is that, the correct result is a schema-enforcing warehouse only.",
+        "answer": false,
+        "explanation": "Keeping raw data in native formats for later interpretation is a data lake."
+      },
+      {
+        "statement": "When raw files are loaded first, and the heavy cleanup runs inside the cluster afterward. The pipeline pattern is that, the correct result is eLT.",
+        "answer": true,
+        "explanation": "Load first and transform inside the platform is ELT."
+      }
+    ]
+  }
+}

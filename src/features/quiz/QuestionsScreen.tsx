@@ -19,8 +19,9 @@ import {
   SegmentedProgress,
   type OptionState,
 } from '@/components';
+import { QUIZ_TYPES } from '@/constants/app';
 import { routes } from '@/constants/routes';
-import { useQuizSession, type PrimaryAction } from '@/hooks';
+import { useQuizSession, useQuizType, type PrimaryAction } from '@/hooks';
 import { spacing } from '@/theme';
 import { pluralise } from '@/utils/format';
 
@@ -30,13 +31,15 @@ const primaryLabel: Record<PrimaryAction, string> = {
   choose: 'Choose an answer',
   check: 'Check answer',
   next: 'Next',
-  submit: 'Submit quiz',
+  submit: 'Submit answers',
 };
 
 export function QuestionsScreen() {
   const params = useLocalSearchParams<{ subjectId: string; level: string; restart?: string }>();
   const level = Number(params.level ?? 1);
-  const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1');
+  const type = useQuizType();
+  const isQuiz = type === 'trueFalse';
+  const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1', type);
   const scrollRef = useRef<ScrollViewInstance>(null);
   const { question, subject, actions, screen } = quiz;
   const inProgress = screen.kind === 'ready' && !quiz.resultId;
@@ -47,15 +50,15 @@ export function QuestionsScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quiz.resultId]);
 
-  const leave = useCallback(() => (router.canGoBack() ? router.back() : router.replace(routes.quizTab)), []);
+  const leave = useCallback(() => (router.canGoBack() ? router.back() : router.replace(routes.quizTypeTab(type))), [type]);
 
   const confirmExit = useCallback(() => {
     if (!inProgress) return leave();
-    Alert.alert('Leave this quiz?', `Your progress is saved. You can continue from question ${quiz.index + 1} later.`, [
+    Alert.alert(isQuiz ? 'Leave this quiz?' : 'Leave this set?', `Your progress is saved. You can continue from question ${quiz.index + 1} later.`, [
       { text: 'Keep going', style: 'cancel' },
-      { text: 'Leave quiz', onPress: leave },
+      { text: 'Leave', onPress: leave },
     ]);
-  }, [inProgress, quiz.index, leave]);
+  }, [inProgress, quiz.index, leave, isQuiz]);
 
   // Android hardware back → same confirmation (iOS swipe-back is disabled for this screen).
   useFocusEffect(
@@ -114,7 +117,7 @@ export function QuestionsScreen() {
         <EmptyState
           icon="inbox"
           title="Not enough questions are available for this level yet."
-          message={`${screen.subject.name} · Level ${level} has ${pluralise(screen.available, 'question')}. A quiz needs ${screen.required}, so it can’t start yet. Try another level, or ask your lecturer to add more questions.`}
+          message={`${screen.subject.name} · Level ${level} has ${pluralise(screen.available, 'question')}. A set needs ${screen.required}, so it can’t start yet. Try another level, or ask your lecturer to add more questions.`}
           actionLabel="Choose another level"
           actionIcon="arrow-left"
           onAction={leave}
@@ -170,7 +173,7 @@ export function QuestionsScreen() {
           <AppText variant="bodyStrong" numberOfLines={1}>
             {subject.name}
           </AppText>
-          <AppText variant="code" color="textSecondary">{`${subject.code} · Level ${level}`}</AppText>
+          <AppText variant="code" color="textSecondary">{`${QUIZ_TYPES[type].label} · ${subject.code} · Level ${level}`}</AppText>
         </View>
         <QuizTimer seconds={quiz.remaining} />
       </View>
@@ -187,7 +190,7 @@ export function QuestionsScreen() {
       </View>
 
       <Card style={styles.questionCard}>
-        <Badge label="Multiple choice · choose one" tone="primary" />
+        <Badge label={QUIZ_TYPES[type].answerHint} tone={isQuiz ? 'accent' : 'primary'} icon={QUIZ_TYPES[type].icon} />
         <AppText variant="heading" style={styles.prompt}>
           {question.question}
         </AppText>
@@ -198,6 +201,7 @@ export function QuestionsScreen() {
           <QuizOption
             key={option}
             letter={LETTERS[i] ?? String(i + 1)}
+            icon={isQuiz ? (option === 'True' ? 'check' : 'x') : undefined}
             text={option}
             state={optionState(option)}
             locked={quiz.isChecked || quiz.submitting}

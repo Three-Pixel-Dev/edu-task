@@ -1,0 +1,785 @@
+{
+  "subjectId": "blockchain-cryptocurrency",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Block is a container of a header and a set of transactions that extends a blockchain.",
+        "answer": true,
+        "explanation": "Nodes append accepted transactions by packaging them in a block linked to earlier blocks."
+      },
+      {
+        "statement": "A Blockchain is a list of passwords kept in a browser.",
+        "answer": false,
+        "explanation": "The hash link means a change in an earlier block changes the hash every later block must match."
+      },
+      {
+        "statement": "A Block hash is the cryptographic hash of a block header, which commits to that header's contents and parent link.",
+        "answer": true,
+        "explanation": "Hashing the header covers the parent hash, Merkle root, and other header fields in one digest."
+      },
+      {
+        "statement": "A Consensus mechanism is a private accounting meeting.",
+        "answer": false,
+        "explanation": "Without a shared rule for choosing the ledger, nodes could keep incompatible histories."
+      },
+      {
+        "statement": "A Proof of work is a consensus method that requires computational effort to produce a block hash meeting a difficulty target.",
+        "answer": true,
+        "explanation": "The producer must find a header hash below the target, which takes many hash attempts."
+      },
+      {
+        "statement": "A Proof of stake is emailing private keys.",
+        "answer": false,
+        "explanation": "Validators lock stake and can be rewarded or penalized according to the protocol rules."
+      },
+      {
+        "statement": "A Cryptocurrency wallet is software or hardware that stores keys and can build, sign, and broadcast transactions.",
+        "answer": true,
+        "explanation": "The wallet manages keys and transaction signing; the ledger of balances lives on the blockchain."
+      },
+      {
+        "statement": "A Public key is a block hash that identifies a header.",
+        "answer": false,
+        "explanation": "Signatures made with the private key can be checked with the matching public key."
+      },
+      {
+        "statement": "A Private key is a secret key that authorizes transactions for its funds and must remain known only to the owner.",
+        "answer": true,
+        "explanation": "Anyone who knows the private key can create valid signatures that spend the associated funds."
+      },
+      {
+        "statement": "A Smart contract is a paper form in a cabinet.",
+        "answer": false,
+        "explanation": "Every honest node runs the same contract code, so the resulting state is part of the ledger."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Double spending is trying to use the same coins in two conflicting transactions that one ledger cannot both accept.",
+        "answer": true,
+        "explanation": "Consensus must accept only one history, so the same output cannot be spent twice in the final ledger."
+      },
+      {
+        "statement": "A Fork is a hardware signer.",
+        "answer": false,
+        "explanation": "Divergence happens when different blocks claim the same parent and nodes have not yet settled on one branch."
+      },
+      {
+        "statement": "A Genesis block is the first block of a chain, which has no parent block.",
+        "answer": true,
+        "explanation": "Every later block links back through parent hashes to this first block."
+      },
+      {
+        "statement": "A Merkle tree is a hardware tree of mining machines in a warehouse.",
+        "answer": false,
+        "explanation": "Hashing pairs of child hashes up the tree produces one root that commits to every listed transaction."
+      },
+      {
+        "statement": "A Merkle root is the single top hash of a block's Merkle tree, stored in the block header.",
+        "answer": true,
+        "explanation": "Changing any included transaction changes the hashes above it and therefore changes the root."
+      },
+      {
+        "statement": "A Transaction is an unsigned chat message.",
+        "answer": false,
+        "explanation": "Nodes accept a transaction only if its signatures and rules check out, then a block may include it."
+      },
+      {
+        "statement": "An Unspent transaction output is an output from an earlier transaction that has not yet been used as an input of a later one.",
+        "answer": true,
+        "explanation": "In the UTXO model, spendable coins are exactly the outputs that no later input has consumed."
+      },
+      {
+        "statement": "A Mining is only viewing a block explorer.",
+        "answer": false,
+        "explanation": "Miners perform the proof-of-work search and, if successful, publish a block other nodes can check."
+      },
+      {
+        "statement": "A Difficulty is a measure of how hard it is to find a block hash that the proof-of-work rules will accept.",
+        "answer": true,
+        "explanation": "The protocol adjusts difficulty so that blocks arrive near the intended average interval."
+      },
+      {
+        "statement": "A Block reward is a seed phrase given to the block producer.",
+        "answer": false,
+        "explanation": "The reward compensates the producer and, on many public chains, is how new coins enter circulation."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Transaction fee is an amount offered to the block producer for including a transaction in a block.",
+        "answer": true,
+        "explanation": "Producers have limited block space, so the offered fee influences which valid transactions they include."
+      },
+      {
+        "statement": "A Mempool is in the genesis block.",
+        "answer": false,
+        "explanation": "Transactions reach nodes before a block includes them, and the mempool holds those pending transactions."
+      },
+      {
+        "statement": "A Confirmation is inclusion of a transaction in a block, with another confirmation added by each later block built on that chain.",
+        "answer": true,
+        "explanation": "Each added block makes it harder for an alternative branch to remove that transaction."
+      },
+      {
+        "statement": "A Soft fork is a simultaneous two-miner tie only.",
+        "answer": false,
+        "explanation": "Old nodes still accept the stricter blocks, so the chain can upgrade without an immediate permanent split."
+      },
+      {
+        "statement": "A Hard fork is a rule change that makes some blocks valid under the new rules invalid under the old rules.",
+        "answer": true,
+        "explanation": "Nodes that do not upgrade will reject the new blocks, so the network can split if both sets continue."
+      },
+      {
+        "statement": "A Full node is a block explorer run as a picture with no verification.",
+        "answer": false,
+        "explanation": "A full node keeps its own verified copy rather than trusting another server's claim about the ledger."
+      },
+      {
+        "statement": "An Address is a public identifier, often derived from a public key, that others use to send funds to a recipient.",
+        "answer": true,
+        "explanation": "An address is meant to be shared so payers know where to send coins, without revealing the private key."
+      },
+      {
+        "statement": "A Seed phrase is the public address alone.",
+        "answer": false,
+        "explanation": "Deterministic wallets derive the same keys from the same seed, so the word list is a backup of those keys."
+      },
+      {
+        "statement": "A Hot wallet is a wallet whose private keys are present on a machine that is connected to a network.",
+        "answer": true,
+        "explanation": "Network exposure makes the keys easier to use and also more exposed to malware on that machine."
+      },
+      {
+        "statement": "A Cold wallet is an online full node with no separate key storage.",
+        "answer": false,
+        "explanation": "Keeping keys offline reduces the chance that networked malware can copy them."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Gas is a unit that meters how much computation and storage a transaction may use on a smart-contract platform.",
+        "answer": true,
+        "explanation": "Metering computation stops a transaction from running without limit and prices the work nodes must do."
+      },
+      {
+        "statement": "A Validator is a block explorer that only displays data.",
+        "answer": false,
+        "explanation": "Validators take turns proposing or voting on blocks, and their stake can be rewarded or penalized."
+      },
+      {
+        "statement": "A Staking is locking coins so a participant can act as a validator under a proof-of-stake protocol.",
+        "answer": true,
+        "explanation": "The locked stake is the economic bond that lets the protocol reward or penalize the validator."
+      },
+      {
+        "statement": "A Longest-chain rule is prefer the branch with the fewest blocks.",
+        "answer": false,
+        "explanation": "Nodes adopt the chain that represents the greatest accumulated proof of work and switch if another chain overtakes it."
+      },
+      {
+        "statement": "A Block header is the compact block fields, including the parent hash, Merkle root, time, and consensus data, without the full transaction bodies.",
+        "answer": true,
+        "explanation": "The header is what gets hashed for the block hash and what links the block to its parent and transactions."
+      },
+      {
+        "statement": "A Coinbase transaction is a stake-withdrawal request.",
+        "answer": false,
+        "explanation": "This transaction has no previous output; it is how the protocol introduces the reward into the block."
+      },
+      {
+        "statement": "A Multisignature is a spending condition that requires valid signatures from more than one key before funds can move.",
+        "answer": true,
+        "explanation": "The locking condition checks that the required number of distinct authorized signatures is present."
+      },
+      {
+        "statement": "A Distributed ledger is a paper notebook locked in one office.",
+        "answer": false,
+        "explanation": "Each participating node keeps a copy and applies the same rules to accept updates."
+      },
+      {
+        "statement": "An Immutability is the resistance of confirmed history to silent edits, because changing a block changes its hash and later links.",
+        "answer": true,
+        "explanation": "The hash chain makes an in-place edit evident, since later blocks would no longer link to the edited block."
+      },
+      {
+        "statement": "A Peer-to-peer network is a single company server that alone stores the ledger.",
+        "answer": false,
+        "explanation": "Each node can relay to other nodes, so the ledger is not stored solely by a central operator."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Chain reorganization is a switch from one branch to another when the fork-choice rule decides the other branch is preferred.",
+        "answer": true,
+        "explanation": "Nodes replace the previous tip when a competing branch becomes the preferred chain under the fork-choice rule."
+      },
+      {
+        "statement": "A Merkle proof is the producer's seed phrase.",
+        "answer": false,
+        "explanation": "Given the transaction, the sibling hashes, and the root, a light client can check inclusion without the whole block body."
+      },
+      {
+        "statement": "A Permissionless blockchain is a blockchain design that allows anyone who follows the protocol to run a node or attempt to produce blocks.",
+        "answer": true,
+        "explanation": "Open participation is part of the design: identity approval is not required to join the network."
+      },
+      {
+        "statement": "A Permissioned blockchain is a public proof-of-work chain with anonymous miners.",
+        "answer": false,
+        "explanation": "Membership is restricted, so the validators' identities are known to the governing organizations."
+      },
+      {
+        "statement": "A Nakamoto consensus is the family of protocols that combine hash-linked blocks with a probabilistic fork-choice rule such as proof of work.",
+        "answer": true,
+        "explanation": "Nakamoto consensus uses the chain structure and accumulated work so nodes can agree without a fixed voting committee."
+      },
+      {
+        "statement": "A Slashing is the validator must receive a larger block reward.",
+        "answer": false,
+        "explanation": "The penalty makes specified misbehavior, such as signing two conflicting blocks, costly for the validator."
+      },
+      {
+        "statement": "A Hardware wallet is a dedicated device that holds private keys and signs transactions without exposing those keys to the attached computer.",
+        "answer": true,
+        "explanation": "The keys stay on the device, and the computer receives a signature rather than the key itself."
+      },
+      {
+        "statement": "A Deterministic execution is no result, because contract code is ignored.",
+        "answer": false,
+        "explanation": "Consensus about contract state is possible only if every honest node reaches the same result."
+      },
+      {
+        "statement": "A Hash rate is the number of proof-of-work hash attempts a miner or a whole network can perform per second.",
+        "answer": true,
+        "explanation": "A higher hash rate means more attempts per second to find a header hash that meets the target."
+      },
+      {
+        "statement": "A Finality is the display of an unconfirmed payment sitting only in a mempool.",
+        "answer": false,
+        "explanation": "Finality describes when the protocol's rules say a block should no longer be replaced by a competing branch."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a fee paid to move a transaction ahead of others is called Block.",
+        "answer": false,
+        "explanation": "Nodes append accepted transactions by packaging them in a block linked to earlier blocks."
+      },
+      {
+        "statement": "Each campus-demo block stores the hash of the block before it, so students can walk the links back to the start.",
+        "answer": true,
+        "explanation": "The hash link means a change in an earlier block changes the hash every later block must match."
+      },
+      {
+        "statement": "In standard textbooks, the miner's display name is called Block hash.",
+        "answer": false,
+        "explanation": "Hashing the header covers the parent hash, Merkle root, and other header fields in one digest."
+      },
+      {
+        "statement": "Bitcoin nodes apply proof-of-work rules to decide which competing block becomes part of the ledger.",
+        "answer": true,
+        "explanation": "Without a shared rule for choosing the ledger, nodes could keep incompatible histories."
+      },
+      {
+        "statement": "In standard textbooks, a seed-phrase backup is called Proof of work.",
+        "answer": false,
+        "explanation": "The producer must find a header hash below the target, which takes many hash attempts."
+      },
+      {
+        "statement": "On a proof-of-stake network, a validator with locked coins is chosen to propose the next block.",
+        "answer": true,
+        "explanation": "Validators lock stake and can be rewarded or penalized according to the protocol rules."
+      },
+      {
+        "statement": "In standard textbooks, a block explorer website that only displays public data is called Cryptocurrency wallet.",
+        "answer": false,
+        "explanation": "The wallet manages keys and transaction signing; the ledger of balances lives on the blockchain."
+      },
+      {
+        "statement": "A wallet derives an address from a public key and shows that address to classmates who will send test coins.",
+        "answer": true,
+        "explanation": "Signatures made with the private key can be checked with the matching public key."
+      },
+      {
+        "statement": "In standard textbooks, the receiving address is called Private key.",
+        "answer": false,
+        "explanation": "Anyone who knows the private key can create valid signatures that spend the associated funds."
+      },
+      {
+        "statement": "A class deploys a small contract that records a vote when students send a transaction to its address.",
+        "answer": true,
+        "explanation": "Every honest node runs the same contract code, so the resulting state is part of the ledger."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, turn both payments into extra gas is called Double spending.",
+        "answer": false,
+        "explanation": "Consensus must accept only one history, so the same output cannot be spent twice in the final ledger."
+      },
+      {
+        "statement": "Two valid blocks are found at the same height, so some nodes briefly follow one branch and some follow the other.",
+        "answer": true,
+        "explanation": "Divergence happens when different blocks claim the same parent and nodes have not yet settled on one branch."
+      },
+      {
+        "statement": "In standard textbooks, a block that was orphaned and left off the main chain is called Genesis block.",
+        "answer": false,
+        "explanation": "Every later block links back through parent hashes to this first block."
+      },
+      {
+        "statement": "A Bitcoin block builds a Merkle tree over its transactions so the header can store a single root.",
+        "answer": true,
+        "explanation": "Hashing pairs of child hashes up the tree produces one root that commits to every listed transaction."
+      },
+      {
+        "statement": "In standard textbooks, the miner's private key is called Merkle root.",
+        "answer": false,
+        "explanation": "Changing any included transaction changes the hashes above it and therefore changes the root."
+      },
+      {
+        "statement": "A signed payment names inputs and outputs, and a node relays it after the signature checks succeed.",
+        "answer": true,
+        "explanation": "Nodes accept a transaction only if its signatures and rules check out, then a block may include it."
+      },
+      {
+        "statement": "In standard textbooks, staking deposits on a proof-of-stake chain is called Unspent transaction output.",
+        "answer": false,
+        "explanation": "In the UTXO model, spendable coins are exactly the outputs that no later input has consumed."
+      },
+      {
+        "statement": "A teaching miner changes the nonce repeatedly until a test-network header hash meets the easy target.",
+        "answer": true,
+        "explanation": "Miners perform the proof-of-work search and, if successful, publish a block other nodes can check."
+      },
+      {
+        "statement": "In standard textbooks, the size of a wallet's address book is called Difficulty.",
+        "answer": false,
+        "explanation": "The protocol adjusts difficulty so that blocks arrive near the intended average interval."
+      },
+      {
+        "statement": "A Bitcoin block's first transaction pays the miner the current subsidy plus the fees of included transactions.",
+        "answer": true,
+        "explanation": "The reward compensates the producer and, on many public chains, is how new coins enter circulation."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, the genesis block is called Transaction fee.",
+        "answer": false,
+        "explanation": "Producers have limited block space, so the offered fee influences which valid transactions they include."
+      },
+      {
+        "statement": "After a student broadcasts a payment, a node shows it in the mempool until a block includes it.",
+        "answer": true,
+        "explanation": "Transactions reach nodes before a block includes them, and the mempool holds those pending transactions."
+      },
+      {
+        "statement": "In standard textbooks, five is called Confirmation.",
+        "answer": false,
+        "explanation": "Each added block makes it harder for an alternative branch to remove that transaction."
+      },
+      {
+        "statement": "A soft-fork upgrade rejects a class of transactions that older rules would have allowed, while old nodes still accept the new blocks.",
+        "answer": true,
+        "explanation": "Old nodes still accept the stricter blocks, so the chain can upgrade without an immediate permanent split."
+      },
+      {
+        "statement": "In standard textbooks, a display change in a wallet that does not affect consensus is called Hard fork.",
+        "answer": false,
+        "explanation": "Nodes that do not upgrade will reject the new blocks, so the network can split if both sets continue."
+      },
+      {
+        "statement": "A lab computer runs a full node that rejects a test block whose transaction signatures do not verify.",
+        "answer": true,
+        "explanation": "A full node keeps its own verified copy rather than trusting another server's claim about the ledger."
+      },
+      {
+        "statement": "In standard textbooks, the seed phrase is called Address.",
+        "answer": false,
+        "explanation": "An address is meant to be shared so payers know where to send coins, without revealing the private key."
+      },
+      {
+        "statement": "After a phone is replaced, a wallet app regenerates the same test keys from the student's written seed phrase.",
+        "answer": true,
+        "explanation": "Deterministic wallets derive the same keys from the same seed, so the word list is a backup of those keys."
+      },
+      {
+        "statement": "In standard textbooks, a watch-only view with no keys is called Hot wallet.",
+        "answer": false,
+        "explanation": "Network exposure makes the keys easier to use and also more exposed to malware on that machine."
+      },
+      {
+        "statement": "A club generates a savings-wallet seed on an offline computer and stores the written seed in a locked drawer.",
+        "answer": true,
+        "explanation": "Keeping keys offline reduces the chance that networked malware can copy them."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the number of confirmations a merchant waits for is called Gas.",
+        "answer": false,
+        "explanation": "Metering computation stops a transaction from running without limit and prices the work nodes must do."
+      },
+      {
+        "statement": "A staked node is selected to propose the next block and broadcasts that block to the network.",
+        "answer": true,
+        "explanation": "Validators take turns proposing or voting on blocks, and their stake can be rewarded or penalized."
+      },
+      {
+        "statement": "In standard textbooks, mining with hash power is called Staking.",
+        "answer": false,
+        "explanation": "The locked stake is the economic bond that lets the protocol reward or penalize the validator."
+      },
+      {
+        "statement": "When two Bitcoin branches compete, nodes follow the branch whose total proof of work becomes greater.",
+        "answer": true,
+        "explanation": "Nodes adopt the chain that represents the greatest accumulated proof of work and switch if another chain overtakes it."
+      },
+      {
+        "statement": "In standard textbooks, a token's display name is called Block header.",
+        "answer": false,
+        "explanation": "The header is what gets hashed for the block hash and what links the block to its parent and transactions."
+      },
+      {
+        "statement": "The first transaction in a Bitcoin block pays the miner the subsidy and fees and spends no earlier output.",
+        "answer": true,
+        "explanation": "This transaction has no previous output; it is how the protocol introduces the reward into the block."
+      },
+      {
+        "statement": "In standard textbooks, a hash of the block with no keys involved is called Multisignature.",
+        "answer": false,
+        "explanation": "The locking condition checks that the required number of distinct authorized signatures is present."
+      },
+      {
+        "statement": "Several lab computers each store the class blockchain and accept a new block only when its proof checks.",
+        "answer": true,
+        "explanation": "Each participating node keeps a copy and applies the same rules to accept updates."
+      },
+      {
+        "statement": "In standard textbooks, nothing, because old blocks can be edited in place is called Immutability.",
+        "answer": false,
+        "explanation": "The hash chain makes an in-place edit evident, since later blocks would no longer link to the edited block."
+      },
+      {
+        "statement": "A new lab node downloads blocks from several classmate nodes rather than from one official server.",
+        "answer": true,
+        "explanation": "Each node can relay to other nodes, so the ledger is not stored solely by a central operator."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, raising a fee before broadcast is called Chain reorganization.",
+        "answer": false,
+        "explanation": "Nodes replace the previous tip when a competing branch becomes the preferred chain under the fork-choice rule."
+      },
+      {
+        "statement": "A light client receives a payment's sibling hashes and checks that they lead to the Merkle root in a header it already stores.",
+        "answer": true,
+        "explanation": "Given the transaction, the sibling hashes, and the root, a light client can check inclusion without the whole block body."
+      },
+      {
+        "statement": "In standard textbooks, a private database with a single administrator account is called Permissionless blockchain.",
+        "answer": false,
+        "explanation": "Open participation is part of the design: identity approval is not required to join the network."
+      },
+      {
+        "statement": "A consortium of universities runs a ledger where only the member registrars' nodes may validate new blocks.",
+        "answer": true,
+        "explanation": "Membership is restricted, so the validators' identities are known to the governing organizations."
+      },
+      {
+        "statement": "In standard textbooks, a fixed committee vote with no hash chain is called Nakamoto consensus.",
+        "answer": false,
+        "explanation": "Nakamoto consensus uses the chain structure and accumulated work so nodes can agree without a fixed voting committee."
+      },
+      {
+        "statement": "A proof-of-stake protocol destroys part of a validator's locked coins after evidence shows the validator signed two conflicting blocks.",
+        "answer": true,
+        "explanation": "The penalty makes specified misbehavior, such as signing two conflicting blocks, costly for the validator."
+      },
+      {
+        "statement": "In standard textbooks, a full node with no user keys is called Hardware wallet.",
+        "answer": false,
+        "explanation": "The keys stay on the device, and the computer receives a signature rather than the key itself."
+      },
+      {
+        "statement": "Two Ethereum-style nodes process the same vote transaction and both store the same new vote total.",
+        "answer": true,
+        "explanation": "Consensus about contract state is possible only if every honest node reaches the same result."
+      },
+      {
+        "statement": "In standard textbooks, the number of addresses in a contact list is called Hash rate.",
+        "answer": false,
+        "explanation": "A higher hash rate means more attempts per second to find a header hash that meets the target."
+      },
+      {
+        "statement": "After a proof-of-stake checkpoint is finalized, nodes treat that block as irreversible under the protocol's assumptions.",
+        "answer": true,
+        "explanation": "Finality describes when the protocol's rules say a block should no longer be replaced by a competing branch."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a miner has a header and a group of valid transactions ready to append to a chain. What container are they building, the correct result is a seed phrase.",
+        "answer": false,
+        "explanation": "A block packages a header and transactions so they can extend the chain."
+      },
+      {
+        "statement": "When students can follow a hash in each header back to the first block. What structure are they tracing, the correct result is a browser password list.",
+        "answer": false,
+        "explanation": "A blockchain is the hash-linked sequence of blocks they are following."
+      },
+      {
+        "statement": "When a node must identify a header by a digest of its parent link, Merkle root, and other header fields. In this case it compute, the correct result is the block hash.",
+        "answer": true,
+        "explanation": "The block hash is the digest of the header and therefore of the fields inside it."
+      },
+      {
+        "statement": "When many independent nodes must follow the same rule for The new block is accepted. In this case that family of rules called, the correct result is a consensus mechanism.",
+        "answer": true,
+        "explanation": "A consensus mechanism is the shared rule set for agreeing on the ledger's contents."
+      },
+      {
+        "statement": "When a network accepts a block only after someone expends computation to hit a hash target. Which consensus method is that, the correct result is a closed committee with no public cost.",
+        "answer": false,
+        "explanation": "Proof of work ties block production to the computational effort of meeting a hash target."
+      },
+      {
+        "statement": "When a network chooses block proposers from participants who lock coins, not from hash puzzles. Which method is that, the correct result is emailing private keys.",
+        "answer": false,
+        "explanation": "Proof of stake uses locked coins to select validators instead of a mining puzzle."
+      },
+      {
+        "statement": "When a student needs an app that keeps keys and signs a payment, not the global ledger itself. In this case they use, the correct result is a cryptocurrency wallet.",
+        "answer": true,
+        "explanation": "A wallet stores the keys and creates signed transactions; it is not the shared ledger."
+      },
+      {
+        "statement": "When classmates need a value they can use to verify a signature, and seeing it must not expose the spending key. The key is shared, the correct result is the public key.",
+        "answer": true,
+        "explanation": "The public key verifies signatures and is safe to share, unlike the private key."
+      },
+      {
+        "statement": "When a token transfer should be signable only by the owner. Which secret must the owner protect, the correct result is the public difficulty target.",
+        "answer": false,
+        "explanation": "The private key is the secret that creates the signature authorizing the transfer."
+      },
+      {
+        "statement": "When students need on-chain code that every node will run when a transaction calls it. In this case they deploy, the correct result is a smart contract.",
+        "answer": true,
+        "explanation": "A smart contract is ledger code that nodes execute as part of processing the calling transaction."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a shop sees two conflicting payments that spend the same output. What can one consistent ledger finally do, the correct result is erase the genesis block to allow both.",
+        "answer": false,
+        "explanation": "A single ledger cannot treat two conflicting spends of the same coins as both final."
+      },
+      {
+        "statement": "When two valid blocks claim the same parent, and different nodes temporarily follow different branches. What is that split called, the correct result is a hardware signer.",
+        "answer": false,
+        "explanation": "A fork is the divergence of competing chains that share history up to a common parent."
+      },
+      {
+        "statement": "When students follow parent hashes backward until they reach a block with no parent. The block is that, the correct result is the genesis block.",
+        "answer": true,
+        "explanation": "The genesis block is the start of the chain and therefore has no parent."
+      },
+      {
+        "statement": "When a block must commit to every included transaction through paired hashes that end in one root. The structure does that, the correct result is a Merkle tree.",
+        "answer": true,
+        "explanation": "A Merkle tree hashes transactions upward until one root represents the whole set."
+      },
+      {
+        "statement": "When a header must store one hash that commits to all transactions in the block. Which field is that, the correct result is the wallet's network port.",
+        "answer": false,
+        "explanation": "The Merkle root is the one header hash that summarizes the block's transactions."
+      },
+      {
+        "statement": "When a wallet produces a signed payment that nodes can check and miners may include. What object is that, the correct result is an unsigned chat message.",
+        "answer": false,
+        "explanation": "A transaction is the signed operation that moves value or invokes a contract."
+      },
+      {
+        "statement": "When a Bitcoin wallet shows coins that can still be spent because no later input has consumed them. In this case those coins, the correct result is unspent transaction outputs.",
+        "answer": true,
+        "explanation": "An unspent transaction output is an output that has not been used as a later input."
+      },
+      {
+        "statement": "When participants search for a header hash that meets a work target so they can publish the next block. In this case that activity, the correct result is mining.",
+        "answer": true,
+        "explanation": "Mining is the competition to find a valid proof-of-work block."
+      },
+      {
+        "statement": "When blocks are being found much faster than the protocol intends. Which proof-of-work setting should rise, the correct result is seed-phrase length.",
+        "answer": false,
+        "explanation": "Difficulty controls how hard it is to find an acceptable proof-of-work hash."
+      },
+      {
+        "statement": "When a protocol mints new coins for the node that publishes a valid block. In this case that payment called, the correct result is the block reward.",
+        "answer": true,
+        "explanation": "The block reward is the protocol payment to the producer of a valid block."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When block space is limited, and a user wants a producer to include one valid payment. What do they attach to the payment, the correct result is a paper sales tax.",
+        "answer": false,
+        "explanation": "A transaction fee is the amount offered for inclusion in a block."
+      },
+      {
+        "statement": "When a valid payment has been broadcast but is not in a block yet. Where does a node typically hold it, the correct result is in the genesis block.",
+        "answer": false,
+        "explanation": "The mempool is the waiting area for valid transactions that are not yet in a block."
+      },
+      {
+        "statement": "When a payment is in a block, and five more blocks have been built on that chain. How many confirmations does it have, the correct result is six.",
+        "answer": true,
+        "explanation": "The including block is the first confirmation, and each of the five blocks on top adds another."
+      },
+      {
+        "statement": "When new rules reject some previously allowed transactions, but nodes that have not upgraded still accept the new blocks. The change is that, the correct result is a soft fork.",
+        "answer": true,
+        "explanation": "A soft fork tightens rules while keeping the new blocks acceptable to old nodes."
+      },
+      {
+        "statement": "When upgraded nodes accept a new block format that non-upgraded nodes reject. Which kind of change is that, the correct result is a soft fork.",
+        "answer": false,
+        "explanation": "A hard fork creates blocks that old rules consider invalid, so non-upgraded nodes will not follow them."
+      },
+      {
+        "statement": "When a computer should reject invalid blocks itself instead of trusting a website's balance. What should it run, the correct result is a screenshot of an explorer.",
+        "answer": false,
+        "explanation": "A full node downloads and validates the chain against the consensus rules on its own."
+      },
+      {
+        "statement": "When a student wants classmates to send practice coins without receiving any secret key. In this case the student post, the correct result is an address.",
+        "answer": true,
+        "explanation": "An address is a public receiving identifier and does not reveal the private key."
+      },
+      {
+        "statement": "When a wallet app on a new phone must recreate the same keys after the old phone is lost. The backup does that, the correct result is the seed phrase.",
+        "answer": true,
+        "explanation": "The seed phrase is the word list a deterministic wallet uses to regenerate its private keys."
+      },
+      {
+        "statement": "When keys for small daily payments sit on an internet-connected phone. What kind of wallet is that, the correct result is a hardware wallet kept offline.",
+        "answer": false,
+        "explanation": "A hot wallet stores private keys on a networked device."
+      },
+      {
+        "statement": "When a club wants long-term savings keys that never sit on an internet-connected computer. The wallet type fits, the correct result is a cold wallet.",
+        "answer": true,
+        "explanation": "A cold wallet keeps the private keys offline."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a smart-contract call must have a metered limit so it cannot run forever on every node. What unit sets that budget, the correct result is difficulty.",
+        "answer": false,
+        "explanation": "Gas meters the computation and storage the call is allowed to consume."
+      },
+      {
+        "statement": "When a proof-of-stake network must choose a participant to propose the next block. What is that participant called, the correct result is a block explorer.",
+        "answer": false,
+        "explanation": "A validator is the proof-of-stake participant selected to propose or attest to blocks."
+      },
+      {
+        "statement": "When a holder wants to become eligible to attest on a proof-of-stake network by locking coins. What action is that, the correct result is staking.",
+        "answer": true,
+        "explanation": "Staking locks coins so the holder can participate as a proof-of-stake validator."
+      },
+      {
+        "statement": "When two proof-of-work branches compete, and nodes must pick one. The rule tells them to follow the branch with the most accumulated work, the correct result is the longest-chain rule.",
+        "answer": true,
+        "explanation": "The longest-chain rule, in proof of work, selects the chain with the most accumulated work."
+      },
+      {
+        "statement": "When a light client stores parent hashes and Merkle roots but not every transaction body. Which part of each block is it keeping, the correct result is the user's seed phrase.",
+        "answer": false,
+        "explanation": "The block header holds the parent hash, Merkle root, and related fields without the full transaction bodies."
+      },
+      {
+        "statement": "When the first transaction in a new block pays the miner and does not spend an earlier output. What is that transaction, the correct result is a stake-withdrawal request.",
+        "answer": false,
+        "explanation": "The coinbase transaction is the block's first transaction and the one that creates the block reward."
+      },
+      {
+        "statement": "When a club wants funds to move only when two of three officers sign. The spending condition is that, the correct result is multisignature.",
+        "answer": true,
+        "explanation": "Multisignature requires more than one authorized signature before the funds can be spent."
+      },
+      {
+        "statement": "When several nodes each keep a copy of the same transaction history and update it by shared rules. In this case that record, the correct result is a distributed ledger.",
+        "answer": true,
+        "explanation": "A distributed ledger is the shared transaction record maintained by many nodes."
+      },
+      {
+        "statement": "When someone edits a confirmed transaction inside an old block but leaves later headers untouched. What will other nodes notice, the correct result is the seed phrase becomes public.",
+        "answer": false,
+        "explanation": "Immutability here means the edit changes the block hash, so the later links no longer match."
+      },
+      {
+        "statement": "When nodes pass blocks to one another, and no single server is the owner of the ledger. What kind of network is that, the correct result is a peer-to-peer network.",
+        "answer": true,
+        "explanation": "A peer-to-peer network lets nodes exchange ledger data directly without a central owner."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When nodes were on branch A, then branch B accumulates more work and they adopt B instead. What is that switch called, the correct result is renaming an address book entry.",
+        "answer": false,
+        "explanation": "A chain reorganization is the adoption of a different branch under the fork-choice rule."
+      },
+      {
+        "statement": "When a light client knows a header's Merkle root and wants to check one payment was in that block without downloading every transaction. What does it need, the correct result is the producer's seed phrase.",
+        "answer": false,
+        "explanation": "A Merkle proof supplies the sibling hashes that connect one transaction to the known root."
+      },
+      {
+        "statement": "When anyone who follows the rules may run a node and try to produce blocks, with no membership approval. The design is that, the correct result is a permissionless blockchain.",
+        "answer": true,
+        "explanation": "A permissionless blockchain lets anyone participate by following the protocol."
+      },
+      {
+        "statement": "When only approved university registrars may validate blocks on a shared ledger. The design is that, the correct result is a permissioned blockchain.",
+        "answer": true,
+        "explanation": "A permissioned blockchain limits validation to a known, approved set of participants."
+      },
+      {
+        "statement": "When nodes agree by extending hash-linked blocks and preferring the chain with the most proof of work, with no fixed committee. Which consensus family is that, the correct result is an address-derivation standard.",
+        "answer": false,
+        "explanation": "Nakamoto consensus is the hash-chain, probabilistic fork-choice design introduced with Bitcoin."
+      },
+      {
+        "statement": "When a validator signs two conflicting blocks for the same duty, and the protocol can prove it. What can happen to the locked stake, the correct result is the validator must receive a larger block reward.",
+        "answer": false,
+        "explanation": "Slashing is the protocol's penalty that removes part of the stake for provable rule breaking."
+      },
+      {
+        "statement": "When a computer may prepare a payment, but the private key should stay inside a separate signing device. The device is that, the correct result is a hardware wallet.",
+        "answer": true,
+        "explanation": "A hardware wallet signs inside the device so the attached computer does not receive the private key."
+      },
+      {
+        "statement": "When two honest nodes process the same contract call from the same state. In this case their results be, the correct result is the same result.",
+        "answer": true,
+        "explanation": "Deterministic execution means the same inputs produce the same contract result on every honest node."
+      },
+      {
+        "statement": "When a dashboard counts how many proof-of-work header hashes the lab miner tries each second. What quantity is that, the correct result is seed-word count.",
+        "answer": false,
+        "explanation": "Hash rate measures proof-of-work hash attempts per second."
+      },
+      {
+        "statement": "When a protocol checkpoint is finalized, and nodes will no longer replace that block under their rules. What condition has the block reached, the correct result is finality.",
+        "answer": true,
+        "explanation": "Finality is the protocol condition that treats the block as irreversible."
+      }
+    ]
+  }
+}

@@ -84,6 +84,7 @@ function RootNavigator({ ready }: { ready: boolean }) {
         <Stack.Screen name="tasks/[id]" />
         <Stack.Screen name="tasks/create" options={{ presentation: 'modal' }} />
         <Stack.Screen name="tasks/edit" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="notifications/index" />
       </Stack.Protected>
       <Stack.Protected guard={!signedIn}>
         <Stack.Screen name="(auth)" />

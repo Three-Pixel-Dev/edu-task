@@ -26,3 +26,30 @@ export const AUTH = {
 export const WRITE_TIMEOUT_MS = 15_000;
 /** How long to wait for a read before showing a connection error. */
 export const READ_TIMEOUT_MS = 20_000;
+
+/**
+ * The two practice types. `label` is what students see: the original A–D quiz
+ * is called "Multiple choice", and the True / False set is called "Quiz".
+ */
+export const QUIZ_TYPES = {
+  multipleChoice: {
+    label: 'Multiple choice',
+    title: 'Multiple choice',
+    description: 'Four options, one correct answer.',
+    format: 'Multiple choice · A–D',
+    answerHint: 'Multiple choice · choose one answer',
+    icon: 'list',
+    sessionPrefix: '',
+  },
+  trueFalse: {
+    label: 'Quiz',
+    title: 'Quiz',
+    description: 'Decide if each statement is true or false.',
+    format: 'True or false',
+    answerHint: 'True or false · choose one',
+    icon: 'toggle-right',
+    sessionPrefix: 'TF__',
+  },
+} as const;
+
+export const TRUE_FALSE_OPTIONS = ['True', 'False'] as const;

@@ -1,0 +1,785 @@
+{
+  "subjectId": "data-mining",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Data preprocessing is cleaning, transforming, and organizing raw records so a mining algorithm can use them reliably.",
+        "answer": true,
+        "explanation": "Models expect consistent, usable fields, so cleaning and transforming records is the preparation step before mining."
+      },
+      {
+        "statement": "A Classification is partitioning customers into similar groups when no group label exists.",
+        "answer": false,
+        "explanation": "The target is a known class, and the model learns that class from labeled examples."
+      },
+      {
+        "statement": "A Clustering is dividing unlabeled records into groups whose members are more similar to each other than to other groups.",
+        "answer": true,
+        "explanation": "No target label is supplied, so groups are formed from similarity alone."
+      },
+      {
+        "statement": "An Association rule is a decision-tree leaf.",
+        "answer": false,
+        "explanation": "The pattern links a condition itemset to a result itemset and is accepted only when support and confidence are high enough."
+      },
+      {
+        "statement": "A Decision tree is a classifier that tests one attribute at each internal node and assigns a class label at each leaf.",
+        "answer": true,
+        "explanation": "Each internal test routes a record, and the leaf that is reached supplies the predicted class."
+      },
+      {
+        "statement": "A k-means is apriori.",
+        "answer": false,
+        "explanation": "The algorithm alternates nearest-center assignment and center updates, and k is chosen before the run."
+      },
+      {
+        "statement": "A Model evaluation is judging how well a trained model predicts on records that were not used to fit it.",
+        "answer": true,
+        "explanation": "Performance on unseen records estimates generalization, which is the point of evaluating a mined model."
+      },
+      {
+        "statement": "An Overfitting is holding out a single test slice and never training on it.",
+        "answer": false,
+        "explanation": "The model has memorized sample quirks, so the training fit does not carry over to new data."
+      },
+      {
+        "statement": "A Confusion matrix is a table of counts for every pair of actual class and predicted class.",
+        "answer": true,
+        "explanation": "Each cell records how often a particular true class received a particular predicted class."
+      },
+      {
+        "statement": "A Feature selection is one-hot encoding.",
+        "answer": false,
+        "explanation": "Selection keeps some existing attributes and discards others rather than inventing new coordinates."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Cross-validation is rotating which fold is tested so each record is used for testing in exactly one round.",
+        "answer": true,
+        "explanation": "Each fold takes a turn as the test set, so every record is tested once and trained on the rest."
+      },
+      {
+        "statement": "A Precision is lift.",
+        "answer": false,
+        "explanation": "Precision looks only at the predicted-positive set and asks how many of those predictions are right."
+      },
+      {
+        "statement": "A Recall is the fraction of actual positive records that the model correctly labels positive.",
+        "answer": true,
+        "explanation": "Recall uses the actual positives as the denominator and counts how many of them were caught."
+      },
+      {
+        "statement": "A F1 score is the product of support and confidence for one rule.",
+        "answer": false,
+        "explanation": "The harmonic mean stays high only when both precision and recall are high, so neither error is ignored."
+      },
+      {
+        "statement": "A Support is the fraction of all transactions that contain a given itemset.",
+        "answer": true,
+        "explanation": "Support counts how often the itemset itself appears, divided by the number of transactions."
+      },
+      {
+        "statement": "A Confidence is support.",
+        "answer": false,
+        "explanation": "Confidence is a conditional share: it restricts attention to baskets that already contain the antecedent."
+      },
+      {
+        "statement": "A Lift is how many times more often the consequent occurs with the antecedent than it occurs by chance.",
+        "answer": true,
+        "explanation": "Lift divides the rule's confidence by the consequent's overall frequency, so 1 means no association beyond chance."
+      },
+      {
+        "statement": "An Entropy is replication factor.",
+        "answer": false,
+        "explanation": "Entropy uses class proportions and reaches zero only when one class occupies the whole node."
+      },
+      {
+        "statement": "An Information gain is the drop in entropy achieved by splitting a set of records on one chosen attribute.",
+        "answer": true,
+        "explanation": "Gain subtracts the weighted child entropy from the parent entropy, so a useful split yields a positive drop."
+      },
+      {
+        "statement": "A Naive Bayes is a tree that chooses every split by Gini impurity alone.",
+        "answer": false,
+        "explanation": "Bayes' rule supplies the class probability, and the naive step factors the joint likelihood into per-feature terms."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Support vector machine is a classifier that separates classes using the decision boundary with the widest margin.",
+        "answer": true,
+        "explanation": "The optimal boundary maximizes the gap to the nearest points of each class, which are the support vectors."
+      },
+      {
+        "statement": "A k-nearest neighbors is k-means.",
+        "answer": false,
+        "explanation": "The prediction is a vote of nearby labeled points, and no explicit boundary is stored during training."
+      },
+      {
+        "statement": "A Hierarchical clustering is building a nested tree of clusters by repeatedly merging or splitting groups according to a linkage distance.",
+        "answer": true,
+        "explanation": "Each merge or split is kept, so the result is a hierarchy rather than one flat partition."
+      },
+      {
+        "statement": "A DBSCAN is apriori.",
+        "answer": false,
+        "explanation": "Membership follows density reachability from core points, so arbitrary shapes and noise points are allowed."
+      },
+      {
+        "statement": "A Silhouette coefficient is a score from -1 to 1 that is high when a point is much closer to its own cluster than to the next cluster.",
+        "answer": true,
+        "explanation": "The score compares a point's average distance inside its cluster with its average distance to the nearest other cluster."
+      },
+      {
+        "statement": "A Training set is the unlabeled batch scored after the model is deployed.",
+        "answer": false,
+        "explanation": "Fitting uses these records to set splits, weights, or probabilities before any final test."
+      },
+      {
+        "statement": "A Test set is labeled records withheld from training and used to estimate performance on new data.",
+        "answer": true,
+        "explanation": "Because the model never fit these labels, their errors estimate generalization."
+      },
+      {
+        "statement": "A Holdout method is 5-fold cross-validation.",
+        "answer": false,
+        "explanation": "Holdout performs one partition into train and test rather than rotating several folds."
+      },
+      {
+        "statement": "A Min-max normalization is scaling a numeric attribute into a fixed range, often 0 to 1, using its minimum and maximum.",
+        "answer": true,
+        "explanation": "The minimum maps to the low end of the range and the maximum maps to the high end, with values scaled linearly between them."
+      },
+      {
+        "statement": "A Z-score standardization is one-hot encoding.",
+        "answer": false,
+        "explanation": "Subtracting the mean centers the column at 0, and dividing by the standard deviation sets the spread to 1."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Missing value imputation is filling absent entries with estimated values such as a mean, median, mode, or model prediction.",
+        "answer": true,
+        "explanation": "Imputation puts a substitute value into an empty cell so the row can remain in the analysis."
+      },
+      {
+        "statement": "An Outlier is a leaf that contains exactly one training record of the majority class.",
+        "answer": false,
+        "explanation": "The record is extreme relative to the rest of the sample, so means, distances, or splits can be pulled toward it."
+      },
+      {
+        "statement": "A Discretization is converting a continuous attribute into a small number of ordered bins or intervals.",
+        "answer": true,
+        "explanation": "Each numeric value is replaced by the interval that contains it, so the attribute becomes categorical and ordered."
+      },
+      {
+        "statement": "An One-hot encoding is integer rank coding.",
+        "answer": false,
+        "explanation": "Each category gets its own column, so the coding does not invent a false numeric order among categories."
+      },
+      {
+        "statement": "A Dimensionality reduction is representing records with fewer attributes while keeping as much useful structure as possible.",
+        "answer": true,
+        "explanation": "The transformed records use fewer coordinates, but the kept coordinates are chosen to preserve variation or class structure."
+      },
+      {
+        "statement": "A Principal component analysis is lift filtering.",
+        "answer": false,
+        "explanation": "Each next component is orthogonal to the earlier ones and captures as much remaining variance as possible."
+      },
+      {
+        "statement": "An Underfitting is using a model too weak to capture the real pattern, so error stays high on both training and new data.",
+        "answer": true,
+        "explanation": "The model class cannot represent the signal, so even the training error remains large."
+      },
+      {
+        "statement": "A Bias-variance tradeoff is the gap between support and confidence of one association rule.",
+        "answer": false,
+        "explanation": "Simpler models tend to have higher bias and lower variance, while more flexible models do the reverse."
+      },
+      {
+        "statement": "A ROC curve is a plot of true-positive rate against false-positive rate as the decision threshold changes.",
+        "answer": true,
+        "explanation": "Each threshold gives one true-positive rate and one false-positive rate, and those pairs trace the curve."
+      },
+      {
+        "statement": "An AUC is accuracy at 0.5.",
+        "answer": false,
+        "explanation": "Integrating the ROC curve rewards a model that ranks positives above negatives across thresholds, not at one cutoff."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A True positive is an actual positive record that the classifier also predicts as positive.",
+        "answer": true,
+        "explanation": "Both the true label and the predicted label are positive, so the prediction is a hit on a positive case."
+      },
+      {
+        "statement": "A Supervised learning is principal component analysis.",
+        "answer": false,
+        "explanation": "The training examples include the target, so the learner can compare predictions with known answers."
+      },
+      {
+        "statement": "An Unsupervised learning is finding structure such as clusters or dense regions when no target label is given.",
+        "answer": true,
+        "explanation": "Without a target, the algorithm can only use similarities or densities among the inputs."
+      },
+      {
+        "statement": "An Apriori algorithm is a split rule that always chooses the attribute with the lowest Gini impurity.",
+        "answer": false,
+        "explanation": "If a subset is infrequent, every larger set containing it is infrequent, so those candidates are pruned."
+      },
+      {
+        "statement": "A Gini impurity is a split score that is zero for a pure node and higher when class proportions are more evenly mixed.",
+        "answer": true,
+        "explanation": "Gini impurity is computed from class proportions and vanishes only when a single class fills the node."
+      },
+      {
+        "statement": "A Pruning is deepening the tree.",
+        "answer": false,
+        "explanation": "Branches that fit training noise are cut, which usually lowers error on data the tree did not fit."
+      },
+      {
+        "statement": "An Ensemble method is combining several models so their joint prediction is more stable than any one of the models.",
+        "answer": true,
+        "explanation": "Errors that differ across members can cancel when the members vote or average their predictions."
+      },
+      {
+        "statement": "A Random forest is dBSCAN.",
+        "answer": false,
+        "explanation": "Bootstrap samples and random attribute subsets make the trees differ, and their votes form the forest prediction."
+      },
+      {
+        "statement": "A Market basket analysis is mining retail transactions to find items that customers tend to purchase together.",
+        "answer": true,
+        "explanation": "Each transaction is a basket, and the analysis looks for co-occurring items rather than a class label."
+      },
+      {
+        "statement": "A Data cleaning is drawing an ROC curve after the classifier has already been trained.",
+        "answer": false,
+        "explanation": "Cleaning fixes what is wrong or duplicated in the records themselves, before transforms or models run."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, scoring a finished model only on rows that were held out from fitting is called Data preprocessing.",
+        "answer": false,
+        "explanation": "Models expect consistent, usable fields, so cleaning and transforming records is the preparation step before mining."
+      },
+      {
+        "statement": "A mailbox assigns each incoming message to spam or not spam using messages labeled last year.",
+        "answer": true,
+        "explanation": "The target is a known class, and the model learns that class from labeled examples."
+      },
+      {
+        "statement": "In standard textbooks, classification is called Clustering.",
+        "answer": false,
+        "explanation": "No target label is supplied, so groups are formed from similarity alone."
+      },
+      {
+        "statement": "A grocer learns that baskets containing diapers also often contain baby wipes.",
+        "answer": true,
+        "explanation": "The pattern links a condition itemset to a result itemset and is accepted only when support and confidence are high enough."
+      },
+      {
+        "statement": "In standard textbooks, principal component analysis is called Decision tree.",
+        "answer": false,
+        "explanation": "Each internal test routes a record, and the leaf that is reached supplies the predicted class."
+      },
+      {
+        "statement": "A carrier splits 20000 subscribers into 4 groups by minutes, data use, and monthly bill.",
+        "answer": true,
+        "explanation": "The algorithm alternates nearest-center assignment and center updates, and k is chosen before the run."
+      },
+      {
+        "statement": "In standard textbooks, merging two frequent itemsets into a longer candidate itemset is called Model evaluation.",
+        "answer": false,
+        "explanation": "Performance on unseen records estimates generalization, which is the point of evaluating a mined model."
+      },
+      {
+        "statement": "A deep tree labels every past student exam perfectly but misses many students in the next term.",
+        "answer": true,
+        "explanation": "The model has memorized sample quirks, so the training fit does not carry over to new data."
+      },
+      {
+        "statement": "In standard textbooks, an ROC curve is called Confusion matrix.",
+        "answer": false,
+        "explanation": "Each cell records how often a particular true class received a particular predicted class."
+      },
+      {
+        "statement": "A gene study keeps 30 markers out of 20000 measurements before building a tumor classifier.",
+        "answer": true,
+        "explanation": "Selection keeps some existing attributes and discards others rather than inventing new coordinates."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, random oversampling is called Cross-validation.",
+        "answer": false,
+        "explanation": "Each fold takes a turn as the test set, so every record is tested once and trained on the rest."
+      },
+      {
+        "statement": "A filter raises 20 spam alerts and 15 of them are truly spam, so precision is 15 out of 20.",
+        "answer": true,
+        "explanation": "Precision looks only at the predicted-positive set and asks how many of those predictions are right."
+      },
+      {
+        "statement": "In standard textbooks, the share of itemsets whose confidence exceeds 1 is called Recall.",
+        "answer": false,
+        "explanation": "Recall uses the actual positives as the denominator and counts how many of them were caught."
+      },
+      {
+        "statement": "A search team reports one number that falls if either relevant hits or found relevant pages become scarce.",
+        "answer": true,
+        "explanation": "The harmonic mean stays high only when both precision and recall are high, so neither error is ignored."
+      },
+      {
+        "statement": "In standard textbooks, confidence is called Support.",
+        "answer": false,
+        "explanation": "Support counts how often the itemset itself appears, divided by the number of transactions."
+      },
+      {
+        "statement": "Among receipts that include cereal, 7 in 10 also include milk.",
+        "answer": true,
+        "explanation": "Confidence is a conditional share: it restricts attention to baskets that already contain the antecedent."
+      },
+      {
+        "statement": "In standard textbooks, gini impurity is called Lift.",
+        "answer": false,
+        "explanation": "Lift divides the rule's confidence by the consequent's overall frequency, so 1 means no association beyond chance."
+      },
+      {
+        "statement": "A node split half yes and half no is more mixed than a node that is entirely yes.",
+        "answer": true,
+        "explanation": "Entropy uses class proportions and reaches zero only when one class occupies the whole node."
+      },
+      {
+        "statement": "In standard textbooks, the ratio of test accuracy to training accuracy is called Information gain.",
+        "answer": false,
+        "explanation": "Gain subtracts the weighted child entropy from the parent entropy, so a useful split yields a positive drop."
+      },
+      {
+        "statement": "A spam filter multiplies per-word probabilities and treats words as independent once the spam label is known.",
+        "answer": true,
+        "explanation": "Bayes' rule supplies the class probability, and the naive step factors the joint likelihood into per-feature terms."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, a median imputer is called Support vector machine.",
+        "answer": false,
+        "explanation": "The optimal boundary maximizes the gap to the nearest points of each class, which are the support vectors."
+      },
+      {
+        "statement": "An unknown flower is labeled by the majority species among the three closest pressed samples.",
+        "answer": true,
+        "explanation": "The prediction is a vote of nearby labeled points, and no explicit boundary is stored during training."
+      },
+      {
+        "statement": "In standard textbooks, holdout evaluation is called Hierarchical clustering.",
+        "answer": false,
+        "explanation": "Each merge or split is kept, so the result is a hierarchy rather than one flat partition."
+      },
+      {
+        "statement": "A city map of crashes forms dense street clusters and leaves isolated rural crashes marked as noise.",
+        "answer": true,
+        "explanation": "Membership follows density reachability from core points, so arbitrary shapes and noise points are allowed."
+      },
+      {
+        "statement": "In standard textbooks, the minimum support required to keep an itemset is called Silhouette coefficient.",
+        "answer": false,
+        "explanation": "The score compares a point's average distance inside its cluster with its average distance to the nearest other cluster."
+      },
+      {
+        "statement": "Eight thousand labeled product reviews are used to fit a sentiment classifier.",
+        "answer": true,
+        "explanation": "Fitting uses these records to set splits, weights, or probabilities before any final test."
+      },
+      {
+        "statement": "In standard textbooks, the training set is called Test set.",
+        "answer": false,
+        "explanation": "Because the model never fit these labels, their errors estimate generalization."
+      },
+      {
+        "statement": "A class randomly assigns 70 percent of rows to training and 30 percent to testing one time.",
+        "answer": true,
+        "explanation": "Holdout performs one partition into train and test rather than rotating several folds."
+      },
+      {
+        "statement": "In standard textbooks, equal-width binning is called Min-max normalization.",
+        "answer": false,
+        "explanation": "The minimum maps to the low end of the range and the maximum maps to the high end, with values scaled linearly between them."
+      },
+      {
+        "statement": "Household incomes are recentered and rescaled until the column has mean 0 and standard deviation 1.",
+        "answer": true,
+        "explanation": "Subtracting the mean centers the column at 0, and dividing by the standard deviation sets the spread to 1."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, assigning a random class label to rows that already have labels is called Missing value imputation.",
+        "answer": false,
+        "explanation": "Imputation puts a substitute value into an empty cell so the row can remain in the analysis."
+      },
+      {
+        "statement": "One invoice of 900000 dollars sits far above a column whose typical bill is near 40 dollars.",
+        "answer": true,
+        "explanation": "The record is extreme relative to the rest of the sample, so means, distances, or splits can be pulled toward it."
+      },
+      {
+        "statement": "In standard textbooks, z-score standardization is called Discretization.",
+        "answer": false,
+        "explanation": "Each numeric value is replaced by the interval that contains it, so the attribute becomes categorical and ordered."
+      },
+      {
+        "statement": "A color field with values red, green, and blue becomes three yes-or-no columns.",
+        "answer": true,
+        "explanation": "Each category gets its own column, so the coding does not invent a false numeric order among categories."
+      },
+      {
+        "statement": "In standard textbooks, interaction expansion is called Dimensionality reduction.",
+        "answer": false,
+        "explanation": "The transformed records use fewer coordinates, but the kept coordinates are chosen to preserve variation or class structure."
+      },
+      {
+        "statement": "Answers to 40 correlated survey items are rotated into uncorrelated axes ordered by captured variance.",
+        "answer": true,
+        "explanation": "Each next component is orthogonal to the earlier ones and captures as much remaining variance as possible."
+      },
+      {
+        "statement": "In standard textbooks, building a tree whose every leaf contains only one class is called Underfitting.",
+        "answer": false,
+        "explanation": "The model class cannot represent the signal, so even the training error remains large."
+      },
+      {
+        "statement": "A very deep tree changes wildly when the training sample changes, while a one-level stump stays stable but crude.",
+        "answer": true,
+        "explanation": "Simpler models tend to have higher bias and lower variance, while more flexible models do the reverse."
+      },
+      {
+        "statement": "In standard textbooks, a learning curve is called ROC curve.",
+        "answer": false,
+        "explanation": "Each threshold gives one true-positive rate and one false-positive rate, and those pairs trace the curve."
+      },
+      {
+        "statement": "Two churn models are compared by the area under their ROC curves rather than by one operating point.",
+        "answer": true,
+        "explanation": "Integrating the ROC curve rewards a model that ranks positives above negatives across thresholds, not at one cutoff."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, true negative is called True positive.",
+        "answer": false,
+        "explanation": "Both the true label and the predicted label are positive, so the prediction is a hit on a positive case."
+      },
+      {
+        "statement": "Sale prices already printed on past deeds are used to learn how features of a house relate to price.",
+        "answer": true,
+        "explanation": "The training examples include the target, so the learner can compare predictions with known answers."
+      },
+      {
+        "statement": "In standard textbooks, estimating accuracy with a labeled holdout set is called Unsupervised learning.",
+        "answer": false,
+        "explanation": "Without a target, the algorithm can only use similarities or densities among the inputs."
+      },
+      {
+        "statement": "Candidate pairs are discarded as soon as either item alone falls below the minimum support.",
+        "answer": true,
+        "explanation": "If a subset is infrequent, every larger set containing it is infrequent, so those candidates are pruned."
+      },
+      {
+        "statement": "In standard textbooks, support is called Gini impurity.",
+        "answer": false,
+        "explanation": "Gini impurity is computed from class proportions and vanishes only when a single class fills the node."
+      },
+      {
+        "statement": "Branches that fail to improve validation accuracy are cut from a fully grown admissions tree.",
+        "answer": true,
+        "explanation": "Branches that fit training noise are cut, which usually lowers error on data the tree did not fit."
+      },
+      {
+        "statement": "In standard textbooks, training to zero training error is called Ensemble method.",
+        "answer": false,
+        "explanation": "Errors that differ across members can cancel when the members vote or average their predictions."
+      },
+      {
+        "statement": "One hundred trees each see a bootstrap of patients and a random handful of lab tests, then the trees vote.",
+        "answer": true,
+        "explanation": "Bootstrap samples and random attribute subsets make the trees differ, and their votes form the forest prediction."
+      },
+      {
+        "statement": "In standard textbooks, grouping stores by floor area and number of employees is called Market basket analysis.",
+        "answer": false,
+        "explanation": "Each transaction is a basket, and the analysis looks for co-occurring items rather than a class label."
+      },
+      {
+        "statement": "Duplicate patient identifiers are merged, and impossible ages such as 400 are corrected.",
+        "answer": true,
+        "explanation": "Cleaning fixes what is wrong or duplicated in the records themselves, before transforms or models run."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a loan file mixes date formats, duplicate customers, and blank incomes. Which step should happen before any model is fit, the correct result is plot an ROC curve.",
+        "answer": false,
+        "explanation": "Inconsistent and incomplete fields have to be repaired and standardized before training can be trusted."
+      },
+      {
+        "statement": "When a hospital must mark new lab panels as diabetic or not diabetic using past panels that already have diagnoses. Which task is this, the correct result is association mining.",
+        "answer": false,
+        "explanation": "The diagnosis is a discrete label already present on the training panels, so the task is classification."
+      },
+      {
+        "statement": "When a telecom has call records but no customer-segment labels and wants sets of similar subscribers. The task fits, the correct result is clustering.",
+        "answer": true,
+        "explanation": "Similar subscribers must be grouped without a supplied label, which is clustering."
+      },
+      {
+        "statement": "When a supermarket wants rules of the form if cereal is bought then milk is bought. The pattern type is that, the correct result is an association rule.",
+        "answer": true,
+        "explanation": "The requested if-then link between items in a basket is an association rule."
+      },
+      {
+        "statement": "When a student builds a model that asks yes-or-no questions about attributes and ends at a class label. Which model is that, the correct result is apriori.",
+        "answer": false,
+        "explanation": "Sequential attribute tests that end in class leaves are the structure of a decision tree."
+      },
+      {
+        "statement": "When an analyst must form exactly 5 unlabeled customer groups by minimizing distance to group centers. Which algorithm applies, the correct result is apriori.",
+        "answer": false,
+        "explanation": "A chosen number of groups updated from nearest-center membership is k-means, not a labeled classifier."
+      },
+      {
+        "statement": "When after fitting a donor model on last year's appeals, a charity checks predictions on this year's labeled appeals. What activity is that check, the correct result is model evaluation.",
+        "answer": true,
+        "explanation": "Comparing predictions with labels on data kept out of fitting is model evaluation."
+      },
+      {
+        "statement": "When a fraud tree is perfect on the training month and much worse on the next month. The problem occurred, the correct result is overfitting.",
+        "answer": true,
+        "explanation": "Excellent training accuracy that collapses on later data is the usual sign of overfitting."
+      },
+      {
+        "statement": "When a grader wants the counts of true spam, missed spam, false alarms, and correct ham in one table. Which display is that, the correct result is a support histogram.",
+        "answer": false,
+        "explanation": "Those four counts are the cells of a two-class confusion matrix."
+      },
+      {
+        "statement": "When a text model starts with 100000 word counts and keeps only 2000 informative words. The step is that, the correct result is feature selection.",
+        "answer": true,
+        "explanation": "Keeping a subset of existing word attributes and dropping the rest is feature selection."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a small medical set must be tested fully, with each patient used for testing once. Which protocol fits, the correct result is training-set resubstitution.",
+        "answer": false,
+        "explanation": "Rotating the test fold until every patient has been tested once is k-fold cross-validation."
+      },
+      {
+        "statement": "When of 25 fraud alerts, 20 are real fraud. Which metric is 20 divided by 25, the correct result is lift.",
+        "answer": false,
+        "explanation": "The denominator is the number of positive alerts, so the ratio is precision."
+      },
+      {
+        "statement": "When a screening test must find as many of the 80 true cases as possible. The metric tracks that catch rate, the correct result is recall.",
+        "answer": true,
+        "explanation": "Catching actual cases is recall, because the denominator is the set of true positives in the data."
+      },
+      {
+        "statement": "When an editor needs a single score that is high only when precision and recall are both high. The score is appropriate, the correct result is f1 score.",
+        "answer": true,
+        "explanation": "The harmonic mean of precision and recall is the F1 score."
+      },
+      {
+        "statement": "When milk and bread appear together on 200 of 1000 receipts. Which rule statistic is 200 divided by 1000, the correct result is information gain.",
+        "answer": false,
+        "explanation": "The share of all receipts that contain the itemset is support."
+      },
+      {
+        "statement": "When whenever pasta is in a basket, sauce is also there 8 times out of 10. Which statistic is 8 out of 10, the correct result is support.",
+        "answer": false,
+        "explanation": "The ratio is computed only among baskets that contain pasta, so it is confidence of the rule."
+      },
+      {
+        "statement": "When a rule has confidence well above the overall rate of the consequent item. The statistic shows that extra association, the correct result is lift.",
+        "answer": true,
+        "explanation": "Comparing the conditional rate with the chance rate is what lift measures."
+      },
+      {
+        "statement": "When a leaf contains only the class no. The impurity measure should be zero for that leaf, the correct result is entropy.",
+        "answer": true,
+        "explanation": "A one-class node is pure, so its entropy is zero."
+      },
+      {
+        "statement": "When a tree builder compares candidate tests and keeps the one that reduces class impurity the most. Which quantity is being maximized, the correct result is lift.",
+        "answer": false,
+        "explanation": "The impurity drop from a split is information gain."
+      },
+      {
+        "statement": "When an email filter scores spam by a class prior times each word likelihood, assuming words are independent given the class. The classifier is that, the correct result is naive Bayes.",
+        "answer": true,
+        "explanation": "A prior times conditionally independent feature likelihoods is the naive Bayes calculation."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When two diagnosis classes are separable, and the chosen boundary maximizes the gap to the nearest cases. Which classifier is being used, the correct result is an ROC plot.",
+        "answer": false,
+        "explanation": "Maximizing the gap between classes is the maximum-margin idea of a support vector machine."
+      },
+      {
+        "statement": "When a new house is labeled by the majority sale outcome of the 5 closest labeled houses. Which method is that, the correct result is k-means.",
+        "answer": false,
+        "explanation": "A majority vote of the nearest labeled neighbors is k-nearest neighbors."
+      },
+      {
+        "statement": "When a taxonomist wants a dendrogram of species, merging the closest groups step by step. The clustering style is that, the correct result is hierarchical clustering.",
+        "answer": true,
+        "explanation": "Successive merges recorded as a tree are hierarchical clustering."
+      },
+      {
+        "statement": "When accident points form irregular dense blobs, and isolated points should be called noise without choosing k. The clusterer fits, the correct result is dBSCAN.",
+        "answer": true,
+        "explanation": "Density reachability with noise points and no preset k is DBSCAN."
+      },
+      {
+        "statement": "When after clustering stores, an analyst wants a -1 to 1 score of how well each store sits in its own group. Which score is that, the correct result is accuracy.",
+        "answer": false,
+        "explanation": "A cohesion-versus-separation score on that range is the silhouette coefficient."
+      },
+      {
+        "statement": "When a model adjusts its splits using 7000 labeled tickets and does not use the other 3000 for fitting. What are the 7000 tickets called, the correct result is the item catalog.",
+        "answer": false,
+        "explanation": "Records used to fit the model are the training set."
+      },
+      {
+        "statement": "When a team freezes a model, then scores it once on 1500 labeled customers never seen in fitting. In this case that group of customers, the correct result is the test set.",
+        "answer": true,
+        "explanation": "Labeled rows withheld from fitting and used for a performance estimate form the test set."
+      },
+      {
+        "statement": "When students split a labeled file once into 80 percent for fitting and 20 percent for a final score. The protocol is that, the correct result is holdout.",
+        "answer": true,
+        "explanation": "One train-test cut, without rotating folds, is the holdout method."
+      },
+      {
+        "statement": "When income must be mapped onto 0 to 1 using the smallest and largest incomes in the column. Which scaling is that, the correct result is one-hot encoding.",
+        "answer": false,
+        "explanation": "Using the column minimum and maximum to reach a fixed range is min-max normalization."
+      },
+      {
+        "statement": "When a distance model needs each numeric column to have mean 0 and standard deviation 1. The transform applies, the correct result is z-score standardization.",
+        "answer": true,
+        "explanation": "Centering by the mean and scaling by the standard deviation produces z-scores."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a census column is missing on some forms, and those cells are replaced by the column median. Which operation is that, the correct result is feature selection.",
+        "answer": false,
+        "explanation": "Substituting an estimate for an absent entry is imputation."
+      },
+      {
+        "statement": "When among apartment rents clustered near 1200 dollars, one recorded rent is 25 million dollars. What is that record called, the correct result is a pure leaf.",
+        "answer": false,
+        "explanation": "A value that far from the bulk of the rents is an outlier."
+      },
+      {
+        "statement": "When a rule miner needs age as young, mid, or senior rather than as a raw number of years. The transform is required, the correct result is discretization.",
+        "answer": true,
+        "explanation": "Replacing a continuous age with ordered intervals is discretization."
+      },
+      {
+        "statement": "When city names must enter a distance model without implying that one city code is greater than another. The encoding avoids that false order, the correct result is one-hot encoding.",
+        "answer": true,
+        "explanation": "Separate binary columns do not place the cities on a numeric scale."
+      },
+      {
+        "statement": "When a spreadsheet of 500 correlated sensor channels must be analyzed with far fewer columns. Which goal is that, the correct result is tree deepening.",
+        "answer": false,
+        "explanation": "Replacing many channels with a smaller set of informative coordinates reduces dimension."
+      },
+      {
+        "statement": "When a scientist wants new uncorrelated coordinates that successively capture the most variance, with no class label used. Which method applies, the correct result is lift filtering.",
+        "answer": false,
+        "explanation": "Unsupervised variance-ordered orthogonal axes are principal components."
+      },
+      {
+        "statement": "When both training error and test error stay near the majority-class baseline for a very shallow model. The problem is present, the correct result is underfitting.",
+        "answer": true,
+        "explanation": "High error on the training data as well as on new data indicates underfitting."
+      },
+      {
+        "statement": "When making a model more flexible cuts systematic error but makes predictions jump when the training sample changes. The tradeoff is that, the correct result is bias versus variance.",
+        "answer": true,
+        "explanation": "Systematic error is bias and sample sensitivity is variance, so the described balance is that tradeoff."
+      },
+      {
+        "statement": "When a bank plots catch rate against false-alarm rate while sliding the fraud score cutoff. Which plot is produced, the correct result is a dendrogram.",
+        "answer": false,
+        "explanation": "True-positive rate versus false-positive rate across thresholds is an ROC curve."
+      },
+      {
+        "statement": "When a clinic wants one number for a score's ranking quality over every cutoff, not accuracy at a single cutoff. The number fits, the correct result is aUC.",
+        "answer": true,
+        "explanation": "Area under the ROC curve summarizes performance across all thresholds."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When a message is spam and the filter also labels it spam. Which confusion-matrix outcome is that, the correct result is false negative.",
+        "answer": false,
+        "explanation": "A real positive that is predicted positive is a true positive."
+      },
+      {
+        "statement": "When historic loans include a default flag, and a model learns to predict that flag for new applicants. Which learning style is this, the correct result is principal component analysis.",
+        "answer": false,
+        "explanation": "The default flag is a known target on the training loans, so learning is supervised."
+      },
+      {
+        "statement": "When web logs have no topic labels, and an analyst groups sessions by similarity. The learning style is that, the correct result is unsupervised learning.",
+        "answer": true,
+        "explanation": "Grouping inputs with no target label is unsupervised learning."
+      },
+      {
+        "statement": "When a retailer drops any pair whose individual items are already below minimum support, then builds longer sets only from frequent pieces. The algorithm is that, the correct result is apriori.",
+        "answer": true,
+        "explanation": "Pruning candidates by the frequent-subset property is the Apriori step."
+      },
+      {
+        "statement": "When a tree algorithm compares splits using an impurity that is zero in a pure node and based on squared class shares. Which impurity is that, the correct result is silhouette.",
+        "answer": false,
+        "explanation": "An impurity of zero for a pure node that uses class-share squares is Gini impurity."
+      },
+      {
+        "statement": "When a fully grown tree is perfect on training rows, so branches that hurt a validation set are removed. Which remedy is that, the correct result is deepening the tree.",
+        "answer": false,
+        "explanation": "Cutting branches that do not help unseen rows is pruning."
+      },
+      {
+        "statement": "When a team averages the class probabilities of several different models instead of trusting one model. The approach is that, the correct result is an ensemble.",
+        "answer": true,
+        "explanation": "Combining several models' predictions is an ensemble method."
+      },
+      {
+        "statement": "When many trees are grown on bootstrap samples with a random subset of features at each split, and they vote. The model is that, the correct result is a random forest.",
+        "answer": true,
+        "explanation": "Bootstrap trees plus random feature subsets and a vote define a random forest."
+      },
+      {
+        "statement": "When a grocer wants product pairs that show up in the same receipt so the pairs can share an endcap. Which analysis is that, the correct result is revenue forecasting.",
+        "answer": false,
+        "explanation": "Finding products bought in the same receipt is market basket analysis."
+      },
+      {
+        "statement": "When two rows share one student id, and a birth year of 3021 appears in the file. The task addresses both problems, the correct result is data cleaning.",
+        "answer": true,
+        "explanation": "Duplicate identifiers and impossible values are data errors, so the task is data cleaning."
+      }
+    ]
+  }
+}

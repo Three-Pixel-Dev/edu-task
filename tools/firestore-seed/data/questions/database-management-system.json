@@ -2,52 +2,1684 @@
   "subjectId": "database-management-system",
   "levels": {
     "1": [
-      { "question": "What does DBMS stand for?", "options": ["Database Management System", "Data Backup Management Service", "Distributed Binary Memory System", "Digital Base Model Schema"], "correctAnswer": "Database Management System", "explanation": "A DBMS is software for creating, storing, querying and managing databases." },
-      { "question": "In a relational table, a single row is also called a:", "options": ["Attribute", "Tuple", "Domain", "Schema"], "correctAnswer": "Tuple", "explanation": "Rows are tuples; columns are attributes." },
-      { "question": "In a relational table, a column is also called an:", "options": ["Attribute", "Index", "Instance", "Entity set"], "correctAnswer": "Attribute", "explanation": "Each column describes one attribute of the entity." },
-      { "question": "A primary key must be:", "options": ["Unique and not null", "Unique but nullable", "Repeated across rows", "Always a foreign key"], "correctAnswer": "Unique and not null", "explanation": "Every row needs a unique, non-null identifier." },
-      { "question": "A foreign key is used to:", "options": ["Speed up every query", "Link rows between tables", "Encrypt a column", "Store large files"], "correctAnswer": "Link rows between tables", "explanation": "It references the primary key of a row in another table." },
-      { "question": "Which language is used to query relational databases?", "options": ["HTML", "SQL", "CSS", "XML"], "correctAnswer": "SQL", "explanation": "SQL (Structured Query Language) defines, queries and changes relational data." },
-      { "question": "Which SQL statement reads data from a table?", "options": ["GET", "SELECT", "READ", "FETCH ALL"], "correctAnswer": "SELECT", "explanation": "SELECT retrieves rows and columns from one or more tables." },
-      { "question": "CREATE TABLE belongs to which part of SQL?", "options": ["DML", "DDL", "DCL", "TCL"], "correctAnswer": "DDL", "explanation": "Data Definition Language statements define structure: CREATE, ALTER, DROP." },
-      { "question": "In an ER diagram, a rectangle usually represents:", "options": ["An entity", "An attribute", "A relationship", "A primary key"], "correctAnswer": "An entity", "explanation": "Rectangles are entities, ovals are attributes and diamonds are relationships." },
-      { "question": "The overall logical design of a database is called its:", "options": ["Instance", "Schema", "Tuple", "Query plan"], "correctAnswer": "Schema", "explanation": "The schema describes tables, columns, types and constraints; an instance is the data at a moment in time." }
+      {
+        "question": "What does DBMS stand for?",
+        "options": [
+          "Database Management System",
+          "Data Backup Management Service",
+          "Distributed Binary Memory System",
+          "Digital Base Model Schema"
+        ],
+        "correctAnswer": "Database Management System",
+        "explanation": "A DBMS is software for creating, storing, querying and managing databases."
+      },
+      {
+        "question": "In a relational table, a single row is also called a:",
+        "options": [
+          "Attribute",
+          "Tuple",
+          "Domain",
+          "Schema"
+        ],
+        "correctAnswer": "Tuple",
+        "explanation": "Rows are tuples; columns are attributes."
+      },
+      {
+        "question": "In a relational table, a column is also called an:",
+        "options": [
+          "Attribute",
+          "Index",
+          "Instance",
+          "Entity set"
+        ],
+        "correctAnswer": "Attribute",
+        "explanation": "Each column describes one attribute of the entity."
+      },
+      {
+        "question": "A primary key must be:",
+        "options": [
+          "Unique and not null",
+          "Unique but nullable",
+          "Repeated across rows",
+          "Always a foreign key"
+        ],
+        "correctAnswer": "Unique and not null",
+        "explanation": "Every row needs a unique, non-null identifier."
+      },
+      {
+        "question": "A foreign key is used to:",
+        "options": [
+          "Speed up every query",
+          "Link rows between tables",
+          "Encrypt a column",
+          "Store large files"
+        ],
+        "correctAnswer": "Link rows between tables",
+        "explanation": "It references the primary key of a row in another table."
+      },
+      {
+        "question": "Which language is used to query relational databases?",
+        "options": [
+          "HTML",
+          "SQL",
+          "CSS",
+          "XML"
+        ],
+        "correctAnswer": "SQL",
+        "explanation": "SQL (Structured Query Language) defines, queries and changes relational data."
+      },
+      {
+        "question": "Which SQL statement reads data from a table?",
+        "options": [
+          "GET",
+          "SELECT",
+          "READ",
+          "FETCH ALL"
+        ],
+        "correctAnswer": "SELECT",
+        "explanation": "SELECT retrieves rows and columns from one or more tables."
+      },
+      {
+        "question": "CREATE TABLE belongs to which part of SQL?",
+        "options": [
+          "DML",
+          "DDL",
+          "DCL",
+          "TCL"
+        ],
+        "correctAnswer": "DDL",
+        "explanation": "Data Definition Language statements define structure: CREATE, ALTER, DROP."
+      },
+      {
+        "question": "In an ER diagram, a rectangle usually represents:",
+        "options": [
+          "An entity",
+          "An attribute",
+          "A relationship",
+          "A primary key"
+        ],
+        "correctAnswer": "An entity",
+        "explanation": "Rectangles are entities, ovals are attributes and diamonds are relationships."
+      },
+      {
+        "question": "The overall logical design of a database is called its:",
+        "options": [
+          "Instance",
+          "Schema",
+          "Tuple",
+          "Query plan"
+        ],
+        "correctAnswer": "Schema",
+        "explanation": "The schema describes tables, columns, types and constraints; an instance is the data at a moment in time."
+      }
     ],
     "2": [
-      { "question": "Which JOIN returns only rows with matching values in both tables?", "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL OUTER JOIN"], "correctAnswer": "INNER JOIN", "explanation": "INNER JOIN keeps only the rows that match on both sides." },
-      { "question": "Which clause filters groups after aggregation?", "options": ["WHERE", "ORDER BY", "HAVING", "GROUP BY"], "correctAnswer": "HAVING", "explanation": "HAVING filters grouped results; WHERE filters individual rows before grouping." },
-      { "question": "Which clause groups rows that share the same values?", "options": ["ORDER BY", "GROUP BY", "DISTINCT", "PARTITION"], "correctAnswer": "GROUP BY", "explanation": "GROUP BY collects rows into groups so aggregates like COUNT or SUM run per group." },
-      { "question": "Which SQL command adds new rows to a table?", "options": ["UPDATE", "INSERT", "ALTER", "CREATE"], "correctAnswer": "INSERT", "explanation": "INSERT INTO adds rows; UPDATE changes existing ones." },
-      { "question": "Which SQL command removes every row but keeps the table structure?", "options": ["DELETE TABLE", "DROP TABLE", "TRUNCATE TABLE", "REMOVE ROWS"], "correctAnswer": "TRUNCATE TABLE", "explanation": "TRUNCATE clears the data and keeps the table definition; DROP removes the table itself." },
-      { "question": "Which keyword removes duplicate rows from a query result?", "options": ["UNIQUE", "DISTINCT", "SINGLE", "ONLY"], "correctAnswer": "DISTINCT", "explanation": "SELECT DISTINCT returns each distinct row once." },
-      { "question": "Which function returns the number of rows?", "options": ["SUM()", "COUNT()", "TOTAL()", "LEN()"], "correctAnswer": "COUNT()", "explanation": "COUNT(*) counts rows; COUNT(column) counts non-null values." },
-      { "question": "Which operator matches a text pattern such as names starting with 'A'?", "options": ["LIKE", "IN", "BETWEEN", "MATCHES"], "correctAnswer": "LIKE", "explanation": "WHERE name LIKE 'A%' uses % as a wildcard." },
-      { "question": "Which clause sorts the result of a query?", "options": ["SORT BY", "ORDER BY", "GROUP BY", "ARRANGE"], "correctAnswer": "ORDER BY", "explanation": "ORDER BY column ASC|DESC sorts the result set." },
-      { "question": "Which statement changes values in existing rows?", "options": ["MODIFY", "UPDATE", "ALTER", "CHANGE"], "correctAnswer": "UPDATE", "explanation": "UPDATE ... SET ... WHERE ... changes data; ALTER changes the table structure." }
+      {
+        "question": "Which JOIN returns only rows with matching values in both tables?",
+        "options": [
+          "LEFT JOIN",
+          "RIGHT JOIN",
+          "INNER JOIN",
+          "FULL OUTER JOIN"
+        ],
+        "correctAnswer": "INNER JOIN",
+        "explanation": "INNER JOIN keeps only the rows that match on both sides."
+      },
+      {
+        "question": "Which clause filters groups after aggregation?",
+        "options": [
+          "WHERE",
+          "ORDER BY",
+          "HAVING",
+          "GROUP BY"
+        ],
+        "correctAnswer": "HAVING",
+        "explanation": "HAVING filters grouped results; WHERE filters individual rows before grouping."
+      },
+      {
+        "question": "Which clause groups rows that share the same values?",
+        "options": [
+          "ORDER BY",
+          "GROUP BY",
+          "DISTINCT",
+          "PARTITION"
+        ],
+        "correctAnswer": "GROUP BY",
+        "explanation": "GROUP BY collects rows into groups so aggregates like COUNT or SUM run per group."
+      },
+      {
+        "question": "Which SQL command adds new rows to a table?",
+        "options": [
+          "UPDATE",
+          "INSERT",
+          "ALTER",
+          "CREATE"
+        ],
+        "correctAnswer": "INSERT",
+        "explanation": "INSERT INTO adds rows; UPDATE changes existing ones."
+      },
+      {
+        "question": "Which SQL command removes every row but keeps the table structure?",
+        "options": [
+          "DELETE TABLE",
+          "DROP TABLE",
+          "TRUNCATE TABLE",
+          "REMOVE ROWS"
+        ],
+        "correctAnswer": "TRUNCATE TABLE",
+        "explanation": "TRUNCATE clears the data and keeps the table definition; DROP removes the table itself."
+      },
+      {
+        "question": "Which keyword removes duplicate rows from a query result?",
+        "options": [
+          "UNIQUE",
+          "DISTINCT",
+          "SINGLE",
+          "ONLY"
+        ],
+        "correctAnswer": "DISTINCT",
+        "explanation": "SELECT DISTINCT returns each distinct row once."
+      },
+      {
+        "question": "Which function returns the number of rows?",
+        "options": [
+          "SUM()",
+          "COUNT()",
+          "TOTAL()",
+          "LEN()"
+        ],
+        "correctAnswer": "COUNT()",
+        "explanation": "COUNT(*) counts rows; COUNT(column) counts non-null values."
+      },
+      {
+        "question": "Which operator matches a text pattern such as names starting with 'A'?",
+        "options": [
+          "LIKE",
+          "IN",
+          "BETWEEN",
+          "MATCHES"
+        ],
+        "correctAnswer": "LIKE",
+        "explanation": "WHERE name LIKE 'A%' uses % as a wildcard."
+      },
+      {
+        "question": "Which clause sorts the result of a query?",
+        "options": [
+          "SORT BY",
+          "ORDER BY",
+          "GROUP BY",
+          "ARRANGE"
+        ],
+        "correctAnswer": "ORDER BY",
+        "explanation": "ORDER BY column ASC|DESC sorts the result set."
+      },
+      {
+        "question": "Which statement changes values in existing rows?",
+        "options": [
+          "MODIFY",
+          "UPDATE",
+          "ALTER",
+          "CHANGE"
+        ],
+        "correctAnswer": "UPDATE",
+        "explanation": "UPDATE ... SET ... WHERE ... changes data; ALTER changes the table structure."
+      }
     ],
     "3": [
-      { "question": "A table is in First Normal Form (1NF) when:", "options": ["Every value is atomic", "It has no foreign keys", "It has exactly one key", "All columns are numeric"], "correctAnswer": "Every value is atomic", "explanation": "1NF forbids repeating groups and multi-valued cells." },
-      { "question": "Which normal form removes partial dependencies?", "options": ["1NF", "2NF", "3NF", "BCNF"], "correctAnswer": "2NF", "explanation": "2NF requires every non-key attribute to depend on the whole key." },
-      { "question": "Which normal form removes transitive dependencies?", "options": ["1NF", "2NF", "3NF", "4NF"], "correctAnswer": "3NF", "explanation": "In 3NF, non-key attributes depend only on the key, not on other non-key attributes." },
-      { "question": "In BCNF, every determinant must be a:", "options": ["Foreign key", "Candidate key", "Non-key attribute", "Composite attribute"], "correctAnswer": "Candidate key", "explanation": "BCNF is a stricter 3NF: for every X → Y, X must be a candidate (super) key." },
-      { "question": "A → B means:", "options": ["A and B are always equal", "Each value of A determines exactly one value of B", "B is a foreign key of A", "A is stored before B"], "correctAnswer": "Each value of A determines exactly one value of B", "explanation": "This is a functional dependency." },
-      { "question": "A minimal set of attributes that uniquely identifies a row is a:", "options": ["Super key", "Candidate key", "Foreign key", "Secondary index"], "correctAnswer": "Candidate key", "explanation": "A candidate key is a super key with no unnecessary attributes; one is chosen as the primary key." },
-      { "question": "A primary key made of two or more columns is called a:", "options": ["Composite key", "Surrogate key", "Alternate key", "Partial key"], "correctAnswer": "Composite key", "explanation": "For example (studentId, courseId) in an enrolment table." },
-      { "question": "Having to update the same fact in many rows is an example of:", "options": ["An update anomaly", "A deadlock", "Referential integrity", "Indexing"], "correctAnswer": "An update anomaly", "explanation": "Redundant data causes update, insert and delete anomalies; normalisation removes them." },
-      { "question": "Intentionally adding redundancy to speed up reads is called:", "options": ["Normalisation", "Denormalisation", "Sharding", "Replication"], "correctAnswer": "Denormalisation", "explanation": "Denormalisation trades extra storage and update cost for faster queries." },
-      { "question": "If A → B and B → C, then A → C is a:", "options": ["Partial dependency", "Transitive dependency", "Multivalued dependency", "Trivial dependency"], "correctAnswer": "Transitive dependency", "explanation": "C depends on A through B; 3NF removes these." }
+      {
+        "question": "A table is in First Normal Form (1NF) when:",
+        "options": [
+          "Every value is atomic",
+          "It has no foreign keys",
+          "It has exactly one key",
+          "All columns are numeric"
+        ],
+        "correctAnswer": "Every value is atomic",
+        "explanation": "1NF forbids repeating groups and multi-valued cells."
+      },
+      {
+        "question": "Which normal form removes partial dependencies?",
+        "options": [
+          "1NF",
+          "2NF",
+          "3NF",
+          "BCNF"
+        ],
+        "correctAnswer": "2NF",
+        "explanation": "2NF requires every non-key attribute to depend on the whole key."
+      },
+      {
+        "question": "Which normal form removes transitive dependencies?",
+        "options": [
+          "1NF",
+          "2NF",
+          "3NF",
+          "4NF"
+        ],
+        "correctAnswer": "3NF",
+        "explanation": "In 3NF, non-key attributes depend only on the key, not on other non-key attributes."
+      },
+      {
+        "question": "In BCNF, every determinant must be a:",
+        "options": [
+          "Foreign key",
+          "Candidate key",
+          "Non-key attribute",
+          "Composite attribute"
+        ],
+        "correctAnswer": "Candidate key",
+        "explanation": "BCNF is a stricter 3NF: for every X → Y, X must be a candidate (super) key."
+      },
+      {
+        "question": "A → B means:",
+        "options": [
+          "A and B are always equal",
+          "Each value of A determines exactly one value of B",
+          "B is a foreign key of A",
+          "A is stored before B"
+        ],
+        "correctAnswer": "Each value of A determines exactly one value of B",
+        "explanation": "This is a functional dependency."
+      },
+      {
+        "question": "A minimal set of attributes that uniquely identifies a row is a:",
+        "options": [
+          "Super key",
+          "Candidate key",
+          "Foreign key",
+          "Secondary index"
+        ],
+        "correctAnswer": "Candidate key",
+        "explanation": "A candidate key is a super key with no unnecessary attributes; one is chosen as the primary key."
+      },
+      {
+        "question": "A primary key made of two or more columns is called a:",
+        "options": [
+          "Composite key",
+          "Surrogate key",
+          "Alternate key",
+          "Partial key"
+        ],
+        "correctAnswer": "Composite key",
+        "explanation": "For example (studentId, courseId) in an enrolment table."
+      },
+      {
+        "question": "Having to update the same fact in many rows is an example of:",
+        "options": [
+          "An update anomaly",
+          "A deadlock",
+          "Referential integrity",
+          "Indexing"
+        ],
+        "correctAnswer": "An update anomaly",
+        "explanation": "Redundant data causes update, insert and delete anomalies; normalisation removes them."
+      },
+      {
+        "question": "Intentionally adding redundancy to speed up reads is called:",
+        "options": [
+          "Normalisation",
+          "Denormalisation",
+          "Sharding",
+          "Replication"
+        ],
+        "correctAnswer": "Denormalisation",
+        "explanation": "Denormalisation trades extra storage and update cost for faster queries."
+      },
+      {
+        "question": "If A → B and B → C, then A → C is a:",
+        "options": [
+          "Partial dependency",
+          "Transitive dependency",
+          "Multivalued dependency",
+          "Trivial dependency"
+        ],
+        "correctAnswer": "Transitive dependency",
+        "explanation": "C depends on A through B; 3NF removes these."
+      }
     ],
     "4": [
-      { "question": "Which of the following is a relational database?", "options": ["MongoDB", "PostgreSQL", "Redis", "Neo4j"], "correctAnswer": "PostgreSQL", "explanation": "PostgreSQL stores data in related tables queried with SQL. MongoDB is a document store, Redis a key-value store and Neo4j a graph database." },
-      { "question": "In ACID, what does the “I” stand for?", "options": ["Integrity", "Isolation", "Indexing", "Idempotence"], "correctAnswer": "Isolation", "explanation": "Isolation keeps concurrent transactions from interfering with each other." },
-      { "question": "Atomicity guarantees that a transaction:", "options": ["Runs faster", "Happens completely or not at all", "Is visible to everyone immediately", "Uses one table only"], "correctAnswer": "Happens completely or not at all", "explanation": "If any step fails, the whole transaction is rolled back." },
-      { "question": "Which statement undoes changes that have not been committed?", "options": ["COMMIT", "SAVEPOINT", "ROLLBACK", "GRANT"], "correctAnswer": "ROLLBACK", "explanation": "ROLLBACK returns the data to its state at the last commit." },
-      { "question": "Which statement makes a transaction’s changes permanent?", "options": ["COMMIT", "ROLLBACK", "END", "SAVE"], "correctAnswer": "COMMIT", "explanation": "After COMMIT the changes are durable." },
-      { "question": "Which index structure do most relational databases use by default?", "options": ["Hash table", "B+ tree", "Linked list", "Stack"], "correctAnswer": "B+ tree", "explanation": "B+ trees keep keys sorted, which supports both equality and range queries." },
-      { "question": "Two transactions each wait for a lock the other holds. This is a:", "options": ["Deadlock", "Dirty read", "Phantom read", "Checkpoint"], "correctAnswer": "Deadlock", "explanation": "The DBMS detects the cycle and aborts one transaction." },
-      { "question": "Reading data written by a transaction that has not committed yet is a:", "options": ["Dirty read", "Phantom read", "Lost update", "Repeatable read"], "correctAnswer": "Dirty read", "explanation": "READ UNCOMMITTED allows dirty reads; higher isolation levels prevent them." },
-      { "question": "MongoDB is best described as a:", "options": ["Relational database", "Document database", "Graph database", "Spreadsheet"], "correctAnswer": "Document database", "explanation": "MongoDB stores JSON-like documents rather than rows in tables." },
-      { "question": "Redis is primarily a:", "options": ["Key-value store", "Relational database", "Graph database", "File system"], "correctAnswer": "Key-value store", "explanation": "Redis keeps key-value data in memory and is often used for caching." }
+      {
+        "question": "Which of the following is a relational database?",
+        "options": [
+          "MongoDB",
+          "PostgreSQL",
+          "Redis",
+          "Neo4j"
+        ],
+        "correctAnswer": "PostgreSQL",
+        "explanation": "PostgreSQL stores data in related tables queried with SQL. MongoDB is a document store, Redis a key-value store and Neo4j a graph database."
+      },
+      {
+        "question": "In ACID, what does the “I” stand for?",
+        "options": [
+          "Integrity",
+          "Isolation",
+          "Indexing",
+          "Idempotence"
+        ],
+        "correctAnswer": "Isolation",
+        "explanation": "Isolation keeps concurrent transactions from interfering with each other."
+      },
+      {
+        "question": "Atomicity guarantees that a transaction:",
+        "options": [
+          "Runs faster",
+          "Happens completely or not at all",
+          "Is visible to everyone immediately",
+          "Uses one table only"
+        ],
+        "correctAnswer": "Happens completely or not at all",
+        "explanation": "If any step fails, the whole transaction is rolled back."
+      },
+      {
+        "question": "Which statement undoes changes that have not been committed?",
+        "options": [
+          "COMMIT",
+          "SAVEPOINT",
+          "ROLLBACK",
+          "GRANT"
+        ],
+        "correctAnswer": "ROLLBACK",
+        "explanation": "ROLLBACK returns the data to its state at the last commit."
+      },
+      {
+        "question": "Which statement makes a transaction’s changes permanent?",
+        "options": [
+          "COMMIT",
+          "ROLLBACK",
+          "END",
+          "SAVE"
+        ],
+        "correctAnswer": "COMMIT",
+        "explanation": "After COMMIT the changes are durable."
+      },
+      {
+        "question": "Which index structure do most relational databases use by default?",
+        "options": [
+          "Hash table",
+          "B+ tree",
+          "Linked list",
+          "Stack"
+        ],
+        "correctAnswer": "B+ tree",
+        "explanation": "B+ trees keep keys sorted, which supports both equality and range queries."
+      },
+      {
+        "question": "Two transactions each wait for a lock the other holds. This is a:",
+        "options": [
+          "Deadlock",
+          "Dirty read",
+          "Phantom read",
+          "Checkpoint"
+        ],
+        "correctAnswer": "Deadlock",
+        "explanation": "The DBMS detects the cycle and aborts one transaction."
+      },
+      {
+        "question": "Reading data written by a transaction that has not committed yet is a:",
+        "options": [
+          "Dirty read",
+          "Phantom read",
+          "Lost update",
+          "Repeatable read"
+        ],
+        "correctAnswer": "Dirty read",
+        "explanation": "READ UNCOMMITTED allows dirty reads; higher isolation levels prevent them."
+      },
+      {
+        "question": "MongoDB is best described as a:",
+        "options": [
+          "Relational database",
+          "Document database",
+          "Graph database",
+          "Spreadsheet"
+        ],
+        "correctAnswer": "Document database",
+        "explanation": "MongoDB stores JSON-like documents rather than rows in tables."
+      },
+      {
+        "question": "Redis is primarily a:",
+        "options": [
+          "Key-value store",
+          "Relational database",
+          "Graph database",
+          "File system"
+        ],
+        "correctAnswer": "Key-value store",
+        "explanation": "Redis keeps key-value data in memory and is often used for caching."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Rollback?",
+        "options": [
+          "The undoing of a transaction's uncommitted changes so they do not become permanent.",
+          "The command that makes a transaction's changes permanent.",
+          "A command that deletes a table definition.",
+          "A command that grants a privilege to a user."
+        ],
+        "correctAnswer": "The undoing of a transaction's uncommitted changes so they do not become permanent.",
+        "explanation": "The log is used to restore the state from the start of the transaction or from a savepoint."
+      },
+      {
+        "question": "What is Two-phase locking?",
+        "options": [
+          "A recovery step that writes dirty pages during a quiet point.",
+          "A logging rule that writes the log record before the data page.",
+          "A distributed commit protocol with a prepare phase and a commit phase.",
+          "A rule that a transaction acquires all the locks it needs before it releases any lock."
+        ],
+        "correctAnswer": "A rule that a transaction acquires all the locks it needs before it releases any lock.",
+        "explanation": "A growing phase followed by a shrinking phase keeps the schedule conflict serializable."
+      },
+      {
+        "question": "What is Database deadlock?",
+        "options": [
+          "A cycle in which each transaction waits for a lock held by the next transaction.",
+          "A read of data that another transaction later rolls back.",
+          "A committed update that disappeared after a crash.",
+          "A repeated query that sees a newly inserted matching row."
+        ],
+        "correctAnswer": "A cycle in which each transaction waits for a lock held by the next transaction.",
+        "explanation": "None of the transactions can proceed, so the system detects the cycle and aborts one of them."
+      },
+      {
+        "question": "What is Dirty read?",
+        "options": [
+          "Two transactions writing the same item so one update disappears.",
+          "A read of a value written by a transaction that has not committed.",
+          "A repeated query that sees an extra row inserted by a committed transaction.",
+          "A read that cannot be repeated because a committed transaction changed the row."
+        ],
+        "correctAnswer": "A read of a value written by a transaction that has not committed.",
+        "explanation": "If the writer later rolls back, the reader has used a value that never became permanent."
+      },
+      {
+        "question": "What is Phantom read?",
+        "options": [
+          "A reread of one row that sees a new value in that same row.",
+          "A repeated query that returns a different set of rows because another transaction inserted or deleted matching rows.",
+          "A read of a value that is later rolled back by its writer.",
+          "Two writers each basing an update on the same old value."
+        ],
+        "correctAnswer": "A repeated query that returns a different set of rows because another transaction inserted or deleted matching rows.",
+        "explanation": "The new or missing rows are phantoms; the first query did not lock the whole predicate."
+      },
+      {
+        "question": "What is Referential integrity?",
+        "options": [
+          "The rule that every foreign-key value matches an existing parent key, unless nulls are allowed.",
+          "The rule that a column's values belong to its domain.",
+          "The rule that a primary key is unique and not null.",
+          "The rule that a committed write survives a crash."
+        ],
+        "correctAnswer": "The rule that every foreign-key value matches an existing parent key, unless nulls are allowed.",
+        "explanation": "The DBMS rejects a child row that would point at a missing parent, and it controls deletes of parent rows."
+      },
+      {
+        "question": "What is Trigger?",
+        "options": [
+          "A named query that users select like a table.",
+          "A number generator used for surrogate keys.",
+          "A structure that speeds lookup by a key.",
+          "A procedure the database runs automatically when a specified insert, update, or delete occurs."
+        ],
+        "correctAnswer": "A procedure the database runs automatically when a specified insert, update, or delete occurs.",
+        "explanation": "The procedure can enforce a rule or write an audit row without a separate statement from the application."
+      },
+      {
+        "question": "What is Stored procedure?",
+        "options": [
+          "A named program stored in the database and invoked by clients with a call.",
+          "A saved SELECT that is queried like a table.",
+          "A constraint that checks one column's range.",
+          "An index used to avoid a table scan."
+        ],
+        "correctAnswer": "A named program stored in the database and invoked by clients with a call.",
+        "explanation": "The program runs on the server, close to the data, and many applications can call it."
+      },
+      {
+        "question": "What is Query optimizer?",
+        "options": [
+          "The component that chooses which memory page to evict.",
+          "The component that writes log records for recovery.",
+          "The component that decides which transaction gets a lock.",
+          "The component that chooses an efficient execution plan for a SQL statement."
+        ],
+        "correctAnswer": "The component that chooses an efficient execution plan for a SQL statement.",
+        "explanation": "It estimates the cost of scans, joins, and indexes, then picks a plan expected to be cheap."
+      },
+      {
+        "question": "What is Concurrency control?",
+        "options": [
+          "The replacement of buffer pages to free memory.",
+          "The redo of committed work after a crash.",
+          "The techniques that let transactions run together without corrupting shared data.",
+          "The choice of a cheap plan for one SQL statement."
+        ],
+        "correctAnswer": "The techniques that let transactions run together without corrupting shared data.",
+        "explanation": "Locks, timestamps, or multiple versions coordinate conflicting reads and writes."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Relation?",
+        "options": [
+          "In a course table, the credits column is a property recorded for every course row.",
+          "The credits column accepts only integers from 1 to 6 and rejects other values.",
+          "The student row (102, Ada, CS) is one complete record in the student table.",
+          "A student table holds one row per student, and every row has id, name, and major."
+        ],
+        "correctAnswer": "A student table holds one row per student, and every row has id, name, and major.",
+        "explanation": "In the relational model, a relation is the set of tuples that share one schema."
+      },
+      {
+        "question": "Which situation illustrates Tuple?",
+        "options": [
+          "In a course table, the credits column is a property recorded for every course row.",
+          "The student row (102, Ada, CS) is one complete record in the student table.",
+          "Student(id, name, major) describes the table even when it currently contains no rows.",
+          "The credits column accepts only integers from 1 to 6 and rejects other values."
+        ],
+        "correctAnswer": "The student row (102, Ada, CS) is one complete record in the student table.",
+        "explanation": "Each tuple is one instance stored in the relation."
+      },
+      {
+        "question": "Which situation illustrates Attribute?",
+        "options": [
+          "The credits column accepts only integers from 1 to 6 and rejects other values.",
+          "student_id identifies each student row, and the table rejects a second row with the same id.",
+          "Student(id, name, major) describes the table even when it currently contains no rows.",
+          "In a course table, the credits column is a property recorded for every course row."
+        ],
+        "correctAnswer": "In a course table, the credits column is a property recorded for every course row.",
+        "explanation": "The schema lists attributes, and every tuple provides one value for each of them."
+      },
+      {
+        "question": "Which situation illustrates Domain?",
+        "options": [
+          "Student(id, name, major) describes the table even when it currently contains no rows.",
+          "Both email and student_id uniquely identify a student, and neither needs an extra column.",
+          "The credits column accepts only integers from 1 to 6 and rejects other values.",
+          "student_id identifies each student row, and the table rejects a second row with the same id."
+        ],
+        "correctAnswer": "The credits column accepts only integers from 1 to 6 and rejects other values.",
+        "explanation": "A domain constrains storage, for example integers for credits or strings for names."
+      },
+      {
+        "question": "Which situation illustrates Relational schema?",
+        "options": [
+          "The pair student_id and name still identifies each student because student_id alone is already unique.",
+          "Student(id, name, major) describes the table even when it currently contains no rows.",
+          "student_id identifies each student row, and the table rejects a second row with the same id.",
+          "Both email and student_id uniquely identify a student, and neither needs an extra column."
+        ],
+        "correctAnswer": "Student(id, name, major) describes the table even when it currently contains no rows.",
+        "explanation": "The schema is the design, while an instance is the data at a particular time."
+      },
+      {
+        "question": "Which situation illustrates Primary key?",
+        "options": [
+          "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+          "The pair student_id and name still identifies each student because student_id alone is already unique.",
+          "Both email and student_id uniquely identify a student, and neither needs an extra column.",
+          "student_id identifies each student row, and the table rejects a second row with the same id."
+        ],
+        "correctAnswer": "student_id identifies each student row, and the table rejects a second row with the same id.",
+        "explanation": "One candidate key is selected as the primary key so every row has a unique, non-null identity."
+      },
+      {
+        "question": "Which situation illustrates Candidate key?",
+        "options": [
+          "Both email and student_id uniquely identify a student, and neither needs an extra column.",
+          "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+          "An enrolment table uses the pair student_id and course_id because one student takes many courses.",
+          "The pair student_id and name still identifies each student because student_id alone is already unique."
+        ],
+        "correctAnswer": "Both email and student_id uniquely identify a student, and neither needs an extra column.",
+        "explanation": "Removing any attribute from a candidate key would leave some tuples indistinguishable."
+      },
+      {
+        "question": "Which situation illustrates Superkey?",
+        "options": [
+          "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+          "In a university design, each student and each course is a thing the model must remember.",
+          "The pair student_id and name still identifies each student because student_id alone is already unique.",
+          "An enrolment table uses the pair student_id and course_id because one student takes many courses."
+        ],
+        "correctAnswer": "The pair student_id and name still identifies each student because student_id alone is already unique.",
+        "explanation": "Every candidate key is a superkey, but a superkey may contain attributes that uniqueness does not need."
+      },
+      {
+        "question": "Which situation illustrates Foreign key?",
+        "options": [
+          "An enrols association links a student to a course and stores the term of that enrolment.",
+          "In a university design, each student and each course is a thing the model must remember.",
+          "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+          "An enrolment table uses the pair student_id and course_id because one student takes many courses."
+        ],
+        "correctAnswer": "enrolment.student_id must equal some student.student_id so every enrolment names a real student.",
+        "explanation": "Foreign keys are how rows in one table refer to rows in another."
+      },
+      {
+        "question": "Which situation illustrates Composite key?",
+        "options": [
+          "An enrolment table uses the pair student_id and course_id because one student takes many courses.",
+          "An enrols association links a student to a course and stores the term of that enrolment.",
+          "Each student has one department, while a department contains many students.",
+          "In a university design, each student and each course is a thing the model must remember."
+        ],
+        "correctAnswer": "An enrolment table uses the pair student_id and course_id because one student takes many courses.",
+        "explanation": "No single attribute of the key is unique, but the combination is."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Entity?",
+        "options": [
+          "An enrols association links a student to a course and stores the term of that enrolment.",
+          "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+          "In a university design, each student and each course is a thing the model must remember.",
+          "Each student has one department, while a department contains many students."
+        ],
+        "correctAnswer": "In a university design, each student and each course is a thing the model must remember.",
+        "explanation": "Entity sets group instances of the same kind, and those sets are later mapped to relations."
+      },
+      {
+        "question": "Which situation illustrates Relationship?",
+        "options": [
+          "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+          "An enrols association links a student to a course and stores the term of that enrolment.",
+          "Each student has one department, while a department contains many students.",
+          "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond."
+        ],
+        "correctAnswer": "An enrols association links a student to a course and stores the term of that enrolment.",
+        "explanation": "Relationships record how entity instances are connected and may carry attributes of their own."
+      },
+      {
+        "question": "Which situation illustrates Cardinality?",
+        "options": [
+          "A lab uses statements in this language to create a student table and then read students in one major.",
+          "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond.",
+          "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+          "Each student has one department, while a department contains many students."
+        ],
+        "correctAnswer": "Each student has one department, while a department contains many students.",
+        "explanation": "Ratios such as one-to-many state how many instances on each side may participate."
+      },
+      {
+        "question": "Which situation illustrates Weak entity?",
+        "options": [
+          "A lab uses statements in this language to create a student table and then read students in one major.",
+          "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+          "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond.",
+          "Keeping only students whose major is CS discards every other student tuple."
+        ],
+        "correctAnswer": "A dependent's name is unique only within one employee, so the dependent depends on the employee key.",
+        "explanation": "Its primary key combines a partial key with the owner entity's key."
+      },
+      {
+        "question": "Which situation illustrates ER diagram?",
+        "options": [
+          "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond.",
+          "A lab uses statements in this language to create a student table and then read students in one major.",
+          "Asking only for name and major from a student table drops the id column from the result.",
+          "Keeping only students whose major is CS discards every other student tuple."
+        ],
+        "correctAnswer": "A sketch shows a student rectangle and a course rectangle joined by an enrols diamond.",
+        "explanation": "The diagram communicates the conceptual schema before it is turned into tables."
+      },
+      {
+        "question": "Which situation illustrates SQL?",
+        "options": [
+          "A lab uses statements in this language to create a student table and then read students in one major.",
+          "Asking only for name and major from a student table drops the id column from the result.",
+          "Keeping only students whose major is CS discards every other student tuple.",
+          "Matching enrolments to courses on course id omits an enrolment whose course id is missing."
+        ],
+        "correctAnswer": "A lab uses statements in this language to create a student table and then read students in one major.",
+        "explanation": "SQL includes statements for schema definition, queries, updates, and access control."
+      },
+      {
+        "question": "Which situation illustrates Relational selection?",
+        "options": [
+          "Keeping only students whose major is CS discards every other student tuple.",
+          "Matching enrolments to courses on course id omits an enrolment whose course id is missing.",
+          "Asking only for name and major from a student table drops the id column from the result.",
+          "Listing students together with enrolments still shows a student who has not enrolled in any course."
+        ],
+        "correctAnswer": "Keeping only students whose major is CS discards every other student tuple.",
+        "explanation": "Selection filters rows and corresponds to a WHERE condition in SQL."
+      },
+      {
+        "question": "Which situation illustrates Projection?",
+        "options": [
+          "Asking only for name and major from a student table drops the id column from the result.",
+          "Listing students together with enrolments still shows a student who has not enrolled in any course.",
+          "Matching enrolments to courses on course id omits an enrolment whose course id is missing.",
+          "Combining departments and employees shows empty departments and also employees who have no department."
+        ],
+        "correctAnswer": "Asking only for name and major from a student table drops the id column from the result.",
+        "explanation": "Projection chooses columns, and in the formal algebra it also removes duplicate result tuples."
+      },
+      {
+        "question": "Which situation illustrates Inner join?",
+        "options": [
+          "Matching enrolments to courses on course id omits an enrolment whose course id is missing.",
+          "Combining departments and employees shows empty departments and also employees who have no department.",
+          "Listing students together with enrolments still shows a student who has not enrolled in any course.",
+          "Counting students while grouping by major returns one count for each major."
+        ],
+        "correctAnswer": "Matching enrolments to courses on course id omits an enrolment whose course id is missing.",
+        "explanation": "Tuples that fail the match condition are left out of the result."
+      },
+      {
+        "question": "Which situation illustrates Left outer join?",
+        "options": [
+          "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+          "Counting students while grouping by major returns one count for each major.",
+          "Combining departments and employees shows empty departments and also employees who have no department.",
+          "Listing students together with enrolments still shows a student who has not enrolled in any course."
+        ],
+        "correctAnswer": "Listing students together with enrolments still shows a student who has not enrolled in any course.",
+        "explanation": "Unmatched left tuples remain visible so missing related data shows up as nulls."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates Full outer join?",
+        "options": [
+          "Counting students while grouping by major returns one count for each major.",
+          "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+          "Combining departments and employees shows empty departments and also employees who have no department.",
+          "Analysts query a saved name that always means students whose status is active."
+        ],
+        "correctAnswer": "Combining departments and employees shows empty departments and also employees who have no department.",
+        "explanation": "Both left-only and right-only tuples survive, which an inner join would drop."
+      },
+      {
+        "question": "Which situation illustrates GROUP BY?",
+        "options": [
+          "Counting students while grouping by major returns one count for each major.",
+          "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+          "A structure on the email column lets a login find one student without reading every student row.",
+          "Analysts query a saved name that always means students whose status is active."
+        ],
+        "correctAnswer": "Counting students while grouping by major returns one count for each major.",
+        "explanation": "Each distinct combination of grouping columns produces one group for functions such as COUNT."
+      },
+      {
+        "question": "Which situation illustrates HAVING clause?",
+        "options": [
+          "Analysts query a saved name that always means students whose status is active.",
+          "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+          "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+          "A structure on the email column lets a login find one student without reading every student row."
+        ],
+        "correctAnswer": "A condition that the student count exceeds 30 drops majors that are smaller than that.",
+        "explanation": "WHERE filters input rows, while this clause filters the groups produced by GROUP BY."
+      },
+      {
+        "question": "Which situation illustrates View?",
+        "options": [
+          "A table stored in primary-key order keeps students with nearby ids on nearby pages.",
+          "Analysts query a saved name that always means students whose status is active.",
+          "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+          "A structure on the email column lets a login find one student without reading every student row."
+        ],
+        "correctAnswer": "Analysts query a saved name that always means students whose status is active.",
+        "explanation": "Reading a view usually runs its defining query rather than fetching separately stored rows."
+      },
+      {
+        "question": "Which situation illustrates Index?",
+        "options": [
+          "A structure on the email column lets a login find one student without reading every student row.",
+          "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+          "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+          "A table stored in primary-key order keeps students with nearby ids on nearby pages."
+        ],
+        "correctAnswer": "A structure on the email column lets a login find one student without reading every student row.",
+        "explanation": "The structure maps key values to row locations so the engine can read fewer pages."
+      },
+      {
+        "question": "Which situation illustrates B+ tree index?",
+        "options": [
+          "A table stored in primary-key order keeps students with nearby ids on nearby pages.",
+          "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+          "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+          "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id."
+        ],
+        "correctAnswer": "An index on order date finds every invoice dated between two days by scanning a sorted leaf range.",
+        "explanation": "Leaf pages keep keys in order, so a range is a short walk along those leaves."
+      },
+      {
+        "question": "Which situation illustrates Clustered index?",
+        "options": [
+          "If a student row stores both department id and department name, the name depends on the department id.",
+          "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+          "A table stored in primary-key order keeps students with nearby ids on nearby pages.",
+          "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id."
+        ],
+        "correctAnswer": "A table stored in primary-key order keeps students with nearby ids on nearby pages.",
+        "explanation": "Range scans on the clustering key read nearby rows together, and a table has only one such order."
+      },
+      {
+        "question": "Which situation illustrates First normal form?",
+        "options": [
+          "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id.",
+          "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+          "If a student row stores both department id and department name, the name depends on the department id.",
+          "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form."
+        ],
+        "correctAnswer": "Storing each phone number in its own row, instead of a comma-separated list in one cell, meets this rule.",
+        "explanation": "A cell may not hold a list of values or a repeating group of the same fact."
+      },
+      {
+        "question": "Which situation illustrates Second normal form?",
+        "options": [
+          "If a student row stores both department id and department name, the name depends on the department id.",
+          "Each student id is stored with only one major, never with two different majors.",
+          "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form.",
+          "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id."
+        ],
+        "correctAnswer": "If enrolment is keyed by student id and course id, storing the student name there depends only on the student id.",
+        "explanation": "Partial dependencies appear when a composite key determines a column through only some of its attributes."
+      },
+      {
+        "question": "Which situation illustrates Third normal form?",
+        "options": [
+          "Student id determines department id, and department id determines the department phone number.",
+          "Each student id is stored with only one major, never with two different majors.",
+          "If a student row stores both department id and department name, the name depends on the department id.",
+          "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form."
+        ],
+        "correctAnswer": "If a student row stores both department id and department name, the name depends on the department id.",
+        "explanation": "Third normal form removes transitive dependencies in which a non-key column determines another column."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Boyce-Codd normal form?",
+        "options": [
+          "Student id determines department id, and department id determines the department phone number.",
+          "Each student id is stored with only one major, never with two different majors.",
+          "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form.",
+          "Moving a department phone out of every student row and into a department table stops repeating that phone."
+        ],
+        "correctAnswer": "If room determines the course and room is not a candidate key, a timetable relation fails this stricter form.",
+        "explanation": "It catches some dependencies that third normal form still allows when a determinant is not a candidate key."
+      },
+      {
+        "question": "Which situation illustrates Functional dependency?",
+        "options": [
+          "Each student id is stored with only one major, never with two different majors.",
+          "Moving money debits one account and credits another as one unit of work.",
+          "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+          "Student id determines department id, and department id determines the department phone number."
+        ],
+        "correctAnswer": "Each student id is stored with only one major, never with two different majors.",
+        "explanation": "X determines Y when no two tuples agree on X and disagree on Y."
+      },
+      {
+        "question": "Which situation illustrates Transitive dependency?",
+        "options": [
+          "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+          "If crediting the destination account fails, the debit of the source account is undone as well.",
+          "Student id determines department id, and department id determines the department phone number.",
+          "Moving money debits one account and credits another as one unit of work."
+        ],
+        "correctAnswer": "Student id determines department id, and department id determines the department phone number.",
+        "explanation": "If A determines B and B determines C, with B not a key, then C depends on A transitively."
+      },
+      {
+        "question": "Which situation illustrates Normalization?",
+        "options": [
+          "Moving money debits one account and credits another as one unit of work.",
+          "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+          "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+          "If crediting the destination account fails, the debit of the source account is undone as well."
+        ],
+        "correctAnswer": "Moving a department phone out of every student row and into a department table stops repeating that phone.",
+        "explanation": "Higher normal forms split tables so a change to one fact does not have to be repeated on many rows."
+      },
+      {
+        "question": "Which situation illustrates Transaction?",
+        "options": [
+          "Two transfers on one account each behave as if one finished before the other started.",
+          "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+          "If crediting the destination account fails, the debit of the source account is undone as well.",
+          "Moving money debits one account and credits another as one unit of work."
+        ],
+        "correctAnswer": "Moving money debits one account and credits another as one unit of work.",
+        "explanation": "Its changes become visible together at commit, or they disappear if the transaction aborts."
+      },
+      {
+        "question": "Which situation illustrates Atomicity?",
+        "options": [
+          "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+          "A ticket purchase that has committed is still recorded after the server loses power.",
+          "If crediting the destination account fails, the debit of the source account is undone as well.",
+          "Two transfers on one account each behave as if one finished before the other started."
+        ],
+        "correctAnswer": "If crediting the destination account fails, the debit of the source account is undone as well.",
+        "explanation": "If any step fails, recovery undoes the transaction so a partial update does not remain."
+      },
+      {
+        "question": "Which situation illustrates Consistency?",
+        "options": [
+          "A ticket purchase that has committed is still recorded after the server loses power.",
+          "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+          "Ending an order insertion successfully makes that order durable and visible to later queries.",
+          "Two transfers on one account each behave as if one finished before the other started."
+        ],
+        "correctAnswer": "A completed money transfer still satisfies the rule that the sum of all balances is unchanged.",
+        "explanation": "Integrity constraints that hold before the transaction still hold after it commits."
+      },
+      {
+        "question": "Which situation illustrates Isolation?",
+        "options": [
+          "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+          "A ticket purchase that has committed is still recorded after the server loses power.",
+          "Two transfers on one account each behave as if one finished before the other started.",
+          "Ending an order insertion successfully makes that order durable and visible to later queries."
+        ],
+        "correctAnswer": "Two transfers on one account each behave as if one finished before the other started.",
+        "explanation": "Isolation levels specify which anomalies, such as dirty reads, concurrent transactions may allow."
+      },
+      {
+        "question": "Which situation illustrates Durability?",
+        "options": [
+          "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+          "A ticket purchase that has committed is still recorded after the server loses power.",
+          "Ending an order insertion successfully makes that order durable and visible to later queries.",
+          "A transfer locks both accounts, updates them, and only afterward releases those locks."
+        ],
+        "correctAnswer": "A ticket purchase that has committed is still recorded after the server loses power.",
+        "explanation": "After commit, the log can redo the changes even if memory contents are lost."
+      },
+      {
+        "question": "Which situation illustrates Commit?",
+        "options": [
+          "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+          "Ending an order insertion successfully makes that order durable and visible to later queries.",
+          "A transfer locks both accounts, updates them, and only afterward releases those locks.",
+          "One transfer holds account A and waits for B, while another holds B and waits for A."
+        ],
+        "correctAnswer": "Ending an order insertion successfully makes that order durable and visible to later queries.",
+        "explanation": "Once it succeeds, the DBMS must be able to recover those changes and other transactions may see them."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Rollback?",
+        "options": [
+          "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+          "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+          "A transfer locks both accounts, updates them, and only afterward releases those locks.",
+          "One transfer holds account A and waits for B, while another holds B and waits for A."
+        ],
+        "correctAnswer": "A clerk cancels a half-finished transfer, and the uncommitted debit disappears.",
+        "explanation": "The log is used to restore the state from the start of the transaction or from a savepoint."
+      },
+      {
+        "question": "Which situation illustrates Two-phase locking?",
+        "options": [
+          "One transfer holds account A and waits for B, while another holds B and waits for A.",
+          "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+          "A count of open seats changes because another transaction inserts a booking before the count is repeated.",
+          "A transfer locks both accounts, updates them, and only afterward releases those locks."
+        ],
+        "correctAnswer": "A transfer locks both accounts, updates them, and only afterward releases those locks.",
+        "explanation": "A growing phase followed by a shrinking phase keeps the schedule conflict serializable."
+      },
+      {
+        "question": "Which situation illustrates Database deadlock?",
+        "options": [
+          "One transfer holds account A and waits for B, while another holds B and waits for A.",
+          "Inserting an enrolment whose student id is not in the student table is rejected.",
+          "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+          "A count of open seats changes because another transaction inserts a booking before the count is repeated."
+        ],
+        "correctAnswer": "One transfer holds account A and waits for B, while another holds B and waits for A.",
+        "explanation": "None of the transactions can proceed, so the system detects the cycle and aborts one of them."
+      },
+      {
+        "question": "Which situation illustrates Dirty read?",
+        "options": [
+          "Inserting an enrolment whose student id is not in the student table is rejected.",
+          "A count of open seats changes because another transaction inserts a booking before the count is repeated.",
+          "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+          "After an account balance changes, an automatic procedure writes the old and new balances to an audit table."
+        ],
+        "correctAnswer": "A report reads a new balance, and the transaction that wrote it then undoes that balance.",
+        "explanation": "If the writer later rolls back, the reader has used a value that never became permanent."
+      },
+      {
+        "question": "Which situation illustrates Phantom read?",
+        "options": [
+          "A count of open seats changes because another transaction inserts a booking before the count is repeated.",
+          "After an account balance changes, an automatic procedure writes the old and new balances to an audit table.",
+          "Applications call one server routine that debits one account and credits another.",
+          "Inserting an enrolment whose student id is not in the student table is rejected."
+        ],
+        "correctAnswer": "A count of open seats changes because another transaction inserts a booking before the count is repeated.",
+        "explanation": "The new or missing rows are phantoms; the first query did not lock the whole predicate."
+      },
+      {
+        "question": "Which situation illustrates Referential integrity?",
+        "options": [
+          "After an account balance changes, an automatic procedure writes the old and new balances to an audit table.",
+          "For a login lookup, the planner uses an email index instead of reading every user row.",
+          "Applications call one server routine that debits one account and credits another.",
+          "Inserting an enrolment whose student id is not in the student table is rejected."
+        ],
+        "correctAnswer": "Inserting an enrolment whose student id is not in the student table is rejected.",
+        "explanation": "The DBMS rejects a child row that would point at a missing parent, and it controls deletes of parent rows."
+      },
+      {
+        "question": "Which situation illustrates Trigger?",
+        "options": [
+          "Row locks stop two transfers from updating the same account balance at the same moment.",
+          "After an account balance changes, an automatic procedure writes the old and new balances to an audit table.",
+          "Applications call one server routine that debits one account and credits another.",
+          "For a login lookup, the planner uses an email index instead of reading every user row."
+        ],
+        "correctAnswer": "After an account balance changes, an automatic procedure writes the old and new balances to an audit table.",
+        "explanation": "The procedure can enforce a rule or write an audit row without a separate statement from the application."
+      },
+      {
+        "question": "Which situation illustrates Stored procedure?",
+        "options": [
+          "Row locks stop two transfers from updating the same account balance at the same moment.",
+          "Applications call one server routine that debits one account and credits another.",
+          "A student table holds one row per student, and every row has id, name, and major.",
+          "For a login lookup, the planner uses an email index instead of reading every user row."
+        ],
+        "correctAnswer": "Applications call one server routine that debits one account and credits another.",
+        "explanation": "The program runs on the server, close to the data, and many applications can call it."
+      },
+      {
+        "question": "Which situation illustrates Query optimizer?",
+        "options": [
+          "For a login lookup, the planner uses an email index instead of reading every user row.",
+          "Row locks stop two transfers from updating the same account balance at the same moment.",
+          "A student table holds one row per student, and every row has id, name, and major.",
+          "The student row (102, Ada, CS) is one complete record in the student table."
+        ],
+        "correctAnswer": "For a login lookup, the planner uses an email index instead of reading every user row.",
+        "explanation": "It estimates the cost of scans, joins, and indexes, then picks a plan expected to be cheap."
+      },
+      {
+        "question": "Which situation illustrates Concurrency control?",
+        "options": [
+          "A student table holds one row per student, and every row has id, name, and major.",
+          "The student row (102, Ada, CS) is one complete record in the student table.",
+          "In a course table, the credits column is a property recorded for every course row.",
+          "Row locks stop two transfers from updating the same account balance at the same moment."
+        ],
+        "correctAnswer": "Row locks stop two transfers from updating the same account balance at the same moment.",
+        "explanation": "Locks, timestamps, or multiple versions coordinate conflicting reads and writes."
+      }
+    ],
+    "11": [
+      {
+        "question": "A designer stores students as rows that all use the same columns, rather than as nested lists. What is that table in the relational model?",
+        "options": [
+          "A page frame",
+          "A relation",
+          "A trigger",
+          "A transaction log"
+        ],
+        "correctAnswer": "A relation",
+        "explanation": "A relation is the table structure of tuples that share one set of attributes."
+      },
+      {
+        "question": "An import adds one student row containing an id, a name, and a major. What is that row called?",
+        "options": [
+          "A tuple",
+          "A schema",
+          "An index",
+          "A domain"
+        ],
+        "correctAnswer": "A tuple",
+        "explanation": "A tuple is a single row that supplies one value for every attribute of the relation."
+      },
+      {
+        "question": "A course table has columns named code, title, and credits. What is the credits column called?",
+        "options": [
+          "A transaction",
+          "A tuple",
+          "A lock",
+          "An attribute"
+        ],
+        "correctAnswer": "An attribute",
+        "explanation": "An attribute is a column, so credits names one property of each course tuple."
+      },
+      {
+        "question": "A column must accept only integers from 1 to 6 and must reject the text six. What limits those legal values?",
+        "options": [
+          "Its foreign key",
+          "The query cache",
+          "Its domain",
+          "The transaction log"
+        ],
+        "correctAnswer": "Its domain",
+        "explanation": "The domain is the set of legal atomic values for that attribute."
+      },
+      {
+        "question": "A catalog design lists table names and columns before any student has enrolled. What is that design called?",
+        "options": [
+          "A dirty read",
+          "A schema",
+          "A deadlock",
+          "An instance"
+        ],
+        "correctAnswer": "A schema",
+        "explanation": "The schema describes structure and constraints, whether or not any rows have been inserted yet."
+      },
+      {
+        "question": "Every student row needs one unique, non-null identifier that other tables will reference. Which key should be designated?",
+        "options": [
+          "A view",
+          "A partial dependency",
+          "A primary key",
+          "A phantom read"
+        ],
+        "correctAnswer": "A primary key",
+        "explanation": "The primary key is the unique, non-null identifier chosen for the table."
+      },
+      {
+        "question": "Both national_id and email uniquely identify a person, and neither set has a spare column. What is each of those sets?",
+        "options": [
+          "A candidate key",
+          "A foreign key",
+          "A checkpoint",
+          "A transitive dependency"
+        ],
+        "correctAnswer": "A candidate key",
+        "explanation": "Each set is minimal and unique, so each one is a candidate key."
+      },
+      {
+        "question": "student_id plus major still identifies each student, but major is unnecessary for uniqueness. What kind of key is that larger set?",
+        "options": [
+          "A superkey",
+          "A weak entity",
+          "A candidate key",
+          "A foreign key"
+        ],
+        "correctAnswer": "A superkey",
+        "explanation": "The set is unique, but it is not minimal, so it is a superkey rather than a candidate key."
+      },
+      {
+        "question": "An enrolment row must point at a student row that already exists. Which key column expresses that link?",
+        "options": [
+          "A check constraint on a number",
+          "A savepoint",
+          "A foreign key",
+          "A hash index"
+        ],
+        "correctAnswer": "A foreign key",
+        "explanation": "A foreign key requires the enrolment's student id to match an existing student key."
+      },
+      {
+        "question": "In an enrolment table, neither student_id nor course_id is unique alone, but the pair is unique. What is that key?",
+        "options": [
+          "A derived attribute",
+          "A surrogate key of one column",
+          "A composite key",
+          "A partial index"
+        ],
+        "correctAnswer": "A composite key",
+        "explanation": "The key needs both columns together, so it is composite."
+      }
+    ],
+    "12": [
+      {
+        "question": "A university model must remember students, courses, and departments as the things of interest. What are those things called?",
+        "options": [
+          "Domains",
+          "Transactions",
+          "Entities",
+          "Relationships"
+        ],
+        "correctAnswer": "Entities",
+        "explanation": "Students, courses, and departments are the entity sets in the conceptual model."
+      },
+      {
+        "question": "The design must record which students take which courses, not only the students and the courses. What should connect those sets?",
+        "options": [
+          "A relationship",
+          "A latch",
+          "A page",
+          "A domain"
+        ],
+        "correctAnswer": "A relationship",
+        "explanation": "A relationship associates student instances with the course instances they take."
+      },
+      {
+        "question": "Each department has many students, and each student belongs to exactly one department. Which cardinality describes the department-to-student relationship?",
+        "options": [
+          "Many-to-many",
+          "One-to-many",
+          "Many-to-one",
+          "One-to-one"
+        ],
+        "correctAnswer": "One-to-many",
+        "explanation": "One department relates to many students, so the department-to-student cardinality is one-to-many."
+      },
+      {
+        "question": "A dependent cannot be identified by name alone and also needs the employee's id. What kind of entity is the dependent?",
+        "options": [
+          "A strong entity",
+          "A derived attribute",
+          "A weak entity",
+          "A multivalued attribute"
+        ],
+        "correctAnswer": "A weak entity",
+        "explanation": "The dependent has no identity of its own and borrows the owner employee's key."
+      },
+      {
+        "question": "Before creating tables, a team sketches rectangles for students and a diamond for enrolment. What kind of diagram is that?",
+        "options": [
+          "A Gantt chart",
+          "An ER diagram",
+          "A sequence diagram",
+          "A use-case diagram"
+        ],
+        "correctAnswer": "An ER diagram",
+        "explanation": "Rectangles for entities and diamonds for relationships are the notation of an ER diagram."
+      },
+      {
+        "question": "An application must create tables and query rows in PostgreSQL using the standard relational language. Which language is that?",
+        "options": [
+          "HTML",
+          "CSS",
+          "SQL",
+          "JSON"
+        ],
+        "correctAnswer": "SQL",
+        "explanation": "SQL is the language relational systems use both to define tables and to query them."
+      },
+      {
+        "question": "A query must return only courses whose credits are greater than 3. Which relational-algebra operation filters those rows?",
+        "options": [
+          "Projection",
+          "Rename",
+          "Selection",
+          "Union"
+        ],
+        "correctAnswer": "Selection",
+        "explanation": "Selection keeps tuples that meet a predicate and drops the rest."
+      },
+      {
+        "question": "A query should return name and major, not every column of the student table. Which relational operation drops the other columns?",
+        "options": [
+          "Join",
+          "Selection",
+          "Division",
+          "Projection"
+        ],
+        "correctAnswer": "Projection",
+        "explanation": "Projection retains the named attributes and discards the columns that were not requested."
+      },
+      {
+        "question": "A report must list enrolments only when the course id exists in the course table. Which join keeps only those matches?",
+        "options": [
+          "An inner join",
+          "A cross join",
+          "A left outer join",
+          "A full outer join"
+        ],
+        "correctAnswer": "An inner join",
+        "explanation": "An inner join drops enrolments that have no matching course row."
+      },
+      {
+        "question": "A student list must include students who have no enrolment, with nulls in the course columns. Which join does that?",
+        "options": [
+          "A semi-join",
+          "An inner join",
+          "A left outer join",
+          "A right outer join from the enrolment side"
+        ],
+        "correctAnswer": "A left outer join",
+        "explanation": "A left outer join preserves every student and fills missing enrolment columns with null."
+      }
+    ],
+    "13": [
+      {
+        "question": "One result must show departments with no employees and employees with no department. Which join does that?",
+        "options": [
+          "A semi-join",
+          "A full outer join",
+          "A left outer join",
+          "An inner join"
+        ],
+        "correctAnswer": "A full outer join",
+        "explanation": "A full outer join retains unmatched rows from both the department side and the employee side."
+      },
+      {
+        "question": "A registrar needs the number of students in each major, with one result row per major. Which clause forms those groups?",
+        "options": [
+          "GROUP BY",
+          "WHERE",
+          "ORDER BY",
+          "DISTINCT"
+        ],
+        "correctAnswer": "GROUP BY",
+        "explanation": "GROUP BY major builds one group per major so COUNT can be computed for each group."
+      },
+      {
+        "question": "After counting students per major, the query must drop groups whose count is 30 or less. Which clause filters the groups?",
+        "options": [
+          "LIMIT",
+          "WHERE",
+          "ORDER BY",
+          "HAVING"
+        ],
+        "correctAnswer": "HAVING",
+        "explanation": "HAVING applies the count condition after groups exist, which is later than WHERE."
+      },
+      {
+        "question": "Analysts often need only active students, and the administrator wants them to query a saved name instead of repeating the filter. What should be created?",
+        "options": [
+          "An index",
+          "A trigger",
+          "A sequence",
+          "A view"
+        ],
+        "correctAnswer": "A view",
+        "explanation": "A view stores the active-student query under a name that can be selected like a table."
+      },
+      {
+        "question": "Finding a user by email currently reads every row and is too slow. What should be added on the email column?",
+        "options": [
+          "A check constraint",
+          "A view",
+          "A trigger",
+          "An index"
+        ],
+        "correctAnswer": "An index",
+        "explanation": "An index on email can point at the matching row without scanning the whole table."
+      },
+      {
+        "question": "Queries often ask for invoices whose dates fall between two days, and the index should stay balanced. Which index structure fits?",
+        "options": [
+          "A hash index",
+          "An unordered heap",
+          "A log file",
+          "A B+ tree"
+        ],
+        "correctAnswer": "A B+ tree",
+        "explanation": "A B+ tree keeps keys ordered in its leaves, so a date range is a contiguous leaf scan."
+      },
+      {
+        "question": "Range scans on student_id should read nearby rows in key order, and the table can be stored in only one order. What kind of index matches that storage?",
+        "options": [
+          "A full-text index",
+          "A function index on a hash",
+          "A clustered index",
+          "A nonclustered index"
+        ],
+        "correctAnswer": "A clustered index",
+        "explanation": "A clustered index is the one order in which the rows themselves are stored."
+      },
+      {
+        "question": "One student cell contains two phone numbers separated by a comma. Which normal form requires that cell to hold a single atomic value?",
+        "options": [
+          "Second normal form",
+          "First normal form",
+          "Boyce-Codd normal form",
+          "Third normal form"
+        ],
+        "correctAnswer": "First normal form",
+        "explanation": "A comma-separated list is not an atomic value, so the table is not in first normal form."
+      },
+      {
+        "question": "A table keyed by student_id and course_id stores student_name, which depends only on student_id. Which normal form removes that partial dependency?",
+        "options": [
+          "First normal form",
+          "Fourth normal form",
+          "Third normal form",
+          "Second normal form"
+        ],
+        "correctAnswer": "Second normal form",
+        "explanation": "student_name depends on part of the composite key, which is a partial dependency forbidden by second normal form."
+      },
+      {
+        "question": "Student stores dept_id and dept_name, and the name is determined by dept_id rather than by the student id. Which normal form removes that pattern?",
+        "options": [
+          "Fourth normal form",
+          "Third normal form",
+          "Second normal form",
+          "First normal form"
+        ],
+        "correctAnswer": "Third normal form",
+        "explanation": "dept_name depends on the non-key dept_id, a transitive dependency removed to reach third normal form."
+      }
+    ],
+    "14": [
+      {
+        "question": "In a timetable, room determines course and room is not a candidate key. Which normal form does that determinant violate?",
+        "options": [
+          "Second normal form",
+          "Boyce-Codd normal form",
+          "Fourth normal form",
+          "First normal form"
+        ],
+        "correctAnswer": "Boyce-Codd normal form",
+        "explanation": "Boyce-Codd normal form requires every determinant, including room, to be a candidate key."
+      },
+      {
+        "question": "Each student id always appears with the same major. Which constraint describes that?",
+        "options": [
+          "A multivalued dependency",
+          "A join dependency",
+          "A functional dependency",
+          "An inclusion dependency"
+        ],
+        "correctAnswer": "A functional dependency",
+        "explanation": "student_id determines major because one id never pairs with two majors."
+      },
+      {
+        "question": "Student id determines department id, and department id determines the department phone. What kind of dependency reaches that phone?",
+        "options": [
+          "A partial dependency",
+          "A trivial dependency",
+          "A transitive dependency",
+          "A multivalued dependency"
+        ],
+        "correctAnswer": "A transitive dependency",
+        "explanation": "The phone depends on the student id only by way of the department id, so the dependency is transitive."
+      },
+      {
+        "question": "A department phone is copied onto every student row, so one phone change needs many updates. What process moves that fact into its own table?",
+        "options": [
+          "Logging",
+          "Normalization",
+          "Indexing",
+          "Denormalization"
+        ],
+        "correctAnswer": "Normalization",
+        "explanation": "Normalization decomposes the table so the phone is stored once, with the department."
+      },
+      {
+        "question": "A transfer must debit one account and credit another so both changes persist together or neither does. What should enclose those statements?",
+        "options": [
+          "A trigger",
+          "An index",
+          "A transaction",
+          "A view"
+        ],
+        "correctAnswer": "A transaction",
+        "explanation": "A transaction groups the debit and the credit into one success or one failure."
+      },
+      {
+        "question": "A transfer debits an account and crashes before the credit. After recovery the debit is gone too. Which ACID property produced that outcome?",
+        "options": [
+          "Durability",
+          "Consistency",
+          "Isolation",
+          "Atomicity"
+        ],
+        "correctAnswer": "Atomicity",
+        "explanation": "Atomicity rolls the whole transfer back when it cannot complete every step."
+      },
+      {
+        "question": "After a transfer commits, the sum of all account balances is the same as before. Which ACID property is that outcome?",
+        "options": [
+          "Durability",
+          "Isolation",
+          "Consistency",
+          "Atomicity"
+        ],
+        "correctAnswer": "Consistency",
+        "explanation": "Consistency means the committed transfer preserves the database's integrity rules."
+      },
+      {
+        "question": "Two clerks update the same account, and neither should see the other's uncommitted balance. Which ACID property requires that?",
+        "options": [
+          "Durability",
+          "Isolation",
+          "Atomicity",
+          "Consistency"
+        ],
+        "correctAnswer": "Isolation",
+        "explanation": "Isolation hides uncommitted work so concurrent clerks do not read each other's intermediate balances."
+      },
+      {
+        "question": "A booking commits, then the server loses power, and after restart the booking is still stored. Which ACID property explains that?",
+        "options": [
+          "Atomicity",
+          "Isolation",
+          "Durability",
+          "Consistency"
+        ],
+        "correctAnswer": "Durability",
+        "explanation": "Durability requires a committed booking to remain available after a crash."
+      },
+      {
+        "question": "Checkout has inserted the order and payment rows and now wants those changes to become permanent. Which command ends the transaction successfully?",
+        "options": [
+          "COMMIT",
+          "GRANT",
+          "SAVEPOINT",
+          "ROLLBACK"
+        ],
+        "correctAnswer": "COMMIT",
+        "explanation": "COMMIT makes the inserted rows durable and ends the transaction successfully."
+      }
+    ],
+    "15": [
+      {
+        "question": "A clerk notices a mistaken debit before finishing the transaction and wants the prior committed state back. Which command does that?",
+        "options": [
+          "TRUNCATE",
+          "COMMIT",
+          "GRANT",
+          "ROLLBACK"
+        ],
+        "correctAnswer": "ROLLBACK",
+        "explanation": "ROLLBACK undoes the uncommitted debit and returns the database to the last commit."
+      },
+      {
+        "question": "The engine requires each transaction to finish acquiring locks before it unlocks anything. Which concurrency protocol is that?",
+        "options": [
+          "Write-ahead logging",
+          "Checkpointing",
+          "Two-phase commit",
+          "Two-phase locking"
+        ],
+        "correctAnswer": "Two-phase locking",
+        "explanation": "Two-phase locking separates a growing phase of lock acquisition from a shrinking phase of releases."
+      },
+      {
+        "question": "T1 waits for a row lock held by T2, and T2 waits for a row lock held by T1. What is that wait cycle?",
+        "options": [
+          "A deadlock",
+          "A lost update",
+          "A dirty read",
+          "A phantom read"
+        ],
+        "correctAnswer": "A deadlock",
+        "explanation": "Each transaction waits for the other, forming a lock-wait cycle called a deadlock."
+      },
+      {
+        "question": "A report reads a balance written by another transaction that later aborts. Which anomaly occurred?",
+        "options": [
+          "A nonrepeatable read",
+          "A dirty read",
+          "A lost update",
+          "A phantom read"
+        ],
+        "correctAnswer": "A dirty read",
+        "explanation": "The report consumed an uncommitted balance that the writer subsequently rolled back."
+      },
+      {
+        "question": "A transaction rereads seats whose status is open and finds a new row committed by someone else. Which anomaly is that?",
+        "options": [
+          "A phantom read",
+          "A lost update",
+          "A dirty read",
+          "A nonrepeatable read"
+        ],
+        "correctAnswer": "A phantom read",
+        "explanation": "The new open-seat row is a phantom that was not in the first result set."
+      },
+      {
+        "question": "An enrolment insert uses a student id that does not exist, and the DBMS rejects the insert. Which rule caused the rejection?",
+        "options": [
+          "Domain integrity",
+          "Referential integrity",
+          "Entity integrity",
+          "Durability"
+        ],
+        "correctAnswer": "Referential integrity",
+        "explanation": "The foreign key has no matching student, so referential integrity forbids the insert."
+      },
+      {
+        "question": "Every account update must write an audit row even when the application issues only the update. What database object does that?",
+        "options": [
+          "A view",
+          "An index",
+          "A trigger",
+          "A sequence"
+        ],
+        "correctAnswer": "A trigger",
+        "explanation": "A trigger on the update event runs the audit insert automatically."
+      },
+      {
+        "question": "Several applications must run the same multi-statement transfer on the database server. What should hold that program?",
+        "options": [
+          "A check constraint",
+          "A stored procedure",
+          "A view",
+          "An index"
+        ],
+        "correctAnswer": "A stored procedure",
+        "explanation": "A stored procedure keeps the transfer program in the database so every application can call it."
+      },
+      {
+        "question": "A SELECT could scan the whole table or use an index, and the engine picks the cheaper plan. Which component chooses?",
+        "options": [
+          "The lock manager",
+          "The query optimizer",
+          "The buffer manager",
+          "The log writer"
+        ],
+        "correctAnswer": "The query optimizer",
+        "explanation": "The optimizer compares estimated costs and selects the plan used to run the statement."
+      },
+      {
+        "question": "Many tellers update accounts at the same time, and the DBMS must keep those updates from corrupting balances. What is that coordination called?",
+        "options": [
+          "Crash recovery",
+          "Concurrency control",
+          "Query optimization",
+          "Buffer replacement"
+        ],
+        "correctAnswer": "Concurrency control",
+        "explanation": "Concurrency control coordinates the tellers' transactions so conflicting updates stay correct."
+      }
     ]
   }
 }

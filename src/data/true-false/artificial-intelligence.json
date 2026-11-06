@@ -1,0 +1,785 @@
+{
+  "subjectId": "artificial-intelligence",
+  "levels": {
+    "1": [
+      {
+        "statement": "An Intelligent agent is a system that perceives its environment through sensors and acts on that environment through actuators.",
+        "answer": true,
+        "explanation": "The agent idea pairs ongoing perception with actions chosen in response to that perception."
+      },
+      {
+        "statement": "A Rationality is ignoring the performance measure and acting at random forever.",
+        "answer": false,
+        "explanation": "A rational agent is judged by expected success on its performance measure, not by having perfect foresight."
+      },
+      {
+        "statement": "A Percept is the input an agent's sensors provide at one moment about the environment.",
+        "answer": true,
+        "explanation": "Percepts are the agent's sensory inputs, and a percept sequence is the history of those inputs."
+      },
+      {
+        "statement": "An Actuator is a dirt sensor.",
+        "answer": false,
+        "explanation": "Actuators carry out actions, while sensors supply percepts."
+      },
+      {
+        "statement": "A PEAS is a task description listing performance measure, environment, actuators, and sensors.",
+        "answer": true,
+        "explanation": "PEAS names the four parts needed to specify a rational-agent task before choosing a design."
+      },
+      {
+        "statement": "A Fully observable environment is dynamic only because the tiles are visible.",
+        "answer": false,
+        "explanation": "Full observability means the percept contains what the agent needs to know about the current state."
+      },
+      {
+        "statement": "A Deterministic environment is an environment whose next state is fixed by the current state and the action, with no random outcome.",
+        "answer": true,
+        "explanation": "Determinism means the transition is certain once the state and action are known."
+      },
+      {
+        "statement": "An Episodic task environment is an environment whose map is a single long path with no separate episodes.",
+        "answer": false,
+        "explanation": "In an episodic setting, the agent can choose for the current episode without planning across future episodes."
+      },
+      {
+        "statement": "A Static environment is an environment that does not change while the agent is deliberating.",
+        "answer": true,
+        "explanation": "If nothing else changes during deliberation, the state the agent analyzed is still the state it acts on."
+      },
+      {
+        "statement": "A Simple reflex agent is a goal-based agent.",
+        "answer": false,
+        "explanation": "A simple reflex agent does not store a model of unseen state; the current percept selects the rule."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Goal-based agent is an agent that chooses actions by considering which future states would reach a declared goal.",
+        "answer": true,
+        "explanation": "Goal-based behavior asks whether a sequence of actions leads to a state that passes the goal test."
+      },
+      {
+        "statement": "An Utility-based agent is a knowledge base with no actions.",
+        "answer": false,
+        "explanation": "Utility ranks outcomes, so the agent can prefer a safer or better success instead of any goal state."
+      },
+      {
+        "statement": "A State space is the set of all states that a search problem can reach from the initial state by legal actions.",
+        "answer": true,
+        "explanation": "Search explores the state space by applying actions that move from one state to a neighboring state."
+      },
+      {
+        "statement": "A Search node is a labeled training example in a data table.",
+        "answer": false,
+        "explanation": "The node is the search bookkeeping around a state, which is why two nodes can contain the same state."
+      },
+      {
+        "statement": "A Path cost is the total cost of the actions along the path from the initial state to a given node.",
+        "answer": true,
+        "explanation": "Path cost, often written g(n), adds the step costs already taken and does not estimate the future."
+      },
+      {
+        "statement": "A Breadth-first search is depth-first search.",
+        "answer": false,
+        "explanation": "Using a queue makes breadth-first search explore level by level from the start."
+      },
+      {
+        "statement": "A Depth-first search is an uninformed search that expands the deepest unexpanded node before its shallower siblings.",
+        "answer": true,
+        "explanation": "A stack, or recursion, sends depth-first search down one branch before it backtracks."
+      },
+      {
+        "statement": "An Iterative deepening search is a single hill-climbing run.",
+        "answer": false,
+        "explanation": "The repeated depth limits give the short-solution guarantee of breadth-first search with less memory."
+      },
+      {
+        "statement": "An Uniform-cost search is an uninformed search that expands the node with the smallest path cost from the start.",
+        "answer": true,
+        "explanation": "Expanding the lowest g(n) first yields an optimal path when every step cost is nonnegative."
+      },
+      {
+        "statement": "An Uninformed search is a learning method that fits labeled examples.",
+        "answer": false,
+        "explanation": "Uninformed algorithms such as breadth-first and uniform-cost search do not receive a heuristic."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A Heuristic is a problem-specific estimate of the cheapest cost from a state to a goal, used to guide search.",
+        "answer": true,
+        "explanation": "A heuristic, h(n), estimates remaining cost and is extra information beyond the bare problem definition."
+      },
+      {
+        "statement": "An A* search is breadth-first search.",
+        "answer": false,
+        "explanation": "Adding g(n) and h(n) accounts for both the cost already used and the estimated cost remaining."
+      },
+      {
+        "statement": "A Greedy best-first search is an informed search that expands the node whose heuristic estimate to the goal is smallest, ignoring path cost.",
+        "answer": true,
+        "explanation": "Because it follows only h(n), it can head toward the goal quickly and still miss a cheaper path."
+      },
+      {
+        "statement": "An Admissible heuristic is it is a random rank.",
+        "answer": false,
+        "explanation": "Admissibility keeps h(n) optimistic, which is what tree-search A* needs in order to stay optimal."
+      },
+      {
+        "statement": "A Consistent heuristic is a heuristic for which the estimate at a node is no greater than the step to a neighbor plus the estimate at that neighbor.",
+        "answer": true,
+        "explanation": "Consistency, also called monotonicity, is the condition used to guarantee optimal A* graph search."
+      },
+      {
+        "statement": "A Search completeness is the guarantee that memory use stays constant as the map grows.",
+        "answer": false,
+        "explanation": "Completeness is about eventually finding some solution, which is separate from finding a lowest-cost one."
+      },
+      {
+        "statement": "A Search optimality is the guarantee that a search algorithm returns a lowest-cost solution among all possible solutions.",
+        "answer": true,
+        "explanation": "Optimality concerns the cost of the solution returned, not merely whether a solution appears."
+      },
+      {
+        "statement": "A Branching factor is the path cost.",
+        "answer": false,
+        "explanation": "The branching factor controls how fast the number of nodes grows with depth."
+      },
+      {
+        "statement": "A Bidirectional search is a search that grows one tree forward from the start and another backward from the goal until they meet.",
+        "answer": true,
+        "explanation": "Meeting in the middle can explore far fewer nodes than searching the full depth from one side alone."
+      },
+      {
+        "statement": "An Underfitting is breadth-first expansion.",
+        "answer": false,
+        "explanation": "Underfitting shows high error even on the training data because the hypothesis cannot represent the real pattern."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Hill climbing is a local search that repeatedly moves to a neighboring state with a better value until no neighbor is better.",
+        "answer": true,
+        "explanation": "Hill climbing looks only at local neighbors, so it never keeps a frontier of distant alternative paths."
+      },
+      {
+        "statement": "A Local maximum is the best state in the entire state space.",
+        "answer": false,
+        "explanation": "Hill climbing stops at a local maximum because every immediate move looks worse."
+      },
+      {
+        "statement": "A Simulated annealing is a local search that sometimes accepts a worse neighbor, with that probability decreasing over time.",
+        "answer": true,
+        "explanation": "Early acceptance of worse moves can escape local maxima, and the falling chance lets the search settle."
+      },
+      {
+        "statement": "A Minimax is uniform-cost search with no opponent.",
+        "answer": false,
+        "explanation": "The maximizer picks the highest value, and each minimizer node picks the lowest value for the maximizer."
+      },
+      {
+        "statement": "An Alpha-beta pruning is a minimax speedup that skips branches that cannot change the decision already available at a higher node.",
+        "answer": true,
+        "explanation": "Pruned branches cannot affect the minimax value, so the chosen move stays the same as full minimax."
+      },
+      {
+        "statement": "An Evaluation function is a training label.",
+        "answer": false,
+        "explanation": "When the game tree is too deep, the evaluation function scores a cutoff position for minimax."
+      },
+      {
+        "statement": "A Knowledge representation is the encoding of facts and relationships in a form a program can store and reason with.",
+        "answer": true,
+        "explanation": "A representation such as logic or a semantic network makes knowledge available to an inference procedure."
+      },
+      {
+        "statement": "A Knowledge base is a table of unlabeled pictures with no stated facts.",
+        "answer": false,
+        "explanation": "The knowledge base holds the axioms and derived facts that inference uses."
+      },
+      {
+        "statement": "An Inference is the process of deriving new sentences that follow from the sentences already in a knowledge base.",
+        "answer": true,
+        "explanation": "Inference applies rules of entailment so a conclusion is supported by what is already stored."
+      },
+      {
+        "statement": "A Forward chaining is backward chaining.",
+        "answer": false,
+        "explanation": "Forward chaining is data-driven: each new fact may trigger further rules."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Backward chaining is inference that starts from a goal and looks for rules and facts that would support it.",
+        "answer": true,
+        "explanation": "Backward chaining is goal-driven and only explores rules relevant to the current goal."
+      },
+      {
+        "statement": "An Expert system is a motor controller with no rules.",
+        "answer": false,
+        "explanation": "The classic split is a knowledge base of expert rules plus an inference engine that applies them."
+      },
+      {
+        "statement": "A Semantic network is a representation of concepts as nodes and of relations between them as labeled edges.",
+        "answer": true,
+        "explanation": "The graph makes inheritance and relationships explicit, such as an edge meaning 'is a kind of.'"
+      },
+      {
+        "statement": "An Ontology is the random initial state of a local search.",
+        "answer": false,
+        "explanation": "An ontology fixes what kinds of things exist in the domain and how they may be related."
+      },
+      {
+        "statement": "A Machine learning is the AI subfield in which a program improves its performance on a task from data or experience.",
+        "answer": true,
+        "explanation": "Machine learning is one part of AI, focused on improvement from examples or experience rather than only hand-coded rules."
+      },
+      {
+        "statement": "A Supervised learning is unsupervised learning.",
+        "answer": false,
+        "explanation": "The training pairs supply the target output, so the learner can measure mistakes against that label."
+      },
+      {
+        "statement": "An Unsupervised learning is learning structure or groupings from inputs that are not accompanied by output labels.",
+        "answer": true,
+        "explanation": "Without labels, the learner looks for patterns such as clusters in the inputs themselves."
+      },
+      {
+        "statement": "An Overfitting is using an admissible heuristic.",
+        "answer": false,
+        "explanation": "Overfitting memorizes peculiarities of the training set that do not repeat in unseen data."
+      },
+      {
+        "statement": "A Training set is the collection of examples used to build or fit a model before it is judged on unseen data.",
+        "answer": true,
+        "explanation": "The learner adjusts the model on the training set, so that set must be kept distinct from a later test."
+      },
+      {
+        "statement": "A Generalization is how fast breadth-first search expands the first level.",
+        "answer": false,
+        "explanation": "Generalization is the point of learning: success on unseen cases, not a perfect recitation of the training set."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a sorting routine that orders an array and then stops is called Intelligent agent.",
+        "answer": false,
+        "explanation": "The agent idea pairs ongoing perception with actions chosen in response to that perception."
+      },
+      {
+        "statement": "A vacuum agent that has seen dirt in this square chooses to clean it because that raises its cleanliness score.",
+        "answer": true,
+        "explanation": "A rational agent is judged by expected success on its performance measure, not by having perfect foresight."
+      },
+      {
+        "statement": "In standard textbooks, an actuator command is called Percept.",
+        "answer": false,
+        "explanation": "Percepts are the agent's sensory inputs, and a percept sequence is the history of those inputs."
+      },
+      {
+        "statement": "The wheels of a robot vacuum are actuators because they move the robot to a new square.",
+        "answer": true,
+        "explanation": "Actuators carry out actions, while sensors supply percepts."
+      },
+      {
+        "statement": "In standard textbooks, a labeled training table is called PEAS.",
+        "answer": false,
+        "explanation": "PEAS names the four parts needed to specify a rational-agent task before choosing a design."
+      },
+      {
+        "statement": "In a standard chess program, the current board position is fully visible before each move.",
+        "answer": true,
+        "explanation": "Full observability means the percept contains what the agent needs to know about the current state."
+      },
+      {
+        "statement": "In standard textbooks, an environment that hides part of the state from the agent is called Deterministic environment.",
+        "answer": false,
+        "explanation": "Determinism means the transition is certain once the state and action are known."
+      },
+      {
+        "statement": "A factory camera classifies each part on the belt separately, and one classification does not change the next part.",
+        "answer": true,
+        "explanation": "In an episodic setting, the agent can choose for the current episode without planning across future episodes."
+      },
+      {
+        "statement": "In standard textbooks, dynamic is called Static environment.",
+        "answer": false,
+        "explanation": "If nothing else changes during deliberation, the state the agent analyzed is still the state it acts on."
+      },
+      {
+        "statement": "A vacuum rule says that if the current square is dirty, the action is to suck, with no map of other rooms.",
+        "answer": true,
+        "explanation": "A simple reflex agent does not store a model of unseen state; the current percept selects the rule."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a sensor that never acts is called Goal-based agent.",
+        "answer": false,
+        "explanation": "Goal-based behavior asks whether a sequence of actions leads to a state that passes the goal test."
+      },
+      {
+        "statement": "A delivery robot prefers a slightly longer road with a higher chance of arriving undamaged over a risky shortcut.",
+        "answer": true,
+        "explanation": "Utility ranks outcomes, so the agent can prefer a safer or better success instead of any goal state."
+      },
+      {
+        "statement": "In standard textbooks, the list of training labels for a classifier is called State space.",
+        "answer": false,
+        "explanation": "Search explores the state space by applying actions that move from one state to a neighboring state."
+      },
+      {
+        "statement": "A route search stores a node for each partial path, including the city reached and the cost so far.",
+        "answer": true,
+        "explanation": "The node is the search bookkeeping around a state, which is why two nodes can contain the same state."
+      },
+      {
+        "statement": "In standard textbooks, the heuristic estimate to the goal is called Path cost.",
+        "answer": false,
+        "explanation": "Path cost, often written g(n), adds the step costs already taken and does not estimate the future."
+      },
+      {
+        "statement": "On an unweighted subway map, breadth-first search finds a route with the fewest stops.",
+        "answer": true,
+        "explanation": "Using a queue makes breadth-first search explore level by level from the start."
+      },
+      {
+        "statement": "In standard textbooks, a* search is called Depth-first search.",
+        "answer": false,
+        "explanation": "A stack, or recursion, sends depth-first search down one branch before it backtracks."
+      },
+      {
+        "statement": "A puzzle solver tries depth 1, then depth 2, then depth 3, using depth-first search inside each limit.",
+        "answer": true,
+        "explanation": "The repeated depth limits give the short-solution guarantee of breadth-first search with less memory."
+      },
+      {
+        "statement": "In standard textbooks, a search that expands the node that looks closest to the goal is called Uniform-cost search.",
+        "answer": false,
+        "explanation": "Expanding the lowest g(n) first yields an optimal path when every step cost is nonnegative."
+      },
+      {
+        "statement": "Breadth-first search explores a maze using only the legal moves, with no estimate of distance to the exit.",
+        "answer": true,
+        "explanation": "Uninformed algorithms such as breadth-first and uniform-cost search do not receive a heuristic."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, the exact path cost already traveled is called Heuristic.",
+        "answer": false,
+        "explanation": "A heuristic, h(n), estimates remaining cost and is extra information beyond the bare problem definition."
+      },
+      {
+        "statement": "A navigation app expands the junction whose driven kilometers plus straight-line estimate is currently smallest.",
+        "answer": true,
+        "explanation": "Adding g(n) and h(n) accounts for both the cost already used and the estimated cost remaining."
+      },
+      {
+        "statement": "In standard textbooks, breadth-first search is called Greedy best-first search.",
+        "answer": false,
+        "explanation": "Because it follows only h(n), it can head toward the goal quickly and still miss a cheaper path."
+      },
+      {
+        "statement": "Straight-line distance is admissible for road search because a road route cannot be shorter than the straight line.",
+        "answer": true,
+        "explanation": "Admissibility keeps h(n) optimistic, which is what tree-search A* needs in order to stay optimal."
+      },
+      {
+        "statement": "In standard textbooks, a search that stores every generated state in a closed set is called Consistent heuristic.",
+        "answer": false,
+        "explanation": "Consistency, also called monotonicity, is the condition used to guarantee optimal A* graph search."
+      },
+      {
+        "statement": "Breadth-first search on a finite unweighted maze is complete because it will reach an exit if any path exists.",
+        "answer": true,
+        "explanation": "Completeness is about eventually finding some solution, which is separate from finding a lowest-cost one."
+      },
+      {
+        "statement": "In standard textbooks, completeness alone is called Search optimality.",
+        "answer": false,
+        "explanation": "Optimality concerns the cost of the solution returned, not merely whether a solution appears."
+      },
+      {
+        "statement": "If every room in a dungeon has three doors, the search tree's branching factor is about three.",
+        "answer": true,
+        "explanation": "The branching factor controls how fast the number of nodes grows with depth."
+      },
+      {
+        "statement": "In standard textbooks, depth-first search from home only is called Bidirectional search.",
+        "answer": false,
+        "explanation": "Meeting in the middle can explore far fewer nodes than searching the full depth from one side alone."
+      },
+      {
+        "statement": "A straight line is fitted to points that clearly form a curve, so both training and new points stay far from the line.",
+        "answer": true,
+        "explanation": "Underfitting shows high error even on the training data because the hypothesis cannot represent the real pattern."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a search that restarts from the initial state with a deeper limit is called Hill climbing.",
+        "answer": false,
+        "explanation": "Hill climbing looks only at local neighbors, so it never keeps a frontier of distant alternative paths."
+      },
+      {
+        "statement": "A route around a small hill is shorter than every adjacent tweak, yet a completely different road is shorter still.",
+        "answer": true,
+        "explanation": "Hill climbing stops at a local maximum because every immediate move looks worse."
+      },
+      {
+        "statement": "In standard textbooks, strict hill climbing is called Simulated annealing.",
+        "answer": false,
+        "explanation": "Early acceptance of worse moves can escape local maxima, and the falling chance lets the search settle."
+      },
+      {
+        "statement": "A tic-tac-toe program looks to the end and chooses the move that wins even if the opponent answers perfectly.",
+        "answer": true,
+        "explanation": "The maximizer picks the highest value, and each minimizer node picks the lowest value for the maximizer."
+      },
+      {
+        "statement": "In standard textbooks, breadth-first maze search is called Alpha-beta pruning.",
+        "answer": false,
+        "explanation": "Pruned branches cannot affect the minimax value, so the chosen move stays the same as full minimax."
+      },
+      {
+        "statement": "A chess program scores material and king safety at a cutoff depth instead of playing every line to checkmate.",
+        "answer": true,
+        "explanation": "When the game tree is too deep, the evaluation function scores a cutoff position for minimax."
+      },
+      {
+        "statement": "In standard textbooks, the expansion order of an uninformed search is called Knowledge representation.",
+        "answer": false,
+        "explanation": "A representation such as logic or a semantic network makes knowledge available to an inference procedure."
+      },
+      {
+        "statement": "A medical tutor stores sentences about symptoms and illnesses and adds a new fact when a rule fires.",
+        "answer": true,
+        "explanation": "The knowledge base holds the axioms and derived facts that inference uses."
+      },
+      {
+        "statement": "In standard textbooks, camera sensing is called Inference.",
+        "answer": false,
+        "explanation": "Inference applies rules of entailment so a conclusion is supported by what is already stored."
+      },
+      {
+        "statement": "A diagnostic system starts from observed symptoms and fires rules until it derives a likely fault.",
+        "answer": true,
+        "explanation": "Forward chaining is data-driven: each new fact may trigger further rules."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, hill climbing is called Backward chaining.",
+        "answer": false,
+        "explanation": "Backward chaining is goal-driven and only explores rules relevant to the current goal."
+      },
+      {
+        "statement": "A plant-diagnosis program uses expert if-then rules about leaves and soil to suggest a likely cause.",
+        "answer": true,
+        "explanation": "The classic split is a knowledge base of expert rules plus an inference engine that applies them."
+      },
+      {
+        "statement": "In standard textbooks, a queue of search nodes ordered by path cost is called Semantic network.",
+        "answer": false,
+        "explanation": "The graph makes inheritance and relationships explicit, such as an edge meaning 'is a kind of.'"
+      },
+      {
+        "statement": "A university ontology defines Student, Course, and Instructor and the relation 'teaches' between Instructor and Course.",
+        "answer": true,
+        "explanation": "An ontology fixes what kinds of things exist in the domain and how they may be related."
+      },
+      {
+        "statement": "In standard textbooks, manual rule writing with no data is called Machine learning.",
+        "answer": false,
+        "explanation": "Machine learning is one part of AI, focused on improvement from examples or experience rather than only hand-coded rules."
+      },
+      {
+        "statement": "A program learns to predict exam pass or fail from study hours, using past students whose outcomes are already known.",
+        "answer": true,
+        "explanation": "The training pairs supply the target output, so the learner can measure mistakes against that label."
+      },
+      {
+        "statement": "In standard textbooks, minimax is called Unsupervised learning.",
+        "answer": false,
+        "explanation": "Without labels, the learner looks for patterns such as clusters in the inputs themselves."
+      },
+      {
+        "statement": "A curve twists to touch every training point, including one mistyped grade, and then misses new students badly.",
+        "answer": true,
+        "explanation": "Overfitting memorizes peculiarities of the training set that do not repeat in unseen data."
+      },
+      {
+        "statement": "In standard textbooks, the frontier of nodes in a graph search is called Training set.",
+        "answer": false,
+        "explanation": "The learner adjusts the model on the training set, so that set must be kept distinct from a later test."
+      },
+      {
+        "statement": "After fitting on last year's emails, a spam filter correctly labels a new email that arrived this morning.",
+        "answer": true,
+        "explanation": "Generalization is the point of learning: success on unseen cases, not a perfect recitation of the training set."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a robot reads a camera and turns its wheels in response. Which AI idea describes that pairing of sensing and acting, the correct result is a static database table.",
+        "answer": false,
+        "explanation": "An intelligent agent is defined by perceiving an environment and acting on it."
+      },
+      {
+        "statement": "When a vacuum scores points for clean squares and can see dirt in the current square. Which action is rational, the correct result is shut off its sensors.",
+        "answer": false,
+        "explanation": "Cleaning the observed dirt is the action expected to improve the cleanliness score."
+      },
+      {
+        "statement": "When a driving program receives one camera frame of a red light before it chooses an action. In this case that frame, the correct result is a percept.",
+        "answer": true,
+        "explanation": "A percept is the sensory input available to the agent at that moment."
+      },
+      {
+        "statement": "When a robot vacuum needs a part that moves it into the next square rather than a part that only senses dirt. The part is that, the correct result is an actuator.",
+        "answer": true,
+        "explanation": "An actuator is the component that carries out an action on the environment."
+      },
+      {
+        "statement": "When designers list success criteria, the world, the outputs, and the inputs of a taxi agent before building it. Which description is that, the correct result is a single if-then rule.",
+        "answer": false,
+        "explanation": "PEAS is the four-part task description: performance, environment, actuators, and sensors."
+      },
+      {
+        "statement": "When a puzzle agent can see every tile's location before it chooses a move. How is that environment classified, the correct result is dynamic only because the tiles are visible.",
+        "answer": false,
+        "explanation": "The sensors reveal the whole relevant state, so the environment is fully observable."
+      },
+      {
+        "statement": "When sliding one tile on an 8-puzzle model always yields the same next board. The environment property is that, the correct result is deterministic.",
+        "answer": true,
+        "explanation": "The next state is completely determined by the current board and the slide."
+      },
+      {
+        "statement": "When a vision system labels each item on a belt, and one label does not change the next item. The task type is that, the correct result is episodic.",
+        "answer": true,
+        "explanation": "Each classification is its own episode and does not affect the next item's state."
+      },
+      {
+        "statement": "When a crossword grid does not change during the minute a program spends choosing a letter. Which property is that, the correct result is partially observable.",
+        "answer": false,
+        "explanation": "The environment is static because it does not change while the agent deliberates."
+      },
+      {
+        "statement": "When a vacuum has only the rule: if this square is dirty, suck. It keeps no map and no goal test. The agent type is that, the correct result is a simple reflex agent.",
+        "answer": true,
+        "explanation": "The action comes directly from the current percept through a condition-action rule."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a navigator searches future turns until the state matches a declared destination. Which agent type is that, the correct result is an agent with no goal test that only mimics labels.",
+        "answer": false,
+        "explanation": "The navigator chooses actions by testing whether future states reach the goal."
+      },
+      {
+        "statement": "When two routes both reach the customer, but one is safer. The robot prefers the higher expected score. Which agent type is that, the correct result is a knowledge base with no actions.",
+        "answer": false,
+        "explanation": "The robot ranks outcomes by expected utility rather than treating every successful route as equal."
+      },
+      {
+        "statement": "When an 8-puzzle solver must consider every reachable arrangement of tiles, not only the solved board. In this case that set called, the correct result is the state space.",
+        "answer": true,
+        "explanation": "The state space contains all configurations the legal moves can reach."
+      },
+      {
+        "statement": "When a router search must remember a city, how it was reached, and the cost so far. What record holds those fields, the correct result is a search node.",
+        "answer": true,
+        "explanation": "A search node stores the state together with its parent, action, and path cost."
+      },
+      {
+        "statement": "When a node was reached by traveling 12 km and then 7 km. Which quantity is 19 km, the correct result is the depth limit.",
+        "answer": false,
+        "explanation": "Path cost is the sum of the step costs already used to reach the node."
+      },
+      {
+        "statement": "When every step has equal cost, and the solver must find a route with the fewest steps. Which uninformed search fits, the correct result is depth-first search.",
+        "answer": false,
+        "explanation": "Breadth-first search expands level by level, so the first goal it reaches has the fewest steps."
+      },
+      {
+        "statement": "When a maze program should follow one corridor to its end before trying the previous junction. The search matches, the correct result is depth-first search.",
+        "answer": true,
+        "explanation": "Depth-first search goes deep along one branch and backtracks only when that branch is exhausted."
+      },
+      {
+        "statement": "When a solver wants the shortest unweighted solution but cannot store a whole breadth-first frontier. The search fits, the correct result is iterative deepening search.",
+        "answer": true,
+        "explanation": "Iterative deepening finds the shallowest solution by increasing a depth-first limit one step at a time."
+      },
+      {
+        "statement": "When road segments have unequal lengths, all positive, and no heuristic is available. Which search finds a cheapest route, the correct result is breadth-first search ignoring lengths.",
+        "answer": false,
+        "explanation": "Uniform-cost search expands the lowest path cost first and is optimal for nonnegative step costs."
+      },
+      {
+        "statement": "When a maze solver may use the start, the moves, and the goal test, but it has no distance estimate. The search family is that, the correct result is uninformed search.",
+        "answer": true,
+        "explanation": "Uninformed search has the problem definition only and no heuristic guidance."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a map program estimates remaining distance by the straight line to the goal, which may be shorter than the roads. What is that estimate, the correct result is a reflex rule.",
+        "answer": false,
+        "explanation": "Straight-line distance is a heuristic estimate of the remaining cost, not the cost already paid."
+      },
+      {
+        "statement": "When a router should add kilometers already driven to a straight-line estimate and expand the smallest total. Which search is that, the correct result is breadth-first search.",
+        "answer": false,
+        "explanation": "A* expands the node with the lowest sum of path cost and heuristic estimate."
+      },
+      {
+        "statement": "When a program always expands the city that appears closest to the destination and ignores distance already traveled. The search is that, the correct result is greedy best-first search.",
+        "answer": true,
+        "explanation": "Greedy best-first search ranks nodes by the heuristic alone."
+      },
+      {
+        "statement": "When a road heuristic never claims a remaining distance longer than the best real route. The property does it have, the correct result is it is admissible.",
+        "answer": true,
+        "explanation": "An admissible heuristic never overestimates the true remaining cost."
+      },
+      {
+        "statement": "When for every move, a grid heuristic falls by no more than that move's cost. Which stronger heuristic property is that, the correct result is a negative step cost.",
+        "answer": false,
+        "explanation": "Consistency says the heuristic cannot drop by more than the cost of the step just taken."
+      },
+      {
+        "statement": "When on a finite maze, a search is sure to reach an exit if any path exists, even if that path is not cheapest. Which guarantee is that, the correct result is constant memory.",
+        "answer": false,
+        "explanation": "Completeness promises that an existing solution will be found, not that it is the cheapest."
+      },
+      {
+        "statement": "When with positive segment costs and no heuristic, a search returns a route of truly minimal length. The guarantee is that, the correct result is optimality.",
+        "answer": true,
+        "explanation": "Optimality means the solution that is returned has the lowest path cost."
+      },
+      {
+        "statement": "When each puzzle state has four legal moves. The quantity describes how many children a typical node has, the correct result is the branching factor.",
+        "answer": true,
+        "explanation": "The branching factor is the number of successors expanded from a typical state."
+      },
+      {
+        "statement": "When a planner searches from home and from campus at the same time until the two frontiers share a station. Which search is that, the correct result is hill climbing.",
+        "answer": false,
+        "explanation": "Bidirectional search runs from the start and the goal until the two searches meet."
+      },
+      {
+        "statement": "When points form a curve, but the chosen model is a straight line and misses badly even on the training points. What problem is that, the correct result is underfitting.",
+        "answer": true,
+        "explanation": "Underfitting is a model too simple to represent the pattern, so training error stays high."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a scheduler keeps a swap of two classes only when the swap reduces conflicts, then stops when none helps. Which method is that, the correct result is breadth-first search.",
+        "answer": false,
+        "explanation": "Hill climbing accepts a better neighbor and stops when every neighbor is worse."
+      },
+      {
+        "statement": "When every small change of a schedule adds conflicts, yet a very different schedule has fewer conflicts. What is the current schedule, the correct result is the global best schedule.",
+        "answer": false,
+        "explanation": "A local maximum is worse than some distant state but better than all of its neighbors."
+      },
+      {
+        "statement": "When a layout search sometimes keeps a worse placement early, then almost never does so later. The method matches, the correct result is simulated annealing.",
+        "answer": true,
+        "explanation": "Simulated annealing allows worse moves with a probability that decreases as the search continues."
+      },
+      {
+        "statement": "When a tic-tac-toe program assumes the opponent will answer perfectly and picks the least bad guaranteed result. The method is that, the correct result is minimax.",
+        "answer": true,
+        "explanation": "Minimax selects a move under the assumption of optimal play by the opponent."
+      },
+      {
+        "statement": "When a game search skips a line once it knows the opponent can force a worse value than a line already found. What speedup is that, the correct result is replacing the rules with a coin flip.",
+        "answer": false,
+        "explanation": "Alpha-beta pruning cuts branches that cannot change the minimax decision."
+      },
+      {
+        "statement": "When a chess program cannot search to the end, so it scores material at a cutoff depth. What provides that score, the correct result is a training label.",
+        "answer": false,
+        "explanation": "An evaluation function estimates a nonterminal position when the search must stop early."
+      },
+      {
+        "statement": "When an advisor program must store course rules so it can draw conclusions later. The AI task is the storing of those rules, the correct result is knowledge representation.",
+        "answer": true,
+        "explanation": "Knowledge representation is the encoding of the rules in a form the program can reason over."
+      },
+      {
+        "statement": "When a tutor program keeps domain sentences and adds a new fact when a rule applies. Where are those sentences kept, the correct result is in the knowledge base.",
+        "answer": true,
+        "explanation": "A knowledge base is the store of sentences that inference reads and extends."
+      },
+      {
+        "statement": "When a program concludes that section B meets on Friday because of two stored sentences. What process produced that conclusion, the correct result is weight fitting on images.",
+        "answer": false,
+        "explanation": "Inference derives the new sentence from sentences already in the knowledge base."
+      },
+      {
+        "statement": "When a diagnostic program starts from observed symptoms and fires rules to reach a fault. The inference direction is that, the correct result is forward chaining.",
+        "answer": true,
+        "explanation": "Forward chaining begins with the known symptoms and works forward through the rules."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When an advisor starts from the goal 'can graduate' and searches for rules and transcript facts that support it. Which method is that, the correct result is breadth-first map search.",
+        "answer": false,
+        "explanation": "Backward chaining starts at the goal and looks for support, rather than firing every data rule."
+      },
+      {
+        "statement": "When a narrow program uses expert if-then rules and an inference engine to suggest why a plant is wilting. What kind of program is it, the correct result is a motor controller with no rules.",
+        "answer": false,
+        "explanation": "An expert system applies a domain knowledge base through an inference engine."
+      },
+      {
+        "statement": "When course concepts are drawn as nodes, with edges such as 'is a kind of' between them. The representation is that, the correct result is a semantic network.",
+        "answer": true,
+        "explanation": "A semantic network represents concepts as nodes and their relations as labeled links."
+      },
+      {
+        "statement": "When modelers formally list the types Student and Course and the relation 'enrolled in' before writing rules. In this case they writing, the correct result is an ontology.",
+        "answer": true,
+        "explanation": "An ontology specifies the domain's concepts and the relations allowed among them."
+      },
+      {
+        "statement": "When instead of writing every spam rule by hand, a program improves from messages already marked spam or not. Which subfield is that, the correct result is processor gate design.",
+        "answer": false,
+        "explanation": "Machine learning is the subfield in which performance improves from data or experience."
+      },
+      {
+        "statement": "When past students have recorded study hours and a known pass or fail result, and a model learns from those pairs. Which learning setting is that, the correct result is unsupervised learning.",
+        "answer": false,
+        "explanation": "Supervised learning uses examples that already contain the correct output label."
+      },
+      {
+        "statement": "When purchase records have no category labels, and a program groups similar shoppers anyway. The learning setting is that, the correct result is unsupervised learning.",
+        "answer": true,
+        "explanation": "Unsupervised learning finds structure in unlabeled inputs."
+      },
+      {
+        "statement": "When a model passes through every training point, including an obvious typo, and then misses new students. What has happened, the correct result is overfitting.",
+        "answer": true,
+        "explanation": "Overfitting matches training noise, such as the typo, and therefore fails to generalize."
+      },
+      {
+        "statement": "When a student fits a classifier on 800 labeled emails and saves 200 others for a later score. What are the 800 emails, the correct result is the final test set.",
+        "answer": false,
+        "explanation": "The training set is the collection of examples used to fit the model."
+      },
+      {
+        "statement": "When a spam filter was fit on last year's mail and correctly labels a message that arrived today. What ability is it showing, the correct result is generalization.",
+        "answer": true,
+        "explanation": "Generalization is successful performance on a new example that was not part of fitting."
+      }
+    ]
+  }
+}

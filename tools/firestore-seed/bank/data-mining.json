@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Data preprocessing",
+    "definition": "Cleaning, transforming, and organizing raw records so a mining algorithm can use them reliably.",
+    "wrongs": [
+      "Grouping unlabeled records so members of each group are more similar to each other.",
+      "Scoring a finished model only on rows that were held out from fitting.",
+      "Listing item pairs that co-occur above a minimum basket frequency."
+    ],
+    "why": "Models expect consistent, usable fields, so cleaning and transforming records is the preparation step before mining.",
+    "example": "A clinic rescales lab units and fills blank glucose cells before training a readmission model.",
+    "scenario": "A loan file mixes date formats, duplicate customers, and blank incomes. Which step should happen before any model is fit?",
+    "scenarioAnswer": "Preprocess the records",
+    "scenarioWrongs": ["Plot an ROC curve", "Prune a grown tree", "Compute silhouette scores"],
+    "scenarioWhy": "Inconsistent and incomplete fields have to be repaired and standardized before training can be trusted."
+  },
+  {
+    "term": "Classification",
+    "definition": "Predicting a discrete category for a new record from examples whose categories are already known.",
+    "wrongs": [
+      "Predicting a continuous number such as a sale price from labeled history.",
+      "Partitioning customers into similar groups when no group label exists.",
+      "Replacing each missing numeric cell with the median of its column."
+    ],
+    "why": "The target is a known class, and the model learns that class from labeled examples.",
+    "example": "A mailbox assigns each incoming message to spam or not spam using messages labeled last year.",
+    "scenario": "A hospital must mark new lab panels as diabetic or not diabetic using past panels that already have diagnoses. Which task is this?",
+    "scenarioAnswer": "Classification",
+    "scenarioWrongs": ["Clustering", "Association mining", "Feature discretization"],
+    "scenarioWhy": "The diagnosis is a discrete label already present on the training panels, so the task is classification."
+  },
+  {
+    "term": "Clustering",
+    "definition": "Dividing unlabeled records into groups whose members are more similar to each other than to other groups.",
+    "wrongs": [
+      "Assigning a predefined class to a record by using a labeled training set.",
+      "Counting correct and incorrect class predictions in a four-cell table.",
+      "Encoding each city name as its own binary column."
+    ],
+    "why": "No target label is supplied, so groups are formed from similarity alone.",
+    "example": "An online shop groups visitors by pages viewed without using any predefined segment names.",
+    "scenario": "A telecom has call records but no customer-segment labels and wants sets of similar subscribers. Which task fits?",
+    "scenarioAnswer": "Clustering",
+    "scenarioWrongs": ["Classification", "Holdout testing", "Rule confidence scoring"],
+    "scenarioWhy": "Similar subscribers must be grouped without a supplied label, which is clustering."
+  },
+  {
+    "term": "Association rule",
+    "definition": "An if-then pattern stating that when one itemset occurs, another tends to occur, with support and confidence.",
+    "wrongs": [
+      "A node test that sends records down branches until a leaf predicts a class.",
+      "A center point that each assigned record is closer to than to other centers.",
+      "A curve of catch rate versus false-alarm rate as a threshold moves."
+    ],
+    "why": "The pattern links a condition itemset to a result itemset and is accepted only when support and confidence are high enough.",
+    "example": "A grocer learns that baskets containing diapers also often contain baby wipes.",
+    "scenario": "A supermarket wants rules of the form if cereal is bought then milk is bought. Which pattern type is that?",
+    "scenarioAnswer": "An association rule",
+    "scenarioWrongs": ["A decision-tree leaf", "A cluster centroid", "A confusion-matrix cell"],
+    "scenarioWhy": "The requested if-then link between items in a basket is an association rule."
+  },
+  {
+    "term": "Decision tree",
+    "definition": "A classifier that tests one attribute at each internal node and assigns a class label at each leaf.",
+    "wrongs": [
+      "A set of centers updated by the mean of the points assigned to each center.",
+      "A table whose cells count actual classes against predicted classes.",
+      "A code that gives shorter bit strings to more frequent symbols."
+    ],
+    "why": "Each internal test routes a record, and the leaf that is reached supplies the predicted class.",
+    "example": "A credit model asks about income, then about missed payments, and a leaf predicts default or not.",
+    "scenario": "A student builds a model that asks yes-or-no questions about attributes and ends at a class label. Which model is that?",
+    "scenarioAnswer": "A decision tree",
+    "scenarioWrongs": ["k-means", "Apriori", "Principal component analysis"],
+    "scenarioWhy": "Sequential attribute tests that end in class leaves are the structure of a decision tree."
+  },
+  {
+    "term": "k-means",
+    "definition": "A clustering method that assigns each point to the nearest of k centers and updates those centers until they settle.",
+    "wrongs": [
+      "A classifier that copies the majority class among the k nearest labeled neighbors.",
+      "A tree grown by always splitting on the attribute with lowest impurity.",
+      "A miner that keeps itemsets only when every subset is frequent."
+    ],
+    "why": "The algorithm alternates nearest-center assignment and center updates, and k is chosen before the run.",
+    "example": "A carrier splits 20000 subscribers into 4 groups by minutes, data use, and monthly bill.",
+    "scenario": "An analyst must form exactly 5 unlabeled customer groups by minimizing distance to group centers. Which algorithm applies?",
+    "scenarioAnswer": "k-means",
+    "scenarioWrongs": ["k-nearest neighbors", "Naive Bayes", "Apriori"],
+    "scenarioWhy": "A chosen number of groups updated from nearest-center membership is k-means, not a labeled classifier."
+  },
+  {
+    "term": "Model evaluation",
+    "definition": "Judging how well a trained model predicts on records that were not used to fit it.",
+    "wrongs": [
+      "Filling empty fields and removing duplicate rows before any algorithm runs.",
+      "Merging two frequent itemsets into a longer candidate itemset.",
+      "Moving cluster centers to the mean of their currently assigned points."
+    ],
+    "why": "Performance on unseen records estimates generalization, which is the point of evaluating a mined model.",
+    "example": "A team fits a churn model on 2022 accounts and scores it on 2023 accounts.",
+    "scenario": "After fitting a donor model on last year's appeals, a charity checks predictions on this year's labeled appeals. What activity is that check?",
+    "scenarioAnswer": "Model evaluation",
+    "scenarioWrongs": ["Data cleaning", "Centroid initialization", "Itemset generation"],
+    "scenarioWhy": "Comparing predictions with labels on data kept out of fitting is model evaluation."
+  },
+  {
+    "term": "Overfitting",
+    "definition": "Matching training records, including their noise, so closely that accuracy falls on new records.",
+    "wrongs": [
+      "Using a model so simple that error stays high on both training and new records.",
+      "Holding out a single test slice and never training on it.",
+      "Stopping k-means when centers move less than a set distance."
+    ],
+    "why": "The model has memorized sample quirks, so the training fit does not carry over to new data.",
+    "example": "A deep tree labels every past student exam perfectly but misses many students in the next term.",
+    "scenario": "A fraud tree is perfect on the training month and much worse on the next month. Which problem occurred?",
+    "scenarioAnswer": "Overfitting",
+    "scenarioWrongs": ["Underfitting", "High bias only", "A pure test fold"],
+    "scenarioWhy": "Excellent training accuracy that collapses on later data is the usual sign of overfitting."
+  },
+  {
+    "term": "Confusion matrix",
+    "definition": "A table of counts for every pair of actual class and predicted class.",
+    "wrongs": [
+      "A ranked list of attributes ordered by information gain.",
+      "A plot of within-cluster distance against the number of clusters.",
+      "A list of store items sorted only by shelf price."
+    ],
+    "why": "Each cell records how often a particular true class received a particular predicted class.",
+    "example": "Of 50 diseased patients, 40 were flagged diseased and 10 were missed, and those counts sit in a class table.",
+    "scenario": "A grader wants the counts of true spam, missed spam, false alarms, and correct ham in one table. Which display is that?",
+    "scenarioAnswer": "A confusion matrix",
+    "scenarioWrongs": ["An ROC curve", "A dendrogram", "A support histogram"],
+    "scenarioWhy": "Those four counts are the cells of a two-class confusion matrix."
+  },
+  {
+    "term": "Feature selection",
+    "definition": "Choosing a subset of the original input attributes and dropping the rest to simplify or improve a model.",
+    "wrongs": [
+      "Building new attributes by combining every pair of original columns.",
+      "Labeling every row with the most common class in the whole file.",
+      "Storing each basket as a bitmap of every product in the catalog."
+    ],
+    "why": "Selection keeps some existing attributes and discards others rather than inventing new coordinates.",
+    "example": "A gene study keeps 30 markers out of 20000 measurements before building a tumor classifier.",
+    "scenario": "A text model starts with 100000 word counts and keeps only 2000 informative words. Which step is that?",
+    "scenarioAnswer": "Feature selection",
+    "scenarioWrongs": ["One-hot encoding", "Centroid update", "Rule generation"],
+    "scenarioWhy": "Keeping a subset of existing word attributes and dropping the rest is feature selection."
+  },
+  {
+    "term": "Cross-validation",
+    "definition": "Rotating which fold is tested so each record is used for testing in exactly one round.",
+    "wrongs": [
+      "Training once on every row and reporting accuracy on those same rows.",
+      "Sorting records by the label before taking a single cut.",
+      "Deleting every column that contains any missing value."
+    ],
+    "why": "Each fold takes a turn as the test set, so every record is tested once and trained on the rest.",
+    "example": "A 5-fold study trains on four fifths of the patients and rotates which fifth is held out.",
+    "scenario": "A small medical set must be tested fully, with each patient used for testing once. Which protocol fits?",
+    "scenarioAnswer": "k-fold cross-validation",
+    "scenarioWrongs": ["A single holdout split", "Training-set resubstitution", "Random oversampling"],
+    "scenarioWhy": "Rotating the test fold until every patient has been tested once is k-fold cross-validation."
+  },
+  {
+    "term": "Precision",
+    "definition": "The fraction of positive predictions that are actually positive.",
+    "wrongs": [
+      "The fraction of actual positives that the model successfully finds.",
+      "The fraction of all records that receive the correct label.",
+      "The average distance from points to their assigned center."
+    ],
+    "why": "Precision looks only at the predicted-positive set and asks how many of those predictions are right.",
+    "example": "A filter raises 20 spam alerts and 15 of them are truly spam, so precision is 15 out of 20.",
+    "scenario": "Of 25 fraud alerts, 20 are real fraud. Which metric is 20 divided by 25?",
+    "scenarioAnswer": "Precision",
+    "scenarioWrongs": ["Recall", "Support", "Lift"],
+    "scenarioWhy": "The denominator is the number of positive alerts, so the ratio is precision."
+  },
+  {
+    "term": "Recall",
+    "definition": "The fraction of actual positive records that the model correctly labels positive.",
+    "wrongs": [
+      "The fraction of predicted positives that truly are positive.",
+      "The share of itemsets whose confidence exceeds 1.",
+      "The number of centers that moved on the last k-means step."
+    ],
+    "why": "Recall uses the actual positives as the denominator and counts how many of them were caught.",
+    "example": "Among 40 real fraud cases, a detector flags 30, so recall is 30 out of 40.",
+    "scenario": "A screening test must find as many of the 80 true cases as possible. Which metric tracks that catch rate?",
+    "scenarioAnswer": "Recall",
+    "scenarioWrongs": ["Precision", "Confidence", "Gini impurity"],
+    "scenarioWhy": "Catching actual cases is recall, because the denominator is the set of true positives in the data."
+  },
+  {
+    "term": "F1 score",
+    "definition": "The harmonic mean of precision and recall.",
+    "wrongs": [
+      "The arithmetic mean of training accuracy and test accuracy.",
+      "The product of support and confidence for one rule.",
+      "The ratio of attributes kept to attributes discarded."
+    ],
+    "why": "The harmonic mean stays high only when both precision and recall are high, so neither error is ignored.",
+    "example": "A search team reports one number that falls if either relevant hits or found relevant pages become scarce.",
+    "scenario": "An editor needs a single score that is high only when precision and recall are both high. Which score is appropriate?",
+    "scenarioAnswer": "F1 score",
+    "scenarioWrongs": ["Accuracy alone", "Support", "Silhouette coefficient"],
+    "scenarioWhy": "The harmonic mean of precision and recall is the F1 score."
+  },
+  {
+    "term": "Support",
+    "definition": "The fraction of all transactions that contain a given itemset.",
+    "wrongs": [
+      "Among transactions with the antecedent, the fraction that also contain the consequent.",
+      "The depth of the deepest leaf in a classification tree.",
+      "The distance between two cluster centers."
+    ],
+    "why": "Support counts how often the itemset itself appears, divided by the number of transactions.",
+    "example": "In 1000 receipts, milk and bread occur together on 200 receipts.",
+    "scenario": "Milk and bread appear together on 200 of 1000 receipts. Which rule statistic is 200 divided by 1000?",
+    "scenarioAnswer": "Support",
+    "scenarioWrongs": ["Confidence", "Lift", "Information gain"],
+    "scenarioWhy": "The share of all receipts that contain the itemset is support."
+  },
+  {
+    "term": "Confidence",
+    "definition": "Among transactions that contain the antecedent, the fraction that also contain the consequent.",
+    "wrongs": [
+      "The fraction of all transactions that contain both the antecedent and the consequent.",
+      "The prior probability of the majority class in the whole training file.",
+      "The portion of variance captured by the first principal component."
+    ],
+    "why": "Confidence is a conditional share: it restricts attention to baskets that already contain the antecedent.",
+    "example": "Among receipts that include cereal, 7 in 10 also include milk.",
+    "scenario": "Whenever pasta is in a basket, sauce is also there 8 times out of 10. Which statistic is 8 out of 10?",
+    "scenarioAnswer": "Confidence",
+    "scenarioWrongs": ["Support", "Recall", "Entropy"],
+    "scenarioWhy": "The ratio is computed only among baskets that contain pasta, so it is confidence of the rule."
+  },
+  {
+    "term": "Lift",
+    "definition": "How many times more often the consequent occurs with the antecedent than it occurs by chance.",
+    "wrongs": [
+      "The raw count of transactions that contain an itemset.",
+      "The number of folds used when every record is tested once.",
+      "The margin width of a separating hyperplane."
+    ],
+    "why": "Lift divides the rule's confidence by the consequent's overall frequency, so 1 means no association beyond chance.",
+    "example": "Salsa appears with chips four times as often as salsa appears in a random receipt.",
+    "scenario": "A rule has confidence well above the overall rate of the consequent item. Which statistic shows that extra association?",
+    "scenarioAnswer": "Lift",
+    "scenarioWrongs": ["Support", "Precision", "Gini impurity"],
+    "scenarioWhy": "Comparing the conditional rate with the chance rate is what lift measures."
+  },
+  {
+    "term": "Entropy",
+    "definition": "A class-impurity measure that is zero for a pure node and largest when class shares are equal.",
+    "wrongs": [
+      "The count of blank cells in a single column.",
+      "The Euclidean distance from a point to the origin.",
+      "The percentage of association rules removed after mining."
+    ],
+    "why": "Entropy uses class proportions and reaches zero only when one class occupies the whole node.",
+    "example": "A node split half yes and half no is more mixed than a node that is entirely yes.",
+    "scenario": "A leaf contains only the class no. Which impurity measure should be zero for that leaf?",
+    "scenarioAnswer": "Entropy",
+    "scenarioWrongs": ["Support", "Lift", "Replication factor"],
+    "scenarioWhy": "A one-class node is pure, so its entropy is zero."
+  },
+  {
+    "term": "Information gain",
+    "definition": "The drop in entropy achieved by splitting a set of records on one chosen attribute.",
+    "wrongs": [
+      "The increase in cluster radius after one more point joins the cluster.",
+      "The ratio of test accuracy to training accuracy.",
+      "The support of the single most frequent item."
+    ],
+    "why": "Gain subtracts the weighted child entropy from the parent entropy, so a useful split yields a positive drop.",
+    "example": "Splitting customers on having a premium plan separates churners better than splitting them on shoe size.",
+    "scenario": "A tree builder compares candidate tests and keeps the one that reduces class impurity the most. Which quantity is being maximized?",
+    "scenarioAnswer": "Information gain",
+    "scenarioWrongs": ["Lift", "Silhouette coefficient", "Margin width"],
+    "scenarioWhy": "The impurity drop from a split is information gain."
+  },
+  {
+    "term": "Naive Bayes",
+    "definition": "A classifier that multiplies the class prior by feature likelihoods while assuming features are independent given the class.",
+    "wrongs": [
+      "A clusterer that merges the two closest groups at every step.",
+      "A tree that chooses every split by Gini impurity alone.",
+      "A miner that ranks rules by lift and ignores class labels."
+    ],
+    "why": "Bayes' rule supplies the class probability, and the naive step factors the joint likelihood into per-feature terms.",
+    "example": "A spam filter multiplies per-word probabilities and treats words as independent once the spam label is known.",
+    "scenario": "An email filter scores spam by a class prior times each word likelihood, assuming words are independent given the class. Which classifier is that?",
+    "scenarioAnswer": "Naive Bayes",
+    "scenarioWrongs": ["Support vector machine", "DBSCAN", "k-means"],
+    "scenarioWhy": "A prior times conditionally independent feature likelihoods is the naive Bayes calculation."
+  },
+  {
+    "term": "Support vector machine",
+    "definition": "A classifier that separates classes using the decision boundary with the widest margin.",
+    "wrongs": [
+      "A method that replaces missing numbers with the column median.",
+      "A bar chart of predicted probabilities on the training rows only.",
+      "An algorithm that grows a cluster outward from a dense core point."
+    ],
+    "why": "The optimal boundary maximizes the gap to the nearest points of each class, which are the support vectors.",
+    "example": "A lab model draws the widest street between two classes of tumor measurements in a plane.",
+    "scenario": "Two diagnosis classes are separable, and the chosen boundary maximizes the gap to the nearest cases. Which classifier is being used?",
+    "scenarioAnswer": "A support vector machine",
+    "scenarioWrongs": ["A median imputer", "DBSCAN", "An ROC plot"],
+    "scenarioWhy": "Maximizing the gap between classes is the maximum-margin idea of a support vector machine."
+  },
+  {
+    "term": "k-nearest neighbors",
+    "definition": "A classifier that labels a new point by the majority class of its k closest training points.",
+    "wrongs": [
+      "A method that maintains k centers and moves each center to its cluster mean.",
+      "A tree whose weak branches are removed after a validation check.",
+      "A score equal to the harmonic mean of precision and recall."
+    ],
+    "why": "The prediction is a vote of nearby labeled points, and no explicit boundary is stored during training.",
+    "example": "An unknown flower is labeled by the majority species among the three closest pressed samples.",
+    "scenario": "A new house is labeled by the majority sale outcome of the 5 closest labeled houses. Which method is that?",
+    "scenarioAnswer": "k-nearest neighbors",
+    "scenarioWrongs": ["k-means", "Apriori", "Principal component analysis"],
+    "scenarioWhy": "A majority vote of the nearest labeled neighbors is k-nearest neighbors."
+  },
+  {
+    "term": "Hierarchical clustering",
+    "definition": "Building a nested tree of clusters by repeatedly merging or splitting groups according to a linkage distance.",
+    "wrongs": [
+      "Assigning every point to one of k fixed centers and updating those centers.",
+      "Predicting a numeric bill with a straight-line equation.",
+      "Replacing category names with integers that pretend to have order."
+    ],
+    "why": "Each merge or split is kept, so the result is a hierarchy rather than one flat partition.",
+    "example": "A biologist repeatedly merges the closest species groups until one tree covers all of the animals.",
+    "scenario": "A taxonomist wants a dendrogram of species, merging the closest groups step by step. Which clustering style is that?",
+    "scenarioAnswer": "Hierarchical clustering",
+    "scenarioWrongs": ["k-means", "Naive Bayes", "Holdout evaluation"],
+    "scenarioWhy": "Successive merges recorded as a tree are hierarchical clustering."
+  },
+  {
+    "term": "DBSCAN",
+    "definition": "A density-based clusterer that grows clusters from core points and marks sparse points as noise.",
+    "wrongs": [
+      "A method that requires the user to choose k and represents each cluster by its mean.",
+      "A supervised model that outputs class probabilities from a prior and likelihoods.",
+      "A table used only to derive precision and recall."
+    ],
+    "why": "Membership follows density reachability from core points, so arbitrary shapes and noise points are allowed.",
+    "example": "A city map of crashes forms dense street clusters and leaves isolated rural crashes marked as noise.",
+    "scenario": "Accident points form irregular dense blobs, and isolated points should be called noise without choosing k. Which clusterer fits?",
+    "scenarioAnswer": "DBSCAN",
+    "scenarioWrongs": ["k-means", "A decision tree", "Apriori"],
+    "scenarioWhy": "Density reachability with noise points and no preset k is DBSCAN."
+  },
+  {
+    "term": "Silhouette coefficient",
+    "definition": "A score from -1 to 1 that is high when a point is much closer to its own cluster than to the next cluster.",
+    "wrongs": [
+      "The fraction of test records that received the correct class label.",
+      "The minimum support required to keep an itemset.",
+      "The count of attributes remaining after selection."
+    ],
+    "why": "The score compares a point's average distance inside its cluster with its average distance to the nearest other cluster.",
+    "example": "A shopper near the middle of one segment and far from the next segment receives a score close to 1.",
+    "scenario": "After clustering stores, an analyst wants a -1 to 1 score of how well each store sits in its own group. Which score is that?",
+    "scenarioAnswer": "Silhouette coefficient",
+    "scenarioWrongs": ["Accuracy", "Support", "Information gain"],
+    "scenarioWhy": "A cohesion-versus-separation score on that range is the silhouette coefficient."
+  },
+  {
+    "term": "Training set",
+    "definition": "The labeled records used to fit a model's parameters or structure.",
+    "wrongs": [
+      "The records held aside solely to estimate final performance.",
+      "The unlabeled batch scored after the model is deployed.",
+      "The list of attributes removed as irrelevant."
+    ],
+    "why": "Fitting uses these records to set splits, weights, or probabilities before any final test.",
+    "example": "Eight thousand labeled product reviews are used to fit a sentiment classifier.",
+    "scenario": "A model adjusts its splits using 7000 labeled tickets and does not use the other 3000 for fitting. What are the 7000 tickets called?",
+    "scenarioAnswer": "The training set",
+    "scenarioWrongs": ["The test set", "The item catalog", "The centroid list"],
+    "scenarioWhy": "Records used to fit the model are the training set."
+  },
+  {
+    "term": "Test set",
+    "definition": "Labeled records withheld from training and used to estimate performance on new data.",
+    "wrongs": [
+      "The records whose errors are used to update the model during fitting.",
+      "The product list used to count how often an item is bought.",
+      "The centers produced by the first k-means iteration."
+    ],
+    "why": "Because the model never fit these labels, their errors estimate generalization.",
+    "example": "Two thousand labeled reviews that were never used in fitting provide the published accuracy.",
+    "scenario": "A team freezes a model, then scores it once on 1500 labeled customers never seen in fitting. What is that group of customers?",
+    "scenarioAnswer": "The test set",
+    "scenarioWrongs": ["The training set", "A frequent itemset", "The validation fold used to grow the tree"],
+    "scenarioWhy": "Labeled rows withheld from fitting and used for a performance estimate form the test set."
+  },
+  {
+    "term": "Holdout method",
+    "definition": "A single split of labeled data into a training portion and a separate test portion.",
+    "wrongs": [
+      "Several rotated splits in which every record is tested exactly once.",
+      "A bootstrap sample drawn with replacement to train each tree in a forest.",
+      "A projection of all columns onto two variance-maximizing axes."
+    ],
+    "why": "Holdout performs one partition into train and test rather than rotating several folds.",
+    "example": "A class randomly assigns 70 percent of rows to training and 30 percent to testing one time.",
+    "scenario": "Students split a labeled file once into 80 percent for fitting and 20 percent for a final score. Which protocol is that?",
+    "scenarioAnswer": "Holdout",
+    "scenarioWrongs": ["5-fold cross-validation", "Bootstrap aggregation", "Principal component analysis"],
+    "scenarioWhy": "One train-test cut, without rotating folds, is the holdout method."
+  },
+  {
+    "term": "Min-max normalization",
+    "definition": "Scaling a numeric attribute into a fixed range, often 0 to 1, using its minimum and maximum.",
+    "wrongs": [
+      "Subtracting the mean and dividing by the standard deviation.",
+      "Replacing each category with several orthogonal binary columns.",
+      "Cutting a continuous attribute into equal-width bins."
+    ],
+    "why": "The minimum maps to the low end of the range and the maximum maps to the high end, with values scaled linearly between them.",
+    "example": "Ages from 0 to 100 are mapped onto 0 to 1 before a distance-based classifier runs.",
+    "scenario": "Income must be mapped onto 0 to 1 using the smallest and largest incomes in the column. Which scaling is that?",
+    "scenarioAnswer": "Min-max normalization",
+    "scenarioWrongs": ["Z-score standardization", "One-hot encoding", "Equal-width binning"],
+    "scenarioWhy": "Using the column minimum and maximum to reach a fixed range is min-max normalization."
+  },
+  {
+    "term": "Z-score standardization",
+    "definition": "Rescaling a numeric attribute so that its mean is 0 and its standard deviation is 1.",
+    "wrongs": [
+      "Mapping every value linearly onto 0 to 1 using the minimum and maximum.",
+      "Replacing extreme points with the nearest boxplot whisker.",
+      "Splitting a date into separate year, month, and day columns."
+    ],
+    "why": "Subtracting the mean centers the column at 0, and dividing by the standard deviation sets the spread to 1.",
+    "example": "Household incomes are recentered and rescaled until the column has mean 0 and standard deviation 1.",
+    "scenario": "A distance model needs each numeric column to have mean 0 and standard deviation 1. Which transform applies?",
+    "scenarioAnswer": "Z-score standardization",
+    "scenarioWrongs": ["Min-max normalization", "Discretization", "One-hot encoding"],
+    "scenarioWhy": "Centering by the mean and scaling by the standard deviation produces z-scores."
+  },
+  {
+    "term": "Missing value imputation",
+    "definition": "Filling absent entries with estimated values such as a mean, median, mode, or model prediction.",
+    "wrongs": [
+      "Deleting every column that stores any numeric measurement.",
+      "Assigning a random class label to rows that already have labels.",
+      "Sorting the file so blank cells fall at the bottom and then ignoring them in reports only."
+    ],
+    "why": "Imputation puts a substitute value into an empty cell so the row can remain in the analysis.",
+    "example": "Blank salary cells in a hiring file are replaced with the median salary of that column.",
+    "scenario": "A census column is missing on some forms, and those cells are replaced by the column median. Which operation is that?",
+    "scenarioAnswer": "Imputation",
+    "scenarioWrongs": ["Feature selection", "Pruning", "Shuffling"],
+    "scenarioWhy": "Substituting an estimate for an absent entry is imputation."
+  },
+  {
+    "term": "Outlier",
+    "definition": "A record whose values lie unusually far from the bulk of the data and may distort a model.",
+    "wrongs": [
+      "The most frequent class in a labeled training set.",
+      "A leaf that contains exactly one training record of the majority class.",
+      "An item that appears in every transaction in the log."
+    ],
+    "why": "The record is extreme relative to the rest of the sample, so means, distances, or splits can be pulled toward it.",
+    "example": "One invoice of 900000 dollars sits far above a column whose typical bill is near 40 dollars.",
+    "scenario": "Among apartment rents clustered near 1200 dollars, one recorded rent is 25 million dollars. What is that record called?",
+    "scenarioAnswer": "An outlier",
+    "scenarioWrongs": ["A mode", "A pure leaf", "A frequent item"],
+    "scenarioWhy": "A value that far from the bulk of the rents is an outlier."
+  },
+  {
+    "term": "Discretization",
+    "definition": "Converting a continuous attribute into a small number of ordered bins or intervals.",
+    "wrongs": [
+      "Scaling a column to mean 0 and standard deviation 1.",
+      "Expanding one category into several binary indicator columns.",
+      "Dropping attributes whose correlation with the label is high."
+    ],
+    "why": "Each numeric value is replaced by the interval that contains it, so the attribute becomes categorical and ordered.",
+    "example": "Age is placed into child, teen, adult, and senior bins before association rules are mined.",
+    "scenario": "A rule miner needs age as young, mid, or senior rather than as a raw number of years. Which transform is required?",
+    "scenarioAnswer": "Discretization",
+    "scenarioWrongs": ["Z-score standardization", "One-hot encoding", "Feature selection"],
+    "scenarioWhy": "Replacing a continuous age with ordered intervals is discretization."
+  },
+  {
+    "term": "One-hot encoding",
+    "definition": "Representing a categorical attribute as binary columns, one per category, with a single 1 in the active column.",
+    "wrongs": [
+      "Replacing each category by an integer rank from 1 through the number of levels.",
+      "Splitting a numeric column at its median into two bins.",
+      "Hashing every text field into one shared numeric identifier."
+    ],
+    "why": "Each category gets its own column, so the coding does not invent a false numeric order among categories.",
+    "example": "A color field with values red, green, and blue becomes three yes-or-no columns.",
+    "scenario": "City names must enter a distance model without implying that one city code is greater than another. Which encoding avoids that false order?",
+    "scenarioAnswer": "One-hot encoding",
+    "scenarioWrongs": ["Integer rank coding", "Min-max scaling", "Equal-frequency binning"],
+    "scenarioWhy": "Separate binary columns do not place the cities on a numeric scale."
+  },
+  {
+    "term": "Dimensionality reduction",
+    "definition": "Representing records with fewer attributes while keeping as much useful structure as possible.",
+    "wrongs": [
+      "Adding an interaction column for every pair of original attributes.",
+      "Copying minority-class rows until the class counts match.",
+      "Growing a tree until every training leaf is pure."
+    ],
+    "why": "The transformed records use fewer coordinates, but the kept coordinates are chosen to preserve variation or class structure.",
+    "example": "Face photos of 10000 pixels are represented with 50 components before clustering identities.",
+    "scenario": "A spreadsheet of 500 correlated sensor channels must be analyzed with far fewer columns. Which goal is that?",
+    "scenarioAnswer": "Dimensionality reduction",
+    "scenarioWrongs": ["Oversampling", "Tree deepening", "Interaction expansion"],
+    "scenarioWhy": "Replacing many channels with a smaller set of informative coordinates reduces dimension."
+  },
+  {
+    "term": "Principal component analysis",
+    "definition": "An unsupervised transform that builds uncorrelated axes ordered by how much variance they capture.",
+    "wrongs": [
+      "A supervised ranking of attributes by chi-square association with the class label.",
+      "A clustering step that sets k equal to the number of known classes.",
+      "A filter that keeps only association rules whose lift is above 1."
+    ],
+    "why": "Each next component is orthogonal to the earlier ones and captures as much remaining variance as possible.",
+    "example": "Answers to 40 correlated survey items are rotated into uncorrelated axes ordered by captured variance.",
+    "scenario": "A scientist wants new uncorrelated coordinates that successively capture the most variance, with no class label used. Which method applies?",
+    "scenarioAnswer": "Principal component analysis",
+    "scenarioWrongs": ["Chi-square feature ranking", "k-means", "Lift filtering"],
+    "scenarioWhy": "Unsupervised variance-ordered orthogonal axes are principal components."
+  },
+  {
+    "term": "Underfitting",
+    "definition": "Using a model too weak to capture the real pattern, so error stays high on both training and new data.",
+    "wrongs": [
+      "Memorizing training quirks so that new records are predicted poorly.",
+      "Building a tree whose every leaf contains only one class.",
+      "Obtaining a clustering whose silhouette scores are close to 1."
+    ],
+    "why": "The model class cannot represent the signal, so even the training error remains large.",
+    "example": "A classifier that always predicts the majority class misses the real pattern on both the fit data and later data.",
+    "scenario": "Both training error and test error stay near the majority-class baseline for a very shallow model. Which problem is present?",
+    "scenarioAnswer": "Underfitting",
+    "scenarioWrongs": ["Overfitting", "Perfect separation", "A high silhouette"],
+    "scenarioWhy": "High error on the training data as well as on new data indicates underfitting."
+  },
+  {
+    "term": "Bias-variance tradeoff",
+    "definition": "The balance between a model's systematic error and its sensitivity to the particular training sample.",
+    "wrongs": [
+      "The choice between precision and recall when the positive class is rare.",
+      "The gap between support and confidence of one association rule.",
+      "The choice between Euclidean distance and Manhattan distance."
+    ],
+    "why": "Simpler models tend to have higher bias and lower variance, while more flexible models do the reverse.",
+    "example": "A very deep tree changes wildly when the training sample changes, while a one-level stump stays stable but crude.",
+    "scenario": "Making a model more flexible cuts systematic error but makes predictions jump when the training sample changes. Which tradeoff is that?",
+    "scenarioAnswer": "Bias versus variance",
+    "scenarioWrongs": ["Precision versus recall", "Support versus confidence", "Euclidean versus Manhattan"],
+    "scenarioWhy": "Systematic error is bias and sample sensitivity is variance, so the described balance is that tradeoff."
+  },
+  {
+    "term": "ROC curve",
+    "definition": "A plot of true-positive rate against false-positive rate as the decision threshold changes.",
+    "wrongs": [
+      "A plot of training loss against the number of passes through the training file.",
+      "A bar chart of how many records belong to each class in the raw file.",
+      "A tree diagram of merge distances from hierarchical clustering."
+    ],
+    "why": "Each threshold gives one true-positive rate and one false-positive rate, and those pairs trace the curve.",
+    "example": "Lowering an alert cutoff traces how the catch rate rises together with the false-alarm rate.",
+    "scenario": "A bank plots catch rate against false-alarm rate while sliding the fraud score cutoff. Which plot is produced?",
+    "scenarioAnswer": "An ROC curve",
+    "scenarioWrongs": ["A learning curve", "A class histogram", "A dendrogram"],
+    "scenarioWhy": "True-positive rate versus false-positive rate across thresholds is an ROC curve."
+  },
+  {
+    "term": "AUC",
+    "definition": "The area under the ROC curve, summarizing ranking quality across all decision thresholds.",
+    "wrongs": [
+      "The accuracy obtained at one chosen probability cutoff.",
+      "The height of the tallest bar in a class-count histogram.",
+      "The number of true negatives in one confusion matrix."
+    ],
+    "why": "Integrating the ROC curve rewards a model that ranks positives above negatives across thresholds, not at one cutoff.",
+    "example": "Two churn models are compared by the area under their ROC curves rather than by one operating point.",
+    "scenario": "A clinic wants one number for a score's ranking quality over every cutoff, not accuracy at a single cutoff. Which number fits?",
+    "scenarioAnswer": "AUC",
+    "scenarioWrongs": ["Accuracy at 0.5", "The tallest histogram bar", "The true-negative count"],
+    "scenarioWhy": "Area under the ROC curve summarizes performance across all thresholds."
+  },
+  {
+    "term": "True positive",
+    "definition": "An actual positive record that the classifier also predicts as positive.",
+    "wrongs": [
+      "An actual negative record that the classifier predicts as positive.",
+      "An actual positive record that the classifier predicts as negative.",
+      "An actual negative record that the classifier predicts as negative."
+    ],
+    "why": "Both the true label and the predicted label are positive, so the prediction is a hit on a positive case.",
+    "example": "A biopsy that truly shows cancer is also marked cancer by the screening model.",
+    "scenario": "A message is spam and the filter also labels it spam. Which confusion-matrix outcome is that?",
+    "scenarioAnswer": "True positive",
+    "scenarioWrongs": ["False positive", "False negative", "True negative"],
+    "scenarioWhy": "A real positive that is predicted positive is a true positive."
+  },
+  {
+    "term": "Supervised learning",
+    "definition": "Learning a mapping from inputs to a known target by using examples that already include that target.",
+    "wrongs": [
+      "Searching for groups in records that were collected without a target label.",
+      "Discovering which products are bought together without using a class label.",
+      "Compressing attributes into fewer coordinates without predicting an output."
+    ],
+    "why": "The training examples include the target, so the learner can compare predictions with known answers.",
+    "example": "Sale prices already printed on past deeds are used to learn how features of a house relate to price.",
+    "scenario": "Historic loans include a default flag, and a model learns to predict that flag for new applicants. Which learning style is this?",
+    "scenarioAnswer": "Supervised learning",
+    "scenarioWrongs": ["Unsupervised learning", "Association mining", "Principal component analysis"],
+    "scenarioWhy": "The default flag is a known target on the training loans, so learning is supervised."
+  },
+  {
+    "term": "Unsupervised learning",
+    "definition": "Finding structure such as clusters or dense regions when no target label is given.",
+    "wrongs": [
+      "Fitting a classifier on examples whose class label is already known.",
+      "Estimating accuracy with a labeled holdout set.",
+      "Choosing the attribute split that most reduces class entropy."
+    ],
+    "why": "Without a target, the algorithm can only use similarities or densities among the inputs.",
+    "example": "Machine-sensor traces are grouped into operating regimes even though no failure label was recorded.",
+    "scenario": "Web logs have no topic labels, and an analyst groups sessions by similarity. Which learning style is that?",
+    "scenarioAnswer": "Unsupervised learning",
+    "scenarioWrongs": ["Supervised learning", "Holdout testing", "Information-gain splitting"],
+    "scenarioWhy": "Grouping inputs with no target label is unsupervised learning."
+  },
+  {
+    "term": "Apriori algorithm",
+    "definition": "A frequent-itemset method that extends a set only when every one of its subsets is already frequent.",
+    "wrongs": [
+      "A clustering loop that replaces each center with the mean of its assigned points.",
+      "A split rule that always chooses the attribute with the lowest Gini impurity.",
+      "A kernel method that maximizes the margin between two classes."
+    ],
+    "why": "If a subset is infrequent, every larger set containing it is infrequent, so those candidates are pruned.",
+    "example": "Candidate pairs are discarded as soon as either item alone falls below the minimum support.",
+    "scenario": "A retailer drops any pair whose individual items are already below minimum support, then builds longer sets only from frequent pieces. Which algorithm is that?",
+    "scenarioAnswer": "Apriori",
+    "scenarioWrongs": ["k-means", "CART", "A support vector machine"],
+    "scenarioWhy": "Pruning candidates by the frequent-subset property is the Apriori step."
+  },
+  {
+    "term": "Gini impurity",
+    "definition": "A split score that is zero for a pure node and higher when class proportions are more evenly mixed.",
+    "wrongs": [
+      "The fraction of transactions that contain a chosen itemset.",
+      "The width of the margin around a separating hyperplane.",
+      "The silhouette of one point's cluster assignment."
+    ],
+    "why": "Gini impurity is computed from class proportions and vanishes only when a single class fills the node.",
+    "example": "A node that is 90 percent one class has lower Gini impurity than a node split 50-50.",
+    "scenario": "A tree algorithm compares splits using an impurity that is zero in a pure node and based on squared class shares. Which impurity is that?",
+    "scenarioAnswer": "Gini impurity",
+    "scenarioWrongs": ["Support", "Margin width", "Silhouette"],
+    "scenarioWhy": "An impurity of zero for a pure node that uses class-share squares is Gini impurity."
+  },
+  {
+    "term": "Pruning",
+    "definition": "Removing branches from a grown tree so the tree overfits less and predicts new records better.",
+    "wrongs": [
+      "Adding attributes until every training leaf contains only one class.",
+      "Increasing k until every point is its own cluster.",
+      "Lowering minimum support until nearly every itemset is kept."
+    ],
+    "why": "Branches that fit training noise are cut, which usually lowers error on data the tree did not fit.",
+    "example": "Branches that fail to improve validation accuracy are cut from a fully grown admissions tree.",
+    "scenario": "A fully grown tree is perfect on training rows, so branches that hurt a validation set are removed. Which remedy is that?",
+    "scenarioAnswer": "Pruning",
+    "scenarioWrongs": ["Deepening the tree", "Raising k to the sample size", "Dropping minimum support to zero"],
+    "scenarioWhy": "Cutting branches that do not help unseen rows is pruning."
+  },
+  {
+    "term": "Ensemble method",
+    "definition": "Combining several models so their joint prediction is more stable than any one of the models.",
+    "wrongs": [
+      "Keeping only the single attribute with the highest correlation to the label.",
+      "Replacing the model with a prediction of the majority class for every row.",
+      "Stopping when training accuracy first reaches 100 percent."
+    ],
+    "why": "Errors that differ across members can cancel when the members vote or average their predictions.",
+    "example": "Five default models vote on each applicant, and the majority vote is the decision that is stored.",
+    "scenario": "A team averages the class probabilities of several different models instead of trusting one model. Which approach is that?",
+    "scenarioAnswer": "An ensemble",
+    "scenarioWrongs": ["Single-feature selection", "A majority-class baseline", "Training to zero training error"],
+    "scenarioWhy": "Combining several models' predictions is an ensemble method."
+  },
+  {
+    "term": "Random forest",
+    "definition": "An ensemble of decision trees, each trained on a bootstrap sample and a random subset of attributes at each split.",
+    "wrongs": [
+      "One unpruned tree that tests every attribute in order at the root.",
+      "A Bayes classifier that assumes features are independent given the class.",
+      "A density clusterer that requires a neighborhood radius and a core-point count."
+    ],
+    "why": "Bootstrap samples and random attribute subsets make the trees differ, and their votes form the forest prediction.",
+    "example": "One hundred trees each see a bootstrap of patients and a random handful of lab tests, then the trees vote.",
+    "scenario": "Many trees are grown on bootstrap samples with a random subset of features at each split, and they vote. Which model is that?",
+    "scenarioAnswer": "A random forest",
+    "scenarioWrongs": ["A single unpruned tree", "Naive Bayes", "DBSCAN"],
+    "scenarioWhy": "Bootstrap trees plus random feature subsets and a vote define a random forest."
+  },
+  {
+    "term": "Market basket analysis",
+    "definition": "Mining retail transactions to find items that customers tend to purchase together.",
+    "wrongs": [
+      "Forecasting tomorrow's total store revenue from a daily sales time series.",
+      "Grouping stores by floor area and number of employees.",
+      "Labeling product reviews as positive or negative sentiment."
+    ],
+    "why": "Each transaction is a basket, and the analysis looks for co-occurring items rather than a class label.",
+    "example": "A supermarket mines receipts and then places chips on the shelf beside salsa.",
+    "scenario": "A grocer wants product pairs that show up in the same receipt so the pairs can share an endcap. Which analysis is that?",
+    "scenarioAnswer": "Market basket analysis",
+    "scenarioWrongs": ["Revenue forecasting", "Store clustering", "Sentiment classification"],
+    "scenarioWhy": "Finding products bought in the same receipt is market basket analysis."
+  },
+  {
+    "term": "Data cleaning",
+    "definition": "Detecting and repairing errors, duplicates, and inconsistent codes in records before analysis.",
+    "wrongs": [
+      "Scoring a deployed model on live traffic that has no labels yet.",
+      "Drawing an ROC curve after the classifier has already been trained.",
+      "Choosing k from the elbow of a within-cluster distance plot."
+    ],
+    "why": "Cleaning fixes what is wrong or duplicated in the records themselves, before transforms or models run.",
+    "example": "Duplicate patient identifiers are merged, and impossible ages such as 400 are corrected.",
+    "scenario": "Two rows share one student id, and a birth year of 3021 appears in the file. Which task addresses both problems?",
+    "scenarioAnswer": "Data cleaning",
+    "scenarioWrongs": ["Live scoring", "ROC analysis", "Choosing k"],
+    "scenarioWhy": "Duplicate identifiers and impossible values are data errors, so the task is data cleaning."
+  }
+]

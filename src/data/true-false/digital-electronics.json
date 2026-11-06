@@ -1,0 +1,785 @@
+{
+  "subjectId": "digital-electronics",
+  "levels": {
+    "1": [
+      {
+        "statement": "an AND gate is a logic gate whose output is 1 only when every input is 1.",
+        "answer": true,
+        "explanation": "The AND operation is 1 only for the input combination in which all inputs are 1."
+      },
+      {
+        "statement": "an OR gate is a gate whose output is 0 when any input is 1.",
+        "answer": false,
+        "explanation": "OR is 0 only when every input is 0, so any 1 forces the output to 1."
+      },
+      {
+        "statement": "a NOT gate is a one-input gate whose output is the complement of its input.",
+        "answer": true,
+        "explanation": "Negation swaps 0 and 1, which is the inverter function."
+      },
+      {
+        "statement": "a NAND gate is 1.",
+        "answer": false,
+        "explanation": "NAND is the complement of AND, so the all-ones input is the only case with output 0."
+      },
+      {
+        "statement": "a NOR gate is a gate that performs OR and then complements the result, so the output is 1 only when every input is 0.",
+        "answer": true,
+        "explanation": "NOR is the complement of OR, so only the all-zero input produces a 1."
+      },
+      {
+        "statement": "an XOR gate is 2.",
+        "answer": false,
+        "explanation": "Exclusive OR excludes the case where both inputs are 1, so it is true only for differing inputs."
+      },
+      {
+        "statement": "an XNOR gate is a two-input gate whose output is 1 only when the inputs are the same.",
+        "answer": true,
+        "explanation": "XNOR is the complement of XOR, so matching inputs produce 1."
+      },
+      {
+        "statement": "a universal gate is a gate type that can build only XOR functions.",
+        "answer": false,
+        "explanation": "NAND alone, and NOR alone, can implement NOT, AND, and OR, and therefore any Boolean function."
+      },
+      {
+        "statement": "a truth table is a table that lists every input combination of a logic function and the output for each combination.",
+        "answer": true,
+        "explanation": "Two inputs have four rows, and each row states the output for that combination."
+      },
+      {
+        "statement": "A Boolean algebra is ordinary algebra of real numbers.",
+        "answer": false,
+        "explanation": "Switching functions obey identities such as idempotent, complement, and distributive laws on 0 and 1."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A De Morgan's law is the pair of identities that a complemented AND equals the OR of complements, and a complemented OR equals the AND of complements.",
+        "answer": true,
+        "explanation": "Breaking a bubble on an AND or OR gate swaps the operation and complements the inputs."
+      },
+      {
+        "statement": "a sum of products is a counter with one shared clock.",
+        "answer": false,
+        "explanation": "Each product term is an AND, and the function ORs those terms together."
+      },
+      {
+        "statement": "a product of sums is a Boolean form written as an AND of OR terms.",
+        "answer": true,
+        "explanation": "Each sum term is an OR, and the function ANDs those terms together."
+      },
+      {
+        "statement": "a Karnaugh map is a bistable circuit that stores one bit.",
+        "answer": false,
+        "explanation": "Neighboring cells differ by one variable, so a power-of-two group eliminates the changing variables."
+      },
+      {
+        "statement": "a don't-care condition is an input combination whose output may be treated as either 0 or 1 because it never occurs or does not matter.",
+        "answer": true,
+        "explanation": "Unused combinations can be assigned whichever value makes larger simplification groups."
+      },
+      {
+        "statement": "a combinational circuit is output depends on stored state.",
+        "answer": false,
+        "explanation": "With no memory elements, the same inputs always produce the same outputs."
+      },
+      {
+        "statement": "a sequential circuit is a logic circuit whose outputs depend on the present inputs and on state stored in memory elements.",
+        "answer": true,
+        "explanation": "Flip-flops or latches remember prior inputs, so the output can differ for the same present input."
+      },
+      {
+        "statement": "a half adder is 0,0.",
+        "answer": false,
+        "explanation": "The sum is the XOR of the two bits, and the carry is their AND."
+      },
+      {
+        "statement": "a full adder is a combinational circuit that adds two bits and a carry-in, and produces a sum and a carry-out.",
+        "answer": true,
+        "explanation": "The sum is the XOR of the three inputs, and the carry-out is the majority function of those inputs."
+      },
+      {
+        "statement": "a multiplexer is a circuit that turns a binary code into one active line.",
+        "answer": false,
+        "explanation": "The select inputs choose which data input is connected to the output."
+      }
+    ],
+    "3": [
+      {
+        "statement": "a demultiplexer is a combinational circuit that routes one data input to one of several outputs, chosen by select lines.",
+        "answer": true,
+        "explanation": "The select inputs choose which output receives the single data input."
+      },
+      {
+        "statement": "an encoder is 011.",
+        "answer": false,
+        "explanation": "If input line k is the active line, the encoder outputs the binary representation of k."
+      },
+      {
+        "statement": "a decoder is a combinational circuit that converts a binary code into one active output line.",
+        "answer": true,
+        "explanation": "An n-bit code can activate one of up to 2 to the power n output lines."
+      },
+      {
+        "statement": "a magnitude comparator is a plus B.",
+        "answer": false,
+        "explanation": "The outputs indicate the three relations greater-than, equal, and less-than."
+      },
+      {
+        "statement": "an SR latch is a bistable circuit that stores one bit and is set or reset by two inputs, with both inputs active disallowed.",
+        "answer": true,
+        "explanation": "Cross-coupled NOR or NAND gates hold a bit until a set or reset input changes it."
+      },
+      {
+        "statement": "a D flip-flop is an element that toggles when both J and K are 1.",
+        "answer": false,
+        "explanation": "The data input is sampled at the clock edge and then held until the next active edge."
+      },
+      {
+        "statement": "a JK flip-flop is a bistable element that can set, reset, hold, or toggle, and that toggles when J and K are both active.",
+        "answer": true,
+        "explanation": "J = 1 and K = 0 sets the flip-flop, J = 0 and K = 1 resets it, and J = K = 1 toggles it."
+      },
+      {
+        "statement": "a T flip-flop is q stays the same.",
+        "answer": false,
+        "explanation": "T stands for toggle: an active T changes Q on the clock event, and an inactive T leaves Q unchanged."
+      },
+      {
+        "statement": "An edge triggering is sampling of a flip-flop input only during a clock transition, not during the whole time the clock is active.",
+        "answer": true,
+        "explanation": "A rising-edge or falling-edge device ignores the data input except at that transition."
+      },
+      {
+        "statement": "A setup time is the clock's high duration.",
+        "answer": false,
+        "explanation": "The internal sampling nodes of a flip-flop need the data to be valid before the clock arrives."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A hold time is the minimum time that data must remain stable after the active clock edge for reliable capture.",
+        "answer": true,
+        "explanation": "After the clock edge, the flip-flop still needs a short interval before D is allowed to change."
+      },
+      {
+        "statement": "A propagation delay is the time data must remain stable after a clock edge.",
+        "answer": false,
+        "explanation": "Gates and flip-flops cannot respond instantly, so the output lags the input by a specified delay."
+      },
+      {
+        "statement": "a register is a group of flip-flops that stores a multi-bit value and shares a common clock.",
+        "answer": true,
+        "explanation": "Each flip-flop holds one bit, so n flip-flops hold an n-bit word."
+      },
+      {
+        "statement": "a shift register is a register that never moves bits.",
+        "answer": false,
+        "explanation": "Each clock moves every bit into the neighboring flip-flop, which builds serial-to-parallel conversion."
+      },
+      {
+        "statement": "a ripple counter is an asynchronous counter in which each flip-flop is clocked by the output of the previous stage.",
+        "answer": true,
+        "explanation": "The clock ripples from stage to stage, so the outputs do not all change at the same instant."
+      },
+      {
+        "statement": "a synchronous counter is a momentary false pulse.",
+        "answer": false,
+        "explanation": "A common clock removes the accumulated ripple delay between stages."
+      },
+      {
+        "statement": "a modulo counter is a counter that returns to its starting state after a fixed number of distinct states.",
+        "answer": true,
+        "explanation": "A modulo-n counter has n states, so a decade counter has modulus 10."
+      },
+      {
+        "statement": "A TTL is a current-steering family known for very small voltage swings.",
+        "answer": false,
+        "explanation": "Classic transistor-transistor logic uses bipolar transistors and a multi-emitter input stage."
+      },
+      {
+        "statement": "A CMOS is a logic family that uses complementary n-channel and p-channel MOSFETs and draws almost no static current.",
+        "answer": true,
+        "explanation": "In a static CMOS gate, one of the complementary networks is off, so almost no current flows from supply to ground."
+      },
+      {
+        "statement": "A fan-out is how much noise voltage is allowed.",
+        "answer": false,
+        "explanation": "Each added input draws current or capacitance, and too many inputs pull the output out of its valid voltage range."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A noise margin is the largest noise voltage that can be added to a valid logic level and still be interpreted correctly.",
+        "answer": true,
+        "explanation": "The gap between a guaranteed output level and the required input threshold is the noise margin."
+      },
+      {
+        "statement": "a clock signal is it is an unused truth-table entry.",
+        "answer": false,
+        "explanation": "Edge-triggered flip-flops change state in step with the active edge of this waveform."
+      },
+      {
+        "statement": "a static hazard is a momentary false pulse on an output that should have stayed constant when a single input changes.",
+        "answer": true,
+        "explanation": "Unequal gate delays can briefly break a covering term before another term turns on."
+      },
+      {
+        "statement": "a race-around condition is a setup-time violation on an edge-triggered D flip-flop.",
+        "answer": false,
+        "explanation": "While the clock level remains enabling, the toggled output feeds back and toggles again if the pulse is longer than the delay."
+      },
+      {
+        "statement": "A Gray code is a binary code in which two successive values differ in exactly one bit.",
+        "answer": true,
+        "explanation": "Changing only one bit between counts avoids false intermediate codes on mechanical or asynchronous sensors."
+      },
+      {
+        "statement": "a parity bit is 0.",
+        "answer": false,
+        "explanation": "A single flipped bit changes the parity, so the receiver can detect that one-bit error."
+      },
+      {
+        "statement": "a programmable logic array is a device with a programmable AND array and a programmable OR array used to realize sum-of-products functions.",
+        "answer": true,
+        "explanation": "Both the product terms and the sums that use them can be programmed in a PLA."
+      },
+      {
+        "statement": "a timing diagram is a package pin drawing.",
+        "answer": false,
+        "explanation": "Designers read setup, hold, and propagation relationships from waveforms drawn versus time."
+      },
+      {
+        "statement": "a tri-state output is an output that can drive 0, drive 1, or disconnect into a high-impedance state.",
+        "answer": true,
+        "explanation": "The high-impedance state lets several devices share a bus without fighting."
+      },
+      {
+        "statement": "a Boolean variable is a variable that stores a 32-bit floating-point value.",
+        "answer": false,
+        "explanation": "Switching algebra assigns each variable one of two values, matching a digital signal."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a gate whose output is the opposite of its single input is called an AND gate.",
+        "answer": false,
+        "explanation": "The AND operation is 1 only for the input combination in which all inputs are 1."
+      },
+      {
+        "statement": "A hallway lamp lights if either the north switch or the south switch is closed.",
+        "answer": true,
+        "explanation": "OR is 0 only when every input is 0, so any 1 forces the output to 1."
+      },
+      {
+        "statement": "In standard textbooks, 1 is called a NOT gate.",
+        "answer": false,
+        "explanation": "Negation swaps 0 and 1, which is the inverter function."
+      },
+      {
+        "statement": "A warning LED stays lit unless two enable switches are both on, in which case the LED goes dark.",
+        "answer": true,
+        "explanation": "NAND is the complement of AND, so the all-ones input is the only case with output 0."
+      },
+      {
+        "statement": "In standard textbooks, 2 is called a NOR gate.",
+        "answer": false,
+        "explanation": "NOR is the complement of OR, so only the all-zero input produces a 1."
+      },
+      {
+        "statement": "A comparator lamp lights when two sensor bits disagree and stays dark when they match.",
+        "answer": true,
+        "explanation": "Exclusive OR excludes the case where both inputs are 1, so it is true only for differing inputs."
+      },
+      {
+        "statement": "In standard textbooks, a gate whose output is 1 when at least one input is 1 is called an XNOR gate.",
+        "answer": false,
+        "explanation": "XNOR is the complement of XOR, so matching inputs produce 1."
+      },
+      {
+        "statement": "A lab stocked only with NAND chips still builds an inverter, an AND, and a full adder.",
+        "answer": true,
+        "explanation": "NAND alone, and NOR alone, can implement NOT, AND, and OR, and therefore any Boolean function."
+      },
+      {
+        "statement": "In standard textbooks, a simplification grid is called a truth table.",
+        "answer": false,
+        "explanation": "Two inputs have four rows, and each row states the output for that combination."
+      },
+      {
+        "statement": "A designer replaces A OR (A AND B) with A by applying an absorption identity before drawing the gates.",
+        "answer": true,
+        "explanation": "Switching functions obey identities such as idempotent, complement, and distributive laws on 0 and 1."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a AND B is called De Morgan's law.",
+        "answer": false,
+        "explanation": "Breaking a bubble on an AND or OR gate swaps the operation and complements the inputs."
+      },
+      {
+        "statement": "The expression A·B + A·C is drawn as two AND gates feeding one OR gate.",
+        "answer": true,
+        "explanation": "Each product term is an AND, and the function ORs those terms together."
+      },
+      {
+        "statement": "In standard textbooks, a code in which successive values differ by one bit is called a product of sums.",
+        "answer": false,
+        "explanation": "Each sum term is an OR, and the function ANDs those terms together."
+      },
+      {
+        "statement": "On a 4-variable grid, a designer circles a block of four adjacent 1s and drops two literals from that term.",
+        "answer": true,
+        "explanation": "Neighboring cells differ by one variable, so a power-of-two group eliminates the changing variables."
+      },
+      {
+        "statement": "In standard textbooks, only as 0 is called a don't-care condition.",
+        "answer": false,
+        "explanation": "Unused combinations can be assigned whichever value makes larger simplification groups."
+      },
+      {
+        "statement": "A decoder built only from gates drives one of eight lamps, and the lamps depend only on the three input bits right now.",
+        "answer": true,
+        "explanation": "With no memory elements, the same inputs always produce the same outputs."
+      },
+      {
+        "statement": "In standard textbooks, a table with no clock is called a sequential circuit.",
+        "answer": false,
+        "explanation": "Flip-flops or latches remember prior inputs, so the output can differ for the same present input."
+      },
+      {
+        "statement": "Adding the bits 1 and 1 in a two-input adder block yields sum 0 and carry 1.",
+        "answer": true,
+        "explanation": "The sum is the XOR of the two bits, and the carry is their AND."
+      },
+      {
+        "statement": "In standard textbooks, a circuit that only compares two numbers is called a full adder.",
+        "answer": false,
+        "explanation": "The sum is the XOR of the three inputs, and the carry-out is the majority function of those inputs."
+      },
+      {
+        "statement": "A four-input data selector uses two select switches to pass exactly one of four sensor signals onward.",
+        "answer": true,
+        "explanation": "The select inputs choose which data input is connected to the output."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, 8 is called a demultiplexer.",
+        "answer": false,
+        "explanation": "The select inputs choose which output receives the single data input."
+      },
+      {
+        "statement": "When only input line 5 of an 8-line encoder is active, the outputs show the binary value 101.",
+        "answer": true,
+        "explanation": "If input line k is the active line, the encoder outputs the binary representation of k."
+      },
+      {
+        "statement": "In standard textbooks, 7 is called a decoder.",
+        "answer": false,
+        "explanation": "An n-bit code can activate one of up to 2 to the power n output lines."
+      },
+      {
+        "statement": "Comparing 1010 with 1001 raises the greater-than output and leaves equal and less-than inactive.",
+        "answer": true,
+        "explanation": "The outputs indicate the three relations greater-than, equal, and less-than."
+      },
+      {
+        "statement": "In standard textbooks, a gate network with no storage is called an SR latch.",
+        "answer": false,
+        "explanation": "Cross-coupled NOR or NAND gates hold a bit until a set or reset input changes it."
+      },
+      {
+        "statement": "On the rising clock edge, a register bit changes from 0 to 1 because its D pin was 1 just before that edge.",
+        "answer": true,
+        "explanation": "The data input is sampled at the clock edge and then held until the next active edge."
+      },
+      {
+        "statement": "In standard textbooks, it holds Q is called a JK flip-flop.",
+        "answer": false,
+        "explanation": "J = 1 and K = 0 sets the flip-flop, J = 0 and K = 1 resets it, and J = K = 1 toggles it."
+      },
+      {
+        "statement": "A divide-by-two stage uses a toggle flip-flop with T tied to 1, so Q flips on every clock.",
+        "answer": true,
+        "explanation": "T stands for toggle: an active T changes Q on the clock event, and an inactive T leaves Q unchanged."
+      },
+      {
+        "statement": "In standard textbooks, stability required after the edge is called edge triggering.",
+        "answer": false,
+        "explanation": "A rising-edge or falling-edge device ignores the data input except at that transition."
+      },
+      {
+        "statement": "A datasheet requires D to be steady for 5 ns before the rising clock, or the captured bit may be wrong.",
+        "answer": true,
+        "explanation": "The internal sampling nodes of a flip-flop need the data to be valid before the clock arrives."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, the number of gate inputs one output can drive is called hold time.",
+        "answer": false,
+        "explanation": "After the clock edge, the flip-flop still needs a short interval before D is allowed to change."
+      },
+      {
+        "statement": "A gate input switches at time zero, and the output crosses its valid level 8 ns later.",
+        "answer": true,
+        "explanation": "Gates and flip-flops cannot respond instantly, so the output lags the input by a specified delay."
+      },
+      {
+        "statement": "In standard textbooks, a single AND gate is called a register.",
+        "answer": false,
+        "explanation": "Each flip-flop holds one bit, so n flip-flops hold an n-bit word."
+      },
+      {
+        "statement": "A four-bit serial input 1101 enters one pin, and after four clocks the four flip-flops hold 1101.",
+        "answer": true,
+        "explanation": "Each clock moves every bit into the neighboring flip-flop, which builds serial-to-parallel conversion."
+      },
+      {
+        "statement": "In standard textbooks, a memoryless comparator is called a ripple counter.",
+        "answer": false,
+        "explanation": "The clock ripples from stage to stage, so the outputs do not all change at the same instant."
+      },
+      {
+        "statement": "All three flip-flops of a binary up counter share one clock pin, and combinational logic forms the next state.",
+        "answer": true,
+        "explanation": "A common clock removes the accumulated ripple delay between stages."
+      },
+      {
+        "statement": "In standard textbooks, a decoder with a fixed number of outputs but no state is called a modulo counter.",
+        "answer": false,
+        "explanation": "A modulo-n counter has n states, so a decade counter has modulus 10."
+      },
+      {
+        "statement": "A 7400 package contains four bipolar NAND gates and is powered near 5 V.",
+        "answer": true,
+        "explanation": "Classic transistor-transistor logic uses bipolar transistors and a multi-emitter input stage."
+      },
+      {
+        "statement": "In standard textbooks, bipolar 74-series logic is called CMOS.",
+        "answer": false,
+        "explanation": "In a static CMOS gate, one of the complementary networks is off, so almost no current flows from supply to ground."
+      },
+      {
+        "statement": "A datasheet allows one output to drive ten inputs of the same family, and an eleventh input would violate the voltage levels.",
+        "answer": true,
+        "explanation": "Each added input draws current or capacitance, and too many inputs pull the output out of its valid voltage range."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, 7.9 is called noise margin.",
+        "answer": false,
+        "explanation": "The gap between a guaranteed output level and the required input threshold is the noise margin."
+      },
+      {
+        "statement": "A square wave at 10 MHz is wired to every flip-flop clock pin on a counter board.",
+        "answer": true,
+        "explanation": "Edge-triggered flip-flops change state in step with the active edge of this waveform."
+      },
+      {
+        "statement": "In standard textbooks, a missing power connection is called a static hazard.",
+        "answer": false,
+        "explanation": "Unequal gate delays can briefly break a covering term before another term turns on."
+      },
+      {
+        "statement": "A level-sensitive JK with J = K = 1 flips several times during one long clock-high pulse.",
+        "answer": true,
+        "explanation": "While the clock level remains enabling, the toggled output feeds back and toggles again if the pulse is longer than the delay."
+      },
+      {
+        "statement": "In standard textbooks, 10 is called Gray code.",
+        "answer": false,
+        "explanation": "Changing only one bit between counts avoids false intermediate codes on mechanical or asynchronous sensors."
+      },
+      {
+        "statement": "The data 1011 has three 1s, so an even-parity extra bit of 1 makes the total number of 1s even.",
+        "answer": true,
+        "explanation": "A single flipped bit changes the parity, so the receiver can detect that one-bit error."
+      },
+      {
+        "statement": "In standard textbooks, lookup tables with programmable routing is called a programmable logic array.",
+        "answer": false,
+        "explanation": "Both the product terms and the sums that use them can be programmed in a PLA."
+      },
+      {
+        "statement": "A lab sheet draws the clock, D, and Q, showing Q changing 3 ns after the rising clock edge.",
+        "answer": true,
+        "explanation": "Designers read setup, hold, and propagation relationships from waveforms drawn versus time."
+      },
+      {
+        "statement": "In standard textbooks, an output that drives only analog voltages is called a tri-state output.",
+        "answer": false,
+        "explanation": "The high-impedance state lets several devices share a bus without fighting."
+      },
+      {
+        "statement": "In the expression A + B, the letter A stands for a signal that is either low or high.",
+        "answer": true,
+        "explanation": "Switching algebra assigns each variable one of two values, matching a digital signal."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a two-input gate receives 1 and 0. Its output is 1 only if both inputs are 1. State the output, the correct result is 1.",
+        "answer": false,
+        "explanation": "Because one input is 0, an AND of 1 and 0 is 0."
+      },
+      {
+        "statement": "When a two-input gate outputs 1 when either input is 1. Both inputs are 0. State the output, the correct result is hi-Z.",
+        "answer": false,
+        "explanation": "OR is 1 only when at least one input is 1, so two zeros produce 0."
+      },
+      {
+        "statement": "An inverter receives a 1 on its only input. State the output. The correct outcome is 0.",
+        "answer": true,
+        "explanation": "An inverter complements its input, so an input of 1 produces 0."
+      },
+      {
+        "statement": "A two-input NAND gate receives 1 and 1. State the output. The correct outcome is 0.",
+        "answer": true,
+        "explanation": "NAND of 1 and 1 is the complement of 1, which is 0."
+      },
+      {
+        "statement": "When a two-input NOR gate receives 0 and 0. State the output, the correct result is hi-Z.",
+        "answer": false,
+        "explanation": "NOR is 1 only when every input is 0."
+      },
+      {
+        "statement": "When a two-input XOR gate receives 1 and 1. State the output, the correct result is 2.",
+        "answer": false,
+        "explanation": "XOR is 1 only when the inputs differ, and 1 with 1 is not a difference."
+      },
+      {
+        "statement": "A two-input XNOR gate receives 1 and 0. State the output. The correct outcome is 0.",
+        "answer": true,
+        "explanation": "XNOR is 1 only when both inputs match, and 1 and 0 do not match."
+      },
+      {
+        "statement": "When a lab has only NAND chips. Can every Boolean function still be built, the correct result is yes.",
+        "answer": true,
+        "explanation": "NAND is universal, so every Boolean function can be built from NAND chips alone."
+      },
+      {
+        "statement": "When a designer lists all four input pairs of a two-input function and writes the output beside each pair. Name that listing, the correct result is a code whose neighbors differ by one bit.",
+        "answer": false,
+        "explanation": "Listing every input combination with its output is a truth table."
+      },
+      {
+        "statement": "A designer simplifies A + A·B to A using switching identities on 0 and 1. Name that algebra. The correct outcome is the algebra of 0 and 1 with AND, OR, and NOT.",
+        "answer": true,
+        "explanation": "Identities that simplify expressions in AND, OR, and NOT belong to Boolean algebra."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When a circuit needs the complement of A AND B. Which expression is equal to it, the correct result is a OR B.",
+        "answer": false,
+        "explanation": "De Morgan's law says the complement of a product is the sum of the complements."
+      },
+      {
+        "statement": "When an expression is written as A·B + C·D. Which form is that, the correct result is a counter with one shared clock.",
+        "answer": false,
+        "explanation": "A·B and C·D are products, and the plus sign ORs them, so the form is a sum of products."
+      },
+      {
+        "statement": "When an expression is written as (A + B)·(C + D). The form is that, the correct result is aND of OR terms.",
+        "answer": true,
+        "explanation": "(A + B) and (C + D) are sums, and they are multiplied, so the form is a product of sums."
+      },
+      {
+        "statement": "When adjacent cells of a simplification grid differ by how many input bits, the correct result is 1.",
+        "answer": true,
+        "explanation": "Karnaugh-map neighbors are placed so they differ by exactly one bit."
+      },
+      {
+        "statement": "When codes 1010 through 1111 never occur in a BCD function. How may their outputs be treated during simplification, the correct result is as high impedance.",
+        "answer": false,
+        "explanation": "Combinations that never occur are don't-cares, so either output value is allowed."
+      },
+      {
+        "statement": "When a gate network has no feedback and no stored bits, so the same inputs always give the same outputs. Which class of circuit is it, the correct result is output depends on stored state.",
+        "answer": false,
+        "explanation": "No memory means the outputs are a function of the present inputs alone."
+      },
+      {
+        "statement": "When a controller gives different outputs for the same button press because it remembers earlier coins. The class of circuit is it, the correct result is output depends on stored state.",
+        "answer": true,
+        "explanation": "Remembering earlier inputs means the circuit is sequential."
+      },
+      {
+        "statement": "A block adds the bits 1 and 1 and has no carry input. State the sum and carry as sum,carry. The correct outcome is 0,1.",
+        "answer": true,
+        "explanation": "1 plus 1 is 0 with a carry of 1, which is what a half adder produces."
+      },
+      {
+        "statement": "When a block adds bits 1 and 1 together with a carry-in of 1. State the sum and carry-out as sum,carry, the correct result is 0,1.",
+        "answer": false,
+        "explanation": "1 + 1 + 1 equals 3, which is sum 1 and carry-out 1."
+      },
+      {
+        "statement": "When a data selector has four data inputs. How many select lines does it need, the correct result is 2.",
+        "answer": true,
+        "explanation": "Four inputs require two select bits because 2 to the power 2 is 4."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When one data wire must be steered to exactly one of eight outputs. How many select lines are required, the correct result is 4.",
+        "answer": false,
+        "explanation": "Eight outputs require three select bits because 2 to the power 3 is 8."
+      },
+      {
+        "statement": "When only input line 5 is active on an 8-to-3 encoder. State the 3-bit output, the correct result is 011.",
+        "answer": false,
+        "explanation": "Decimal 5 is binary 101, so the encoder outputs 101."
+      },
+      {
+        "statement": "When a 3-to-8 decoder receives the code 011. The output line becomes active, numbering lines from 0, the correct result is 3.",
+        "answer": true,
+        "explanation": "Binary 011 is decimal 3, so output line 3 is the active line."
+      },
+      {
+        "statement": "When a comparator receives A = 1010 and B = 1001. The relation output is active, the correct result is a greater than B.",
+        "answer": true,
+        "explanation": "Binary 1010 is decimal 10 and 1001 is decimal 9, so A is greater."
+      },
+      {
+        "statement": "When a NOR latch has S = 1 and R = 0. What happens to Q, the correct result is q is reset to 0.",
+        "answer": false,
+        "explanation": "For a NOR SR latch, S = 1 and R = 0 sets Q to 1."
+      },
+      {
+        "statement": "When just before the active clock edge, D is 1 and Q is 0. Immediately after that edge, what is Q, the correct result is hi-Z.",
+        "answer": false,
+        "explanation": "A D flip-flop copies D to Q on the active clock edge."
+      },
+      {
+        "statement": "When j and K are both 1 at an active clock edge. In this case the flip-flop do, the correct result is it toggles Q.",
+        "answer": true,
+        "explanation": "J = K = 1 is the toggle condition of a JK flip-flop."
+      },
+      {
+        "statement": "When t is tied to 1. How does Q change on the next active clock edge, the correct result is q flips.",
+        "answer": true,
+        "explanation": "With T held active, a T flip-flop toggles on each active clock edge."
+      },
+      {
+        "statement": "When a flip-flop ignores D while the clock is high and samples D only on the rising crossing. Name that sampling style, the correct result is a delay until the output is valid.",
+        "answer": false,
+        "explanation": "Sampling only at the rising crossing is edge triggering."
+      },
+      {
+        "statement": "A datasheet says D must be stable for 5 ns before the rising clock. Name that 5 ns requirement. The correct outcome is stability before the clock edge.",
+        "answer": true,
+        "explanation": "Time that data must be stable before the active edge is setup time."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a datasheet says D must remain stable for 2 ns after the rising clock. Name that 2 ns requirement, the correct result is stability before the clock edge.",
+        "answer": false,
+        "explanation": "Time that data must stay stable after the active edge is hold time."
+      },
+      {
+        "statement": "When a gate input changes, and the output becomes valid 8 ns later. What is that 8 ns interval called, the correct result is data stability after the clock.",
+        "answer": false,
+        "explanation": "The lag from an input change to a valid output is propagation delay."
+      },
+      {
+        "statement": "Eight flip-flops share one clock and together hold one loaded word. Name that structure. The correct outcome is a multi-bit storage group.",
+        "answer": true,
+        "explanation": "Clocked flip-flops that store a word form a register."
+      },
+      {
+        "statement": "Bits enter one pin, and each clock moves every stored bit one position toward the next flip-flop. Name that register. The correct outcome is a register that moves bits each clock.",
+        "answer": true,
+        "explanation": "Moving stored bits one position per clock is the behavior of a shift register."
+      },
+      {
+        "statement": "When in a counter, flip-flop 1 is clocked by the output of flip-flop 0 rather than by the system clock. Which counter style is that, the correct result is a register that does not count.",
+        "answer": false,
+        "explanation": "Clocking each stage from the previous output is a ripple counter."
+      },
+      {
+        "statement": "When all flip-flops of a counter share one clock pin, and logic computes the next state. Which counter style is that, the correct result is a momentary false pulse.",
+        "answer": false,
+        "explanation": "A shared clock for every stage makes the counter synchronous."
+      },
+      {
+        "statement": "A counter visits the states 0 through 9 and then returns to 0. State its modulus. The correct outcome is 10.",
+        "answer": true,
+        "explanation": "Ten distinct states mean the modulus is 10."
+      },
+      {
+        "statement": "A 7400 chip uses bipolar transistors and a multi-emitter input for its NAND gates. Name that logic family. The correct outcome is bipolar 74-series logic.",
+        "answer": true,
+        "explanation": "The 74xx bipolar family with a multi-emitter input is TTL."
+      },
+      {
+        "statement": "When a gate uses paired n-channel and p-channel MOSFETs and draws almost no current while idle. Name that family, the correct result is vacuum-tube logic.",
+        "answer": false,
+        "explanation": "Complementary n-channel and p-channel MOSFETs with almost no static current identify CMOS."
+      },
+      {
+        "statement": "When one output may drive at most ten inputs of the same family before voltage levels fail. The limit is ten, the correct result is how many inputs one output can drive.",
+        "answer": true,
+        "explanation": "The maximum number of similar inputs one output can drive is the fan-out."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When the lowest valid high output is 4.4 V, and the next input treats a high as valid above 3.5 V. How much high-side noise margin, in volts, is there, the correct result is 3.5.",
+        "answer": false,
+        "explanation": "Noise margin is the difference 4.4 V minus 3.5 V, which is 0.9 V."
+      },
+      {
+        "statement": "When a 10 MHz square wave is wired to every flip-flop clock pin so they sample together. Name that waveform's role, the correct result is it is an unused truth-table entry.",
+        "answer": false,
+        "explanation": "A periodic waveform that tells flip-flops when to sample is the clock."
+      },
+      {
+        "statement": "An output should stay 1, but unequal delays make it glitch to 0 for a few nanoseconds when one input changes. Name that fault. The correct outcome is a momentary false pulse.",
+        "answer": true,
+        "explanation": "A brief incorrect pulse while the static output should be constant is a static hazard."
+      },
+      {
+        "statement": "When a level-sensitive JK has J = K = 1, and the clock stays high much longer than the flip-flop delay. In this case Q do during that pulse, the correct result is toggle more than once.",
+        "answer": true,
+        "explanation": "A long enabling clock with J = K = 1 lets a level-sensitive JK toggle repeatedly, which is race-around."
+      },
+      {
+        "statement": "When in 2-bit reflected Gray code, which code immediately follows 01, the correct result is 01.",
+        "answer": false,
+        "explanation": "The 2-bit Gray sequence is 00, 01, 11, 10, so 01 is followed by 11."
+      },
+      {
+        "statement": "When data bits are 1011, which contain three 1s. State the even-parity extra bit, the correct result is 0.",
+        "answer": false,
+        "explanation": "Even parity needs an even number of 1s, so three data 1s require an extra 1."
+      },
+      {
+        "statement": "A chip lets the designer program both The AND terms exist and which of those terms feed each OR output. Name that device style. The correct outcome is programmable AND and programmable OR.",
+        "answer": true,
+        "explanation": "Programmable product terms and programmable sums describe a PLA."
+      },
+      {
+        "statement": "A sheet draws clock, D, and Q as waveforms and shows Q changing a few nanoseconds after the rising edge. Name that drawing. The correct outcome is signals plotted against time.",
+        "answer": true,
+        "explanation": "Waveforms of clock, D, and Q versus time form a timing diagram."
+      },
+      {
+        "statement": "When two chips share a data bus, and the unselected chip must release the wires. Which output state lets it release them, the correct result is forced 0.",
+        "answer": false,
+        "explanation": "High impedance disconnects the driver so another chip can use the bus."
+      },
+      {
+        "statement": "When in a switching expression, signal A may be low or high and no other value. What kind of variable is A, the correct result is a two-valued logic variable.",
+        "answer": true,
+        "explanation": "A signal restricted to low or high is a Boolean variable."
+      }
+    ]
+  }
+}

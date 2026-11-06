@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Continuous-time signal",
+    "definition": "A signal defined for every value of a real time variable, usually written x(t).",
+    "wrongs": [
+      "A sequence defined only at integer time indexes.",
+      "A count of how many pixels share one gray level.",
+      "A file split stored on one cluster node."
+    ],
+    "why": "Time is a continuous variable, so the signal has a value at every real instant, not only at integers.",
+    "example": "A microphone voltage recorded as a smooth waveform x(t) before any sampler runs.",
+    "scenario": "An oscilloscope trace has a voltage at every real instant, not only at integer ticks. Which signal class is displayed?",
+    "scenarioAnswer": "A continuous-time signal",
+    "scenarioWrongs": ["A discrete-time sequence", "A histogram", "A data partition"],
+    "scenarioWhy": "A value at every real time is a continuous-time signal."
+  },
+  {
+    "term": "Discrete-time signal",
+    "definition": "A sequence defined only at integer time indexes, usually written x[n].",
+    "wrongs": [
+      "A waveform defined for every real value of time.",
+      "A periodic impulse train used only as a sampler.",
+      "The phase angle of a frequency response."
+    ],
+    "why": "The index n takes integer values, so there is no requirement to define the signal between those indexes.",
+    "example": "Daily closing temperatures form a sequence x[n] with one sample per day.",
+    "scenario": "A processor stores one temperature per integer hour and has no values between hours. Which signal class is stored?",
+    "scenarioAnswer": "A discrete-time signal",
+    "scenarioWrongs": ["A continuous-time waveform", "An impulse train", "A phase curve"],
+    "scenarioWhy": "A sequence indexed by integers is a discrete-time signal."
+  },
+  {
+    "term": "Sampling",
+    "definition": "Recording a continuous-time signal at evenly spaced instants to form a discrete-time sequence.",
+    "wrongs": [
+      "Adding two sequences to test linearity.",
+      "Integrating a signal against a complex exponential over all time.",
+      "Holding each sample constant until the next sample without taking new values."
+    ],
+    "why": "Each sample is the continuous waveform at time n times the sampling period, which produces x[n].",
+    "example": "An audio interface reads a microphone voltage 44100 times each second.",
+    "scenario": "An engineer measures a sensor voltage every 1 millisecond and stores only those readings. Which operation is that?",
+    "scenarioAnswer": "Sampling",
+    "scenarioWrongs": ["A linearity check", "A Fourier integral", "Zero-order hold"],
+    "scenarioWhy": "Taking evenly spaced readings of a continuous waveform is sampling."
+  },
+  {
+    "term": "Nyquist rate",
+    "definition": "Twice the highest frequency of a bandlimited signal, which the sampling rate must exceed for exact reconstruction.",
+    "wrongs": [
+      "Half the sampling frequency, the highest frequency a given sampler can represent.",
+      "The cutoff of a low-pass filter already built in hardware.",
+      "The fundamental period of a repeating waveform."
+    ],
+    "why": "Sampling theory sets the threshold rate at two times the highest frequency present.",
+    "example": "A voice limited to 4 kHz has a Nyquist rate of 8 kHz.",
+    "scenario": "A signal contains nothing above 5 kHz. Which sampling rate is exactly the Nyquist rate for it?",
+    "scenarioAnswer": "10 kHz",
+    "scenarioWrongs": ["5 kHz", "2.5 kHz", "15 kHz"],
+    "scenarioWhy": "Twice the highest frequency, 2 times 5 kHz, is the Nyquist rate."
+  },
+  {
+    "term": "Nyquist frequency",
+    "definition": "Half the sampling frequency, which is the highest frequency that sampling rate can represent.",
+    "wrongs": [
+      "Twice the highest frequency in the original continuous signal.",
+      "The spacing in seconds between successive samples.",
+      "The area under an impulse response."
+    ],
+    "why": "Frequencies above half the sampling rate fold, so that half-rate is the representation limit.",
+    "example": "Audio sampled at 44100 Hz has a Nyquist frequency of 22050 Hz.",
+    "scenario": "A converter samples at 8 kHz. Which frequency is its Nyquist frequency?",
+    "scenarioAnswer": "4 kHz",
+    "scenarioWrongs": ["8 kHz", "16 kHz", "2 kHz"],
+    "scenarioWhy": "Half of the 8 kHz sampling rate is 4 kHz."
+  },
+  {
+    "term": "Aliasing",
+    "definition": "The appearance of frequencies above half the sampling rate as false lower frequencies.",
+    "wrongs": [
+      "Perfect recovery of a bandlimited signal by ideal low-pass interpolation.",
+      "A time shift of the output that exactly matches a shift of the input.",
+      "A pole moving deeper into the left half of the s-plane."
+    ],
+    "why": "When sampling is too slow, repeated spectra overlap and high frequencies masquerade as low ones.",
+    "example": "A 9 kHz tone sampled at 10 kHz shows up in the samples as a 1 kHz tone.",
+    "scenario": "A 9 kHz whistle sampled at 10 kHz is heard as 1 kHz. Which effect occurred?",
+    "scenarioAnswer": "Aliasing",
+    "scenarioWrongs": ["Ideal reconstruction", "Time invariance", "A more stable pole"],
+    "scenarioWhy": "A high tone folding into a lower tone because sampling was too slow is aliasing."
+  },
+  {
+    "term": "Sampling theorem",
+    "definition": "A bandlimited signal can be reconstructed exactly if it is sampled faster than twice its highest frequency.",
+    "wrongs": [
+      "Any signal, even one with unlimited bandwidth, can be rebuilt from two samples.",
+      "Sampling slower than the highest frequency always improves reconstruction.",
+      "A zero-order hold is the ideal reconstructor named by the theorem."
+    ],
+    "why": "Above that rate the spectral copies do not overlap, so a low-pass interpolator can isolate the original.",
+    "example": "Music bandlimited to 20 kHz is captured at 48 kHz, which is fast enough for exact reconstruction in theory.",
+    "scenario": "A signal is bandlimited to 3 kHz and sampled at 8 kHz. Does the sampling theorem allow exact reconstruction?",
+    "scenarioAnswer": "Yes, because 8 kHz exceeds 6 kHz",
+    "scenarioWrongs": ["No, because the rate must be below 3 kHz", "Yes, but only if the rate is exactly 3 kHz", "No, because only periodic signals can be reconstructed"],
+    "scenarioWhy": "The sampling rate is higher than twice the highest frequency, so the theorem says reconstruction is possible."
+  },
+  {
+    "term": "LTI system",
+    "definition": "The central Signal and Systems model: a system that is both linear and time-invariant.",
+    "wrongs": [
+      "A system that multiplies the input by a changing gain that depends on absolute time.",
+      "A system that adds a fixed offset so doubling the input does not double the output.",
+      "A sampler that keeps only every tenth sample of a sequence."
+    ],
+    "why": "Signal and Systems treats an LTI system as linear and time-invariant, so its output is the input convolved with one impulse response.",
+    "example": "An RC low-pass filter obeys superposition and responds the same way whenever the same pulse arrives.",
+    "scenario": "A filter obeys superposition, and delaying its input only delays its output by the same amount. Which model applies?",
+    "scenarioAnswer": "An LTI system",
+    "scenarioWrongs": ["A time-varying gain", "An adder with a constant offset", "A decimator by ten"],
+    "scenarioWhy": "Linearity plus time invariance is exactly the LTI model used in Signal and Systems."
+  },
+  {
+    "term": "Linearity",
+    "definition": "The property that a scaled sum of inputs produces the same scaled sum of outputs.",
+    "wrongs": [
+      "The property that a time shift of the input only shifts the output.",
+      "The property that the output ignores all past inputs.",
+      "The property that every bounded input produces an unbounded output."
+    ],
+    "why": "Both additivity and homogeneity are required, which together are the superposition rule.",
+    "example": "If a circuit turns x1 into y1 and x2 into y2, then 3 x1 plus 2 x2 must produce 3 y1 plus 2 y2.",
+    "scenario": "Doubling an audio input doubles the output, and the response to a sum is the sum of responses. Which property holds?",
+    "scenarioAnswer": "Linearity",
+    "scenarioWrongs": ["Time invariance alone", "Memorylessness", "Instability"],
+    "scenarioWhy": "Scaling and adding inputs scales and adds outputs, which is linearity."
+  },
+  {
+    "term": "Time invariance",
+    "definition": "The property that shifting the input in time shifts the output by the same amount and changes nothing else.",
+    "wrongs": [
+      "The property that a sum of inputs produces the sum of outputs.",
+      "The property that the impulse response is zero for negative time.",
+      "The property that energy over all time is finite."
+    ],
+    "why": "The system rule does not depend on the absolute clock time at which the input is applied.",
+    "example": "A fixed echo unit delays any clap by 50 milliseconds, whether the clap is at noon or later.",
+    "scenario": "A processor behaves the same at every hour: delaying the input by 4 samples delays the output by 4 samples. Which property is that?",
+    "scenarioAnswer": "Time invariance",
+    "scenarioWrongs": ["Linearity", "Causality", "Finite energy"],
+    "scenarioWhy": "A pure delay of the output when the input is delayed is time invariance."
+  },
+  {
+    "term": "Convolution",
+    "definition": "Combining an input with an impulse response by flip, slide, and sum, which gives the output of an LTI system.",
+    "wrongs": [
+      "Multiplying two Fourier transforms point by point with no time-domain interpretation.",
+      "Sampling a waveform at twice its highest frequency.",
+      "Setting every negative-time sample of a sequence to zero by hand."
+    ],
+    "why": "For a discrete LTI system the output sample is the sum over k of x[k] times h[n-k].",
+    "example": "A short echo kernel is flipped and slid across a recorded clap to produce the echoed clap.",
+    "scenario": "Students compute each output sample as the sum over k of x[k] times h[n-k]. Which operation is that?",
+    "scenarioAnswer": "Convolution",
+    "scenarioWrongs": ["Pointwise multiplication of transforms only", "Nyquist sampling", "Zeroing negative time"],
+    "scenarioWhy": "That sum is the convolution of the input with the impulse response."
+  },
+  {
+    "term": "Impulse response",
+    "definition": "The output of a system when the input is a unit impulse at the origin.",
+    "wrongs": [
+      "The steady gain and phase at one sinusoid frequency only.",
+      "The list of denominator roots of a transfer function.",
+      "The band of frequencies a filter is meant to block."
+    ],
+    "why": "An LTI system is completely described by this response, because every input is a combination of impulses.",
+    "example": "A single click sent into a reverb pedal produces the decaying tail that is stored as h[n].",
+    "scenario": "A lab applies a unit sample at n = 0 and records the output sequence. What has been measured?",
+    "scenarioAnswer": "The impulse response",
+    "scenarioWrongs": ["The frequency response at one tone", "The pole list", "The stopband"],
+    "scenarioWhy": "The output caused by a unit impulse is the impulse response."
+  },
+  {
+    "term": "Frequency response",
+    "definition": "The complex gain an LTI system applies at each frequency, equal to the Fourier transform of its impulse response.",
+    "wrongs": [
+      "The time waveform produced by a unit impulse.",
+      "The region of the s-plane where a Laplace integral converges.",
+      "The average power of a periodic input."
+    ],
+    "why": "Complex exponentials are eigenfunctions of LTI systems, and the eigenvalue at each frequency is this response.",
+    "example": "A tone at 1 kHz leaves a filter louder and slightly delayed, as predicted by H at that frequency.",
+    "scenario": "A lab sweeps a sine wave and records the output amplitude and phase at each frequency. Which function is being measured?",
+    "scenarioAnswer": "The frequency response",
+    "scenarioWrongs": ["The impulse response", "The region of convergence", "The input power"],
+    "scenarioWhy": "Gain and phase versus frequency form the frequency response."
+  },
+  {
+    "term": "Fourier series",
+    "definition": "A representation of a periodic signal as a sum of harmonically related sinusoids.",
+    "wrongs": [
+      "An integral transform used for a one-time aperiodic pulse.",
+      "A sum of x[n] times powers of z.",
+      "A differential equation relating input and output derivatives."
+    ],
+    "why": "A periodic signal repeats, so its spectrum sits on discrete harmonic frequencies of the fundamental.",
+    "example": "A clarinet note is written as a fundamental plus weaker harmonics at integer multiples of that pitch.",
+    "scenario": "A square wave repeats every 2 milliseconds and is expanded into a fundamental and its harmonics. Which representation is that?",
+    "scenarioAnswer": "A Fourier series",
+    "scenarioWrongs": ["A continuous-time Fourier transform of a pulse", "A z-transform", "A differential equation"],
+    "scenarioWhy": "Harmonics of a periodic waveform are its Fourier series."
+  },
+  {
+    "term": "Fourier transform",
+    "definition": "An integral that expresses an aperiodic continuous-time signal as complex exponentials over all frequencies.",
+    "wrongs": [
+      "A discrete harmonic sum used only for periodic signals.",
+      "A sum over integer n of x[n] times powers of a complex z.",
+      "A count of samples taken in one second."
+    ],
+    "why": "The continuous-time Fourier transform integrates x(t) against complex exponentials to obtain a frequency function X(jw).",
+    "example": "A single rectangular pulse, which does not repeat, has a sinc-shaped continuous spectrum.",
+    "scenario": "A non-repeating pulse is analyzed by integrating it against complex exponentials over all time. Which transform is that?",
+    "scenarioAnswer": "The continuous-time Fourier transform",
+    "scenarioWrongs": ["A Fourier series", "A z-transform", "A sampling-rate count"],
+    "scenarioWhy": "The integral frequency analysis of an aperiodic continuous signal is the Fourier transform."
+  },
+  {
+    "term": "Discrete-time Fourier transform",
+    "definition": "A sum that writes a discrete-time signal as complex exponentials over a continuous frequency interval of length 2 pi.",
+    "wrongs": [
+      "An integral over real t used only for continuous-time waveforms.",
+      "A harmonic series that requires the time signal to be periodic.",
+      "A Laplace integral that includes a real decay factor in s."
+    ],
+    "why": "The transform sums x[n] exp(-j w n), and the result repeats every 2 pi because n is an integer.",
+    "example": "A five-sample discrete pulse has a DTFT that is a smooth function of frequency and repeats every 2 pi.",
+    "scenario": "Students sum x[n] exp(-j w n) over n and obtain a spectrum that repeats every 2 pi. Which transform did they compute?",
+    "scenarioAnswer": "The DTFT",
+    "scenarioWrongs": ["The continuous-time Fourier transform", "A Fourier series", "The Laplace transform"],
+    "scenarioWhy": "That sum, periodic in frequency with period 2 pi, is the discrete-time Fourier transform."
+  },
+  {
+    "term": "Laplace transform",
+    "definition": "An integral of x(t) times an exponential decay in the complex variable s, used to solve continuous LTI systems.",
+    "wrongs": [
+      "A sum of a discrete sequence times powers of z.",
+      "A purely imaginary-frequency integral that cannot place poles in the s-plane.",
+      "A time-domain flip-and-slide of two sequences."
+    ],
+    "why": "The factor exp(-s t) lets the transform converge for unstable or growing signals inside a region of convergence and exposes poles.",
+    "example": "The charging curve of a capacitor is transformed in s so a differential equation becomes algebra.",
+    "scenario": "A continuous circuit equation is solved by transforming x(t) into a function of complex s. Which transform is used?",
+    "scenarioAnswer": "The Laplace transform",
+    "scenarioWrongs": ["The z-transform", "A Fourier series", "Convolution"],
+    "scenarioWhy": "Continuous-time signals transformed in the complex variable s use the Laplace transform."
+  },
+  {
+    "term": "Z-transform",
+    "definition": "A sum of the sequence x[n] times z to the power -n, the discrete-time counterpart of the Laplace transform.",
+    "wrongs": [
+      "An integral of a continuous waveform against exp(-s t).",
+      "A harmonic sum that requires the waveform to repeat in time.",
+      "A running average of neighboring pixels."
+    ],
+    "why": "Powers of z replace the continuous exponential, and the region of convergence decides which sequence the transform represents.",
+    "example": "A geometric sequence a to the n, for n at least 0, has a z-transform that is a simple rational function.",
+    "scenario": "A discrete recurrence is solved by summing x[n] z to the -n. Which transform is that?",
+    "scenarioAnswer": "The z-transform",
+    "scenarioWrongs": ["The Laplace transform", "A Fourier series", "A moving average"],
+    "scenarioWhy": "The power series in z of a discrete sequence is the z-transform."
+  },
+  {
+    "term": "Region of convergence",
+    "definition": "The set of complex s or z values for which a Laplace or z-transform sum or integral converges.",
+    "wrongs": [
+      "The passband of a low-pass filter.",
+      "The set of time instants where a signal is nonzero.",
+      "The list of numerator roots of a transfer function."
+    ],
+    "why": "Without the region, a rational transform can correspond to more than one time signal.",
+    "example": "The transform 1 over (1 - 2 z inverse) can be a right-sided or left-sided sequence depending on the region.",
+    "scenario": "Two different sequences share the same rational z-transform expression. What extra information separates them?",
+    "scenarioAnswer": "The region of convergence",
+    "scenarioWrongs": ["The passband", "The support in time alone", "The zeros"],
+    "scenarioWhy": "The region of convergence selects which time signal a rational transform represents."
+  },
+  {
+    "term": "Transfer function",
+    "definition": "The ratio of the output transform to the input transform for an LTI system that starts at rest.",
+    "wrongs": [
+      "The time signal produced by a unit impulse, written as a sequence.",
+      "The sampling period measured in seconds.",
+      "The average power of a sinusoid that has lasted forever."
+    ],
+    "why": "With zero initial conditions, Y(s) equals H(s) times X(s), so H(s) is that ratio, and likewise for H(z).",
+    "example": "A resting RC filter has H(s) equal to 1 over (1 plus R C s).",
+    "scenario": "With zero initial conditions, the Laplace transform of the output divided by that of the input is formed. What is that ratio called?",
+    "scenarioAnswer": "The transfer function",
+    "scenarioWrongs": ["The impulse response sequence", "The sampling period", "The signal power"],
+    "scenarioWhy": "The output-over-input transform of a resting LTI system is its transfer function."
+  },
+  {
+    "term": "Pole",
+    "definition": "A denominator root of a transfer function, where the response magnitude is unbounded.",
+    "wrongs": [
+      "A numerator root where the transfer function is zero.",
+      "A frequency that a low-pass filter is designed to pass.",
+      "A sample index where a unit step first becomes 1."
+    ],
+    "why": "The denominator vanishes at a pole and the numerator does not, so the transfer function goes to infinity there.",
+    "example": "A system H(s) = 1 over (s plus 2) has a single pole at s = -2.",
+    "scenario": "H(s) blows up at s = -3 and the denominator is zero there. What is s = -3 called?",
+    "scenarioAnswer": "A pole",
+    "scenarioWrongs": ["A zero", "A passband edge", "A step discontinuity"],
+    "scenarioWhy": "A denominator root where the transfer function is unbounded is a pole."
+  },
+  {
+    "term": "Zero",
+    "definition": "A numerator root of a transfer function, where that factor contributes no output.",
+    "wrongs": [
+      "A denominator root where the transfer function is unbounded.",
+      "The time at which an impulse response starts.",
+      "Half the sampling frequency of a converter."
+    ],
+    "why": "The numerator is zero while the denominator is not, so the transfer function itself is zero at that point.",
+    "example": "H(z) = 1 minus z inverse has a zero at z = 1, so it rejects a constant input.",
+    "scenario": "A filter's transfer function is exactly zero at z = -1, canceling a Nyquist-rate oscillation. What is z = -1 called?",
+    "scenarioAnswer": "A zero",
+    "scenarioWrongs": ["A pole", "The impulse start time", "The Nyquist frequency"],
+    "scenarioWhy": "A numerator root that forces the transfer function to zero is a zero."
+  },
+  {
+    "term": "Low-pass filter",
+    "definition": "A filter that passes frequencies below a cutoff and attenuates frequencies above that cutoff.",
+    "wrongs": [
+      "A filter that blocks low frequencies and passes high ones.",
+      "A filter that passes only a middle band and blocks both low and high ends.",
+      "A filter that passes every frequency with the same gain."
+    ],
+    "why": "Its passband sits next to zero frequency and its stopband occupies the high frequencies.",
+    "example": "A hi-fi rumble filter keeps bass and midrange but weakens a 20 kHz hiss.",
+    "scenario": "A designer wants to keep speech under 4 kHz and weaken everything above it. Which filter type is required?",
+    "scenarioAnswer": "A low-pass filter",
+    "scenarioWrongs": ["A high-pass filter", "A band-pass filter", "An all-pass filter"],
+    "scenarioWhy": "Passing the low band and attenuating the high band is low-pass behavior."
+  },
+  {
+    "term": "High-pass filter",
+    "definition": "A filter that attenuates frequencies below a cutoff and passes frequencies above it.",
+    "wrongs": [
+      "A filter that keeps low frequencies and removes high ones.",
+      "A filter that keeps only a narrow middle band.",
+      "A filter whose impulse response is a unit step."
+    ],
+    "why": "The stopband includes zero frequency and the passband lies above the cutoff.",
+    "example": "An audio high-pass removes a 50 Hz hum while leaving a 2 kHz flute note intact.",
+    "scenario": "A recording must lose a low rumble but keep bright cymbal frequencies. Which filter type fits?",
+    "scenarioAnswer": "A high-pass filter",
+    "scenarioWrongs": ["A low-pass filter", "A band-pass filter", "A unit-step system"],
+    "scenarioWhy": "Attenuating lows and passing highs is high-pass behavior."
+  },
+  {
+    "term": "Band-pass filter",
+    "definition": "A filter that passes frequencies between a lower and an upper cutoff and attenuates the rest.",
+    "wrongs": [
+      "A filter that passes only frequencies near zero.",
+      "A filter that passes everything above one cutoff.",
+      "A filter that stops a middle band and passes both extremes."
+    ],
+    "why": "Two cutoffs bound a single passband that does not include zero frequency or the extreme highs.",
+    "example": "A radio tuner keeps a station around 98 MHz and rejects both lower and higher channels.",
+    "scenario": "A receiver must keep 300 Hz to 3 kHz and reject both lower and higher frequencies. Which filter type is that?",
+    "scenarioAnswer": "A band-pass filter",
+    "scenarioWrongs": ["A low-pass filter", "A high-pass filter", "A band-stop filter"],
+    "scenarioWhy": "A single middle passband bounded by two cutoffs is band-pass."
+  },
+  {
+    "term": "Causality",
+    "definition": "The property that the output at any time depends only on the input at that time and earlier times.",
+    "wrongs": [
+      "The property that every bounded input produces a bounded output.",
+      "The property that the system may use future input samples.",
+      "The property that a sinusoid passes through unchanged in shape."
+    ],
+    "why": "For an LTI system this is equivalent to the impulse response being zero before time zero.",
+    "example": "A real-time speaker can react to a clap only after the clap, never before it happens.",
+    "scenario": "An LTI impulse response h[n] is zero for every negative n. Which property does that guarantee?",
+    "scenarioAnswer": "Causality",
+    "scenarioWrongs": ["BIBO stability", "Use of future samples", "Distortionless transmission"],
+    "scenarioWhy": "An impulse response that is zero for negative time means the system is causal."
+  },
+  {
+    "term": "BIBO stability",
+    "definition": "The property that every bounded input produces a bounded output.",
+    "wrongs": [
+      "The property that the output never depends on future inputs.",
+      "The property that the system has no memory of past inputs.",
+      "The property that the frequency response is identically 1."
+    ],
+    "why": "An LTI system is BIBO stable exactly when its impulse response is absolutely integrable or absolutely summable.",
+    "example": "A decaying exponential impulse response stays absolutely summable, so a bounded tone cannot make the output explode.",
+    "scenario": "Every input that stays within a finite amplitude produces an output that also stays finite. Which property is that?",
+    "scenarioAnswer": "BIBO stability",
+    "scenarioWrongs": ["Causality", "Memorylessness", "An all-pass response"],
+    "scenarioWhy": "Bounded inputs yielding bounded outputs is the definition of BIBO stability."
+  },
+  {
+    "term": "Unit impulse",
+    "definition": "The discrete signal that equals 1 at index 0 and equals 0 at every other integer index.",
+    "wrongs": [
+      "The signal that is 0 before time zero and 1 afterward.",
+      "A periodic train of impulses spaced by the sampling period.",
+      "A constant sequence equal to 1 at every index."
+    ],
+    "why": "That single 1 at the origin is the discrete unit sample used to probe an LTI system.",
+    "example": "A test sequence contains a 1 at n = 0 and zeros at all other stored indexes.",
+    "scenario": "A test vector is 1 at n = 0 and 0 at every other n. Which standard signal is it?",
+    "scenarioAnswer": "The unit impulse",
+    "scenarioWrongs": ["The unit step", "An impulse train", "A constant sequence"],
+    "scenarioWhy": "A lone 1 at index 0 is the discrete unit impulse."
+  },
+  {
+    "term": "Unit step",
+    "definition": "A signal that is 0 before time zero and 1 at time zero and afterward.",
+    "wrongs": [
+      "A signal that is 1 only at time zero and 0 elsewhere.",
+      "A signal that flips sign when time is reversed.",
+      "A signal that repeats every fixed period T."
+    ],
+    "why": "The step turns on at the origin and stays on, which is the discrete or continuous unit step.",
+    "example": "A switch applies 1 volt at t = 0 and holds that voltage for all later time.",
+    "scenario": "A sequence is 0 for negative n and 1 for n = 0, 1, 2, and so on. Which standard signal is it?",
+    "scenarioAnswer": "The unit step",
+    "scenarioWrongs": ["The unit impulse", "An odd signal", "A periodic signal"],
+    "scenarioWhy": "Turning on at time zero and staying at 1 is the unit step."
+  },
+  {
+    "term": "Even signal",
+    "definition": "A signal that is unchanged by time reversal, so its value at -t equals its value at t.",
+    "wrongs": [
+      "A signal that changes sign under time reversal.",
+      "A signal that is zero for all negative time.",
+      "A signal whose total energy is infinite."
+    ],
+    "why": "Symmetry about the origin means the waveform on the left is a mirror of the waveform on the right.",
+    "example": "A cosine wave has the same voltage at time -t as at time t.",
+    "scenario": "A waveform satisfies x(-t) = x(t) for every t. Which symmetry does it have?",
+    "scenarioAnswer": "Even symmetry",
+    "scenarioWrongs": ["Odd symmetry", "Right-sided support", "Infinite energy"],
+    "scenarioWhy": "Equality with its time reverse is even symmetry."
+  },
+  {
+    "term": "Odd signal",
+    "definition": "A signal that flips sign under time reversal, so its value at -t is the negative of its value at t.",
+    "wrongs": [
+      "A signal that matches itself under time reversal.",
+      "A signal that repeats every T seconds.",
+      "A signal with finite nonzero average power."
+    ],
+    "why": "The left side is an upside-down copy of the right side, which forces the value at time zero to be 0 for an ordinary function.",
+    "example": "A sine wave at time -t is the negative of the sine wave at time t.",
+    "scenario": "A waveform satisfies x(-t) = -x(t) for every t. Which symmetry does it have?",
+    "scenarioAnswer": "Odd symmetry",
+    "scenarioWrongs": ["Even symmetry", "Periodicity", "Finite power"],
+    "scenarioWhy": "A sign flip under time reversal is odd symmetry."
+  },
+  {
+    "term": "Periodic signal",
+    "definition": "A signal that repeats exactly after some fixed positive interval T, for every time.",
+    "wrongs": [
+      "A one-shot pulse that is zero outside a finite interval.",
+      "A signal whose squared magnitude sums to a finite energy.",
+      "A signal that is zero before a start time and never repeats."
+    ],
+    "why": "There exists T greater than 0 such that shifting the signal by T leaves it unchanged.",
+    "example": "A clock square wave looks identical after every 1 millisecond shift.",
+    "scenario": "Shifting a waveform by 4 milliseconds leaves it identical, and 4 milliseconds is the smallest such shift. Which property is this?",
+    "scenarioAnswer": "Periodicity",
+    "scenarioWrongs": ["Finite support", "Finite energy", "Right-sidedness"],
+    "scenarioWhy": "Exact repetition after a fixed interval means the signal is periodic."
+  },
+  {
+    "term": "Energy signal",
+    "definition": "A signal whose total energy, the sum or integral of its squared magnitude, is finite.",
+    "wrongs": [
+      "A signal with finite nonzero average power and infinite duration.",
+      "A forever sinusoid of constant amplitude.",
+      "A periodic square wave that has always been running."
+    ],
+    "why": "Finite energy usually means the signal dies out, so its average power over infinite time is zero.",
+    "example": "A single finite-length beep has finite energy and then stays at zero.",
+    "scenario": "A pulse is nonzero for only 20 milliseconds and its squared area is finite. Which energy-power class is it?",
+    "scenarioAnswer": "An energy signal",
+    "scenarioWrongs": ["A power signal", "A constant everlasting sinusoid", "An everlasting square wave"],
+    "scenarioWhy": "Finite total squared magnitude means the pulse is an energy signal."
+  },
+  {
+    "term": "Power signal",
+    "definition": "A signal with finite nonzero average power, which implies that its total energy is infinite.",
+    "wrongs": [
+      "A finite-length pulse whose squared magnitude integrates to a finite number.",
+      "The zero signal, whose power and energy are both zero.",
+      "A signal that is undefined at integer times only."
+    ],
+    "why": "Persistent signals such as everlasting sinusoids spread infinite energy over infinite time but keep a finite average power.",
+    "example": "A sine wave that has always been on and never ends has finite average power and infinite energy.",
+    "scenario": "An everlasting cosine has a finite average of its squared value and infinite total energy. Which class is it?",
+    "scenarioAnswer": "A power signal",
+    "scenarioWrongs": ["An energy signal", "The zero signal", "A signal undefined on the integers"],
+    "scenarioWhy": "Finite nonzero average power with infinite energy is a power signal."
+  },
+  {
+    "term": "Zero-order hold",
+    "definition": "A reconstruction that keeps each sample value constant until the next sample instant.",
+    "wrongs": [
+      "Ideal bandlimited interpolation that uses sinc functions.",
+      "Sampling that only records values and does not rebuild a waveform.",
+      "A high-order polynomial fit through many future samples."
+    ],
+    "why": "Between sampling instants the output is a flat step equal to the most recent sample.",
+    "example": "A digital-to-analog pin holds 0.5 volts steady until the next code arrives and the level jumps.",
+    "scenario": "Between samples a converter output stays flat at the last sample value. Which reconstructor is that?",
+    "scenarioAnswer": "A zero-order hold",
+    "scenarioWrongs": ["Sinc interpolation", "Sampling alone", "A future-sample polynomial"],
+    "scenarioWhy": "Holding the latest sample constant until the next one is a zero-order hold."
+  },
+  {
+    "term": "Phase response",
+    "definition": "The phase angle of the frequency response, showing the phase shift at each frequency.",
+    "wrongs": [
+      "The magnitude of the frequency response, showing only gain.",
+      "The impulse response written as a time sequence.",
+      "The list of poles in the left half-plane."
+    ],
+    "why": "The frequency response is complex, and its argument is the phase shift applied to a complex exponential.",
+    "example": "At 1 kHz a filter leaves the tone amplitude unchanged but delays the peaks by a quarter cycle.",
+    "scenario": "A tone's amplitude is unchanged, but its peaks are shifted by a quarter cycle. Which part of the frequency response captures that shift?",
+    "scenarioAnswer": "The phase response",
+    "scenarioWrongs": ["The magnitude response", "The impulse response", "The pole list"],
+    "scenarioWhy": "Phase shift versus frequency is the phase response."
+  },
+  {
+    "term": "Group delay",
+    "definition": "The negative slope of the phase response with respect to frequency, giving the delay of a narrowband envelope.",
+    "wrongs": [
+      "The phase angle itself at a single frequency.",
+      "The cutoff where power gain has fallen by half.",
+      "The sampling period in seconds."
+    ],
+    "why": "A narrowband packet is delayed by the negative derivative of phase, not merely by the phase divided by frequency.",
+    "example": "A short radio burst centered at 10 kHz is delayed by 2 milliseconds, matching the local phase slope.",
+    "scenario": "Engineers estimate the delay of a narrowband pulse envelope from the slope of phase versus frequency. Which quantity is that?",
+    "scenarioAnswer": "Group delay",
+    "scenarioWrongs": ["Phase at one frequency", "The half-power cutoff", "The sampling period"],
+    "scenarioWhy": "Envelope delay from the negative phase slope is group delay."
+  },
+  {
+    "term": "Eigenfunction property",
+    "definition": "The fact that a complex exponential input to an LTI system emerges scaled by the frequency response.",
+    "wrongs": [
+      "The fact that every input, of any shape, is unchanged by an LTI system.",
+      "The fact that convolution in time becomes convolution in frequency.",
+      "The fact that a unit step input produces a unit step output."
+    ],
+    "why": "Exponentials pass through LTI systems as the same exponential multiplied by H at that frequency.",
+    "example": "A complex tone exp(j w t) enters a filter and leaves as H(jw) times the same tone.",
+    "scenario": "A complex exponential enters an LTI filter and exits as the same exponential times a complex constant. Which property explains that?",
+    "scenarioAnswer": "The eigenfunction property",
+    "scenarioWrongs": ["Invariance of every waveform", "Convolution staying convolution in frequency", "Steps mapping to steps"],
+    "scenarioWhy": "Complex exponentials are eigenfunctions of LTI systems, scaled by the frequency response."
+  },
+  {
+    "term": "Differential equation model",
+    "definition": "An equation linking a continuous output and its derivatives to the input and the input derivatives.",
+    "wrongs": [
+      "A relation among a few discrete samples of an input and output sequence.",
+      "A sum of harmonically related sinusoids.",
+      "A statement that the output ignores all past inputs."
+    ],
+    "why": "Linear constant-coefficient differential equations are the continuous-time models whose transfer functions are rational in s.",
+    "example": "The RC circuit law R C dy/dt plus y equals x relates capacitor voltage to the source.",
+    "scenario": "A circuit is described by R C dy/dt plus y equals the source voltage. Which model form is that?",
+    "scenarioAnswer": "A differential equation",
+    "scenarioWrongs": ["A difference equation", "A Fourier series", "A memoryless map"],
+    "scenarioWhy": "A relation involving a continuous derivative of the output is a differential equation model."
+  },
+  {
+    "term": "Difference equation",
+    "definition": "An equation that writes an output sample using a finite number of past inputs and past outputs.",
+    "wrongs": [
+      "An equation that uses derivatives of a continuous waveform.",
+      "An integral definition of a Fourier transform.",
+      "A requirement that sampling exceed twice the highest frequency."
+    ],
+    "why": "Constant-coefficient difference equations are the discrete-time models with rational transfer functions in z.",
+    "example": "A smoother sets y[n] equal to 0.5 y[n-1] plus 0.5 x[n].",
+    "scenario": "A program computes each y[n] from y[n-1] and x[n] with fixed coefficients. Which equation type is that?",
+    "scenarioAnswer": "A difference equation",
+    "scenarioWrongs": ["A differential equation", "A Fourier integral", "The sampling theorem"],
+    "scenarioWhy": "Relating discrete samples with fixed delays is a difference equation."
+  },
+  {
+    "term": "Impulse-train sampling",
+    "definition": "Multiplying a continuous signal by a periodic train of impulses to mark weighted sample values.",
+    "wrongs": [
+      "Holding each sample constant between sampling instants.",
+      "Adding a unit step to a signal to test stability.",
+      "Convolving a signal with a low-pass impulse response."
+    ],
+    "why": "Each impulse picks out the signal value at one sampling instant, which is the ideal model of uniform sampling.",
+    "example": "A 1 kHz sine is multiplied by impulses spaced every 0.1 millisecond to form weighted spikes.",
+    "scenario": "A textbook models sampling by multiplying x(t) by a periodic train of impulses. Which model is that?",
+    "scenarioAnswer": "Impulse-train sampling",
+    "scenarioWrongs": ["Zero-order hold", "Adding a step", "Low-pass convolution"],
+    "scenarioWhy": "Multiplication by a periodic impulse train is the impulse-train sampling model."
+  },
+  {
+    "term": "Sinc interpolation",
+    "definition": "Ideal reconstruction that replaces each sample by a sinc pulse and sums those pulses.",
+    "wrongs": [
+      "Holding each sample flat until the next sample.",
+      "Repeating the spectrum without low-pass filtering.",
+      "Quantizing amplitudes to the nearest integer level."
+    ],
+    "why": "When the sampling theorem holds, the sinc sum equals the original bandlimited continuous signal.",
+    "example": "Samples of a bandlimited tone are each replaced by a sinc and added to redraw the smooth tone.",
+    "scenario": "Reconstruction sums shifted sinc pulses weighted by the samples of a properly sampled tone. Which method is that?",
+    "scenarioAnswer": "Sinc interpolation",
+    "scenarioWrongs": ["Zero-order hold", "Leaving spectral copies in place", "Amplitude quantization"],
+    "scenarioWhy": "The ideal bandlimited reconstructor is a sum of sinc pulses."
+  },
+  {
+    "term": "Cutoff frequency",
+    "definition": "The frequency at the edge of a filter passband, often where the power gain has fallen to half.",
+    "wrongs": [
+      "The sampling rate itself.",
+      "The fundamental period of the input.",
+      "The location of a zero that has no effect on the passband edge."
+    ],
+    "why": "The cutoff marks the boundary between the frequencies the filter is intended to pass and those it starts to reject.",
+    "example": "An RC low-pass is quoted with a cutoff of 1 kHz, near the half-power point of its curve.",
+    "scenario": "A low-pass specification names 2 kHz as the edge where power gain is about half. Which specification number is that?",
+    "scenarioAnswer": "The cutoff frequency",
+    "scenarioWrongs": ["The sampling rate", "The fundamental period", "A far-away zero"],
+    "scenarioWhy": "The half-power edge of the passband is a cutoff frequency."
+  },
+  {
+    "term": "Passband",
+    "definition": "The band of frequencies a filter is intended to transmit with little attenuation.",
+    "wrongs": [
+      "The band a filter is intended to attenuate strongly.",
+      "The set of poles in the right half-plane.",
+      "The time support of a causal impulse response."
+    ],
+    "why": "Inside the passband the magnitude response stays close to the desired gain.",
+    "example": "A speech low-pass treats 0 to 3.4 kHz as the band that should come through clearly.",
+    "scenario": "A spec says frequencies from 0 to 1 kHz must be transmitted with almost no loss. What is that frequency interval called?",
+    "scenarioAnswer": "The passband",
+    "scenarioWrongs": ["The stopband", "The unstable poles", "The causal support"],
+    "scenarioWhy": "The interval meant to pass with little loss is the passband."
+  },
+  {
+    "term": "Stopband",
+    "definition": "The band of frequencies a filter is intended to attenuate strongly.",
+    "wrongs": [
+      "The band a filter is intended to pass with little loss.",
+      "The region of convergence of a transform.",
+      "The set of sample indexes where a unit impulse is 1."
+    ],
+    "why": "Inside the stopband the magnitude response is kept below a required attenuation.",
+    "example": "A speech low-pass treats frequencies above 4.6 kHz as the band that should be heavily reduced.",
+    "scenario": "A low-pass spec demands strong attenuation above 8 kHz. What is that high-frequency interval called?",
+    "scenarioAnswer": "The stopband",
+    "scenarioWrongs": ["The passband", "The region of convergence", "The impulse support"],
+    "scenarioWhy": "The interval that must be strongly attenuated is the stopband."
+  },
+  {
+    "term": "Convolution theorem",
+    "definition": "The result that convolution of two time signals becomes multiplication of their Fourier transforms.",
+    "wrongs": [
+      "The result that convolution in time becomes convolution in frequency.",
+      "The result that addition in time becomes multiplication in frequency.",
+      "The result that sampling in time erases the frequency content."
+    ],
+    "why": "Filtering an input is convolution with h in time and multiplication by H in frequency.",
+    "example": "Multiplying a speech spectrum by a low-pass H is equivalent to convolving the speech with h(t).",
+    "scenario": "An engineer multiplies a spectrum by H(jw) instead of convolving the waveform with h(t). Which theorem justifies that shortcut?",
+    "scenarioAnswer": "The convolution theorem",
+    "scenarioWrongs": ["A claim that convolution stays convolution in frequency", "A claim that addition becomes multiplication", "A claim that sampling removes all frequencies"],
+    "scenarioWhy": "Time-domain convolution corresponds to multiplication of Fourier transforms."
+  },
+  {
+    "term": "Memoryless system",
+    "definition": "A system whose output at a time depends only on the input at that same time.",
+    "wrongs": [
+      "A system whose output depends on past inputs through an energy-storage element.",
+      "A system that needs future samples to form the current output.",
+      "A system that convolves the input with a long impulse response."
+    ],
+    "why": "No stored energy or past sample is required, so a resistor obeying Ohm's law is memoryless while a capacitor is not.",
+    "example": "A resistor sets voltage equal to resistance times the current at the same instant.",
+    "scenario": "An output sample y[n] equals 3 times x[n] and uses no other sample. Which system class is that?",
+    "scenarioAnswer": "Memoryless",
+    "scenarioWrongs": ["A system with memory", "A noncausal averager of future samples", "A long convolution"],
+    "scenarioWhy": "Dependence on only the current input means the system is memoryless."
+  },
+  {
+    "term": "Absolute summability",
+    "definition": "The condition that the sum of the absolute values of a discrete impulse response is finite.",
+    "wrongs": [
+      "The condition that a continuous signal repeats every T seconds.",
+      "The condition that a pole lies in the right half of the s-plane.",
+      "The condition that the sampling rate is below the Nyquist rate."
+    ],
+    "why": "For a discrete-time LTI system, a finite sum of absolute impulse-response values is necessary and sufficient for BIBO stability.",
+    "example": "A sequence equal to one-half raised to n, for every n at least 0, has absolute values that sum to 2.",
+    "scenario": "The absolute values of h[n] sum to a finite number. What does that imply for the discrete LTI system?",
+    "scenarioAnswer": "It is BIBO stable",
+    "scenarioWrongs": ["It must be periodic", "It must be unstable", "It must be sampled too slowly"],
+    "scenarioWhy": "Absolute summability of h[n] is the BIBO stability test for discrete LTI systems."
+  },
+  {
+    "term": "Right-sided signal",
+    "definition": "A signal that is identically zero before some finite start time.",
+    "wrongs": [
+      "A signal that is identically zero after some finite stop time.",
+      "A signal that is nonzero for both large positive and large negative time.",
+      "A signal that repeats and so has no start time."
+    ],
+    "why": "Its nonzero part lies at and to the right of a start time on the time axis.",
+    "example": "A causal exponential is zero for negative time and nonzero afterward, so it is right-sided.",
+    "scenario": "A Laplace transform is known to come from a signal that is zero before t = 0. Which support class is that signal?",
+    "scenarioAnswer": "Right-sided",
+    "scenarioWrongs": ["Left-sided", "Two-sided", "Periodic"],
+    "scenarioWhy": "Being zero before a finite start time makes the signal right-sided."
+  },
+  {
+    "term": "Unilateral Laplace transform",
+    "definition": "The Laplace integral taken from time zero forward, used for causal signals and initial conditions.",
+    "wrongs": [
+      "The two-sided integral from negative infinity to positive infinity.",
+      "A sum of a discrete sequence against powers of z.",
+      "A Fourier series of a periodic wave."
+    ],
+    "why": "Starting the integral at the time origin lets initial conditions enter when derivatives are transformed.",
+    "example": "A capacitor voltage already at 2 volts at t = 0 is handled with the one-sided Laplace transform.",
+    "scenario": "A circuit problem includes a nonzero capacitor voltage at t = 0 and ignores negative time. Which Laplace form fits?",
+    "scenarioAnswer": "The unilateral Laplace transform",
+    "scenarioWrongs": ["The bilateral Laplace transform", "The z-transform", "A Fourier series"],
+    "scenarioWhy": "The integral from zero forward is the unilateral Laplace transform used with initial conditions."
+  }
+]

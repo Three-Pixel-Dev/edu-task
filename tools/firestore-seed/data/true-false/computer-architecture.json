@@ -1,0 +1,785 @@
+{
+  "subjectId": "computer-architecture",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Spatial locality is the tendency of a program to access memory addresses close to those it used recently.",
+        "answer": true,
+        "explanation": "Nearby addresses are often needed together, so a cache fetches a whole line rather than a single word."
+      },
+      {
+        "statement": "A Temporal locality is a guarantee that every instruction finishes in one clock cycle.",
+        "answer": false,
+        "explanation": "A value used recently is likely to be needed again, so keeping it in a fast cache avoids another trip to memory."
+      },
+      {
+        "statement": "A Cache hit is a memory access that finds its data in the cache and returns it without using the next memory level.",
+        "answer": true,
+        "explanation": "A valid line whose tag matches the requested address already holds the data the CPU needs."
+      },
+      {
+        "statement": "A Cache miss is the data is returned from a matching line.",
+        "answer": false,
+        "explanation": "Without a valid matching line, the cache cannot supply the data and must fill from the next level."
+      },
+      {
+        "statement": "A Compulsory miss is a cache miss on the first reference to a block that has never been loaded.",
+        "answer": true,
+        "explanation": "A block that has never been touched cannot already be cached, so its first reference misses."
+      },
+      {
+        "statement": "A Capacity miss is structural hazard.",
+        "answer": false,
+        "explanation": "A fully associative cache of the same size would still have to evict a live block, so the miss is due to capacity."
+      },
+      {
+        "statement": "A Conflict miss is a miss caused when too many live blocks map to one set even though other lines in the cache are unused.",
+        "answer": true,
+        "explanation": "The placement rule confines the block to a set that is already full of other live blocks."
+      },
+      {
+        "statement": "A Direct-mapped cache is a cache in which a block may occupy any of several lines inside one set.",
+        "answer": false,
+        "explanation": "The index selects exactly one candidate line, so placement uses a single tag comparison."
+      },
+      {
+        "statement": "A Set-associative cache is a cache that groups lines into sets and lets a block occupy any line inside its one set.",
+        "answer": true,
+        "explanation": "The index selects a set of several ways, which needs more comparators but removes some mapping conflicts."
+      },
+      {
+        "statement": "A Fully associative cache is direct-mapped.",
+        "answer": false,
+        "explanation": "There is no index restriction, so a block is rejected only when every line holds something more useful."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Write-through cache is a write policy that updates the cache line and the next memory level on every store.",
+        "answer": true,
+        "explanation": "Memory sees each new value immediately, so a line does not need a dirty bit for correctness."
+      },
+      {
+        "statement": "A Write-back cache is instruction-only caching.",
+        "answer": false,
+        "explanation": "Repeated stores hit in the cache, and memory traffic waits until a dirty line is evicted."
+      },
+      {
+        "statement": "A Write allocate is a write-miss policy that loads the missing block into the cache and then performs the store.",
+        "answer": true,
+        "explanation": "Bringing the block in lets later reads and writes to that block hit in the cache."
+      },
+      {
+        "statement": "A Cache line is the set of wires that carry only interrupt numbers.",
+        "answer": false,
+        "explanation": "The cache fills, hits, and evicts data in lines so one miss can serve several nearby addresses."
+      },
+      {
+        "statement": "A LRU replacement is a replacement rule that evicts the line in a set which has gone unused for the longest time.",
+        "answer": true,
+        "explanation": "Under temporal locality, the line unused the longest is the least likely to be needed soon."
+      },
+      {
+        "statement": "A Virtual memory is a direct-mapped L1 cache.",
+        "answer": false,
+        "explanation": "Programs use virtual addresses, and hardware plus the operating system translate them so processes stay isolated."
+      },
+      {
+        "statement": "A Page table is a per-process structure that records which physical frame, if any, holds each virtual page.",
+        "answer": true,
+        "explanation": "The memory-management unit uses this table to turn a virtual page number into a frame number and permissions."
+      },
+      {
+        "statement": "A TLB is the data-bus grant.",
+        "answer": false,
+        "explanation": "Translation is on the critical path of every memory access, so recent page-table entries are cached beside the MMU."
+      },
+      {
+        "statement": "A Page fault is an exception raised when a process references a virtual page that is not currently in physical memory.",
+        "answer": true,
+        "explanation": "The page-table present bit is clear, so the operating system must bring the page in or reject the access."
+      },
+      {
+        "statement": "A Demand paging is a policy that pins all pages so they can never be evicted.",
+        "answer": false,
+        "explanation": "Pages that are never touched consume neither a frame nor a transfer from disk."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Instruction pipeline is an organization that overlaps stages of several instructions, such as fetch, decode, execute, and writeback.",
+        "answer": true,
+        "explanation": "While one instruction executes, another can be decoded and a third fetched, raising throughput toward one instruction per cycle."
+      },
+      {
+        "statement": "A Data hazard is control hazard.",
+        "answer": false,
+        "explanation": "The consumer reads a register or memory location before the producer has made the new value visible."
+      },
+      {
+        "statement": "A Control hazard is a pipeline delay that occurs because the next instruction address is unknown until a branch resolves.",
+        "answer": true,
+        "explanation": "Fetch cannot know which instruction follows until the branch condition and target are known."
+      },
+      {
+        "statement": "A Structural hazard is false sharing.",
+        "answer": false,
+        "explanation": "Overlapped instructions can collide when the machine has only one copy of a unit such as a memory port."
+      },
+      {
+        "statement": "An Operand forwarding is a bypass that sends a result from a later pipeline stage directly to an earlier stage that needs it.",
+        "answer": true,
+        "explanation": "The result already exists in a pipeline register before writeback, so a dependent instruction can use it immediately."
+      },
+      {
+        "statement": "A Pipeline stall is a prediction used to keep fetching along a guessed branch path.",
+        "answer": false,
+        "explanation": "If a needed value or resource is not available and cannot be bypassed, the dependent instruction must wait."
+      },
+      {
+        "statement": "A Branch prediction is a guess, made before a branch resolves, of whether the branch is taken so that fetch can continue.",
+        "answer": true,
+        "explanation": "Waiting for the true next PC would stall fetch, so a likely path is fetched and later checked."
+      },
+      {
+        "statement": "A Branch target buffer is reorder buffer.",
+        "answer": false,
+        "explanation": "Fetch needs a predicted target in the same cycle it recognizes a branch, before decode computes that target."
+      },
+      {
+        "statement": "A Speculative execution is execution of instructions on a predicted path before that prediction is known to be correct.",
+        "answer": true,
+        "explanation": "The processor uses otherwise idle cycles on the predicted path and discards that work if the prediction was wrong."
+      },
+      {
+        "statement": "A Superscalar processor is a non-pipelined single-cycle design.",
+        "answer": false,
+        "explanation": "Multiple issue uses instruction-level parallelism beyond the one-instruction-per-cycle limit of a scalar pipeline."
+      }
+    ],
+    "4": [
+      {
+        "statement": "An Out-of-order execution is execution that starts an instruction when its operands are ready, even if an earlier instruction is still waiting.",
+        "answer": true,
+        "explanation": "A stalled instruction should not block later independent instructions whose inputs are already available."
+      },
+      {
+        "statement": "A Register renaming is saving callee-saved registers on the stack during a function call.",
+        "answer": false,
+        "explanation": "A new physical register removes write-after-read and write-after-write hazards, which are not true data dependences."
+      },
+      {
+        "statement": "A Reorder buffer is a structure that holds results of instructions finished out of order until they can commit in program order.",
+        "answer": true,
+        "explanation": "In-order commit keeps architectural state precise and lets wrongly speculated instructions be discarded."
+      },
+      {
+        "statement": "An Instruction-level parallelism is thread-level parallelism.",
+        "answer": false,
+        "explanation": "Instructions that do not depend on each other can occupy multiple functional units or pipeline stages together."
+      },
+      {
+        "statement": "An Address bus is the lines that carry the address of the memory location or device register being accessed.",
+        "answer": true,
+        "explanation": "Memory and devices decode this address to select which location the transfer refers to."
+      },
+      {
+        "statement": "A Data bus is coherence bus.",
+        "answer": false,
+        "explanation": "After a location is selected, the payload of the transfer moves on the data lines."
+      },
+      {
+        "statement": "A Control bus is the lines that carry command and timing signals such as read, write, and interrupt request.",
+        "answer": true,
+        "explanation": "A device must be told whether the cycle is a read or a write and when the address and data are valid."
+      },
+      {
+        "statement": "A RAID 0 is a layout that stripes data with rotating parity and survives one disk failure.",
+        "answer": false,
+        "explanation": "Striping lets drives transfer in parallel, but there is no mirror or parity from which a lost block can be rebuilt."
+      },
+      {
+        "statement": "A RAID 1 is a disk layout that stores a full copy of every block on a second drive so either drive can supply the data.",
+        "answer": true,
+        "explanation": "Mirroring means the surviving disk still holds every block after one drive fails."
+      },
+      {
+        "statement": "A RAID 5 is rAID 0.",
+        "answer": false,
+        "explanation": "XOR parity can rebuild one missing block, and rotating that parity avoids a single parity-disk bottleneck."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Multicore processor is a chip that contains two or more complete cores able to run different threads at the same time.",
+        "answer": true,
+        "explanation": "Each core has its own execution resources, so separate threads can make progress concurrently."
+      },
+      {
+        "statement": "An Amdahl's law is 1.25.",
+        "answer": false,
+        "explanation": "The portion that cannot be parallelized still takes the same time no matter how many cores run the rest."
+      },
+      {
+        "statement": "A Cache coherence is the requirement that cores not permanently disagree about the value of one memory location held in private caches.",
+        "answer": true,
+        "explanation": "A write must invalidate or update other cached copies so a later read of that same address cannot keep seeing a stale line."
+      },
+      {
+        "statement": "A MESI protocol is a disk layout that stores four copies of every block.",
+        "answer": false,
+        "explanation": "Each state records whether the line is dirty, solely owned, shared and clean, or unusable."
+      },
+      {
+        "statement": "A Memory consistency is the model that states which orders of loads and stores to memory may become visible to other processors.",
+        "answer": true,
+        "explanation": "Coherence covers one location, while consistency covers how accesses to different locations may be reordered as others observe them."
+      },
+      {
+        "statement": "A Sequential consistency is a relaxed consistency model.",
+        "answer": false,
+        "explanation": "All cores agree on one total order, and each core's own accesses appear in that order as the program issued them."
+      },
+      {
+        "statement": "A False sharing is extra coherence traffic caused when cores write different data that happen to lie on the same cache line.",
+        "answer": true,
+        "explanation": "Coherence tracks whole lines, so a write to one word invalidates another core's copy of the neighboring words."
+      },
+      {
+        "statement": "A DMA is the branch predictor.",
+        "answer": false,
+        "explanation": "The device or its controller becomes bus master, so the CPU can do other work while the block moves."
+      },
+      {
+        "statement": "A Memory-mapped I/O is a scheme in which device registers are read and written with ordinary loads and stores to reserved addresses.",
+        "answer": true,
+        "explanation": "Devices decode ranges of the physical address space, so the same load and store paths reach their registers."
+      },
+      {
+        "statement": "A Bus arbitration is the choice of which path to fetch after a branch.",
+        "answer": false,
+        "explanation": "Only one master can drive the shared address and data lines at a time, so an arbiter grants the bus."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a cache policy that updates main memory on every store is called Spatial locality.",
+        "answer": false,
+        "explanation": "Nearby addresses are often needed together, so a cache fetches a whole line rather than a single word."
+      },
+      {
+        "statement": "A loop accumulator is read and written on every iteration, so its latest value stays in a register or in L1.",
+        "answer": true,
+        "explanation": "A value used recently is likely to be needed again, so keeping it in a fast cache avoids another trip to memory."
+      },
+      {
+        "statement": "In standard textbooks, cache miss is called Cache hit.",
+        "answer": false,
+        "explanation": "A valid line whose tag matches the requested address already holds the data the CPU needs."
+      },
+      {
+        "statement": "The first reference to a cold array element brings a line in from DRAM.",
+        "answer": true,
+        "explanation": "Without a valid matching line, the cache cannot supply the data and must fill from the next level."
+      },
+      {
+        "statement": "In standard textbooks, coherence miss is called Compulsory miss.",
+        "answer": false,
+        "explanation": "A block that has never been touched cannot already be cached, so its first reference misses."
+      },
+      {
+        "statement": "A matrix multiply whose working set is 2 MB keeps thrashing a 32 KB L1 cache however the lines are mapped.",
+        "answer": true,
+        "explanation": "A fully associative cache of the same size would still have to evict a live block, so the miss is due to capacity."
+      },
+      {
+        "statement": "In standard textbooks, a miss on the first reference to a block that was never cached is called Conflict miss.",
+        "answer": false,
+        "explanation": "The placement rule confines the block to a set that is already full of other live blocks."
+      },
+      {
+        "statement": "Index bits of an address always select line 47, and only that line may hold the block.",
+        "answer": true,
+        "explanation": "The index selects exactly one candidate line, so placement uses a single tag comparison."
+      },
+      {
+        "statement": "In standard textbooks, direct-mapped is called Set-associative cache.",
+        "answer": false,
+        "explanation": "The index selects a set of several ways, which needs more comparators but removes some mapping conflicts."
+      },
+      {
+        "statement": "A 64-entry TLB compares all 64 tags and may hold any 64 recent page translations.",
+        "answer": true,
+        "explanation": "There is no index restriction, so a block is rejected only when every line holds something more useful."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, write combining is called Write-through cache.",
+        "answer": false,
+        "explanation": "Memory sees each new value immediately, so a line does not need a dirty bit for correctness."
+      },
+      {
+        "statement": "A loop stores to one line a thousand times, and DRAM is written once when that dirty line is replaced.",
+        "answer": true,
+        "explanation": "Repeated stores hit in the cache, and memory traffic waits until a dirty line is evicted."
+      },
+      {
+        "statement": "In standard textbooks, a read policy that bypasses the cache on every load is called Write allocate.",
+        "answer": false,
+        "explanation": "Bringing the block in lets later reads and writes to that block hit in the cache."
+      },
+      {
+        "statement": "A 64-byte fill brings in sixteen 32-bit words after a miss on any byte in that aligned block.",
+        "answer": true,
+        "explanation": "The cache fills, hits, and evicts data in lines so one miss can serve several nearby addresses."
+      },
+      {
+        "statement": "In standard textbooks, a is called LRU replacement.",
+        "answer": false,
+        "explanation": "Under temporal locality, the line unused the longest is the least likely to be needed soon."
+      },
+      {
+        "statement": "Two processes both use address 0x400000, but those pages are mapped to different physical frames.",
+        "answer": true,
+        "explanation": "Programs use virtual addresses, and hardware plus the operating system translate them so processes stay isolated."
+      },
+      {
+        "statement": "In standard textbooks, the register file is called Page table.",
+        "answer": false,
+        "explanation": "The memory-management unit uses this table to turn a virtual page number into a frame number and permissions."
+      },
+      {
+        "statement": "After the first load on a page, later loads on that page hit in the TLB and skip the multi-level walk.",
+        "answer": true,
+        "explanation": "Translation is on the critical path of every memory access, so recent page-table entries are cached beside the MMU."
+      },
+      {
+        "statement": "In standard textbooks, a cache miss that is filled from DRAM without involving the operating system is called Page fault.",
+        "answer": false,
+        "explanation": "The page-table present bit is clear, so the operating system must bring the page in or reject the access."
+      },
+      {
+        "statement": "A photo editor starts immediately, and a filter's code page is read from disk only when the user first applies that filter.",
+        "answer": true,
+        "explanation": "Pages that are never touched consume neither a frame nor a transfer from disk."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, strictly sequential execution is called Instruction pipeline.",
+        "answer": false,
+        "explanation": "While one instruction executes, another can be decoded and a third fetched, raising throughput toward one instruction per cycle."
+      },
+      {
+        "statement": "An add writes r1 in writeback, but the next instruction reads r1 during decode, before that write.",
+        "answer": true,
+        "explanation": "The consumer reads a register or memory location before the producer has made the new value visible."
+      },
+      {
+        "statement": "In standard textbooks, capacity miss is called Control hazard.",
+        "answer": false,
+        "explanation": "Fetch cannot know which instruction follows until the branch condition and target are known."
+      },
+      {
+        "statement": "An instruction fetch and a data load both need the single memory port on the same clock, so one waits.",
+        "answer": true,
+        "explanation": "Overlapped instructions can collide when the machine has only one copy of a unit such as a memory port."
+      },
+      {
+        "statement": "In standard textbooks, a guess of whether a branch will be taken is called Operand forwarding.",
+        "answer": false,
+        "explanation": "The result already exists in a pipeline register before writeback, so a dependent instruction can use it immediately."
+      },
+      {
+        "statement": "The instruction after a load waits one cycle because the loaded data is not ready for the next ALU operation.",
+        "answer": true,
+        "explanation": "If a needed value or resource is not available and cannot be bypassed, the dependent instruction must wait."
+      },
+      {
+        "statement": "In standard textbooks, the reorder buffer is called Branch prediction.",
+        "answer": false,
+        "explanation": "Waiting for the true next PC would stall fetch, so a likely path is fetched and later checked."
+      },
+      {
+        "statement": "The entry for a call supplies the callee address so the next fetch does not wait for the target calculation.",
+        "answer": true,
+        "explanation": "Fetch needs a predicted target in the same cycle it recognizes a branch, before decode computes that target."
+      },
+      {
+        "statement": "In standard textbooks, write-through stores is called Speculative execution.",
+        "answer": false,
+        "explanation": "The processor uses otherwise idle cycles on the predicted path and discards that work if the prediction was wrong."
+      },
+      {
+        "statement": "In one cycle an integer add is sent to the ALU while an independent load is sent to the memory unit.",
+        "answer": true,
+        "explanation": "Multiple issue uses instruction-level parallelism beyond the one-instruction-per-cycle limit of a scalar pipeline."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, execution that issues only one instruction per cycle on one pipeline is called Out-of-order execution.",
+        "answer": false,
+        "explanation": "A stalled instruction should not block later independent instructions whose inputs are already available."
+      },
+      {
+        "statement": "Two adds both write architectural r1, but renaming assigns the results to physical registers p12 and p17.",
+        "answer": true,
+        "explanation": "A new physical register removes write-after-read and write-after-write hazards, which are not true data dependences."
+      },
+      {
+        "statement": "In standard textbooks, in the branch target buffer is called Reorder buffer.",
+        "answer": false,
+        "explanation": "In-order commit keeps architectural state precise and lets wrongly speculated instructions be discarded."
+      },
+      {
+        "statement": "An address calculation and an unrelated floating-point multiply from the same thread issue in one cycle.",
+        "answer": true,
+        "explanation": "Instructions that do not depend on each other can occupy multiple functional units or pipeline stages together."
+      },
+      {
+        "statement": "In standard textbooks, interrupt bus is called Address bus.",
+        "answer": false,
+        "explanation": "Memory and devices decode this address to select which location the transfer refers to."
+      },
+      {
+        "statement": "A store of the value 42 drives 42 on the data lines while the address lines select the destination word.",
+        "answer": true,
+        "explanation": "After a location is selected, the payload of the transfer moves on the data lines."
+      },
+      {
+        "statement": "In standard textbooks, the lines that carry the data word being transferred is called Control bus.",
+        "answer": false,
+        "explanation": "A device must be told whether the cycle is a read or a write and when the address and data are valid."
+      },
+      {
+        "statement": "Even-numbered blocks sit on disk A and odd-numbered blocks on disk B, and loss of either disk destroys the file.",
+        "answer": true,
+        "explanation": "Striping lets drives transfer in parallel, but there is no mirror or parity from which a lost block can be rebuilt."
+      },
+      {
+        "statement": "In standard textbooks, rAID 0 is called RAID 1.",
+        "answer": false,
+        "explanation": "Mirroring means the surviving disk still holds every block after one drive fails."
+      },
+      {
+        "statement": "When disk B of a three-disk RAID 5 array fails, its blocks are rebuilt by XORing the surviving data and parity.",
+        "answer": true,
+        "explanation": "XOR parity can rebuild one missing block, and rotating that parity avoids a single parity-disk bottleneck."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a RAID controller is called Multicore processor.",
+        "answer": false,
+        "explanation": "Each core has its own execution resources, so separate threads can make progress concurrently."
+      },
+      {
+        "statement": "When one quarter of the runtime is serial, even unlimited cores cannot speed the program up by more than four times.",
+        "answer": true,
+        "explanation": "The portion that cannot be parallelized still takes the same time no matter how many cores run the rest."
+      },
+      {
+        "statement": "In standard textbooks, the mapping of virtual pages onto physical frames is called Cache coherence.",
+        "answer": false,
+        "explanation": "A write must invalidate or update other cached copies so a later read of that same address cannot keep seeing a stale line."
+      },
+      {
+        "statement": "A shared line becomes Modified when this core writes it, and other caches receive invalidations.",
+        "answer": true,
+        "explanation": "Each state records whether the line is dirty, solely owned, shared and clean, or unusable."
+      },
+      {
+        "statement": "In standard textbooks, the coherence protocol for one address only is called Memory consistency.",
+        "answer": false,
+        "explanation": "Coherence covers one location, while consistency covers how accesses to different locations may be reordered as others observe them."
+      },
+      {
+        "statement": "If one core writes data and then a flag, no other core can observe the new flag together with the old data.",
+        "answer": true,
+        "explanation": "All cores agree on one total order, and each core's own accesses appear in that order as the program issued them."
+      },
+      {
+        "statement": "In standard textbooks, a page fault is called False sharing.",
+        "answer": false,
+        "explanation": "Coherence tracks whole lines, so a write to one word invalidates another core's copy of the neighboring words."
+      },
+      {
+        "statement": "A disk controller writes a 4 KB sector into a RAM buffer and interrupts the CPU only when the sector is complete.",
+        "answer": true,
+        "explanation": "The device or its controller becomes bus master, so the CPU can do other work while the block moves."
+      },
+      {
+        "statement": "In standard textbooks, a scheme that maps virtual pages to blocks on disk is called Memory-mapped I/O.",
+        "answer": false,
+        "explanation": "Devices decode ranges of the physical address space, so the same load and store paths reach their registers."
+      },
+      {
+        "statement": "The CPU and a DMA controller both request the memory bus, and the arbiter grants it to the controller first.",
+        "answer": true,
+        "explanation": "Only one master can drive the shared address and data lines at a time, so an arbiter grants the bus."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a scan of an array misses less often after the line size grows from 4 bytes to 64 bytes. Which locality does the larger line exploit, the correct result is temporal locality.",
+        "answer": false,
+        "explanation": "Consecutive elements share a cache line, so one miss supplies several later sequential accesses."
+      },
+      {
+        "statement": "When a tight loop updates one accumulator a million times and almost never misses on that variable. Which locality explains the hits, the correct result is compulsory misses.",
+        "answer": false,
+        "explanation": "The accumulator is reused immediately, so the copy already in cache satisfies the later accesses."
+      },
+      {
+        "statement": "When a load finds a valid tag match in the selected cache set. How is that access classified, the correct result is cache hit.",
+        "answer": true,
+        "explanation": "A valid matching tag means the requested block is already resident in the cache."
+      },
+      {
+        "statement": "When the tag compare fails for every way in the set. In this case happen before the load can complete, the correct result is the block is fetched from the next memory level.",
+        "answer": true,
+        "explanation": "No valid tag matched the address, so the block is absent and has to be filled."
+      },
+      {
+        "statement": "When an empty cache misses on the first touch of every new block, and a larger cache does not remove those misses. Which miss type is that, the correct result is conflict miss.",
+        "answer": false,
+        "explanation": "Those blocks were never resident, so the first reference misses regardless of capacity or associativity."
+      },
+      {
+        "statement": "When misses remain after a direct-mapped cache is replaced by a fully associative cache of the same size. Which miss type remains, the correct result is structural hazard.",
+        "answer": false,
+        "explanation": "Full associativity removes mapping conflicts, so leftover misses mean the working set exceeds the cache."
+      },
+      {
+        "statement": "When a direct-mapped cache thrashes on two blocks, but a fully associative cache of the same size hits on both. The miss was removed, the correct result is conflict miss.",
+        "answer": true,
+        "explanation": "The blocks fit in the cache, but direct-mapped placement forced them into the same line."
+      },
+      {
+        "statement": "When a block may reside in exactly one line, and a second block with the same index replaces it. The organization is this, the correct result is direct-mapped.",
+        "answer": true,
+        "explanation": "One index maps to one line, so any other block with that index must replace the resident block."
+      },
+      {
+        "statement": "When each address maps to a set of four lines, and those four tags are compared in parallel. Which organization is this, the correct result is write-through.",
+        "answer": false,
+        "explanation": "Four ways are searched in the indexed set, which is four-way set associativity."
+      },
+      {
+        "statement": "When a small cache compares the incoming tag with every line and may store the block in any free line. The organization is this, the correct result is fully associative.",
+        "answer": true,
+        "explanation": "Any line is a legal home for the block, so every tag must be compared."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When stores never set a dirty bit because main memory is updated on every store. Which write policy is in use, the correct result is write allocate.",
+        "answer": false,
+        "explanation": "Memory is kept current on each store, so eviction does not need to write a dirty line."
+      },
+      {
+        "statement": "When a line is marked dirty on a store, and DRAM is written only when that line is replaced. Which policy is this, the correct result is instruction-only caching.",
+        "answer": false,
+        "explanation": "The dirty bit records that memory is stale and must be updated if the line is evicted."
+      },
+      {
+        "statement": "When a store misses, the cache fetches the block, and only then updates the word. The write-miss policy is this, the correct result is write allocate.",
+        "answer": true,
+        "explanation": "The missing block is allocated in the cache so the store can update the cached copy."
+      },
+      {
+        "statement": "When a miss on one byte fetches 64 aligned bytes into the cache. What unit was transferred, the correct result is a cache line.",
+        "answer": true,
+        "explanation": "The cache fill size is one line, so the neighboring bytes in that aligned block come in together."
+      },
+      {
+        "statement": "When a two-way set holds blocks A and B. A was used more recently, and a miss needs a victim. Which block does LRU evict, the correct result is neither block.",
+        "answer": false,
+        "explanation": "B has been unused longer than A, so least-recently-used replacement selects B."
+      },
+      {
+        "statement": "When each process appears to own a private address space that can be larger than installed RAM. Which mechanism provides that view, the correct result is a direct-mapped L1 cache.",
+        "answer": false,
+        "explanation": "Page translation gives each process its own addresses backed by frames and disk."
+      },
+      {
+        "statement": "When the MMU needs the frame number and permission bits for virtual page 40. The structure supplies them, the correct result is the page table.",
+        "answer": true,
+        "explanation": "The page table is the structure that maps virtual pages to frames and access rights."
+      },
+      {
+        "statement": "When a load's page is resident in RAM, but its translation is absent from the MMU cache, so a walk begins. What missed, the correct result is the TLB.",
+        "answer": true,
+        "explanation": "The page is already in memory, so this is a translation-cache miss rather than a page fault."
+      },
+      {
+        "statement": "When the present bit of the referenced page is clear and the instruction traps to the operating system. Which exception is this, the correct result is a TLB hit.",
+        "answer": false,
+        "explanation": "A clear present bit means the virtual page has no frame, so hardware cannot complete the reference."
+      },
+      {
+        "statement": "When a process starts with no code pages resident, and each new page is read from disk on its first reference. The policy is this, the correct result is demand paging.",
+        "answer": true,
+        "explanation": "Pages are fetched in response to faults rather than being loaded before execution begins."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When the fetch of instruction 5 overlaps the execution of instruction 3. Which technique allows that overlap, the correct result is demand paging.",
+        "answer": false,
+        "explanation": "Different instructions occupy different stages at the same time, which is pipelining."
+      },
+      {
+        "statement": "When instruction 2 reads r3, which instruction 1 will write, but the write has not reached the register file. Which hazard is this, the correct result is control hazard.",
+        "answer": false,
+        "explanation": "The second instruction depends on a result that the first instruction has not yet produced."
+      },
+      {
+        "statement": "When fetch stalls because a conditional branch has not yet produced the next PC. The hazard is this, the correct result is control hazard.",
+        "answer": true,
+        "explanation": "The unresolved branch leaves the address of the next instruction unknown."
+      },
+      {
+        "statement": "When a load in the memory stage and an instruction fetch both need the only memory port this cycle. The hazard is this, the correct result is structural hazard.",
+        "answer": true,
+        "explanation": "The instructions are contending for one physical resource even though their data are independent."
+      },
+      {
+        "statement": "When a dependent add uses the previous ALU result from the execute-memory pipeline register and does not stall. Which technique avoided the stall, the correct result is a pipeline bubble.",
+        "answer": false,
+        "explanation": "The bypass path supplied the result to the consumer before the register file was updated."
+      },
+      {
+        "statement": "When decode freezes and a bubble is inserted because the next instruction needs a load result that is not yet available. What was inserted, the correct result is a taken-branch prediction.",
+        "answer": false,
+        "explanation": "The consumer cannot proceed until the load data returns, so the hardware inserts a bubble."
+      },
+      {
+        "statement": "When fetch follows the loop body before the compare that controls the branch has finished. What supplied that direction, the correct result is a branch predictor.",
+        "answer": true,
+        "explanation": "The direction was chosen before the branch condition was known, which is prediction."
+      },
+      {
+        "statement": "When fetch looks up the current PC and immediately obtains a predicted next PC for a branch. The structure returned that PC, the correct result is branch target buffer.",
+        "answer": true,
+        "explanation": "A cache of branch targets indexed by the branch PC is a branch target buffer."
+      },
+      {
+        "statement": "When instructions past a branch execute before its condition is known, and they are discarded when the guess is wrong. What is this called, the correct result is demand paging.",
+        "answer": false,
+        "explanation": "Work proceeded on a guess and was thrown away when the guess failed."
+      },
+      {
+        "statement": "When in one cycle the processor issues an add and an independent load to two different units. The organization is this, the correct result is superscalar.",
+        "answer": true,
+        "explanation": "Two instructions from the pipeline were issued in the same cycle, which is superscalar execution."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a load misses, and a later independent add executes before that load completes. Which policy allowed the add to run early, the correct result is strict program order.",
+        "answer": false,
+        "explanation": "The add ran before an earlier instruction finished because the add's own operands were ready."
+      },
+      {
+        "statement": "When a later add writes r1 while an earlier instruction still must read the old r1, and the add receives a new physical register. Which hazard is removed, the correct result is a control hazard.",
+        "answer": false,
+        "explanation": "The new write uses a different physical register, so it does not overwrite the value the earlier reader still needs."
+      },
+      {
+        "statement": "When an instruction has executed, but its result updates the architectural registers only after every older instruction commits. Where is the result held, the correct result is in the reorder buffer.",
+        "answer": true,
+        "explanation": "The reorder buffer delays retirement so updates to architectural state stay in program order."
+      },
+      {
+        "statement": "When two instructions in one thread have no data dependence and issue together to different units. The parallelism is being used, the correct result is instruction-level parallelism.",
+        "answer": true,
+        "explanation": "The independent work comes from one instruction stream rather than from separate threads."
+      },
+      {
+        "statement": "When during a read, the CPU drives the location to be read while other lines will carry the returned word. Which bus carries the location, the correct result is control bus.",
+        "answer": false,
+        "explanation": "The selected location is an address, so it travels on the address bus."
+      },
+      {
+        "statement": "When the address is already driven, and the word being stored now travels toward DRAM. Which bus carries that word, the correct result is coherence bus.",
+        "answer": false,
+        "explanation": "The value being written is data, so it is transferred on the data bus."
+      },
+      {
+        "statement": "When address and data are already driven, and a separate signal says this cycle is a write. The bus carries that signal, the correct result is control bus.",
+        "answer": true,
+        "explanation": "A read or write command is a control signal, not the address and not the payload."
+      },
+      {
+        "statement": "When two disks stripe a file for speed, and the file is unreadable after either disk fails. The RAID level is this, the correct result is rAID 0.",
+        "answer": true,
+        "explanation": "Striping without a mirror or parity cannot reconstruct data after a disk is lost."
+      },
+      {
+        "statement": "When every block is written to two disks, and the array still serves all data after one disk dies. Which RAID level is this, the correct result is jBOD.",
+        "answer": false,
+        "explanation": "A complete second copy of every block is mirroring, which is RAID 1."
+      },
+      {
+        "statement": "When four disks use rotating parity, keep serving data after one disk fails, and cannot survive a second failure. The RAID level is this, the correct result is rAID 5.",
+        "answer": true,
+        "explanation": "Single distributed parity tolerates one failure, while tolerance of two failures would be double parity."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When one chip executes four independent threads at once, and each thread has its own register file. Which design is this, the correct result is a five-stage pipeline.",
+        "answer": false,
+        "explanation": "Separate cores, each with private registers, execute different threads concurrently."
+      },
+      {
+        "statement": "When a program spends one fifth of its time in code that cannot be parallelized. With unlimited cores, what maximum speedup does the bound give, the correct result is 1.25.",
+        "answer": false,
+        "explanation": "The serial fraction is one fifth, so the speedup bound is one divided by that fraction, which equals 5."
+      },
+      {
+        "statement": "When two cores cache x, core 0 writes x, and core 1 must not keep its old copy of x indefinitely. The property requires that, the correct result is cache coherence.",
+        "answer": true,
+        "explanation": "Coherence concerns a single address and forbids another cache from retaining a stale copy forever."
+      },
+      {
+        "statement": "When a cache line is dirty and this cache alone has the up-to-date copy. The MESI state is that, the correct result is modified.",
+        "answer": true,
+        "explanation": "Modified means the line is dirty and is not present as a valid copy in any other cache."
+      },
+      {
+        "statement": "When a core writes x and then y, and another core may see the new y while still seeing the old x. What decides whether that order is allowed, the correct result is the branch target buffer.",
+        "answer": false,
+        "explanation": "Consistency rules govern the observable order of accesses to different addresses."
+      },
+      {
+        "statement": "When core 0 writes data before a flag, and every core that sees the new flag is guaranteed to see the new data, with no extra fence. Which model provides that guarantee, the correct result is a relaxed consistency model.",
+        "answer": false,
+        "explanation": "Program order is preserved in one global interleaving, so the earlier data write is visible no later than the later flag write."
+      },
+      {
+        "statement": "When two cores update different counters, the program slows down, and moving the counters onto separate lines fixes it. What was the problem, the correct result is false sharing.",
+        "answer": true,
+        "explanation": "The counters were independent, but they shared a line, so each write invalidated the other core's copy."
+      },
+      {
+        "statement": "When a network card writes an incoming packet into RAM and interrupts the CPU only after the packet is complete. What moved the bytes, the correct result is a DMA engine.",
+        "answer": true,
+        "explanation": "The device wrote memory directly, and the CPU did not copy the bytes with loads and stores."
+      },
+      {
+        "statement": "When firmware turns on an LED by storing 1 to a GPIO register at a normal memory address. Which I/O organization is this, the correct result is isolated port I/O.",
+        "answer": false,
+        "explanation": "The device register is selected by an ordinary address instead of by a separate I/O port instruction."
+      },
+      {
+        "statement": "When the CPU and a disk controller both need the memory bus in the same cycle. What selects The one may drive it, the correct result is bus arbitration.",
+        "answer": true,
+        "explanation": "An arbiter grants the shared bus to one master so two devices do not drive the lines together."
+      }
+    ]
+  }
+}

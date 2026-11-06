@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Class",
+    "definition": "A user-defined type that bundles data members and the functions that operate on them.",
+    "wrongs": [
+      "One instance that already contains the values of a particular object.",
+      "A namespace, which cannot give its members private access.",
+      "A single variable of a built-in type."
+    ],
+    "why": "The class describes layout and behaviour, while objects created from it hold the actual member values.",
+    "example": "A Counter type declares a count and an increment operation, but that declaration is not itself a counter value.",
+    "scenario": "A programmer specifies the data and operations of a Counter, and no counter storage exists until an instance is created. What was specified?",
+    "scenarioAnswer": "A class",
+    "scenarioWrongs": ["An object", "A namespace alias", "One int variable"],
+    "scenarioWhy": "The declaration describes the type, and later instances are objects of that class."
+  },
+  {
+    "term": "Object",
+    "definition": "A region of storage of some type; for a class type, one instance holding that class's member values.",
+    "wrongs": [
+      "The source text that defines a class and contains no per-instance values.",
+      "A header file that only declares a class.",
+      "A function template before any instantiation."
+    ],
+    "why": "Creating an instance allocates its members and runs a constructor so there is a usable value.",
+    "example": "The declaration Counter c creates one Counter instance named c.",
+    "scenario": "The statement Counter c allocates storage and runs a constructor. What does the name c denote?",
+    "scenarioAnswer": "An object",
+    "scenarioWrongs": ["The class itself", "A header file", "A template"],
+    "scenarioWhy": "c names an instance with its own storage, which is an object of the class."
+  },
+  {
+    "term": "Encapsulation",
+    "definition": "Bundling data with the operations on that data while restricting outside access to the representation.",
+    "wrongs": [
+      "Giving one function name several parameter lists chosen at compile time.",
+      "Deriving a new class from an existing class.",
+      "Allocating an instance with new."
+    ],
+    "why": "Callers use the public operations, so the private layout can change without changing those callers.",
+    "example": "A stack type offers push and pop, and client code cannot reach the private array that stores the items.",
+    "scenario": "Clients of a stack may call push and pop, but they cannot read the private array inside the stack. Which idea is that?",
+    "scenarioAnswer": "Encapsulation",
+    "scenarioWrongs": ["Overloading", "Inheritance", "Heap allocation"],
+    "scenarioWhy": "The data and operations are bundled, and the representation is hidden from clients."
+  },
+  {
+    "term": "Access specifier",
+    "definition": "A label such as public, protected, or private that sets which code may use the members that follow.",
+    "wrongs": [
+      "A keyword that chooses whether an object is created on the stack or the heap.",
+      "A keyword that changes the width of int.",
+      "A label that marks a function as recursive."
+    ],
+    "why": "Members keep the accessibility of the latest specifier until another specifier appears.",
+    "example": "Members written after private can be used by the class's own functions but not by main.",
+    "scenario": "A data member can be used by the class's member functions and not by main. Which specifier states that restriction?",
+    "scenarioAnswer": "private",
+    "scenarioWrongs": ["public", "static", "virtual"],
+    "scenarioWhy": "private members are available to the class and its friends, not to unrelated functions such as main."
+  },
+  {
+    "term": "Constructor",
+    "definition": "A special member function, with no return type, that initializes an object when the object is created.",
+    "wrongs": [
+      "A member function that runs when an object's lifetime ends.",
+      "An ordinary function that returns a new value and is not tied to creation.",
+      "A function used only to copy an existing object and never for any other creation."
+    ],
+    "why": "Creation must establish a valid initial state, and this function is the place that does so.",
+    "example": "Creating a Counter runs a function that sets its count member to 0 before any other call.",
+    "scenario": "Creating a Counter sets its count to 0 before any normal member function runs. Which function did that initialization?",
+    "scenarioAnswer": "A constructor",
+    "scenarioWrongs": ["The destructor", "A free function that returns a Counter", "Only a later assignment"],
+    "scenarioWhy": "Initialization performed as part of creating the object is the constructor's job."
+  },
+  {
+    "term": "Default constructor",
+    "definition": "A constructor that can be called with no arguments.",
+    "wrongs": [
+      "A constructor that requires one or more arguments.",
+      "The constructor used to initialize an object from another object of the same type.",
+      "A destructor, because a destructor also has an empty parameter list."
+    ],
+    "why": "A declaration that supplies no constructor arguments needs a constructor that can be invoked with none.",
+    "example": "The declaration Sensor s with no parentheses calls a constructor that takes no arguments.",
+    "scenario": "The declaration Sensor s must compile and initialize s without any arguments. Which constructor is required?",
+    "scenarioAnswer": "A default constructor",
+    "scenarioWrongs": ["A constructor that requires an int", "The copy constructor", "The destructor"],
+    "scenarioWhy": "No arguments are provided, so the class needs a constructor that can be called with an empty argument list."
+  },
+  {
+    "term": "Parameterized constructor",
+    "definition": "A constructor that accepts arguments and uses them to initialize the new object.",
+    "wrongs": [
+      "A constructor that can be called with no arguments.",
+      "An assignment that changes an object which already exists.",
+      "A destructor that receives the object's final values."
+    ],
+    "why": "The arguments provide the initial state at the moment the object is created.",
+    "example": "Creating a point with the arguments 3 and 4 initializes its coordinates from those arguments.",
+    "scenario": "The declaration of point p passes 3 and 4, and p is created with those coordinates. Which constructor runs?",
+    "scenarioAnswer": "A parameterized constructor",
+    "scenarioWrongs": ["The default constructor", "The assignment operator", "The destructor"],
+    "scenarioWhy": "The coordinates are arguments used to initialize a newly created object."
+  },
+  {
+    "term": "Copy constructor",
+    "definition": "A constructor that initializes a new object as a copy of another object of the same type.",
+    "wrongs": [
+      "An assignment operator that copies into an object which already exists.",
+      "A constructor that takes no arguments.",
+      "A destructor that copies resources out before releasing them."
+    ],
+    "why": "Copy initialization creates a new object, including when an argument is passed by value.",
+    "example": "Passing a string by value copy-constructs the parameter from the caller's string.",
+    "scenario": "String b is created from an existing string a. Which special member initializes b?",
+    "scenarioAnswer": "The copy constructor",
+    "scenarioWrongs": ["The copy assignment operator", "The default constructor", "The destructor"],
+    "scenarioWhy": "b is a new object initialized from a, so this is copy construction rather than assignment."
+  },
+  {
+    "term": "Destructor",
+    "definition": "The member function that runs when an object's lifetime ends and releases resources the object owns.",
+    "wrongs": [
+      "The function that initializes an object when its lifetime begins.",
+      "The function that initializes a new object from an existing one.",
+      "A function the programmer must call by name to end every automatic object."
+    ],
+    "why": "Automatic objects are destroyed when their scope ends, and this function is the cleanup hook.",
+    "example": "When a local file object leaves its block, its destructor closes the handle the constructor opened.",
+    "scenario": "A local file object leaves its block, and the handle it owns is closed automatically. Which function closed the handle?",
+    "scenarioAnswer": "The destructor",
+    "scenarioWrongs": ["The constructor", "The copy constructor", "A manual free that automatic objects always require"],
+    "scenarioWhy": "Leaving the scope ends the object's lifetime and therefore runs the destructor."
+  },
+  {
+    "term": "Member initializer list",
+    "definition": "The part of a constructor, before the body, that initializes bases and members.",
+    "wrongs": [
+      "Assignments inside the constructor body, which can initialize a const member.",
+      "The parameter list of an ordinary member function.",
+      "The list of automatic objects destroyed when a scope ends."
+    ],
+    "why": "Members and bases are initialized before the constructor body executes, which is required for const members and references.",
+    "example": "A constructor sets a const id from a parameter in the initializer list because a const member cannot be assigned in the body.",
+    "scenario": "A class has a const int id that must receive its value when the object is created. Where must that initialization be written?",
+    "scenarioAnswer": "In the member initializer list",
+    "scenarioWrongs": ["In an assignment in the constructor body", "In the destructor", "Only in a setter called later"],
+    "scenarioWhy": "A const member is initialized before the constructor body and cannot be assigned later."
+  },
+  {
+    "term": "this pointer",
+    "definition": "The pointer inside a non-static member function that addresses the object on which the function was called.",
+    "wrongs": [
+      "A pointer to the single copy of a static data member.",
+      "A hidden argument passed to a static member function.",
+      "A pointer that addresses only a different object from the one used in the call."
+    ],
+    "why": "The call is made on a particular object, and this names that object inside the function.",
+    "example": "Inside Counter increment, this reaches the count of the Counter on which increment was called.",
+    "scenario": "increment is called on object c and must name c's own count. Which pointer inside the function addresses c?",
+    "scenarioAnswer": "this",
+    "scenarioWrongs": ["A pointer to static data", "A required null pointer", "A pointer to the class type"],
+    "scenarioWhy": "A non-static member function receives the address of the object used in the call as this."
+  },
+  {
+    "term": "const member function",
+    "definition": "A member function that promises not to modify the object and that may be called on a const object.",
+    "wrongs": [
+      "A function whose return type is const but that may still change the object.",
+      "A static member function, which can carry a const qualifier.",
+      "A constructor, which is always a const member function."
+    ],
+    "why": "The const qualifier after the parameter list makes this a pointer to const, so ordinary members cannot be assigned.",
+    "example": "A size function declared const can be called on a const list and cannot push a new element.",
+    "scenario": "A const rectangle must support a call to area, and that call must compile. How should area be declared?",
+    "scenarioAnswer": "As a const member function",
+    "scenarioWrongs": ["As a non-const member function", "As a constructor", "As a static function marked const"],
+    "scenarioWhy": "Only a const member function may be called on a const object."
+  },
+  {
+    "term": "static data member",
+    "definition": "A class member of which there is one copy shared by all objects, rather than one copy in each object.",
+    "wrongs": [
+      "A member stored separately inside every object.",
+      "A local static variable inside a free function.",
+      "A member that each constructor must initialize separately for its own object."
+    ],
+    "why": "The member belongs to the class, so a change made through one object is visible through every other object.",
+    "example": "A live-object counter in Counter is increased by every constructor, and every Counter sees that same counter.",
+    "scenario": "Every Counter must see one shared tally of live objects, not a separate tally inside each counter. Where should the tally be declared?",
+    "scenarioAnswer": "As a static data member",
+    "scenarioWrongs": ["As an ordinary member of each object", "As a function parameter", "Inside the destructor only"],
+    "scenarioWhy": "A static data member is the single class-wide object shared by all instances."
+  },
+  {
+    "term": "Inheritance",
+    "definition": "A mechanism by which a derived class receives the members of a base class and may add or override behaviour.",
+    "wrongs": [
+      "Storing an object of another type as a member, without deriving from that type.",
+      "Hiding data behind private access without any derived class.",
+      "Declaring several functions that share a name but have different parameters."
+    ],
+    "why": "A derived object contains a base subobject, so it can reuse the base members.",
+    "example": "A Dog declared to derive from Animal can use Animal's eat operation and add its own bark operation.",
+    "scenario": "Dog is declared to derive from Animal and receives Animal's members. Which mechanism is that?",
+    "scenarioAnswer": "Inheritance",
+    "scenarioWrongs": ["Composition", "Encapsulation by itself", "Overloading"],
+    "scenarioWhy": "Deriving Dog from Animal makes Dog reuse Animal through inheritance."
+  },
+  {
+    "term": "Base class",
+    "definition": "The class from which another class inherits members.",
+    "wrongs": [
+      "The class that is declared to inherit from another class.",
+      "A free function used by a class.",
+      "The most derived complete object created by a variable definition."
+    ],
+    "why": "The base declares the common members that each derived class receives as a subobject.",
+    "example": "In a declaration of Dog that derives from Animal, Animal is the class being inherited from.",
+    "scenario": "Dog derives from Animal. Which of those classes is the base?",
+    "scenarioAnswer": "Animal",
+    "scenarioWrongs": ["Dog", "A Dog variable", "std::string"],
+    "scenarioWhy": "The class named as the one being inherited from is the base class."
+  },
+  {
+    "term": "Derived class",
+    "definition": "A class that inherits from a base class and may add members or override virtual functions.",
+    "wrongs": [
+      "The class named as the source of inherited members.",
+      "A base object produced by copying away the extra derived members.",
+      "A namespace nested inside a class."
+    ],
+    "why": "The derived class extends the base and contains the base as a subobject.",
+    "example": "Dog inherits from Animal and adds bark, so Dog is the class that extends Animal.",
+    "scenario": "Animal is inherited from, and Dog adds bark. Which class is derived?",
+    "scenarioAnswer": "Dog",
+    "scenarioWrongs": ["Animal", "The bark function", "An Animal copy of a Dog"],
+    "scenarioWhy": "Dog is the class that inherits, so Dog is the derived class."
+  },
+  {
+    "term": "protected access",
+    "definition": "Access that lets a class and classes derived from it use a member, while unrelated code cannot.",
+    "wrongs": [
+      "Access that lets any function in the program use the member.",
+      "Access that lets only the declaring class and its friends use the member, not derived classes.",
+      "Access that limits a member to a single function body."
+    ],
+    "why": "It is broader than private, so descendants can use details that ordinary clients still cannot use.",
+    "example": "A protected hunger member of Animal can be changed by a Dog method and cannot be changed by main.",
+    "scenario": "A Dog method reads hunger, main cannot read hunger, and hunger is not public. Which access allows the Dog method?",
+    "scenarioAnswer": "protected",
+    "scenarioWrongs": ["public", "private", "static"],
+    "scenarioWhy": "protected members are available to derived classes and hidden from unrelated functions."
+  },
+  {
+    "term": "Function overriding",
+    "definition": "Supplying, in a derived class, a new definition of a virtual base function with the same signature.",
+    "wrongs": [
+      "Declaring another function of the same name with a different parameter list in one class.",
+      "Hiding a non-virtual base function so a base pointer still calls the base version.",
+      "Generating a function from a template for a new type."
+    ],
+    "why": "Because the base function is virtual, a call through a base pointer or reference uses the derived definition.",
+    "example": "Dog replaces Animal's virtual speak, and an Animal pointer to a Dog runs Dog's speak.",
+    "scenario": "Dog defines virtual speak with the same parameters as Animal's virtual speak. What is Dog's function relative to Animal's?",
+    "scenarioAnswer": "An override",
+    "scenarioWrongs": ["An overload", "A template specialization", "A non-virtual function with static binding"],
+    "scenarioWhy": "A matching definition of a virtual base function in the derived class is an override."
+  },
+  {
+    "term": "virtual function",
+    "definition": "A member function whose override is chosen at run time when the call uses a base pointer or reference.",
+    "wrongs": [
+      "A function that is always bound using only the static type of the pointer.",
+      "A function template, which is instantiated at compile time.",
+      "A static member function, which may be declared virtual."
+    ],
+    "why": "The call uses the dynamic type of the object, so the derived override runs.",
+    "example": "Calling virtual speak through an Animal pointer that actually addresses a Dog runs Dog's speak.",
+    "scenario": "An Animal pointer addresses a Dog, and the call to speak runs Dog's version. What property of speak causes that?",
+    "scenarioAnswer": "It is virtual",
+    "scenarioWrongs": ["It is static", "It is a template", "It is bound only to the Animal declaration"],
+    "scenarioWhy": "A virtual call selects the override that belongs to the object's dynamic type."
+  },
+  {
+    "term": "Pure virtual function",
+    "definition": "A virtual function declared equal to zero, which a concrete derived class must override.",
+    "wrongs": [
+      "A virtual function that already has a final body and need not be overridden.",
+      "A non-virtual function whose result is assigned zero.",
+      "A function that has been suppressed with the delete specifier."
+    ],
+    "why": "The pure specifier means this class does not provide the final implementation that a concrete class needs.",
+    "example": "Shape declares area as a pure virtual function, and Circle provides the overriding area.",
+    "scenario": "Shape declares virtual area as equal to zero, and a concrete Circle must implement area. What kind of function is Shape's area?",
+    "scenarioAnswer": "A pure virtual function",
+    "scenarioWrongs": ["An ordinary virtual function", "A deleted function", "A static function"],
+    "scenarioWhy": "The equal-to-zero specifier makes the virtual function pure and requires a concrete derived class to override it."
+  },
+  {
+    "term": "Abstract class",
+    "definition": "A class with at least one pure virtual function, which therefore cannot be instantiated.",
+    "wrongs": [
+      "Any base class, including one that has no pure virtual functions.",
+      "A class that can be instantiated whenever it has a virtual destructor.",
+      "A class template that has not yet been instantiated."
+    ],
+    "why": "The missing final implementation of a pure virtual function makes creating an object of that class ill-formed.",
+    "example": "Shape has a pure virtual area, so a variable of type Shape is ill-formed, while a Circle variable is allowed.",
+    "scenario": "Shape has one pure virtual function, and the program declares a Shape variable. What is the result?",
+    "scenarioAnswer": "The program is ill-formed",
+    "scenarioWrongs": ["A Shape object is created", "Only the destructor runs", "The variable is zero-initialized"],
+    "scenarioWhy": "A class that still has a pure virtual function is abstract and cannot be instantiated."
+  },
+  {
+    "term": "Runtime polymorphism",
+    "definition": "Choosing, when the call executes, which virtual override to run from the object's dynamic type.",
+    "wrongs": [
+      "Choosing an overloaded function at compile time from the argument types.",
+      "Generating a function from a template for one particular type.",
+      "Hiding a private member from client code."
+    ],
+    "why": "One call site can run different overrides when the pointer addresses different derived objects.",
+    "example": "A loop of Animal pointers calls speak, and each element runs the Dog or Cat version that matches its object.",
+    "scenario": "One call through an Animal pointer runs either Dog's speak or Cat's speak, depending on the object addressed. What is that choice called?",
+    "scenarioAnswer": "Runtime polymorphism",
+    "scenarioWrongs": ["Overload resolution", "Template instantiation", "Encapsulation"],
+    "scenarioWhy": "The override is selected from the dynamic type when the virtual call executes."
+  },
+  {
+    "term": "Virtual table",
+    "definition": "The per-class table of addresses of virtual functions used to dispatch a virtual call.",
+    "wrongs": [
+      "A table of the private data values stored in each object.",
+      "The page table that translates virtual memory addresses.",
+      "A structure used only to call non-virtual functions."
+    ],
+    "why": "A polymorphic object typically contains a hidden pointer to the table for its dynamic type.",
+    "example": "A Dog object refers to Dog's table, and the speak entry in that table addresses Dog's speak.",
+    "scenario": "A virtual call loads a function address from a hidden table chosen by the object's dynamic type. What is that table?",
+    "scenarioAnswer": "The virtual table",
+    "scenarioWrongs": ["The page table", "The list of data members", "The overload set"],
+    "scenarioWhy": "Virtual dispatch uses the dynamic type's table of function addresses."
+  },
+  {
+    "term": "Virtual destructor",
+    "definition": "A destructor declared virtual so deleting a derived object through a base pointer destroys the complete object.",
+    "wrongs": [
+      "A non-virtual destructor, which makes that delete defined and safe.",
+      "A constructor declared virtual, which the language allows.",
+      "A destructor that is virtual in every class whether or not it is declared so."
+    ],
+    "why": "If the base destructor is not virtual, deleting a derived object through a base pointer has undefined behaviour.",
+    "example": "Deleting an Animal pointer that addresses a Dog runs Dog's destructor because Animal's destructor is virtual.",
+    "scenario": "An Animal pointer addresses a Dog created with new, and delete must run Dog's destructor. What must Animal's destructor be?",
+    "scenarioAnswer": "virtual",
+    "scenarioWrongs": ["non-virtual", "a constructor", "omitted while Dog adds resources"],
+    "scenarioWhy": "A virtual destructor in the base makes delete through a base pointer destroy the complete derived object."
+  },
+  {
+    "term": "Function template",
+    "definition": "A blueprint from which the compiler generates a function for each set of template arguments that is used.",
+    "wrongs": [
+      "One function whose parameter type is selected at run time by a virtual call.",
+      "A macro that pastes text and does not type-check the substitution.",
+      "A class that cannot be instantiated."
+    ],
+    "why": "Template parameters stand for types or values, and each instantiation is a separate concrete function.",
+    "example": "A max blueprint on type T yields one function for int arguments and another for double arguments.",
+    "scenario": "One max blueprint is called on ints and on doubles, and the compiler produces a function for each. What is that blueprint?",
+    "scenarioAnswer": "A function template",
+    "scenarioWrongs": ["A virtual function", "A macro", "An abstract class"],
+    "scenarioWhy": "The compiler instantiates a concrete function from the template for each argument type that is used."
+  },
+  {
+    "term": "Class template",
+    "definition": "A blueprint from which the compiler generates a distinct class for each set of template arguments that is used.",
+    "wrongs": [
+      "One class whose member types change while the program is running.",
+      "A blueprint that generates functions rather than types.",
+      "A namespace that contains several ordinary classes."
+    ],
+    "why": "Different template arguments produce different types, such as a box of int versus a box of string.",
+    "example": "The standard vector blueprint generates one class for int elements and a different class for string elements.",
+    "scenario": "Box is written once, and Box of int is a different type from Box of string. What is Box?",
+    "scenarioAnswer": "A class template",
+    "scenarioWrongs": ["One ordinary class", "A function template", "A namespace"],
+    "scenarioWhy": "A class template generates a separate class for each template argument list."
+  },
+  {
+    "term": "RAII",
+    "definition": "The practice of binding a resource to an object that acquires it in the constructor and releases it in the destructor.",
+    "wrongs": [
+      "Allocating every resource with a bare new and releasing it only at the end of main.",
+      "Relying on a garbage collector so destructors need not release resources.",
+      "Making every data member public."
+    ],
+    "why": "If an exception unwinds the stack, automatic objects are still destroyed, so their destructors release the resources.",
+    "example": "A lock guard locks a mutex in its constructor and unlocks that mutex in its destructor when the block ends.",
+    "scenario": "A function throws, a local lock object is destroyed during unwinding, and the mutex is unlocked. Which practice made that reliable?",
+    "scenarioAnswer": "RAII",
+    "scenarioWrongs": ["A bare new with no matching delete", "Garbage collection", "Public data"],
+    "scenarioWhy": "The lock object's destructor runs as the stack unwinds and releases the mutex it acquired."
+  },
+  {
+    "term": "unique_ptr",
+    "definition": "A smart pointer with sole ownership of an object, deleting that object when the smart pointer is destroyed.",
+    "wrongs": [
+      "A smart pointer that shares ownership through a reference count.",
+      "A raw pointer that never deletes its target.",
+      "A pointer that can be copied so two owners both delete the same object."
+    ],
+    "why": "Ownership is moved rather than copied, so exactly one owner deletes the object.",
+    "example": "A factory returns sole ownership of a File, and the caller's smart pointer deletes that File at the end of the scope.",
+    "scenario": "A factory hands off sole ownership of a File, the caller stores it in a smart pointer, and the File is deleted when that pointer ends. Which type is it?",
+    "scenarioAnswer": "unique_ptr",
+    "scenarioWrongs": ["shared_ptr", "a raw pointer", "weak_ptr"],
+    "scenarioWhy": "Exclusive ownership that deletes the object with the owner is unique_ptr."
+  },
+  {
+    "term": "shared_ptr",
+    "definition": "A smart pointer that shares ownership with a reference count and deletes the object when the last owner is destroyed.",
+    "wrongs": [
+      "A move-only smart pointer that cannot share ownership.",
+      "A non-owning observer that never changes a reference count.",
+      "A raw pointer that deletes the object every time it is copied."
+    ],
+    "why": "Copying increases the count and destroying one owner decreases it, so the object lives while any shared owner remains.",
+    "example": "Two shared owners address one graph node, and the node is deleted only after both owners are gone.",
+    "scenario": "Two smart pointers address one node, and the node is deleted only after both pointers have been destroyed. Which type does that?",
+    "scenarioAnswer": "shared_ptr",
+    "scenarioWrongs": ["unique_ptr", "weak_ptr", "a raw pointer"],
+    "scenarioWhy": "A reference count keeps the object alive until the last sharing owner is destroyed."
+  },
+  {
+    "term": "std::vector",
+    "definition": "A sequence container that stores elements in one contiguous buffer and can grow as elements are added.",
+    "wrongs": [
+      "A linked container whose elements are not required to be contiguous.",
+      "A fixed array whose length is set at compile time and cannot grow.",
+      "An ordered container of key-value pairs."
+    ],
+    "why": "Contiguous storage provides constant-time indexing, and adding elements may allocate a larger buffer and move the old one.",
+    "example": "Adding a fourth int when the buffer can hold only three allocates a larger buffer and moves the existing ints.",
+    "scenario": "A container of ints supports constant-time indexing and may allocate a new buffer when an element is appended. Which container is it?",
+    "scenarioAnswer": "std::vector",
+    "scenarioWrongs": ["std::list", "a fixed std::array", "std::map"],
+    "scenarioWhy": "A growable contiguous sequence with random-access indexing is a vector."
+  },
+  {
+    "term": "Iterator",
+    "definition": "An object that designates an element of a container and can be advanced to visit other elements.",
+    "wrongs": [
+      "An integer index, which is the only way to name a position in every container.",
+      "A copy of the whole container.",
+      "The allocator that obtains memory for the container."
+    ],
+    "why": "Algorithms operate on ranges of these positions, so one algorithm can work with many container types.",
+    "example": "The begin position of a vector designates the first int, and advancing it once designates the next int.",
+    "scenario": "A sort is given the first position and the past-the-end position of a vector, not the vector object itself. What are those positions?",
+    "scenarioAnswer": "Iterators",
+    "scenarioWrongs": ["Allocators", "Copies of the vector", "Mutexes"],
+    "scenarioWhy": "A range is denoted by iterators that mark elements, including the position just past the last element."
+  },
+  {
+    "term": "std::string",
+    "definition": "A class that owns a resizable sequence of characters and releases that storage in its destructor.",
+    "wrongs": [
+      "A raw character pointer that stores neither a length nor ownership.",
+      "A fixed character array that cannot grow.",
+      "A file stream that reads characters from disk."
+    ],
+    "why": "The object tracks its size and buffer, so appending and later destruction are handled by the class.",
+    "example": "Appending a character may allocate a larger buffer, and destroying the string releases that buffer.",
+    "scenario": "Code builds text by appending, remembers the length, and frees its buffer when the object is destroyed. Which standard type is that?",
+    "scenarioAnswer": "std::string",
+    "scenarioWrongs": ["A raw char pointer", "A file stream", "A fixed char array"],
+    "scenarioWhy": "A resizable owning sequence of characters in the standard library is std::string."
+  },
+  {
+    "term": "std::map",
+    "definition": "An associative container of unique keys and their values, kept in key order with logarithmic lookup.",
+    "wrongs": [
+      "A hash container of unique keys that does not keep the keys in sorted order.",
+      "A sequence indexed only by integers.",
+      "A container that allows duplicate keys."
+    ],
+    "why": "Search, insertion, and removal are logarithmic in the number of elements, and walking the container visits keys in sorted order.",
+    "example": "A map from student id to name stores the smaller id first and finds an id in logarithmic time.",
+    "scenario": "A container stores one name per student id, walks the ids in sorted order, and finds a key in logarithmic time. Which container fits?",
+    "scenarioAnswer": "std::map",
+    "scenarioWrongs": ["std::unordered_map", "std::vector", "std::multimap"],
+    "scenarioWhy": "Unique keys stored in order with logarithmic operations match std::map."
+  },
+  {
+    "term": "Operator overloading",
+    "definition": "Giving a class a meaning for an existing operator, such as addition, when an operand has that class type.",
+    "wrongs": [
+      "Changing how tightly an operator binds or how many operands it takes.",
+      "Inventing an operator token that C++ does not already have.",
+      "Making every operator call a virtual function automatically."
+    ],
+    "why": "The compiler rewrites the operator expression as a call to the function the class provided.",
+    "example": "A complex type defines addition so that adding two values adds their real parts and their imaginary parts.",
+    "scenario": "The expression a plus b adds two complex values because the class defined a function for plus. Which feature is that?",
+    "scenarioAnswer": "Operator overloading",
+    "scenarioWrongs": ["A newly invented operator token", "A change to operator precedence", "A virtual base class"],
+    "scenarioWhy": "The class supplied behaviour for an existing operator applied to its type."
+  },
+  {
+    "term": "Friend function",
+    "definition": "A non-member function that a class explicitly allows to use its private and protected members.",
+    "wrongs": [
+      "A member function, which already has access without a friend declaration.",
+      "Any function in a derived class, which is a friend of the base automatically.",
+      "Any function in the same namespace, which may read private members."
+    ],
+    "why": "Friendship is granted only by an explicit declaration, and it is not inherited by derived classes.",
+    "example": "A non-member addition for a complex type is declared a friend so it can read the private real and imaginary parts.",
+    "scenario": "A non-member plus reads the private real part of a complex value, and the class named that function in a friend declaration. Why is the read allowed?",
+    "scenarioAnswer": "The function is a friend",
+    "scenarioWrongs": ["Every non-member has access", "Derived classes are friends automatically", "The namespace can read private members"],
+    "scenarioWhy": "The friend declaration grants that non-member access to the private members."
+  },
+  {
+    "term": "Composition",
+    "definition": "A relationship in which a class contains member objects of other types as parts of its own state.",
+    "wrongs": [
+      "A relationship in which a class derives from another class.",
+      "A relationship that uses only a non-owning pointer and stores no member object.",
+      "A relationship that makes every function virtual."
+    ],
+    "why": "The member objects are constructed as part of the enclosing object and destroyed with it.",
+    "example": "A Car type contains an Engine member, so constructing a Car also constructs that Engine.",
+    "scenario": "Car contains an Engine member that is created and destroyed together with the Car. Which relationship is this?",
+    "scenarioAnswer": "Composition",
+    "scenarioWrongs": ["Public inheritance", "Friendship", "A non-owning pointer with no member"],
+    "scenarioWhy": "The engine is a part stored inside the car, so the car is composed of an engine."
+  },
+  {
+    "term": "Function overloading",
+    "definition": "Declaring several functions with one name and different parameter lists in the same scope.",
+    "wrongs": [
+      "Replacing a virtual function in a derived class while keeping the same parameter list.",
+      "Using one function template to generate functions for many types.",
+      "Distinguishing two functions only by their return types."
+    ],
+    "why": "Overload resolution selects one of the functions at compile time from the arguments in the call.",
+    "example": "One print takes an int and another print takes a string, and printing 3 selects the int version.",
+    "scenario": "Two functions are both named print, one takes int and one takes string, and a call with 3 selects the int version at compile time. What is that?",
+    "scenarioAnswer": "Overloading",
+    "scenarioWrongs": ["Overriding", "Choosing a function by return type", "A virtual call"],
+    "scenarioWhy": "The same name with different parameter lists in one scope is overloading."
+  },
+  {
+    "term": "Namespace",
+    "definition": "A named scope that groups declarations so they do not collide with the same names in other scopes.",
+    "wrongs": [
+      "A class, which can also hide members with private access.",
+      "A function body, which limits the lifetime of its local variables.",
+      "A header-guard macro."
+    ],
+    "why": "A name declared in a namespace is found by qualifying it, as with the standard vector name.",
+    "example": "Two libraries each declare init in their own namespace, and a caller qualifies which init to run.",
+    "scenario": "Library A and library B both declare init, and the program calls A::init without clashing with B::init. What keeps the names apart?",
+    "scenarioAnswer": "Namespaces",
+    "scenarioWrongs": ["Private members", "Header guards", "One shared overload set"],
+    "scenarioWhy": "Each init is declared in a different named scope, and qualification selects one of them."
+  },
+  {
+    "term": "Reference",
+    "definition": "An alias for an existing object that must be initialized and cannot later be reseated to another object.",
+    "wrongs": [
+      "A pointer that may be null and may later be assigned a different address.",
+      "A separate copy of an object.",
+      "A macro name replaced by source text."
+    ],
+    "why": "Operations on the alias use the object it was bound to, and there is no assignment that makes the alias refer elsewhere.",
+    "example": "Binding r to x means an assignment to r assigns to x.",
+    "scenario": "Name r is bound to int x, assigning to r changes x, and r cannot later be made to mean y. What is r?",
+    "scenarioAnswer": "A reference",
+    "scenarioWrongs": ["A pointer", "A copy of x", "A macro"],
+    "scenarioWhy": "r is another name for x for the rest of r's lifetime, which is a reference."
+  },
+  {
+    "term": "Move constructor",
+    "definition": "A constructor that initializes a new object by taking resources from an rvalue and leaving that rvalue valid but empty.",
+    "wrongs": [
+      "A constructor that deeply copies every resource from an lvalue.",
+      "An assignment operator that copies into an object which already exists.",
+      "A destructor that releases resources without transferring them."
+    ],
+    "why": "The source is expendable, so stealing its buffer avoids copying every element.",
+    "example": "Returning a local vector can transfer its buffer into the caller's result instead of copying each element.",
+    "scenario": "A function returns a local vector by value, and the caller can receive that buffer without copying every element. Which constructor performs the transfer?",
+    "scenarioAnswer": "The move constructor",
+    "scenarioWrongs": ["The copy constructor", "The copy assignment operator", "The destructor"],
+    "scenarioWhy": "The local vector is an rvalue whose buffer can be taken by the move constructor."
+  },
+  {
+    "term": "Rule of Five",
+    "definition": "The guideline that if a class defines any special member for a raw resource, it should define or delete all five.",
+    "wrongs": [
+      "A requirement that every class declare exactly five constructors.",
+      "Advice to define a destructor for a raw pointer and keep the implicit copy operations.",
+      "A limit that a class template may contain only five member functions."
+    ],
+    "why": "A destructor that releases a raw resource usually means the implicit copy would duplicate ownership, so the copy and move operations must be written or suppressed together.",
+    "example": "A class that deletes a raw pointer in its destructor also defines or deletes the copy and move constructors and assignments.",
+    "scenario": "A class deletes a raw pointer in its destructor and still uses the compiler-generated copy constructor. Which guideline does that break?",
+    "scenarioAnswer": "The Rule of Five",
+    "scenarioWrongs": ["The Rule of Zero, which this class follows", "The one-definition rule", "The as-if rule"],
+    "scenarioWhy": "Releasing a raw resource in the destructor means the copy and move members must be defined or deleted as well."
+  },
+  {
+    "term": "Object slicing",
+    "definition": "The loss of derived members that occurs when a derived object is copied by value into a base object.",
+    "wrongs": [
+      "A virtual call through a base reference that still runs the derived override.",
+      "A move of a complete derived object into another object of that derived type.",
+      "Deletion of a derived object through a virtual base destructor."
+    ],
+    "why": "The base copy constructor copies only the base subobject, so the extra derived part is not stored.",
+    "example": "Passing a Dog by value to a parameter of type Animal copies only the Animal part, and the parameter is not a Dog.",
+    "scenario": "A Dog is passed by value to a parameter of type Animal, and the parameter has none of the Dog members. What happened?",
+    "scenarioAnswer": "Object slicing",
+    "scenarioWrongs": ["A virtual call", "A move of the complete Dog", "A virtual destructor call"],
+    "scenarioWhy": "Copying by value into a base object keeps only the base subobject."
+  },
+  {
+    "term": "Multiple inheritance",
+    "definition": "A class with more than one direct base class.",
+    "wrongs": [
+      "A chain in which every class has exactly one direct base.",
+      "A class that contains several member objects and lists no bases.",
+      "Several functions that share one name."
+    ],
+    "why": "The derived object contains one subobject for each direct base.",
+    "example": "A Phone that derives from both Clock and Radio contains a Clock subobject and a Radio subobject.",
+    "scenario": "Phone lists both Clock and Radio as direct bases. Which inheritance form is that?",
+    "scenarioAnswer": "Multiple inheritance",
+    "scenarioWrongs": ["Single inheritance", "Composition with no bases", "Overloading"],
+    "scenarioWhy": "Two direct base classes mean the derived class uses multiple inheritance."
+  },
+  {
+    "term": "Diamond problem",
+    "definition": "The duplicated base that appears when two classes inherit from one class and a fourth class inherits from both.",
+    "wrongs": [
+      "Two functions that cannot be overloaded because their parameter lists match.",
+      "A missing virtual destructor in a single base class.",
+      "A cycle of shared owners that keeps an object alive."
+    ],
+    "why": "Without virtual inheritance, the most derived object contains two separate copies of the common ancestor.",
+    "example": "Student and Employee each derive from Person, and a teaching assistant derives from both, so it contains two Person parts.",
+    "scenario": "A teaching assistant derives from Student and Employee, and each of those derives from Person, making an unqualified Person call ambiguous. What problem is this?",
+    "scenarioAnswer": "The diamond problem",
+    "scenarioWrongs": ["An overload clash", "A non-virtual destructor", "A shared-ownership cycle"],
+    "scenarioWhy": "Two inheritance paths to Person create two Person subobjects, which is the diamond ambiguity."
+  },
+  {
+    "term": "dynamic_cast",
+    "definition": "A cast that checks at run time whether a pointer or reference in a polymorphic hierarchy refers to the target type.",
+    "wrongs": [
+      "A compile-time cast that performs no run-time check.",
+      "A cast that only adds or removes const.",
+      "A cast that reinterprets an object's bits as an unrelated type."
+    ],
+    "why": "If a pointer conversion fails, the result is null; if a reference conversion fails, bad_cast is thrown.",
+    "example": "Converting an Animal pointer to a Dog pointer yields null when the object is actually a Cat.",
+    "scenario": "An Animal pointer might address a Dog, and failure to convert it to Dog must produce a null pointer. Which cast performs that check?",
+    "scenarioAnswer": "dynamic_cast",
+    "scenarioWrongs": ["static_cast", "const_cast", "reinterpret_cast"],
+    "scenarioWhy": "dynamic_cast checks the dynamic type and returns null when a pointer does not address the target type."
+  },
+  {
+    "term": "Exception handling",
+    "definition": "Transfer of control from a throw to a matching handler, destroying automatic objects during the unwind.",
+    "wrongs": [
+      "An error code that the caller may ignore, with no destruction of local objects.",
+      "Selection of a virtual override.",
+      "A directive that stops translation before the program runs."
+    ],
+    "why": "As each scope between the throw and the handler exits, the destructors of its automatic objects run.",
+    "example": "A function throws a runtime error, the caller's handler prints it, and local objects in between are destroyed.",
+    "scenario": "A function throws, local objects of the callers are destroyed, and a handler prints the error. Which mechanism did that?",
+    "scenarioAnswer": "Exception handling",
+    "scenarioWrongs": ["An ignored error code", "Virtual dispatch", "The preprocessor"],
+    "scenarioWhy": "throw transfers control to a handler and unwinds the stack, destroying automatic objects."
+  },
+  {
+    "term": "std::sort",
+    "definition": "A standard algorithm that rearranges a random-access range into order and is not required to be stable.",
+    "wrongs": [
+      "A sort that is required to preserve the original order of equal elements.",
+      "A container that keeps elements ordered by itself.",
+      "The member sort of a linked list, which does not need random-access positions."
+    ],
+    "why": "It needs random-access positions and performs on the order of N log N comparisons.",
+    "example": "Applying it to a vector containing 3, then 1, then 2 rearranges that vector into 1, then 2, then 3.",
+    "scenario": "A vector must be fully ordered in about N log N comparisons, and equal elements need not keep their old order. Which algorithm matches?",
+    "scenarioAnswer": "std::sort",
+    "scenarioWrongs": ["std::stable_sort", "std::list sort on the vector", "Inserting into a map"],
+    "scenarioWhy": "std::sort orders a random-access range and does not promise to keep equal elements in their original order."
+  },
+  {
+    "term": "std::stack",
+    "definition": "A container adapter whose next removal returns the element that was inserted most recently.",
+    "wrongs": [
+      "An adapter whose next removal returns the element that has been waiting the longest.",
+      "An associative container from keys to values.",
+      "An adapter that always removes the largest element rather than the latest one."
+    ],
+    "why": "The adapter limits a underlying sequence to push, pop, and top so clients use last-in first-out order.",
+    "example": "After pushing 1 and then 2, top yields 2, and pop removes 2.",
+    "scenario": "Values are pushed, and the next pop removes the value pushed most recently. Which adapter provides that interface?",
+    "scenarioAnswer": "std::stack",
+    "scenarioWrongs": ["std::queue", "std::map", "std::priority_queue"],
+    "scenarioWhy": "Removing the most recently pushed element is last-in first-out behaviour of a stack."
+  },
+  {
+    "term": "Interface",
+    "definition": "In C++, an abstract class that declares only pure virtual functions and a virtual destructor, with no data members.",
+    "wrongs": [
+      "A separate interface keyword that introduces a type category C++ does not have.",
+      "Any concrete class whose data members are public.",
+      "Any header file, whether or not its classes are abstract."
+    ],
+    "why": "C++ expresses a contract as an abstract class of pure virtual operations that derived classes implement.",
+    "example": "A drawable type contains only a pure virtual draw and a virtual destructor, and Circle implements draw.",
+    "scenario": "A class has a virtual destructor, only pure virtual functions, and no data, and clients program to that class. What role is it playing?",
+    "scenarioAnswer": "An interface",
+    "scenarioWrongs": ["A concrete value type", "A type introduced by an interface keyword", "A namespace"],
+    "scenarioWhy": "An abstract class made only of pure virtual operations is the C++ form of an interface."
+  },
+  {
+    "term": "Copy assignment operator",
+    "definition": "The operator that copies the state of an existing object into another object that already exists.",
+    "wrongs": [
+      "The constructor that initializes a brand-new object from another object.",
+      "The constructor that takes resources from an rvalue to initialize a new object.",
+      "The destructor of the source object."
+    ],
+    "why": "The left-hand object is already alive and may already own resources, so assignment replaces that state.",
+    "example": "After two strings both exist, assigning one to the other copies characters into the existing target.",
+    "scenario": "String a and string b both already exist, and the statement b = a copies a into b. Which special member runs?",
+    "scenarioAnswer": "The copy assignment operator",
+    "scenarioWrongs": ["The copy constructor", "The move constructor", "The destructor"],
+    "scenarioWhy": "b already exists, so the copy is assignment rather than initialization of a new object."
+  }
+]

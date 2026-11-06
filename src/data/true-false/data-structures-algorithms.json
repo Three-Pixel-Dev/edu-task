@@ -1,0 +1,785 @@
+{
+  "subjectId": "data-structures-algorithms",
+  "levels": {
+    "1": [
+      {
+        "statement": "An Array is a collection of elements stored in contiguous memory and addressed by index.",
+        "answer": true,
+        "explanation": "The address of element i is the base address plus i times the element size."
+      },
+      {
+        "statement": "A Dynamic array is a linked chain that never copies elements into a new block.",
+        "answer": false,
+        "explanation": "Most appends are cheap, and the cost of an occasional copy is spread across many insertions."
+      },
+      {
+        "statement": "A Singly linked list is a chain of nodes in which each node stores an element and a link only to the next node.",
+        "answer": true,
+        "explanation": "Nodes need not be adjacent in memory, and insertion at a known node rewrites a few links."
+      },
+      {
+        "statement": "A Doubly linked list is a singly linked list.",
+        "answer": false,
+        "explanation": "The backward link lets a known node be removed or lets the chain be walked in reverse without restarting at the head."
+      },
+      {
+        "statement": "A Stack is a sequence in which items are inserted and removed at the same end, called the top.",
+        "answer": true,
+        "explanation": "The last item pushed is the first item popped, which is last-in, first-out order."
+      },
+      {
+        "statement": "A Queue is a hash set.",
+        "answer": false,
+        "explanation": "The earliest item is removed first, which is first-in, first-out order."
+      },
+      {
+        "statement": "A Circular queue is a queue in a fixed array whose front and rear indexes wrap back to the first slot.",
+        "answer": true,
+        "explanation": "Wrapping reuses empty slots at the beginning after removals, without sliding the remaining items down."
+      },
+      {
+        "statement": "A Deque is a heap that removes the best priority from the root.",
+        "answer": false,
+        "explanation": "Either end can act as the insertion or removal point, so it can behave as a stack or as a queue."
+      },
+      {
+        "statement": "A Binary tree is a tree in which every node has at most two children, usually called left and right.",
+        "answer": true,
+        "explanation": "The two-child limit is the shape used by search trees, heaps, and expression trees."
+      },
+      {
+        "statement": "A Binary search tree is a binary heap.",
+        "answer": false,
+        "explanation": "Search, insertion, and deletion each follow one path from the root using that order."
+      }
+    ],
+    "2": [
+      {
+        "statement": "An AVL tree is a binary search tree kept balanced so the heights of every node's two subtrees differ by at most one.",
+        "answer": true,
+        "explanation": "Rotations after insertion or deletion restore the balance factor, so the height stays logarithmic."
+      },
+      {
+        "statement": "A Heap is a hash table.",
+        "answer": false,
+        "explanation": "The heap order puts an extreme value at the root, and sifting repairs the tree after that value is removed."
+      },
+      {
+        "statement": "A Min-heap is a heap in which every parent is less than or equal to its children, so the smallest key is at the root.",
+        "answer": true,
+        "explanation": "Removing the root takes the minimum, and sifting the last element down restores the parent-child order."
+      },
+      {
+        "statement": "A Priority queue is a sequence that always removes the element inserted last.",
+        "answer": false,
+        "explanation": "A heap is the usual implementation because it finds the extreme priority in logarithmic time."
+      },
+      {
+        "statement": "A Hash table is a structure that maps each key to a slot by computing a hash function on the key.",
+        "answer": true,
+        "explanation": "A good hash function spreads keys so search, insertion, and deletion take constant time on average."
+      },
+      {
+        "statement": "A Collision is a rotation.",
+        "answer": false,
+        "explanation": "A hash function has a finite range, so unequal keys can land in one bucket and need a resolution method."
+      },
+      {
+        "statement": "A Separate chaining is collision handling that stores every key hashing to one slot in a linked list at that slot.",
+        "answer": true,
+        "explanation": "Only the list at the chosen bucket is scanned, and that list grows as more keys collide there."
+      },
+      {
+        "statement": "An Open addressing is a binary search tree of keys.",
+        "answer": false,
+        "explanation": "There is no bucket list; a probe sequence looks through the array for an empty slot."
+      },
+      {
+        "statement": "A Graph is a set of vertices connected by edges, which may be directed or weighted and may contain cycles.",
+        "answer": true,
+        "explanation": "Edges can express arbitrary connections, including more than one parent and paths that loop."
+      },
+      {
+        "statement": "An Adjacency list is a matrix that records which vertices lie on which edges in a different layout.",
+        "answer": false,
+        "explanation": "The space used is proportional to the number of vertices plus the number of edges, which suits a sparse graph."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Adjacency matrix is a two-dimensional array in which an entry shows whether an edge joins a particular pair of vertices.",
+        "answer": true,
+        "explanation": "Testing one possible edge takes constant time, while the space grows with the square of the vertex count."
+      },
+      {
+        "statement": "A Breadth-first search is depth-first search.",
+        "answer": false,
+        "explanation": "A queue explores every neighbor at the current distance before vertices that are farther away."
+      },
+      {
+        "statement": "A Depth-first search is a graph traversal that follows one path as far as it can before backtracking to try another.",
+        "answer": true,
+        "explanation": "Recursion or an explicit stack finishes one neighbor's entire path before the next neighbor of the same vertex."
+      },
+      {
+        "statement": "A Dijkstra's algorithm is heap sort.",
+        "answer": false,
+        "explanation": "It settles the unsettled vertex with the smallest tentative distance and then relaxes that vertex's outgoing edges."
+      },
+      {
+        "statement": "A Topological sort is an ordering of a directed acyclic graph in which every edge points from an earlier vertex to a later one.",
+        "answer": true,
+        "explanation": "Such an order exists only when the directed graph has no cycle, and it places prerequisites first."
+      },
+      {
+        "statement": "A Minimum spanning tree is an order of vertices that respects directed prerequisite edges.",
+        "answer": false,
+        "explanation": "Algorithms such as Kruskal's and Prim's grow an acyclic connection of minimum total cost."
+      },
+      {
+        "statement": "A Big-O notation is an asymptotic upper bound on how a function grows, ignoring constant factors and lower-order terms.",
+        "answer": true,
+        "explanation": "It classifies algorithms by how their cost grows with input size in the worst case commonly considered."
+      },
+      {
+        "statement": "A Time complexity is space complexity.",
+        "answer": false,
+        "explanation": "Counting dominant operations compares algorithms without depending on one machine's clock speed."
+      },
+      {
+        "statement": "A Space complexity is how the extra memory an algorithm needs grows as the input size grows.",
+        "answer": true,
+        "explanation": "It counts auxiliary storage, such as another array or a recursion stack, often separately from the input itself."
+      },
+      {
+        "statement": "A Bubble sort is heap sort.",
+        "answer": false,
+        "explanation": "Each pass moves one more extreme element to its end by swapping it with its neighbors."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Selection sort is a sort that repeatedly selects the smallest remaining element and swaps it into the next position.",
+        "answer": true,
+        "explanation": "After i selections, the first i positions hold the i smallest elements in order."
+      },
+      {
+        "statement": "An Insertion sort is a sort that extracts successive roots from a heap.",
+        "answer": false,
+        "explanation": "Larger elements in the sorted prefix shift right until the gap for the new element is found."
+      },
+      {
+        "statement": "A Merge sort is a divide-and-conquer sort that splits the array, sorts the halves, and then merges those sorted halves.",
+        "answer": true,
+        "explanation": "Merging two sorted halves takes linear work, and the recurrence solves to linearithmic time."
+      },
+      {
+        "statement": "A Quick sort is merge sort.",
+        "answer": false,
+        "explanation": "After partitioning, elements smaller than the pivot are on one side and larger elements are on the other."
+      },
+      {
+        "statement": "A Heap sort is a sort that turns the array into a heap and then repeatedly moves the root into the sorted end.",
+        "answer": true,
+        "explanation": "Each of the n extractions takes logarithmic time, and only a constant amount of extra memory is required."
+      },
+      {
+        "statement": "A Binary search is hashing.",
+        "answer": false,
+        "explanation": "Comparing against the middle element halves the remaining range, so the search is logarithmic."
+      },
+      {
+        "statement": "A Linear search is a search that inspects elements one by one until the key is found or the collection ends.",
+        "answer": true,
+        "explanation": "Without sorted order or hashing, every element may have to be examined, so the worst case is proportional to the length."
+      },
+      {
+        "statement": "A Recursion is a table that stores answers to overlapping subproblems.",
+        "answer": false,
+        "explanation": "Each call must move toward a base case that returns an answer without another call."
+      },
+      {
+        "statement": "A Divide and conquer is a strategy that splits a problem into subproblems, solves them, and combines their answers.",
+        "answer": true,
+        "explanation": "The split reduces the input size, and the combine step produces the answer for the original input."
+      },
+      {
+        "statement": "A Dynamic programming is divide and conquer.",
+        "answer": false,
+        "explanation": "A table or memo turns repeated recursive work into a polynomial computation when subproblems overlap."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Greedy algorithm is an algorithm that builds a solution by repeatedly taking the locally best option and never revising it.",
+        "answer": true,
+        "explanation": "The choice is final when it is made, and it is correct only for problems with the greedy-choice property."
+      },
+      {
+        "statement": "A Stable sort is randomization.",
+        "answer": false,
+        "explanation": "Stability matters when a later key must not scramble an order already established by an earlier key."
+      },
+      {
+        "statement": "An In-order traversal is a binary-tree walk that visits the left subtree, then the node, then the right subtree.",
+        "answer": true,
+        "explanation": "On a binary search tree, this order visits the keys from smallest to largest."
+      },
+      {
+        "statement": "A Pre-order traversal is a walk that visits the node only after both subtrees.",
+        "answer": false,
+        "explanation": "The node is processed before its children, matching a prefix listing of an expression tree."
+      },
+      {
+        "statement": "A Post-order traversal is a binary-tree walk that visits the left subtree, then the right subtree, then the node.",
+        "answer": true,
+        "explanation": "Children are processed before their parent, which suits deleting a tree or evaluating an expression."
+      },
+      {
+        "statement": "A Load factor is the balance factor.",
+        "answer": false,
+        "explanation": "A high ratio means more collisions, so tables often resize after the ratio passes a threshold."
+      },
+      {
+        "statement": "An Amortized analysis is an average of operation costs over a sequence, so an occasional expensive step is spread across cheaper ones.",
+        "answer": true,
+        "explanation": "A costly resize can be charged across the many cheap insertions that filled the previous capacity."
+      },
+      {
+        "statement": "A Backtracking is hashing.",
+        "answer": false,
+        "explanation": "The latest choice is undone and the next alternative is tried, so failed branches are not kept."
+      },
+      {
+        "statement": "A Cycle is a path in a graph that begins and ends at the same vertex.",
+        "answer": true,
+        "explanation": "A directed cycle means no topological order exists, and a cycle means a connected graph is not a tree."
+      },
+      {
+        "statement": "A Shortest path is an order of vertices that respects directed prerequisites.",
+        "answer": false,
+        "explanation": "Unweighted graphs can use breadth-first search, while nonnegative weights call for Dijkstra's algorithm."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, a set of vertices connected by edges that may form cycles is called Array.",
+        "answer": false,
+        "explanation": "The address of element i is the base address plus i times the element size."
+      },
+      {
+        "statement": "A growable vector doubles from 8 slots to 16 when the ninth item is appended.",
+        "answer": true,
+        "explanation": "Most appends are cheap, and the cost of an occasional copy is spread across many insertions."
+      },
+      {
+        "statement": "In standard textbooks, a doubly linked list is called Singly linked list.",
+        "answer": false,
+        "explanation": "Nodes need not be adjacent in memory, and insertion at a known node rewrites a few links."
+      },
+      {
+        "statement": "A history entry points to both a newer page and an older page so either neighbor can be reached directly.",
+        "answer": true,
+        "explanation": "The backward link lets a known node be removed or lets the chain be walked in reverse without restarting at the head."
+      },
+      {
+        "statement": "In standard textbooks, a hash table is called Stack.",
+        "answer": false,
+        "explanation": "The last item pushed is the first item popped, which is last-in, first-out order."
+      },
+      {
+        "statement": "A printer produces the document that was submitted first while later documents wait behind it.",
+        "answer": true,
+        "explanation": "The earliest item is removed first, which is first-in, first-out order."
+      },
+      {
+        "statement": "In standard textbooks, a stack stored in an array with one top index is called Circular queue.",
+        "answer": false,
+        "explanation": "Wrapping reuses empty slots at the beginning after removals, without sliding the remaining items down."
+      },
+      {
+        "statement": "A history buffer adds a new page at the front and drops the oldest page from the rear when it is full.",
+        "answer": true,
+        "explanation": "Either end can act as the insertion or removal point, so it can behave as a stack or as a queue."
+      },
+      {
+        "statement": "In standard textbooks, a general tree is called Binary tree.",
+        "answer": false,
+        "explanation": "The two-child limit is the shape used by search trees, heaps, and expression trees."
+      },
+      {
+        "statement": "Looking for 42 goes left when the current key is larger than 42 and right when it is smaller.",
+        "answer": true,
+        "explanation": "Search, insertion, and deletion each follow one path from the root using that order."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, a linked list is called AVL tree.",
+        "answer": false,
+        "explanation": "Rotations after insertion or deletion restore the balance factor, so the height stays logarithmic."
+      },
+      {
+        "statement": "Job priorities sit in a complete tree array with the most urgent priority stored at the first index.",
+        "answer": true,
+        "explanation": "The heap order puts an extreme value at the root, and sifting repairs the tree after that value is removed."
+      },
+      {
+        "statement": "In standard textbooks, a search tree whose in-order walk is sorted is called Min-heap.",
+        "answer": false,
+        "explanation": "Removing the root takes the minimum, and sifting the last element down restores the parent-child order."
+      },
+      {
+        "statement": "An emergency room next admits the most urgent patient, not the patient who arrived earliest.",
+        "answer": true,
+        "explanation": "A heap is the usual implementation because it finds the extreme priority in logarithmic time."
+      },
+      {
+        "statement": "In standard textbooks, an unsorted array is called Hash table.",
+        "answer": false,
+        "explanation": "A good hash function spreads keys so search, insertion, and deletion take constant time on average."
+      },
+      {
+        "statement": "In a table of 16 slots, the distinct names cat and act both compute bucket 4.",
+        "answer": true,
+        "explanation": "A hash function has a finite range, so unequal keys can land in one bucket and need a resolution method."
+      },
+      {
+        "statement": "In standard textbooks, quadratic probing is called Separate chaining.",
+        "answer": false,
+        "explanation": "Only the list at the chosen bucket is scanned, and that list grows as more keys collide there."
+      },
+      {
+        "statement": "When slot 4 is occupied, the next attempt tries slot 5 and then slot 6 until an empty slot appears.",
+        "answer": true,
+        "explanation": "There is no bucket list; a probe sequence looks through the array for an empty slot."
+      },
+      {
+        "statement": "In standard textbooks, a last-in first-out sequence is called Graph.",
+        "answer": false,
+        "explanation": "Edges can express arbitrary connections, including more than one parent and paths that loop."
+      },
+      {
+        "statement": "Person A stores only the friends B and C, not a flag for every other person in a large network.",
+        "answer": true,
+        "explanation": "The space used is proportional to the number of vertices plus the number of edges, which suits a sparse graph."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, an adjacency list is called Adjacency matrix.",
+        "answer": false,
+        "explanation": "Testing one possible edge takes constant time, while the space grows with the square of the vertex count."
+      },
+      {
+        "statement": "From a maze entrance, rooms one corridor away are listed before rooms two corridors away.",
+        "answer": true,
+        "explanation": "A queue explores every neighbor at the current distance before vertices that are farther away."
+      },
+      {
+        "statement": "In standard textbooks, dijkstra's algorithm is called Depth-first search.",
+        "answer": false,
+        "explanation": "Recursion or an explicit stack finishes one neighbor's entire path before the next neighbor of the same vertex."
+      },
+      {
+        "statement": "A navigation tool computes the smallest total driving time from campus to every junction when road times are nonnegative.",
+        "answer": true,
+        "explanation": "It settles the unsettled vertex with the smallest tentative distance and then relaxes that vertex's outgoing edges."
+      },
+      {
+        "statement": "In standard textbooks, a path of smallest total weight between two vertices is called Topological sort.",
+        "answer": false,
+        "explanation": "Such an order exists only when the directed graph has no cycle, and it places prerequisites first."
+      },
+      {
+        "statement": "The cheapest cables that connect every campus building, without a redundant loop, are selected.",
+        "answer": true,
+        "explanation": "Algorithms such as Kruskal's and Prim's grow an acyclic connection of minimum total cost."
+      },
+      {
+        "statement": "In standard textbooks, big-Theta is called Big-O notation.",
+        "answer": false,
+        "explanation": "It classifies algorithms by how their cost grows with input size in the worst case commonly considered."
+      },
+      {
+        "statement": "Finding a score in a sorted list by halving the range does a logarithmic number of comparisons.",
+        "answer": true,
+        "explanation": "Counting dominant operations compares algorithms without depending on one machine's clock speed."
+      },
+      {
+        "statement": "In standard textbooks, load factor is called Space complexity.",
+        "answer": false,
+        "explanation": "It counts auxiliary storage, such as another array or a recursion stack, often separately from the input itself."
+      },
+      {
+        "statement": "On the list 3, 1, 2, the value 3 swaps with 1 and then with 2 so it reaches the end on the first pass.",
+        "answer": true,
+        "explanation": "Each pass moves one more extreme element to its end by swapping it with its neighbors."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a sort that swaps only adjacent out-of-order pairs is called Selection sort.",
+        "answer": false,
+        "explanation": "After i selections, the first i positions hold the i smallest elements in order."
+      },
+      {
+        "statement": "A card player slides a newly drawn 2 into its place among cards that are already in order.",
+        "answer": true,
+        "explanation": "Larger elements in the sorted prefix shift right until the gap for the new element is found."
+      },
+      {
+        "statement": "In standard textbooks, quick sort is called Merge sort.",
+        "answer": false,
+        "explanation": "Merging two sorted halves takes linear work, and the recurrence solves to linearithmic time."
+      },
+      {
+        "statement": "Choosing 3 as the pivot rearranges a list so smaller values sit to its left and larger values sit to its right.",
+        "answer": true,
+        "explanation": "After partitioning, elements smaller than the pivot are on one side and larger elements are on the other."
+      },
+      {
+        "statement": "In standard textbooks, insertion sort is called Heap sort.",
+        "answer": false,
+        "explanation": "Each of the n extractions takes logarithmic time, and only a constant amount of extra memory is required."
+      },
+      {
+        "statement": "Looking for 8 in the sorted scores 1, 3, 8, 9 compares with the middle and then looks only to the right.",
+        "answer": true,
+        "explanation": "Comparing against the middle element halves the remaining range, so the search is logarithmic."
+      },
+      {
+        "statement": "In standard textbooks, a search that estimates the key's position from its value is called Linear search.",
+        "answer": false,
+        "explanation": "Without sorted order or hashing, every element may have to be examined, so the worst case is proportional to the length."
+      },
+      {
+        "statement": "Computing 5 factorial calls the same function on 4, continuing down until the call on 0 returns 1.",
+        "answer": true,
+        "explanation": "Each call must move toward a base case that returns an answer without another call."
+      },
+      {
+        "statement": "In standard textbooks, a greedy algorithm is called Divide and conquer.",
+        "answer": false,
+        "explanation": "The split reduces the input size, and the combine step produces the answer for the original input."
+      },
+      {
+        "statement": "A Fibonacci table fills each entry from the two preceding entries so each value is computed once.",
+        "answer": true,
+        "explanation": "A table or memo turns repeated recursive work into a polynomial computation when subproblems overlap."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, exhaustive search is called Greedy algorithm.",
+        "answer": false,
+        "explanation": "The choice is final when it is made, and it is correct only for problems with the greedy-choice property."
+      },
+      {
+        "statement": "Students already ordered by name keep Ada before Ben after a grade sort when Ada and Ben share a grade and Ada was first.",
+        "answer": true,
+        "explanation": "Stability matters when a later key must not scramble an order already established by an earlier key."
+      },
+      {
+        "statement": "In standard textbooks, a walk that visits both subtrees before the node is called In-order traversal.",
+        "answer": false,
+        "explanation": "On a binary search tree, this order visits the keys from smallest to largest."
+      },
+      {
+        "statement": "An expression tree rooted at plus with children 2 and 3 yields plus, then 2, then 3.",
+        "answer": true,
+        "explanation": "The node is processed before its children, matching a prefix listing of an expression tree."
+      },
+      {
+        "statement": "In standard textbooks, pre-order traversal is called Post-order traversal.",
+        "answer": false,
+        "explanation": "Children are processed before their parent, which suits deleting a tree or evaluating an expression."
+      },
+      {
+        "statement": "A table with 8 slots and 6 keys has a ratio of 0.75, a common point at which the table grows.",
+        "answer": true,
+        "explanation": "A high ratio means more collisions, so tables often resize after the ratio passes a threshold."
+      },
+      {
+        "statement": "In standard textbooks, average-case analysis of random pivots is called Amortized analysis.",
+        "answer": false,
+        "explanation": "A costly resize can be charged across the many cheap insertions that filled the previous capacity."
+      },
+      {
+        "statement": "A puzzle solver places a digit, finds the row illegal, removes that digit, and tries the next digit.",
+        "answer": true,
+        "explanation": "The latest choice is undone and the next alternative is tried, so failed branches are not kept."
+      },
+      {
+        "statement": "In standard textbooks, a set of edges that connects every vertex without repeating a vertex is called Cycle.",
+        "answer": false,
+        "explanation": "A directed cycle means no topological order exists, and a cycle means a connected graph is not a tree."
+      },
+      {
+        "statement": "Among several campus routes from the library to the lab, the route whose times add to 6 minutes is the smallest total.",
+        "answer": true,
+        "explanation": "Unweighted graphs can use breadth-first search, while nonnegative weights call for Dijkstra's algorithm."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a program must read the twelfth daily temperature with a constant-time index into contiguous memory. Which structure fits, the correct result is a linked list.",
+        "answer": false,
+        "explanation": "An array stores the temperatures contiguously, so index 11 locates the twelfth value directly."
+      },
+      {
+        "statement": "When a list backed by an array is full, and the next append allocates a bigger block and copies the old items. What is that list, the correct result is a singly linked list.",
+        "answer": false,
+        "explanation": "Growing by allocating and copying is how a dynamic array increases its capacity."
+      },
+      {
+        "statement": "When each song node stores a title and a pointer only to the next song. The list is that, the correct result is a singly linked list.",
+        "answer": true,
+        "explanation": "A single forward link per node is the shape of a singly linked list."
+      },
+      {
+        "statement": "When a known node must be removed by relinking both of its neighbors, using a pointer to the previous node. The list supports that, the correct result is a doubly linked list.",
+        "answer": true,
+        "explanation": "The previous pointer lets the neighbors be relinked without scanning from the head."
+      },
+      {
+        "statement": "When an undo feature must reverse the most recent edit before older edits. Which structure matches that order, the correct result is a binary heap.",
+        "answer": false,
+        "explanation": "Undo pops the latest edit first, which is last-in, first-out behavior."
+      },
+      {
+        "statement": "When people who reach a help desk first should be served first. Which structure models that line, the correct result is a hash set.",
+        "answer": false,
+        "explanation": "Serving the earliest arrival first is first-in, first-out removal from a queue."
+      },
+      {
+        "statement": "When a fixed array buffer should reuse freed slots at the front without sliding every remaining element. The queue layout does that, the correct result is a circular queue.",
+        "answer": true,
+        "explanation": "Front and rear wrap to the start of the array, so freed slots are reused in place."
+      },
+      {
+        "statement": "When a scheduler must add urgent jobs at the front of a line and ordinary jobs at the rear. The structure allows both ends, the correct result is a deque.",
+        "answer": true,
+        "explanation": "A deque supports insertion at either end, so urgent and ordinary jobs can enter at different ends."
+      },
+      {
+        "statement": "When an expression node stores an operator and at most one left operand and one right operand. What kind of tree is that, the correct result is a hash table.",
+        "answer": false,
+        "explanation": "A node with at most two children is a binary-tree node."
+      },
+      {
+        "statement": "When keys must be found by going left for a smaller key and right for a larger key, starting at the root. The tree is organized that way, the correct result is a binary search tree.",
+        "answer": true,
+        "explanation": "Left-smaller and right-larger ordering is the search property of a binary search tree."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When insertions arrive already sorted, but the search tree must rotate to keep the two subtree heights within one. Which tree does that, the correct result is a binary heap.",
+        "answer": false,
+        "explanation": "AVL trees restore a height difference of at most one with rotations after each update."
+      },
+      {
+        "statement": "When priorities occupy a complete binary tree in which each parent is ordered against its children and the extreme value is at the root. What is that tree, the correct result is a hash table.",
+        "answer": false,
+        "explanation": "A complete tree with the parent-child order, and the extreme at the root, is a heap."
+      },
+      {
+        "statement": "When a scheduler must repeatedly remove the job with the smallest remaining time from a complete tree. The heap fits, the correct result is a min-heap.",
+        "answer": true,
+        "explanation": "A min-heap keeps the smallest remaining time at the root for the next removal."
+      },
+      {
+        "statement": "When patients should be treated by urgency, so the next removal is the most urgent case rather than the earliest arrival. The abstract structure is that, the correct result is a priority queue.",
+        "answer": true,
+        "explanation": "Removal follows priority rather than arrival time, which is a priority queue."
+      },
+      {
+        "statement": "When a compiler must find a variable's type from its name in expected constant time. Which structure fits, the correct result is a queue.",
+        "answer": false,
+        "explanation": "Hashing the name selects a slot, giving expected constant-time lookup."
+      },
+      {
+        "statement": "When two different usernames compute the same index in a table of 16 slots. What is that event called, the correct result is a rotation.",
+        "answer": false,
+        "explanation": "Unequal keys that hash to one slot have collided."
+      },
+      {
+        "statement": "When keys that hash to the same index should hang in a linked list from that bucket. The collision method is that, the correct result is separate chaining.",
+        "answer": true,
+        "explanation": "A linked list at the bucket is separate chaining."
+      },
+      {
+        "statement": "When a hash table has no per-bucket lists, and a key that hits a full slot tries later slots in the array. The collision family is that, the correct result is open addressing.",
+        "answer": true,
+        "explanation": "Probing other array slots for an empty place is open addressing."
+      },
+      {
+        "statement": "When buildings and the walkways between them must be modeled, including routes that loop. Which structure allows those cycles, the correct result is a binary tree.",
+        "answer": false,
+        "explanation": "A graph can contain cycles, which a tree by definition cannot."
+      },
+      {
+        "statement": "When a social network is sparse, and each person should store only the people they are linked to. The representation fits, the correct result is an adjacency list.",
+        "answer": true,
+        "explanation": "Each vertex's list holds only its existing edges, which is an adjacency list."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a dense road network needs a constant-time test for whether one specific pair of cities has a road. Which representation fits, the correct result is a parent array.",
+        "answer": false,
+        "explanation": "One matrix cell answers whether that pair of cities is connected."
+      },
+      {
+        "statement": "When a maze solver must visit rooms in order of fewest corridors from the entrance, using a queue. Which traversal is that, the correct result is depth-first search.",
+        "answer": false,
+        "explanation": "A queue visits vertices level by level, which is breadth-first search on an unweighted maze."
+      },
+      {
+        "statement": "When a maze solver follows one path to a dead end and then backtracks, using recursion. The traversal is that, the correct result is depth-first search.",
+        "answer": true,
+        "explanation": "Going as far as possible and then backtracking is depth-first search."
+      },
+      {
+        "statement": "When road times are nonnegative, and an app needs the shortest time from campus to every other junction. The algorithm fits, the correct result is dijkstra's algorithm.",
+        "answer": true,
+        "explanation": "Dijkstra's algorithm computes single-source shortest paths when weights are nonnegative."
+      },
+      {
+        "statement": "When courses have prerequisite edges and no cycle. An ordering must place each prerequisite earlier than the course that needs it. What is that ordering, the correct result is a minimum spanning tree.",
+        "answer": false,
+        "explanation": "An order that respects every prerequisite edge is a topological sort of the course graph."
+      },
+      {
+        "statement": "When a campus must connect every building with cable of minimum total cost and with no redundant loop. What should be computed, the correct result is a topological order.",
+        "answer": false,
+        "explanation": "A minimum spanning tree connects all buildings at the least total cable cost without cycles."
+      },
+      {
+        "statement": "When a lecturer ignores constant factors and says one pass over n items grows linearly. The notation records that upper bound, the correct result is big-O.",
+        "answer": true,
+        "explanation": "Big-O states an upper bound such as linear growth, dropping constants and lower-order terms."
+      },
+      {
+        "statement": "When two sorting programs are compared by how their comparison counts grow with n, not by one laptop's timer. In this case being compared, the correct result is time complexity.",
+        "answer": true,
+        "explanation": "Growth in the number of comparisons is time complexity."
+      },
+      {
+        "statement": "When an algorithm allocates a second array as large as its input, and that extra memory grows with n. What is that growth called, the correct result is stability.",
+        "answer": false,
+        "explanation": "Growth of auxiliary memory with n is space complexity."
+      },
+      {
+        "statement": "When a student sorts a list only by swapping neighbors that are out of order, pass after pass. The sort is that, the correct result is bubble sort.",
+        "answer": true,
+        "explanation": "Swapping out-of-order neighbors on each pass is bubble sort."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When each pass finds the smallest not-yet-placed element and swaps it into the next fixed position. Which sort is that, the correct result is insertion sort.",
+        "answer": false,
+        "explanation": "Selecting the minimum of the unsorted suffix and placing it next is selection sort."
+      },
+      {
+        "statement": "When a hand of cards is kept in order by sliding each newly drawn card into place among the cards already held. Which sort matches that, the correct result is heap sort.",
+        "answer": false,
+        "explanation": "Inserting the next item into a sorted prefix is insertion sort."
+      },
+      {
+        "statement": "When an array is split until single elements remain, and sorted halves are then combined back into order. The sort is that, the correct result is merge sort.",
+        "answer": true,
+        "explanation": "Splitting, sorting the halves, and merging them is merge sort."
+      },
+      {
+        "statement": "When a sort chooses a pivot, places smaller elements to its left and larger ones to its right, then repeats on each side. The sort is that, the correct result is quick sort.",
+        "answer": true,
+        "explanation": "Partitioning around a pivot and recursing on both sides is quick sort."
+      },
+      {
+        "statement": "When a sort first makes the array a max-heap, then repeatedly moves the root to the end and repairs the heap. Which sort is that, the correct result is quick sort.",
+        "answer": false,
+        "explanation": "Building a heap and extracting the root into the sorted suffix is heap sort."
+      },
+      {
+        "statement": "When a sorted score array is searched by comparing with the middle element and ignoring one half each time. Which search is that, the correct result is hashing.",
+        "answer": false,
+        "explanation": "Halving a sorted range at each comparison is binary search."
+      },
+      {
+        "statement": "When names are unsorted, so a lookup checks the first name, then the next, until it finds a match or finishes the sheet. The search is that, the correct result is linear search.",
+        "answer": true,
+        "explanation": "Checking elements in order from the start is linear search."
+      },
+      {
+        "statement": "When a function computes n factorial by calling itself on n minus 1 until it reaches 0. What technique is that, the correct result is recursion.",
+        "answer": true,
+        "explanation": "The function calls itself on a smaller n until a base case, which is recursion."
+      },
+      {
+        "statement": "When a problem is split into independent halves, each half is solved, and the two answers are combined. Which strategy is that, the correct result is brute force.",
+        "answer": false,
+        "explanation": "Splitting into subproblems and combining their results is divide and conquer."
+      },
+      {
+        "statement": "When a recursive Fibonacci routine recomputes the same smaller values many times, so each result is stored in a table. The strategy is that, the correct result is dynamic programming.",
+        "answer": true,
+        "explanation": "Storing and reusing overlapping Fibonacci results is dynamic programming."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When coin change repeatedly picks the largest coin that does not exceed the remaining amount and never takes that pick back. Which approach is that, the correct result is divide and conquer.",
+        "answer": false,
+        "explanation": "Irrevocable locally best choices are the greedy approach."
+      },
+      {
+        "statement": "When students are already ordered by name, and a later sort by grade must keep Ada before Ben when their grades are equal. Which property is required, the correct result is randomization.",
+        "answer": false,
+        "explanation": "Stability keeps the earlier name order of students whose grades compare equal."
+      },
+      {
+        "statement": "When a search tree should be printed from the smallest key to the largest by visiting left, node, then right. The traversal is that, the correct result is in-order traversal.",
+        "answer": true,
+        "explanation": "Left, node, then right visits binary-search-tree keys in sorted order."
+      },
+      {
+        "statement": "When an expression tree should list the operator before its operands by visiting the node first. The traversal is that, the correct result is pre-order traversal.",
+        "answer": true,
+        "explanation": "Visiting the node before its children lists the operator first."
+      },
+      {
+        "statement": "When a tree should be freed by releasing both subtrees before releasing the node itself. Which traversal order matches that, the correct result is level-order traversal.",
+        "answer": false,
+        "explanation": "Post-order visits both children before the node, so subtrees can be freed first."
+      },
+      {
+        "statement": "When a hash table holds 6 keys in 8 slots and resizes when that ratio passes 0.75. What is the ratio called, the correct result is the balance factor.",
+        "answer": false,
+        "explanation": "Keys divided by slots is the load factor that triggers resizing."
+      },
+      {
+        "statement": "When one append copies n items, but over a long series of appends the average cost per append stays constant. What kind of analysis shows that, the correct result is amortized analysis.",
+        "answer": true,
+        "explanation": "Averaging the rare copy across many cheap appends is amortized analysis."
+      },
+      {
+        "statement": "When a puzzle solver places a digit, discovers the row is illegal, removes that digit, and tries another. The technique is that, the correct result is backtracking.",
+        "answer": true,
+        "explanation": "Undoing a failing choice and trying the next one is backtracking."
+      },
+      {
+        "statement": "When prerequisites say A before B, B before C, and C before A. Why can no valid course order exist, the correct result is the graph is disconnected.",
+        "answer": false,
+        "explanation": "The three prerequisite edges form a cycle, and a cycle cannot be topologically ordered."
+      },
+      {
+        "statement": "When several routes connect the library to the lab, and an app must report the route whose travel times add to the smallest total. In this case that route, the correct result is a shortest path.",
+        "answer": true,
+        "explanation": "The route with the smallest total travel time between those two places is a shortest path."
+      }
+    ]
+  }
+}

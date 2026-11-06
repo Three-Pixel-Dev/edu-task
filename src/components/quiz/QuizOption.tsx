@@ -1,11 +1,13 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { colors, radius, spacing, type ColorToken } from '@/theme';
-import { AppText, Icon } from '../ui';
+import { AppText, Icon, type IconName } from '../ui';
 
 export type OptionState = 'idle' | 'selected' | 'correct' | 'incorrect' | 'dimmed';
 
 interface QuizOptionProps {
   letter: string;
+  /** Shown instead of the letter (True / False use check and x). */
+  icon?: IconName;
   text: string;
   state: OptionState;
   locked: boolean;
@@ -26,14 +28,14 @@ const stateLabel: Partial<Record<OptionState, string>> = {
 };
 
 /** Large, full-width answer card — easy to hit with a thumb. */
-export function QuizOption({ letter, text, state, locked, onPress }: QuizOptionProps) {
+export function QuizOption({ letter, icon, text, state, locked, onPress }: QuizOptionProps) {
   const l = look[state];
   const selected = state === 'selected' || state === 'incorrect' || (state === 'correct' && !locked);
   return (
     <Pressable
       accessibilityRole="radio"
       accessibilityState={{ checked: selected, disabled: locked }}
-      accessibilityLabel={`Option ${letter}: ${text}${stateLabel[state] ? `, ${stateLabel[state]}` : ''}`}
+      accessibilityLabel={`${icon ? '' : `Option ${letter}: `}${text}${stateLabel[state] ? `, ${stateLabel[state]}` : ''}`}
       disabled={locked}
       onPress={onPress}
       style={({ pressed }) => [
@@ -43,9 +45,13 @@ export function QuizOption({ letter, text, state, locked, onPress }: QuizOptionP
       ]}
     >
       <View style={[styles.badge, { backgroundColor: l.badgeBg }]}>
-        <AppText variant="captionStrong" color={l.badgeFg}>
-          {letter}
-        </AppText>
+        {icon ? (
+          <Icon name={icon} size={16} color={l.badgeFg} />
+        ) : (
+          <AppText variant="captionStrong" color={l.badgeFg}>
+            {letter}
+          </AppText>
+        )}
       </View>
       <AppText variant="bodyMedium" style={styles.text}>
         {text}

@@ -1,14 +1,17 @@
 import {
+  EmailAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  reauthenticateWithCredential,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
+  updatePassword,
   updateProfile,
   type User as FirebaseUser,
 } from 'firebase/auth';
 import type { Credentials, RegisterInput } from '@/types';
-import { toAppError } from './errors';
+import { AppError, toAppError } from './errors';
 import { getFirebase } from './firebase';
 import { createUserProfile, trackProfileCreation } from './users';
 
@@ -64,6 +67,29 @@ export function getCurrentUser(): FirebaseUser | null {
 /** Fires once with the restored session (or null), then on every sign-in/out. */
 export function onAuthChange(callback: (user: FirebaseUser | null) => void) {
   return onAuthStateChanged(getFirebase().auth, callback);
+}
+
+/**
+ * Updates the signed-in user's password. Firebase requires a fresh sign-in, so
+ * the current password is checked first.
+ */
+export async function changePassword(currentPassword: string, newPassword: string): Promise<void> {
+  const user = getFirebase().auth.currentUser;
+  const email = user?.email;
+  if (!user || !email) throw toAppError({ code: 'unauthenticated' });
+  try {
+    await reauthenticateWithCredential(user, EmailAuthProvider.credential(email, currentPassword));
+    await updatePassword(user, newPassword);
+  } catch (error) {
+    const code = typeof error === 'object' && error !== null && 'code' in error ? String((error as { code: unknown }).code) : '';
+    if (code === 'auth/wrong-password' || code === 'auth/invalid-credential' || code === 'auth/invalid-login-credentials') {
+      throw new AppError('That current password is incorrect.', code);
+    }
+    if (code === 'auth/requires-recent-login') {
+      throw new AppError('For security, log out and log in again, then change your password.', code);
+    }
+    throw toAppError(error, 'We couldn’t change your password. Please try again.');
+  }
 }
 
 /** Sends a reset email. Doesn't reveal whether an account exists for the email. */

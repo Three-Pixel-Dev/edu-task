@@ -1,0 +1,785 @@
+{
+  "subjectId": "cloud-computing",
+  "levels": {
+    "1": [
+      {
+        "statement": "A Cloud computing is on-demand network access to a shared pool of computing resources that can be provisioned and released quickly.",
+        "answer": true,
+        "explanation": "NIST describes a shared, elastic pool that users provision over the network with little manual setup."
+      },
+      {
+        "statement": "An IaaS is a managed application runtime where the customer deploys only code.",
+        "answer": false,
+        "explanation": "The provider virtualises hardware; the customer still patches the guest OS and runs the software stack."
+      },
+      {
+        "statement": "A PaaS is a cloud service that provides a managed runtime so the customer deploys application code without operating the servers.",
+        "answer": true,
+        "explanation": "The provider runs the platform, language runtime, and scaling hooks; the customer supplies the app."
+      },
+      {
+        "statement": "A SaaS is iaaS.",
+        "answer": false,
+        "explanation": "Users consume the application; the provider manages code, platform, and infrastructure."
+      },
+      {
+        "statement": "A Public cloud is cloud infrastructure offered to many unrelated customers by a third-party provider over the internet.",
+        "answer": true,
+        "explanation": "Any customer who can pay may use the same provider services, isolated logically from other tenants."
+      },
+      {
+        "statement": "A Private cloud is a personal workstation.",
+        "answer": false,
+        "explanation": "The organisation is the only tenant, whether the equipment sits on premises or at a host."
+      },
+      {
+        "statement": "A Hybrid cloud is a combination of private and public clouds linked so workloads and data can move between them.",
+        "answer": true,
+        "explanation": "The defining feature is portability across distinct cloud deployments, often private plus public."
+      },
+      {
+        "statement": "A Community cloud is infrastructure dedicated to only one company.",
+        "answer": false,
+        "explanation": "The tenants share concerns such as a regulation or research mission, and share the cloud's cost and governance."
+      },
+      {
+        "statement": "A Virtual machine is a software-defined computer that runs its own operating system on virtual hardware.",
+        "answer": true,
+        "explanation": "A hypervisor presents virtual CPU, memory, and disks so a guest OS runs as if it had a machine."
+      },
+      {
+        "statement": "A Hypervisor is load balancer.",
+        "answer": false,
+        "explanation": "It schedules guest CPU and memory and traps privileged instructions so guests stay isolated."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Container is a lightweight isolated package that runs an application while sharing the host operating-system kernel.",
+        "answer": true,
+        "explanation": "Isolation uses kernel features such as namespaces, so there is no second operating system to boot."
+      },
+      {
+        "statement": "A Container orchestration is contract negotiation.",
+        "answer": false,
+        "explanation": "A control plane schedules containers, replaces failed copies, and rolls out new versions."
+      },
+      {
+        "statement": "An Elasticity is the ability to grow or shrink allocated resources automatically as demand changes.",
+        "answer": true,
+        "explanation": "Cloud resources are meant to match the current load and be released when the load falls."
+      },
+      {
+        "statement": "A Horizontal scaling is compressing responses so one server sends fewer bytes.",
+        "answer": false,
+        "explanation": "Scale-out adds workers beside the existing ones instead of enlarging one machine."
+      },
+      {
+        "statement": "A Vertical scaling is increasing capacity by giving an existing instance more CPU, memory, or storage.",
+        "answer": true,
+        "explanation": "Scale-up enlarges one machine rather than adding peers."
+      },
+      {
+        "statement": "A Cloud region is one server rack.",
+        "answer": false,
+        "explanation": "Regions let customers place workloads near users and choose a legal location for data."
+      },
+      {
+        "statement": "An Availability zone is an isolated data-centre group inside a region, with separate power and networking from its neighbours.",
+        "answer": true,
+        "explanation": "Failure of one zone's power or network should not take down the other zones in that region."
+      },
+      {
+        "statement": "An Object storage is a transient message bus.",
+        "answer": false,
+        "explanation": "Each object has a key and metadata, and the service scales without presenting a traditional block device."
+      },
+      {
+        "statement": "A Block storage is storage presented to a virtual machine as a raw disk volume that the guest can format.",
+        "answer": true,
+        "explanation": "The guest sees sectors, like a hard disk, and usually builds its own file system on the volume."
+      },
+      {
+        "statement": "A Load balancing is encrypting traffic between two specific hosts only.",
+        "answer": false,
+        "explanation": "A balancer spreads load and can skip servers that fail their health checks."
+      }
+    ],
+    "3": [
+      {
+        "statement": "A CAP theorem is during a network partition, a distributed store must trade off consistency against availability.",
+        "answer": true,
+        "explanation": "If nodes cannot talk, they cannot both stay perfectly in sync and answer every request."
+      },
+      {
+        "statement": "An Eventual consistency is linearisability.",
+        "answer": false,
+        "explanation": "The system favours availability and reconciles copies after communication resumes."
+      },
+      {
+        "statement": "A Serverless computing is running short-lived functions on demand without the customer provisioning or managing servers.",
+        "answer": true,
+        "explanation": "The platform starts a function for an event, scales it, and bills for the execution used."
+      },
+      {
+        "statement": "A Cold start is hardware shipping time.",
+        "answer": false,
+        "explanation": "After idle time the platform may have no warm environment, so it must initialise runtime and code."
+      },
+      {
+        "statement": "A Shared responsibility model is the split in which the provider secures the cloud platform and the customer secures data, access, and configuration.",
+        "answer": true,
+        "explanation": "Physical hosts and the hypervisor are the provider's job; identities, data, and guest settings stay with the customer, varying by service model."
+      },
+      {
+        "statement": "A Multi-tenancy is running only one virtual machine on an entire data centre.",
+        "answer": false,
+        "explanation": "Sharing hardware cuts cost, so isolation must stop one tenant from seeing another's data."
+      },
+      {
+        "statement": "A Measured service is metering resource use so customers can be billed and can monitor what they consume.",
+        "answer": true,
+        "explanation": "Cloud systems measure quantities such as hours, requests, and gigabytes."
+      },
+      {
+        "statement": "An On-demand self-service is a manual sales order.",
+        "answer": false,
+        "explanation": "A portal or API fulfils the request immediately, which is one of the NIST cloud characteristics."
+      },
+      {
+        "statement": "A Resource pooling is dynamically assigning capacity from a provider's shared pool, without a customer owning a specific physical server.",
+        "answer": true,
+        "explanation": "The provider decides which physical resources serve a tenant and can reassign them as load changes."
+      },
+      {
+        "statement": "A Broad network access is serial-cable administration.",
+        "answer": false,
+        "explanation": "Users reach the service with ordinary laptops, phones, or APIs across the network."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Virtual private cloud is a logically isolated virtual network, with the customer's own addresses and routes, inside a public cloud.",
+        "answer": true,
+        "explanation": "The customer chooses private address ranges, subnets, and route tables that other tenants do not share."
+      },
+      {
+        "statement": "An Autoscaling is resizing one machine's memory by shutting it down for a manual change.",
+        "answer": false,
+        "explanation": "The control loop watches signals such as CPU or request count and changes the instance count itself."
+      },
+      {
+        "statement": "A Content delivery network is a set of geographically distributed caches that serve copies of content from a location near the user.",
+        "answer": true,
+        "explanation": "Edge caches shorten the path for static or cacheable responses and protect the origin from repeated fetches."
+      },
+      {
+        "statement": "An Object versioning is a disk snapshot.",
+        "answer": false,
+        "explanation": "Each write can create a new version under the same key, and an old version remains readable."
+      },
+      {
+        "statement": "A Volume snapshot is a point-in-time copy of a block volume that can be used to create a new disk later.",
+        "answer": true,
+        "explanation": "The snapshot captures the volume's blocks at one moment, often stored durably apart from the attached disk."
+      },
+      {
+        "statement": "An Identity and access management is a public status page.",
+        "answer": false,
+        "explanation": "Policies bind principals such as users and roles to permissions on services and data."
+      },
+      {
+        "statement": "A Service level agreement is a contract stating a measurable service target, such as monthly uptime, and the remedy if it is missed.",
+        "answer": true,
+        "explanation": "The agreement makes availability or performance a commitment, often with service credits if the target is missed."
+      },
+      {
+        "statement": "A Vendor lock-in is keeping a tested exit plan and portable containers.",
+        "answer": false,
+        "explanation": "Proprietary APIs, data formats, or managed engines raise the cost and time of a move."
+      },
+      {
+        "statement": "A Lift and shift is moving an existing application to the cloud with little or no change to its architecture.",
+        "answer": true,
+        "explanation": "Rehosting places the same application on cloud virtual machines to finish the move quickly."
+      },
+      {
+        "statement": "A Cloud bursting is a permanent full migration.",
+        "answer": false,
+        "explanation": "The private estate handles the base load, and the public cloud absorbs short peaks."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Reserved instance is a discounted virtual-machine rate bought by committing to a term, often one or three years.",
+        "answer": true,
+        "explanation": "The customer trades flexibility for a lower price on steady, long-running capacity."
+      },
+      {
+        "statement": "A Spot instance is a scale-to-zero function.",
+        "answer": false,
+        "explanation": "The low price reflects the risk that the workload must stop or move when capacity is needed elsewhere."
+      },
+      {
+        "statement": "An Edge computing is processing data close to where it is produced, instead of sending every event to a central region.",
+        "answer": true,
+        "explanation": "Local processing cuts latency and the volume of data that must cross the wide-area network."
+      },
+      {
+        "statement": "An API gateway is a block volume attached to one virtual machine.",
+        "answer": false,
+        "explanation": "Clients call one endpoint, and the gateway checks identity, limits rate, and forwards the request."
+      },
+      {
+        "statement": "A Message queue is a buffer that holds work items so producers and consumers can run independently.",
+        "answer": true,
+        "explanation": "The queue absorbs bursts and lets the consumer process messages at its own pace."
+      },
+      {
+        "statement": "A Noisy neighbour is a dedicated single-tenant host.",
+        "answer": false,
+        "explanation": "Contended CPU, disk, or network on multi-tenant hardware lets one workload steal performance."
+      },
+      {
+        "statement": "An Infrastructure as code is defining cloud resources in versioned text templates that a tool can create and update.",
+        "answer": true,
+        "explanation": "Templates can be reviewed, repeated, and rolled back like application source."
+      },
+      {
+        "statement": "A Blue-green deployment is a disaster-recovery drill.",
+        "answer": false,
+        "explanation": "The idle environment is upgraded and tested, then the load balancer moves traffic across in one cut."
+      },
+      {
+        "statement": "A Health check is a probe a load balancer or orchestrator uses to decide whether an instance should receive work.",
+        "answer": true,
+        "explanation": "If the probe fails, the instance is marked unhealthy and new requests are sent elsewhere."
+      },
+      {
+        "statement": "A Data residency is the right of a user to download a copy of personal data.",
+        "answer": false,
+        "explanation": "Law or policy can forbid storing certain records outside a jurisdiction."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, buying and racking servers that stay dedicated to one application forever is called Cloud computing.",
+        "answer": false,
+        "explanation": "NIST describes a shared, elastic pool that users provision over the network with little manual setup."
+      },
+      {
+        "statement": "A team rents Linux virtual machines, chooses the kernel packages, and installs its own database.",
+        "answer": true,
+        "explanation": "The provider virtualises hardware; the customer still patches the guest OS and runs the software stack."
+      },
+      {
+        "statement": "In standard textbooks, iaaS is called PaaS.",
+        "answer": false,
+        "explanation": "The provider runs the platform, language runtime, and scaling hooks; the customer supplies the app."
+      },
+      {
+        "statement": "Staff use a browser-based payroll system and never install or patch that application.",
+        "answer": true,
+        "explanation": "Users consume the application; the provider manages code, platform, and infrastructure."
+      },
+      {
+        "statement": "In standard textbooks, an isolated lab cluster is called Public cloud.",
+        "answer": false,
+        "explanation": "Any customer who can pay may use the same provider services, isolated logically from other tenants."
+      },
+      {
+        "statement": "A bank runs a self-service virtual-machine portal that only its own business units can use.",
+        "answer": true,
+        "explanation": "The organisation is the only tenant, whether the equipment sits on premises or at a host."
+      },
+      {
+        "statement": "In standard textbooks, a private cloud that never connects to an outside provider is called Hybrid cloud.",
+        "answer": false,
+        "explanation": "The defining feature is portability across distinct cloud deployments, often private plus public."
+      },
+      {
+        "statement": "Several public universities share one research cloud built for the same data-protection rules.",
+        "answer": true,
+        "explanation": "The tenants share concerns such as a regulation or research mission, and share the cloud's cost and governance."
+      },
+      {
+        "statement": "In standard textbooks, container is called Virtual machine.",
+        "answer": false,
+        "explanation": "A hypervisor presents virtual CPU, memory, and disks so a guest OS runs as if it had a machine."
+      },
+      {
+        "statement": "A type-1 hypervisor on a server hosts twenty guest machines and pauses one to free RAM.",
+        "answer": true,
+        "explanation": "It schedules guest CPU and memory and traps privileged instructions so guests stay isolated."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, availability zone is called Container.",
+        "answer": false,
+        "explanation": "Isolation uses kernel features such as namespaces, so there is no second operating system to boot."
+      },
+      {
+        "statement": "After a worker node dies, the cluster starts replacement web containers on remaining nodes.",
+        "answer": true,
+        "explanation": "A control plane schedules containers, replaces failed copies, and rolls out new versions."
+      },
+      {
+        "statement": "In standard textbooks, moving an office printer closer to users is called Elasticity.",
+        "answer": false,
+        "explanation": "Cloud resources are meant to match the current load and be released when the load falls."
+      },
+      {
+        "statement": "A web tier grows from four virtual machines to twelve during registration week.",
+        "answer": true,
+        "explanation": "Scale-out adds workers beside the existing ones instead of enlarging one machine."
+      },
+      {
+        "statement": "In standard textbooks, horizontal scaling is called Vertical scaling.",
+        "answer": false,
+        "explanation": "Scale-up enlarges one machine rather than adding peers."
+      },
+      {
+        "statement": "A European shop launches its servers in a Paris region so pages load quickly for local buyers.",
+        "answer": true,
+        "explanation": "Regions let customers place workloads near users and choose a legal location for data."
+      },
+      {
+        "statement": "In standard textbooks, one container process is called Availability zone.",
+        "answer": false,
+        "explanation": "Failure of one zone's power or network should not take down the other zones in that region."
+      },
+      {
+        "statement": "A photo app stores each image under a key such as albums/2026/img-18.jpg and fetches it with HTTPS.",
+        "answer": true,
+        "explanation": "Each object has a key and metadata, and the service scales without presenting a traditional block device."
+      },
+      {
+        "statement": "In standard textbooks, a content cache at a city edge node is called Block storage.",
+        "answer": false,
+        "explanation": "The guest sees sectors, like a hard disk, and usually builds its own file system on the volume."
+      },
+      {
+        "statement": "An HTTPS front end sends each new student login to one of eight application servers.",
+        "answer": true,
+        "explanation": "A balancer spreads load and can skip servers that fail their health checks."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, moore's law is called CAP theorem.",
+        "answer": false,
+        "explanation": "If nodes cannot talk, they cannot both stay perfectly in sync and answer every request."
+      },
+      {
+        "statement": "A profile photo updated in one region appears in another region a few seconds later.",
+        "answer": true,
+        "explanation": "The system favours availability and reconciles copies after communication resumes."
+      },
+      {
+        "statement": "In standard textbooks, console-only editing is called Serverless computing.",
+        "answer": false,
+        "explanation": "The platform starts a function for an event, scales it, and bills for the execution used."
+      },
+      {
+        "statement": "The first request to an idle function takes 800 ms, while the next request on the warm copy takes 20 ms.",
+        "answer": true,
+        "explanation": "After idle time the platform may have no warm environment, so it must initialise runtime and code."
+      },
+      {
+        "statement": "In standard textbooks, the customer must guard the provider's physical data-centre doors is called Shared responsibility model.",
+        "answer": false,
+        "explanation": "Physical hosts and the hypervisor are the provider's job; identities, data, and guest settings stay with the customer, varying by service model."
+      },
+      {
+        "statement": "Two companies' virtual machines sit on one host but cannot read each other's memory.",
+        "answer": true,
+        "explanation": "Sharing hardware cuts cost, so isolation must stop one tenant from seeing another's data."
+      },
+      {
+        "statement": "In standard textbooks, an unmetered flat contract is called Measured service.",
+        "answer": false,
+        "explanation": "Cloud systems measure quantities such as hours, requests, and gigabytes."
+      },
+      {
+        "statement": "A teaching assistant launches a database from a web console at midnight with no support ticket.",
+        "answer": true,
+        "explanation": "A portal or API fulfils the request immediately, which is one of the NIST cloud characteristics."
+      },
+      {
+        "statement": "In standard textbooks, edge caching is called Resource pooling.",
+        "answer": false,
+        "explanation": "The provider decides which physical resources serve a tenant and can reassign them as load changes."
+      },
+      {
+        "statement": "The same admin console works from a laptop at home and a phone on campus Wi-Fi.",
+        "answer": true,
+        "explanation": "Users reach the service with ordinary laptops, phones, or APIs across the network."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a physical cage rented in a colocation hall is called Virtual private cloud.",
+        "answer": false,
+        "explanation": "The customer chooses private address ranges, subnets, and route tables that other tenants do not share."
+      },
+      {
+        "statement": "When average CPU stays above 70 percent for five minutes, the group launches two more web instances.",
+        "answer": true,
+        "explanation": "The control loop watches signals such as CPU or request count and changes the instance count itself."
+      },
+      {
+        "statement": "In standard textbooks, origin database is called Content delivery network.",
+        "answer": false,
+        "explanation": "Edge caches shorten the path for static or cacheable responses and protect the origin from repeated fetches."
+      },
+      {
+        "statement": "After a script overwrites notes.txt, the previous text is still available as an older version.",
+        "answer": true,
+        "explanation": "Each write can create a new version under the same key, and an old version remains readable."
+      },
+      {
+        "statement": "In standard textbooks, a renamed virtual machine is called Volume snapshot.",
+        "answer": false,
+        "explanation": "The snapshot captures the volume's blocks at one moment, often stored durably apart from the attached disk."
+      },
+      {
+        "statement": "A teaching role may read one storage bucket but cannot delete the production database.",
+        "answer": true,
+        "explanation": "Policies bind principals such as users and roles to permissions on services and data."
+      },
+      {
+        "statement": "In standard textbooks, a monitoring graph that has no contractual target is called Service level agreement.",
+        "answer": false,
+        "explanation": "The agreement makes availability or performance a commitment, often with service credits if the target is missed."
+      },
+      {
+        "statement": "An app built only on one provider's proprietary database API would need a rewrite to run elsewhere.",
+        "answer": true,
+        "explanation": "Proprietary APIs, data formats, or managed engines raise the cost and time of a move."
+      },
+      {
+        "statement": "In standard textbooks, a serverless redesign is called Lift and shift.",
+        "answer": false,
+        "explanation": "Rehosting places the same application on cloud virtual machines to finish the move quickly."
+      },
+      {
+        "statement": "A university cluster sends extra rendering jobs to a public provider during thesis deadline week.",
+        "answer": true,
+        "explanation": "The private estate handles the base load, and the public cloud absorbs short peaks."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a small free tier is called Reserved instance.",
+        "answer": false,
+        "explanation": "The customer trades flexibility for a lower price on steady, long-running capacity."
+      },
+      {
+        "statement": "A fault-tolerant render farm uses cheap reclaimable machines and restarts any interrupted frame.",
+        "answer": true,
+        "explanation": "The low price reflects the risk that the workload must stop or move when capacity is needed elsewhere."
+      },
+      {
+        "statement": "In standard textbooks, running all analytics in one central region is called Edge computing.",
+        "answer": false,
+        "explanation": "Local processing cuts latency and the volume of data that must cross the wide-area network."
+      },
+      {
+        "statement": "Mobile apps call one HTTPS hostname that verifies tokens and routes each path to a different service.",
+        "answer": true,
+        "explanation": "Clients call one endpoint, and the gateway checks identity, limits rate, and forwards the request."
+      },
+      {
+        "statement": "In standard textbooks, a synchronous direct call is called Message queue.",
+        "answer": false,
+        "explanation": "The queue absorbs bursts and lets the consumer process messages at its own pace."
+      },
+      {
+        "statement": "One virtual machine's disk storm slows another customer's database on the same physical host.",
+        "answer": true,
+        "explanation": "Contended CPU, disk, or network on multi-tenant hardware lets one workload steal performance."
+      },
+      {
+        "statement": "In standard textbooks, screenshot documentation is called Infrastructure as code.",
+        "answer": false,
+        "explanation": "Templates can be reviewed, repeated, and rolled back like application source."
+      },
+      {
+        "statement": "Version 5 runs in green while users still use blue; after checks, the balancer sends everyone to green.",
+        "answer": true,
+        "explanation": "The idle environment is upgraded and tested, then the load balancer moves traffic across in one cut."
+      },
+      {
+        "statement": "In standard textbooks, a bill-review meeting with finance is called Health check.",
+        "answer": false,
+        "explanation": "If the probe fails, the instance is marked unhealthy and new requests are sent elsewhere."
+      },
+      {
+        "statement": "A university policy requires student records to stay in data centres inside the country.",
+        "answer": true,
+        "explanation": "Law or policy can forbid storing certain records outside a jurisdiction."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When a course project needs servers for three days, created from a portal and billed only for that use. Which delivery model fits, the correct result is a dedicated on-premises mainframe.",
+        "answer": false,
+        "explanation": "Short-lived, self-served, pooled resources delivered over the network are cloud computing."
+      },
+      {
+        "statement": "When a customer receives virtual machines and disks but must patch the guest operating system. Which service model is that, the correct result is saaS.",
+        "answer": false,
+        "explanation": "Virtual infrastructure with customer-managed operating systems is IaaS."
+      },
+      {
+        "statement": "When developers deploy application code onto a managed runtime and never log in to patch a server. The service model is that, the correct result is paaS.",
+        "answer": true,
+        "explanation": "A provider-managed runtime for customer code is PaaS."
+      },
+      {
+        "statement": "When employees open hosted email in a browser, and the vendor runs the whole application. The service model is that, the correct result is saaS.",
+        "answer": true,
+        "explanation": "A complete provider-operated application is SaaS."
+      },
+      {
+        "statement": "When anyone with a credit card can rent compute from the same provider on shared infrastructure. Which deployment model is that, the correct result is community cloud.",
+        "answer": false,
+        "explanation": "A provider service open to the general public is a public cloud."
+      },
+      {
+        "statement": "When only one company's departments can provision resources on an elastic internal portal. Which deployment model is that, the correct result is a personal workstation.",
+        "answer": false,
+        "explanation": "Exclusive use by one organisation is a private cloud."
+      },
+      {
+        "statement": "When sensitive systems stay in the company data centre while overflow web traffic runs at a public provider, connected by a private link. The model is that, the correct result is hybrid cloud.",
+        "answer": true,
+        "explanation": "Joined private and public deployments form a hybrid cloud."
+      },
+      {
+        "statement": "When four hospitals jointly fund a cloud that only they may use, because they share the same health-data rules. The model is that, the correct result is community cloud.",
+        "answer": true,
+        "explanation": "A cloud limited to a group with a shared concern is a community cloud."
+      },
+      {
+        "statement": "When an administrator boots a full guest operating system on virtual CPU and disk allocated by a hypervisor. Which construct is that, the correct result is bare-metal host.",
+        "answer": false,
+        "explanation": "A guest operating system on virtual hardware is a virtual machine."
+      },
+      {
+        "statement": "When a layer under several guest operating systems allocates CPU and memory and keeps the guests apart. The component is that, the correct result is hypervisor.",
+        "answer": true,
+        "explanation": "The component that runs guest machines on shared hardware is the hypervisor."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When an application starts in under a second, isolated from neighbours, but uses the worker's existing kernel. Which package is that, the correct result is block volume.",
+        "answer": false,
+        "explanation": "Process isolation on a shared kernel is a container."
+      },
+      {
+        "statement": "When a control plane notices a dead node and starts new copies of the web containers elsewhere. Which capability is that, the correct result is contract negotiation.",
+        "answer": false,
+        "explanation": "Automatically placing and healing containers on a cluster is orchestration."
+      },
+      {
+        "statement": "When instances appear during a traffic spike and disappear after midnight when traffic returns to normal. The property is that, the correct result is elasticity.",
+        "answer": true,
+        "explanation": "Resources that track demand up and down show elasticity."
+      },
+      {
+        "statement": "When to handle more logins, operators add six more identical web servers behind the load balancer. The scaling direction is that, the correct result is horizontal scaling.",
+        "answer": true,
+        "explanation": "Adding more instances to share load is horizontal scaling."
+      },
+      {
+        "statement": "When a single database instance is resized from 16 GB of RAM to 64 GB, with no extra replicas. Which scaling direction is that, the correct result is service decomposition.",
+        "answer": false,
+        "explanation": "Enlarging one instance is vertical scaling."
+      },
+      {
+        "statement": "When an architect picks a provider area in Singapore, containing several isolated data-centre groups, to host an app. Which area is that, the correct result is one server rack.",
+        "answer": false,
+        "explanation": "A geographic provider area of data centres is a region."
+      },
+      {
+        "statement": "When a fire in one data-centre group leaves the other groups in the same region running. The isolated group failed, the correct result is availability zone.",
+        "answer": true,
+        "explanation": "An isolated data-centre group inside a region is an availability zone."
+      },
+      {
+        "statement": "When an app uploads a video with a key and later downloads that blob over HTTPS, without formatting a disk. The storage type is that, the correct result is object storage.",
+        "answer": true,
+        "explanation": "Key-addressed blobs over HTTP are object storage."
+      },
+      {
+        "statement": "When a virtual machine is given a raw 200 GB disk, which the guest formats before use. Which storage type is that, the correct result is object storage.",
+        "answer": false,
+        "explanation": "A volume that behaves like a disk is block storage."
+      },
+      {
+        "statement": "When incoming requests are spread across eight web servers, and a failed server receives none. The function does the front end perform, the correct result is load balancing.",
+        "answer": true,
+        "explanation": "Spreading requests across healthy servers is load balancing."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When a partition splits a database. Designers either refuse some requests or allow replicas to disagree for a while. Which theorem frames that choice, the correct result is nyquist's theorem.",
+        "answer": false,
+        "explanation": "Choosing consistency or availability during a partition is the CAP tradeoff."
+      },
+      {
+        "statement": "When two replicas of a shopping cart differ for a second after a write, then match once updates pause. Which consistency model is that, the correct result is linearisability.",
+        "answer": false,
+        "explanation": "Temporary disagreement that later converges is eventual consistency."
+      },
+      {
+        "statement": "When image uploads invoke a function, the platform scales it, and the team never patches a host. The model is that, the correct result is serverless computing.",
+        "answer": true,
+        "explanation": "Event-driven functions without customer-managed servers are serverless computing."
+      },
+      {
+        "statement": "When after an hour with no traffic, the next function call is much slower because a new environment must be built. The delay is that, the correct result is cold start.",
+        "answer": true,
+        "explanation": "Initialising a fresh serverless environment causes a cold start."
+      },
+      {
+        "statement": "When a provider secures the physical hosts, but a public storage bucket full of student data is traced to the customer's settings. Which model explains that split, the correct result is provider-only security.",
+        "answer": false,
+        "explanation": "Platform security and customer configuration are split by the shared responsibility model."
+      },
+      {
+        "statement": "When unrelated customers share one physical server, yet neither can read the other's disks. Which arrangement is that, the correct result is an empty data centre.",
+        "answer": false,
+        "explanation": "Shared hardware with logical isolation is multi-tenancy."
+      },
+      {
+        "statement": "When the portal graphs gigabytes stored and CPU hours, and the invoice matches those figures. The NIST characteristic is that, the correct result is measured service.",
+        "answer": true,
+        "explanation": "Metering consumption for billing and monitoring is measured service."
+      },
+      {
+        "statement": "When a student creates a virtual machine from an API at night without emailing the provider. The characteristic is that, the correct result is on-demand self-service.",
+        "answer": true,
+        "explanation": "Provisioning without human provider contact is on-demand self-service."
+      },
+      {
+        "statement": "When customers draw CPU from a common pool and are not promised one particular physical server. Which characteristic is that, the correct result is measured billing.",
+        "answer": false,
+        "explanation": "Dynamic assignment from a shared pool is resource pooling."
+      },
+      {
+        "statement": "When administrators manage the service from laptops and phones over the internet, not from a local serial console. The characteristic is that, the correct result is broad network access.",
+        "answer": true,
+        "explanation": "Access from common networked clients is broad network access."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When a class is given its own address plan and route tables inside a public provider, isolated from other accounts. Which network construct is that, the correct result is the open internet.",
+        "answer": false,
+        "explanation": "An isolated customer network inside a public cloud is a virtual private cloud."
+      },
+      {
+        "statement": "When a group launches two more web instances after CPU stays high, then removes them when CPU falls. Which mechanism is that, the correct result is a one-off vertical resize.",
+        "answer": false,
+        "explanation": "A policy that changes instance count from metrics is autoscaling."
+      },
+      {
+        "statement": "When students in many countries receive the same course video from a nearby cache rather than the origin bucket. The service is that, the correct result is content delivery network.",
+        "answer": true,
+        "explanation": "Nearby caches of content form a content delivery network."
+      },
+      {
+        "statement": "When a bad upload replaces a key, but yesterday's bytes are still stored and can be restored. The object feature allowed that, the correct result is object versioning.",
+        "answer": true,
+        "explanation": "Retaining prior copies of an object is versioning."
+      },
+      {
+        "statement": "When before patching, an operator saves a point-in-time copy of a virtual machine's disk and restores a test volume from it. Which copy is that, the correct result is a synchronous mirror.",
+        "answer": false,
+        "explanation": "A point-in-time copy of a block volume is a snapshot."
+      },
+      {
+        "statement": "When a policy lets a lab role read one bucket and denies it permission to terminate production instances. Which control plane is that, the correct result is a public status page.",
+        "answer": false,
+        "explanation": "Policies that bind identities to resource actions are identity and access management."
+      },
+      {
+        "statement": "When a contract promises 99.9 percent monthly availability and credits the bill if the service falls short. The document is that, the correct result is service level agreement.",
+        "answer": true,
+        "explanation": "A contractual uptime or performance target is a service level agreement."
+      },
+      {
+        "statement": "When moving a system would require rewriting calls that exist only at the current provider. The risk is that, the correct result is vendor lock-in.",
+        "answer": true,
+        "explanation": "Dependence on proprietary services that blocks a move is vendor lock-in."
+      },
+      {
+        "statement": "When a monolith is copied onto cloud virtual machines and keeps its original structure. Which migration style is that, the correct result is backup without migration.",
+        "answer": false,
+        "explanation": "Rehosting an unchanged architecture is lift and shift."
+      },
+      {
+        "statement": "When a private cluster is full, so extra rendering jobs run at a public provider until the peak ends. The pattern is that, the correct result is cloud bursting.",
+        "answer": true,
+        "explanation": "Overflow from private capacity into a public cloud is cloud bursting."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When an always-on database receives a lower rate after the team commits to three years of capacity. Which purchase is that, the correct result is serverless per-millisecond billing.",
+        "answer": false,
+        "explanation": "A long-term capacity commitment at a discount is a reserved instance."
+      },
+      {
+        "statement": "When a batch farm uses very cheap machines that the provider interrupts when it needs the capacity back. Which purchasing option is that, the correct result is a scale-to-zero function.",
+        "answer": false,
+        "explanation": "Cheap spare capacity that can be reclaimed is a spot instance."
+      },
+      {
+        "statement": "When a factory gateway analyses sensor data on site and uploads only alerts, not every reading. The approach is that, the correct result is edge computing.",
+        "answer": true,
+        "explanation": "Computation near the data source is edge computing."
+      },
+      {
+        "statement": "When all mobile clients call one hostname that checks tokens, limits request rate, and forwards each path. The component is that, the correct result is aPI gateway.",
+        "answer": true,
+        "explanation": "A managed API front door for auth, limits, and routing is an API gateway."
+      },
+      {
+        "statement": "When web uploads enqueue jobs that workers process later, so a slow worker does not fail the upload request. Which component sits between them, the correct result is a session cookie.",
+        "answer": false,
+        "explanation": "A buffer that decouples producers from consumers is a message queue."
+      },
+      {
+        "statement": "When one tenant's disk storm slows another tenant's database on the same physical host. Which problem is that, the correct result is a dedicated single-tenant host.",
+        "answer": false,
+        "explanation": "One tenant hurting others on shared hardware is a noisy neighbour."
+      },
+      {
+        "statement": "When a pull request changes a text template, and a pipeline updates the network and servers to match. The practice is that, the correct result is infrastructure as code.",
+        "answer": true,
+        "explanation": "Versioned templates that build the environment are infrastructure as code."
+      },
+      {
+        "statement": "When the new release is fully installed in an idle environment, then the load balancer moves all users to it. The release method is that, the correct result is blue-green deployment.",
+        "answer": true,
+        "explanation": "Switching traffic between two live environments is blue-green deployment."
+      },
+      {
+        "statement": "When a balancer calls /health every 10 seconds and removes an instance that keeps failing. Which mechanism is that, the correct result is a yearly penetration test.",
+        "answer": false,
+        "explanation": "A liveness probe that gates traffic is a health check."
+      },
+      {
+        "statement": "When policy forbids storing admission records outside the country's provider regions. The requirement is that, the correct result is data residency.",
+        "answer": true,
+        "explanation": "Keeping data inside a required geography is data residency."
+      }
+    ]
+  }
+}

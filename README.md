@@ -30,16 +30,19 @@ The first time, follow the **setup checklist in [`docs/firebase.md`](docs/fireba
 ## What works
 
 - **Auth:** register (also creates `users/{uid}`), login, logout, password reset, and sessions that survive app restarts. The splash screen stays up while Firebase restores the session, so the login screen never flashes.
-- **Quiz:** Field → Subject → Level 1–15 → 10 questions → Result. Fields, subjects and questions all come from Firestore.
+- **Two practice types**, each with its own tab (mobile) / sidebar item (web):
+  - **Multiple choice** — the original A–D questions (`questions` collection).
+  - **Quiz** — True / False statements bundled from `tools/firestore-seed/data/true-false/` (`npm run sync:true-false`). Plan: [`docs/true-false-question-plan.md`](docs/true-false-question-plan.md).
+- **Practice flow (both types):** Field → Subject → Level 1–15 → 10 questions → Result. Fields, subjects and Multiple choice come from Firestore; Quiz (True / False) loads from the local JSON bank.
   - Each attempt picks 10 unique questions in random order. With fewer than 10 the app shows *"Not enough questions are available for this level yet"* plus the current count.
   - Answering works as: check answer → feedback (correct or incorrect, with an explanation) → next.
-  - There's a 10-minute timer, and progress autosaves so **Continue quiz** works.
+  - There's a 10-minute timer, and progress autosaves so **Continue** works (per type).
   - Submission is idempotent: double taps or retries can't create duplicate results.
-  - The result is saved to `quizResults` with the review answers, and history updates in real time.
+  - The result is saved to `quizResults` with the review answers, and history updates in real time. History can be filtered by All / Multiple choice / Quiz.
 - **Tasks:** create, list, details, edit, complete (with Undo) and delete, all in Firestore.
   - The list updates live through `onSnapshot`.
   - Unconfirmed local changes are marked "Not synced yet".
-- **Home / Profile:** live name, Continue quiz, task summary, upcoming tasks, recent subjects, recent attempts, and quiz and task statistics. Every section has loading, empty and error states.
+- **Home / Profile:** live name, Continue card, task summary, upcoming tasks, recent subjects, recent attempts, and quiz and task statistics. Every section has loading, empty and error states.
 - **Security:** `firestore.rules` gives per-user isolation for users, tasks, results and sessions; validates task and result fields; and makes quiz content read-only for students. See [`docs/firebase.md`](docs/firebase.md#security-rules-firestorerules).
 
 ## Project structure

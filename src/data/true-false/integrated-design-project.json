@@ -1,0 +1,785 @@
+{
+  "subjectId": "integrated-design-project",
+  "levels": {
+    "1": [
+      {
+        "statement": "An User Requirement is a statement of what a user or stakeholder needs the product to achieve, written in that person's terms.",
+        "answer": true,
+        "explanation": "A user requirement states a need in stakeholder language, before technical design decisions are made."
+      },
+      {
+        "statement": "A System Requirement is the project team's favourite meeting time.",
+        "answer": false,
+        "explanation": "A system requirement states a product-level behaviour or constraint derived from needs and real limits."
+      },
+      {
+        "statement": "A Functional Requirement is a required behaviour of the product, such as an action it must perform for a user.",
+        "answer": true,
+        "explanation": "A functional requirement names behaviour the product must provide, not a quality level or a budget."
+      },
+      {
+        "statement": "A Non-Functional Requirement is a function that creates an account.",
+        "answer": false,
+        "explanation": "A non-functional requirement states how well the product must work, not which function it offers."
+      },
+      {
+        "statement": "A Requirement Traceability is the ability to follow a requirement from its source through design and tests to the feature that satisfies it.",
+        "answer": true,
+        "explanation": "Traceability links each requirement to the design and tests that show it has been met."
+      },
+      {
+        "statement": "A Traceability Matrix is a risk-score matrix.",
+        "answer": false,
+        "explanation": "A traceability matrix is the table that makes coverage of requirements by design and tests visible."
+      },
+      {
+        "statement": "An Use Case is a description of how an actor achieves a goal with the system, including the main steps and important alternatives.",
+        "answer": true,
+        "explanation": "A use case describes an actor's goal, the main flow, and notable alternatives."
+      },
+      {
+        "statement": "An User Story is a full test script with inputs and expected rows.",
+        "answer": false,
+        "explanation": "A user story captures who wants a capability and why, at a size the team can plan."
+      },
+      {
+        "statement": "An Acceptance Criteria is the conditions a requirement or story must meet before the team and sponsor agree it is done.",
+        "answer": true,
+        "explanation": "Acceptance criteria are the agreed conditions that define done for a requirement or story."
+      },
+      {
+        "statement": "A Team Role is leave testing unowned.",
+        "answer": false,
+        "explanation": "A team role assigns clear responsibilities so necessary project work has an owner."
+      }
+    ],
+    "2": [
+      {
+        "statement": "A Team Leader is the member who coordinates the group, tracks commitments, and keeps decisions and blockers visible.",
+        "answer": true,
+        "explanation": "The team leader coordinates people and commitments; they are not required to produce every technical artefact alone."
+      },
+      {
+        "statement": "A Requirements Lead is the poster designer.",
+        "answer": false,
+        "explanation": "The requirements lead owns the quality and agreement of the requirement set."
+      },
+      {
+        "statement": "An Integration Lead is the member accountable for planning how components come together and for resolving interface mismatches.",
+        "answer": true,
+        "explanation": "The integration lead plans the combination of components and deals with mismatches at their boundaries."
+      },
+      {
+        "statement": "A Test Lead is the graphic designer of the logo.",
+        "answer": false,
+        "explanation": "The test lead owns how the product will be tested and how results are traced to requirements."
+      },
+      {
+        "statement": "A Configuration Item is a versioned product of the project, such as a document, source module, or build, that is identified and controlled.",
+        "answer": true,
+        "explanation": "A configuration item is an identified, versioned artefact the project controls."
+      },
+      {
+        "statement": "An Interface Specification is a team photograph.",
+        "answer": false,
+        "explanation": "An interface specification defines the shared boundary so components can be built and tested against the same contract."
+      },
+      {
+        "statement": "A System Integration is the work of combining components so they operate together as one product, not only as separate parts.",
+        "answer": true,
+        "explanation": "System integration combines components and checks that they work together as a product."
+      },
+      {
+        "statement": "An Integration Strategy is the code inside one function.",
+        "answer": false,
+        "explanation": "An integration strategy decides the order and method of combination so interface problems are found deliberately."
+      },
+      {
+        "statement": "A Big-Bang Integration is an approach that combines all components in one step, which delays discovery of interface defects until late.",
+        "answer": true,
+        "explanation": "Big-bang integration waits until every component is present, so interface faults appear late and are harder to isolate."
+      },
+      {
+        "statement": "An Incremental Integration is never combining components at all.",
+        "answer": false,
+        "explanation": "Incremental integration tests each added component so a new interface fault can be tied to the latest change."
+      }
+    ],
+    "3": [
+      {
+        "statement": "An Unit Test is a test of a single module or function in isolation from the rest of the product.",
+        "answer": true,
+        "explanation": "A unit test isolates one module so a failure points to that module rather than to an interface."
+      },
+      {
+        "statement": "An Integration Test is another isolated parser test.",
+        "answer": false,
+        "explanation": "Integration tests target the joins between components, which unit tests deliberately avoid."
+      },
+      {
+        "statement": "A System Test is a test of the completed product against system requirements, in an environment close to intended use.",
+        "answer": true,
+        "explanation": "System testing executes the whole product against system requirements in a realistic setting."
+      },
+      {
+        "statement": "An Acceptance Test is a speaking rehearsal with the product off.",
+        "answer": false,
+        "explanation": "Acceptance testing judges the product against the criteria the sponsor or users agreed."
+      },
+      {
+        "statement": "A Test Case is a specified set of preconditions, inputs, steps, and expected results used to check one aspect of the product.",
+        "answer": true,
+        "explanation": "A test case specifies how to perform a check and what result counts as a pass."
+      },
+      {
+        "statement": "An Expected Result is the tester's guess written after seeing the failure.",
+        "answer": false,
+        "explanation": "The expected result is defined from the requirement so the actual outcome can be judged as pass or fail."
+      },
+      {
+        "statement": "A Defect is a flaw in the product or its documentation that causes it to miss a requirement or an agreed standard.",
+        "answer": true,
+        "explanation": "A defect is a failure to meet an agreed requirement or standard, not a new wish or a staffing issue."
+      },
+      {
+        "statement": "A Defect Severity is low severity because the typo is fixed first.",
+        "answer": false,
+        "explanation": "Severity rates the effect of the defect; priority is a separate decision about fix order."
+      },
+      {
+        "statement": "A Regression Test is a test run after a change to check that behaviour which previously worked still works.",
+        "answer": true,
+        "explanation": "Regression testing protects existing behaviour from being broken by a later change."
+      },
+      {
+        "statement": "A Design Review is executing the code in a test.",
+        "answer": false,
+        "explanation": "A design review checks the design against requirements early enough for defects to be fixed before further build."
+      }
+    ],
+    "4": [
+      {
+        "statement": "A Peer Review is an examination of a work product by colleagues who did not create it, aimed at finding defects early.",
+        "answer": true,
+        "explanation": "Peer review uses colleagues other than the author to find defects in a work product."
+      },
+      {
+        "statement": "A Walkthrough is a fire drill in the building.",
+        "answer": false,
+        "explanation": "In a walkthrough the author guides the group through the work so questions and comments can be gathered."
+      },
+      {
+        "statement": "A Technical Documentation is written material that describes the design, interfaces, and operation so others can build, test, or maintain the product.",
+        "answer": true,
+        "explanation": "Technical documentation explains the product well enough for someone else to build, test, or maintain it."
+      },
+      {
+        "statement": "A Design Specification is the end-user manual.",
+        "answer": false,
+        "explanation": "A design specification captures decisions and structure so implementers follow the same design."
+      },
+      {
+        "statement": "An User Manual is a document that explains how an end user performs tasks with the finished product.",
+        "answer": true,
+        "explanation": "A user manual is written for end users and explains tasks, not internal design."
+      },
+      {
+        "statement": "An API Documentation is meeting minutes.",
+        "answer": false,
+        "explanation": "API documentation tells a programmer how to call an interface and what it returns, including errors."
+      },
+      {
+        "statement": "An Architecture Diagram is a drawing that shows the major components of the product and how they connect.",
+        "answer": true,
+        "explanation": "An architecture diagram communicates structure: the main parts and their connections."
+      },
+      {
+        "statement": "A Version Control is a paper notebook of meeting dates.",
+        "answer": false,
+        "explanation": "Version control keeps a shared history of changes so work can be recovered and combined."
+      },
+      {
+        "statement": "A Baseline is an agreed version of a requirement, design, or build that later changes must pass through change control.",
+        "answer": true,
+        "explanation": "A baseline is an agreed reference; changing it requires the project's change-control steps."
+      },
+      {
+        "statement": "A Change Control is a silent edit to the baselined stories.",
+        "answer": false,
+        "explanation": "Change control makes a baseline change visible, assessed, and approved before it is adopted."
+      }
+    ],
+    "5": [
+      {
+        "statement": "A Demonstration is a live showing of the working product to stakeholders so they can see that agreed behaviour is present.",
+        "answer": true,
+        "explanation": "A demonstration uses the working product so stakeholders can observe agreed behaviour."
+      },
+      {
+        "statement": "A Demo Script is a film script about another topic.",
+        "answer": false,
+        "explanation": "A demo script keeps the live showing focused on the scenarios the team agreed to present."
+      },
+      {
+        "statement": "A Prototype is an early partial version of the product, built to explore or check a design with users or the team.",
+        "answer": true,
+        "explanation": "A prototype is a partial build used to learn about the design, not the accepted final product."
+      },
+      {
+        "statement": "A Proof of Concept is a literature essay about the idea.",
+        "answer": false,
+        "explanation": "A proof of concept answers a narrow technical question and is not the delivered product."
+      },
+      {
+        "statement": "A Milestone Demonstration is a scheduled demonstration tied to a project milestone, used to show progress and collect stakeholder feedback.",
+        "answer": true,
+        "explanation": "A milestone demonstration is planned against a milestone so progress is visible and feedback can still be used."
+      },
+      {
+        "statement": "An Interface Control is changing the format whenever the feed team likes.",
+        "answer": false,
+        "explanation": "Interface control keeps agreed boundaries stable unless a change is communicated and agreed."
+      },
+      {
+        "statement": "A Test Stub is a stand-in for a component that is not ready, returning canned responses so its caller can be tested.",
+        "answer": true,
+        "explanation": "A stub replaces a missing dependency and returns predetermined responses to the component being tested."
+      },
+      {
+        "statement": "A Test Driver is a car journey to the demo.",
+        "answer": false,
+        "explanation": "A driver calls the component being tested; a stub is what the component calls when a dependency is missing."
+      },
+      {
+        "statement": "A Build is an assembled version of the product, identified so testers know exactly which revision they ran.",
+        "answer": true,
+        "explanation": "A build is a specific assembled revision that can be named, tested, and reproduced."
+      },
+      {
+        "statement": "A Release Note is a blank file attached to the build.",
+        "answer": false,
+        "explanation": "Release notes tell users and testers what changed in a build and what is still limited."
+      }
+    ],
+    "6": [
+      {
+        "statement": "In standard textbooks, the colour of an internal log file is called User Requirement.",
+        "answer": false,
+        "explanation": "A user requirement states a need in stakeholder language, before technical design decisions are made."
+      },
+      {
+        "statement": "The product must show a student's timetable from the faculty feed and work when the phone is offline for cached days.",
+        "answer": true,
+        "explanation": "A system requirement states a product-level behaviour or constraint derived from needs and real limits."
+      },
+      {
+        "statement": "In standard textbooks, a two-second response target with no behaviour is called Functional Requirement.",
+        "answer": false,
+        "explanation": "A functional requirement names behaviour the product must provide, not a quality level or a budget."
+      },
+      {
+        "statement": "The timetable screen must appear within two seconds on the agreed campus network.",
+        "answer": true,
+        "explanation": "A non-functional requirement states how well the product must work, not which function it offers."
+      },
+      {
+        "statement": "In standard textbooks, a courier tracking number is called Requirement Traceability.",
+        "answer": false,
+        "explanation": "Traceability links each requirement to the design and tests that show it has been met."
+      },
+      {
+        "statement": "The matrix row for R4 lists the filter screen and test cases T12 and T13.",
+        "answer": true,
+        "explanation": "A traceability matrix is the table that makes coverage of requirements by design and tests visible."
+      },
+      {
+        "statement": "In standard textbooks, a one-line wish with no steps is called Use Case.",
+        "answer": false,
+        "explanation": "A use case describes an actor's goal, the main flow, and notable alternatives."
+      },
+      {
+        "statement": "As a student, I want to filter by module code so I can find one class quickly.",
+        "answer": true,
+        "explanation": "A user story captures who wants a capability and why, at a size the team can plan."
+      },
+      {
+        "statement": "In standard textbooks, the hour coding stopped is called Acceptance Criteria.",
+        "answer": false,
+        "explanation": "Acceptance criteria are the agreed conditions that define done for a requirement or story."
+      },
+      {
+        "statement": "One member owns requirements, another owns integration, and another owns the test records.",
+        "answer": true,
+        "explanation": "A team role assigns clear responsibilities so necessary project work has an owner."
+      }
+    ],
+    "7": [
+      {
+        "statement": "In standard textbooks, the code repository is called Team Leader.",
+        "answer": false,
+        "explanation": "The team leader coordinates people and commitments; they are not required to produce every technical artefact alone."
+      },
+      {
+        "statement": "The requirements lead updates the filter story after the sponsor clarifies unknown module codes.",
+        "answer": true,
+        "explanation": "The requirements lead owns the quality and agreement of the requirement set."
+      },
+      {
+        "statement": "In standard textbooks, a tester who never sees the interfaces is called Integration Lead.",
+        "answer": false,
+        "explanation": "The integration lead plans the combination of components and deals with mismatches at their boundaries."
+      },
+      {
+        "statement": "The test lead maps each story to test cases and publishes which ones passed before the demonstration.",
+        "answer": true,
+        "explanation": "The test lead owns how the product will be tested and how results are traced to requirements."
+      },
+      {
+        "statement": "In standard textbooks, as an unlabelled file anyone may overwrite is called Configuration Item.",
+        "answer": false,
+        "explanation": "A configuration item is an identified, versioned artefact the project controls."
+      },
+      {
+        "statement": "The spec says the feed sends module code as text, date as ISO-8601, and error code 404 when the student is unknown.",
+        "answer": true,
+        "explanation": "An interface specification defines the shared boundary so components can be built and tested against the same contract."
+      },
+      {
+        "statement": "In standard textbooks, a social gathering is called System Integration.",
+        "answer": false,
+        "explanation": "System integration combines components and checks that they work together as a product."
+      },
+      {
+        "statement": "The team plans to connect the feed first, then notifications, testing each join before adding the next part.",
+        "answer": true,
+        "explanation": "An integration strategy decides the order and method of combination so interface problems are found deliberately."
+      },
+      {
+        "statement": "In standard textbooks, testing a single module before any joining is called Big-Bang Integration.",
+        "answer": false,
+        "explanation": "Big-bang integration waits until every component is present, so interface faults appear late and are harder to isolate."
+      },
+      {
+        "statement": "The feed is integrated and tested before notifications are added, so a later fault is easier to locate.",
+        "answer": true,
+        "explanation": "Incremental integration tests each added component so a new interface fault can be tied to the latest change."
+      }
+    ],
+    "8": [
+      {
+        "statement": "In standard textbooks, a test of several components together is called Unit Test.",
+        "answer": false,
+        "explanation": "A unit test isolates one module so a failure points to that module rather than to an interface."
+      },
+      {
+        "statement": "A test requests today's classes through the app's client and checks the parsed response from the faculty feed.",
+        "answer": true,
+        "explanation": "Integration tests target the joins between components, which unit tests deliberately avoid."
+      },
+      {
+        "statement": "In standard textbooks, a test of one interface with the rest absent is called System Test.",
+        "answer": false,
+        "explanation": "System testing executes the whole product against system requirements in a realistic setting."
+      },
+      {
+        "statement": "The faculty officer tries the filter with a real module code and confirms the acceptance message for an unknown code.",
+        "answer": true,
+        "explanation": "Acceptance testing judges the product against the criteria the sponsor or users agreed."
+      },
+      {
+        "statement": "In standard textbooks, the requirement text with no inputs or expected result is called Test Case.",
+        "answer": false,
+        "explanation": "A test case specifies how to perform a check and what result counts as a pass."
+      },
+      {
+        "statement": "For an unknown module code, the expected result is the message No classes for that code and an empty list.",
+        "answer": true,
+        "explanation": "The expected result is defined from the requirement so the actual outcome can be judged as pass or fail."
+      },
+      {
+        "statement": "In standard textbooks, a new wish that was never agreed is called Defect.",
+        "answer": false,
+        "explanation": "A defect is a failure to meet an agreed requirement or standard, not a new wish or a staffing issue."
+      },
+      {
+        "statement": "A crash on login is rated high severity even though the team schedules the fix after a smaller text change.",
+        "answer": true,
+        "explanation": "Severity rates the effect of the defect; priority is a separate decision about fix order."
+      },
+      {
+        "statement": "In standard textbooks, a review of the risk register is called Regression Test.",
+        "answer": false,
+        "explanation": "Regression testing protects existing behaviour from being broken by a later change."
+      },
+      {
+        "statement": "Peers review the timetable screen design and note that offline cached days are missing from the agreed requirements.",
+        "answer": true,
+        "explanation": "A design review checks the design against requirements early enough for defects to be fixed before further build."
+      }
+    ],
+    "9": [
+      {
+        "statement": "In standard textbooks, a manager approving a budget is called Peer Review.",
+        "answer": false,
+        "explanation": "Peer review uses colleagues other than the author to find defects in a work product."
+      },
+      {
+        "statement": "The author presents each screen of the timetable flow, and reviewers comment on the offline step.",
+        "answer": true,
+        "explanation": "In a walkthrough the author guides the group through the work so questions and comments can be gathered."
+      },
+      {
+        "statement": "In standard textbooks, only a promotional poster is called Technical Documentation.",
+        "answer": false,
+        "explanation": "Technical documentation explains the product well enough for someone else to build, test, or maintain it."
+      },
+      {
+        "statement": "The specification shows the screen structure, the cached-day rule, and how module filtering is applied.",
+        "answer": true,
+        "explanation": "A design specification captures decisions and structure so implementers follow the same design."
+      },
+      {
+        "statement": "In standard textbooks, the risk register is called User Manual.",
+        "answer": false,
+        "explanation": "A user manual is written for end users and explains tasks, not internal design."
+      },
+      {
+        "statement": "The feed docs list the timetable operation, the student-id parameter, the class list returned, and the unknown-student error.",
+        "answer": true,
+        "explanation": "API documentation tells a programmer how to call an interface and what it returns, including errors."
+      },
+      {
+        "statement": "In standard textbooks, a sequence of every source-code line is called Architecture Diagram.",
+        "answer": false,
+        "explanation": "An architecture diagram communicates structure: the main parts and their connections."
+      },
+      {
+        "statement": "Two members edit the app on branches, then merge, and can still recover yesterday's working version.",
+        "answer": true,
+        "explanation": "Version control keeps a shared history of changes so work can be recovered and combined."
+      },
+      {
+        "statement": "In standard textbooks, a silent draft is called Baseline.",
+        "answer": false,
+        "explanation": "A baseline is an agreed reference; changing it requires the project's change-control steps."
+      },
+      {
+        "statement": "Adding offline mode after baseline is written up, estimated, approved by the sponsor, and then added to the stories.",
+        "answer": true,
+        "explanation": "Change control makes a baseline change visible, assessed, and approved before it is adopted."
+      }
+    ],
+    "10": [
+      {
+        "statement": "In standard textbooks, a poster and no running software is called Demonstration.",
+        "answer": false,
+        "explanation": "A demonstration uses the working product so stakeholders can observe agreed behaviour."
+      },
+      {
+        "statement": "The script says: log in as a student, open today, filter module CS101, then enter an unknown code.",
+        "answer": true,
+        "explanation": "A demo script keeps the live showing focused on the scenarios the team agreed to present."
+      },
+      {
+        "statement": "In standard textbooks, a written requirement with nothing a user can try is called Prototype.",
+        "answer": false,
+        "explanation": "A prototype is a partial build used to learn about the design, not the accepted final product."
+      },
+      {
+        "statement": "The team builds a tiny client that only checks whether the faculty feed accepts the campus login token.",
+        "answer": true,
+        "explanation": "A proof of concept answers a narrow technical question and is not the delivered product."
+      },
+      {
+        "statement": "In standard textbooks, a private desk check with no milestone is called Milestone Demonstration.",
+        "answer": false,
+        "explanation": "A milestone demonstration is planned against a milestone so progress is visible and feedback can still be used."
+      },
+      {
+        "statement": "The feed team cannot switch the date format until the app team has agreed an update to the interface specification.",
+        "answer": true,
+        "explanation": "Interface control keeps agreed boundaries stable unless a change is communicated and agreed."
+      },
+      {
+        "statement": "In standard textbooks, the user manual is called Test Stub.",
+        "answer": false,
+        "explanation": "A stub replaces a missing dependency and returns predetermined responses to the component being tested."
+      },
+      {
+        "statement": "A small program calls the date parser with sample strings because the app screens are not ready.",
+        "answer": true,
+        "explanation": "A driver calls the component being tested; a stub is what the component calls when a dependency is missing."
+      },
+      {
+        "statement": "In standard textbooks, the requirements document is called Build.",
+        "answer": false,
+        "explanation": "A build is a specific assembled revision that can be named, tested, and reproduced."
+      },
+      {
+        "statement": "The note for build 0.4 says module filtering was added, the wrong-day defect was fixed, and offline mode is still absent.",
+        "answer": true,
+        "explanation": "Release notes tell users and testers what changed in a build and what is still limited."
+      }
+    ],
+    "11": [
+      {
+        "statement": "When students say they need today's classes on a phone without visiting the office. Which kind of statement is that, the correct result is a programmer's choice of database.",
+        "answer": false,
+        "explanation": "A need expressed in the user's terms is a user requirement."
+      },
+      {
+        "statement": "When the product must show the faculty timetable feed and keep cached days available offline. Which statement is that, the correct result is the team's favourite meeting time.",
+        "answer": false,
+        "explanation": "A product-level obligation derived from the user need is a system requirement."
+      },
+      {
+        "statement": "When the app must let a student filter today's classes by module code. The kind of requirement is that, the correct result is a functional requirement.",
+        "answer": true,
+        "explanation": "Filtering classes is a behaviour the product must perform, so the statement is functional."
+      },
+      {
+        "statement": "When the timetable screen must appear within two seconds on the campus network. The kind of requirement is that, the correct result is a non-functional requirement.",
+        "answer": true,
+        "explanation": "A response-time quality is a non-functional requirement."
+      },
+      {
+        "statement": "When a marker asks which test shows that the module-code filter was implemented. Which capability answers that, the correct result is paragraph numbers in a novel.",
+        "answer": false,
+        "explanation": "Traceability follows a requirement through design to the test that demonstrates it."
+      },
+      {
+        "statement": "When you need one table showing each requirement, its design element, and its tests. Which artefact is that, the correct result is a risk-score matrix.",
+        "answer": false,
+        "explanation": "A traceability matrix is the table linking requirements to design elements and test cases."
+      },
+      {
+        "statement": "When you must describe the student's steps to see today's classes, including the feed-down alternative. The description is that, the correct result is a use case.",
+        "answer": true,
+        "explanation": "A use case records the actor's goal, main steps, and important alternatives."
+      },
+      {
+        "statement": "When the team writes: as a student I want to filter by module so I can find a class quickly. The artefact is that, the correct result is a user story.",
+        "answer": true,
+        "explanation": "A short who-wants-what-and-why statement used for planning is a user story."
+      },
+      {
+        "statement": "When the sponsor will accept the filter only if a known code lists the right classes and an unknown code shows a message. Which term names those conditions, the correct result is the commit count.",
+        "answer": false,
+        "explanation": "Acceptance criteria are the agreed conditions that must be met before the story is accepted."
+      },
+      {
+        "statement": "When work is being missed because nobody owns the test records. The fix uses team roles, the correct result is name a member responsible for the test records.",
+        "answer": true,
+        "explanation": "A team role gives a named member the responsibilities that were otherwise missing."
+      }
+    ],
+    "12": [
+      {
+        "statement": "When commitments are slipping and blockers are invisible. Which role should make them visible and coordinate the group, the correct result is an external sponsor who does not coordinate the team.",
+        "answer": false,
+        "explanation": "The team leader coordinates the group and keeps commitments and blockers visible."
+      },
+      {
+        "statement": "When stories contradict each other and nobody has checked them with the sponsor. Which role should fix that, the correct result is the poster designer.",
+        "answer": false,
+        "explanation": "The requirements lead keeps requirements consistent and agreed with stakeholders."
+      },
+      {
+        "statement": "When the app and the faculty feed disagree on date format at their boundary. The role should drive the fix, the correct result is the integration lead.",
+        "answer": true,
+        "explanation": "Resolving an interface mismatch is the integration lead's responsibility."
+      },
+      {
+        "statement": "When the demo is soon and nobody knows The requirements have passed their tests. Which role should produce that record, the correct result is the test lead.",
+        "answer": true,
+        "explanation": "The test lead is accountable for test cases and the record of results against requirements."
+      },
+      {
+        "statement": "When the interface specification must be identifiable and changes must not overwrite it silently. How should it be treated, the correct result is as the weather forecast.",
+        "answer": false,
+        "explanation": "A controlled, versioned project artefact is a configuration item."
+      },
+      {
+        "statement": "When the app team and the feed team need an agreed date format and error codes. Which document should hold that agreement, the correct result is a team photograph.",
+        "answer": false,
+        "explanation": "An interface specification defines formats, sequences, and error cases between components."
+      },
+      {
+        "statement": "When the screen works with fake data, but it has never been connected to the live faculty feed. The work is still missing, the correct result is system integration.",
+        "answer": true,
+        "explanation": "Connecting components so they work as one product is system integration."
+      },
+      {
+        "statement": "When components will finish at different times, and the team needs a deliberate order for joining them. The plan is that, the correct result is an integration strategy.",
+        "answer": true,
+        "explanation": "The planned order and method for combining components is the integration strategy."
+      },
+      {
+        "statement": "When all unfinished parts will be connected on the last weekend, with no earlier joins. Which approach is that, the correct result is adding and testing one component at a time.",
+        "answer": false,
+        "explanation": "Combining every component in one late step is big-bang integration."
+      },
+      {
+        "statement": "When the team adds the feed, tests it, then adds notifications. The integration approach is that, the correct result is incremental integration.",
+        "answer": true,
+        "explanation": "Adding components in stages and testing each stage is incremental integration."
+      }
+    ],
+    "13": [
+      {
+        "statement": "When you want to check the date parser alone, without the feed or the app. Which test fits, the correct result is the sponsor's acceptance check.",
+        "answer": false,
+        "explanation": "Testing one module in isolation is a unit test."
+      },
+      {
+        "statement": "When the date parser works alone, but you must check that the app and the feed exchange dates correctly. Which test fits, the correct result is another isolated parser test.",
+        "answer": false,
+        "explanation": "Checking behaviour across the join between components is an integration test."
+      },
+      {
+        "statement": "When the full app must be checked against timetable requirements on a campus phone and network. The test level is that, the correct result is system test.",
+        "answer": true,
+        "explanation": "Testing the completed product against system requirements in a near-real environment is system testing."
+      },
+      {
+        "statement": "When the faculty officer will judge the filter against the agreed done conditions. The test is that, the correct result is an acceptance test.",
+        "answer": true,
+        "explanation": "A check against agreed acceptance criteria, often by the sponsor or user, is an acceptance test."
+      },
+      {
+        "statement": "When you must specify the input, steps, and expected classes for the module filter. Which artefact is that, the correct result is a note that only says try the app.",
+        "answer": false,
+        "explanation": "A test case states preconditions, inputs, steps, and the expected result."
+      },
+      {
+        "statement": "When an unknown module code is entered. Which outcome should be written as the expected result before the test is run, the correct result is a guess written after seeing the failure.",
+        "answer": false,
+        "explanation": "The expected result is the correct outcome defined before execution, used to judge pass or fail."
+      },
+      {
+        "statement": "When the app shows the wrong day's classes, contrary to the agreed requirement. The item should be logged, the correct result is a defect.",
+        "answer": true,
+        "explanation": "Behaviour that misses an agreed requirement is a defect."
+      },
+      {
+        "statement": "When login crashes for every user, but the team will fix a typo first for the demo. The rating describes the crash's effect, the correct result is high defect severity.",
+        "answer": true,
+        "explanation": "Severity rates the crash's effect on users, independently of the order chosen for fixes."
+      },
+      {
+        "statement": "When a date-format fix might have broken login, which used to pass. Which tests should be rerun, the correct result is no tests, because the change looked small.",
+        "answer": false,
+        "explanation": "Regression tests check that behaviour which already worked still works after a change."
+      },
+      {
+        "statement": "When the screen design is ready, but coding of it has not started. You want peers to find gaps against requirements. The event fits, the correct result is a design review.",
+        "answer": true,
+        "explanation": "A design review examines the design against requirements before build continues."
+      }
+    ],
+    "14": [
+      {
+        "statement": "When the author of the interface spec wants others to hunt for missing error cases. Which activity fits, the correct result is the author approving their own spec alone.",
+        "answer": false,
+        "explanation": "Peer review is an examination by colleagues who did not create the work product."
+      },
+      {
+        "statement": "When the author will lead the group through each screen of the flow to collect comments. Which review form is that, the correct result is a fire drill.",
+        "answer": false,
+        "explanation": "A walkthrough is author-led, step-by-step presentation of a work product to gather comments."
+      },
+      {
+        "statement": "When a marker who did not build the app must be able to understand the design and run it. The material is required, the correct result is technical documentation of design, interfaces, and run steps.",
+        "answer": true,
+        "explanation": "Technical documentation describes design, interfaces, and operation for people who must build, test, or maintain the product."
+      },
+      {
+        "statement": "When two developers must implement filtering the same way. The document should record that design decision, the correct result is the design specification.",
+        "answer": true,
+        "explanation": "The design specification records structural decisions so implementation stays consistent."
+      },
+      {
+        "statement": "When students need instructions for filtering classes, without internal design detail. Which document fits, the correct result is the source code.",
+        "answer": false,
+        "explanation": "A user manual explains end-user tasks with the finished product."
+      },
+      {
+        "statement": "When another team must call your timetable operation correctly, including errors. Which document should you give them, the correct result is meeting minutes.",
+        "answer": false,
+        "explanation": "API documentation describes operations, inputs, return values, and error conditions."
+      },
+      {
+        "statement": "When the marker wants to see the app, the API, and the faculty feed and how they connect. The drawing fits, the correct result is an architecture diagram.",
+        "answer": true,
+        "explanation": "An architecture diagram shows major components and the connections among them."
+      },
+      {
+        "statement": "When two members are editing the same app and must merge without losing yesterday's working version. The system supports that, the correct result is version control.",
+        "answer": true,
+        "explanation": "Version control records file history so the team can merge work and recover earlier versions."
+      },
+      {
+        "statement": "When the sponsor has agreed the stories, and later edits must be approved rather than made silently. Which status should that set have, the correct result is a private laptop backup.",
+        "answer": false,
+        "explanation": "An agreed version that cannot change without control is a baseline."
+      },
+      {
+        "statement": "When after baseline, the sponsor wants offline mode. The process should the team follow before building it, the correct result is change control.",
+        "answer": true,
+        "explanation": "Change control proposes, assesses, approves, and records a change to a baseline."
+      }
+    ],
+    "15": [
+      {
+        "statement": "When the sponsor wants to see the filter work, not only hear about it. Which event meets that request, the correct result is a private test with no sponsor.",
+        "answer": false,
+        "explanation": "A demonstration shows the working product performing the agreed behaviour."
+      },
+      {
+        "statement": "When the team must be sure the demo covers login, today's view, a known module, and an unknown code. Which aid should they follow, the correct result is a film script about another topic.",
+        "answer": false,
+        "explanation": "A demo script is the planned sequence that covers the agreed scenarios."
+      },
+      {
+        "statement": "When students should try the screen layout before the live feed exists. The build fits that purpose, the correct result is a prototype with the layout and fake data.",
+        "answer": true,
+        "explanation": "A prototype is an early partial version used to check a design with users."
+      },
+      {
+        "statement": "When nobody knows whether the faculty feed will accept the campus login token. The build should answer that before full development, the correct result is a proof of concept that only tests the token.",
+        "answer": true,
+        "explanation": "A proof of concept is a small build that tests one risky technical idea."
+      },
+      {
+        "statement": "When the mid-project milestone requires stakeholders to see login and today's view and to give comments you can still use. Which event is that, the correct result is a showing after the module has closed.",
+        "answer": false,
+        "explanation": "A milestone demonstration is a scheduled showing at a milestone that gathers usable feedback."
+      },
+      {
+        "statement": "When the feed team wants to change the date format the app already uses. Which practice stops a silent break, the correct result is changing the format whenever the feed team likes.",
+        "answer": false,
+        "explanation": "Interface control stops a shared boundary changing unless the other parties are informed and agree."
+      },
+      {
+        "statement": "When the app must be tested before the faculty feed exists. The stand-in returns fixed classes to the app, the correct result is a test stub.",
+        "answer": true,
+        "explanation": "A stub stands in for a missing component and returns canned responses to its caller."
+      },
+      {
+        "statement": "When the date parser is ready, but the app that should call it is not. The temporary program can supply inputs and call the parser, the correct result is a test driver.",
+        "answer": true,
+        "explanation": "A test driver is a temporary caller that supplies inputs to a component whose real caller is not ready."
+      },
+      {
+        "statement": "When testers must record exactly which assembled app they ran. Which identifier should they cite, the correct result is an unnamed pile of source files.",
+        "answer": false,
+        "explanation": "A build is an identified assembled version so test results refer to a known revision."
+      },
+      {
+        "statement": "When testers receive build 0.4 and need to know what changed and In this case still missing. The document should accompany it, the correct result is a release note.",
+        "answer": true,
+        "explanation": "A release note lists the build's contents, fixes, and known limits."
+      }
+    ]
+  }
+}

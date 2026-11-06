@@ -3,6 +3,7 @@ import type { QuizAnswer, QuizResult } from '@/types';
 import { bool, dataOf, num, str, toIso } from './converters';
 import { AppError, toAppError, withTimeout } from './errors';
 import { COLLECTIONS, getFirebase } from './firebase';
+import { quizTypeOf } from './quizzes';
 
 /** Pre-generates a result id when a quiz starts, so submission is idempotent. */
 export const newResultId = () => doc(collection(getFirebase().db, COLLECTIONS.quizResults)).id;
@@ -24,6 +25,7 @@ function toResult(id: string, data: Record<string, unknown>): QuizResult {
   return {
     id,
     userId: str(data.userId),
+    quizType: quizTypeOf(data.quizType),
     subjectId: str(data.subjectId),
     subjectName: str(data.subjectName, 'Subject'),
     subjectCode: str(data.subjectCode),

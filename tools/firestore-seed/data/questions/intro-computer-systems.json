@@ -1,0 +1,1685 @@
+{
+  "subjectId": "intro-computer-systems",
+  "levels": {
+    "1": [
+      {
+        "question": "What is hardware?",
+        "options": [
+          "The physical parts of a computer, such as chips, boards, disks, cables, and the power supply.",
+          "A named collection of bytes stored under a single filename.",
+          "Programs and data that tell the machine which tasks to perform.",
+          "Rules that two computers follow when they exchange messages."
+        ],
+        "correctAnswer": "The physical parts of a computer, such as chips, boards, disks, cables, and the power supply.",
+        "explanation": "Hardware is the tangible equipment that stores, moves, and processes data."
+      },
+      {
+        "question": "What is software?",
+        "options": [
+          "Programs and related data that instruct the hardware which tasks to perform.",
+          "A cooling fan bolted to the processor heat sink.",
+          "The wall outlet that supplies electrical power.",
+          "The metal chassis, chips, and cables inside the machine."
+        ],
+        "correctAnswer": "Programs and related data that instruct the hardware which tasks to perform.",
+        "explanation": "Software is the instructions and data, while the chips and cables only carry out those instructions."
+      },
+      {
+        "question": "What is the CPU?",
+        "options": [
+          "The processor that fetches instructions from memory and carries them out.",
+          "The screen that displays pixels to the user.",
+          "The board that only supplies fan power.",
+          "The long-term disk that keeps files after power is removed."
+        ],
+        "correctAnswer": "The processor that fetches instructions from memory and carries them out.",
+        "explanation": "The processor is the component that reads instructions and executes them."
+      },
+      {
+        "question": "What is the ALU?",
+        "options": [
+          "The section that only decides which instruction to fetch next.",
+          "The pixel array that forms an image on a screen.",
+          "The disk controller that schedules platter reads.",
+          "The processor section that performs arithmetic and logical operations on data."
+        ],
+        "correctAnswer": "The processor section that performs arithmetic and logical operations on data.",
+        "explanation": "Addition, subtraction, and logical tests are carried out by the arithmetic and logic section of the processor."
+      },
+      {
+        "question": "What is a control unit?",
+        "options": [
+          "The pixel clock inside a monitor.",
+          "The fan controller on the power supply.",
+          "The processor section that fetches instructions and directs the other parts to carry them out.",
+          "The section that only adds and compares numeric values."
+        ],
+        "correctAnswer": "The processor section that fetches instructions and directs the other parts to carry them out.",
+        "explanation": "The control section generates the signals that sequence fetch, decode, and execute."
+      },
+      {
+        "question": "What is main memory?",
+        "options": [
+          "The printer tray that holds sheets of paper.",
+          "The cooling duct that moves air across the case.",
+          "The keyboard buffer that only stores the last key.",
+          "The working store that holds instructions and data of programs while they are running."
+        ],
+        "correctAnswer": "The working store that holds instructions and data of programs while they are running.",
+        "explanation": "A running program is loaded into the working store so the processor can fetch its instructions."
+      },
+      {
+        "question": "What is RAM?",
+        "options": [
+          "A paper listing of hex dumps stored in a binder.",
+          "Magnetic platters that keep files for years without power.",
+          "Read-write working memory that can be accessed in any order and loses its contents when power is removed.",
+          "Read-mostly memory that keeps startup code after power is removed."
+        ],
+        "correctAnswer": "Read-write working memory that can be accessed in any order and loses its contents when power is removed.",
+        "explanation": "Ordinary main memory can be read or written at any address and is volatile."
+      },
+      {
+        "question": "What is ROM?",
+        "options": [
+          "A spinning platter used for user documents.",
+          "Non-volatile memory that keeps fixed data, such as startup code, and is mainly read during operation.",
+          "A temporary cache that holds only the newest pixels.",
+          "Working memory that is wiped every time power is removed."
+        ],
+        "correctAnswer": "Non-volatile memory that keeps fixed data, such as startup code, and is mainly read during operation.",
+        "explanation": "Startup code must remain when the machine is off, so it is kept in non-volatile read-mostly memory."
+      },
+      {
+        "question": "What is cache memory?",
+        "options": [
+          "The paper manual shipped with a printer.",
+          "A small, fast memory that keeps copies of data the processor is likely to need again soon.",
+          "A network cable that carries packets between rooms.",
+          "A high-capacity disk used to archive course videos."
+        ],
+        "correctAnswer": "A small, fast memory that keeps copies of data the processor is likely to need again soon.",
+        "explanation": "Keeping recent data close to the processor avoids waiting for slower main memory."
+      },
+      {
+        "question": "What is secondary storage?",
+        "options": [
+          "High-capacity non-volatile storage that keeps programs and files when they are not active in main memory.",
+          "A handful of registers inside the processor.",
+          "The small fast copy store next to the processor.",
+          "The volatile modules that forget data at power-off."
+        ],
+        "correctAnswer": "High-capacity non-volatile storage that keeps programs and files when they are not active in main memory.",
+        "explanation": "Disks and flash drives retain large amounts of data after power is removed."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is an input device?",
+        "options": [
+          "A cable standard used only inside the processor package.",
+          "A device that sends data from the outside world into the computer.",
+          "A program that edits photographs.",
+          "A device that only presents results from the computer to people."
+        ],
+        "correctAnswer": "A device that sends data from the outside world into the computer.",
+        "explanation": "Keyboards, mice, and scanners supply data to the computer rather than display results."
+      },
+      {
+        "question": "What is an output device?",
+        "options": [
+          "A device that only sends keystrokes into the computer.",
+          "A device that presents results from the computer to the outside world.",
+          "The startup chip that stores boot code.",
+          "The working memory that holds a running program."
+        ],
+        "correctAnswer": "A device that presents results from the computer to the outside world.",
+        "explanation": "Displays, printers, and speakers deliver processed results to people or other equipment."
+      },
+      {
+        "question": "What is a peripheral?",
+        "options": [
+          "A number system that uses digits 0 and 1.",
+          "The arithmetic section inside the processor.",
+          "A device attached to the computer to add input, output, or extra storage.",
+          "The core of the operating system."
+        ],
+        "correctAnswer": "A device attached to the computer to add input, output, or extra storage.",
+        "explanation": "Printers, webcams, and external drives are attached devices, not the processor itself."
+      },
+      {
+        "question": "What is a system bus?",
+        "options": [
+          "A character code for English letters.",
+          "A program that translates source code before it runs.",
+          "The shared address, data, and control lines that connect the processor, memory, and input/output.",
+          "A folder that groups related documents."
+        ],
+        "correctAnswer": "The shared address, data, and control lines that connect the processor, memory, and input/output.",
+        "explanation": "The processor, memory, and devices exchange addresses, data, and control signals over shared lines."
+      },
+      {
+        "question": "What is von Neumann architecture?",
+        "options": [
+          "A stored-program design in which instructions and data share one memory and travel over a common bus.",
+          "A network in which every office is linked across several countries.",
+          "A design with separate memories and buses for instructions and for data.",
+          "A screen layout built only from windows and icons."
+        ],
+        "correctAnswer": "A stored-program design in which instructions and data share one memory and travel over a common bus.",
+        "explanation": "The classic stored-program computer keeps instructions and data in the same memory."
+      },
+      {
+        "question": "What is an instruction cycle?",
+        "options": [
+          "The handshake two computers use to open a connection.",
+          "The repeating sequence in which the processor fetches, decodes, and executes an instruction.",
+          "The steps a user follows to rename a folder.",
+          "The power-on sequence that loads the operating system once."
+        ],
+        "correctAnswer": "The repeating sequence in which the processor fetches, decodes, and executes an instruction.",
+        "explanation": "Every instruction is handled by repeating fetch, decode, and execute."
+      },
+      {
+        "question": "What is an operating system?",
+        "options": [
+          "System software that manages hardware and provides services so application programs can run.",
+          "A numeric label such as 192.168.1.10.",
+          "The physical board that holds the processor socket.",
+          "A single drawing program used to make a poster."
+        ],
+        "correctAnswer": "System software that manages hardware and provides services so application programs can run.",
+        "explanation": "Applications rely on the operating system to manage memory, files, and devices."
+      },
+      {
+        "question": "What is application software?",
+        "options": [
+          "A device driver that only talks to a disk controller.",
+          "The privileged core that schedules processes and manages memory.",
+          "A program that helps a user carry out a task, such as writing, calculating, or browsing.",
+          "Startup code stored in a non-volatile chip on the board."
+        ],
+        "correctAnswer": "A program that helps a user carry out a task, such as writing, calculating, or browsing.",
+        "explanation": "Word processors and browsers serve user tasks rather than operating the hardware directly."
+      },
+      {
+        "question": "What is system software?",
+        "options": [
+          "Software that operates and supports the computer, including the operating system and device drivers.",
+          "The metal case around the motherboard.",
+          "A game the user plays after class.",
+          "A photo stored in a folder of pictures."
+        ],
+        "correctAnswer": "Software that operates and supports the computer, including the operating system and device drivers.",
+        "explanation": "Drivers and the operating system support the machine itself rather than a single user hobby."
+      },
+      {
+        "question": "What is a file?",
+        "options": [
+          "A single binary digit that is either 0 or 1.",
+          "A named collection of data stored as one unit on a storage device.",
+          "The shared lines linking the processor and memory.",
+          "A container that groups several named collections and other containers."
+        ],
+        "correctAnswer": "A named collection of data stored as one unit on a storage device.",
+        "explanation": "The file system stores a document or photo as one named unit of bytes."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is a directory?",
+        "options": [
+          "One photo stored by itself under a single filename.",
+          "An eight-bit group used as a typical memory location.",
+          "A named container that groups files and other containers on a storage device.",
+          "A base-16 digit written with symbols 0 through F."
+        ],
+        "correctAnswer": "A named container that groups files and other containers on a storage device.",
+        "explanation": "Folders exist so related files can be grouped under one name."
+      },
+      {
+        "question": "What is a bit?",
+        "options": [
+          "A base-10 digit that may be from 0 through 9.",
+          "A group of four binary digits.",
+          "A group of eight binary digits.",
+          "A single binary digit that holds either 0 or 1."
+        ],
+        "correctAnswer": "A single binary digit that holds either 0 or 1.",
+        "explanation": "The smallest unit of stored data is one binary digit."
+      },
+      {
+        "question": "What is a byte?",
+        "options": [
+          "A group of eight bits, the usual size of one addressable memory location.",
+          "A group of sixteen bits.",
+          "A group of four bits.",
+          "A single binary digit."
+        ],
+        "correctAnswer": "A group of eight bits, the usual size of one addressable memory location.",
+        "explanation": "Modern computers address memory in units of eight bits."
+      },
+      {
+        "question": "What is a kilobyte?",
+        "options": [
+          "A unit equal to 1024 bits.",
+          "A binary storage unit equal to 1024 bytes, the size commonly used when measuring memory.",
+          "A unit equal to 1000 bits.",
+          "A unit equal to 8 bytes."
+        ],
+        "correctAnswer": "A binary storage unit equal to 1024 bytes, the size commonly used when measuring memory.",
+        "explanation": "Memory sizes use powers of two, and 2 to the power 10 is 1024 bytes."
+      },
+      {
+        "question": "What is the binary number system?",
+        "options": [
+          "A base-8 system that uses digits 0 through 7.",
+          "A base-16 system that uses digits 0 through 9 and A through F.",
+          "A base-10 system that uses digits 0 through 9.",
+          "A base-2 place-value system that uses only the digits 0 and 1."
+        ],
+        "correctAnswer": "A base-2 place-value system that uses only the digits 0 and 1.",
+        "explanation": "Digital circuits have two stable states, so values are written in base 2."
+      },
+      {
+        "question": "What is the hexadecimal system?",
+        "options": [
+          "A base-10 system whose digits run from 0 through 9.",
+          "A base-16 place-value system whose digits run from 0 through 9 and A through F.",
+          "A base-2 system whose only digits are 0 and 1.",
+          "A base-8 system whose digits run from 0 through 7."
+        ],
+        "correctAnswer": "A base-16 place-value system whose digits run from 0 through 9 and A through F.",
+        "explanation": "Each hex digit replaces exactly four bits, which shortens long binary patterns."
+      },
+      {
+        "question": "What is the octal system?",
+        "options": [
+          "A base-10 system that uses 0 through 9.",
+          "A base-2 system that uses only 0 and 1.",
+          "A base-16 system that uses 0 through 9 and A through F.",
+          "A base-8 place-value system that uses the digits 0 through 7."
+        ],
+        "correctAnswer": "A base-8 place-value system that uses the digits 0 through 7.",
+        "explanation": "Each octal digit replaces a group of three bits."
+      },
+      {
+        "question": "What is the decimal system?",
+        "options": [
+          "A base-8 system that uses only 0 through 7.",
+          "A base-2 system that uses only 0 and 1.",
+          "A base-16 system that uses 0 through 9 and A through F.",
+          "A base-10 place-value system that uses the digits 0 through 9."
+        ],
+        "correctAnswer": "A base-10 place-value system that uses the digits 0 through 9.",
+        "explanation": "Everyday counting uses ten digits, so each place is worth ten times the place on its right."
+      },
+      {
+        "question": "What is ASCII?",
+        "options": [
+          "A picture format that stores rows of colored dots.",
+          "A 7-bit character code that represents English letters, digits, and common symbols.",
+          "A character standard that assigns codes to most of the world's writing systems.",
+          "A base-16 shorthand for binary patterns."
+        ],
+        "correctAnswer": "A 7-bit character code that represents English letters, digits, and common symbols.",
+        "explanation": "The original American code uses seven bits, enough for English letters and common symbols."
+      },
+      {
+        "question": "What is Unicode?",
+        "options": [
+          "A dot-and-dash signaling method used on a telegraph key.",
+          "A 7-bit code limited to English letters, digits, and common symbols.",
+          "A character standard that assigns code points to symbols from most of the world's writing systems.",
+          "A 5-bit teleprinter code used for early telegraphy."
+        ],
+        "correctAnswer": "A character standard that assigns code points to symbols from most of the world's writing systems.",
+        "explanation": "One standard must cover many languages, so its code space is far larger than seven bits."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is a compiler?",
+        "options": [
+          "A tool that executes source code one statement at a time.",
+          "A translator that converts an entire high-level program into machine code before the program runs.",
+          "A tool that loads an executable into memory and starts it.",
+          "A tool that only combines already translated pieces into one executable."
+        ],
+        "correctAnswer": "A translator that converts an entire high-level program into machine code before the program runs.",
+        "explanation": "Compilation produces a machine-code result from the whole source program before execution."
+      },
+      {
+        "question": "What is an interpreter?",
+        "options": [
+          "A translator that converts the entire source program before execution begins.",
+          "A drive that stores files on flash chips.",
+          "A program that reads and executes source code statement by statement.",
+          "A chip that performs arithmetic inside the processor."
+        ],
+        "correctAnswer": "A program that reads and executes source code statement by statement.",
+        "explanation": "An interpreter does not require a separate full machine-code file before it can run the source."
+      },
+      {
+        "question": "What is an algorithm?",
+        "options": [
+          "A cable that links two computers in one room.",
+          "A picture element on a display.",
+          "A finite, ordered set of unambiguous steps that solves a problem or computes a result.",
+          "The physical chips that execute instructions."
+        ],
+        "correctAnswer": "A finite, ordered set of unambiguous steps that solves a problem or computes a result.",
+        "explanation": "An algorithm is the procedure itself, independent of any one programming language."
+      },
+      {
+        "question": "What is a motherboard?",
+        "options": [
+          "A display panel that shows pixels.",
+          "A flash drive with no moving parts.",
+          "The main circuit board that connects the processor, memory, buses, and expansion slots.",
+          "A magnetic drive with spinning platters."
+        ],
+        "correctAnswer": "The main circuit board that connects the processor, memory, buses, and expansion slots.",
+        "explanation": "The processor socket, memory slots, and chipset are mounted on the main board."
+      },
+      {
+        "question": "What is firmware?",
+        "options": [
+          "A spreadsheet the user edits and then deletes.",
+          "Volatile working memory that is empty after power-off.",
+          "A paper manual kept on a shelf.",
+          "Software stored in non-volatile memory on a device, such as the startup code on a motherboard."
+        ],
+        "correctAnswer": "Software stored in non-volatile memory on a device, such as the startup code on a motherboard.",
+        "explanation": "Firmware stays with the hardware in non-volatile memory and controls that hardware."
+      },
+      {
+        "question": "What is a hard disk drive?",
+        "options": [
+          "Volatile memory modules used as the working store.",
+          "A storage device that keeps data in flash chips and has no spinning platter.",
+          "A secondary-storage device that records data as magnetic regions on spinning platters.",
+          "A chip that only holds startup code."
+        ],
+        "correctAnswer": "A secondary-storage device that records data as magnetic regions on spinning platters.",
+        "explanation": "The read head senses magnetic patterns on rotating platters."
+      },
+      {
+        "question": "What is a solid-state drive?",
+        "options": [
+          "A secondary-storage device that stores data in flash memory and has no spinning platter.",
+          "Working memory that loses data when power is removed.",
+          "A disc read by a laser from a reflective surface.",
+          "A drive that records data magnetically on rotating platters."
+        ],
+        "correctAnswer": "A secondary-storage device that stores data in flash memory and has no spinning platter.",
+        "explanation": "Flash chips retain files without mechanical motion."
+      },
+      {
+        "question": "What is a local area network?",
+        "options": [
+          "A network that links sites across cities or countries.",
+          "A character code for English text.",
+          "A network that connects computers within a small area such as a room, lab, or single building.",
+          "A single file shared by email attachment."
+        ],
+        "correctAnswer": "A network that connects computers within a small area such as a room, lab, or single building.",
+        "explanation": "Local networks cover a limited physical area and are usually owned by one organization."
+      },
+      {
+        "question": "What is a wide area network?",
+        "options": [
+          "A folder stored on a single disk.",
+          "A processor clock rating in gigahertz.",
+          "A network that connects computers across a large geographic area, such as cities or countries.",
+          "A network limited to one room or one building."
+        ],
+        "correctAnswer": "A network that connects computers across a large geographic area, such as cities or countries.",
+        "explanation": "Long-distance links, often provided by a carrier, join distant sites."
+      },
+      {
+        "question": "What is an IP address?",
+        "options": [
+          "A numerical label that identifies a host on an IP network so packets can be delivered to it.",
+          "A small integer that selects one service on a host, such as 443.",
+          "A hardware address burned into a network interface by its maker.",
+          "A name such as example.com resolved by the naming system."
+        ],
+        "correctAnswer": "A numerical label that identifies a host on an IP network so packets can be delivered to it.",
+        "explanation": "Routers forward packets using the numerical IP label of the destination host."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is a protocol?",
+        "options": [
+          "A finite list of steps for sorting a roster by hand.",
+          "A named container of files on a disk.",
+          "A physical plug on the side of a laptop.",
+          "A set of rules that governs how computers format and exchange messages."
+        ],
+        "correctAnswer": "A set of rules that governs how computers format and exchange messages.",
+        "explanation": "Communication succeeds only when both sides follow the same message rules."
+      },
+      {
+        "question": "What is the client-server model?",
+        "options": [
+          "A single computer that does all work with no network.",
+          "A network arrangement in which a client requests a service and a server provides it.",
+          "A bus inside one computer that links the processor and memory.",
+          "An arrangement in which equal peers both supply and request the same service."
+        ],
+        "correctAnswer": "A network arrangement in which a client requests a service and a server provides it.",
+        "explanation": "The client initiates the request, and the server listens and responds."
+      },
+      {
+        "question": "What is a graphical user interface?",
+        "options": [
+          "An interface that accepts only typed text commands.",
+          "An interface that lets a person operate the computer through windows, icons, menus, and a pointer.",
+          "A translator that produces machine code.",
+          "A magnetic drive with spinning platters."
+        ],
+        "correctAnswer": "An interface that lets a person operate the computer through windows, icons, menus, and a pointer.",
+        "explanation": "Pointing and clicking graphical objects is an alternative to typing commands."
+      },
+      {
+        "question": "What is a command-line interface?",
+        "options": [
+          "A small fast memory next to the processor.",
+          "An interface that lets a person operate the computer by typing text commands.",
+          "An interface built from windows, icons, and a pointer.",
+          "Startup code stored in a non-volatile chip."
+        ],
+        "correctAnswer": "An interface that lets a person operate the computer by typing text commands.",
+        "explanation": "The user types a command and the system prints a text response."
+      },
+      {
+        "question": "What is volatile memory?",
+        "options": [
+          "Memory that loses its stored contents when electrical power is removed.",
+          "A paper printout stored in a folder.",
+          "Magnetic storage that retains files for years without power.",
+          "Memory that keeps its contents after power is removed."
+        ],
+        "correctAnswer": "Memory that loses its stored contents when electrical power is removed.",
+        "explanation": "Typical working memory and cache need power to hold their bits."
+      },
+      {
+        "question": "What is non-volatile memory?",
+        "options": [
+          "Working memory that is empty after a power cut.",
+          "A cache line that is lost when the machine is unplugged.",
+          "A processor register that forgets its value without a clock and power.",
+          "Memory that keeps its stored contents after electrical power is removed."
+        ],
+        "correctAnswer": "Memory that keeps its stored contents after electrical power is removed.",
+        "explanation": "Startup chips and flash keep data with no applied power."
+      },
+      {
+        "question": "What is booting?",
+        "options": [
+          "Rearranging file fragments so they lie in order on a disk.",
+          "Translating a whole source program into machine code.",
+          "Converting a binary pattern into hexadecimal digits.",
+          "The start-up sequence that initializes hardware and loads the operating system into memory."
+        ],
+        "correctAnswer": "The start-up sequence that initializes hardware and loads the operating system into memory.",
+        "explanation": "After power-on, firmware finds a bootable device and loads the operating system."
+      },
+      {
+        "question": "What is the kernel?",
+        "options": [
+          "A web browser used to read documentation.",
+          "A media player used to watch a lecture.",
+          "The privileged core of an operating system that manages processes, memory, and devices.",
+          "A text editor used to write source code."
+        ],
+        "correctAnswer": "The privileged core of an operating system that manages processes, memory, and devices.",
+        "explanation": "The kernel runs in privileged mode and provides the core resource-management services."
+      },
+      {
+        "question": "What is a nibble?",
+        "options": [
+          "A group of sixteen bits.",
+          "A group of two bits.",
+          "A group of eight bits.",
+          "A group of four bits, equal to one hexadecimal digit."
+        ],
+        "correctAnswer": "A group of four bits, equal to one hexadecimal digit.",
+        "explanation": "Four bits can represent the values 0 through 15, which is exactly one hex digit."
+      },
+      {
+        "question": "What is input/output?",
+        "options": [
+          "The conversion of a decimal value into base 2.",
+          "The grouping of files into a named container.",
+          "The transfer of data between the computer and external devices such as keyboards and displays.",
+          "The translation of an entire source program before it runs."
+        ],
+        "correctAnswer": "The transfer of data between the computer and external devices such as keyboards and displays.",
+        "explanation": "Input brings external data in, and output sends results to external devices."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates hardware?",
+        "options": [
+          "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+          "A laptop chip marked with a model number performs the steps of a running calculator program.",
+          "During a payroll run, the processor adds hours times wage inside its arithmetic section.",
+          "A photo editor installed on a laptop tells the machine how to crop and save pictures."
+        ],
+        "correctAnswer": "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+        "explanation": "Hardware is the tangible equipment that stores, moves, and processes data."
+      },
+      {
+        "question": "Which situation illustrates software?",
+        "options": [
+          "During a payroll run, the processor adds hours times wage inside its arithmetic section.",
+          "A photo editor installed on a laptop tells the machine how to crop and save pictures.",
+          "A laptop chip marked with a model number performs the steps of a running calculator program.",
+          "On each tick, signals from the sequencing section open the path that loads the next instruction."
+        ],
+        "correctAnswer": "A photo editor installed on a laptop tells the machine how to crop and save pictures.",
+        "explanation": "Software is the instructions and data, while the chips and cables only carry out those instructions."
+      },
+      {
+        "question": "Which situation illustrates the CPU?",
+        "options": [
+          "A laptop chip marked with a model number performs the steps of a running calculator program.",
+          "On each tick, signals from the sequencing section open the path that loads the next instruction.",
+          "After a browser launches, its code and open tabs occupy the computer's working store until it exits.",
+          "During a payroll run, the processor adds hours times wage inside its arithmetic section."
+        ],
+        "correctAnswer": "A laptop chip marked with a model number performs the steps of a running calculator program.",
+        "explanation": "The processor is the component that reads instructions and executes them."
+      },
+      {
+        "question": "Which situation illustrates the ALU?",
+        "options": [
+          "On each tick, signals from the sequencing section open the path that loads the next instruction.",
+          "During a payroll run, the processor adds hours times wage inside its arithmetic section.",
+          "After a browser launches, its code and open tabs occupy the computer's working store until it exits.",
+          "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain."
+        ],
+        "correctAnswer": "During a payroll run, the processor adds hours times wage inside its arithmetic section.",
+        "explanation": "Addition, subtraction, and logical tests are carried out by the arithmetic and logic section of the processor."
+      },
+      {
+        "question": "Which situation illustrates a control unit?",
+        "options": [
+          "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+          "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain.",
+          "On each tick, signals from the sequencing section open the path that loads the next instruction.",
+          "After a browser launches, its code and open tabs occupy the computer's working store until it exits."
+        ],
+        "correctAnswer": "On each tick, signals from the sequencing section open the path that loads the next instruction.",
+        "explanation": "The control section generates the signals that sequence fetch, decode, and execute."
+      },
+      {
+        "question": "Which situation illustrates main memory?",
+        "options": [
+          "After a browser launches, its code and open tabs occupy the computer's working store until it exits.",
+          "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+          "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+          "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain."
+        ],
+        "correctAnswer": "After a browser launches, its code and open tabs occupy the computer's working store until it exits.",
+        "explanation": "A running program is loaded into the working store so the processor can fetch its instructions."
+      },
+      {
+        "question": "Which situation illustrates RAM?",
+        "options": [
+          "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain.",
+          "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+          "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+          "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning."
+        ],
+        "correctAnswer": "Unplugging a desktop clears the unsaved contents of its memory modules even though the disk files remain.",
+        "explanation": "Ordinary main memory can be read or written at any address and is volatile."
+      },
+      {
+        "question": "Which situation illustrates ROM?",
+        "options": [
+          "A barcode scanner at a checkout sends each product code into the point-of-sale computer.",
+          "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+          "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+          "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning."
+        ],
+        "correctAnswer": "A motherboard still contains its startup program after the power cord has been unplugged overnight.",
+        "explanation": "Startup code must remain when the machine is off, so it is kept in non-volatile read-mostly memory."
+      },
+      {
+        "question": "Which situation illustrates cache memory?",
+        "options": [
+          "A classroom projector shows the laptop's slides on the wall during a lecture.",
+          "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+          "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning.",
+          "A barcode scanner at a checkout sends each product code into the point-of-sale computer."
+        ],
+        "correctAnswer": "A tight loop adds the same total repeatedly, and the processor finds that total in its small fast memory instead of DRAM.",
+        "explanation": "Keeping recent data close to the processor avoids waiting for slower main memory."
+      },
+      {
+        "question": "Which situation illustrates secondary storage?",
+        "options": [
+          "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning.",
+          "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+          "A classroom projector shows the laptop's slides on the wall during a lecture.",
+          "A barcode scanner at a checkout sends each product code into the point-of-sale computer."
+        ],
+        "correctAnswer": "A student shuts down the lab PC, and the essay on the internal drive is still there the next morning.",
+        "explanation": "Disks and flash drives retain large amounts of data after power is removed."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates an input device?",
+        "options": [
+          "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+          "A barcode scanner at a checkout sends each product code into the point-of-sale computer.",
+          "A memory read places an address on one set of lines and the stored byte returns on another set.",
+          "A classroom projector shows the laptop's slides on the wall during a lecture."
+        ],
+        "correctAnswer": "A barcode scanner at a checkout sends each product code into the point-of-sale computer.",
+        "explanation": "Keyboards, mice, and scanners supply data to the computer rather than display results."
+      },
+      {
+        "question": "Which situation illustrates an output device?",
+        "options": [
+          "A classroom projector shows the laptop's slides on the wall during a lecture.",
+          "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus.",
+          "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+          "A memory read places an address on one set of lines and the stored byte returns on another set."
+        ],
+        "correctAnswer": "A classroom projector shows the laptop's slides on the wall during a lecture.",
+        "explanation": "Displays, printers, and speakers deliver processed results to people or other equipment."
+      },
+      {
+        "question": "Which situation illustrates a peripheral?",
+        "options": [
+          "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus.",
+          "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+          "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+          "A memory read places an address on one set of lines and the stored byte returns on another set."
+        ],
+        "correctAnswer": "A USB webcam clipped to a monitor plugs into the PC and captures the lab bench.",
+        "explanation": "Printers, webcams, and external drives are attached devices, not the processor itself."
+      },
+      {
+        "question": "Which situation illustrates a system bus?",
+        "options": [
+          "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+          "When two apps open at once, the installed system software decides which one gets the processor next.",
+          "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus.",
+          "A memory read places an address on one set of lines and the stored byte returns on another set."
+        ],
+        "correctAnswer": "A memory read places an address on one set of lines and the stored byte returns on another set.",
+        "explanation": "The processor, memory, and devices exchange addresses, data, and control signals over shared lines."
+      },
+      {
+        "question": "Which situation illustrates von Neumann architecture?",
+        "options": [
+          "When two apps open at once, the installed system software decides which one gets the processor next.",
+          "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+          "A student writes a lab report in a word processor and checks spelling as they type.",
+          "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus."
+        ],
+        "correctAnswer": "One memory chip holds both a small program and the numbers that program adds, and both travel over the same bus.",
+        "explanation": "The classic stored-program computer keeps instructions and data in the same memory."
+      },
+      {
+        "question": "Which situation illustrates an instruction cycle?",
+        "options": [
+          "A student writes a lab report in a word processor and checks spelling as they type.",
+          "When two apps open at once, the installed system software decides which one gets the processor next.",
+          "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+          "A disk driver loaded at startup lets the rest of the machine read and write the internal drive."
+        ],
+        "correctAnswer": "A counter program repeatedly loads the next ADD, interprets it, and updates the total.",
+        "explanation": "Every instruction is handled by repeating fetch, decode, and execute."
+      },
+      {
+        "question": "Which situation illustrates an operating system?",
+        "options": [
+          "A disk driver loaded at startup lets the rest of the machine read and write the internal drive.",
+          "When two apps open at once, the installed system software decides which one gets the processor next.",
+          "A student saves a photo on a USB stick under the name campus.png.",
+          "A student writes a lab report in a word processor and checks spelling as they type."
+        ],
+        "correctAnswer": "When two apps open at once, the installed system software decides which one gets the processor next.",
+        "explanation": "Applications rely on the operating system to manage memory, files, and devices."
+      },
+      {
+        "question": "Which situation illustrates application software?",
+        "options": [
+          "A disk driver loaded at startup lets the rest of the machine read and write the internal drive.",
+          "A student writes a lab report in a word processor and checks spelling as they type.",
+          "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names.",
+          "A student saves a photo on a USB stick under the name campus.png."
+        ],
+        "correctAnswer": "A student writes a lab report in a word processor and checks spelling as they type.",
+        "explanation": "Word processors and browsers serve user tasks rather than operating the hardware directly."
+      },
+      {
+        "question": "Which situation illustrates system software?",
+        "options": [
+          "A door sensor records only closed as 0 and open as 1 in a status flag.",
+          "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names.",
+          "A disk driver loaded at startup lets the rest of the machine read and write the internal drive.",
+          "A student saves a photo on a USB stick under the name campus.png."
+        ],
+        "correctAnswer": "A disk driver loaded at startup lets the rest of the machine read and write the internal drive.",
+        "explanation": "Drivers and the operating system support the machine itself rather than a single user hobby."
+      },
+      {
+        "question": "Which situation illustrates a file?",
+        "options": [
+          "The letter A in a plain English text file occupies eight bits in memory.",
+          "A student saves a photo on a USB stick under the name campus.png.",
+          "A door sensor records only closed as 0 and open as 1 in a status flag.",
+          "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names."
+        ],
+        "correctAnswer": "A student saves a photo on a USB stick under the name campus.png.",
+        "explanation": "The file system stores a document or photo as one named unit of bytes."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates a directory?",
+        "options": [
+          "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names.",
+          "The letter A in a plain English text file occupies eight bits in memory.",
+          "A door sensor records only closed as 0 and open as 1 in a status flag.",
+          "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention."
+        ],
+        "correctAnswer": "The name Lab1 on a drive contains three report documents and nothing else is stored beside those names.",
+        "explanation": "Folders exist so related files can be grouped under one name."
+      },
+      {
+        "question": "Which situation illustrates a bit?",
+        "options": [
+          "The letter A in a plain English text file occupies eight bits in memory.",
+          "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention.",
+          "A row of four switches encodes the number thirteen as the pattern 1101.",
+          "A door sensor records only closed as 0 and open as 1 in a status flag."
+        ],
+        "correctAnswer": "A door sensor records only closed as 0 and open as 1 in a status flag.",
+        "explanation": "The smallest unit of stored data is one binary digit."
+      },
+      {
+        "question": "Which situation illustrates a byte?",
+        "options": [
+          "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+          "The letter A in a plain English text file occupies eight bits in memory.",
+          "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention.",
+          "A row of four switches encodes the number thirteen as the pattern 1101."
+        ],
+        "correctAnswer": "The letter A in a plain English text file occupies eight bits in memory.",
+        "explanation": "Modern computers address memory in units of eight bits."
+      },
+      {
+        "question": "Which situation illustrates a kilobyte?",
+        "options": [
+          "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention.",
+          "A row of four switches encodes the number thirteen as the pattern 1101.",
+          "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+          "The permission triple 755 is written with digits that never exceed 7."
+        ],
+        "correctAnswer": "A tiny text buffer is described as 1 KB because it holds 1024 bytes under the binary convention.",
+        "explanation": "Memory sizes use powers of two, and 2 to the power 10 is 1024 bytes."
+      },
+      {
+        "question": "Which situation illustrates the binary number system?",
+        "options": [
+          "A row of four switches encodes the number thirteen as the pattern 1101.",
+          "The permission triple 755 is written with digits that never exceed 7.",
+          "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+          "A price tag shows 249, and each digit is one of 0 through 9."
+        ],
+        "correctAnswer": "A row of four switches encodes the number thirteen as the pattern 1101.",
+        "explanation": "Digital circuits have two stable states, so values are written in base 2."
+      },
+      {
+        "question": "Which situation illustrates the hexadecimal system?",
+        "options": [
+          "The permission triple 755 is written with digits that never exceed 7.",
+          "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+          "A price tag shows 249, and each digit is one of 0 through 9.",
+          "In a plain English file, the uppercase letter A is stored as the code value 65."
+        ],
+        "correctAnswer": "A programmer writes the eight-bit pattern 11111111 as FF in a memory dump.",
+        "explanation": "Each hex digit replaces exactly four bits, which shortens long binary patterns."
+      },
+      {
+        "question": "Which situation illustrates the octal system?",
+        "options": [
+          "A price tag shows 249, and each digit is one of 0 through 9.",
+          "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points.",
+          "The permission triple 755 is written with digits that never exceed 7.",
+          "In a plain English file, the uppercase letter A is stored as the code value 65."
+        ],
+        "correctAnswer": "The permission triple 755 is written with digits that never exceed 7.",
+        "explanation": "Each octal digit replaces a group of three bits."
+      },
+      {
+        "question": "Which situation illustrates the decimal system?",
+        "options": [
+          "In a plain English file, the uppercase letter A is stored as the code value 65.",
+          "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points.",
+          "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+          "A price tag shows 249, and each digit is one of 0 through 9."
+        ],
+        "correctAnswer": "A price tag shows 249, and each digit is one of 0 through 9.",
+        "explanation": "Everyday counting uses ten digits, so each place is worth ten times the place on its right."
+      },
+      {
+        "question": "Which situation illustrates ASCII?",
+        "options": [
+          "A classroom language tool runs each typed line of a script immediately, without writing an executable file.",
+          "In a plain English file, the uppercase letter A is stored as the code value 65.",
+          "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+          "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points."
+        ],
+        "correctAnswer": "In a plain English file, the uppercase letter A is stored as the code value 65.",
+        "explanation": "The original American code uses seven bits, enough for English letters and common symbols."
+      },
+      {
+        "question": "Which situation illustrates Unicode?",
+        "options": [
+          "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points.",
+          "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+          "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age.",
+          "A classroom language tool runs each typed line of a script immediately, without writing an executable file."
+        ],
+        "correctAnswer": "A single document contains Chinese characters, Arabic letters, and an emoji, all with assigned code points.",
+        "explanation": "One standard must cover many languages, so its code space is far larger than seven bits."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates a compiler?",
+        "options": [
+          "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age.",
+          "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+          "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+          "A classroom language tool runs each typed line of a script immediately, without writing an executable file."
+        ],
+        "correctAnswer": "A student clicks Build, waits while every source file is translated, and then runs the finished executable.",
+        "explanation": "Compilation produces a machine-code result from the whole source program before execution."
+      },
+      {
+        "question": "Which situation illustrates an interpreter?",
+        "options": [
+          "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+          "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age.",
+          "A classroom language tool runs each typed line of a script immediately, without writing an executable file.",
+          "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off."
+        ],
+        "correctAnswer": "A classroom language tool runs each typed line of a script immediately, without writing an executable file.",
+        "explanation": "An interpreter does not require a separate full machine-code file before it can run the source."
+      },
+      {
+        "question": "Which situation illustrates an algorithm?",
+        "options": [
+          "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+          "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive.",
+          "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off.",
+          "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age."
+        ],
+        "correctAnswer": "To find the oldest student, a tutor writes ordered steps that scan a list once and remember the maximum age.",
+        "explanation": "An algorithm is the procedure itself, independent of any one programming language."
+      },
+      {
+        "question": "Which situation illustrates a motherboard?",
+        "options": [
+          "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+          "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off.",
+          "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins.",
+          "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive."
+        ],
+        "correctAnswer": "Inside a desktop, one large green board holds the processor socket, two memory slots, and the expansion connectors.",
+        "explanation": "The processor socket, memory slots, and chipset are mounted on the main board."
+      },
+      {
+        "question": "Which situation illustrates firmware?",
+        "options": [
+          "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off.",
+          "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive.",
+          "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+          "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins."
+        ],
+        "correctAnswer": "Updating the motherboard startup program rewrites a chip on the board, and the new code remains after power-off.",
+        "explanation": "Firmware stays with the hardware in non-volatile memory and controls that hardware."
+      },
+      {
+        "question": "Which situation illustrates a hard disk drive?",
+        "options": [
+          "A company connects its Yangon office and its Singapore office through a telecom provider.",
+          "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins.",
+          "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+          "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive."
+        ],
+        "correctAnswer": "A lab server clicks softly as its platters spin, and a magnetized coating holds the course archive.",
+        "explanation": "The read head senses magnetic patterns on rotating platters."
+      },
+      {
+        "question": "Which situation illustrates a solid-state drive?",
+        "options": [
+          "A company connects its Yangon office and its Singapore office through a telecom provider.",
+          "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+          "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets.",
+          "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins."
+        ],
+        "correctAnswer": "A thin laptop stores the operating system in flash chips, and nothing inside that drive spins.",
+        "explanation": "Flash chips retain files without mechanical motion."
+      },
+      {
+        "question": "Which situation illustrates a local area network?",
+        "options": [
+          "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+          "A company connects its Yangon office and its Singapore office through a telecom provider.",
+          "A browser and a web server both follow HTTP so a page request and the page response are understood.",
+          "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets."
+        ],
+        "correctAnswer": "Twenty lab PCs in one building share a switch and exchange files without leaving the campus wing.",
+        "explanation": "Local networks cover a limited physical area and are usually owned by one organization."
+      },
+      {
+        "question": "Which situation illustrates a wide area network?",
+        "options": [
+          "A browser and a web server both follow HTTP so a page request and the page response are understood.",
+          "A browser on a student laptop requests a page, and a university web server sends that page back.",
+          "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets.",
+          "A company connects its Yangon office and its Singapore office through a telecom provider."
+        ],
+        "correctAnswer": "A company connects its Yangon office and its Singapore office through a telecom provider.",
+        "explanation": "Long-distance links, often provided by a carrier, join distant sites."
+      },
+      {
+        "question": "Which situation illustrates an IP address?",
+        "options": [
+          "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+          "A browser on a student laptop requests a page, and a university web server sends that page back.",
+          "A browser and a web server both follow HTTP so a page request and the page response are understood.",
+          "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets."
+        ],
+        "correctAnswer": "A lab PC is configured as 192.168.1.10 so other machines on that net can send it packets.",
+        "explanation": "Routers forward packets using the numerical IP label of the destination host."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates a protocol?",
+        "options": [
+          "A browser on a student laptop requests a page, and a university web server sends that page back.",
+          "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+          "At a prompt, an administrator types a text command to list the files in the current container.",
+          "A browser and a web server both follow HTTP so a page request and the page response are understood."
+        ],
+        "correctAnswer": "A browser and a web server both follow HTTP so a page request and the page response are understood.",
+        "explanation": "Communication succeeds only when both sides follow the same message rules."
+      },
+      {
+        "question": "Which situation illustrates the client-server model?",
+        "options": [
+          "At a prompt, an administrator types a text command to list the files in the current container.",
+          "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+          "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program.",
+          "A browser on a student laptop requests a page, and a university web server sends that page back."
+        ],
+        "correctAnswer": "A browser on a student laptop requests a page, and a university web server sends that page back.",
+        "explanation": "The client initiates the request, and the server listens and responds."
+      },
+      {
+        "question": "Which situation illustrates a graphical user interface?",
+        "options": [
+          "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program.",
+          "At a prompt, an administrator types a text command to list the files in the current container.",
+          "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+          "A phone still holds its stored photos in flash after the battery is removed."
+        ],
+        "correctAnswer": "A user deletes a file by dragging its icon to a trash picture instead of typing a command.",
+        "explanation": "Pointing and clicking graphical objects is an alternative to typing commands."
+      },
+      {
+        "question": "Which situation illustrates a command-line interface?",
+        "options": [
+          "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+          "At a prompt, an administrator types a text command to list the files in the current container.",
+          "A phone still holds its stored photos in flash after the battery is removed.",
+          "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program."
+        ],
+        "correctAnswer": "At a prompt, an administrator types a text command to list the files in the current container.",
+        "explanation": "The user types a command and the system prints a text response."
+      },
+      {
+        "question": "Which situation illustrates volatile memory?",
+        "options": [
+          "A phone still holds its stored photos in flash after the battery is removed.",
+          "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+          "When an application asks for more memory, the privileged core grants pages and updates the process table.",
+          "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program."
+        ],
+        "correctAnswer": "A power cut erases the unsaved numbers sitting in the working memory of a desktop calculator program.",
+        "explanation": "Typical working memory and cache need power to hold their bits."
+      },
+      {
+        "question": "Which situation illustrates non-volatile memory?",
+        "options": [
+          "A phone still holds its stored photos in flash after the battery is removed.",
+          "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+          "When an application asks for more memory, the privileged core grants pages and updates the process table.",
+          "The low half of the byte 3C is the hex digit C, and that half is four bits wide."
+        ],
+        "correctAnswer": "A phone still holds its stored photos in flash after the battery is removed.",
+        "explanation": "Startup chips and flash keep data with no applied power."
+      },
+      {
+        "question": "Which situation illustrates booting?",
+        "options": [
+          "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+          "When an application asks for more memory, the privileged core grants pages and updates the process table.",
+          "A program reads a name from the keyboard and writes a greeting on the display.",
+          "The low half of the byte 3C is the hex digit C, and that half is four bits wide."
+        ],
+        "correctAnswer": "Pressing the power button runs the board's startup program, which then loads the operating system from the internal drive.",
+        "explanation": "After power-on, firmware finds a bootable device and loads the operating system."
+      },
+      {
+        "question": "Which situation illustrates the kernel?",
+        "options": [
+          "A program reads a name from the keyboard and writes a greeting on the display.",
+          "The low half of the byte 3C is the hex digit C, and that half is four bits wide.",
+          "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+          "When an application asks for more memory, the privileged core grants pages and updates the process table."
+        ],
+        "correctAnswer": "When an application asks for more memory, the privileged core grants pages and updates the process table.",
+        "explanation": "The kernel runs in privileged mode and provides the core resource-management services."
+      },
+      {
+        "question": "Which situation illustrates a nibble?",
+        "options": [
+          "A photo editor installed on a laptop tells the machine how to crop and save pictures.",
+          "The low half of the byte 3C is the hex digit C, and that half is four bits wide.",
+          "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+          "A program reads a name from the keyboard and writes a greeting on the display."
+        ],
+        "correctAnswer": "The low half of the byte 3C is the hex digit C, and that half is four bits wide.",
+        "explanation": "Four bits can represent the values 0 through 15, which is exactly one hex digit."
+      },
+      {
+        "question": "Which situation illustrates input/output?",
+        "options": [
+          "A photo editor installed on a laptop tells the machine how to crop and save pictures.",
+          "Opening a lab desktop shows a processor package, memory modules, a disk, and a power supply.",
+          "A program reads a name from the keyboard and writes a greeting on the display.",
+          "A laptop chip marked with a model number performs the steps of a running calculator program."
+        ],
+        "correctAnswer": "A program reads a name from the keyboard and writes a greeting on the display.",
+        "explanation": "Input brings external data in, and output sends results to external devices."
+      }
+    ],
+    "11": [
+      {
+        "question": "A checklist names a mouse, a keyboard, and a monitor. Classify those three items.",
+        "options": [
+          "Application programs",
+          "Hardware",
+          "Network protocols",
+          "User documents"
+        ],
+        "correctAnswer": "Hardware",
+        "explanation": "A mouse, a keyboard, and a monitor are physical parts of the computer system."
+      },
+      {
+        "question": "A student installs a spreadsheet package on a laptop. Classify that package.",
+        "options": [
+          "A power cable",
+          "A cooling fan",
+          "A memory module",
+          "Software"
+        ],
+        "correctAnswer": "Software",
+        "explanation": "An installed spreadsheet package is a program, so it is software."
+      },
+      {
+        "question": "A machine must fetch and perform each instruction of a loaded program. Which component does that work?",
+        "options": [
+          "The printer",
+          "The keyboard",
+          "The speaker",
+          "The processor"
+        ],
+        "correctAnswer": "The processor",
+        "explanation": "Fetching and performing instructions is the job of the processor."
+      },
+      {
+        "question": "A program adds two integers. Which processor section performs that addition?",
+        "options": [
+          "The display panel",
+          "The disk platter",
+          "The instruction sequencer",
+          "The arithmetic and logic section"
+        ],
+        "correctAnswer": "The arithmetic and logic section",
+        "explanation": "Integer addition is an arithmetic operation, so the arithmetic and logic section performs it."
+      },
+      {
+        "question": "Someone must direct fetch and decode, rather than add the numbers. Which processor section does that directing?",
+        "options": [
+          "The arithmetic section",
+          "The optical drive",
+          "The power supply",
+          "The control section"
+        ],
+        "correctAnswer": "The control section",
+        "explanation": "Sequencing fetch and decode is the role of the control section."
+      },
+      {
+        "question": "After a program is launched, the processor fetches its instructions from which store?",
+        "options": [
+          "The printer tray",
+          "The speaker coil",
+          "The working store",
+          "The mouse sensor"
+        ],
+        "correctAnswer": "The working store",
+        "explanation": "Instructions of a running program are fetched from the working store, not from an output device."
+      },
+      {
+        "question": "A technician removes power and the working memory modules forget their contents. Which memory behavior is that?",
+        "options": [
+          "Startup memory that keeps its code",
+          "A magnetic disk",
+          "A printed hex listing",
+          "Volatile read-write memory"
+        ],
+        "correctAnswer": "Volatile read-write memory",
+        "explanation": "Memory modules that can be rewritten and that forget their contents at power-off are ordinary working memory."
+      },
+      {
+        "question": "Startup code must survive a power loss and is not rewritten during normal class use. Where is that code kept?",
+        "options": [
+          "Volatile working memory",
+          "A user document on disk",
+          "Non-volatile startup memory",
+          "The monitor's pixel buffer"
+        ],
+        "correctAnswer": "Non-volatile startup memory",
+        "explanation": "Code that remains without power and is mainly read fits non-volatile startup memory."
+      },
+      {
+        "question": "A loop reuses one total many times, and the processor keeps a copy in a small fast store beside itself. Name that store's role.",
+        "options": [
+          "A fast copy of likely data",
+          "An archive of course videos",
+          "A cable between rooms",
+          "A printed manual"
+        ],
+        "correctAnswer": "A fast copy of likely data",
+        "explanation": "A small fast store of reused values is a cache sitting close to the processor."
+      },
+      {
+        "question": "An essay must remain after shutdown and is far larger than working memory. Which class of store should hold it?",
+        "options": [
+          "Long-term high-capacity storage",
+          "Processor registers",
+          "Volatile working modules",
+          "The small fast copy store"
+        ],
+        "correctAnswer": "Long-term high-capacity storage",
+        "explanation": "A large file that must survive shutdown belongs in long-term high-capacity storage."
+      }
+    ],
+    "12": [
+      {
+        "question": "A barcode scanner sends product codes into a checkout computer. Which role does the scanner play?",
+        "options": [
+          "It brings data in",
+          "It is the processor package",
+          "It edits photographs",
+          "It only displays results"
+        ],
+        "correctAnswer": "It brings data in",
+        "explanation": "A scanner supplies external data to the computer, so it brings data in."
+      },
+      {
+        "question": "A projector shows slides that come from a laptop. Which role does the projector play?",
+        "options": [
+          "It holds startup code",
+          "It only sends keystrokes in",
+          "It stores the running program",
+          "It presents results"
+        ],
+        "correctAnswer": "It presents results",
+        "explanation": "A projector delivers the computer's images to the room, so it presents results."
+      },
+      {
+        "question": "A USB webcam sits outside the main case and plugs into the computer. How should it be classified?",
+        "options": [
+          "An attached extra device",
+          "The arithmetic section",
+          "A base-2 number system",
+          "The core of the operating system"
+        ],
+        "correctAnswer": "An attached extra device",
+        "explanation": "A webcam attached from outside the case is an extra device, not part of the processor."
+      },
+      {
+        "question": "The processor, memory, and devices must share pathways for addresses, data, and control signals. Name that pathway group.",
+        "options": [
+          "A folder of documents",
+          "An English character code",
+          "The shared connecting lines",
+          "A source-code translator"
+        ],
+        "correctAnswer": "The shared connecting lines",
+        "explanation": "Addresses, data, and control signals travel on the shared lines that connect the main parts."
+      },
+      {
+        "question": "A teaching computer stores instructions and numbers in the same memory and uses one bus to fetch either. Name that organisation.",
+        "options": [
+          "A network spanning countries",
+          "Separate instruction and data memories",
+          "Shared-memory stored-program design",
+          "A window-and-icon screen layout"
+        ],
+        "correctAnswer": "Shared-memory stored-program design",
+        "explanation": "Sharing one memory and one bus for instructions and data is the stored-program organisation."
+      },
+      {
+        "question": "The processor repeats fetch, decode, and execute for every ADD in a loop. Name that repeating sequence.",
+        "options": [
+          "Fetch-decode-execute",
+          "Power-on loading of the OS",
+          "A network connection handshake",
+          "Renaming a folder"
+        ],
+        "correctAnswer": "Fetch-decode-execute",
+        "explanation": "Fetch, decode, and execute is the sequence applied to each instruction."
+      },
+      {
+        "question": "Several applications run at once and something must manage memory, files, and devices for them. Which software does that?",
+        "options": [
+          "The system manager for hardware and apps",
+          "A poster-drawing program",
+          "The processor socket board",
+          "The label 192.168.1.10"
+        ],
+        "correctAnswer": "The system manager for hardware and apps",
+        "explanation": "Managing memory, files, and devices for applications is the role of the operating system."
+      },
+      {
+        "question": "A student writes a report in a word processor. Which class of program is that word processor?",
+        "options": [
+          "A disk-controller driver",
+          "Board startup code",
+          "The privileged scheduling core",
+          "A user-task program"
+        ],
+        "correctAnswer": "A user-task program",
+        "explanation": "A word processor helps the user write, so it is a user-task program."
+      },
+      {
+        "question": "A driver lets the machine talk to a disk controller. Which class of software is that driver?",
+        "options": [
+          "A stored photograph",
+          "An after-class game",
+          "Support software for the machine",
+          "The metal case"
+        ],
+        "correctAnswer": "Support software for the machine",
+        "explanation": "A disk driver supports the computer hardware, so it is support software."
+      },
+      {
+        "question": "A photo is stored on a drive as one named sequence of bytes called campus.png. Name that stored unit.",
+        "options": [
+          "A single 0 or 1",
+          "A named data unit",
+          "A container of many items",
+          "The lines between processor and memory"
+        ],
+        "correctAnswer": "A named data unit",
+        "explanation": "One named sequence of bytes stored on a drive is a file."
+      }
+    ],
+    "13": [
+      {
+        "question": "Three lab reports are grouped under the single name Lab1 on a drive. Name that grouping.",
+        "options": [
+          "A named container of files",
+          "An eight-bit memory location",
+          "A base-16 digit",
+          "One photo stored alone"
+        ],
+        "correctAnswer": "A named container of files",
+        "explanation": "Lab1 groups several reports, so it is a container of files."
+      },
+      {
+        "question": "A door sensor stores only the digit 0 or the digit 1. Name that unit of data.",
+        "options": [
+          "One binary digit",
+          "A digit from 0 through 9",
+          "Eight binary digits",
+          "Four binary digits"
+        ],
+        "correctAnswer": "One binary digit",
+        "explanation": "A lone 0 or 1 is one binary digit."
+      },
+      {
+        "question": "One addressable memory location holds eight binary digits. How many bits is that location?",
+        "options": [
+          "4",
+          "1",
+          "16",
+          "8"
+        ],
+        "correctAnswer": "8",
+        "explanation": "The usual addressable location is eight bits."
+      },
+      {
+        "question": "Using the binary memory convention, how many bytes are in 1 KB?",
+        "options": [
+          "512",
+          "8",
+          "1000",
+          "1024"
+        ],
+        "correctAnswer": "1024",
+        "explanation": "In the binary convention used for memory, 1 KB is 2 to the power 10 bytes, which is 1024."
+      },
+      {
+        "question": "A value is written using only the digits 0 and 1, and each place is worth twice the place on its right. Name that system.",
+        "options": [
+          "Base 10",
+          "Base 2",
+          "Base 16",
+          "Base 8"
+        ],
+        "correctAnswer": "Base 2",
+        "explanation": "Digits 0 and 1 with places that double are base 2."
+      },
+      {
+        "question": "The byte pattern 11111111 is written as FF. Which base uses the digit F?",
+        "options": [
+          "Base 2",
+          "Base 8",
+          "Base 10",
+          "Base 16"
+        ],
+        "correctAnswer": "Base 16",
+        "explanation": "The digit F belongs to base 16, where it means fifteen."
+      },
+      {
+        "question": "A permission code uses only digits 0 through 7, and each digit stands for three bits. Name that base.",
+        "options": [
+          "Base 8",
+          "Base 2",
+          "Base 16",
+          "Base 10"
+        ],
+        "correctAnswer": "Base 8",
+        "explanation": "Digits limited to 0 through 7 form base 8."
+      },
+      {
+        "question": "A price uses digits 0 through 9, and each place is worth ten times the place on its right. Name that base.",
+        "options": [
+          "Base 8",
+          "Base 2",
+          "Base 10",
+          "Base 16"
+        ],
+        "correctAnswer": "Base 10",
+        "explanation": "Digits 0 through 9 with places that scale by ten are base 10."
+      },
+      {
+        "question": "An old terminal stores English letters in 7 bits, and uppercase A has code 65. Name that character code.",
+        "options": [
+          "Base-16 shorthand",
+          "A code set for the world's writing systems",
+          "The 7-bit English character code",
+          "A colored-dot picture format"
+        ],
+        "correctAnswer": "The 7-bit English character code",
+        "explanation": "Seven-bit codes for English letters, with A equal to 65, identify the classic English character code."
+      },
+      {
+        "question": "A document must encode Chinese, Arabic, and emoji in one character standard. Which standard is built for that?",
+        "options": [
+          "Dot-and-dash telegraph signaling",
+          "The multilingual character standard",
+          "The 7-bit English code",
+          "A 5-bit teleprinter code"
+        ],
+        "correctAnswer": "The multilingual character standard",
+        "explanation": "Chinese, Arabic, and emoji need a character standard far larger than the English 7-bit code."
+      }
+    ],
+    "14": [
+      {
+        "question": "A language tool translates an entire source program into machine code, and only then is the program run. Name that tool.",
+        "options": [
+          "A whole-program translator",
+          "A statement-by-statement executor",
+          "A combiner of object files",
+          "A loader that starts an executable"
+        ],
+        "correctAnswer": "A whole-program translator",
+        "explanation": "Translating the whole program into machine code before running it is compilation."
+      },
+      {
+        "question": "A language tool executes a script one statement at a time and never writes a separate machine-code file. Name that tool.",
+        "options": [
+          "The arithmetic section of the processor",
+          "A flash file drive",
+          "A whole-program translator",
+          "A statement-by-statement executor"
+        ],
+        "correctAnswer": "A statement-by-statement executor",
+        "explanation": "Executing source one statement at a time, without a separate machine-code file, is interpretation."
+      },
+      {
+        "question": "A tutor writes a finite list of unambiguous steps that finds the oldest student in a roster. Name that list of steps.",
+        "options": [
+          "A finite problem-solving procedure",
+          "A cable between two computers",
+          "One dot on a display",
+          "The chips that run instructions"
+        ],
+        "correctAnswer": "A finite problem-solving procedure",
+        "explanation": "A finite ordered set of steps that solves a problem is an algorithm."
+      },
+      {
+        "question": "Inside a desktop, one board holds the processor socket, memory slots, and expansion connectors. Name that board.",
+        "options": [
+          "A pixel display",
+          "The main connecting board",
+          "A spinning magnetic drive",
+          "A flash drive"
+        ],
+        "correctAnswer": "The main connecting board",
+        "explanation": "The board that ties the processor, memory, and slots together is the main system board."
+      },
+      {
+        "question": "Startup code lives in a non-volatile chip on the board and controls the hardware. Which software category is that code?",
+        "options": [
+          "A user spreadsheet",
+          "Volatile working memory",
+          "A paper manual",
+          "Device software in non-volatile memory"
+        ],
+        "correctAnswer": "Device software in non-volatile memory",
+        "explanation": "Software kept in a device's non-volatile memory is firmware."
+      },
+      {
+        "question": "A drive stores the course archive as magnetic regions on spinning platters. Which drive type is it?",
+        "options": [
+          "A startup-code chip",
+          "Volatile working memory",
+          "A flash-chip drive with no platter",
+          "A magnetic platter drive"
+        ],
+        "correctAnswer": "A magnetic platter drive",
+        "explanation": "Magnetic regions on spinning platters identify a hard disk drive."
+      },
+      {
+        "question": "A laptop drive keeps the operating system in flash chips and contains no spinning platter. Which drive type is it?",
+        "options": [
+          "A laser-read reflective disc",
+          "A magnetic platter drive",
+          "Volatile working memory",
+          "A flash storage drive"
+        ],
+        "correctAnswer": "A flash storage drive",
+        "explanation": "Flash chips with no spinning platter identify a solid-state drive."
+      },
+      {
+        "question": "Twenty computers in one building share a switch and do not need a telecom link between cities. Which network scope is that?",
+        "options": [
+          "A network across countries",
+          "An emailed file",
+          "An English character code",
+          "A network inside a small area"
+        ],
+        "correctAnswer": "A network inside a small area",
+        "explanation": "Computers connected within one building form a local-area network."
+      },
+      {
+        "question": "Offices in two countries exchange data over a telecom provider. Which network scope connects them?",
+        "options": [
+          "A network inside one building",
+          "A folder on one disk",
+          "A gigahertz clock rating",
+          "A network across a large region"
+        ],
+        "correctAnswer": "A network across a large region",
+        "explanation": "Sites in different countries joined by a carrier form a wide-area network."
+      },
+      {
+        "question": "A packet is addressed to the host numbered 10.0.0.5. Which kind of label is 10.0.0.5?",
+        "options": [
+          "A human-readable site name",
+          "A maker-burned interface address",
+          "A service selector such as 443",
+          "A numerical host label on an IP network"
+        ],
+        "correctAnswer": "A numerical host label on an IP network",
+        "explanation": "A dotted decimal host number such as 10.0.0.5 is an IP address."
+      }
+    ],
+    "15": [
+      {
+        "question": "A browser and a server follow HTTP so requests and responses have an agreed format. Name that kind of rule set.",
+        "options": [
+          "A container of files",
+          "A physical plug",
+          "Hand steps for sorting a roster",
+          "Agreed message rules"
+        ],
+        "correctAnswer": "Agreed message rules",
+        "explanation": "HTTP is an agreed set of rules for exchanging web messages."
+      },
+      {
+        "question": "A browser requests pages and a web server responds with those pages. Name that arrangement.",
+        "options": [
+          "Requester and service provider",
+          "Equal peers sharing the same role",
+          "One computer with no network",
+          "An internal processor-memory bus"
+        ],
+        "correctAnswer": "Requester and service provider",
+        "explanation": "One side requests a service and the other provides it, which is the client-server arrangement."
+      },
+      {
+        "question": "A user deletes a file by dragging an icon to a trash picture. Which interface style is that?",
+        "options": [
+          "A machine-code translator",
+          "Windows, icons, and a pointer",
+          "Typed text commands only",
+          "A spinning magnetic drive"
+        ],
+        "correctAnswer": "Windows, icons, and a pointer",
+        "explanation": "Dragging icons with a pointer is a graphical interface."
+      },
+      {
+        "question": "An administrator types a text command at a prompt and reads a text reply. Which interface style is that?",
+        "options": [
+          "Startup code in a chip",
+          "A small fast memory",
+          "Windows, icons, and a pointer",
+          "Typed text commands"
+        ],
+        "correctAnswer": "Typed text commands",
+        "explanation": "Typing commands at a prompt is a command-line interface."
+      },
+      {
+        "question": "A power cut erases unsaved numbers that were held only in the working memory chips. Which memory property explains that loss?",
+        "options": [
+          "Magnetic storage that lasts for years",
+          "A paper printout",
+          "Contents require power",
+          "Contents survive without power"
+        ],
+        "correctAnswer": "Contents require power",
+        "explanation": "Data that disappears when power is removed was held in volatile memory."
+      },
+      {
+        "question": "Photos remain in a phone's flash chips after the battery is removed. Which memory property is that?",
+        "options": [
+          "Contents vanish at power-off",
+          "A register that needs power",
+          "A cache line lost when unplugged",
+          "Contents survive without power"
+        ],
+        "correctAnswer": "Contents survive without power",
+        "explanation": "Data that remains with no battery is stored in non-volatile memory."
+      },
+      {
+        "question": "After the power button is pressed, firmware initializes the machine and loads the operating system. Name that sequence.",
+        "options": [
+          "Start-up loading of the OS",
+          "Translating source into machine code",
+          "Reordering fragments on a disk",
+          "Writing a pattern in base 16"
+        ],
+        "correctAnswer": "Start-up loading of the OS",
+        "explanation": "Initializing hardware and loading the operating system is the start-up sequence."
+      },
+      {
+        "question": "An application asks for memory, and a privileged core grants it and schedules the next process. Name that core.",
+        "options": [
+          "The privileged resource manager",
+          "A web browser",
+          "A media player",
+          "A text editor"
+        ],
+        "correctAnswer": "The privileged resource manager",
+        "explanation": "Privileged management of memory and processes is done by the kernel."
+      },
+      {
+        "question": "One hexadecimal digit represents a group of bits. How many bits are in that group?",
+        "options": [
+          "2",
+          "16",
+          "8",
+          "4"
+        ],
+        "correctAnswer": "4",
+        "explanation": "One hex digit encodes four bits."
+      },
+      {
+        "question": "A program reads a name typed at the keyboard and writes a greeting on the display. Name that exchange with external devices.",
+        "options": [
+          "Transfer with external devices",
+          "Conversion into base 2",
+          "Grouping files in a container",
+          "Whole-program translation"
+        ],
+        "correctAnswer": "Transfer with external devices",
+        "explanation": "Reading a keyboard and writing a display moves data between the computer and external devices."
+      }
+    ]
+  }
+}

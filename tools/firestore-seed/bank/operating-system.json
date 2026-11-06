@@ -1,0 +1,752 @@
+[
+  {
+    "term": "Process",
+    "definition": "A program in execution, with its own address space, resources, and at least one thread of control.",
+    "wrongs": [
+      "A single execution path that always shares its stack with every other path in the system.",
+      "A request that traps into the kernel to perform a privileged service.",
+      "A fixed-size block of a virtual address space."
+    ],
+    "why": "The operating system tracks each process separately so one running program does not freely overwrite another.",
+    "example": "Opening a browser and a text editor creates two running programs, each with its own memory.",
+    "scenario": "A user opens a browser and an editor, and each has a separate address space. What is each running program?",
+    "scenarioAnswer": "A process",
+    "scenarioWrongs": ["A thread", "A system call", "A page"],
+    "scenarioWhy": "Each running program with its own address space is a process."
+  },
+  {
+    "term": "Thread",
+    "definition": "A schedulable path of execution that shares its process's address space with sibling paths.",
+    "wrongs": [
+      "A program run with a private address space of its own.",
+      "A kernel record that stores a process id and saved registers.",
+      "A file-system object that maps names to files."
+    ],
+    "why": "Threads of one process share code and the heap, while each keeps its own stack and registers.",
+    "example": "One browser uses one execution path to draw the page and another to download a file, in the same memory.",
+    "scenario": "Two downloads should share one browser's memory but run on separate stacks. What should be created inside that process?",
+    "scenarioAnswer": "Threads",
+    "scenarioWrongs": ["New processes", "New file systems", "New page tables for each download"],
+    "scenarioWhy": "Threads share the process address space and keep separate stacks for the two downloads."
+  },
+  {
+    "term": "Process control block",
+    "definition": "The kernel record of a process's id, state, saved registers, and resource information.",
+    "wrongs": [
+      "The cache of recent virtual-to-physical translations.",
+      "The metadata record of a file's blocks and owner.",
+      "The queue of processes that are waiting only for the CPU."
+    ],
+    "why": "The kernel saves and restores this record when it pauses one process and resumes another.",
+    "example": "While an editor is paused, a kernel record still holds its process id and saved program counter.",
+    "scenario": "The kernel must remember a paused editor's registers, state, and process id. Where is that information stored?",
+    "scenarioAnswer": "In its process control block",
+    "scenarioWrongs": ["In the page cache", "In a user-space variable", "In the file-allocation table"],
+    "scenarioWhy": "The process control block is the kernel record of a process's saved state and identity."
+  },
+  {
+    "term": "Context switch",
+    "definition": "Saving the processor state of the current process or thread and restoring another so it can run.",
+    "wrongs": [
+      "A trap caused by touching a page that is not resident.",
+      "A controlled entry into the kernel to request a service.",
+      "A permanent wait cycle among processes holding resources."
+    ],
+    "why": "The CPU is shared, so the outgoing registers are stored and the incoming ones are loaded.",
+    "example": "When a time slice ends, the kernel saves the editor's registers and loads the browser's.",
+    "scenario": "A time slice ends and the CPU must stop the editor and resume the browser. What is that changeover called?",
+    "scenarioAnswer": "A context switch",
+    "scenarioWrongs": ["A page fault", "A system call", "A deadlock"],
+    "scenarioWhy": "Saving one process's CPU state and restoring another's is a context switch."
+  },
+  {
+    "term": "System call",
+    "definition": "A controlled entry into the kernel that lets a program request a privileged service.",
+    "wrongs": [
+      "An ordinary call from one user function to another in the same program.",
+      "A hardware signal from a device that the program did not request.",
+      "A switch that saves one process and restores another."
+    ],
+    "why": "User code cannot operate hardware directly, so it traps into the kernel to ask for the service.",
+    "example": "A program's read request traps into the kernel, which copies bytes from a file into the user buffer.",
+    "scenario": "A user program needs the kernel to read a file because it cannot touch the disk controller itself. What request does it make?",
+    "scenarioAnswer": "A system call",
+    "scenarioWrongs": ["An ordinary function call", "A hardware interrupt", "A context switch"],
+    "scenarioWhy": "A system call is the program's controlled request for the kernel's read service."
+  },
+  {
+    "term": "Kernel mode",
+    "definition": "The processor privilege level in which privileged instructions and protected kernel memory are allowed.",
+    "wrongs": [
+      "The restricted level used by ordinary applications.",
+      "A boot menu that starts the machine in a diagnostic shell.",
+      "A virtual-machine mode that only emulates an old processor."
+    ],
+    "why": "The kernel runs at this level so it can manage hardware that user programs must not touch.",
+    "example": "While handling a timer interrupt, the CPU may update the process table because it is fully privileged.",
+    "scenario": "Code that updates the process table and masks interrupts must run with full hardware privileges. Which processor mode is required?",
+    "scenarioAnswer": "Kernel mode",
+    "scenarioWrongs": ["User mode", "A diagnostic shell", "Virtual 8086 mode"],
+    "scenarioWhy": "Updating the process table and masking interrupts are privileged operations of kernel mode."
+  },
+  {
+    "term": "User mode",
+    "definition": "The restricted processor level for ordinary programs, where privileged instructions are forbidden.",
+    "wrongs": [
+      "The level that may update the process table and talk to devices directly.",
+      "A mode used only while the bootloader is running.",
+      "A mode that disables all memory protection."
+    ],
+    "why": "An attempt to execute a privileged instruction from this level traps instead of changing protected state.",
+    "example": "A calculator runs without permission to execute a halt instruction that only the kernel may use.",
+    "scenario": "A calculator must be prevented from executing a halt instruction reserved for the kernel. Which mode should it run in?",
+    "scenarioAnswer": "User mode",
+    "scenarioWrongs": ["Kernel mode", "Real mode with no protection", "Interrupt-priority mode"],
+    "scenarioWhy": "User mode forbids the halt instruction, so the calculator cannot execute it."
+  },
+  {
+    "term": "CPU scheduling",
+    "definition": "The kernel's choice of which ready process or thread should use the processor next.",
+    "wrongs": [
+      "The placement of virtual pages into physical frames.",
+      "The detection of a cycle of processes waiting for locks.",
+      "The allocation of disk blocks to a file."
+    ],
+    "why": "A policy balances response time, fairness, and throughput when more ready work exists than processors.",
+    "example": "After the running program blocks for disk, the kernel picks another ready program to run.",
+    "scenario": "Several programs are ready and only one CPU is free. Which kernel activity assigns that CPU?",
+    "scenarioAnswer": "CPU scheduling",
+    "scenarioWrongs": ["Paging", "Deadlock detection", "File allocation"],
+    "scenarioWhy": "Choosing the next ready program for the CPU is scheduling."
+  },
+  {
+    "term": "First-come first-served",
+    "definition": "A scheduling policy that runs ready processes in the order they became ready.",
+    "wrongs": [
+      "A policy that gives each process a fixed time slice in rotation.",
+      "A policy that runs the shortest CPU burst next.",
+      "A policy that always runs the best priority value next."
+    ],
+    "why": "The ready queue is first-in first-out, so an early long job delays every shorter job behind it.",
+    "example": "Jobs that became ready in the order A, then B, then C run all of A before B starts.",
+    "scenario": "The ready queue must run jobs strictly in arrival order, even when a long job delays everyone behind it. Which policy is that?",
+    "scenarioAnswer": "First-come first-served",
+    "scenarioWrongs": ["Round robin", "Shortest job first", "Priority scheduling"],
+    "scenarioWhy": "Running in arrival order, with no time slice, is first-come first-served."
+  },
+  {
+    "term": "Round robin",
+    "definition": "A preemptive policy that lets each ready process run for a fixed time slice before the next process.",
+    "wrongs": [
+      "A policy that runs processes only in the order they arrived, with no time slice.",
+      "A policy that always picks the shortest remaining burst.",
+      "A policy that never preempts the highest priority."
+    ],
+    "why": "When the slice expires, the process moves to the tail of the ready queue and another process runs.",
+    "example": "With a 10 millisecond slice, an editor runs briefly, then a browser runs briefly, and so on.",
+    "scenario": "Interactive programs should take turns, each running about 10 milliseconds before going to the tail of the ready queue. Which policy is that?",
+    "scenarioAnswer": "Round robin",
+    "scenarioWrongs": ["First-come first-served", "Shortest job first", "Nonpreemptive priority"],
+    "scenarioWhy": "A fixed time slice and rotation through the ready queue is round robin."
+  },
+  {
+    "term": "Shortest job first",
+    "definition": "A policy that runs next the ready process whose next CPU burst is the smallest.",
+    "wrongs": [
+      "A policy that rotates equal time slices among ready processes.",
+      "A policy that runs processes in arrival order.",
+      "A policy that awards the CPU by random tickets."
+    ],
+    "why": "Choosing the shortest burst first minimizes average waiting time when the burst lengths are known.",
+    "example": "Among ready bursts of 8, 2, and 5 milliseconds, the burst of 2 milliseconds runs first.",
+    "scenario": "The scheduler knows each job's next CPU burst and always picks the smallest one to cut average waiting time. Which policy is that?",
+    "scenarioAnswer": "Shortest job first",
+    "scenarioWrongs": ["Round robin", "First-come first-served", "Lottery scheduling"],
+    "scenarioWhy": "Always selecting the smallest known CPU burst is shortest job first."
+  },
+  {
+    "term": "Priority scheduling",
+    "definition": "A policy that runs the ready process with the best priority value ahead of the others.",
+    "wrongs": [
+      "A policy that ignores rank and uses only arrival order.",
+      "A policy that gives every process the same time slice.",
+      "A policy that selects only by remaining burst length."
+    ],
+    "why": "A better priority can outrank or preempt other work, and a poor priority can wait a long time if it never improves.",
+    "example": "An audio task ranked ahead of a backup task runs first whenever both are ready.",
+    "scenario": "An audio task must run before a backup task whenever both are ready, based on a numeric rank. Which policy is that?",
+    "scenarioAnswer": "Priority scheduling",
+    "scenarioWrongs": ["First-come first-served", "Round robin", "Shortest job first"],
+    "scenarioWhy": "Choosing the better numeric rank is priority scheduling."
+  },
+  {
+    "term": "Preemption",
+    "definition": "Taking the CPU away from a running process before that process blocks or exits.",
+    "wrongs": [
+      "A voluntary pause in which the running process itself gives up the CPU.",
+      "A permanent wait in which processes hold one another's resources.",
+      "An indefinite delay of a low-rank process that is never selected."
+    ],
+    "why": "A timer interrupt or the arrival of higher-priority work can force a switch so one job cannot hold the CPU indefinitely.",
+    "example": "A timer interrupt stops a long compile so a newly ready interactive program can run.",
+    "scenario": "A timer interrupt stops a long compile so the CPU can run a newly ready interactive program. What is that forced stop called?",
+    "scenarioAnswer": "Preemption",
+    "scenarioWrongs": ["A voluntary yield", "Deadlock", "Starvation"],
+    "scenarioWhy": "The timer forces the compile off the CPU, which is preemption."
+  },
+  {
+    "term": "Deadlock",
+    "definition": "A permanent wait in which each process holds resources that others need and none can continue.",
+    "wrongs": [
+      "A long wait that ends once higher-priority work stops arriving.",
+      "A bug whose result depends on the interleaving of concurrent updates.",
+      "Heavy paging in which processes spend their time faulting."
+    ],
+    "why": "Under the usual conditions, a cycle of waiting means none of the processes can make progress.",
+    "example": "One process holds the scanner and waits for the printer, while another holds the printer and waits for the scanner.",
+    "scenario": "Process A holds the scanner and waits for the printer, while B holds the printer and waits for the scanner. What is that state?",
+    "scenarioAnswer": "Deadlock",
+    "scenarioWrongs": ["Starvation", "A race condition", "Thrashing"],
+    "scenarioWhy": "Each process waits for a resource the other holds, so both are deadlocked."
+  },
+  {
+    "term": "Mutual exclusion",
+    "definition": "The requirement that only one process at a time may use a particular non-shareable resource.",
+    "wrongs": [
+      "A process holding some resources while it waits to acquire more.",
+      "A cycle of processes each waiting for the next process.",
+      "A rule that a resource can be released only by the process that holds it."
+    ],
+    "why": "Some resources, such as a printer or a critical section, cannot be used correctly by two processes at once.",
+    "example": "Only one process may send output to the printer device while other processes wait.",
+    "scenario": "Two processes must not write the printer device at the same moment. Which deadlock condition is that requirement?",
+    "scenarioAnswer": "Mutual exclusion",
+    "scenarioWrongs": ["Hold and wait", "Circular wait", "No preemption"],
+    "scenarioWhy": "Allowing only one process to use the printer is mutual exclusion."
+  },
+  {
+    "term": "Hold and wait",
+    "definition": "A condition in which a process keeps at least one resource while waiting to acquire others.",
+    "wrongs": [
+      "A requirement that a resource be used by only one process.",
+      "A cycle of waiting among several processes.",
+      "A rule that the operating system may seize a resource."
+    ],
+    "why": "Keeping resources during a further wait lets waiting chains form.",
+    "example": "A job continues to hold the scanner while it blocks requesting the printer.",
+    "scenario": "A job keeps the scanner allocated while it blocks requesting the printer. Which deadlock condition is that?",
+    "scenarioAnswer": "Hold and wait",
+    "scenarioWrongs": ["Mutual exclusion", "Circular wait", "No preemption"],
+    "scenarioWhy": "Holding the scanner while waiting for the printer is hold and wait."
+  },
+  {
+    "term": "No preemption",
+    "definition": "A deadlock condition in which a resource is released only voluntarily by the process holding it.",
+    "wrongs": [
+      "A requirement that only one process use a resource at a time.",
+      "A process holding one resource while requesting another.",
+      "A cycle in which each process waits for the next."
+    ],
+    "why": "If the operating system cannot take the resource back, a waiting process cannot force the holder to give it up.",
+    "example": "The kernel cannot seize the printer from the process that holds it; that process must release the printer itself.",
+    "scenario": "The kernel is not allowed to take the printer away from the process that currently holds it. Which deadlock condition is that?",
+    "scenarioAnswer": "No preemption",
+    "scenarioWrongs": ["Mutual exclusion", "Hold and wait", "Circular wait"],
+    "scenarioWhy": "A resource that can be released only by its holder satisfies the no-preemption condition."
+  },
+  {
+    "term": "Circular wait",
+    "definition": "A cycle of processes in which each process waits for a resource held by the next process.",
+    "wrongs": [
+      "Exclusive use of a resource by one process.",
+      "Holding one resource while requesting another.",
+      "Voluntary release as the only way to give up a resource."
+    ],
+    "why": "Together with the other Coffman conditions, this cycle means the processes are deadlocked.",
+    "example": "A waits for B's printer, B waits for C's disk, and C waits for A's scanner.",
+    "scenario": "A waits for a resource of B, B waits for a resource of C, and C waits for a resource of A. Which condition is that cycle?",
+    "scenarioAnswer": "Circular wait",
+    "scenarioWrongs": ["Mutual exclusion", "Hold and wait", "No preemption"],
+    "scenarioWhy": "A closed chain of waits is the circular-wait condition."
+  },
+  {
+    "term": "Banker's algorithm",
+    "definition": "A deadlock-avoidance test that grants a request only when some order can still finish every process.",
+    "wrongs": [
+      "A scheduling policy that rotates fixed time slices.",
+      "A page-replacement policy that evicts the least recently used page.",
+      "A disk scheduler that sweeps the head in one direction."
+    ],
+    "why": "Each process declares a maximum need, and the test looks for a safe sequence using those maxima.",
+    "example": "The allocator refuses another tape to process A because no remaining order could then finish every process.",
+    "scenario": "Before granting another tape, the system checks whether some order can still let every process finish. Which algorithm is that?",
+    "scenarioAnswer": "The banker's algorithm",
+    "scenarioWrongs": ["Round robin", "Least recently used replacement", "SCAN disk scheduling"],
+    "scenarioWhy": "Granting a request only when a safe finishing order remains is the banker's algorithm."
+  },
+  {
+    "term": "Semaphore",
+    "definition": "An integer synchronization object changed only by atomic wait and signal operations.",
+    "wrongs": [
+      "A lock that records exactly one owning thread and ignores a count.",
+      "A busy loop that tests a flag without ever blocking.",
+      "A meeting point that releases threads only after a fixed number arrive, with no integer resource count."
+    ],
+    "why": "Wait may block when the integer cannot be decreased under the semaphore's rule, and signal wakes a waiting thread.",
+    "example": "An integer initialized to 3 allows at most three processes into a pool of shared buffers.",
+    "scenario": "At most three processes may use a pool of buffers, tracked by an integer with atomic wait and signal. Which tool is that?",
+    "scenarioAnswer": "A semaphore",
+    "scenarioWrongs": ["A mutex", "A spinlock", "A barrier"],
+    "scenarioWhy": "A counting semaphore initialized to 3 limits the buffer pool to three processes."
+  },
+  {
+    "term": "Mutex",
+    "definition": "A lock that only one thread may hold, used to protect a critical section.",
+    "wrongs": [
+      "An integer that can allow several threads into a pool at once.",
+      "A lock that allows many readers while a writer waits.",
+      "A point that waits until every participating thread has arrived."
+    ],
+    "why": "Only the thread that acquired the lock may release it, which gives mutual exclusion for the shared data.",
+    "example": "A lock around a shared counter's increment stops two threads from updating that counter together.",
+    "scenario": "A shared counter's update must be owned by only one thread, and only that owner may release the lock. What kind of lock is that?",
+    "scenarioAnswer": "A mutex",
+    "scenarioWrongs": ["A counting semaphore", "A reader-writer lock", "A barrier"],
+    "scenarioWhy": "A mutex has a single owner, which is what the counter update requires."
+  },
+  {
+    "term": "Critical section",
+    "definition": "Code that touches shared data and must not run concurrently with a conflicting execution of that code.",
+    "wrongs": [
+      "A kernel entry used to request a privileged service.",
+      "The handler that runs after a device signal.",
+      "The startup code that loads the operating system."
+    ],
+    "why": "One thread at a time should execute it so the shared update stays consistent.",
+    "example": "The statements that read a balance, add a deposit, and store the result must not interleave with another thread.",
+    "scenario": "The statements that read a balance, add a deposit, and store it must not interleave with another thread. What is that region of code?",
+    "scenarioAnswer": "A critical section",
+    "scenarioWrongs": ["A system call", "An interrupt handler", "A bootstrap routine"],
+    "scenarioWhy": "Those shared balance updates form a critical section that must run exclusively."
+  },
+  {
+    "term": "Race condition",
+    "definition": "A bug in which the result depends on the unpredictable interleaving of concurrent operations.",
+    "wrongs": [
+      "A permanent cycle of processes waiting for one another's resources.",
+      "An indefinite wait because higher-priority work keeps arriving.",
+      "A trap caused by a reference to a non-resident page."
+    ],
+    "why": "Without synchronization, interleaved reads and writes can lose updates.",
+    "example": "Two threads each read a balance of 100 and both write 110, so one deposit of 10 disappears.",
+    "scenario": "Two threads each read balance 100 and both write 110, so one deposit disappears. What bug is that?",
+    "scenarioAnswer": "A race condition",
+    "scenarioWrongs": ["A deadlock", "Starvation", "A page fault"],
+    "scenarioWhy": "The lost deposit depends on the interleaving of the unsynchronized updates, which is a race."
+  },
+  {
+    "term": "Monitor",
+    "definition": "A construct that groups shared data with procedures that automatically exclude one another.",
+    "wrongs": [
+      "An integer changed only by wait and signal, with no bundled data.",
+      "A busy-wait loop on a shared flag.",
+      "A synchronization point that releases threads only when all have arrived."
+    ],
+    "why": "At most one thread runs inside it at a time, and condition variables let threads wait for a state change.",
+    "example": "Buffer put and take operations exclude each other and wait when the buffer is full or empty.",
+    "scenario": "Shared buffer operations should automatically exclude one another, with waits for full and empty. Which construct groups that data and those operations?",
+    "scenarioAnswer": "A monitor",
+    "scenarioWrongs": ["A semaphore alone", "A spinlock", "A barrier"],
+    "scenarioWhy": "A monitor packages the buffer with mutually exclusive operations and condition waits."
+  },
+  {
+    "term": "Paging",
+    "definition": "A memory scheme that divides logical and physical memory into fixed-size pages and frames.",
+    "wrongs": [
+      "A scheme that divides a process into variable-sized logical regions such as code and stack.",
+      "A scheme that gives each process one contiguous block of physical memory.",
+      "A scheme that writes an entire process image to disk."
+    ],
+    "why": "Any page can occupy any frame, which avoids the external fragmentation of variable-sized partitions.",
+    "example": "A 4 KB piece of a process is stored in frame 12, and a table records that mapping.",
+    "scenario": "Logical memory is split into fixed 4 KB blocks that may sit in any physical frame. Which scheme is that?",
+    "scenarioAnswer": "Paging",
+    "scenarioWrongs": ["Segmentation", "Contiguous allocation", "Swapping"],
+    "scenarioWhy": "Fixed-size blocks placed in any frame are pages."
+  },
+  {
+    "term": "Page table",
+    "definition": "A per-process structure that maps virtual page numbers to physical frame numbers.",
+    "wrongs": [
+      "A cache of only the most recent address translations.",
+      "A file's metadata record of disk blocks.",
+      "The queue of processes waiting for the CPU."
+    ],
+    "why": "The memory-management unit consults it, or a cache of it, on each address translation.",
+    "example": "The entry for virtual page 5 says frame 20, so addresses in that page translate into frame 20.",
+    "scenario": "The memory-management unit must find which frame holds virtual page 5 of a process. Which structure stores that mapping?",
+    "scenarioAnswer": "The page table",
+    "scenarioWrongs": ["The inode table", "The ready queue", "The file-allocation table"],
+    "scenarioWhy": "The page table entry for page 5 holds the frame number."
+  },
+  {
+    "term": "Page fault",
+    "definition": "A trap raised when a process references a virtual page that is not currently in physical memory.",
+    "wrongs": [
+      "A deliberate kernel request made by a program to read a file.",
+      "A switch that saves one process and restores another.",
+      "An access that violates a segment limit and must kill the process."
+    ],
+    "why": "The operating system can load the missing page, update the mapping, and restart the instruction.",
+    "example": "The first touch of a newly reserved heap page traps, and the kernel supplies a frame of zeros.",
+    "scenario": "A process touches a virtual page whose present bit is clear, so the kernel must load it. What is that trap?",
+    "scenarioAnswer": "A page fault",
+    "scenarioWrongs": ["A system call", "A context switch", "A protection fault"],
+    "scenarioWhy": "A reference to a not-present page raises a page fault so the page can be loaded."
+  },
+  {
+    "term": "Segmentation",
+    "definition": "A memory scheme that divides a process into variable-sized logical segments such as code, heap, and stack.",
+    "wrongs": [
+      "A scheme of fixed-size blocks that can be placed in any frame.",
+      "A scheme that loads a page only on the first reference.",
+      "A scheme of equal fixed partitions assigned contiguously."
+    ],
+    "why": "Each segment has its own base and limit, matching the logical parts of a program.",
+    "example": "The code region and the stack region of one process have different base addresses and different lengths.",
+    "scenario": "Code, heap, and stack should be separate variable-sized regions, each with its own base and limit. Which scheme is that?",
+    "scenarioAnswer": "Segmentation",
+    "scenarioWrongs": ["Paging", "Fixed partitioning", "Demand paging"],
+    "scenarioWhy": "Variable-sized logical regions with separate bases and limits are segments."
+  },
+  {
+    "term": "Virtual memory",
+    "definition": "A technique that gives a process a logical address space which need not all reside in physical memory.",
+    "wrongs": [
+      "Allocation of one contiguous physical block large enough for the whole program.",
+      "Disk buffering of print jobs so programs need not wait for the printer.",
+      "Hardware transfer between a device and memory without further CPU copies."
+    ],
+    "why": "Pages or segments are loaded as needed, so a program can be larger than the machine's RAM.",
+    "example": "A program whose address space exceeds RAM still runs because only the pages it touches occupy frames.",
+    "scenario": "A program's address space is larger than physical RAM, yet it runs because only active pages stay resident. What technique allows that?",
+    "scenarioAnswer": "Virtual memory",
+    "scenarioWrongs": ["Contiguous allocation", "Spooling", "Direct memory access"],
+    "scenarioWhy": "Virtual memory lets the logical address space exceed the frames currently available."
+  },
+  {
+    "term": "TLB",
+    "definition": "A small cache of recent page-table entries that speeds virtual-address translation.",
+    "wrongs": [
+      "The full per-process table of every virtual page.",
+      "A cache of file data blocks read from disk.",
+      "A cache of inode metadata for path lookup."
+    ],
+    "why": "A hit avoids walking the full page table in memory for that virtual page.",
+    "example": "After the first access to page 5, later accesses use a cached translation and skip the in-memory table walk.",
+    "scenario": "Repeated accesses to the same virtual page should avoid walking the page table in RAM every time. Which cache holds those recent translations?",
+    "scenarioAnswer": "The TLB",
+    "scenarioWrongs": ["The L1 data cache", "The disk block cache", "The inode cache"],
+    "scenarioWhy": "The TLB caches recent page-table entries so translation can skip a full table walk."
+  },
+  {
+    "term": "Thrashing",
+    "definition": "A state in which the system spends most of its time paging instead of executing useful instructions.",
+    "wrongs": [
+      "A deadlock in which processes wait forever for one another's locks.",
+      "Starvation of one low-priority job while others run normally.",
+      "Wasted space inside an allocated fixed-size block."
+    ],
+    "why": "Too many active processes compete for too few frames, so each runs only long enough to fault again.",
+    "example": "Opening dozens of huge programs keeps the disk busy as each program immediately forces out another's pages.",
+    "scenario": "The disk stays busy and processes make almost no progress because each runs only long enough to fault. What is that condition?",
+    "scenarioAnswer": "Thrashing",
+    "scenarioWrongs": ["Deadlock", "Starvation", "Internal fragmentation"],
+    "scenarioWhy": "Continuous paging with almost no useful execution is thrashing."
+  },
+  {
+    "term": "Demand paging",
+    "definition": "A policy that loads a page into memory only when a process first references it.",
+    "wrongs": [
+      "A policy that loads every page of a process before it starts.",
+      "A policy that writes a whole process image out to disk.",
+      "A policy that divides memory into variable-sized logical regions."
+    ],
+    "why": "Pages that are never touched occupy no frame, which is the usual way virtual memory is implemented.",
+    "example": "A photo editor does not bring in a filter's page until the user actually applies that filter.",
+    "scenario": "A large editor should not load a filter's page until the user applies that filter. Which loading policy is that?",
+    "scenarioAnswer": "Demand paging",
+    "scenarioWrongs": ["Prepaging", "Swapping", "Segmentation"],
+    "scenarioWhy": "Loading the filter page at the first reference is demand paging."
+  },
+  {
+    "term": "FIFO page replacement",
+    "definition": "A policy that evicts the resident page which has been in memory the longest.",
+    "wrongs": [
+      "A policy that evicts the page whose most recent use is furthest in the past.",
+      "A policy that evicts the page which will not be used again for the longest future time.",
+      "A policy that gives a page a second chance if its reference bit is set."
+    ],
+    "why": "Pages are ordered by arrival, and the oldest arrival is replaced even if it was used recently.",
+    "example": "If pages arrived in the order 1, then 2, then 3, the next replacement removes page 1.",
+    "scenario": "When a frame is needed, the system evicts the page that was loaded earliest, even if it was used a moment ago. Which policy is that?",
+    "scenarioAnswer": "FIFO",
+    "scenarioWrongs": ["LRU", "Optimal replacement", "The clock algorithm"],
+    "scenarioWhy": "Evicting the earliest-loaded page, regardless of recent use, is FIFO replacement."
+  },
+  {
+    "term": "LRU",
+    "definition": "A page-replacement policy that evicts the page whose last reference is furthest in the past.",
+    "wrongs": [
+      "A policy that evicts the page which has been resident the longest.",
+      "A policy that evicts the page unused for the longest time in the future.",
+      "A policy that chooses a resident page uniformly at random."
+    ],
+    "why": "It approximates the idea that a page unused for a long time is less likely to be needed soon.",
+    "example": "If page 2 was touched more recently than page 7, the next replacement removes page 7.",
+    "scenario": "A frame is needed, and the system evicts the resident page that has gone unused for the longest time. Which policy is that?",
+    "scenarioAnswer": "LRU",
+    "scenarioWrongs": ["FIFO", "Optimal replacement", "Random replacement"],
+    "scenarioWhy": "Evicting the page with the oldest last use is least-recently-used replacement."
+  },
+  {
+    "term": "Working set",
+    "definition": "The set of pages a process has referenced during a recent window of time.",
+    "wrongs": [
+      "The entire virtual address space reserved for the process.",
+      "The cache of recent address translations.",
+      "The queue of processes that are ready to run."
+    ],
+    "why": "Giving each process enough frames for this set makes thrashing less likely.",
+    "example": "During the last 100 milliseconds a browser touched only pages 2, 5, and 9.",
+    "scenario": "Over the last 100 milliseconds a process used only three pages, and the system tries to keep those pages resident. What is that set of pages?",
+    "scenarioAnswer": "The working set",
+    "scenarioWrongs": ["The entire address space", "The TLB", "The ready queue"],
+    "scenarioWhy": "The pages referenced in the recent window are the process's working set."
+  },
+  {
+    "term": "File system",
+    "definition": "The operating-system component that names, stores, and retrieves files on secondary storage.",
+    "wrongs": [
+      "The component that chooses which ready process runs next.",
+      "The component that selects a victim page during a fault.",
+      "The component that looks for cycles in the lock-wait graph."
+    ],
+    "why": "It maps file names and byte offsets to disk blocks and maintains directories and metadata.",
+    "example": "Saving a notes file allocates disk blocks and records them under that file name.",
+    "scenario": "A user saves notes.txt and later opens it by name, and the system finds the disk blocks for that name. Which component does that?",
+    "scenarioAnswer": "The file system",
+    "scenarioWrongs": ["The CPU scheduler", "The page-replacement daemon", "The deadlock detector"],
+    "scenarioWhy": "Naming a file and locating its disk blocks is the file system's job."
+  },
+  {
+    "term": "Inode",
+    "definition": "A metadata record that stores a file's attributes and the locations of its data blocks.",
+    "wrongs": [
+      "A directory entry that stores only a name and a pointer to metadata.",
+      "A small integer a process uses after opening a file.",
+      "A per-process map from virtual pages to frames."
+    ],
+    "why": "The file name lives in a directory, while this record describes the owner, size, and block locations.",
+    "example": "Record number 42 says a file has three blocks, is owned by user 1000, and lists those block addresses.",
+    "scenario": "On a Unix-style system, a file's owner, size, and block addresses are stored apart from its name. What is that metadata record?",
+    "scenarioAnswer": "An inode",
+    "scenarioWrongs": ["A directory entry", "A file descriptor", "A page-table entry"],
+    "scenarioWhy": "The inode holds the owner, size, and block pointers, while the name is stored separately."
+  },
+  {
+    "term": "Directory",
+    "definition": "A file-system object that maps names to the files and subdirectories it contains.",
+    "wrongs": [
+      "A metadata record of one file's blocks and owner.",
+      "An integer handle returned by a successful open.",
+      "A group of adjacent disk cylinders used for allocation."
+    ],
+    "why": "Path lookup walks these objects from a starting point until the final name is resolved.",
+    "example": "The folder /home/ada maps the name notes.txt to the metadata of that file.",
+    "scenario": "The path /home/ada/notes.txt is resolved by looking up each name in the folder that contains it. What is each of those folders?",
+    "scenarioAnswer": "A directory",
+    "scenarioWrongs": ["An inode", "A file descriptor", "A cylinder group"],
+    "scenarioWhy": "Each folder in the path is a directory that maps a name to the next file-system object."
+  },
+  {
+    "term": "File descriptor",
+    "definition": "A small integer a process uses to refer to an open file in its private descriptor table.",
+    "wrongs": [
+      "The metadata number that records a file's blocks on disk.",
+      "A virtual page number in an address translation.",
+      "The identifier of a running process."
+    ],
+    "why": "After open succeeds, later reads and writes use this integer rather than the path name.",
+    "example": "Opening a notes file returns 3, and a later read uses 3 rather than the path string.",
+    "scenario": "After a successful open, a process reads a file using the integer 3 instead of the path. What is that integer?",
+    "scenarioAnswer": "A file descriptor",
+    "scenarioWrongs": ["An inode number", "A page number", "A process id"],
+    "scenarioWhy": "The integer returned by open is the process's file descriptor for that open file."
+  },
+  {
+    "term": "Internal fragmentation",
+    "definition": "Wasted space inside an allocated block because the request was smaller than the block.",
+    "wrongs": [
+      "Free space split into holes that are each too small for a request.",
+      "A system that pages so heavily it does little useful work.",
+      "A process that waits forever because others are always chosen first."
+    ],
+    "why": "Fixed-size allocation rounds the request up, and the unused tail cannot be given to another request.",
+    "example": "A 5 KB file stored in 4 KB blocks occupies two blocks and leaves 3 KB unused in the second block.",
+    "scenario": "A 5 KB file occupies two 4 KB blocks and leaves 3 KB unused inside the last block. What is that waste called?",
+    "scenarioAnswer": "Internal fragmentation",
+    "scenarioWrongs": ["External fragmentation", "Thrashing", "Starvation"],
+    "scenarioWhy": "The unused tail inside the allocated block is internal fragmentation."
+  },
+  {
+    "term": "External fragmentation",
+    "definition": "Free space broken into holes that are too small to satisfy a request even though their total is enough.",
+    "wrongs": [
+      "Unused space inside a block that was allocated larger than the request.",
+      "A process image written entirely out to secondary storage.",
+      "A cycle of processes waiting for one another's resources."
+    ],
+    "why": "Variable-sized allocations can leave many free gaps, none of which fits the next request.",
+    "example": "Three free holes of 10 KB cannot satisfy a 25 KB request even though 30 KB is free altogether.",
+    "scenario": "Thirty kilobytes are free, but they are split into 10 KB holes, so a 25 KB request fails. What problem is that?",
+    "scenarioAnswer": "External fragmentation",
+    "scenarioWrongs": ["Internal fragmentation", "Thrashing", "Deadlock"],
+    "scenarioWhy": "Enough free space exists in total, but no single hole is large enough, which is external fragmentation."
+  },
+  {
+    "term": "Swapping",
+    "definition": "Moving an entire process image between main memory and secondary storage.",
+    "wrongs": [
+      "Loading a single page only when it is first referenced.",
+      "Buffering device output on disk so the requesting process can continue.",
+      "Keeping a copy of recent file blocks in memory."
+    ],
+    "why": "Writing the whole image out frees all of that process's frames, and the image is read back when it runs again.",
+    "example": "A suspended background program is written entirely to disk so a foreground program can use its frames.",
+    "scenario": "The system writes a whole suspended process out to disk and later reads that entire image back. What is that movement?",
+    "scenarioAnswer": "Swapping",
+    "scenarioWrongs": ["Demand paging", "Spooling", "Caching"],
+    "scenarioWhy": "Moving the entire process image out and back is swapping."
+  },
+  {
+    "term": "Process state",
+    "definition": "The execution status of a process, such as new, ready, running, waiting, or terminated.",
+    "wrongs": [
+      "The privilege level of the processor, such as kernel or user.",
+      "The name of the scheduling policy currently configured.",
+      "The set of pages referenced in a recent time window."
+    ],
+    "why": "The scheduler and the wait queues move a process among these statuses as it runs and blocks.",
+    "example": "A process that requests data from an empty pipe leaves the running status until data arrives.",
+    "scenario": "A process that was running requests a read and must pause until data arrives. Which state should it enter?",
+    "scenarioAnswer": "Waiting",
+    "scenarioWrongs": ["Ready", "Running", "Terminated"],
+    "scenarioWhy": "A process blocked for data is in the waiting state, not ready or running."
+  },
+  {
+    "term": "Ready queue",
+    "definition": "The set of processes that are in memory and are waiting only for a processor.",
+    "wrongs": [
+      "The set of processes blocked for a device such as a disk.",
+      "The set of jobs that have been submitted but not yet admitted to memory.",
+      "The list of physical frames that are currently unused."
+    ],
+    "why": "The scheduler selects the next process to run from this set.",
+    "example": "After a disk read finishes, an editor moves from a device wait list onto the list of processes that need only the CPU.",
+    "scenario": "A process is in memory, is not blocked on a device, and is waiting only for a CPU. Which queue should contain it?",
+    "scenarioAnswer": "The ready queue",
+    "scenarioWrongs": ["A device wait queue", "The job queue", "The free-frame list"],
+    "scenarioWhy": "A process waiting only for the CPU belongs on the ready queue."
+  },
+  {
+    "term": "Interrupt",
+    "definition": "An asynchronous signal from a device or the timer that makes the CPU run a handler.",
+    "wrongs": [
+      "A program's explicit request for a kernel service.",
+      "A fault caused by a missing virtual page.",
+      "A switch between two ready processes when a time slice ends, with no device signal."
+    ],
+    "why": "Devices and the timer can get the kernel's attention without the CPU polling them continuously.",
+    "example": "A disk controller signals that a read has finished, and the kernel runs the disk handler.",
+    "scenario": "A disk controller signals that a read has finished, and the CPU immediately runs a handler. What is that signal?",
+    "scenarioAnswer": "An interrupt",
+    "scenarioWrongs": ["A system call", "A page fault", "A context switch"],
+    "scenarioWhy": "The device's completion signal that invokes a handler is an interrupt."
+  },
+  {
+    "term": "Starvation",
+    "definition": "A situation in which a ready process waits indefinitely because other processes are always selected first.",
+    "wrongs": [
+      "A cycle in which processes hold resources the others need.",
+      "A system that spends almost all of its time handling page faults.",
+      "A result that changes with the interleaving of unsynchronized writes."
+    ],
+    "why": "Strict priority or shortest-job rules can keep a disadvantaged process from ever being chosen.",
+    "example": "A low-priority backup stays ready for hours because new interactive tasks always outrank it.",
+    "scenario": "A low-priority backup remains ready for hours because new interactive tasks are always chosen instead. What is that unfair wait?",
+    "scenarioAnswer": "Starvation",
+    "scenarioWrongs": ["Deadlock", "Thrashing", "A race condition"],
+    "scenarioWhy": "The backup is ready but is never selected, which is starvation."
+  },
+  {
+    "term": "Aging",
+    "definition": "Gradually raising the priority of a process that has been waiting for a long time.",
+    "wrongs": [
+      "A situation in which a low-priority process holds a lock needed by a high-priority process.",
+      "Rotation of equal time slices with no priority change.",
+      "Writing a whole process out to disk because it is suspended."
+    ],
+    "why": "The rising priority eventually makes the long-waiting process competitive, which prevents starvation.",
+    "example": "A backup's rank improves a little every minute it waits, until the scheduler finally selects it.",
+    "scenario": "A scheduler raises a waiting backup's priority a little every minute so the backup will eventually run. What is that technique?",
+    "scenarioAnswer": "Aging",
+    "scenarioWrongs": ["Priority inversion", "Round robin", "Swapping"],
+    "scenarioWhy": "Increasing priority with waiting time is aging."
+  },
+  {
+    "term": "Spooling",
+    "definition": "Buffering data for a slow exclusive device, such as a printer, so processes need not wait for the device.",
+    "wrongs": [
+      "Moving an entire process between memory and disk.",
+      "Dividing memory into fixed-size pages and frames.",
+      "A condition in which the system spends its time paging."
+    ],
+    "why": "Jobs are written to a spool, and a daemon sends them to the device in order.",
+    "example": "Three programs write print jobs to disk and return at once, while the printer works through that queue.",
+    "scenario": "Three editors submit print jobs and return immediately while a daemon feeds the printer from disk. What is that buffering called?",
+    "scenarioAnswer": "Spooling",
+    "scenarioWrongs": ["Swapping", "Paging", "Thrashing"],
+    "scenarioWhy": "Queueing print output on disk so the editors need not wait for the printer is spooling."
+  },
+  {
+    "term": "fork",
+    "definition": "A system call that creates a child process by duplicating the calling process.",
+    "wrongs": [
+      "A call that replaces the current process image with a new program.",
+      "A call that waits until a child process has terminated.",
+      "A call that ends the current process."
+    ],
+    "why": "The child receives a copy of the parent's address space and continues from the return of this call.",
+    "example": "A command interpreter duplicates itself, and the child then replaces its image with the program the user typed.",
+    "scenario": "A shell must create a child that starts as a duplicate of itself before running a typed command. Which system call creates that child?",
+    "scenarioAnswer": "fork",
+    "scenarioWrongs": ["exec", "wait", "exit"],
+    "scenarioWhy": "fork creates the duplicate child process; exec would replace a process image afterward."
+  },
+  {
+    "term": "Zombie process",
+    "definition": "A terminated process whose exit status has not yet been collected by its parent.",
+    "wrongs": [
+      "A process whose parent has already terminated, so it has been reparented.",
+      "A background process that has detached from its controlling terminal.",
+      "A path of execution that shares an address space with its siblings."
+    ],
+    "why": "Its process record remains until the parent collects the exit status.",
+    "example": "A child finishes, and until the shell collects the status the child entry remains with that status stored.",
+    "scenario": "A child has exited, but its process entry remains until the parent collects the exit status. What is that child called?",
+    "scenarioAnswer": "A zombie",
+    "scenarioWrongs": ["An orphan", "A daemon", "A thread"],
+    "scenarioWhy": "A terminated child that still holds an unreaped exit status is a zombie."
+  }
+]

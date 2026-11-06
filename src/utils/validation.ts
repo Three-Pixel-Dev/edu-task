@@ -28,6 +28,20 @@ export function passwordProblem(password: string): string | null {
   return null;
 }
 
+export type PasswordChangeForm = { currentPassword: string; password: string; confirmPassword: string };
+
+export function validatePasswordChange(input: PasswordChangeForm) {
+  const errors: FieldErrors<PasswordChangeForm> = {};
+  if (!input.currentPassword) errors.currentPassword = 'Enter your current password.';
+  const pw = passwordProblem(input.password);
+  if (pw) errors.password = pw;
+  else if (input.currentPassword && input.password === input.currentPassword) {
+    errors.password = 'Choose a password that’s different from your current one.';
+  }
+  if (input.confirmPassword !== input.password) errors.confirmPassword = 'Passwords don’t match.';
+  return errors;
+}
+
 export function validateRegister(input: RegisterForm) {
   const errors: FieldErrors<RegisterForm> = {};
   const name = input.displayName.trim();

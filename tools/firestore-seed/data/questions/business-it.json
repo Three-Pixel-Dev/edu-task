@@ -1,0 +1,1685 @@
+{
+  "subjectId": "business-it",
+  "levels": {
+    "1": [
+      {
+        "question": "What is Information System?",
+        "options": [
+          "The building's electrical wiring diagram alone.",
+          "A single laptop, considered apart from people, data, and working methods.",
+          "A set of people, processes, data, and technology that collects, stores, and delivers information to support a business activity.",
+          "A paper company logo with no data and no process behind it."
+        ],
+        "correctAnswer": "A set of people, processes, data, and technology that collects, stores, and delivers information to support a business activity.",
+        "explanation": "An information system combines people, process, data, and technology in support of a business activity."
+      },
+      {
+        "question": "What is Transaction Processing System?",
+        "options": [
+          "A tool used only by senior executives to scan a handful of strategic charts once a quarter.",
+          "A library of past project essays kept for students to read.",
+          "A system that captures and processes routine business events, such as sales or payments, as they occur.",
+          "A drawing package used to design a company logo."
+        ],
+        "correctAnswer": "A system that captures and processes routine business events, such as sales or payments, as they occur.",
+        "explanation": "Transaction processing systems exist to record high-volume routine events accurately and immediately."
+      },
+      {
+        "question": "What is Management Information System?",
+        "options": [
+          "A social network used for personal photos.",
+          "A system that summarises operational data into regular reports managers use to monitor and control performance.",
+          "A system whose only job is to capture each sale at the moment it happens.",
+          "A robot that replaces every manager with no reports at all."
+        ],
+        "correctAnswer": "A system that summarises operational data into regular reports managers use to monitor and control performance.",
+        "explanation": "A management information system turns operational data into routine reports for monitoring, rather than only posting transactions."
+      },
+      {
+        "question": "What is Decision Support System?",
+        "options": [
+          "A fixed monthly report that never lets the user try alternative assumptions.",
+          "A system that posts each invoice automatically with no analysis of choices.",
+          "A system that combines data and models so a person can compare options for a decision that is not fully routine.",
+          "A lock on a server room door."
+        ],
+        "correctAnswer": "A system that combines data and models so a person can compare options for a decision that is not fully routine.",
+        "explanation": "Decision support helps a person explore alternatives with data and models when the decision is semi-structured."
+      },
+      {
+        "question": "What is Executive Dashboard?",
+        "options": [
+          "A dump of every raw transaction row from the last ten years.",
+          "A source-code editor for application developers.",
+          "A visual display of a small set of key indicators that senior managers use to see organisational performance quickly.",
+          "A paper form used to apply for annual leave."
+        ],
+        "correctAnswer": "A visual display of a small set of key indicators that senior managers use to see organisational performance quickly.",
+        "explanation": "An executive dashboard concentrates a few important indicators into a visual view for senior oversight."
+      },
+      {
+        "question": "What is Enterprise Resource Planning?",
+        "options": [
+          "A standalone game installed on a reception PC.",
+          "A customer chat widget that only answers frequently asked questions.",
+          "An integrated suite that shares one set of data across core functions such as finance, human resources, procurement, and inventory.",
+          "A single spreadsheet kept privately by one department and never linked to finance."
+        ],
+        "correctAnswer": "An integrated suite that shares one set of data across core functions such as finance, human resources, procurement, and inventory.",
+        "explanation": "Enterprise resource planning integrates core business functions on shared data so the organisation does not run them as isolated systems."
+      },
+      {
+        "question": "What is Customer Relationship Management?",
+        "options": [
+          "A firewall that blocks network ports.",
+          "A payroll system whose only records are staff salaries.",
+          "A system that records customer interactions and supports sales, marketing, and service so relationships can be managed consistently.",
+          "A tool that tracks raw materials inside a warehouse and never stores customer contacts."
+        ],
+        "correctAnswer": "A system that records customer interactions and supports sales, marketing, and service so relationships can be managed consistently.",
+        "explanation": "Customer relationship management keeps a shared view of customers and supports sales, marketing, and service work."
+      },
+      {
+        "question": "What is Supply Chain Management System?",
+        "options": [
+          "A badge reader that only opens the front door.",
+          "A word processor used to write the annual report.",
+          "A tool that only stores employee holiday requests.",
+          "Software that coordinates the flow of materials, information, and money from suppliers through operations to customers."
+        ],
+        "correctAnswer": "Software that coordinates the flow of materials, information, and money from suppliers through operations to customers.",
+        "explanation": "Supply chain systems coordinate flows across suppliers, the organisation, and customers, not internal HR tasks."
+      },
+      {
+        "question": "What is Knowledge Management System?",
+        "options": [
+          "A system that captures, stores, and shares organisational knowledge so staff can find and reuse it.",
+          "A door alarm that sounds when left open.",
+          "A till that only records the price of each sale.",
+          "A payroll calculator with no articles, guides, or lessons learned."
+        ],
+        "correctAnswer": "A system that captures, stores, and shares organisational knowledge so staff can find and reuse it.",
+        "explanation": "Knowledge management systems exist so expertise and documents can be found and reused, rather than remaining with one person."
+      },
+      {
+        "question": "What is Business Process?",
+        "options": [
+          "A staff member's home address.",
+          "The brand colour chosen for a website header.",
+          "A single unconnected mouse click with no input or result.",
+          "A set of linked activities that turns inputs into a result of value to a customer or the organisation."
+        ],
+        "correctAnswer": "A set of linked activities that turns inputs into a result of value to a customer or the organisation.",
+        "explanation": "A business process is the linked work that converts inputs into a valued output, not an isolated click or a colour choice."
+      }
+    ],
+    "2": [
+      {
+        "question": "What is Process Map?",
+        "options": [
+          "A list of employee birthdays.",
+          "A diagram that shows the steps, decisions, and hand-offs in a business process.",
+          "A photograph of the chief executive.",
+          "A street map of the city where the office stands."
+        ],
+        "correctAnswer": "A diagram that shows the steps, decisions, and hand-offs in a business process.",
+        "explanation": "A process map is a diagram of how work flows, including decisions and hand-offs, not a geographical map."
+      },
+      {
+        "question": "What is As-Is Process?",
+        "options": [
+          "A picture of the ideal process after a future system is installed.",
+          "A description of how work is actually done today, including current delays and workarounds.",
+          "A slogan about the company's hopes for next year.",
+          "A list of features the vendor wishes the product had."
+        ],
+        "correctAnswer": "A description of how work is actually done today, including current delays and workarounds.",
+        "explanation": "The as-is process records current practice, including its problems, before improvement is designed."
+      },
+      {
+        "question": "What is To-Be Process?",
+        "options": [
+          "A description of how a process should work after a planned improvement or system change.",
+          "A photograph of the queues and workarounds that exist this morning.",
+          "An unrelated historical novel about the industry.",
+          "The resignations submitted last year."
+        ],
+        "correctAnswer": "A description of how a process should work after a planned improvement or system change.",
+        "explanation": "The to-be process is the intended future way of working, used to guide design and change."
+      },
+      {
+        "question": "What is Process Owner?",
+        "options": [
+          "The person accountable for the performance and improvement of a named business process.",
+          "Every employee equally, with nobody accountable.",
+          "A server that stores the process diagram.",
+          "A visitor who uses the process once and then leaves."
+        ],
+        "correctAnswer": "The person accountable for the performance and improvement of a named business process.",
+        "explanation": "A process owner is the named person accountable for how well that process performs and how it improves."
+      },
+      {
+        "question": "What is Gap Analysis?",
+        "options": [
+          "A celebration of targets that ignores the current state.",
+          "Copying last year's plan without comparing it to today's capability.",
+          "A random list of software brands with no target.",
+          "A comparison of current performance or capability with a desired target, used to identify what must change."
+        ],
+        "correctAnswer": "A comparison of current performance or capability with a desired target, used to identify what must change.",
+        "explanation": "Gap analysis identifies the difference between where the organisation is and where it needs to be."
+      },
+      {
+        "question": "What is Stakeholder?",
+        "options": [
+          "The brand of keyboard used in the office.",
+          "A person with no interest and no influence over the decision.",
+          "A person or group that can affect, or is affected by, a business or system decision.",
+          "Only the programmer who writes the final line of code."
+        ],
+        "correctAnswer": "A person or group that can affect, or is affected by, a business or system decision.",
+        "explanation": "Stakeholders are people or groups with influence on a decision or who feel its effects."
+      },
+      {
+        "question": "What is Business Sponsor?",
+        "options": [
+          "A contractor hired only to install a printer on one afternoon.",
+          "The software vendor's sales brochure.",
+          "A senior manager who authorises a change, secures resources, and is accountable for its business outcome.",
+          "A student observer with no authority over budget or scope."
+        ],
+        "correctAnswer": "A senior manager who authorises a change, secures resources, and is accountable for its business outcome.",
+        "explanation": "The business sponsor owns the outcome and provides authority and resources, rather than merely observing."
+      },
+      {
+        "question": "What is Business Requirement?",
+        "options": [
+          "A line of source code that implements a loop.",
+          "The colour of a server status LED.",
+          "A choice of programming language made by a developer.",
+          "A statement of what the organisation needs to achieve, written in business terms rather than as a technical design."
+        ],
+        "correctAnswer": "A statement of what the organisation needs to achieve, written in business terms rather than as a technical design.",
+        "explanation": "A business requirement states a business need, leaving technical design choices to a later step."
+      },
+      {
+        "question": "What is Functional Requirement?",
+        "options": [
+          "A limit on response time, availability, or security that does not name a behaviour.",
+          "The project budget approved by the board.",
+          "A statement of a behaviour the system must provide, such as recording an order or producing an invoice.",
+          "The brand font used on posters."
+        ],
+        "correctAnswer": "A statement of a behaviour the system must provide, such as recording an order or producing an invoice.",
+        "explanation": "A functional requirement states a behaviour the system must perform, not a quality level or a budget."
+      },
+      {
+        "question": "What is Non-Functional Requirement?",
+        "options": [
+          "The name of the project sponsor.",
+          "A statement that the system must provide a named function, such as creating an order.",
+          "A list of office furniture to be purchased.",
+          "A statement of a quality the system must meet, such as response time, availability, security, or usability."
+        ],
+        "correctAnswer": "A statement of a quality the system must meet, such as response time, availability, security, or usability.",
+        "explanation": "A non-functional requirement states how well the system must perform, not which business function it offers."
+      }
+    ],
+    "3": [
+      {
+        "question": "What is IT Strategy?",
+        "options": [
+          "The canteen menu for the current week.",
+          "A list of this morning's help-desk tickets.",
+          "A plan that sets how technology investments will support the organisation's goals over several years.",
+          "A one-off password reset for a single user."
+        ],
+        "correctAnswer": "A plan that sets how technology investments will support the organisation's goals over several years.",
+        "explanation": "IT strategy is a multi-year plan linking technology investment to organisational goals, not daily support work."
+      },
+      {
+        "question": "What is Strategic Alignment?",
+        "options": [
+          "Making the IT budget exactly equal to the marketing budget by coincidence.",
+          "Buying every new device because it is fashionable, with no link to objectives.",
+          "Aligning office desks so they face the same direction.",
+          "The fit between IT projects and the organisation's stated business objectives."
+        ],
+        "correctAnswer": "The fit between IT projects and the organisation's stated business objectives.",
+        "explanation": "Strategic alignment means IT work is chosen because it supports stated business objectives."
+      },
+      {
+        "question": "What is SWOT Analysis?",
+        "options": [
+          "A structured review of internal strengths and weaknesses and of external opportunities and threats.",
+          "A test that only measures the speed of a computer processor.",
+          "A contract clause about late payment.",
+          "A count of chairs in a meeting room."
+        ],
+        "correctAnswer": "A structured review of internal strengths and weaknesses and of external opportunities and threats.",
+        "explanation": "SWOT examines internal strengths and weaknesses together with external opportunities and threats."
+      },
+      {
+        "question": "What is Competitive Advantage?",
+        "options": [
+          "A durable edge that lets an organisation outperform rivals, which information systems may support but do not guarantee.",
+          "A one-day price cut that rivals copy the next morning.",
+          "Any purchase of software, which automatically makes a firm unbeatable.",
+          "Having more chairs than a neighbouring office."
+        ],
+        "correctAnswer": "A durable edge that lets an organisation outperform rivals, which information systems may support but do not guarantee.",
+        "explanation": "Competitive advantage is a lasting performance edge; technology can support it but does not create it automatically."
+      },
+      {
+        "question": "What is Value Chain?",
+        "options": [
+          "A metal chain used to lock bicycles outside the office.",
+          "The sequence of primary and support activities through which an organisation creates value for its customers.",
+          "The order of slides in a sales presentation only.",
+          "A list of shareholders and their voting weights."
+        ],
+        "correctAnswer": "The sequence of primary and support activities through which an organisation creates value for its customers.",
+        "explanation": "The value chain describes the activities that create customer value, including both primary work and support activities."
+      },
+      {
+        "question": "What is Digital Transformation?",
+        "options": [
+          "Replacing one broken keyboard with the same model.",
+          "Scanning a single paper letter without changing the service.",
+          "A significant change in how an organisation uses digital technology to alter its processes, products, or customer experience.",
+          "Renaming the IT department without changing any process."
+        ],
+        "correctAnswer": "A significant change in how an organisation uses digital technology to alter its processes, products, or customer experience.",
+        "explanation": "Digital transformation changes how the organisation works or what it offers, not a like-for-like equipment swap."
+      },
+      {
+        "question": "What is Make-or-Buy Decision?",
+        "options": [
+          "A choice between building a system in-house and purchasing or subscribing to an existing product.",
+          "A choice between two colours for the office walls.",
+          "A choice of sandwich fillings for a meeting.",
+          "A decision to hire or fire a particular receptionist."
+        ],
+        "correctAnswer": "A choice between building a system in-house and purchasing or subscribing to an existing product.",
+        "explanation": "Make-or-buy compares building a capability internally with acquiring an existing product or service."
+      },
+      {
+        "question": "What is Business Case?",
+        "options": [
+          "A poster advertising an existing product.",
+          "A suitcase used to carry a laptop to a client site.",
+          "A documented argument that compares the expected benefits, costs, and risks of a proposed investment.",
+          "A username and password for a finance system."
+        ],
+        "correctAnswer": "A documented argument that compares the expected benefits, costs, and risks of a proposed investment.",
+        "explanation": "A business case is the written justification of an investment, weighing benefits, costs, and risks."
+      },
+      {
+        "question": "What is Cost-Benefit Analysis?",
+        "options": [
+          "A list of benefits with every cost left out.",
+          "A comparison of the expected costs of an option with its expected benefits, expressed in money where that is possible.",
+          "A list of costs with every benefit ignored.",
+          "A vote based only on which option has the nicest name."
+        ],
+        "correctAnswer": "A comparison of the expected costs of an option with its expected benefits, expressed in money where that is possible.",
+        "explanation": "Cost-benefit analysis puts expected costs and expected benefits side by side so an option can be judged."
+      },
+      {
+        "question": "What is Return on Investment?",
+        "options": [
+          "A measure of the net gain from an investment relative to its cost, often expressed as a percentage.",
+          "The number of people who attended the project launch party.",
+          "The count of slides in a presentation.",
+          "The physical distance between two offices."
+        ],
+        "correctAnswer": "A measure of the net gain from an investment relative to its cost, often expressed as a percentage.",
+        "explanation": "Return on investment relates net gain to the cost of the investment so options can be compared."
+      }
+    ],
+    "4": [
+      {
+        "question": "What is Total Cost of Ownership?",
+        "options": [
+          "The salary of the chief executive, unrelated to the system.",
+          "Only the cost of electricity on the first day.",
+          "The sticker price alone, ignoring support, training, and running costs.",
+          "The full cost of owning a system over its life, including purchase, operation, support, training, and retirement."
+        ],
+        "correctAnswer": "The full cost of owning a system over its life, including purchase, operation, support, training, and retirement.",
+        "explanation": "Total cost of ownership includes the whole life cost, not just the initial purchase price."
+      },
+      {
+        "question": "What is Payback Period?",
+        "options": [
+          "The length of the chief executive's employment contract.",
+          "The time needed for the net benefits of an investment to recover its initial cost.",
+          "The time a vendor takes to answer a sales email.",
+          "The number of years the company has existed."
+        ],
+        "correctAnswer": "The time needed for the net benefits of an investment to recover its initial cost.",
+        "explanation": "Payback period is how long cumulative net benefits take to cover the initial outlay."
+      },
+      {
+        "question": "What is Intangible Benefit?",
+        "options": [
+          "An expected gain that is real but hard to price reliably, such as better morale or a stronger reputation.",
+          "A cash refund received from a supplier.",
+          "A reduction in licence fees stated on an invoice.",
+          "A saving that is already measured as fewer overtime hours with a known wage rate."
+        ],
+        "correctAnswer": "An expected gain that is real but hard to price reliably, such as better morale or a stronger reputation.",
+        "explanation": "Intangible benefits matter but cannot be priced with the same confidence as a measured cash saving."
+      },
+      {
+        "question": "What is Tangible Benefit?",
+        "options": [
+          "An expected gain that can be measured in money, such as reduced overtime cost or fewer lost sales.",
+          "A feeling that the brand seems more modern, with no measurable cash effect.",
+          "A hope that staff will be happier, with no agreed measure.",
+          "A rumour that customers like the new colour."
+        ],
+        "correctAnswer": "An expected gain that can be measured in money, such as reduced overtime cost or fewer lost sales.",
+        "explanation": "A tangible benefit can be expressed in money from a stated measure, unlike a vague improvement in feeling."
+      },
+      {
+        "question": "What is Feasibility Study?",
+        "options": [
+          "A party to celebrate a completed project.",
+          "The final user manual written after the system has already gone live.",
+          "A decision to skip all investigation and start coding immediately.",
+          "An early assessment of whether a proposal is technically, economically, legally, and operationally workable."
+        ],
+        "correctAnswer": "An early assessment of whether a proposal is technically, economically, legally, and operationally workable.",
+        "explanation": "A feasibility study checks, before major commitment, whether the proposal can work on technical, economic, legal, and operational grounds."
+      },
+      {
+        "question": "What is Change Management?",
+        "options": [
+          "A technical patch that changes source code while ignoring the people who must use it.",
+          "A ban on ever altering a process, even when the business requires it.",
+          "The structured approach to preparing and supporting people so they adopt a new process or system.",
+          "The version history inside a code repository alone."
+        ],
+        "correctAnswer": "The structured approach to preparing and supporting people so they adopt a new process or system.",
+        "explanation": "Change management focuses on people adopting the new way of working, not only on the technical change."
+      },
+      {
+        "question": "What is Resistance to Change?",
+        "options": [
+          "Enthusiastic early use of a system people already trust.",
+          "A measured technical defect that stops the software starting.",
+          "Reluctance to adopt a new system or process, often from fear of lost skill, extra work, or an unclear benefit.",
+          "A legal prohibition that makes the change unlawful."
+        ],
+        "correctAnswer": "Reluctance to adopt a new system or process, often from fear of lost skill, extra work, or an unclear benefit.",
+        "explanation": "Resistance is human reluctance to adopt a change, and it is different from a technical fault or a legal ban."
+      },
+      {
+        "question": "What is Change Champion?",
+        "options": [
+          "A respected staff member who promotes a change locally and helps colleagues adopt it.",
+          "A person who blocks every change without offering a reason.",
+          "A printed poster that nobody is asked to support.",
+          "An external celebrity with no role in the workplace."
+        ],
+        "correctAnswer": "A respected staff member who promotes a change locally and helps colleagues adopt it.",
+        "explanation": "A change champion is a trusted insider who actively helps colleagues take up the new way of working."
+      },
+      {
+        "question": "What is Training Needs Analysis?",
+        "options": [
+          "A list of everyone's favourite hobbies.",
+          "A decision to buy software with no thought about who must learn it.",
+          "A count of how many chairs a training room can hold, with no look at skills.",
+          "A study that identifies the skills people lack for a new process or system and the learning required to close that gap."
+        ],
+        "correctAnswer": "A study that identifies the skills people lack for a new process or system and the learning required to close that gap.",
+        "explanation": "Training needs analysis compares required skills with current skills so the right learning can be planned."
+      },
+      {
+        "question": "What is Benefits Realisation?",
+        "options": [
+          "Writing hopeful benefits in a case and never measuring them later.",
+          "Celebrating approval of the budget as if the benefits had already arrived.",
+          "Counting the number of logos on the project slides.",
+          "The ongoing work of checking whether the benefits promised in the business case actually occur after the change."
+        ],
+        "correctAnswer": "The ongoing work of checking whether the benefits promised in the business case actually occur after the change.",
+        "explanation": "Benefits realisation tracks promised benefits after go-live and acts if they are not appearing."
+      }
+    ],
+    "5": [
+      {
+        "question": "What is Key Performance Indicator?",
+        "options": [
+          "A count of unrelated office plants.",
+          "A vague slogan such as be the best, with no measure.",
+          "The name of the objective with no number attached.",
+          "A quantified measure that shows how well an important business objective is being achieved."
+        ],
+        "correctAnswer": "A quantified measure that shows how well an important business objective is being achieved.",
+        "explanation": "A key performance indicator is a number tied to an important objective so performance can be judged."
+      },
+      {
+        "question": "What is Data-Driven Decision?",
+        "options": [
+          "A choice made because it matches the loudest opinion in the room, with the data unread.",
+          "A choice based primarily on relevant and reliable evidence rather than on habit or unsupported opinion.",
+          "A choice copied from last year without checking whether conditions changed.",
+          "A choice based on a rumour in a corridor."
+        ],
+        "correctAnswer": "A choice based primarily on relevant and reliable evidence rather than on habit or unsupported opinion.",
+        "explanation": "A data-driven decision gives relevant, reliable evidence the leading role in the choice."
+      },
+      {
+        "question": "What is Data Quality?",
+        "options": [
+          "The size of the database server, regardless of whether the figures are wrong.",
+          "The number of colours in a dashboard theme.",
+          "The artistic layout of a report that hides missing values.",
+          "The fitness of data for its intended use, including accuracy, completeness, timeliness, and consistency."
+        ],
+        "correctAnswer": "The fitness of data for its intended use, including accuracy, completeness, timeliness, and consistency.",
+        "explanation": "Data quality is whether data are fit to use, judged by properties such as accuracy, completeness, timeliness, and consistency."
+      },
+      {
+        "question": "What is Master Data?",
+        "options": [
+          "The temperature reading from a sensor at a single moment, kept only in that device.",
+          "Core business entities, such as customers, products, and suppliers, that are shared across systems and should stay consistent.",
+          "A temporary password that expires in one hour.",
+          "A one-off social message that is never reused."
+        ],
+        "correctAnswer": "Core business entities, such as customers, products, and suppliers, that are shared across systems and should stay consistent.",
+        "explanation": "Master data are the shared core records of the business, such as who the customers and products are."
+      },
+      {
+        "question": "What is Single Source of Truth?",
+        "options": [
+          "Several spreadsheets that staff update separately and then argue over.",
+          "Printing the same report from three different unofficial files.",
+          "One authoritative store for a given data item so teams do not act on conflicting copies.",
+          "A rule that every person keeps a private version and none is official."
+        ],
+        "correctAnswer": "One authoritative store for a given data item so teams do not act on conflicting copies.",
+        "explanation": "A single source of truth means one agreed place holds the authoritative value for that data item."
+      },
+      {
+        "question": "What is Business Intelligence?",
+        "options": [
+          "The human ability to score well on an IQ test, unrelated to business data.",
+          "Tools and practices that turn organisational data into reports and analyses used for management decisions.",
+          "A transaction screen used only to type in one sale.",
+          "A spam filter on the chief executive's mailbox."
+        ],
+        "correctAnswer": "Tools and practices that turn organisational data into reports and analyses used for management decisions.",
+        "explanation": "Business intelligence is the reporting and analysis of organisational data to support decisions."
+      },
+      {
+        "question": "What is Data Warehouse?",
+        "options": [
+          "A cupboard of blank paper forms.",
+          "The live till system that must post each sale in real time.",
+          "A chat channel used for today's operational instructions.",
+          "A subject-oriented store of integrated historical data, kept for analysis rather than for moment-by-moment transactions."
+        ],
+        "correctAnswer": "A subject-oriented store of integrated historical data, kept for analysis rather than for moment-by-moment transactions.",
+        "explanation": "A data warehouse integrates history for analysis and is not the system that posts live transactions."
+      },
+      {
+        "question": "What is Operational System?",
+        "options": [
+          "A printed strategy covering the next five years.",
+          "A system that runs day-to-day transactions and is organised for current processing rather than for long-term analysis.",
+          "A historical warehouse designed for multi-year trend reports rather than posting today's sales.",
+          "An archive of retired marketing posters."
+        ],
+        "correctAnswer": "A system that runs day-to-day transactions and is organised for current processing rather than for long-term analysis.",
+        "explanation": "An operational system processes current business events, whereas analytical stores are built for history and reporting."
+      },
+      {
+        "question": "What is Legacy System?",
+        "options": [
+          "An older system that is still required for operations but is costly or risky to change and poorly linked to newer tools.",
+          "A paper notebook that was never part of operations.",
+          "A future design that has not been built.",
+          "A system launched last week on a current platform with full support."
+        ],
+        "correctAnswer": "An older system that is still required for operations but is costly or risky to change and poorly linked to newer tools.",
+        "explanation": "A legacy system is old but still operational, and it is typically hard to change or integrate."
+      },
+      {
+        "question": "What is IT Governance?",
+        "options": [
+          "The decision rights and accountability framework that directs how technology is evaluated, directed, and monitored against business goals.",
+          "A ban on writing down who may approve IT spending.",
+          "The physical guard rota at the data-centre door, with no decision rights.",
+          "A single technician choosing every corporate system with no oversight."
+        ],
+        "correctAnswer": "The decision rights and accountability framework that directs how technology is evaluated, directed, and monitored against business goals.",
+        "explanation": "IT governance sets who decides, who is accountable, and how IT is monitored so it serves business goals."
+      }
+    ],
+    "6": [
+      {
+        "question": "Which situation illustrates Information System?",
+        "options": [
+          "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+          "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+          "A shop's till, stock database, cashiers, and reorder rules together form the sales information system.",
+          "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff."
+        ],
+        "correctAnswer": "A shop's till, stock database, cashiers, and reorder rules together form the sales information system.",
+        "explanation": "An information system combines people, process, data, and technology in support of a business activity."
+      },
+      {
+        "question": "Which situation illustrates Transaction Processing System?",
+        "options": [
+          "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+          "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+          "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff.",
+          "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery."
+        ],
+        "correctAnswer": "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+        "explanation": "Transaction processing systems exist to record high-volume routine events accurately and immediately."
+      },
+      {
+        "question": "Which situation illustrates Management Information System?",
+        "options": [
+          "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff.",
+          "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+          "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+          "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery."
+        ],
+        "correctAnswer": "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+        "explanation": "A management information system turns operational data into routine reports for monitoring, rather than only posting transactions."
+      },
+      {
+        "question": "Which situation illustrates Decision Support System?",
+        "options": [
+          "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+          "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+          "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery.",
+          "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff."
+        ],
+        "correctAnswer": "A planner uses a tool to compare three staffing plans under different sales forecasts before hiring temporary staff.",
+        "explanation": "Decision support helps a person explore alternatives with data and models when the decision is semi-structured."
+      },
+      {
+        "question": "Which situation illustrates Executive Dashboard?",
+        "options": [
+          "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+          "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery.",
+          "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+          "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders."
+        ],
+        "correctAnswer": "The chief operating officer opens one screen showing this month's revenue, complaints, and on-time delivery.",
+        "explanation": "An executive dashboard concentrates a few important indicators into a visual view for senior oversight."
+      },
+      {
+        "question": "Which situation illustrates Enterprise Resource Planning?",
+        "options": [
+          "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders.",
+          "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+          "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+          "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree."
+        ],
+        "correctAnswer": "When goods are received, the same system updates inventory, the purchase order, and the supplier balance in finance.",
+        "explanation": "Enterprise resource planning integrates core business functions on shared data so the organisation does not run them as isolated systems."
+      },
+      {
+        "question": "Which situation illustrates Customer Relationship Management?",
+        "options": [
+          "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+          "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree.",
+          "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+          "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders."
+        ],
+        "correctAnswer": "A service agent sees a customer's open orders and last three calls before answering a complaint.",
+        "explanation": "Customer relationship management keeps a shared view of customers and supports sales, marketing, and service work."
+      },
+      {
+        "question": "Which situation illustrates Supply Chain Management System?",
+        "options": [
+          "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree.",
+          "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders.",
+          "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+          "A team draws the refund process, including who approves amounts over a set limit."
+        ],
+        "correctAnswer": "A manufacturer uses one system to align supplier deliveries, factory schedules, and retailer orders.",
+        "explanation": "Supply chain systems coordinate flows across suppliers, the organisation, and customers, not internal HR tasks."
+      },
+      {
+        "question": "Which situation illustrates Knowledge Management System?",
+        "options": [
+          "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree.",
+          "A team draws the refund process, including who approves amounts over a set limit.",
+          "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+          "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery."
+        ],
+        "correctAnswer": "Engineers search a maintained wiki for the approved way to reset a production line before calling a retiree.",
+        "explanation": "Knowledge management systems exist so expertise and documents can be found and reused, rather than remaining with one person."
+      },
+      {
+        "question": "Which situation illustrates Business Process?",
+        "options": [
+          "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+          "A team draws the refund process, including who approves amounts over a set limit.",
+          "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+          "The redesigned claim process shows customers uploading documents once, instead of posting paper copies."
+        ],
+        "correctAnswer": "Order fulfilment links taking the order, picking stock, packing, shipping, and confirming delivery.",
+        "explanation": "A business process is the linked work that converts inputs into a valued output, not an isolated click or a colour choice."
+      }
+    ],
+    "7": [
+      {
+        "question": "Which situation illustrates Process Map?",
+        "options": [
+          "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+          "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+          "A team draws the refund process, including who approves amounts over a set limit.",
+          "The redesigned claim process shows customers uploading documents once, instead of posting paper copies."
+        ],
+        "correctAnswer": "A team draws the refund process, including who approves amounts over a set limit.",
+        "explanation": "A process map is a diagram of how work flows, including decisions and hand-offs, not a geographical map."
+      },
+      {
+        "question": "Which situation illustrates As-Is Process?",
+        "options": [
+          "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+          "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time.",
+          "The redesigned claim process shows customers uploading documents once, instead of posting paper copies.",
+          "The head of admissions is accountable for the application process, including its cycle time and error rate."
+        ],
+        "correctAnswer": "Analysts watch clerks retype invoices from email because the current system cannot import them.",
+        "explanation": "The as-is process records current practice, including its problems, before improvement is designed."
+      },
+      {
+        "question": "Which situation illustrates To-Be Process?",
+        "options": [
+          "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+          "The redesigned claim process shows customers uploading documents once, instead of posting paper copies.",
+          "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time.",
+          "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders."
+        ],
+        "correctAnswer": "The redesigned claim process shows customers uploading documents once, instead of posting paper copies.",
+        "explanation": "The to-be process is the intended future way of working, used to guide design and change."
+      },
+      {
+        "question": "Which situation illustrates Process Owner?",
+        "options": [
+          "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders.",
+          "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+          "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings.",
+          "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time."
+        ],
+        "correctAnswer": "The head of admissions is accountable for the application process, including its cycle time and error rate.",
+        "explanation": "A process owner is the named person accountable for how well that process performs and how it improves."
+      },
+      {
+        "question": "Which situation illustrates Gap Analysis?",
+        "options": [
+          "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings.",
+          "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders.",
+          "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time.",
+          "The business requires that a customer can receive a correct invoice within one day of delivery."
+        ],
+        "correctAnswer": "A clinic finds it can book 40 appointments a day but needs 70, and lists the shortfall in staff and system time.",
+        "explanation": "Gap analysis identifies the difference between where the organisation is and where it needs to be."
+      },
+      {
+        "question": "Which situation illustrates Stakeholder?",
+        "options": [
+          "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings.",
+          "The system must let a clerk record a refund and notify the customer by email.",
+          "The business requires that a customer can receive a correct invoice within one day of delivery.",
+          "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders."
+        ],
+        "correctAnswer": "For a new billing system, customers, finance staff, and the regulator are all treated as stakeholders.",
+        "explanation": "Stakeholders are people or groups with influence on a decision or who feel its effects."
+      },
+      {
+        "question": "Which situation illustrates Business Sponsor?",
+        "options": [
+          "The business requires that a customer can receive a correct invoice within one day of delivery.",
+          "The system must let a clerk record a refund and notify the customer by email.",
+          "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+          "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings."
+        ],
+        "correctAnswer": "The finance director sponsors the billing replacement, approves its budget, and answers for the expected savings.",
+        "explanation": "The business sponsor owns the outcome and provides authority and resources, rather than merely observing."
+      },
+      {
+        "question": "Which situation illustrates Business Requirement?",
+        "options": [
+          "The business requires that a customer can receive a correct invoice within one day of delivery.",
+          "The system must let a clerk record a refund and notify the customer by email.",
+          "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+          "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal."
+        ],
+        "correctAnswer": "The business requires that a customer can receive a correct invoice within one day of delivery.",
+        "explanation": "A business requirement states a business need, leaving technical design choices to a later step."
+      },
+      {
+        "question": "Which situation illustrates Functional Requirement?",
+        "options": [
+          "The system must let a clerk record a refund and notify the customer by email.",
+          "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+          "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal.",
+          "The checkout page must return a confirmation within two seconds for 95 percent of requests."
+        ],
+        "correctAnswer": "The system must let a clerk record a refund and notify the customer by email.",
+        "explanation": "A functional requirement states a behaviour the system must perform, not a quality level or a budget."
+      },
+      {
+        "question": "Which situation illustrates Non-Functional Requirement?",
+        "options": [
+          "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal.",
+          "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+          "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+          "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve."
+        ],
+        "correctAnswer": "The checkout page must return a confirmation within two seconds for 95 percent of requests.",
+        "explanation": "A non-functional requirement states how well the system must perform, not which business function it offers."
+      }
+    ],
+    "8": [
+      {
+        "question": "Which situation illustrates IT Strategy?",
+        "options": [
+          "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+          "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+          "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal.",
+          "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability."
+        ],
+        "correctAnswer": "A university's IT strategy commits five years of investment to online enrolment because growth in remote students is a goal.",
+        "explanation": "IT strategy is a multi-year plan linking technology investment to organisational goals, not daily support work."
+      },
+      {
+        "question": "Which situation illustrates Strategic Alignment?",
+        "options": [
+          "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+          "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+          "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+          "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service."
+        ],
+        "correctAnswer": "A proposed game server is rejected because the firm's stated objective is faster insurance claims, which the server does not serve.",
+        "explanation": "Strategic alignment means IT work is chosen because it supports stated business objectives."
+      },
+      {
+        "question": "Which situation illustrates SWOT Analysis?",
+        "options": [
+          "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+          "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+          "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+          "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service."
+        ],
+        "correctAnswer": "Before moving sales online, a retailer lists its strong brand, weak delivery IT, a new market, and a large online rival.",
+        "explanation": "SWOT examines internal strengths and weaknesses together with external opportunities and threats."
+      },
+      {
+        "question": "Which situation illustrates Competitive Advantage?",
+        "options": [
+          "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+          "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+          "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+          "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service."
+        ],
+        "correctAnswer": "A carrier's routing system keeps delivery promises rivals cannot match, and customers stay because of that reliability.",
+        "explanation": "Competitive advantage is a lasting performance edge; technology can support it but does not create it automatically."
+      },
+      {
+        "question": "Which situation illustrates Value Chain?",
+        "options": [
+          "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+          "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+          "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+          "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service."
+        ],
+        "correctAnswer": "A manufacturer's value chain links inbound parts, production, outbound delivery, marketing, and after-sales service.",
+        "explanation": "The value chain describes the activities that create customer value, including both primary work and support activities."
+      },
+      {
+        "question": "Which situation illustrates Digital Transformation?",
+        "options": [
+          "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+          "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+          "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+          "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage."
+        ],
+        "correctAnswer": "A bank replaces branch-only account opening with a fully online journey and redesigns the roles of branch staff.",
+        "explanation": "Digital transformation changes how the organisation works or what it offers, not a like-for-like equipment swap."
+      },
+      {
+        "question": "Which situation illustrates Make-or-Buy Decision?",
+        "options": [
+          "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+          "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage.",
+          "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+          "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment."
+        ],
+        "correctAnswer": "A charity compares building its own donor system with subscribing to an established fundraising platform.",
+        "explanation": "Make-or-buy compares building a capability internally with acquiring an existing product or service."
+      },
+      {
+        "question": "Which situation illustrates Business Case?",
+        "options": [
+          "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years.",
+          "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment.",
+          "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage.",
+          "The board reads a case showing that a new roster system costs less over five years than continued overtime."
+        ],
+        "correctAnswer": "The board reads a case showing that a new roster system costs less over five years than continued overtime.",
+        "explanation": "A business case is the written justification of an investment, weighing benefits, costs, and risks."
+      },
+      {
+        "question": "Which situation illustrates Cost-Benefit Analysis?",
+        "options": [
+          "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage.",
+          "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+          "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years.",
+          "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment."
+        ],
+        "correctAnswer": "An options paper shows a portal costs 80,000 and is expected to save 30,000 a year in postage.",
+        "explanation": "Cost-benefit analysis puts expected costs and expected benefits side by side so an option can be judged."
+      },
+      {
+        "question": "Which situation illustrates Return on Investment?",
+        "options": [
+          "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+          "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years.",
+          "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+          "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment."
+        ],
+        "correctAnswer": "A 100,000 system that returns 20,000 net per year is described as having a 20 percent annual return on investment.",
+        "explanation": "Return on investment relates net gain to the cost of the investment so options can be compared."
+      }
+    ],
+    "9": [
+      {
+        "question": "Which situation illustrates Total Cost of Ownership?",
+        "options": [
+          "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+          "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+          "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+          "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years."
+        ],
+        "correctAnswer": "A cheap printer is rejected after toner, maintenance, and downtime costs exceed a dearer model over four years.",
+        "explanation": "Total cost of ownership includes the whole life cost, not just the initial purchase price."
+      },
+      {
+        "question": "Which situation illustrates Payback Period?",
+        "options": [
+          "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+          "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+          "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+          "A hospital study finds a proposed app would breach a records law, so the project stops before build."
+        ],
+        "correctAnswer": "A 60,000 kiosk that saves 20,000 net each year has a payback period of three years.",
+        "explanation": "Payback period is how long cumulative net benefits take to cover the initial outlay."
+      },
+      {
+        "question": "Which situation illustrates Intangible Benefit?",
+        "options": [
+          "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+          "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+          "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+          "A hospital study finds a proposed app would breach a records law, so the project stops before build."
+        ],
+        "correctAnswer": "A portal is expected to improve the council's reputation, but the team cannot honestly attach a firm cash value.",
+        "explanation": "Intangible benefits matter but cannot be priced with the same confidence as a measured cash saving."
+      },
+      {
+        "question": "Which situation illustrates Tangible Benefit?",
+        "options": [
+          "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+          "A hospital study finds a proposed app would breach a records law, so the project stops before build.",
+          "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets.",
+          "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving."
+        ],
+        "correctAnswer": "Cutting failed deliveries by 200 a month, at a known cost of 15 each, is entered as a cash saving.",
+        "explanation": "A tangible benefit can be expressed in money from a stated measure, unlike a vague improvement in feeling."
+      },
+      {
+        "question": "Which situation illustrates Feasibility Study?",
+        "options": [
+          "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+          "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+          "A hospital study finds a proposed app would breach a records law, so the project stops before build.",
+          "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets."
+        ],
+        "correctAnswer": "A hospital study finds a proposed app would breach a records law, so the project stops before build.",
+        "explanation": "A feasibility study checks, before major commitment, whether the proposal can work on technical, economic, legal, and operational grounds."
+      },
+      {
+        "question": "Which situation illustrates Change Management?",
+        "options": [
+          "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+          "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+          "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+          "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets."
+        ],
+        "correctAnswer": "Before a new roster goes live, supervisors are briefed, staff are trained, and floor support is rostered for the first month.",
+        "explanation": "Change management focuses on people adopting the new way of working, not only on the technical change."
+      },
+      {
+        "question": "Which situation illustrates Resistance to Change?",
+        "options": [
+          "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+          "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+          "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets.",
+          "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts."
+        ],
+        "correctAnswer": "Experienced clerks avoid a new system because they fear looking slow, so they keep private spreadsheets.",
+        "explanation": "Resistance is human reluctance to adopt a change, and it is different from a technical fault or a legal ban."
+      },
+      {
+        "question": "Which situation illustrates Change Champion?",
+        "options": [
+          "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+          "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+          "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+          "Six months after launch, finance checks whether postage savings in the business case have actually occurred."
+        ],
+        "correctAnswer": "A respected nurse shows the ward how the new drug chart works and answers questions during the first shifts.",
+        "explanation": "A change champion is a trusted insider who actively helps colleagues take up the new way of working."
+      },
+      {
+        "question": "Which situation illustrates Training Needs Analysis?",
+        "options": [
+          "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+          "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+          "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+          "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit."
+        ],
+        "correctAnswer": "Before go-live, a bank finds cashiers can take cash but cannot reverse a card payment, and schedules that lesson.",
+        "explanation": "Training needs analysis compares required skills with current skills so the right learning can be planned."
+      },
+      {
+        "question": "Which situation illustrates Benefits Realisation?",
+        "options": [
+          "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+          "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+          "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+          "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use."
+        ],
+        "correctAnswer": "Six months after launch, finance checks whether postage savings in the business case have actually occurred.",
+        "explanation": "Benefits realisation tracks promised benefits after go-live and acts if they are not appearing."
+      }
+    ],
+    "10": [
+      {
+        "question": "Which situation illustrates Key Performance Indicator?",
+        "options": [
+          "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+          "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+          "Customer name and account number are maintained once and reused by billing, support, and marketing.",
+          "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use."
+        ],
+        "correctAnswer": "A support team tracks the percentage of tickets resolved within one working day against a target of 90 percent.",
+        "explanation": "A key performance indicator is a number tied to an important objective so performance can be judged."
+      },
+      {
+        "question": "Which situation illustrates Data-Driven Decision?",
+        "options": [
+          "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use.",
+          "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+          "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+          "Customer name and account number are maintained once and reused by billing, support, and marketing."
+        ],
+        "correctAnswer": "A retailer opens evening hours only in stores where sales data show demand after 6 p.m., not in every branch by habit.",
+        "explanation": "A data-driven decision gives relevant, reliable evidence the leading role in the choice."
+      },
+      {
+        "question": "Which situation illustrates Data Quality?",
+        "options": [
+          "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use.",
+          "Managers explore a report of profit by region and product to decide which line to expand.",
+          "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+          "Customer name and account number are maintained once and reused by billing, support, and marketing."
+        ],
+        "correctAnswer": "A mailing is postponed because 30 percent of customer postcodes are blank, so the addresses are not fit to use.",
+        "explanation": "Data quality is whether data are fit to use, judged by properties such as accuracy, completeness, timeliness, and consistency."
+      },
+      {
+        "question": "Which situation illustrates Master Data?",
+        "options": [
+          "Managers explore a report of profit by region and product to decide which line to expand.",
+          "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+          "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+          "Customer name and account number are maintained once and reused by billing, support, and marketing."
+        ],
+        "correctAnswer": "Customer name and account number are maintained once and reused by billing, support, and marketing.",
+        "explanation": "Master data are the shared core records of the business, such as who the customers and products are."
+      },
+      {
+        "question": "Which situation illustrates Single Source of Truth?",
+        "options": [
+          "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+          "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+          "Managers explore a report of profit by region and product to decide which line to expand.",
+          "The reservations system records today's bookings and must stay available during opening hours."
+        ],
+        "correctAnswer": "All departments read product price from the product master, and local price spreadsheets are withdrawn.",
+        "explanation": "A single source of truth means one agreed place holds the authoritative value for that data item."
+      },
+      {
+        "question": "Which situation illustrates Business Intelligence?",
+        "options": [
+          "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+          "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+          "Managers explore a report of profit by region and product to decide which line to expand.",
+          "The reservations system records today's bookings and must stay available during opening hours."
+        ],
+        "correctAnswer": "Managers explore a report of profit by region and product to decide which line to expand.",
+        "explanation": "Business intelligence is the reporting and analysis of organisational data to support decisions."
+      },
+      {
+        "question": "Which situation illustrates Data Warehouse?",
+        "options": [
+          "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+          "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+          "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+          "The reservations system records today's bookings and must stay available during opening hours."
+        ],
+        "correctAnswer": "Nightly sales from many shops are loaded into one warehouse so analysts can compare five years of trends.",
+        "explanation": "A data warehouse integrates history for analysis and is not the system that posts live transactions."
+      },
+      {
+        "question": "Which situation illustrates Operational System?",
+        "options": [
+          "A shop's till, stock database, cashiers, and reorder rules together form the sales information system.",
+          "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+          "The reservations system records today's bookings and must stay available during opening hours.",
+          "A board committee must approve any IT project over a set amount and reviews benefits twice a year."
+        ],
+        "correctAnswer": "The reservations system records today's bookings and must stay available during opening hours.",
+        "explanation": "An operational system processes current business events, whereas analytical stores are built for history and reporting."
+      },
+      {
+        "question": "Which situation illustrates Legacy System?",
+        "options": [
+          "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+          "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+          "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+          "A shop's till, stock database, cashiers, and reorder rules together form the sales information system."
+        ],
+        "correctAnswer": "Payroll still runs on a twenty-year-old application that few staff can modify and that cannot feed the new finance suite.",
+        "explanation": "A legacy system is old but still operational, and it is typically hard to change or integrate."
+      },
+      {
+        "question": "Which situation illustrates IT Governance?",
+        "options": [
+          "Each Monday a store manager receives a report of last week's sales by department, drawn from till data.",
+          "Each card payment in a supermarket is recorded at the till so stock and cash figures update at once.",
+          "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+          "A shop's till, stock database, cashiers, and reorder rules together form the sales information system."
+        ],
+        "correctAnswer": "A board committee must approve any IT project over a set amount and reviews benefits twice a year.",
+        "explanation": "IT governance sets who decides, who is accountable, and how IT is monitored so it serves business goals."
+      }
+    ],
+    "11": [
+      {
+        "question": "A manager describes only the new server and ignores staff, data, and the sales process. Which label is incomplete?",
+        "options": [
+          "Using the till data to reorder stock",
+          "Calling the server alone the information system",
+          "Including people, data, process, and technology",
+          "Training cashiers to follow the sales steps"
+        ],
+        "correctAnswer": "Calling the server alone the information system",
+        "explanation": "An information system is the combination of people, process, data, and technology, not the server by itself."
+      },
+      {
+        "question": "The business needs every card payment recorded as it happens so stock stays correct. Which system type fits?",
+        "options": [
+          "A quarterly executive chart pack only",
+          "A transaction processing system",
+          "A shelf of printed essays",
+          "A logo design tool"
+        ],
+        "correctAnswer": "A transaction processing system",
+        "explanation": "Recording routine events such as payments as they occur is the job of a transaction processing system."
+      },
+      {
+        "question": "Store managers want a weekly summary of sales by department, not a live till. Which system type fits?",
+        "options": [
+          "A system that only prints receipts at the till",
+          "A personal photo network",
+          "A robot that issues no reports",
+          "A management information system"
+        ],
+        "correctAnswer": "A management information system",
+        "explanation": "Summarising operational data into regular management reports is the role of a management information system."
+      },
+      {
+        "question": "A planner must compare three staffing plans under different forecasts before hiring. Which system type fits?",
+        "options": [
+          "A decision support system",
+          "An automatic invoice poster with no comparison",
+          "A door lock",
+          "A fixed report that cannot change assumptions"
+        ],
+        "correctAnswer": "A decision support system",
+        "explanation": "Comparing options with data and models for a non-routine choice is decision support."
+      },
+      {
+        "question": "A director wants one screen with revenue, complaints, and on-time delivery, not raw rows. Which tool fits?",
+        "options": [
+          "A ten-year dump of every transaction row",
+          "A source-code editor",
+          "An executive dashboard",
+          "An annual-leave form"
+        ],
+        "correctAnswer": "An executive dashboard",
+        "explanation": "An executive dashboard shows a few key indicators visually so a senior manager can see performance quickly."
+      },
+      {
+        "question": "Receiving goods must update stock, the purchase order, and the supplier balance together. Which system type fits?",
+        "options": [
+          "An enterprise resource planning system",
+          "A private spreadsheet in one department",
+          "A frequently-asked-questions chat widget",
+          "A game on the reception PC"
+        ],
+        "correctAnswer": "An enterprise resource planning system",
+        "explanation": "Enterprise resource planning shares one data set across functions such as inventory, purchasing, and finance."
+      },
+      {
+        "question": "Service staff need the customer's orders and recent calls on one screen before answering a complaint. Which system fits?",
+        "options": [
+          "A firewall port list",
+          "A customer relationship management system",
+          "A warehouse materials tracker with no customer records",
+          "A payroll system"
+        ],
+        "correctAnswer": "A customer relationship management system",
+        "explanation": "Customer relationship management stores interactions so sales and service share one view of the customer."
+      },
+      {
+        "question": "Supplier deliveries, the factory schedule, and retailer orders must be planned together. Which system type fits?",
+        "options": [
+          "A front-door badge reader",
+          "A supply chain management system",
+          "A holiday-request tool",
+          "A word processor"
+        ],
+        "correctAnswer": "A supply chain management system",
+        "explanation": "Supply chain management coordinates materials, information, and orders from suppliers through to customers."
+      },
+      {
+        "question": "New engineers need the approved reset steps without calling a retired expert. Which system type fits?",
+        "options": [
+          "A door alarm",
+          "A sales till",
+          "A knowledge management system",
+          "A payroll calculator"
+        ],
+        "correctAnswer": "A knowledge management system",
+        "explanation": "A knowledge management system stores and shares organisational know-how so others can reuse it."
+      },
+      {
+        "question": "Taking an order, picking stock, packing, and shipping are linked to deliver a parcel. Which term covers that chain?",
+        "options": [
+          "A website header colour",
+          "A business process",
+          "An employee's home address",
+          "One mouse click with no output"
+        ],
+        "correctAnswer": "A business process",
+        "explanation": "A business process is the linked set of activities that produces a valued result, such as a delivered order."
+      }
+    ],
+    "12": [
+      {
+        "question": "Staff disagree about who approves large refunds. Which artefact should show the steps and the decision?",
+        "options": [
+          "A process map",
+          "A portrait of the chief executive",
+          "A city street map",
+          "A birthday list"
+        ],
+        "correctAnswer": "A process map",
+        "explanation": "A process map diagrams steps, decisions, and hand-offs so the refund approval path is visible."
+      },
+      {
+        "question": "Before buying software, analysts watch clerks retype invoices from email. Which description are they capturing?",
+        "options": [
+          "Next year's advertising slogan",
+          "The as-is process",
+          "The future process after the new system",
+          "The vendor's wishlist of features"
+        ],
+        "correctAnswer": "The as-is process",
+        "explanation": "Watching how invoices are handled today, including the retyping workaround, captures the as-is process."
+      },
+      {
+        "question": "The design shows customers uploading a claim once, replacing today's paper copies. Which description is that?",
+        "options": [
+          "The to-be process",
+          "Last year's resignation letters",
+          "A novel about the industry",
+          "Today's paper workaround"
+        ],
+        "correctAnswer": "The to-be process",
+        "explanation": "The intended future way of working, after the change, is the to-be process."
+      },
+      {
+        "question": "Cycle time for applications is poor, and someone must be accountable for improving that process. Which role is that?",
+        "options": [
+          "Nobody, because everyone is equally accountable",
+          "A one-time visitor",
+          "The process owner",
+          "The file server"
+        ],
+        "correctAnswer": "The process owner",
+        "explanation": "The process owner is the person accountable for the performance and improvement of that named process."
+      },
+      {
+        "question": "A clinic can book 40 visits a day and needs 70. Which analysis names that shortfall and what must change?",
+        "options": [
+          "A party for meeting the target",
+          "Gap analysis",
+          "Reissuing last year's plan unchanged",
+          "A brand list with no comparison"
+        ],
+        "correctAnswer": "Gap analysis",
+        "explanation": "Gap analysis compares the current 40 visits with the needed 70 and identifies what must change."
+      },
+      {
+        "question": "A new billing system will change what customers pay and what finance staff do, and a regulator sets rules. Who should be treated as stakeholders?",
+        "options": [
+          "Customers, finance staff, and the regulator",
+          "The brand of office keyboard",
+          "Only the last programmer to commit code",
+          "People with no interest and no influence"
+        ],
+        "correctAnswer": "Customers, finance staff, and the regulator",
+        "explanation": "Stakeholders include those affected, such as customers and staff, and those who can affect the decision, such as a regulator."
+      },
+      {
+        "question": "Someone must approve the budget for a billing replacement and answer for the savings. Which role is that?",
+        "options": [
+          "The vendor brochure",
+          "The business sponsor",
+          "A one-afternoon printer contractor",
+          "A student with no authority"
+        ],
+        "correctAnswer": "The business sponsor",
+        "explanation": "The business sponsor authorises the change, secures resources, and is accountable for the business outcome."
+      },
+      {
+        "question": "The organisation needs customers to receive a correct invoice within one day of delivery. Which kind of statement is that?",
+        "options": [
+          "The colour of a status LED",
+          "A source-code loop",
+          "A business requirement",
+          "A choice of programming language"
+        ],
+        "correctAnswer": "A business requirement",
+        "explanation": "A need stated in business terms, such as invoice timing, is a business requirement rather than a technical design."
+      },
+      {
+        "question": "The statement says the system must record a refund and email the customer. Which kind of requirement is that?",
+        "options": [
+          "A functional requirement",
+          "The board's project budget",
+          "A response-time limit with no behaviour named",
+          "The poster font"
+        ],
+        "correctAnswer": "A functional requirement",
+        "explanation": "Recording a refund and sending an email are behaviours the system must provide, so the statement is functional."
+      },
+      {
+        "question": "Checkout confirmation must appear within two seconds for 95 percent of requests. Which kind of requirement is that?",
+        "options": [
+          "A non-functional requirement",
+          "A functional requirement to create an order",
+          "A furniture shopping list",
+          "The sponsor's name"
+        ],
+        "correctAnswer": "A non-functional requirement",
+        "explanation": "A response-time target is a quality the system must meet, so it is a non-functional requirement."
+      }
+    ],
+    "13": [
+      {
+        "question": "Leaders must decide five years of technology investment to support growth in remote students. Which plan is that?",
+        "options": [
+          "Today's help-desk ticket list",
+          "This week's canteen menu",
+          "The IT strategy",
+          "One user's password reset"
+        ],
+        "correctAnswer": "The IT strategy",
+        "explanation": "IT strategy sets how technology investment will support business goals over several years."
+      },
+      {
+        "question": "A proposed system does not support any stated business objective. Which judgement follows from strategic alignment?",
+        "options": [
+          "It aligns because two budgets happen to match",
+          "It is a poor fit and should not be a priority",
+          "It aligns because the desks face one way",
+          "It should be bought because it is new"
+        ],
+        "correctAnswer": "It is a poor fit and should not be a priority",
+        "explanation": "Strategic alignment requires an IT project to fit stated business objectives, so an unrelated system is a poor priority."
+      },
+      {
+        "question": "A retailer lists a strong brand, weak delivery IT, a new market, and a powerful online rival. Which analysis is that?",
+        "options": [
+          "A SWOT analysis",
+          "A processor speed test",
+          "A late-payment clause",
+          "A chair count"
+        ],
+        "correctAnswer": "A SWOT analysis",
+        "explanation": "Strengths, weaknesses, opportunities, and threats are the four parts of a SWOT analysis."
+      },
+      {
+        "question": "Rivals copy a one-day discount overnight, but they still cannot match your reliable routing system. Which item is the competitive advantage?",
+        "options": [
+          "The one-day discount they copied immediately",
+          "Having extra office chairs",
+          "The durable delivery reliability rivals cannot match",
+          "The mere fact that software was purchased"
+        ],
+        "correctAnswer": "The durable delivery reliability rivals cannot match",
+        "explanation": "Competitive advantage is a durable edge rivals cannot quickly copy, not a short-lived discount or a purchase by itself."
+      },
+      {
+        "question": "Leaders trace how parts, production, delivery, marketing, and service together create what customers pay for. Which model is that?",
+        "options": [
+          "A shareholder voting list",
+          "The slide order in a pitch deck",
+          "A bicycle lock",
+          "The value chain"
+        ],
+        "correctAnswer": "The value chain",
+        "explanation": "The value chain is the set of primary and support activities that create what the customer values."
+      },
+      {
+        "question": "A bank moves account opening fully online and redesigns branch jobs. Which description fits that change?",
+        "options": [
+          "Replacing one keyboard with the same model",
+          "Renaming the IT department only",
+          "Scanning one letter and leaving the service unchanged",
+          "Digital transformation"
+        ],
+        "correctAnswer": "Digital transformation",
+        "explanation": "Changing the customer journey and the related jobs through digital technology is digital transformation."
+      },
+      {
+        "question": "A charity can build a donor system or subscribe to an existing platform. Which decision is that?",
+        "options": [
+          "A make-or-buy decision",
+          "Hiring a receptionist",
+          "A wall-colour choice",
+          "Choosing sandwich fillings"
+        ],
+        "correctAnswer": "A make-or-buy decision",
+        "explanation": "Choosing between an in-house build and an existing product is a make-or-buy decision."
+      },
+      {
+        "question": "The board wants the costs, benefits, and risks of a roster system before approving money. Which document should they read?",
+        "options": [
+          "The business case",
+          "An advert for a current product",
+          "A laptop suitcase",
+          "A system password"
+        ],
+        "correctAnswer": "The business case",
+        "explanation": "A business case documents the expected benefits, costs, and risks of the proposed investment."
+      },
+      {
+        "question": "One option costs 80,000 and is expected to save 30,000 a year. Which technique sets those figures side by side?",
+        "options": [
+          "Listing benefits and hiding costs",
+          "Listing costs and ignoring benefits",
+          "Cost-benefit analysis",
+          "Choosing the option with the nicest name"
+        ],
+        "correctAnswer": "Cost-benefit analysis",
+        "explanation": "Cost-benefit analysis compares expected costs with expected benefits for the option."
+      },
+      {
+        "question": "A 100,000 system returns 20,000 net in a year. Which measure states that gain relative to the cost?",
+        "options": [
+          "Return on investment",
+          "The number of slides",
+          "The distance between offices",
+          "The launch-party attendance"
+        ],
+        "correctAnswer": "Return on investment",
+        "explanation": "Return on investment expresses net gain relative to investment cost, here 20,000 on 100,000."
+      }
+    ],
+    "14": [
+      {
+        "question": "A cheap printer has high toner, maintenance, and downtime costs over four years. Which figure should drive the choice?",
+        "options": [
+          "The sticker price alone",
+          "The first day's electricity only",
+          "The chief executive's salary",
+          "Total cost of ownership"
+        ],
+        "correctAnswer": "Total cost of ownership",
+        "explanation": "Total cost of ownership adds purchase, running, support, and retirement costs over the system's life."
+      },
+      {
+        "question": "A 60,000 kiosk saves 20,000 net each year. How long is the payback period?",
+        "options": [
+          "Sixty years",
+          "Six months",
+          "Three years",
+          "Ten years"
+        ],
+        "correctAnswer": "Three years",
+        "explanation": "Payback is initial cost divided by annual net benefit, so 60,000 divided by 20,000 is three years."
+      },
+      {
+        "question": "A portal should improve public reputation, but no reliable cash value can be given. Which label fits that gain?",
+        "options": [
+          "A supplier cash refund",
+          "An intangible benefit",
+          "A licence-fee cut printed on an invoice",
+          "A measured overtime saving at a known wage"
+        ],
+        "correctAnswer": "An intangible benefit",
+        "explanation": "A real gain that cannot be priced reliably, such as reputation, is an intangible benefit."
+      },
+      {
+        "question": "Failed deliveries fall by 200 a month and each failure costs 15. Which label fits that monthly saving?",
+        "options": [
+          "A hope about morale with no measure",
+          "A rumour about a popular colour",
+          "An unpriced feeling that the brand is modern",
+          "A tangible benefit"
+        ],
+        "correctAnswer": "A tangible benefit",
+        "explanation": "A gain that can be priced, here 200 failures times 15, is a tangible benefit."
+      },
+      {
+        "question": "Before spending build money, a hospital checks whether an app is legal, affordable, and operable. Which study is that?",
+        "options": [
+          "Starting to code with no investigation",
+          "The final user manual after go-live",
+          "A feasibility study",
+          "A completion party"
+        ],
+        "correctAnswer": "A feasibility study",
+        "explanation": "An early check of technical, economic, legal, and operational workability is a feasibility study."
+      },
+      {
+        "question": "A new roster will fail if supervisors and staff do not adopt it. Which work prepares and supports those people?",
+        "options": [
+          "Reading the repository history only",
+          "Change management",
+          "A ban on all process change",
+          "A code patch that ignores users"
+        ],
+        "correctAnswer": "Change management",
+        "explanation": "Change management prepares and supports people so they actually adopt the new roster."
+      },
+      {
+        "question": "Clerks keep old spreadsheets because they fear looking slow on the new system, which itself works. Which issue is that?",
+        "options": [
+          "Resistance to change",
+          "Eager adoption by staff who already trust the tool",
+          "A law that forbids the process",
+          "A software crash that prevents login"
+        ],
+        "correctAnswer": "Resistance to change",
+        "explanation": "Avoiding a working system from fear of lost standing is resistance to change, not a technical failure."
+      },
+      {
+        "question": "A respected nurse demonstrates the new chart and helps colleagues on the first shifts. Which role is that?",
+        "options": [
+          "An external celebrity with no workplace role",
+          "A person who blocks the change with no reason",
+          "Change champion",
+          "An unattended poster"
+        ],
+        "correctAnswer": "Change champion",
+        "explanation": "A change champion is a respected colleague who promotes the change and helps others adopt it."
+      },
+      {
+        "question": "Cashiers cannot reverse card payments on the new till, and that skill is required. Which study should find and plan that lesson?",
+        "options": [
+          "Buying software and ignoring learning",
+          "A list of hobbies",
+          "A count of chairs in the room",
+          "Training needs analysis"
+        ],
+        "correctAnswer": "Training needs analysis",
+        "explanation": "Training needs analysis identifies the missing skill and the learning needed before the new till is used."
+      },
+      {
+        "question": "Six months after launch, finance checks whether the promised postage savings happened. Which activity is that?",
+        "options": [
+          "Writing benefits and never looking again",
+          "Benefits realisation",
+          "Treating budget approval as if savings already exist",
+          "Counting logos on slides"
+        ],
+        "correctAnswer": "Benefits realisation",
+        "explanation": "Benefits realisation measures whether the savings promised in the case have actually occurred after launch."
+      }
+    ],
+    "15": [
+      {
+        "question": "The objective is fast support, and the team tracks the percentage of tickets closed within one day. Which label fits that measure?",
+        "options": [
+          "A key performance indicator",
+          "A count of office plants",
+          "A slogan with no number",
+          "The objective name alone"
+        ],
+        "correctAnswer": "A key performance indicator",
+        "explanation": "A quantified measure of an important objective, such as same-day resolution rate, is a key performance indicator."
+      },
+      {
+        "question": "Evening opening is proposed for every store by habit, but sales data show demand after 6 p.m. in only some branches. Which decision is data-driven?",
+        "options": [
+          "Open evenings only where the sales data show demand",
+          "Open every store because that is last year's habit",
+          "Act on a corridor rumour about one shop",
+          "Follow the loudest opinion and ignore the data"
+        ],
+        "correctAnswer": "Open evenings only where the sales data show demand",
+        "explanation": "A data-driven decision follows the relevant sales evidence about where evening demand actually exists."
+      },
+      {
+        "question": "Thirty percent of postcodes are blank, so labels would go to the wrong places. Which problem is that?",
+        "options": [
+          "A complete and current address file",
+          "Poor data quality",
+          "A server that is too small but holds correct addresses",
+          "A dull colour theme on a correct report"
+        ],
+        "correctAnswer": "Poor data quality",
+        "explanation": "Missing postcodes mean the address data are not complete enough for the mailing, which is a data-quality failure."
+      },
+      {
+        "question": "Billing, support, and marketing must use the same customer name and account number. Which data are those?",
+        "options": [
+          "Master data",
+          "A single momentary sensor reading",
+          "A one-off social message",
+          "A password that expires in an hour"
+        ],
+        "correctAnswer": "Master data",
+        "explanation": "Shared core entities such as customers, kept consistent across systems, are master data."
+      },
+      {
+        "question": "Two teams quote different prices because each edits its own spreadsheet. Which fix creates a single source of truth?",
+        "options": [
+          "Email conflicting prices and let staff guess",
+          "Let every team keep a private price and call them all official",
+          "Make one product master the only authoritative price",
+          "Add a third unofficial spreadsheet"
+        ],
+        "correctAnswer": "Make one product master the only authoritative price",
+        "explanation": "A single source of truth is one authoritative store, so teams stop acting on conflicting copies."
+      },
+      {
+        "question": "Managers need to explore profit by region and product before choosing a line to expand. Which capability fits?",
+        "options": [
+          "A screen that only types in one sale",
+          "A personal spam filter",
+          "An IQ test",
+          "Business intelligence"
+        ],
+        "correctAnswer": "Business intelligence",
+        "explanation": "Turning organisational data into analysis for a management decision is business intelligence."
+      },
+      {
+        "question": "Analysts need five years of sales from many shops, integrated for trends, without querying the live tills. Which store fits?",
+        "options": [
+          "Today's operational chat channel",
+          "A data warehouse",
+          "A cupboard of blank forms",
+          "The live till system"
+        ],
+        "correctAnswer": "A data warehouse",
+        "explanation": "A data warehouse holds integrated historical data for analysis, separate from live transaction processing."
+      },
+      {
+        "question": "Staff must record today's bookings as they happen during opening hours. Which system type fits?",
+        "options": [
+          "A historical warehouse meant only for trend reports",
+          "An archive of old posters",
+          "A five-year strategy document",
+          "An operational system"
+        ],
+        "correctAnswer": "An operational system",
+        "explanation": "Recording current transactions as they happen is the job of an operational system."
+      },
+      {
+        "question": "Payroll still depends on a twenty-year-old application that is risky to modify and cannot feed the new finance suite. Which term fits?",
+        "options": [
+          "A design that has not been built",
+          "A legacy system",
+          "A platform launched last week",
+          "A personal notebook never used in operations"
+        ],
+        "correctAnswer": "A legacy system",
+        "explanation": "An old operational system that is hard to change and poorly integrated is a legacy system."
+      },
+      {
+        "question": "Nobody knows who may approve large IT spend, and projects ignore business goals. Which missing framework addresses that?",
+        "options": [
+          "One technician choosing everything with no oversight",
+          "Only the data-centre door rota",
+          "A rule against recording decision rights",
+          "IT governance"
+        ],
+        "correctAnswer": "IT governance",
+        "explanation": "IT governance defines decision rights and accountability so technology is directed toward business goals."
+      }
+    ]
+  }
+}
