@@ -1,5 +1,5 @@
 import { forwardRef, memo, useCallback, useState, type ReactNode } from 'react';
-import { Pressable, StyleSheet, TextInput, View, type TextInputProps } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View, type TextInputInstance, type TextInputProps } from 'react-native';
 import { colors, fonts, radius, spacing, touch } from '@/theme';
 import { AppText } from './AppText';
 import { Icon, type IconName } from './Icon';
@@ -15,7 +15,7 @@ interface InputProps extends TextInputProps {
   footer?: ReactNode;
 }
 
-const InputInner = forwardRef<TextInput, InputProps>(function Input(
+const InputInner = forwardRef<TextInputInstance, InputProps>(function Input(
   { label, error, hint, leftIcon, revealable, optional, footer, multiline, secureTextEntry, style, onFocus, onBlur, ...rest },
   ref,
 ) {

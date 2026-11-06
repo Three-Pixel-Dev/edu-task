@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { useRef, useState } from 'react';
-import { Alert, Pressable, StyleSheet, View, type TextInput } from 'react-native';
+import { Alert, Pressable, StyleSheet, View, type TextInputInstance } from 'react-native';
 import { AppText, Button, InlineAlert, Input } from '@/components';
 import { routes } from '@/constants/routes';
 import { useAuth } from '@/hooks';
@@ -16,7 +16,7 @@ export function LoginScreen() {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const passwordRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInputInstance>(null);
 
   const submit = async () => {
     const found = validateLogin(email, password);

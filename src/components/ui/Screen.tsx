@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
   type RefreshControlProps,
+  type ScrollViewInstance,
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
@@ -27,7 +28,7 @@ interface ScreenProps {
   refreshControl?: ReactElement<RefreshControlProps>;
   contentStyle?: StyleProp<ViewStyle>;
   /** Access the ScrollView, e.g. to scroll feedback into view. */
-  scrollRef?: Ref<ScrollView>;
+  scrollRef?: Ref<ScrollViewInstance>;
 }
 
 /**

@@ -1,6 +1,6 @@
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef } from 'react';
-import { Alert, BackHandler, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, BackHandler, StyleSheet, View, type ScrollViewInstance } from 'react-native';
 import {
   AnswerFeedback,
   AppText,
@@ -37,7 +37,7 @@ export function QuestionsScreen() {
   const params = useLocalSearchParams<{ subjectId: string; level: string; restart?: string }>();
   const level = Number(params.level ?? 1);
   const quiz = useQuizSession(params.subjectId ?? '', level, params.restart === '1');
-  const scrollRef = useRef<ScrollView>(null);
+  const scrollRef = useRef<ScrollViewInstance>(null);
   const { question, subject, actions, screen } = quiz;
   const inProgress = screen.kind === 'ready' && !quiz.resultId;
 

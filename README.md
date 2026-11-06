@@ -2,7 +2,12 @@
 
 A mobile learning and task app for CEIT students: level-based IT quizzes, an assignment manager and a student profile.
 
-**Stack:** React Native · Expo SDK 57 · TypeScript (strict) · Expo Router · Firebase Authentication · Cloud Firestore (Firebase JS SDK). There's no backend server and no mock data; everything is stored in your Firebase project. It runs in **Expo Go**.
+**Stack:** React Native · Expo SDK 58 · TypeScript (strict) · Expo Router · Firebase Authentication · Cloud Firestore (Firebase JS SDK). There's no backend server and no mock data; everything is stored in your Firebase project. It runs in **Expo Go**.
+
+## Requirements
+
+- Node.js 22.13+ (24.3+ or 26+)
+- Expo Go app on iOS or Android
 
 ## Quick start
 
