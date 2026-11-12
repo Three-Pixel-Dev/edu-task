@@ -22,10 +22,20 @@ The first time, follow the **setup checklist in [`docs/firebase.md`](docs/fireba
 | Command | |
 | --- | --- |
 | `npm start` | Expo dev server |
+| `npm run web` | Expo web dev server |
+| `npm run build:web` | Build static web export (`dist/`) |
 | `npm run typecheck` | `tsc --noEmit` (strict) |
 | `npm run lint` | ESLint (Expo config + React hooks rules) |
 | `firebase deploy --only firestore` | Deploy rules + indexes |
 | `cd tools/firestore-seed && npm run validate` / `npm run seed -- --project <id>` | Check / load academic content (admin only) |
+
+## Web (Netlify)
+
+EduTask is configured for static hosting on Netlify via [`netlify.toml`](netlify.toml) (`npm run build:web` → `dist/`).
+
+1. **Link repo in Netlify:** Netlify detects build command and publish directory automatically from `netlify.toml`.
+2. **Environment variables:** In Netlify Site configuration → Environment variables, add the keys from [`.env.example`](.env.example) (`EXPO_PUBLIC_FIREBASE_*`).
+3. **Firebase authorized domains:** In Firebase Console → Authentication → Settings → **Authorized domains**, add your Netlify subdomain (`<site-name>.netlify.app`) and any custom domain so web authentication succeeds.
 
 ## What works
 
