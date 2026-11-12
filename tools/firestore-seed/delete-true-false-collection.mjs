@@ -3,8 +3,8 @@
  * Deletes every document in Firestore collection `trueFalseQuestions`.
  * Use after moving Quiz (True / False) content into the app bundle.
  *
- *   $env:GOOGLE_APPLICATION_CREDENTIALS="D:\edutask-admin.json"
- *   node delete-true-false-collection.mjs --project edu-task-894ff
+ *   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account.json"
+ *   node delete-true-false-collection.mjs --project <your-project-id>
  *
  * Batches of 200 with a short pause to stay within free-tier write/delete limits.
  */
